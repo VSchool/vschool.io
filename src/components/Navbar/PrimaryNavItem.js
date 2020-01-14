@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { Link } from "gatsby"
 import { gray } from "@vschool/lotus"
 
 const NavItemContainer = styled.div`
@@ -27,7 +27,6 @@ const SubMenu = styled.div`
 
 function PrimaryNavItem({ data }) {
     const [subMenuOpen, setSubMenuOpen] = useState(false)
-    console.log(data)
 
     // First click this is changing twice.
     // Might need to stop an event from bubbling up or something,
