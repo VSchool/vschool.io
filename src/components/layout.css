@@ -10,7 +10,13 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-article,
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/* article,
 aside,
 details,
 figcaption,
@@ -20,8 +26,8 @@ header,
 main,
 menu,
 nav,
-section,
-summary {
+section, */
+/* summary {
     display: block;
 }
 audio,
@@ -44,8 +50,8 @@ template {
 a {
     background-color: transparent;
     -webkit-text-decoration-skip: objects;
-}
-a:active,
+} */
+/* a:active,
 a:hover {
     outline-width: 0;
 }
@@ -61,12 +67,12 @@ strong {
 }
 dfn {
     font-style: italic;
-}
-h1 {
+} */
+/* h1 {
     font-size: 2em;
     margin: 0.67em 0;
-}
-mark {
+} */
+/* mark {
     background-color: #ff0;
     color: #000;
 }
@@ -125,7 +131,7 @@ input {
 button,
 select {
     text-transform: none;
-}
+} */
 [type="reset"],
 [type="submit"],
 button,
@@ -145,7 +151,7 @@ button::-moz-focus-inner {
 button:-moz-focusring {
     outline: 1px dotted ButtonText;
 }
-fieldset {
+/* fieldset {
     border: 1px solid silver;
     margin: 0 2px;
     padding: 0.35em 0.625em 0.75em;
@@ -160,7 +166,7 @@ legend {
 }
 textarea {
     overflow: auto;
-}
+} */
 [type="checkbox"],
 [type="radio"] {
     box-sizing: border-box;
@@ -187,9 +193,9 @@ textarea {
     font: inherit;
 }
 html {
-    font: 112.5%/1.45em georgia, serif;
+    /* font: 112.5%/1.45em georgia, serif; */
     box-sizing: border-box;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 }
 * {
     box-sizing: inherit;
@@ -200,7 +206,7 @@ html {
 *:after {
     box-sizing: inherit;
 }
-body {
+/* body {
     color: hsla(0, 0%, 0%, 0.8);
     font-family: "aktiv-grotesk", georgia, serif;
     font-weight: normal;
@@ -210,8 +216,8 @@ body {
     -ms-font-feature-settings: "kern", "liga", "clig", "calt";
     -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
     font-feature-settings: "kern", "liga", "clig", "calt";
-}
-img {
+} */
+/* img {
     max-width: 100%;
     margin-left: 0;
     margin-right: 0;
@@ -221,8 +227,8 @@ img {
     padding-right: 0;
     padding-top: 0;
     margin-bottom: 1.45rem;
-}
-h1 {
+} */
+/* h1 {
     margin-left: 0;
     margin-right: 0;
     margin-top: 0;
@@ -323,8 +329,8 @@ h6 {
     text-rendering: optimizeLegibility;
     font-size: 0.78405rem;
     line-height: 1.1;
-}
-hgroup {
+} */
+/* hgroup {
     margin-left: 0;
     margin-right: 0;
     margin-top: 0;
@@ -377,8 +383,8 @@ dd {
     padding-right: 0;
     padding-top: 0;
     margin-bottom: 1.45rem;
-}
-p {
+} */
+/* p {
     margin-left: 0;
     margin-right: 0;
     margin-top: 0;
@@ -387,8 +393,8 @@ p {
     padding-right: 0;
     padding-top: 0;
     margin-bottom: 1.45rem;
-}
-figure {
+} */
+/* figure {
     margin-left: 0;
     margin-right: 0;
     margin-top: 0;
@@ -621,4 +627,6 @@ pre tt:after {
     html {
         font-size: 100%;
     }
-}
+} */
+
+
