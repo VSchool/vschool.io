@@ -1,7 +1,6 @@
 import React from "react"
-import styled, { css } from "styled-components"
-import { Link } from "gatsby"
-import { gray, pink, blue } from "@vschool/lotus"
+import styled from "styled-components"
+import { gray } from "@vschool/lotus"
 
 import Arrow from "./Arrow"
 import SubMenu from "./SubMenu"

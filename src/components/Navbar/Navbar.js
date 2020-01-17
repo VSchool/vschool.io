@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { gray, Button } from "@vschool/lotus"
 
-import logo from "../../images/VS_Logo_RGB.png"
+// import logo from "../../images/VS_Logo_RGB.png"
 import PrimaryNavItem from "./PrimaryNavItem"
 
 const Nav = styled.nav`
@@ -28,9 +28,13 @@ const Ul = styled.ul`
 
 // Change this to img when we have a logo ready
 const Logo = styled.img`
+    max-height: 100%;
+`
+
+const StyledLogoLink = styled(Link)`
+    height: 100%;
     margin: 0;
     margin-right: auto;
-    max-height: 100%;
 `
 
 const ApplyButton = styled(Button)`
@@ -82,6 +86,9 @@ function Navbar() {
                         url
                         id
                     }
+                    logo {
+                        url
+                    }
                 }
             }
         }
@@ -90,6 +97,7 @@ function Navbar() {
         nav,
         button_text: buttonText,
         button_link: { url: buttonLink },
+        logo,
     } = data.prismicNavigationBar.data
 
     const navItems = nav.map(item => (
@@ -98,7 +106,9 @@ function Navbar() {
 
     return (
         <Nav>
-            <Logo src={logo} />
+            <StyledLogoLink to="/">
+                <Logo src={logo.url} />
+            </StyledLogoLink>
             <Ul>
                 {navItems}
                 <ButtonContainer>

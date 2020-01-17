@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { gray, black, pink, blue, orange } from "@vschool/lotus"
+import { gray, black, blue, orange } from "@vschool/lotus"
 import { Link } from "gatsby"
 
 const SubMenuContainer = styled.ul`
