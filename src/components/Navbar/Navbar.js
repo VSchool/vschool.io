@@ -1,21 +1,47 @@
 import React from "react"
 import styled from "styled-components"
-import { useStaticQuery, graphql } from "gatsby"
-import { gray } from "@vschool/lotus"
+import { useStaticQuery, graphql, Link } from "gatsby"
+import { gray, Button } from "@vschool/lotus"
 
+import logo from "../../images/VS_Logo_RGB.png"
 import PrimaryNavItem from "./PrimaryNavItem"
 
-const Nav = styled.ul`
+const Nav = styled.nav`
     display: flex;
     align-items: center;
     background-color: ${gray.lighter};
-    margin: 0;
+    padding: 28px 88px;
+    height: 80px;
+`
+
+const Ul = styled.ul`
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 32px;
+    width: 100%;
+
+    & > img {
+        margin-right: auto;
+    }
 `
 
 // Change this to img when we have a logo ready
-const Logo = styled.p`
+const Logo = styled.img`
     margin: 0;
     margin-right: auto;
+    max-height: 100%;
+`
+
+const ApplyButton = styled(Button)`
+    font-family: "aktiv-grotesk-extended";
+    font-size: 12px;
+    letter-spacing: 0.86px;
+    line-height: 16px;
+`
+
+const ButtonContainer = styled.li`
+    list-style: none;
 `
 
 function Navbar() {
@@ -28,9 +54,17 @@ function Navbar() {
                             sub_nav_link {
                                 url
                                 uid
+                                id
                             }
                             sub_nav_link_label {
                                 text
+                            }
+                            start_date {
+                                document {
+                                    data {
+                                        start_date(formatString: "MMM Do, YYYY")
+                                    }
+                                }
                             }
                         }
                         primary {
@@ -43,12 +77,20 @@ function Navbar() {
                             }
                         }
                     }
+                    button_text
+                    button_link {
+                        url
+                        id
+                    }
                 }
             }
         }
     `)
-    const { nav } = data.prismicNavigationBar.data
-    console.log(nav)
+    const {
+        nav,
+        button_text: buttonText,
+        button_link: { url: buttonLink },
+    } = data.prismicNavigationBar.data
 
     const navItems = nav.map(item => (
         <PrimaryNavItem key={item.id} data={item} />
@@ -56,8 +98,17 @@ function Navbar() {
 
     return (
         <Nav>
-            <Logo>Navbar Logo Here</Logo>
-            {navItems}
+            <Logo src={logo} />
+            <Ul>
+                {navItems}
+                <ButtonContainer>
+                    <Link to={buttonLink}>
+                        <ApplyButton buttonStyle="primary-dark" buttonSize="sm">
+                            {buttonText}
+                        </ApplyButton>
+                    </Link>
+                </ButtonContainer>
+            </Ul>
         </Nav>
     )
 }
