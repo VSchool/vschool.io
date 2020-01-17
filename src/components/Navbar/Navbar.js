@@ -10,14 +10,13 @@ const Nav = styled.nav`
     display: flex;
     align-items: center;
     background-color: ${gray.lighter};
-    margin: 0;
-    padding: 0 88px;
+    padding: 28px 88px;
     height: 80px;
 `
 
 const Ul = styled.ul`
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     height: 32px;
     width: 100%;
@@ -41,6 +40,10 @@ const ApplyButton = styled(Button)`
     line-height: 16px;
 `
 
+const ButtonContainer = styled.li`
+    list-style: none;
+`
+
 function Navbar() {
     const data = useStaticQuery(graphql`
         {
@@ -51,9 +54,17 @@ function Navbar() {
                             sub_nav_link {
                                 url
                                 uid
+                                id
                             }
                             sub_nav_link_label {
                                 text
+                            }
+                            start_date {
+                                document {
+                                    data {
+                                        start_date(formatString: "MMM Do, YYYY")
+                                    }
+                                }
                             }
                         }
                         primary {
@@ -69,6 +80,7 @@ function Navbar() {
                     button_text
                     button_link {
                         url
+                        id
                     }
                 }
             }
@@ -86,14 +98,16 @@ function Navbar() {
 
     return (
         <Nav>
+            <Logo src={logo} />
             <Ul>
-                <Logo src={logo} />
                 {navItems}
-                <Link to={buttonLink}>
-                    <ApplyButton buttonStyle="primary-dark" buttonSize="sm">
-                        {buttonText}
-                    </ApplyButton>
-                </Link>
+                <ButtonContainer>
+                    <Link to={buttonLink}>
+                        <ApplyButton buttonStyle="primary-dark" buttonSize="sm">
+                            {buttonText}
+                        </ApplyButton>
+                    </Link>
+                </ButtonContainer>
             </Ul>
         </Nav>
     )
