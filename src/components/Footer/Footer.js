@@ -1,24 +1,43 @@
 import React from "react"
 import styled from "styled-components"
-import { black, gray } from "@vschool/lotus"
+import { black, gray, orange } from "@vschool/lotus"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import SubscribeForm from './SubscribeForm.js'
-import moment from "moment"
+import FooterSubInformation from './FooterSubInformation.js'
+
+const Container = styled.div`
+    background-color: ${black};
+`
 
 const FooterContainer = styled.footer`
     background-color: ${black};
-    border-left: 1px solid #979797;
-    border-right: 1px solid #979797;
-    border-bottom: 1px solid #979797;
     color: ${gray.base};
-    height: 1085px;
-    padding: 0 24px 24px 24px;
+    padding: 0 24px;
+
+    @media (min-width: 600px){
+      padding: 32px;
+    }
+
+    @media (min-width: 840px){
+      padding: 40px;
+    }
+
+    @media(min-width: 1200px){
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      padding: 0 88px
+    }
 `
 
 const FooterSection = styled.div`
     display: flex;
     flex-direction: column;
-    margin-top: -8px;
+
+    @media(min-width: 1200px){
+      
+    }
 `
 
 const FormContainer = styled.div`
@@ -29,27 +48,29 @@ const FormContainer = styled.div`
 `
 
 const Header = styled.h3`
-    height: 16px;	
-    width: 232px;	
-    color: #A09C96;	
+
+
+    color: ${gray.dark};	
     font-family: "aktiv-grotesk-extended";	
     font-size: 14px;	
     font-weight: bold;	
     letter-spacing: 0.29px;	
     line-height: 18px;
     margin-top: 40px;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
+
+    
 `
 
 const CourseContainer = styled.div`
-
+  margin: 8px 0;
 
 `
 
 const CourseTitle = styled.h3`
     height: 18px;	
     width: 144px;	
-    color: #D8D4CF;	
+    color: ${gray.base};	
     font-family: "aktiv-grotesk";	
     font-size: 14px;	
     font-weight: 400;	
@@ -57,11 +78,10 @@ const CourseTitle = styled.h3`
 `
 
 const StartDate = styled.p`
-    margin-bottom: 16px;
     margin-top: 4px;
     height: 18px;	
     width: 144px;	
-    color: #FF8F26;	
+    color: ${orange.base};	
     font-family: "aktiv-grotesk";	
     font-size: 12px;	
     font-weight: 500;	
@@ -69,9 +89,9 @@ const StartDate = styled.p`
 `
 
 const Anchor = styled.a`
-    padding-bottom: 8px;	
+    padding-top: 8px;	
     width: 144px;	
-    color: #D8D4CF;	
+    color: ${gray.base};	
     font-family: "aktiv-grotesk";	
     font-size: 14px;	
     font-weight: 400;	
@@ -80,18 +100,18 @@ const Anchor = styled.a`
 
     :active {
         text-decoration: none;
-        color: #D8D4CF;
+        color: ${gray.base};
     }
     :visited {
         text-decoration: none;
-        color: #D8D4CF;
+        color: ${gray.base};
     }
 `
 
 const SLink = styled(Link)`
-    padding-bottom: 8px;	
+    padding-top: 8px;	
     width: 144px;	
-    color: #D8D4CF;	
+    color: ${gray.base};	
     font-family: "aktiv-grotesk";	
     font-size: 14px;	
     font-weight: 400;	
@@ -100,60 +120,13 @@ const SLink = styled(Link)`
 
     :active {
         text-decoration: none;
-        color: #D8D4CF;
+        color: ${gray.base};
     }
     :visited {
         text-decoration: none;
-        color: #D8D4CF;
+        color: ${gray.base};
     }
 `
-
-const FooterSubLinks = styled.div`
-    display: flex;
-    align-items: center;
-    border-top: 2px solid #514F4B;
-    padding-top: 16px;
-    margin-top: 8px;
-`
-
-const FooterSubLink = styled.a`
-    height: 32px;	
-    width: 260px;	
-    color: #A09C96;	
-    font-family: "aktiv-grotesk";	
-    font-size: 12px;	
-    font-weight: 500;	
-    line-height: 16px;
-    margin: 0 8px;
-    text-decoration: none;
-
-    :active {
-        text-decoration: none;
-        color: #A09C96;	
-    }
-
-    :visited {
-        text-decoration: none;
-        color: #A09C96;	
-    }
-`
-
-const FooterSubInfo = styled.span`
-    height: 32px;	
-    width: 260px;	
-    color: #A09C96;	
-    font-family: "aktiv-grotesk";	
-    font-size: 12px;	
-    font-weight: 500;	
-    line-height: 16px;
-    margin: 0 8px;
-`
-
-const Logo = styled.img`
-    width: 32px;
-    justify-self: flex-start;
-`
-
 
 const Footer = () => {
     const {
@@ -180,7 +153,7 @@ const Footer = () => {
               course_name {
                 text
               }
-              start_date
+              start_date(formatString: "MMM Do, YYYY")
             }
           }
         }
@@ -229,9 +202,8 @@ const Footer = () => {
       }
     }
   `)
-    console.log(footerSubLinks)
-    console.log(logo)
     return (
+      <Container>
         <FooterContainer>
             <FooterSection>
                 <FormContainer>
@@ -248,7 +220,7 @@ const Footer = () => {
                     startDates.map(({node: {data}}) => (
                         <CourseContainer>
                             <CourseTitle>{ data.course_name.text }</CourseTitle>
-                            <StartDate>Starts { moment(data.start_date).format("MMM Do, YYYY") }</StartDate>
+                            <StartDate>Starts { data.start_date }</StartDate>
                         </CourseContainer>
                     ))
                 }
@@ -270,18 +242,13 @@ const Footer = () => {
                     </FooterSection>
                 ))
             }
-            <FooterSubLinks>
-                <Logo src={ logo }/>
-                { footerSubLinks.map(sub => sub.footer_sub_link 
-                    ? <FooterSubLink href={ sub.footer_sub_link.url }>
-                        { sub.footer_sub_link_text.text }
-                      </FooterSubLink> 
-                    : <FooterSubInfo>
-                        { sub.footer_sub_link_text.text }
-                      </FooterSubInfo>) 
-                }
-            </FooterSubLinks>
+            
         </FooterContainer>
+        <FooterSubInformation
+              logo={ logo }
+              footerSubLinks={ footerSubLinks }
+            />
+        </Container>
     )
 }
 

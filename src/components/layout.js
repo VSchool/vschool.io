@@ -39,7 +39,7 @@ const Layout = ({ children }) => {
         <>
             <MainContainer>
                 <ContentContainer>
-                    <Navbar />
+                    {/* <Navbar /> */}
                    
                     <main>{children}</main>
                 </ContentContainer>
