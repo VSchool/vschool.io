@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import styled from "styled-components"
+import {} from "@vschool/lotus"
 import MailchimpSubscribe from "react-mailchimp-subscribe"
 
 const Header = styled.h3`
@@ -14,7 +15,9 @@ const Header = styled.h3`
     margin-bottom: 16px;
 `
 
-const Form = styled.form``
+const Form = styled.form`
+
+`
 
 const Input = styled.input`
     height: 40px;
@@ -28,6 +31,11 @@ const Input = styled.input`
     line-height: 24px;
     margin-bottom: 16px;
     outline: none;
+
+
+    @media(min-width: 1200px){
+        width: 232px
+    }
 `
 
 const Label = styled.label``
@@ -63,6 +71,10 @@ const Button = styled.button`
         border-top: 1px solid #eee9;
         border-left: 1px solid #eee9;
     }
+
+    @media(min-width: 1200px){
+        width: 232px
+    }
 `
 
 const ErrorMsg = styled.div`
@@ -87,13 +99,15 @@ export default function SubscribeForm(props) {
             <MailchimpSubscribe
                 url={url}
                 render={({ subscribe, status, message }) => {
-                    let msg
+                    {
+                        /* let msg
                     if (status === "sending") {
                         msg = "Loading..."
                     } else if (status === "success") {
                         msg = "Redirecting..."
                     } else {
                         msg = "Begin Free Course"
+                    } */
                     }
                     return (
                         <>
@@ -120,7 +134,7 @@ export default function SubscribeForm(props) {
                                         placeholder={placeholder}
                                     />
                                 </Label>
-                                <Button>{ btnText }</Button>
+                                <Button>{btnText}</Button>
                             </Form>
                         </>
                     )
