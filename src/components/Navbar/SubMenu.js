@@ -58,6 +58,7 @@ const ItemLink = styled.a`
     text-decoration: none;
     line-height: 20px;
     padding: 16px;
+    color: inherit;
 
     :visited {
         color: inherit;
