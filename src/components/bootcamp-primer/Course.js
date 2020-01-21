@@ -61,25 +61,29 @@ const Button = styled.a`
     margin-top: 24px;
 
     :hover {
-      transform: translate(2px, 2px);
-      box-shadow: 2px 2px 0 0 rgba(100,100,100, 0.5);
+        transform: translate(2px, 2px);
+        box-shadow: 2px 2px 0 0 rgba(100, 100, 100, 0.5);
     }
 
     :active {
-      transform: translate(4px, 4px);
-      box-shadow: inset 1px 1px #eee9;
-      border-top: 1px solid #eee9;
-      border-left: 1px solid #eee9;
+        transform: translate(4px, 4px);
+        box-shadow: inset 1px 1px #eee9;
+        border-top: 1px solid #eee9;
+        border-left: 1px solid #eee9;
     }
 `
 
-function Course({ course, course_info, course_date, course_link }) {
+function Course({ course, course_info, course_link, startDates }) {
+    const start_date = startDates.find(
+        ({ node: { data } }) =>
+            data.course_name.text.toLowerCase() === course.text.toLowerCase()
+    ).node.data.start_date
     return (
         <CourseContainer>
-            <H3>{ course.text }</H3>
-            <P>{ course_info.text }</P>
-            <H4>{ course_date.text }</H4>
-            <Button href={ course_link.url } target="_blank">
+            <H3>{course.text}</H3>
+            <P>{course_info.text}</P>
+            <H4>{start_date}</H4>
+            <Button href={course_link.url} target="_blank">
                 Learn More
             </Button>
         </CourseContainer>
