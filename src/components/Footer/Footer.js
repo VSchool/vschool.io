@@ -16,6 +16,8 @@ const FooterContainer = styled.footer`
 
     @media (min-width: 600px){
       padding: 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
     }
 
     @media (min-width: 840px){
@@ -35,8 +37,8 @@ const FooterSection = styled.div`
     display: flex;
     flex-direction: column;
 
-    @media(min-width: 1200px){
-      
+    @media(min-width: 600px){
+      justify-self: center;
     }
 `
 
@@ -45,11 +47,12 @@ const FormContainer = styled.div`
     flex-direction: column;
     align-items: center;
 
+    @media (min-width: 600px){
+      grid-column: 1 / -1;
+    }
 `
 
 const Header = styled.h3`
-
-
     color: ${gray.dark};	
     font-family: "aktiv-grotesk-extended";	
     font-size: 14px;	
@@ -58,13 +61,10 @@ const Header = styled.h3`
     line-height: 18px;
     margin-top: 40px;
     margin-bottom: 8px;
-
-    
 `
 
 const CourseContainer = styled.div`
   margin: 8px 0;
-
 `
 
 const CourseTitle = styled.h3`
@@ -205,15 +205,13 @@ const Footer = () => {
     return (
       <Container>
         <FooterContainer>
-            <FooterSection>
-                <FormContainer>
-                    <SubscribeForm 
-                        formHeader={ formHeader }
-                        placeholder={ placeholder }
-                        btnText={ btnText }
-                    />
-                </FormContainer>
-            </FooterSection>
+            <FormContainer>
+                <SubscribeForm 
+                    formHeader={ formHeader }
+                    placeholder={ placeholder }
+                    btnText={ btnText }
+                />
+            </FormContainer>
             <FooterSection>
                 <Header>{ programsHeader }</Header>
                 {

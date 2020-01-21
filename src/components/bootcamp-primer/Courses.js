@@ -35,7 +35,7 @@ const SmallContainer = styled.div`
         width: 800px;
         border: 2px solid ${gray.dark};
         padding: 0;
-        margin-bottom: -80px;
+        margin-bottom: 80px;
         z-index: 1
     }
 `
@@ -65,9 +65,24 @@ function Courses() {
         },
         upcoming_courses: courses
       }
+    },
+    allPrismicStartDate: {
+      edges: startDates
     }
   } = useStaticQuery(graphql`
     {
+      allPrismicStartDate {
+      edges {
+        node {
+          data {
+            course_name {
+              text
+            }
+            start_date(formatString: "MMM Do, YYYY")
+          }
+        }
+      }
+    }
       prismicBootcampPrimer {
         data {
           upcoming_courses_header {
@@ -96,7 +111,7 @@ function Courses() {
             <SmallContainer>
                 <H1>{ header }</H1>
                 { courses.map((course, i) => (
-                    <Course key={i} {...course} />
+                    <Course key={i} {...course} startDates={startDates} />
                 ))}
             </SmallContainer>
         </LargeContainer>
