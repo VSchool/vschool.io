@@ -1,24 +1,23 @@
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import { gray, Button } from "@vschool/lotus"
+import { Button } from "@vschool/lotus"
 
 import DesktopMenuItem from "./DesktopMenuItem"
 
 const Ul = styled.ul`
     display: none;
-    
-    @media(min-width: 1000px) {
+
+    @media (min-width: 1000px) {
         display: flex;
         justify-content: flex-end;
         align-items: center;
         height: 32px;
         width: 100%;
-    
+
         & > img {
             margin-right: auto;
         }
-
     }
 `
 
@@ -38,14 +37,12 @@ function DesktopMenu(props) {
         {
             prismicNavigationBar {
                 data {
+                    # See query.js for the NavItems fragment
                     ...NavItems
                     button_text
                     button_link {
                         url
                         id
-                    }
-                    logo {
-                        url
                     }
                 }
             }
@@ -55,8 +52,7 @@ function DesktopMenu(props) {
     const {
         nav,
         button_text: buttonText,
-        button_link: { url: buttonLink },
-        logo,
+        button_link: { url: buttonLink }
     } = data.prismicNavigationBar.data
 
     const navItems = nav.map(item => (
