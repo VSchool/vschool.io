@@ -7,22 +7,22 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+// import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import Navbar from "./Navbar/Navbar"
 import Footer from "./Footer/Footer"
 import "./layout.css"
 
 const Layout = ({ children }) => {
-    const data = useStaticQuery(graphql`
-        query SiteTitleQuery {
-            site {
-                siteMetadata {
-                    title
-                }
-            }
-        }
-    `)
+    // const data = useStaticQuery(graphql`
+    //     query SiteTitleQuery {
+    //         site {
+    //             siteMetadata {
+    //                 title
+    //             }
+    //         }
+    //     }
+    // `)
 
     // These styles make the Footer stick to the bottom of any page, no matter the page height
     const MainContainer = styled.div`

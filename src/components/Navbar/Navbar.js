@@ -3,7 +3,6 @@ import styled from "styled-components"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { gray, Button } from "@vschool/lotus"
 
-// import logo from "../../images/VS_Logo_RGB.png"
 import PrimaryNavItem from "./PrimaryNavItem"
 
 const Nav = styled.nav`
@@ -53,34 +52,7 @@ function Navbar() {
         {
             prismicNavigationBar {
                 data {
-                    nav {
-                        items {
-                            sub_nav_link {
-                                url
-                                uid
-                                id
-                            }
-                            sub_nav_link_label {
-                                text
-                            }
-                            start_date {
-                                document {
-                                    data {
-                                        start_date(formatString: "MMM Do, YYYY")
-                                    }
-                                }
-                            }
-                        }
-                        primary {
-                            label {
-                                text
-                            }
-                            link {
-                                url
-                                uid
-                            }
-                        }
-                    }
+                    ...NavItems
                     button_text
                     button_link {
                         url
