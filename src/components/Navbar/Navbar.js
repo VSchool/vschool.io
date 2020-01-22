@@ -43,9 +43,12 @@ function Navbar() {
             <StyledLogoLink to="/">
                 <Logo src={logo.url} />
             </StyledLogoLink>
-            
-            {/* Only displays on ≥ 1000px screens */}
+
+            {/* Only displays on ≥ 1000px screens using CSS a media query */}
             <DesktopMenu />
+
+            {/* Only displays on < 1000px screens using CSS a media query */}
+            {/* TODO: <MobileMenu /> */}
         </Nav>
     )
 }
