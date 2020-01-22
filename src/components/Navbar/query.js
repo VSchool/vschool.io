@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-export const navItemsQuery = graphql`
+export const primaryNavItemsQuery = graphql`
     fragment NavItems on PrismicNavigationBarData {
         nav {
             items {
