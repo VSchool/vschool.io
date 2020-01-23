@@ -3,8 +3,8 @@ import styled from "styled-components"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { gray } from "@vschool/lotus"
 
-// import PrimaryNavItem from "./PrimaryNavItem"
 import DesktopMenu from "./Desktop"
+import MobileMenu from "./Mobile"
 
 const Nav = styled.nav`
     display: flex;
@@ -43,12 +43,21 @@ function Navbar() {
             <StyledLogoLink to="/">
                 <Logo src={logo.url} />
             </StyledLogoLink>
-
+            <Ul>
+                {navItems}
+                <ButtonContainer>
+                    <Link to={buttonLink}>
+                        <ApplyButton buttonStyle="primary-dark" buttonSize="sm">
+                            {buttonText}
+                        </ApplyButton>
+                    </Link>
+                </ButtonContainer>
+            </Ul>
             {/* Only displays on ≥ 1000px screens using CSS a media query */}
             <DesktopMenu />
 
             {/* Only displays on < 1000px screens using CSS a media query */}
-            {/* TODO: <MobileMenu /> */}
+            <MobileMenu />
         </Nav>
     )
 }
