@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { AccordionGroup, Accordion, blue, gray, black } from "@vschool/lotus"
+import { AccordionGroup, Accordion, gray, black } from "@vschool/lotus"
 import { graphql, useStaticQuery } from "gatsby"
 
 const Container = styled.div`
@@ -44,14 +44,14 @@ const H3 = styled.h3`
     padding-bottom: 40px;
 `
 
-const H4 = styled.h3`
-    color: ${blue.base};
-    font-family: "aktiv-grotesk";
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 28px;
-    padding-right: 24px;
-`
+// const H4 = styled.h3`
+//     color: ${blue.base};
+//     font-family: "aktiv-grotesk";
+//     font-size: 20px;
+//     font-weight: 400;
+//     line-height: 28px;
+//     padding-right: 24px;
+// `
 
 function FAQ(props) {
     const styles = {
@@ -61,29 +61,27 @@ function FAQ(props) {
         fontWeight: 400,
         lineHeight: 28,
         paddingRight: 24,
-        whiteSpace: "pre-wrap"
+        whiteSpace: "pre-wrap",
     }
-    const { 
-      prismicXdPage: {
-        data: {
-          faq
-        }
-      }
+    const {
+        prismicXdPage: {
+            data: { faq },
+        },
     } = useStaticQuery(graphql`
-      {
-        prismicXdPage {
-          data {
-            faq {
-              faq_info {
-                text
-              }
-              faq_title {
-                text
-              }
+        {
+            prismicXdPage {
+                data {
+                    faq {
+                        faq_info {
+                            text
+                        }
+                        faq_title {
+                            text
+                        }
+                    }
+                }
             }
-          }
         }
-      }
     `)
     return (
         <Container>
