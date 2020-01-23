@@ -52,7 +52,7 @@ function DesktopMenu(props) {
     const {
         nav,
         button_text: buttonText,
-        button_link: { url: buttonLink }
+        button_link: { url: buttonLink },
     } = data.prismicNavigationBar.data
 
     const navItems = nav.map(item => (
