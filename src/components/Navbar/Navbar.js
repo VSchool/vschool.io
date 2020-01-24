@@ -7,6 +7,7 @@ import DesktopMenu from "./Desktop"
 import MobileMenu from "./Mobile"
 
 const Nav = styled.nav`
+    position: relative;
     display: flex;
     align-items: center;
     background-color: ${gray.lighter};

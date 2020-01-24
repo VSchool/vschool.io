@@ -18,9 +18,9 @@ const Bar = styled.div`
     background-color: ${black};
 `
 
-function MobileButton({toggleOpen}) {
+function MobileButton({ toggleMainMenu }) {
     return (
-        <Button onClick={toggleOpen}>
+        <Button onClick={toggleMainMenu}>
             <Bar />
             <Bar />
             <Bar />
