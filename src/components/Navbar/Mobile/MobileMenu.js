@@ -17,8 +17,6 @@ function MobileMenu(props) {
     const [mainMenuOpen, setMainMenuOpen] = useState(false)
     const [subMenuOpen, setSubMenuOpen] = useState(false)
 
-    console.log("mainMenuOpen:", mainMenuOpen)
-
     function toggleMainMenu() {
         setMainMenuOpen(prevState => !prevState)
     }
@@ -51,18 +49,18 @@ function MobileMenu(props) {
 
     return (
         <Menu>
-            <MobileButton toggleMainMenu={toggleMainMenu} />
+            <MobileButton toggleMainMenu={toggleMainMenu} open={mainMenuOpen} />
             <MobilePrimaryMenu
                 open={mainMenuOpen}
                 toggleMainMenu={toggleMainMenu}
                 toggleSubMenu={toggleSubMenu}
                 items={nav}
             />
-            <MobileSubMenu
+            {/* <MobileSubMenu
                 open={subMenuOpen}
                 toggleSubMenu={toggleSubMenu}
                 toggleMainMenu={toggleMainMenu}
-            />
+            /> */}
         </Menu>
     )
 }
