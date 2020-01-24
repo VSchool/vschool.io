@@ -1,11 +1,14 @@
 import React, { useState } from "react"
 import { useStaticQuery } from "gatsby"
 import styled from "styled-components"
+import { useSpring } from "react-spring"
 
 import MobileButton from "./MobileButton"
-import Popover from "./Popover"
+import MobilePrimaryMenu from "./MobilePrimaryMenu"
+import MobileSubMenu from "./MobileSubMenu"
 
 const Menu = styled.div`
+    /* Don't change position attr, as it will mess with mobile popover menu*/
     @media (min-width: 1000px) {
         display: none;
     }
@@ -13,6 +16,8 @@ const Menu = styled.div`
 function MobileMenu(props) {
     const [mainMenuOpen, setMainMenuOpen] = useState(false)
     const [subMenuOpen, setSubMenuOpen] = useState(false)
+
+    console.log("mainMenuOpen:", mainMenuOpen)
 
     function toggleMainMenu() {
         setMainMenuOpen(prevState => !prevState)
@@ -47,8 +52,17 @@ function MobileMenu(props) {
     return (
         <Menu>
             <MobileButton toggleMainMenu={toggleMainMenu} />
-            <Popover open={mainMenuOpen} toggleMenu={toggleMainMenu} items={nav} />
-            <Popover open={subMenuOpen} toggleMenu={toggleSubMenu} />
+            <MobilePrimaryMenu
+                open={mainMenuOpen}
+                toggleMainMenu={toggleMainMenu}
+                toggleSubMenu={toggleSubMenu}
+                items={nav}
+            />
+            <MobileSubMenu
+                open={subMenuOpen}
+                toggleSubMenu={toggleSubMenu}
+                toggleMainMenu={toggleMainMenu}
+            />
         </Menu>
     )
 }
