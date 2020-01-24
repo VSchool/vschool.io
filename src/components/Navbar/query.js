@@ -7,7 +7,6 @@ export const primaryNavItemsQuery = graphql`
             items {
                 sub_nav_link {
                     url
-                    uid
                     id
                 }
                 sub_nav_link_label {
@@ -27,7 +26,6 @@ export const primaryNavItemsQuery = graphql`
                 }
                 link {
                     url
-                    uid
                 }
             }
         }
