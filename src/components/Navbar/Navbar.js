@@ -31,6 +31,8 @@ const Logo = styled.img`
 const MobileLogo = styled.img`
     display: inline;
     max-height: 100%;
+    /* position: relative; */
+    /* z-index: 500; */
 
     @media (min-width: 1000px) {
         display: none;
