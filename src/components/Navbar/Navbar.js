@@ -5,6 +5,7 @@ import { gray } from "@vschool/lotus"
 
 import DesktopMenu from "./Desktop"
 import MobileMenu from "./Mobile"
+import { NavbarContextProvider } from "./navbarContext"
 
 const Nav = styled.nav`
     position: relative;
@@ -19,60 +20,16 @@ const Nav = styled.nav`
     }
 `
 
-const Logo = styled.img`
-    display: none;
-    max-height: 100%;
-
-    @media (min-width: 1000px) {
-        display: inline;
-    }
-`
-
-const MobileLogo = styled.img`
-    display: inline;
-    max-height: 100%;
-    /* position: relative; */
-    /* z-index: 500; */
-
-    @media (min-width: 1000px) {
-        display: none;
-    }
-`
-
-const StyledLogoLink = styled(Link)`
-    height: 100%;
-    margin: 0;
-    margin-right: auto;
-`
-
 function Navbar() {
-    const data = useStaticQuery(graphql`
-        {
-            prismicNavigationBar {
-                data {
-                    logo {
-                        url
-                    }
-                    mobile_logo {
-                        url
-                    }
-                }
-            }
-        }
-    `)
-    const { logo, mobile_logo: mobileLogo } = data.prismicNavigationBar.data
-
     return (
         <Nav>
-            <StyledLogoLink to="/">
-                <Logo src={logo.url} />
-                <MobileLogo src={mobileLogo.url} />
-            </StyledLogoLink>
             {/* Only displays on ≥ 1000px screens using a CSS media query */}
             <DesktopMenu />
 
             {/* Only displays on < 1000px screens using a CSS media query */}
-            <MobileMenu />
+            <NavbarContextProvider>
+                <MobileMenu />
+            </NavbarContextProvider>
         </Nav>
     )
 }

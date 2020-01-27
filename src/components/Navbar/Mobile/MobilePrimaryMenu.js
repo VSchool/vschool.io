@@ -12,7 +12,7 @@ const Overlay = styled(animated.div)`
     width: 100vw;
     position: fixed;
     background-color: ${gray.lighter};
-    top: 0;
+    top: 80px; /* Height of the navbar */
     bottom: 0;
     left: 0;
     margin: 0;
@@ -48,12 +48,9 @@ const MobileLogo = styled.img`
     }
 `
 
-function MobilePrimaryMenu({ toggleMainMenu, toggleSubMenu, open, items }) {
+function MobilePrimaryMenu({ open, items }) {
     const menuAnimation = useMenuAnimation(open)
-    function closeAndNavigate() {
-        toggleMainMenu()
-        navigate("/")
-    }
+
     const data = useStaticQuery(graphql`
         {
             prismicNavigationBar {
@@ -71,13 +68,6 @@ function MobilePrimaryMenu({ toggleMainMenu, toggleSubMenu, open, items }) {
 
     return (
         <Overlay style={menuAnimation}>
-            <TopBar>
-                {/* <StyledLogoLink to="/" onClick={toggleMainMenu}> */}
-                <MobileLogo src={mobileLogo.url} onClick={closeAndNavigate} />
-                {/* </StyledLogoLink> */}
-                {/* <button onClick={toggleMainMenu}>X</button> */}
-                {/* <button onClick={toggleSubMenu}>Next</button> */}
-            </TopBar>
             <Ul>{menuItems}</Ul>
         </Overlay>
     )

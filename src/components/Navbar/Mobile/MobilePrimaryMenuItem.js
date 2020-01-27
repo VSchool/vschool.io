@@ -1,9 +1,10 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 import { gray } from "@vschool/lotus"
 import { Link } from "gatsby"
 
 import Arrow from "../Arrow"
+import { NavbarContext } from "../navbarContext"
 
 const MenuItem = styled.li`
     list-style: none;
@@ -31,8 +32,9 @@ const StyledArrow = styled(Arrow)`
 `
 
 function MobilePrimaryMenuItem({ data }) {
+    const { toggleSubMenu } = useContext(NavbarContext)
     return (
-        <MenuItem>
+        <MenuItem onClick={() => !data.primary.link && toggleSubMenu()}>
             {data.primary.link ? (
                 <ItemLink to={data.primary.link.url}>
                     {data.primary.label.text}
