@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { useStaticQuery } from "gatsby"
 import styled from "styled-components"
 import { useSpring } from "react-spring"
@@ -24,6 +24,14 @@ function MobileMenu(props) {
     function toggleSubMenu() {
         setSubMenuOpen(prevState => !prevState)
     }
+
+    useEffect(() => {
+        if (mainMenuOpen) {
+            document.body.style.overflow = "hidden"
+        } else {
+            document.body.style.overflow = "unset"
+        }
+    }, [mainMenuOpen])
 
     const data = useStaticQuery(graphql`
         {
