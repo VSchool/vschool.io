@@ -5,7 +5,7 @@ import { black } from "@vschool/lotus"
 const Button = styled.div`
     display: flex;
     position: relative;
-    z-index: 500;
+    /* z-index: 500; */
     flex-direction: column;
     justify-content: space-between;
     height: 20px;

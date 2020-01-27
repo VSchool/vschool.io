@@ -1,37 +1,47 @@
-import React, { useState, useEffect } from "react"
-import { useStaticQuery } from "gatsby"
+import React, { useState, useEffect, useContext } from "react"
+import { useStaticQuery, Link } from "gatsby"
 import styled from "styled-components"
 import { useSpring } from "react-spring"
 
+import { NavbarContext } from "../navbarContext"
 import MobileButton from "./MobileButton"
 import MobilePrimaryMenu from "./MobilePrimaryMenu"
 import MobileSubMenu from "./MobileSubMenu"
 
 const Menu = styled.div`
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: space-between;
     /* Don't change position attr, as it will mess with mobile popover menu*/
     @media (min-width: 1000px) {
         display: none;
     }
 `
+
+const StyledLogoLink = styled(Link)`
+    height: 100%;
+    margin: 0;
+    margin-right: auto;
+    /* z-index: 500; */
+`
+
+const MobileLogo = styled.img`
+    display: inline;
+    max-height: 100%;
+
+    @media (min-width: 1000px) {
+        display: none;
+    }
+`
+
 function MobileMenu(props) {
-    const [mainMenuOpen, setMainMenuOpen] = useState(false)
-    const [subMenuOpen, setSubMenuOpen] = useState(false)
-
-    function toggleMainMenu() {
-        setMainMenuOpen(prevState => !prevState)
-    }
-
-    function toggleSubMenu() {
-        setSubMenuOpen(prevState => !prevState)
-    }
-
-    useEffect(() => {
-        if (mainMenuOpen) {
-            document.body.style.overflow = "hidden"
-        } else {
-            document.body.style.overflow = "unset"
-        }
-    }, [mainMenuOpen])
+    const {
+        mainMenuOpen,
+        subMenuOpen,
+        toggleMainMenu,
+        toggleSubMenu,
+    } = useContext(NavbarContext)
 
     const data = useStaticQuery(graphql`
         {
@@ -44,6 +54,9 @@ function MobileMenu(props) {
                         url
                         id
                     }
+                    mobile_logo {
+                        url
+                    }
                 }
             }
         }
@@ -53,22 +66,24 @@ function MobileMenu(props) {
         nav,
         button_text: buttonText,
         button_link: { url: buttonLink },
+        mobile_logo: mobileLogo,
     } = data.prismicNavigationBar.data
 
     return (
         <Menu>
+            <StyledLogoLink to="/">
+                <MobileLogo src={mobileLogo.url} />
+            </StyledLogoLink>
             <MobileButton toggleMainMenu={toggleMainMenu} open={mainMenuOpen} />
             <MobilePrimaryMenu
                 open={mainMenuOpen}
-                toggleMainMenu={toggleMainMenu}
-                toggleSubMenu={toggleSubMenu}
                 items={nav}
             />
-            {/* <MobileSubMenu
+            <MobileSubMenu
                 open={subMenuOpen}
                 toggleSubMenu={toggleSubMenu}
                 toggleMainMenu={toggleMainMenu}
-            /> */}
+            />
         </Menu>
     )
 }
