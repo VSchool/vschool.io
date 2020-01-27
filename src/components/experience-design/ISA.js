@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { gray, black, white } from "@vschool/lotus"
 import { graphql, useStaticQuery } from "gatsby"
-// import isaBackground from '../../images/isa-background.png'
+
 
 const Container = styled.div`
   background-color: ${gray.lighter};

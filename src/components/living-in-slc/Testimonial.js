@@ -1,23 +1,30 @@
 import React from 'react'
 import styled from 'styled-components'
+import { gray, black, orange, blue } from "@vschool/lotus"
 import { graphql, useStaticQuery } from 'gatsby'
-import { orange, purple } from '@vschool/lotus'
-// import dustinImg from '../../images/dustin.png'
+
 
 const Container = styled.div`
-  background-color: ${orange.lightest};
+  background-color: ${gray.lighter};
   padding-top: 56px;
   padding-left: 24px;
   padding-right: 24px;
+  padding-bottom: 112px;
 
   @media (min-width: 900px){
     display: flex;
     justify-content: center;
+    padding-bottom: 136px;
+  }
+
+  @media(min-width: 1200px){
+    padding-bottom: 160px;
   }
 `
   
 const CiteContainer = styled.div`
   border: 2px solid ${orange.base};
+  background-color: ${orange.lightest};
   padding-left: 32px;
   padding-right: 32px;
   padding-top: 64px;
@@ -33,7 +40,7 @@ const CiteContainer = styled.div`
   @media (min-width: 900px){
     grid-column: 2 / 3;
     width: 550px;
-    height: 436px;
+    height: 400px;
     padding-left: 40px;
     padding-right: 40px;
   }
@@ -43,6 +50,7 @@ const CiteContainer = styled.div`
     padding-left: 72px;
     padding-right: 48px;
     padding-top: 56px;
+    height: 380px;
   }
 `
 
@@ -83,7 +91,7 @@ const FlexContainer = styled.div`
 `
 
 const DustinImg = styled.img`
-  border-bottom: 20px solid ${purple.base};
+  border-bottom: 20px solid ${blue.base};
   margin-top: -24px;
 
   @media (min-width: 330px) and (max-width: 414px){
@@ -107,9 +115,9 @@ const GridContainer = styled.div`
 `
 
 
-function Testimonial(props){
+export default function Testimonial(props){
   const { 
-    prismicXdPage: {
+    prismicLivingInSaltLake: {
       data: {
         testimonial_text: {
           text
@@ -118,22 +126,22 @@ function Testimonial(props){
           text: cite
         },
         testimonial_image: {
-          url: dustinImg
+          url
         }
       }
     }
   } = useStaticQuery(graphql`
   {
-    prismicXdPage {
+    prismicLivingInSaltLake {
       data {
         testimonial_text {
           text
         }
-        testimonial_image {
-          url
-        }
         testimonial_cite {
           text
+        }
+        testimonial_image {
+          url
         }
       }
     }
@@ -147,11 +155,9 @@ function Testimonial(props){
           <H4>{cite}</H4>
         </CiteContainer>
         <FlexContainer>
-          <DustinImg src={dustinImg}/>
+          <DustinImg src={url}/>
         </FlexContainer>
       </GridContainer>
     </Container>
   )
 }
-
-export default Testimonial
