@@ -4,6 +4,8 @@ const NavbarContext = createContext()
 function NavbarContextProvider({ children }) {
     const [mainMenuOpen, setMainMenuOpen] = useState(false)
     const [subMenuOpen, setSubMenuOpen] = useState(false)
+    const [chosenSubMenu, setChosenSubMenu] = useState(null)
+    // const [chosenSubMenuItems, setChosenSubMenuItems] = useState([])
 
     function toggleMainMenu() {
         setMainMenuOpen(state => !state)
@@ -11,6 +13,11 @@ function NavbarContextProvider({ children }) {
 
     function toggleSubMenu() {
         setSubMenuOpen(state => !state)
+    }
+
+    function closeBothMenus() {
+        setMainMenuOpen(false)
+        setSubMenuOpen(false)
     }
 
     useEffect(() => {
@@ -23,7 +30,17 @@ function NavbarContextProvider({ children }) {
 
     return (
         <NavbarContext.Provider
-            value={{ mainMenuOpen, subMenuOpen, toggleMainMenu, toggleSubMenu }}
+            value={{
+                mainMenuOpen,
+                subMenuOpen,
+                toggleMainMenu,
+                toggleSubMenu,
+                chosenSubMenu,
+                setChosenSubMenu,
+                // chosenSubMenuItems,
+                // setChosenSubMenuItems,
+                closeBothMenus,
+            }}
         >
             {children}
         </NavbarContext.Provider>

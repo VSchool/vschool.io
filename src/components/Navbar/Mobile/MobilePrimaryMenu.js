@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql, Link, navigate } from "gatsby"
 import { gray } from "@vschool/lotus"
@@ -28,8 +28,6 @@ const TopBar = styled.div`
 `
 
 const Ul = styled.ul`
-    display: flex;
-    flex-direction: column;
     padding: 0 16px;
 `
 

@@ -1,11 +1,13 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 import { black } from "@vschool/lotus"
+
+import { NavbarContext } from "../navbarContext"
 
 const Button = styled.div`
     display: flex;
     position: relative;
-    /* z-index: 500; */
+    z-index: 500;
     flex-direction: column;
     justify-content: space-between;
     height: 20px;
@@ -34,9 +36,17 @@ const Button = styled.div`
     }
 `
 
-function MobileButton({ toggleMainMenu, open }) {
+function MobileButton() {
+    const { mainMenuOpen, closeBothMenus, toggleMainMenu } = useContext(
+        NavbarContext
+    )
+
+    function handleClick() {
+        mainMenuOpen ? closeBothMenus() : toggleMainMenu()
+    }
+
     return (
-        <Button onClick={toggleMainMenu} open={open}>
+        <Button onClick={handleClick} open={mainMenuOpen}>
             <div />
             <div />
             <div />
