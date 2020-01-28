@@ -36,7 +36,14 @@ const StyledArrow = styled(Arrow)`
 `
 
 function MobilePrimaryMenuItem({ data }) {
-    const { toggleSubMenu } = useContext(NavbarContext)
+    const { toggleSubMenu, setChosenSubMenu } = useContext(NavbarContext)
+
+    function handleClick() {
+        setChosenSubMenu(data)
+        console.log(data)
+        toggleSubMenu()
+    }
+
     return (
         <MenuItem>
             {data.primary.link ? (
@@ -44,7 +51,7 @@ function MobilePrimaryMenuItem({ data }) {
                     {data.primary.label.text}
                 </Item>
             ) : (
-                <Item onClick={toggleSubMenu}>{data.primary.label.text}</Item>
+                <Item onClick={handleClick}>{data.primary.label.text}</Item>
             )}
 
             {data.items.length > 0 && <StyledArrow />}

@@ -4,6 +4,15 @@ import { graphql } from "gatsby"
 export const primaryNavItemsQuery = graphql`
     fragment NavItems on PrismicNavigationBarData {
         nav {
+            slice_label
+            primary {
+                label {
+                    text
+                }
+                link {
+                    url
+                }
+            }
             items {
                 sub_nav_link {
                     url
@@ -18,14 +27,6 @@ export const primaryNavItemsQuery = graphql`
                             start_date(formatString: "MMM Do, YYYY")
                         }
                     }
-                }
-            }
-            primary {
-                label {
-                    text
-                }
-                link {
-                    url
                 }
             }
         }

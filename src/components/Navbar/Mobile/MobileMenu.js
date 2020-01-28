@@ -39,9 +39,21 @@ function MobileMenu(props) {
     const {
         mainMenuOpen,
         subMenuOpen,
+        chosenSubMenu,
         toggleMainMenu,
         toggleSubMenu,
     } = useContext(NavbarContext)
+
+    function toggleBothMenus() {
+        toggleMainMenu()
+        toggleSubMenu()
+    }
+
+    // const [subMenuItems, setSubMenuItems] = useState([])
+
+    // useEffect(() => {
+    //     console.log("SubMenuChanged")
+    // }, [chosenSubMenu])
 
     const data = useStaticQuery(graphql`
         {
@@ -74,16 +86,9 @@ function MobileMenu(props) {
             <StyledLogoLink to="/">
                 <MobileLogo src={mobileLogo.url} />
             </StyledLogoLink>
-            <MobileButton toggleMainMenu={toggleMainMenu} open={mainMenuOpen} />
-            <MobilePrimaryMenu
-                open={mainMenuOpen}
-                items={nav}
-            />
-            <MobileSubMenu
-                open={subMenuOpen}
-                toggleSubMenu={toggleSubMenu}
-                toggleMainMenu={toggleMainMenu}
-            />
+            <MobileButton toggleMainMenu={toggleMainMenu} toggleBothMenus={toggleBothMenus} open={mainMenuOpen} />
+            <MobilePrimaryMenu open={mainMenuOpen} items={nav} />
+            <MobileSubMenu items={[]}/>
         </Menu>
     )
 }
