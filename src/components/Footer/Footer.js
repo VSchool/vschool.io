@@ -229,12 +229,15 @@ const Footer = () => {
                     <FooterSection>
                         <Header>{ primary.footer_header.text }</Header>
                         { items.map(item => item.footer_link.url[0] === "h" ?
-                                <Anchor 
+                                <Anchor
+                                    key={item.footer_link.url}
                                     href={ item.footer_link.url }>
                                     { item.footer_link_text.text }
                                 </Anchor>
                             :
-                                <SLink to={ item.footer_link.url }>
+                                <SLink 
+                                  to={ item.footer_link.url }
+                                  key={item.footer_link.url}>
                                     { item.footer_link_text.text }
                                 </SLink>
                             )
