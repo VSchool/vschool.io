@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import { useStaticQuery, graphql, Link } from "gatsby"
 import { gray } from "@vschool/lotus"
 
 import DesktopMenu from "./Desktop"

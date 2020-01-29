@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useContext } from "react"
+import React, { useContext } from "react"
 import { useStaticQuery, Link } from "gatsby"
 import styled from "styled-components"
-import { useSpring } from "react-spring"
 
 import { NavbarContext } from "../navbarContext"
 import MobileButton from "./MobileButton"
@@ -38,8 +37,6 @@ const MobileLogo = styled.img`
 function MobileMenu(props) {
     const {
         mainMenuOpen,
-        subMenuOpen,
-        chosenSubMenu,
         toggleMainMenu,
         toggleSubMenu,
     } = useContext(NavbarContext)
@@ -48,12 +45,6 @@ function MobileMenu(props) {
         toggleMainMenu()
         toggleSubMenu()
     }
-
-    // const [subMenuItems, setSubMenuItems] = useState([])
-
-    // useEffect(() => {
-    //     console.log("SubMenuChanged")
-    // }, [chosenSubMenu])
 
     const data = useStaticQuery(graphql`
         {
@@ -76,8 +67,6 @@ function MobileMenu(props) {
 
     const {
         nav,
-        button_text: buttonText,
-        button_link: { url: buttonLink },
         mobile_logo: mobileLogo,
     } = data.prismicNavigationBar.data
 

@@ -40,7 +40,6 @@ function MobilePrimaryMenuItem({ data }) {
 
     function handleClick() {
         setChosenSubMenu(data)
-        console.log(data)
         toggleSubMenu()
     }
 
