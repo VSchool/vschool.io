@@ -33,7 +33,7 @@ const Input = styled.input`
     margin-bottom: 16px;
     outline: none;
 
-    @media(min-width: 415px){
+    @media(min-width: 450px){
         width: 366px;
     }
 
@@ -77,7 +77,7 @@ const Button = styled.button`
         border-left: 1px solid #eee9;
     }
 
-    @media(min-width: 415px){
+    @media(min-width: 450px){
         width: 366px;
     }
 

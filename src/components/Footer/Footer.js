@@ -45,10 +45,11 @@ const FooterSection = styled.div`
 `
 
 const FormContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
+    @media(min-width: 600px){
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
     @media (min-width: 600px){
       grid-column: 1 / -1;
     }
