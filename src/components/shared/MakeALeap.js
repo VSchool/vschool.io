@@ -72,6 +72,7 @@ const NextSession = styled.div`
 
     @media (min-width: 320px) and (max-width: 414px) {
         width: 250px;
+        flex-direction: column;
     }
 
     @media (min-width: 900px) {
