@@ -5,11 +5,11 @@ import { graphql, useStaticQuery, Link } from "gatsby"
 import SubscribeForm from './SubscribeForm.js'
 import FooterSubInformation from './FooterSubInformation.js'
 
-const Container = styled.div`
+const Container = styled.footer`
     background-color: ${black};
 `
 
-const FooterContainer = styled.footer`
+const FooterContainer = styled.div`
     background-color: ${black};
     color: ${gray.base};
     padding: 0 24px;
