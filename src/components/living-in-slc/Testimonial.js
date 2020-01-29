@@ -39,7 +39,7 @@ const CiteContainer = styled.div`
   margin-right: auto;
   margin-left: auto;
 
-  @media (min-width: 320px) and (max-width: 414px){
+  @media (min-width: 320px) and (max-width: 390px){
     width: 302px;
   }
 
@@ -70,7 +70,6 @@ const H2 = styled.h2`
   @media (min-width: 330px) and (max-width: 414px){
     font-size: 28px;
   }
-
 `
 
 const H4 = styled.h4`
@@ -99,9 +98,10 @@ const FlexContainer = styled.div`
 const Image = styled.img`
   border-bottom: 20px solid ${blue.base};
   margin-top: -24px;
+  width: 320px;
 
-  @media (min-width: 320px) and (max-width: 414px){
-    width: 280px;
+  @media (max-width: 390px){
+    width: 302px;
   }
 
   @media (min-width: 900px){

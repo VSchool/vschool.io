@@ -87,7 +87,7 @@ const P = styled.p`
   line-height: 24px;
   padding-bottom: 32px;
 
-  @media (min-width: 330px) and (max-width: 414px){
+  @media (min-width: 320px) and (max-width: 414px){
     font-size: 14px;
   }
 
@@ -154,8 +154,9 @@ const AboutISA = styled.div`
   margin-left: 24px;
   margin-right: 24px;
 
-  @media (min-width: 330px) and (max-width: 414px){
+  @media (min-width: 320px) and (max-width: 414px){
     height: 318px;
+    padding: 40px 16px 16px 16px;
   }
 
   @media (min-width: 900px){

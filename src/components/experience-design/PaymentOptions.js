@@ -30,8 +30,8 @@ const Option = styled.div`
   height: 206px;
   margin-bottom: 24px;
 
-  @media (min-width: 330px) and (max-width: 414px){
-    width: 320px;
+  @media (min-width: 320px) and (max-width: 414px){
+    width: 286px;
   }
 
   @media (min-width: 860px){
