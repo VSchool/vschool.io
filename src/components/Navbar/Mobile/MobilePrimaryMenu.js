@@ -1,8 +1,7 @@
-import React, { useContext } from "react"
+import React from "react"
 import styled from "styled-components"
-import { useStaticQuery, graphql, Link, navigate } from "gatsby"
 import { gray } from "@vschool/lotus"
-import { useSpring, animated } from "react-spring"
+import { animated } from "react-spring"
 
 import MobilePrimaryMenuItem from "./MobilePrimaryMenuItem"
 import { useMenuAnimation } from "./useMenuAnimation"
@@ -20,49 +19,16 @@ const Overlay = styled(animated.div)`
     z-index: 100;
 `
 
-const TopBar = styled.div`
-    height: 80px;
-    display: flex;
-    justify-content: space-between;
-    padding: 28px 16px;
-`
-
 const Ul = styled.ul`
     padding: 0 16px;
-`
-
-const StyledLogoLink = styled(Link)`
-    height: 100%;
-    margin: 0;
-    margin-right: auto;
-`
-
-const MobileLogo = styled.img`
-    display: inline;
-    max-height: 100%;
-
-    @media (min-width: 1000px) {
-        display: none;
-    }
 `
 
 function MobilePrimaryMenu({ open, items }) {
     const menuAnimation = useMenuAnimation(open)
 
-    const data = useStaticQuery(graphql`
-        {
-            prismicNavigationBar {
-                data {
-                    mobile_logo {
-                        url
-                    }
-                }
-            }
-        }
-    `)
-    const { mobile_logo: mobileLogo } = data.prismicNavigationBar.data
-
-    const menuItems = items.map(item => <MobilePrimaryMenuItem data={item} />)
+    const menuItems = items.map(item => (
+        <MobilePrimaryMenuItem key={item.primary.label.text} data={item} />
+    ))
 
     return (
         <Overlay style={menuAnimation}>

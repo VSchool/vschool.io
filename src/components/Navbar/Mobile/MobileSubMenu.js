@@ -2,7 +2,7 @@ import React, { useContext } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import { gray, black, green, Button } from "@vschool/lotus"
-import { useSpring, animated } from "react-spring"
+import { animated } from "react-spring"
 import { useMenuAnimation } from "./useMenuAnimation"
 
 import Caret from "./Caret"
@@ -80,7 +80,6 @@ const StyledButton = styled(Button)`
 `
 
 function MobileSubMenu() {
-    console.log(chosenSubMenu)
     const {
         subMenuOpen,
         toggleMainMenu,
@@ -89,19 +88,20 @@ function MobileSubMenu() {
     } = useContext(NavbarContext)
 
     const menuAnimation = useMenuAnimation(subMenuOpen)
-    function toggleBothMenus() {
-        toggleSubMenu()
-        toggleMainMenu()
-    }
 
     const subMenuItems =
         chosenSubMenu &&
         chosenSubMenu.items &&
         chosenSubMenu.items.map(item => {
-            console.log(item)
             return (
                 <li>
-                    <ItemLink>{item.sub_nav_link_label.text}</ItemLink>
+                    {chosenSubMenu.slice_label ? (
+                        item.sub_nav_link_label.text
+                    ) : (
+                        <ItemLink to={item.sub_nav_link.url}>
+                            {item.sub_nav_link_label.text}
+                        </ItemLink>
+                    )}
                     {item.start_date && (
                         <StartDate>
                             Next session:{" "}
@@ -111,12 +111,16 @@ function MobileSubMenu() {
                         </StartDate>
                     )}
                     {chosenSubMenu.slice_label && item.start_date && (
-                        <StyledButton>Make it Happen</StyledButton>
+                        <Link to={item.sub_nav_link.url}>
+                            <StyledButton>Make it Happen</StyledButton>
+                        </Link>
                     )}
                     {chosenSubMenu.slice_label && !item.start_date && (
-                        <StyledButton buttonStyle="primary-light">
-                            Make it Happen
-                        </StyledButton>
+                        <Link to={item.sub_nav_link.url}>
+                            <StyledButton buttonStyle="primary-light">
+                                Make it Happen
+                            </StyledButton>
+                        </Link>
                     )}
                 </li>
             )
