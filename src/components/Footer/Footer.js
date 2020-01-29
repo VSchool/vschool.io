@@ -5,11 +5,11 @@ import { graphql, useStaticQuery, Link } from "gatsby"
 import SubscribeForm from './SubscribeForm.js'
 import FooterSubInformation from './FooterSubInformation.js'
 
-const Container = styled.div`
+const Container = styled.footer`
     background-color: ${black};
 `
 
-const FooterContainer = styled.footer`
+const FooterContainer = styled.div`
     background-color: ${black};
     color: ${gray.base};
     padding: 0 24px;
@@ -18,6 +18,8 @@ const FooterContainer = styled.footer`
       padding: 32px;
       display: grid;
       grid-template-columns: 1fr 1fr;
+      width: 620px;
+      margin: 0 auto;
     }
 
     @media (min-width: 840px){
@@ -28,8 +30,8 @@ const FooterContainer = styled.footer`
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-
-      padding: 0 88px
+      width: 1114px;
+      margin: 0 auto;
     }
 `
 
@@ -43,10 +45,11 @@ const FooterSection = styled.div`
 `
 
 const FormContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
+    @media(min-width: 600px){
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
     @media (min-width: 600px){
       grid-column: 1 / -1;
     }
@@ -227,12 +230,15 @@ const Footer = () => {
                     <FooterSection>
                         <Header>{ primary.footer_header.text }</Header>
                         { items.map(item => item.footer_link.url[0] === "h" ?
-                                <Anchor 
+                                <Anchor
+                                    key={item.footer_link.url}
                                     href={ item.footer_link.url }>
                                     { item.footer_link_text.text }
                                 </Anchor>
                             :
-                                <SLink to={ item.footer_link.url }>
+                                <SLink 
+                                  to={ item.footer_link.url }
+                                  key={item.footer_link.url}>
                                     { item.footer_link_text.text }
                                 </SLink>
                             )

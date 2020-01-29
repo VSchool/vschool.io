@@ -20,8 +20,9 @@ const FooterSubLinks = styled.div`
     }
 
     @media(min-width: 1200px){
-        margin: 0 88px;
-        margin-top: 72px;
+      
+        width: 1114px;
+        margin: 0 auto;
     }
 `
 
