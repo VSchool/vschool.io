@@ -113,9 +113,10 @@ const KungFuContainer = styled.div`
 
 const KungFu = styled.img`
   margin-top: 42px;
+  width: 408px;
 
-  @media (min-width: 330px) and (max-width: 414px){
-    width: 315px;
+  @media (min-width: 320px) and (max-width: 440px){
+    width: 286px;
   }
 
   @media (min-width: 900px){

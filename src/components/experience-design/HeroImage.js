@@ -45,8 +45,9 @@ const Image = styled.div`
   background-image: url(${props => props.heroImg});
   position: relative;
   height: 530px;
-  
+  background-size: cover;
   background-repeat: no-repeat;
+  width: 960px;
 
 
   @media (min-width: 480px){
@@ -94,6 +95,12 @@ const CodeSnippet = styled.div`
   position: absolute;
   right: 0;
   bottom: -40px;
+
+  @media(min-width: 320px) and (max-width: 400px){
+    width: 200px;
+    height: 260px;
+    bottom: -32px;
+  }
 
   @media (min-width: 480px){
     height: 328px;

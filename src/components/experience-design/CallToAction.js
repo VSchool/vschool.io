@@ -9,6 +9,11 @@ const Container = styled.div`
   padding-left: 24px;
   padding-right: 24px;
   padding-bottom: 96px;
+
+  @media (min-width: 320px) and (max-width: 414px){
+    padding-left: 16px; 
+    padding-right: 16px;
+  }
 `
 const H1 = styled.h1`
   color: ${black};	
@@ -44,8 +49,8 @@ const SessionContainer = styled.div`
   margin-right: auto;
   margin-left: auto;
 
-  @media (min-width: 330px) and (max-width: 414px){
-    width: 300px;
+  @media (min-width: 320px) and (max-width: 414px){
+    width: 286px;
   }
 
   @media (min-width: 900px){
@@ -63,8 +68,8 @@ const NextSession = styled.div`
   justify-content: center;
   align-items: center;
 
-  @media (min-width: 330px) and (max-width: 414px){
-    width: 270px;
+  @media (min-width: 320px) and (max-width: 414px){
+    width: 258px;
   }
 
   @media (min-width: 900px){
@@ -136,6 +141,10 @@ const Button = styled.button`
     box-shadow: inset 1px 1px #eee9;
     border-top: 1px solid #eee9;
     border-left: 1px solid #eee9;
+  }
+
+  @media(min-width: 300px) and (max-width: 400px){
+    width: 286px;
   }
 
   @media (min-width: 900px){

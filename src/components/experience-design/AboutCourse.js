@@ -9,7 +9,7 @@ const Container = styled.div`
   padding-right: 24px;
   padding-bottom: 28px;
 
-  @media (min-width: 330px) and (max-width: 414px){
+  @media (min-width: 320px) and (max-width: 400px){
     padding-left: 16px;
     padding-right: 16px;
   }
@@ -38,9 +38,9 @@ const H3 = styled.h3`
   margin-left: auto;
   margin-right: auto;
 
-  @media (min-width: 330px) and (max-width: 414px){
+  @media (min-width: 320px) and (max-width: 400px){
     font-size: 28px;
-    width: 320px;
+    width: 286px;
   }
 
   @media (min-width: 840px){
@@ -70,8 +70,8 @@ const P = styled.p`
   margin-right: auto;
   margin-left: auto;
 
-  @media (min-width: 330px) and (max-width: 414px){
-    width: 320px;
+  @media (min-width: 320px) and (max-width: 414px){
+    width: 286px;
   }
 
   @media (min-width: 600px){
