@@ -5,7 +5,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 
 const Container = styled.div`
   background-color: ${gray.light};
-  padding-top: 64px;
+  padding-top: 96px;
   padding-left: 24px;
   padding-right: 24px;
   padding-bottom: 40px;
