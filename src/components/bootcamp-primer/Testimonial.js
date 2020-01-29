@@ -44,7 +44,7 @@ const Image = styled.img`
     border-bottom: 20px solid ${blue.base};
 
     @media (max-width: 360px) {
-        width: 310px;
+        width: 302px;
     }
 
     @media (min-width: 960px) {
@@ -68,7 +68,7 @@ const TestimonialContainer = styled.div`
     width: 360px;
 
     @media (max-width: 360px) {
-        width: 310px;
+        width: 302px;
     }
 
     @media (min-width: 600px) {
@@ -100,7 +100,8 @@ const H1 = styled.h1`
 
     @media (max-width: 360px) {
         font-size: 24px;
-        margin: 104px 4px 0 4px;
+        margin: 104px 16px 0 16px;
+        width: 280px;
     }
 
     @media (min-width: 600px) {
@@ -135,7 +136,7 @@ const P = styled.p`
     margin: 32px 32px 48px 32px;
 
     @media (max-width: 360px) {
-        margin-left: 8px;
+        margin-left: 16px;
     }
 
     @media (min-width: 600px) {

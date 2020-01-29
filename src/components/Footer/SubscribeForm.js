@@ -13,6 +13,7 @@ const Header = styled.h3`
     line-height: 18px;
     margin-top: 40px;
     margin-bottom: 16px;
+    
 `
 
 const Form = styled.form`
@@ -21,7 +22,7 @@ const Form = styled.form`
 
 const Input = styled.input`
     height: 40px;
-    width: 366px;
+    width: 100%;
     padding: 8px;
     background-color: #ffffff;
     color: #4f4b43;
@@ -31,6 +32,10 @@ const Input = styled.input`
     line-height: 24px;
     margin-bottom: 16px;
     outline: none;
+
+    @media(min-width: 450px){
+        width: 366px;
+    }
 
 
     @media(min-width: 1200px){
@@ -42,7 +47,7 @@ const Label = styled.label``
 
 const Button = styled.button`
     height: 40px;
-    width: 366px;
+    width: 100%;
     border: 2px solid #a09c96;
     background-color: #0000;
     text-align: center;
@@ -70,6 +75,10 @@ const Button = styled.button`
         box-shadow: inset 1px 1px #eee9;
         border-top: 1px solid #eee9;
         border-left: 1px solid #eee9;
+    }
+
+    @media(min-width: 450px){
+        width: 366px;
     }
 
     @media(min-width: 1200px){
