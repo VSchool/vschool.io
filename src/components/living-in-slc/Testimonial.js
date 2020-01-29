@@ -11,6 +11,12 @@ const Container = styled.div`
   padding-right: 24px;
   padding-bottom: 112px;
 
+
+  @media(min-width: 320px) and (max-width: 400px){
+    padding-left: 8px;
+    padding-right: 8px;
+  } 
+
   @media (min-width: 900px){
     display: flex;
     justify-content: center;
@@ -33,8 +39,8 @@ const CiteContainer = styled.div`
   margin-right: auto;
   margin-left: auto;
 
-  @media (min-width: 330px) and (max-width: 414px){
-    width: 315px;
+  @media (min-width: 320px) and (max-width: 414px){
+    width: 302px;
   }
 
   @media (min-width: 900px){
@@ -90,11 +96,11 @@ const FlexContainer = styled.div`
   }
 `
 
-const DustinImg = styled.img`
+const Image = styled.img`
   border-bottom: 20px solid ${blue.base};
   margin-top: -24px;
 
-  @media (min-width: 330px) and (max-width: 414px){
+  @media (min-width: 320px) and (max-width: 414px){
     width: 280px;
   }
 
@@ -155,7 +161,7 @@ export default function Testimonial(props){
           <H4>{cite}</H4>
         </CiteContainer>
         <FlexContainer>
-          <DustinImg src={url}/>
+          <Image src={url}/>
         </FlexContainer>
       </GridContainer>
     </Container>

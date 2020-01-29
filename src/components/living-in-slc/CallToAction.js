@@ -9,6 +9,11 @@ const Container = styled.div`
   padding-left: 24px;
   padding-right: 24px;
   padding-bottom: 96px;
+
+  @media(min-width: 320px) and (max-width: 400px){
+    padding-left: 8px;
+    padding-right: 8px;
+  }
 `
 const H1 = styled.h1`
   color: ${black};	
@@ -18,6 +23,10 @@ const H1 = styled.h1`
   line-height: 48px;	
   text-align: center;
   margin-bottom: 32px;
+
+  @media (min-width: 320px) and (max-width: 414px){
+    font-size: 38px;
+  }
 
   @media (min-width: 860px){
     font-size: 48px;
@@ -33,9 +42,6 @@ const H1 = styled.h1`
 `
 
 const SessionContainer = styled.div`
-  /* background-image: url(${props => props.sessionBG});
-  background-repeat: no-repeat;
-  background-size: cover; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,7 +51,7 @@ const SessionContainer = styled.div`
   margin-left: auto;
   background-color: ${blue.light};
 
-  @media (min-width: 330px) and (max-width: 414px){
+  @media (min-width: 320px) and (max-width: 414px){
     width: 300px;
   }
 
@@ -60,12 +66,13 @@ const NextSession = styled.div`
   height: 100px;
   background-color: ${white};
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+ 
 
-  @media (min-width: 330px) and (max-width: 414px){
-    width: 270px;
+  @media (min-width: 320px) and (max-width: 414px){
+    width: 250px;
   }
 
   @media (min-width: 900px){
@@ -84,6 +91,7 @@ const SessionText = styled.h5`
 const SessionHeader = styled(SessionText)`
   color: ${black};
   padding-bottom: 2px;
+  padding-right: 8px;
 `
 
 const SessionDate = styled(SessionText)`
@@ -139,6 +147,10 @@ const Button = styled.button`
     border-left: 1px solid #eee9;
   }
 
+  @media(min-width: 320px) and (max-width: 400px){
+    width: 302px;
+  }
+
   @media (min-width: 900px){
     height: 56px;
     font-size: 16px;
@@ -149,6 +161,9 @@ const Button = styled.button`
 
 export default function CallToAction(props){
   const { 
+    allPrismicStartDate: {
+      edges: startDates
+    },
     prismicXdPage: {
       data: {
         call_to_action_title: {
@@ -163,9 +178,6 @@ export default function CallToAction(props){
         next_session_title: {
           text: nextSessionTitle
         },
-        next_session_date: {
-          text: nextSessionDate
-        },
         next_session_image_small: {
           url: sessionBG
         },
@@ -179,6 +191,18 @@ export default function CallToAction(props){
     }
   } = useStaticQuery(graphql`
   {
+    allPrismicStartDate {
+      edges {
+        node {
+          data {
+            course_name {
+              text
+            }
+            start_date(formatString: "MMM Do, YYYY")
+          }
+        }
+      }
+    }
     prismicXdPage {
       data {
         call_to_action_btn {
@@ -188,9 +212,6 @@ export default function CallToAction(props){
           text
         }
         call_to_action_title {
-          text
-        }
-        next_session_date {
           text
         }
         next_session_title {
@@ -212,12 +233,10 @@ export default function CallToAction(props){
   return (
     <Container>
       <H1>{ title }</H1>
-      <SessionContainer
-        sessionBG={ sessionBG } 
-        sessionBGLarge={ sessionBGLarge }>
+      <SessionContainer>
         <NextSession>
-          <SessionHeader>{ nextSessionTitle }</SessionHeader>
-          <SessionDate>{ nextSessionDate }</SessionDate>
+          <SessionHeader>{ nextSessionTitle }:</SessionHeader>
+          <SessionDate>{ startDates[1].node.data.start_date }</SessionDate>
         </NextSession>
       </SessionContainer>
       <Options>{ sub }</Options>

@@ -9,24 +9,24 @@ const Container = styled.div`
   padding-left: 24px;
   padding-right: 24px;
   padding-bottom: 28px;
-  margin-top: 160px;
+  padding-top: 160px;
 
-  @media (min-width: 330px) and (max-width: 414px){
+  @media (min-width: 320px) and (max-width: 414px){
     padding-left: 16px;
     padding-right: 16px;
-    margin-top: 184px;
+    padding-top: 184px;
   }
 
   @media (min-width: 600px){
     padding-left: 48px;
     padding-right: 48px;
-    margin-top: 208px;
+    padding-top: 208px;
   }
 
   @media (min-width: 1200px){
     padding-right: 96px;
     padding-left: 96px;
-    margin-top: 240px;
+    padding-top: 240px;
   }
 `
 
@@ -37,14 +37,14 @@ const H3 = styled.h3`
   font-weight: 900;	
   line-height: 40px;	
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 96px;
   width: 366px;
   margin-left: auto;
   margin-right: auto;
 
-  @media (min-width: 330px) and (max-width: 414px){
+  @media (min-width: 320px) and (max-width: 414px){
     font-size: 28px;
-    width: 320px;
+    width: 296px;
   }
 
   @media (min-width: 840px){
@@ -59,8 +59,14 @@ const H3 = styled.h3`
     margin-right: auto;
     font-size: 44px;
     line-height: 48px;
-    margin-bottom: 32px;
+    margin-bottom: 96px;
   }
+`
+
+const FeatureList = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 `
 
 export default function StateFeatures(){
@@ -98,7 +104,14 @@ export default function StateFeatures(){
   return(
     <Container>
       <H3>{ header }</H3>
-      { features.map((feature, i) => <Feature {...feature} i={i + 1} key={i}/>)}
+      <FeatureList>
+        { features.map((feature, i) => 
+          <Feature 
+            {...feature} 
+            key={i}
+            inverse={(i+1)%2!==0}/>)
+        }
+      </FeatureList>
     </Container>
   )
 }

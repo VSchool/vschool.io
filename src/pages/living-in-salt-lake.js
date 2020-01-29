@@ -6,6 +6,7 @@ import HeroImage from '../components/living-in-slc/HeroImage.js'
 import StateFeatures from '../components/living-in-slc/StateFeatures.js'
 import Testimonial from '../components/living-in-slc/Testimonial.js'
 import CallToAction from '../components/living-in-slc/CallToAction.js'
+import CheckOutHousing from '../components/living-in-slc/CheckOutHousing.js'
 import { useStaticQuery, graphql } from "gatsby"
 
 
@@ -37,6 +38,7 @@ export default function LivingInSaltLake(){
       <StateFeatures />
       <Testimonial />
       <CallToAction />
+      <CheckOutHousing />
     </Layout>
   )
 }

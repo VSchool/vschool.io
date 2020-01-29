@@ -9,6 +9,10 @@ const Container = styled.div`
   background-position: center;
   background-color: ${gray.light};
  
+  @media (min-width: 320px) and (max-width: 414px){
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 
   @media(min-width: 600px){
     padding: 0 32px;
@@ -27,12 +31,13 @@ const Container = styled.div`
 
 const Image = styled.img`
   width: 100%;
+  display: block;
   height: auto;
-  margin-bottom: -88px;
+  margin: 0 auto -88px auto;
+  max-width: 848px;
 
   @media(min-width: 1200px){
-    width: 1000px;
-    margin: 0 auto -88px auto;
+    width: 848px
   }
 `
 
