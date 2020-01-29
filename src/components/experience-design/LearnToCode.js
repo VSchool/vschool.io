@@ -26,6 +26,10 @@ const H5 = styled.h5`
     line-height: 26px;
     padding-bottom: 16px;
 
+    @media(min-width: 300px) and (max-width: 380px){
+      font-size: 18px;
+    }
+
     @media (min-width: 900px) {
         margin-right: 16px;
         padding-bottom: 0;
@@ -57,6 +61,10 @@ const Button = styled.button`
         box-shadow: inset 1px 1px #eee9;
         border-top: 1px solid #eee9;
         border-left: 1px solid #eee9;
+    }
+
+    @media(min-width: 300px) and (max-width: 380px){
+      font-size: 12px;
     }
 `
 

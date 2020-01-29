@@ -10,6 +10,11 @@ const Container = styled.div`
   padding-left: 24px;
   padding-right: 24px;
 
+  @media (min-width: 320px) and (max-width: 415px){
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
   @media (min-width: 900px){
     display: flex;
     justify-content: center;
@@ -26,8 +31,10 @@ const CiteContainer = styled.div`
   margin-right: auto;
   margin-left: auto;
 
-  @media (min-width: 330px) and (max-width: 414px){
-    width: 315px;
+  @media (min-width: 320px) and (max-width: 415px){
+    width: 286px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   @media (min-width: 900px){
@@ -53,7 +60,7 @@ const H2 = styled.h2`
   font-weight: bold;	
   line-height: 36px;
 
-  @media (min-width: 330px) and (max-width: 414px){
+  @media (min-width: 320px) and (max-width: 415px){
     font-size: 28px;
   }
 
@@ -85,8 +92,9 @@ const FlexContainer = styled.div`
 const DustinImg = styled.img`
   border-bottom: 20px solid ${purple.base};
   margin-top: -24px;
+  width: 302px;
 
-  @media (min-width: 330px) and (max-width: 414px){
+  @media (min-width: 320px) and (max-width: 415px){
     width: 280px;
   }
 

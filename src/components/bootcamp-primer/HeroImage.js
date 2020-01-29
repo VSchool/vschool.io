@@ -40,6 +40,7 @@ const WhiteBlock = styled.div`
 const Image = styled.div`
     margin-top: -148px;
     background-image: url(${props => props.heroImg});
+    background-size: cover;
     position: relative;
     left: -300px;
     height: 530px;
