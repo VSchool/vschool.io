@@ -14,7 +14,7 @@ const H1 = styled.h1`
     font-weight: 900;
     line-height: 40px;
     text-align: center;
-    padding: 68px 24px 0px 24px;
+    padding: 96px 24px 0px 24px;
     margin: 0;
 
     @media (min-width: 600px) {
