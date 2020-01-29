@@ -93,6 +93,10 @@ const Button = styled.a`
       border-top: 1px solid #eee9;
       border-left: 1px solid #eee9;
     }
+
+    @media(min-width: 320px) and (max-width: 400px){
+      width: 290px;
+    }
 `
 
 function ContactUs() {

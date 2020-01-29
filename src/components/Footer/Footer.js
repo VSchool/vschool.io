@@ -18,6 +18,8 @@ const FooterContainer = styled.footer`
       padding: 32px;
       display: grid;
       grid-template-columns: 1fr 1fr;
+      width: 620px;
+      margin: 0 auto;
     }
 
     @media (min-width: 840px){
@@ -28,8 +30,8 @@ const FooterContainer = styled.footer`
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-
-      padding: 0 88px
+      width: 1114px;
+      margin: 0 auto;
     }
 `
 
