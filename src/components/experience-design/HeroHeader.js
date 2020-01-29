@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 const Container = styled.div`
   background-color: ${purple.lightest};
-  padding-top: 64px;
+  padding-top: 96px;
   padding-left: 24px;
   padding-right: 24px;
   padding-bottom: 80px;
@@ -128,6 +128,10 @@ const Button = styled.button`
     box-shadow: inset 1px 1px #eee9;
     border-top: 1px solid #eee9;
     border-left: 1px solid #eee9;
+  }
+
+  @media(min-width: 300px) and (max-width: 380px){
+    width: 286px;
   }
 
   @media (min-width: 1200px){
