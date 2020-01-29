@@ -5,15 +5,37 @@ import { Button } from "@vschool/lotus"
 
 import DesktopMenuItem from "./DesktopMenuItem"
 
-const Ul = styled.ul`
+const StyledLogoLink = styled(Link)`
+    height: 100%;
+    margin: 0;
+    margin-right: auto;
+`
+
+const Logo = styled.img`
+    display: none;
+    max-height: 100%;
+
+    @media (min-width: 1000px) {
+        display: inline;
+    }
+`
+
+const Container = styled.div`
     display: none;
 
     @media (min-width: 1000px) {
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        height: 32px;
         width: 100%;
+        height: 100%;
+    }
+`
+
+const Ul = styled.ul`
+    @media (min-width: 1000px) {
+        display: flex;
+        height: 32px;
 
         & > img {
             margin-right: auto;
@@ -44,6 +66,9 @@ function DesktopMenu(props) {
                         url
                         id
                     }
+                    logo {
+                        url
+                    }
                 }
             }
         }
@@ -53,23 +78,30 @@ function DesktopMenu(props) {
         nav,
         button_text: buttonText,
         button_link: { url: buttonLink },
+        logo,
     } = data.prismicNavigationBar.data
+    console.log(nav)
 
     const navItems = nav.map(item => (
-        <DesktopMenuItem key={item.id} data={item} />
+        <DesktopMenuItem key={item.primary.label.text} data={item} />
     ))
 
     return (
-        <Ul>
-            {navItems}
-            <ButtonContainer>
-                <Link to={buttonLink}>
-                    <ApplyButton buttonStyle="primary-dark" buttonSize="sm">
-                        {buttonText}
-                    </ApplyButton>
-                </Link>
-            </ButtonContainer>
-        </Ul>
+        <Container>
+            <StyledLogoLink to="/">
+                <Logo src={logo.url} />
+            </StyledLogoLink>
+            <Ul>
+                {navItems}
+                <ButtonContainer>
+                    <Link to={buttonLink}>
+                        <ApplyButton buttonStyle="primary-dark" buttonSize="sm">
+                            {buttonText}
+                        </ApplyButton>
+                    </Link>
+                </ButtonContainer>
+            </Ul>
+        </Container>
     )
 }
 
