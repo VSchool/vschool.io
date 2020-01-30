@@ -1,13 +1,17 @@
 import React from "react"
 import Layout from "../components/layout.js"
 import SEO from "../components/seo.js"
-import Header from '../components/living-in-slc/Header.js'
-import HeroImage from '../components/living-in-slc/HeroImage.js'
-import StateFeatures from '../components/living-in-slc/StateFeatures.js'
-import Testimonial from '../components/living-in-slc/Testimonial.js'
-import CallToAction from '../components/living-in-slc/CallToAction.js'
-import CheckOutHousing from '../components/living-in-slc/CheckOutHousing.js'
+import {
+  Header,
+  HeroImage,
+  StateFeatures,
+  Testimonial,
+  CheckOutHousing
+} from '../components/living-in-slc'
+
+import { MakeALeap } from '../components/shared'
 import { useStaticQuery, graphql } from "gatsby"
+import { blue } from "@vschool/lotus"
 
 
 export default function LivingInSaltLake(){
@@ -37,7 +41,9 @@ export default function LivingInSaltLake(){
       <HeroImage />
       <StateFeatures />
       <Testimonial />
-      <CallToAction />
+      <MakeALeap 
+        bgColor={blue.lightest}
+        sessionColor={blue.light}/>
       <CheckOutHousing />
     </Layout>
   )

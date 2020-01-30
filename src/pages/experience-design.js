@@ -4,7 +4,6 @@ import SEO from "../components/seo.js"
 import {
     AboutCourse,
     AsRealAsItGets,
-    CallToAction,
     CourseBullets,
     FAQ,
     HeroHeader,
@@ -16,7 +15,8 @@ import {
     Skills,
     Testimonial,
 } from "../components/experience-design"
-
+import MakeALeap from "../components/shared/MakeALeap.js"
+import { purple } from "@vschool/lotus"
 import { useStaticQuery, graphql } from "gatsby"
 
 const ExperienceDesignPage = () => {
@@ -59,7 +59,9 @@ const ExperienceDesignPage = () => {
             <Ratings />
             <ISA />
             <PaymentOptions />
-            <CallToAction />
+            <MakeALeap 
+                bgColor={purple.lightest}
+                sessionColor={purple.light}/>
             <LearnToCode />
             <FAQ />
         </Layout>
