@@ -1,7 +1,6 @@
 export {default as AboutCourse} from "./AboutCourse"
 export {default as AsRealAsItGets} from "./AsRealAsItGets"
 export {default as Bullet} from "./Bullet"
-export {default as CallToAction} from "./CallToAction"
 export {default as CourseBullets} from "./CourseBullets"
 export {default as DownloadSyllabus} from "./DownloadSyllabus"
 export {default as FAQ} from "./FAQ"
