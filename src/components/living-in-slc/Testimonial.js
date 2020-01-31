@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { gray, black, orange, blue } from "@vschool/lotus"
+import { gray, orange, blue } from "@vschool/lotus"
 import { graphql, useStaticQuery } from 'gatsby'
 
 

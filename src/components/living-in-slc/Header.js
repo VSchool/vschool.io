@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { purple, black, gray } from '@vschool/lotus'
+import { black, gray } from '@vschool/lotus'
 import { graphql, useStaticQuery } from 'gatsby'
 
 const Container = styled.div`
