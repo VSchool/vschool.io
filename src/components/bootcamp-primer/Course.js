@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { black, gray, orange } from "@vschool/lotus"
+import { black, gray, orange, Button } from "@vschool/lotus"
 
 const CourseContainer = styled.div`
     margin: 24px;
@@ -38,39 +38,15 @@ const H4 = styled.h4`
     font-weight: 800;
     line-height: 24px;
     margin-top: 16px;
+    margin-bottom: 24px;
 `
 
-const Button = styled.a`
+const StyledButton = styled(Button)`
     height: 42px;
     width: 138px;
-    border: 2px solid ${black};
-    background-color: #fbf9f7;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.25);
-    color: ${black};
     font-family: "aktiv-grotesk-extended";
-    font-size: 14px;
-    font-weight: bold;
-    letter-spacing: 0.43px;
-    line-height: 14px;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    margin-top: 24px;
-
-    :hover {
-        transform: translate(2px, 2px);
-        box-shadow: 2px 2px 0 0 rgba(100, 100, 100, 0.5);
-    }
-
-    :active {
-        transform: translate(4px, 4px);
-        box-shadow: inset 1px 1px #eee9;
-        border-top: 1px solid #eee9;
-        border-left: 1px solid #eee9;
-    }
+    font-weight: 800;
+    outline: none;
 `
 
 function Course({ course, course_info, course_link, startDates }) {
@@ -83,9 +59,16 @@ function Course({ course, course_info, course_link, startDates }) {
             <H3>{course.text}</H3>
             <P>{course_info.text}</P>
             <H4>{start_date}</H4>
-            <Button href={course_link.url} target="_blank">
+            <StyledButton
+                buttonStyle="primary-light"
+                type="button"
+                onClick={() => {
+                    window.location = course_link.url
+                }}
+                target="_blank"
+            >
                 Learn More
-            </Button>
+            </StyledButton>
         </CourseContainer>
     )
 }
