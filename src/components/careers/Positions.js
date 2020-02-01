@@ -20,6 +20,7 @@ const Container = styled.div`
         padding-left: 40px;
         padding-right: 40px;
         padding-bottom: 160px;
+        padding-top: 80px;
     }
 
     @media (min-width: 1200px) {
