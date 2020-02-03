@@ -120,7 +120,7 @@ const OrangeBall = styled.div`
     border-radius: 50%;
     background-color: ${orange.base};
     z-index: 4;
-    bottom: 151px;
+    bottom: 128px;
     left: 18px;
 
     @media (min-width: 600px) {
