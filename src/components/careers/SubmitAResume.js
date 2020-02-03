@@ -1,14 +1,13 @@
 import React from "react"
 import styled from "styled-components"
-import { gray, black, purple, Button } from "@vschool/lotus"
-import { useStaticQuery, graphql } from "gatsby"
+import { gray, black, Button } from "@vschool/lotus"
 
 const Container = styled.div`
-    background-color: ${purple.lightest};
+    background-color: ${gray.light};
     padding-top: 96px;
     padding-left: 24px;
     padding-right: 24px;
-    padding-bottom: 80px;
+    padding-bottom: 96px;
 
     @media (min-width: 600px) {
         padding-left: 32px;
@@ -20,6 +19,11 @@ const Container = styled.div`
         padding-right: 40px;
     }
 
+    @media (min-width: 1000px) {
+        padding-top: 160px;
+        padding-bottom: 160px;
+    }
+
     @media (min-width: 1200px) {
         padding-left: 88px;
         padding-right: 88px;
@@ -28,30 +32,34 @@ const Container = styled.div`
 
 const H1 = styled.h1`
     font-family: "aktiv-grotesk";
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 900;
-    line-height: 40px;
+    line-height: 38px;
     text-align: center;
     color: ${black};
     margin-bottom: 16px;
     width: 460px;
 
     @media (min-width: 600px) {
-        font-size: 40px;
+        font-size: 36px;
     }
 
     @media (min-width: 840px) {
-        font-size: 48px;
+        font-size: 40px;
         line-height: 48px;
         width: 600px;
     }
 
+    @media (min-width: 1000px) {
+        margin-bottom: 32px;
+    }
+
     @media (min-width: 1200px) {
-        font-size: 56px;
+        font-size: 44px;
         width: 946px;
         padding-left: 160px;
         padding-right: 160px;
-        line-height: 56px;
+        line-height: 48px;
     }
 `
 
@@ -59,7 +67,7 @@ const P = styled.p`
     color: ${gray.darker};
     font-family: "aktiv-grotesk";
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 24px;
     text-align: center;
     margin-bottom: 24px;
@@ -71,37 +79,19 @@ const P = styled.p`
         width: 600px;
     }
 
+    @media (min-width: 1000px) {
+        margin-bottom: 40px;
+    }
+
     @media (min-width: 1200px) {
         font-size: 20px;
         line-height: 28px;
-
         width: 598px;
     }
 `
 
-const H6 = styled.h6`
-    color: ${black};
-    font-family: "aktiv-grotesk-extended";
-    font-size: 14px;
-    line-height: 20px;
-    text-align: center;
-    padding: 0 8px;
-    margin-bottom: 32px;
-
-    @media (min-width: 840px) {
-        font-weight: 800;
-    }
-
-    @media (min-width: 1200px) {
-        padding-left: 160px;
-        padding-right: 160px;
-        font-size: 16px;
-        line-height: 24px;
-    }
-`
-
 const StyledButton = styled(Button)`
-    width: 318px;
+    width: 312px;
     font-family: "aktiv-grotesk-extended";
     font-weight: 800;
     outline: none;
@@ -115,7 +105,6 @@ const StyledButton = styled(Button)`
         letter-spacing: 1.14px;
         line-height: 24px;
         height: 56px;
-        width: 268px;
     }
 `
 
@@ -124,43 +113,8 @@ const FlexContainer = styled.div`
     justify-content: center;
 `
 
-function HeroHeader() {
-    const {
-        prismicXdPage: {
-            data: {
-                main_page_title: { text: title },
-                subtitle: { text: sub },
-                invite: { text: invite },
-                make_it_happen_link: { url: link },
-                make_it_happen_btn: { text: btnText },
-            },
-        },
-    } = useStaticQuery(graphql`
-        {
-            prismicXdPage(
-                data: { main_page_title: { text: {} }, subtitle: {} }
-            ) {
-                id
-                data {
-                    main_page_title {
-                        text
-                    }
-                    subtitle {
-                        text
-                    }
-                    invite {
-                        text
-                    }
-                    make_it_happen_link {
-                        url
-                    }
-                    make_it_happen_btn {
-                        text
-                    }
-                }
-            }
-        }
-    `)
+function SubmitAResume(props) {
+    const { title, sub, btnText, link } = props
     return (
         <Container>
             <FlexContainer>
@@ -169,7 +123,6 @@ function HeroHeader() {
             <FlexContainer>
                 <P>{sub}</P>
             </FlexContainer>
-            <H6>{invite}</H6>
             <FlexContainer>
                 <a href={link}>
                     <StyledButton buttonStyle="primary-dark">
@@ -181,4 +134,4 @@ function HeroHeader() {
     )
 }
 
-export default HeroHeader
+export default SubmitAResume

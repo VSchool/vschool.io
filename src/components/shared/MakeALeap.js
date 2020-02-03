@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
-import { purple, black, white, orange, gray, blue } from "@vschool/lotus"
+import { black, white, orange, Button } from "@vschool/lotus"
 
 const Container = styled.div`
     background-color: ${props => props.bgColor};
@@ -120,33 +120,12 @@ const FlexContainer = styled.div`
     align-items: center;
 `
 
-const Button = styled.button`
-    height: 48px;
+const StyledButton = styled(Button)`
     width: 318px;
-    color: ${white};
     font-family: "aktiv-grotesk-extended";
-    font-size: 14px;
     font-weight: 800;
-    letter-spacing: 1px;
-    line-height: 16px;
-    text-align: center;
-    border: 2px solid ${black};
-    background-color: ${gray.darker};
-    box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.2);
     outline: none;
-
-    :hover {
-        transform: translate(2px, 2px);
-        box-shadow: 2px 2px 0 0 rgba(100, 100, 100, 0.5);
-    }
-
-    :active {
-        transform: translate(4px, 4px);
-        box-shadow: inset 1px 1px #eee9;
-        border-top: 1px solid #eee9;
-        border-left: 1px solid #eee9;
-    }
-
+    
     @media (min-width: 320px) and (max-width: 400px) {
         width: 302px;
     }
@@ -228,7 +207,9 @@ export default function CallToAction({ bgColor, sessionColor }) {
             <Options>{sub}</Options>
             <FlexContainer>
                 <a href={link}>
-                    <Button>{btnText}</Button>
+                    <StyledButton buttonStyle="primary-dark">
+                        {btnText}
+                    </StyledButton>
                 </a>
             </FlexContainer>
         </Container>
