@@ -5,22 +5,24 @@ import { useStaticQuery, graphql } from "gatsby"
 
 const Container = styled.div`
     background-color: ${purple.lightest};
-    padding-top: 96px;
+    padding-top: 64px;
     padding-left: 24px;
     padding-right: 24px;
-    padding-bottom: 80px;
+    padding-bottom: 64px;
 
-    @media (min-width: 600px) {
-        padding-left: 32px;
+    @media (min-width: 600px){
+        padding-left: 32px; 
         padding-right: 32px;
     }
 
-    @media (min-width: 840px) {
+    @media (min-width: 840px){
         padding-left: 40px;
         padding-right: 40px;
+        padding-bottom: 96px;
+        padding-top: 96px;
     }
 
-    @media (min-width: 1200px) {
+    @media (min-width: 1200px){
         padding-left: 88px;
         padding-right: 88px;
     }
