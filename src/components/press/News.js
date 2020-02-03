@@ -11,13 +11,13 @@ const Container = styled.div`
     padding-bottom: 48px;
 
     @media (min-width: 600px) {
-        padding-left: 32px;
-        padding-right: 32px;
+        padding-left: 44px;
+        padding-right: 44px;
     }
 
     @media (min-width: 840px) {
-        padding-left: 40px;
-        padding-right: 40px;
+        padding-left: 88px;
+        padding-right: 88px;
         padding-bottom: 96px;
         padding-top: 88px;
     }
@@ -50,6 +50,7 @@ const H1 = styled.h1`
 
 const NewsContainer = styled.div`
     padding-bottom: 96px;
+    
 
     @media (min-width: 1200px) {
         width: 1130px;
