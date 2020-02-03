@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from "styled-components"
-import { gray } from '@vschool/lotus'
+import { gray, black, blue } from '@vschool/lotus'
 
 const Container = styled.div`
   width: 366px;
@@ -45,7 +45,7 @@ const TextContainer = styled.div`
   right: 0;
   width: 95%;
 	height: 148px;
-	border: 2px solid #D8D3D0;
+	border: 2px solid ${gray.base};
 	background-color: ${gray.lightest};
   padding: 24px;
 
@@ -55,7 +55,7 @@ const TextContainer = styled.div`
 `
 
 const H4 = styled.h4`
-	color: #21201F;
+	color: ${black};
 	font-family: "aktiv-grotesk";
 	font-size: 20px;
   font-weight: 800;
@@ -66,7 +66,7 @@ const H4 = styled.h4`
 `
 
 const P = styled.p`
-	color: #514F4B;
+	color: ${gray.darker};
 	font-family: "aktiv-grotesk";
 	font-size: 14px;
 	font-weight: 500;
@@ -75,12 +75,13 @@ const P = styled.p`
 
 const Anchor = styled.a`
   margin-top: 24px;
-	color: #456AE2;
+	color: ${blue.base};
 	font-family: "aktiv-grotesk-extended";
 	font-size: 14px;
   display: inline-block;
   text-decoration: none;
   font-weight: 800;
+  letter-spacing: 1px;
 `
 
 
