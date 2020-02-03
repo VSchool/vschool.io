@@ -31,14 +31,6 @@ const H3 = styled.h3`
       font-size: 18px;
     }
 
-    @media (min-width: 600px){
-
-    }
-
-    @media (min-width: 840px){
-
-    }
-
     @media (min-width: 1200px){
       margin: 0 auto;
     }
@@ -55,14 +47,6 @@ const P = styled.p`
 
   @media(max-width: 415px){
     font-size: 14px;
-  }
-
-  @media (min-width: 600px){
-
-  }
-
-  @media (min-width: 840px){
-
   }
 
   @media (min-width: 1200px){
