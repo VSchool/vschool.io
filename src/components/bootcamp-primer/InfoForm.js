@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import { blue, white, black, } from "@vschool/lotus"
+import { blue, white, black, Button } from "@vschool/lotus"
 import MailchimpSubscribe from "react-mailchimp-subscribe"
 
 const FormContainer = styled.div`
@@ -107,38 +107,11 @@ const Input = styled.input`
     }
 `
 
-const Button = styled.button`
-  height: 48px;	
-  width: 318px;
-  color: ${white};	
-  font-family: "aktiv-grotesk-extended";	
-  font-size: 14px;	
-  font-weight: bold;	
-  letter-spacing: 1px;	
-  line-height: 18px;	
-  text-align: center;
-  border: 2px solid ${black};	
-  background-color: ${black};
-  margin: 0 auto;
-  box-shadow: 4px 4px 0 0 rgba(0,0,0,0.2);
-  outline: none;
-  cursor: pointer;
-
-  :hover {
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0 0 rgba(100,100,100, 0.5);
-  }
-
-  :active {
-    transform: translate(4px, 4px);
-    box-shadow: inset 1px 1px #eee9;
-    border-top: 1px solid #eee9;
-    border-left: 1px solid #eee9;
-  }
-
-    @media (max-width: 360px) {
-        width: 280px;
-    }
+const StyledButton = styled(Button)`
+    width: 300px;
+    color: ${white};
+    border: 2px solid ${black};
+    background-color: ${black};
 
     @media (min-width: 600px) {
         width: 350px;
@@ -149,8 +122,7 @@ const Button = styled.button`
     }
 
     @media (min-width: 960px) {
-        width: 400px;
-        margin-left: 8px;
+        width: 224px;
     }
 `
 
@@ -165,12 +137,12 @@ function InfoForm() {
     const initInputs = { NAME: "", EMAIL: "" }
     const [inputs, setInputs] = useState(initInputs)
 
-    function handleChange(e){
-      const {name, value} = e.target
-      setInputs(prev => ({
-        ...prev,
-        [name]: value
-      }))
+    function handleChange(e) {
+        const { name, value } = e.target
+        setInputs(prev => ({
+            ...prev,
+            [name]: value,
+        }))
     }
 
     function redirectTo(url) {
@@ -197,11 +169,12 @@ function InfoForm() {
                         {status === "error" && (
                             <ErrorMsg>
                                 <div style={{ color: "#BF6B1C" }}>
-                                    There seems to have been a problem. Please try a different email address.
+                                    There seems to have been a problem. Please
+                                    try a different email address.
                                 </div>
                             </ErrorMsg>
                         )}
-                        { status === "success" &&
+                        {status === "success" &&
                             redirectTo("https://scrimba.com/g/gbootcampprimer")}
                         <Form
                             onSubmit={e => {
@@ -213,21 +186,23 @@ function InfoForm() {
                                 Name
                                 <Input
                                     placeholder="Name"
-                                    onChange={ handleChange }
+                                    onChange={handleChange}
                                     name="NAME"
-                                    value={ inputs.NAME }
+                                    value={inputs.NAME}
                                 />
                             </Label>
                             <Label htmlfor="EMAIL">
                                 Email
                                 <Input
                                     placeholder="Email"
-                                    onChange={ handleChange }
+                                    onChange={handleChange}
                                     name="EMAIL"
-                                    value={ inputs.EMAIL }
+                                    value={inputs.EMAIL}
                                 />
                             </Label>
-                            <Button>{ msg }</Button>
+                            <StyledButton>
+                                {msg}
+                            </StyledButton>
                         </Form>
                     </FormContainer>
                 )

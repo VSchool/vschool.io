@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import {} from "@vschool/lotus"
+import { Button } from "@vschool/lotus"
 import MailchimpSubscribe from "react-mailchimp-subscribe"
 
 const Header = styled.h3`
@@ -17,7 +17,11 @@ const Header = styled.h3`
 `
 
 const Form = styled.form`
-
+    @media(min-width: 600px){
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 `
 
 const Input = styled.input`
@@ -45,38 +49,12 @@ const Input = styled.input`
 
 const Label = styled.label``
 
-const Button = styled.button`
+const StyledButton = styled(Button)`
     height: 40px;
     width: 100%;
     border: 2px solid #a09c96;
-    background-color: #0000;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    cursor: pointer;
-    color: #ffffff;
-    font-family: "aktiv-grotesk";
     font-size: 12px;
-    font-weight: bold;
-    letter-spacing: 0.86px;
-    line-height: 16px;
-    text-align: center;
-    box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.25);
-
-    :hover {
-        transform: translate(2px, 2px);
-        box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.25);
-    }
-
-    :active {
-        transform: translate(4px, 4px);
-        box-shadow: inset 1px 1px #eee9;
-        border-top: 1px solid #eee9;
-        border-left: 1px solid #eee9;
-    }
-
+   
     @media(min-width: 450px){
         width: 366px;
     }
@@ -108,16 +86,6 @@ export default function SubscribeForm(props) {
             <MailchimpSubscribe
                 url={url}
                 render={({ subscribe, status, message }) => {
-                    {
-                        /* let msg
-                    if (status === "sending") {
-                        msg = "Loading..."
-                    } else if (status === "success") {
-                        msg = "Redirecting..."
-                    } else {
-                        msg = "Begin Free Course"
-                    } */
-                    }
                     return (
                         <>
                             {status === "error" && (
@@ -143,7 +111,7 @@ export default function SubscribeForm(props) {
                                         placeholder={placeholder}
                                     />
                                 </Label>
-                                <Button>{btnText}</Button>
+                                <StyledButton buttonStyle="secondary-light">{btnText}</StyledButton>
                             </Form>
                         </>
                     )

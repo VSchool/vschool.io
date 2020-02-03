@@ -46,11 +46,6 @@ const FooterSection = styled.div`
 
 const FormContainer = styled.div`
     @media(min-width: 600px){
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    @media (min-width: 600px){
       grid-column: 1 / -1;
     }
 `
@@ -219,26 +214,26 @@ const Footer = () => {
                 <Header>{ programsHeader }</Header>
                 {
                     startDates.map(({node: {data}}) => (
-                        <CourseContainer>
+                        <CourseContainer key={data.course_name.text}>
                             <CourseTitle>{ data.course_name.text }</CourseTitle>
                             <StartDate>Starts { data.start_date }</StartDate>
                         </CourseContainer>
                     ))
                 }
             </FooterSection>
-            { footerSections.map(({primary, items}) => (
-                    <FooterSection>
+            { footerSections.map(({primary, items}, i) => (
+                    <FooterSection key={primary.footer_header.text + i}>
                         <Header>{ primary.footer_header.text }</Header>
-                        { items.map(item => item.footer_link.url[0] === "h" ?
+                        { items.map((item, j)=> item.footer_link.url[0] === "h" ?
                                 <Anchor
-                                    key={item.footer_link.url}
+                                    key={item.footer_link.text + j}
                                     href={ item.footer_link.url }>
                                     { item.footer_link_text.text }
                                 </Anchor>
                             :
                                 <SLink 
                                   to={ item.footer_link.url }
-                                  key={item.footer_link.url}>
+                                  key={item.footer_link.url + j}>
                                     { item.footer_link_text.text }
                                 </SLink>
                             )

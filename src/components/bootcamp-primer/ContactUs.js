@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
-import { blue, black, gray, white } from "@vschool/lotus"
+import { blue, black, gray, Button } from "@vschool/lotus"
 
 const Container = styled.div`
     height: 352px;
@@ -63,87 +63,61 @@ const P = styled.p`
     }
 `
 
-const Button = styled.a`
-    height: 48px;
+const StyledButton = styled(Button)`
     width: 318px;
-    border: 2px solid ${black};
-    background-color: ${white};
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    cursor: pointer;
-    color: ${black};
-    font-family: "aktiv-grotesk-extended";
     font-size: 16px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    line-height: 18px;
-    box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.25);
+    font-family: "aktiv-grotesk-extended";
+    font-weight: 700;
+    outline: none;
 
-    :hover {
-      transform: translate(2px, 2px);
-      box-shadow: 2px 2px 0 0 rgba(100,100,100, 0.5);
-    }
-
-    :active {
-      transform: translate(4px, 4px);
-      box-shadow: inset 1px 1px #eee9;
-      border-top: 1px solid #eee9;
-      border-left: 1px solid #eee9;
-    }
-
-    @media(min-width: 320px) and (max-width: 400px){
-      width: 290px;
+    @media (min-width: 320px) and (max-width: 400px) {
+        width: 290px;
     }
 `
 
 function ContactUs() {
-  const {
-    prismicBootcampPrimer: {
-      data: {
-        contact_us_title: {
-          text: title
+    const {
+        prismicBootcampPrimer: {
+            data: {
+                contact_us_title: { text: title },
+                contact_us_sub: { text: sub },
+                contact_us_btn: { text: btnText },
+                contact_us_link: { url: link },
+            },
         },
-        contact_us_sub: {
-          text: sub
-        },
-        contact_us_btn: {
-          text: btnText
-        },
-        contact_us_link: {
-          url: link
+    } = useStaticQuery(graphql`
+        {
+            prismicBootcampPrimer {
+                data {
+                    contact_us_title {
+                        text
+                    }
+                    contact_us_sub {
+                        text
+                    }
+                    contact_us_link {
+                        url
+                    }
+                    contact_us_btn {
+                        text
+                    }
+                }
+            }
         }
-      }
-    }
-  } = useStaticQuery(graphql`
-    {
-      prismicBootcampPrimer {
-        data {
-          contact_us_title {
-            text
-          }
-          contact_us_sub {
-            text
-          }
-          contact_us_link {
-            url
-          }
-          contact_us_btn {
-            text
-          }
-        }
-      }
-    }
-  `)
+    `)
     return (
         <Container>
-            <H1>{ title }</H1>
-            <P>{ sub }</P>
-            <Button href={ link }>
-                { btnText }
-            </Button>
+            <H1>{title}</H1>
+            <P>{sub}</P>
+            <StyledButton
+                buttonStyle="primary-light"
+                type="button"
+                onClick={() => {
+                    window.location = link
+                }}
+            >
+                {btnText}
+            </StyledButton>
         </Container>
     )
 }
