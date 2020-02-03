@@ -80,12 +80,9 @@ const StyledButton = styled(Button)`
 `
 
 function MobileSubMenu() {
-    const {
-        subMenuOpen,
-        toggleMainMenu,
-        toggleSubMenu,
-        chosenSubMenu,
-    } = useContext(NavbarContext)
+    const { subMenuOpen, toggleSubMenu, chosenSubMenu } = useContext(
+        NavbarContext
+    )
 
     const menuAnimation = useMenuAnimation(subMenuOpen)
 
