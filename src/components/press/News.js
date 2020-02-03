@@ -5,7 +5,7 @@ import { gray, black, Button, blue } from "@vschool/lotus"
 
 const Container = styled.div`
     background-color: ${gray.lightest};
-    padding-top: 64px;
+    padding-top: 32px;
     padding-left: 24px;
     padding-right: 24px;
     padding-bottom: 48px;
@@ -19,7 +19,7 @@ const Container = styled.div`
         padding-left: 40px;
         padding-right: 40px;
         padding-bottom: 96px;
-        padding-top: 96px;
+        padding-top: 88px;
     }
 
     @media (min-width: 1200px) {
