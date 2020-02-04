@@ -40,6 +40,13 @@ module.exports = {
                 linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
             },
         },
+        {
+            resolve: `gatsby-source-ghost`,
+            options: {
+                apiUrl: `https://blog.vschool.io`,
+                contentApiKey: `7a801b092a229eef5613c5494e`,
+            },
+        },
         // this (optional) plugin enables Progressive Web App + Offline functionality
         // To learn more, visit: https://gatsby.dev/offline
         // `gatsby-plugin-offline`,
