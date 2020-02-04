@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { black, gray } from '@vschool/lotus'
-import { graphql, useStaticQuery } from 'gatsby'
 
 const Container = styled.div`
   background-color: ${gray.light};
@@ -18,7 +17,7 @@ const Container = styled.div`
   @media (min-width: 840px){
     padding-left: 40px;
     padding-right: 40px;
-    padding-bottom: 96px;
+    padding-bottom: 64px;
     padding-top: 96px;
   }
 
@@ -65,7 +64,7 @@ const P = styled.p`
   color: ${gray.darker};	
   font-family: "aktiv-grotesk";	
   font-size: 16px;	
-  font-weight: 500;	
+  font-weight: 400;	
   line-height: 24px;	
   text-align: center;
   margin-bottom: 24px;
@@ -81,36 +80,15 @@ const P = styled.p`
     font-size: 20px;
     line-height: 28px;
    
-    width: 598px;
+    width: 800px;
   }
 `
 
-export default function Header(){
-  const { 
-    prismicLivingInSaltLake: {
-      data: {
-        header: {
-          text: header
-        },
-        sub_header: {
-          text: subHeader
-        }
-      }
-    }
-  } = useStaticQuery(graphql`
-  {
-    prismicLivingInSaltLake {
-      data {
-        header {
-          text
-        },
-        sub_header {
-          text
-        }
-      }
-    }
-  }
-`)
+export default function Header(props){
+  const {
+    header,
+    subHeader
+  } = props
   return (
     <Container>
       <FlexContainer>
