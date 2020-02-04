@@ -25,6 +25,7 @@ const Container = styled.div`
     @media (min-width: 1200px) {
         padding-left: 88px;
         padding-right: 88px;
+        padding-top: 56px;
     }
 `
 

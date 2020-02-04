@@ -9,12 +9,12 @@ const Container = styled.div`
   background-color: transparent;
   margin-bottom: 32px;
 
-  @media(max-width: 415px){
+  @media(max-width: 400px){
     width: 286px;
   }
 
   @media(min-width: 1200px){
-    margin: 0 8px;
+    margin: 32px 8px;
   }
 `
 
@@ -32,8 +32,8 @@ const OverlayImg = styled.img`
   right: 65px;
   top: 24px;
 
-  @media(max-width: 415px){
-    right: 48px;
+  @media(max-width: 400px){
+    right: 40px;
     height: 112px;
     top: 32px;
   }
@@ -49,7 +49,7 @@ const TextContainer = styled.div`
 	background-color: ${gray.lightest};
   padding: 24px;
 
-  @media(max-width: 415px){
+  @media(max-width: 400px){
     padding: 16px;
   }
 `
@@ -60,7 +60,7 @@ const H4 = styled.h4`
 	font-size: 20px;
   font-weight: 800;
 
-  @media(max-width: 415px){
+  @media(max-width: 400px){
     font-size: 18px;
   }
 `
