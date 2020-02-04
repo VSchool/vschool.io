@@ -50,6 +50,7 @@ const Button = styled.button`
     background-color: ${gray.lighter};
     box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.2);
     outline: none;
+    cursor: pointer;
 
     :hover {
         transform: translate(2px, 2px);
