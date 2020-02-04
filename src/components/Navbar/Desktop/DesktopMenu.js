@@ -80,7 +80,6 @@ function DesktopMenu(props) {
         button_link: { url: buttonLink },
         logo,
     } = data.prismicNavigationBar.data
-    console.log(nav)
 
     const navItems = nav.map(item => (
         <DesktopMenuItem key={item.primary.label.text} data={item} />

@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { useStaticQuery, Link } from "gatsby"
+import { useStaticQuery, Link, graphql } from "gatsby"
 import styled from "styled-components"
 
 import { NavbarContext } from "../navbarContext"
@@ -35,11 +35,9 @@ const MobileLogo = styled.img`
 `
 
 function MobileMenu(props) {
-    const {
-        mainMenuOpen,
-        toggleMainMenu,
-        toggleSubMenu,
-    } = useContext(NavbarContext)
+    const { mainMenuOpen, toggleMainMenu, toggleSubMenu } = useContext(
+        NavbarContext
+    )
 
     function toggleBothMenus() {
         toggleMainMenu()
@@ -65,19 +63,20 @@ function MobileMenu(props) {
         }
     `)
 
-    const {
-        nav,
-        mobile_logo: mobileLogo,
-    } = data.prismicNavigationBar.data
+    const { nav, mobile_logo: mobileLogo } = data.prismicNavigationBar.data
 
     return (
         <Menu>
             <StyledLogoLink to="/">
                 <MobileLogo src={mobileLogo.url} />
             </StyledLogoLink>
-            <MobileButton toggleMainMenu={toggleMainMenu} toggleBothMenus={toggleBothMenus} open={mainMenuOpen} />
+            <MobileButton
+                toggleMainMenu={toggleMainMenu}
+                toggleBothMenus={toggleBothMenus}
+                open={mainMenuOpen}
+            />
             <MobilePrimaryMenu open={mainMenuOpen} items={nav} />
-            <MobileSubMenu items={[]}/>
+            <MobileSubMenu items={[]} />
         </Menu>
     )
 }

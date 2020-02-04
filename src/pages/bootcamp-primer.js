@@ -1,6 +1,6 @@
 import React from "react"
-import Layout from "../components/layout.js"
-import SEO from "../components/seo.js"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 import {
     AboutPrimer,
     ContactUs,

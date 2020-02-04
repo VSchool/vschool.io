@@ -15,6 +15,7 @@
     "gatsby-plugin-sharp": "^2.4.4",
     "gatsby-plugin-styled-components": "^3.1.18",
     "gatsby-source-filesystem": "^2.1.47",
+    "gatsby-source-ghost": "^4.0.3",
     "gatsby-source-prismic": "^2.3.0-alpha.3",
     "gatsby-transformer-sharp": "^2.3.13",
     "prop-types": "^15.7.2",
