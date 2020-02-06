@@ -10,7 +10,7 @@ const CourseContainer = styled.div`
     background-color: ${white};
     border: 2px solid ${gray.base};
 
-    @media (min-width: 400px) {
+    @media (min-width: 500px) {
         padding: 32px;
         width: 438px;
     }

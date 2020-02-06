@@ -73,6 +73,10 @@ const RatingsContainer = styled.div`
   padding-bottom: 32px;
   margin-top: -48px;
 
+  @media(min-width: 400px){
+    width: 350px;
+  }
+
   @media(min-width: 500px){
     width: 400px;
   }
@@ -101,7 +105,7 @@ const Image = styled.img`
   max-width: 230px;
   margin: 16px 0;
 
-  @media(min-width: 500px){
+  @media(min-width: 400px){
     max-width: 280px;
   }
 
