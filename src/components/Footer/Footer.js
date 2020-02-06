@@ -15,7 +15,7 @@ const FooterContainer = styled.div`
     padding: 0 24px;
 
     @media (min-width: 600px){
-      padding: 32px;
+      padding: 32px 0;
       display: grid;
       grid-template-columns: 1fr 1fr;
       width: 620px;
@@ -23,7 +23,7 @@ const FooterContainer = styled.div`
     }
 
     @media (min-width: 840px){
-      padding: 40px;
+      padding: 40px 0;
     }
 
     @media(min-width: 1200px){
@@ -126,6 +126,11 @@ const SLink = styled(Link)`
     }
 `
 
+const CourseLink = styled(Link)`
+    text-decoration: none;
+`
+
+
 const Footer = () => {
     const {
         prismicFooter: {
@@ -214,10 +219,12 @@ const Footer = () => {
                 <Header>{ programsHeader }</Header>
                 {
                     startDates.map(({node: {data}}) => (
+                      <CourseLink to={data.course_name.text === "Experience Design" ? "/experience-design" : "/development"}>
                         <CourseContainer key={data.course_name.text}>
                             <CourseTitle>{ data.course_name.text }</CourseTitle>
                             <StartDate>Starts { data.start_date }</StartDate>
                         </CourseContainer>
+                      </CourseLink>
                     ))
                 }
             </FooterSection>
