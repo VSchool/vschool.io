@@ -199,6 +199,7 @@ export default function CallToAction({ bgColor, sessionColor }) {
             }
         }
     `)
+    let devDate = startDates[0].node.data.course_name.text === "Experience Design" ? startDates[1].node.data.start_date : startDates[0].node.data.start_date
     return (
         <Container bgColor={bgColor}>
             <H1>{title}</H1>
@@ -206,7 +207,7 @@ export default function CallToAction({ bgColor, sessionColor }) {
                 <NextSession>
                     <SessionHeader>{nextSessionTitle}:</SessionHeader>
                     <SessionDate>
-                        {startDates[1].node.data.start_date}
+                        {devDate}
                     </SessionDate>
                 </NextSession>
             </SessionContainer>
