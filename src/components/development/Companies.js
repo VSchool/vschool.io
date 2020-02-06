@@ -1,13 +1,16 @@
 import React from "react"
 import styled from "styled-components"
-import { gray, black } from "@vschool/lotus"
+import { black, orange } from "@vschool/lotus"
 
 const Container = styled.div`
-    background-color: ${gray.lighter};
+    background-color: ${orange.lightest};
     padding: 24px;
     display: flex;
     flex-direction: column;
     align-items:center;
+    padding-top: 160px;
+    position: relative;
+    z-index: 1;
 
     @media (max-width: 400px) {
         padding-left: 16px;
@@ -19,10 +22,7 @@ const Container = styled.div`
         padding-right: 48px;
     }
 
-    @media (min-width: 1100px) {
-        padding-top: 64px;
-    }
-
+ 
     @media (min-width: 1200px) {
         padding-right: 96px;
         padding-left: 96px;
@@ -52,7 +52,7 @@ const H4 = styled.h4`
 `
 
 const LogoListContainer = styled.div`
-    background-color: ${gray.lighter};
+    background-color: ${orange.lightest};
     display: flex;
 
     @media(min-width: 1050px){
@@ -108,25 +108,25 @@ const LogoContainer = styled.div`
 const Logo = styled.img`
   width: ${props => props.i === 0 ? 40 : 64}px;
 
-  @media(min-width: 400px){
-    width: ${props => props.i === 0 ? 40 : 72}px;
-  }
+@media(min-width: 400px){
+  width: ${props => props.i === 0 ? 40 : 72}px;
+}
 
-  @media(min-width: 500px){
-    width: ${props => props.i === 0 ? 40 : 80}px;
-  }
+@media(min-width: 500px){
+  width: ${props => props.i === 0 ? 40 : 80}px;
+}
 
-  @media(min-width: 600px){
-    width: ${props => props.i === 0 ? 40 : 88}px;
-  }
+@media(min-width: 600px){
+  width: ${props => props.i === 0 ? 40 : 88}px;
+}
 
-  @media(min-width: 700px){
-    width: ${props => props.i === 0 ? 40 : 96}px;
-  }
+@media(min-width: 700px){
+  width: ${props => props.i === 0 ? 40 : 96}px;
+}
 
-  @media(min-width: 840px){
-    width: ${props => props.i === 0 ? 40 : 104}px;
-  }
+@media(min-width: 840px){
+  width: ${props => props.i === 0 ? 40 : 104}px;
+}
 
 
 `
@@ -138,13 +138,10 @@ export default function Companies(props) {
             <H4>{header}</H4>
             <LogoListContainer>
               <LogoList>
-                {logos.slice(0, 6).map(({logo}, i) => <LogoContainer key={logo.url}><Logo i={i} src={logo.url}/></LogoContainer>)}
+                {logos.slice(0, 6).map(({logo}, i) => <LogoContainer key={logo.url }><Logo i={i} src={logo.url}/></LogoContainer>)}
               </LogoList>
               <LogoList>
-                {logos.slice(6, 11).map(({logo}, i) => <LogoContainer key={logo.url}><Logo src={logo.url}/></LogoContainer>)}
-              </LogoList>
-              <LogoList>
-                {logos.slice(11).map(({logo}, i) => <LogoContainer key={logo.url}><Logo src={logo.url}/></LogoContainer>)}
+                {logos.slice(6).map(({logo}, i) => <LogoContainer key={logo.url}><Logo src={logo.url}/></LogoContainer>)}
               </LogoList>
             </LogoListContainer>
         </Container>
