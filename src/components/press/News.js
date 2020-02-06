@@ -103,7 +103,7 @@ export default function News(props) {
                       "Full stack Instructor (Full Time) - Salt Lake City",
                       "Full stack Instructor (Full Time) - Salt Lake City",
                   ].map(pos => (
-                      <Anchor key={pos}>{pos}</Anchor>
+                      <Anchor to="/" key={pos}>{pos}</Anchor>
                   ))}
                 </Links>
                 <StyledButton buttonStyle="primary-light">
