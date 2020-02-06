@@ -1,9 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 import { AccordionGroup, Accordion, gray, black } from "@vschool/lotus"
-import { graphql, useStaticQuery } from "gatsby"
 
 const Container = styled.div`
+    background-color: ${gray.lighter};
     padding-left: 24px;
     padding-right: 24px;
     padding-bottom: 96px;
