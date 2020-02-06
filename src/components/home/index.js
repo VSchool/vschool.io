@@ -1,0 +1,8 @@
+export {default as HeroHeader} from "./HeroHeader.js"
+export {default as HeroImage} from "./HeroImage.js"
+export {default as Courses} from "./Courses.js"
+export {default as Companies} from "./Companies.js"
+export {default as Ratings} from "./Ratings.js"
+export {default as Differences} from "./Differences.js"
+export {default as Testimonial} from "./Testimonial.js"
+export {default as MakeALeap} from "./MakeALeap.js"
