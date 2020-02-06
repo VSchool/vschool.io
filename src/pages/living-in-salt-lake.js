@@ -9,7 +9,7 @@ import {
   CheckOutHousing
 } from '../components/living-in-slc'
 
-import { MakeALeap } from '../components/shared'
+import { MakeALeap } from '../components/development'
 import { useStaticQuery, graphql } from "gatsby"
 import { blue } from "@vschool/lotus"
 

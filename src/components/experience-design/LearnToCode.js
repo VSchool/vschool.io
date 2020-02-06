@@ -10,7 +10,6 @@ const FlexContainer = styled.div`
     background-color: ${purple.lighter};
     padding-top: 24px;
     padding-bottom: 24px;
-    margin-bottom: 80px;
 
     @media (min-width: 900px) {
         flex-direction: row;

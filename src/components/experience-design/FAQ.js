@@ -4,25 +4,23 @@ import { AccordionGroup, Accordion, gray, black } from "@vschool/lotus"
 import { graphql, useStaticQuery } from "gatsby"
 
 const Container = styled.div`
+    background-color: ${gray.lighter};
     padding-left: 24px;
     padding-right: 24px;
-    padding-bottom: 56px;
+    padding-bottom: 96px;
+    padding-top: 96px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     @media (min-width: 600px) {
-        padding: 0 44px;
-        padding-bottom: 56px;
-    }
-
-    @media (min-width: 900px) {
-        width: 672px;
-        margin-right: auto;
-        margin-left: auto;
-        padding-bottom: 56px;
+        padding-left: 44px;
+        padding-right: 44px;
     }
 
     @media (min-width: 1200px) {
-        padding: 0 88px;
-        padding-bottom: 56px;
+        padding-top: 160px;
+        padding-bottom: 160px;
     }
 `
 
@@ -62,6 +60,9 @@ function FAQ(props) {
         lineHeight: 28,
         paddingRight: 24,
         whiteSpace: "pre-wrap",
+        backgroundColor: gray.lighter,
+        width: "100%",
+        maxWidth: 672
     }
     const {
         prismicXdPage: {

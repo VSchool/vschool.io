@@ -8,16 +8,13 @@ const Container = styled.div`
     padding-right: 24px;
     padding-bottom: 96px;
     padding-top: 96px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     @media (min-width: 600px) {
         padding-left: 44px;
         padding-right: 44px;
-    }
-
-    @media (min-width: 900px) {
-        width: 672px;
-        margin-right: auto;
-        margin-left: auto;
     }
 
     @media (min-width: 1200px) {
@@ -63,6 +60,9 @@ function FAQ(props) {
         lineHeight: 28,
         paddingRight: 24,
         whiteSpace: "pre-wrap",
+        backgroundColor: gray.lighter,
+        width: "100%",
+        maxWidth: 672
     }
     return (
         <Container>
