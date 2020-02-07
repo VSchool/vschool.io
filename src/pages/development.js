@@ -16,7 +16,7 @@ import {
     PaymentOptions,
     MakeALeap,
     FAQ,
-    LearnDesign
+    LearnDesign,
 } from "../components/development"
 
 export default function Development({ data }) {
@@ -33,12 +33,12 @@ export default function Development({ data }) {
         about_course_sub: { text: aboutSub },
         where_we_work_header: { text: companiesHeader },
         ratings_header: { text: ratingsHeader },
-        testimonial: {text: testimonial},
-        testimonial_cite: {text: cite},
-        testimonial_img: {url: testimonialImg},
-        learn_design_link: {url: learnDesignLink},
-        learn_design_btn: {text: learnDesignBtn},
-        learn_design: {text: learnDesignTitle},
+        testimonial: { text: testimonial },
+        testimonial_cite: { text: cite },
+        testimonial_img: { url: testimonialImg },
+        learn_design_link: { url: learnDesignLink },
+        learn_design_btn: { text: learnDesignBtn },
+        learn_design: { text: learnDesignTitle },
         faq,
         company_logos,
         modules,
@@ -65,12 +65,20 @@ export default function Development({ data }) {
             <CourseBullets bullets={course_bullets} />
             <Companies header={companiesHeader} logos={company_logos} />
             <Ratings header={ratingsHeader} ratings={rating_images} />
-            <Testimonial testimonial={testimonial} cite={cite} testimonialImg={testimonialImg}/>
+            <Testimonial
+                testimonial={testimonial}
+                cite={cite}
+                testimonialImg={testimonialImg}
+            />
             <ISA />
             <PaymentOptions />
-            <MakeALeap sessionColor={blue.light} bgColor={blue.lightest}/>
-            <LearnDesign title={learnDesignTitle} link={learnDesignLink} btnText={learnDesignBtn}/>
-            <FAQ faq={faq}/>
+            <MakeALeap sessionColor={blue.light} bgColor={blue.lightest} />
+            <LearnDesign
+                title={learnDesignTitle}
+                link={learnDesignLink}
+                btnText={learnDesignBtn}
+            />
+            <FAQ faq={faq} />
         </Layout>
     )
 }
@@ -166,21 +174,21 @@ export const query = graphql`
                     url
                 }
                 faq {
-                  faq_info {
-                    text
-                  }
-                  faq_title {
-                    text
-                  }
+                    faq_info {
+                        text
+                    }
+                    faq_title {
+                        text
+                    }
                 }
                 learn_design_link {
-                  url
+                    url
                 }
                 learn_design_btn {
-                  text
+                    text
                 }
                 learn_design {
-                  text
+                    text
                 }
             }
         }
