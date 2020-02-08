@@ -88,6 +88,7 @@ const H4 = styled.h4`
 const FlexContainer = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
 
   @media (min-width: 900px){
     display: default;

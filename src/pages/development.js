@@ -21,6 +21,7 @@ import {
 
 export default function Development({ data }) {
     const {
+        page_title: { text: title },
         development_header: { text: header },
         development_sub: { text: sub },
         development_sub2: { text: sub2 },
@@ -49,6 +50,7 @@ export default function Development({ data }) {
         <Layout>
             <SEO title={header} />
             <HeroHeader
+                title={title}
                 header={header}
                 sub={sub}
                 sub2={sub2}
@@ -87,6 +89,9 @@ export const query = graphql`
     {
         prismicDevelopmentPage {
             data {
+                page_title {
+                    text
+                }
                 about_course_header {
                     text
                 }

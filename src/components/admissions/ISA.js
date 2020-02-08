@@ -35,17 +35,32 @@ const FlexContainer = styled.div`
 `
 
 const H2 = styled.h2`
+    padding-left: 24px;
+    padding-right: 24px;
     padding-top: 96px;
     padding-bottom: 56px;
     color: ${black};
     font-family: "aktiv-grotesk";
-    font-size: 44px;
+    font-size: 34px;
     font-weight: 900;
     line-height: 48px;
     text-align: center;
 
-    @media (min-width: 1200px) {
-      padding-top: 160px;
+    @media (min-width: 320px) and (max-width: 400px){
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    @media (min-width: 600px) {
+        font-size: 44px;
+        padding-left: 48px;
+        padding-right: 48px;
+        padding-top: 56px;
+    }
+    @media (min-width: 1200px){
+        padding-right: 96px;
+        padding-left: 96px;
+        padding-top: 96px;
     }
 `
 
