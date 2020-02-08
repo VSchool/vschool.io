@@ -19,7 +19,7 @@ const Form = styled.form`
     padding: 32px 24px;
 
     @media (max-width: 360px) {
-        width: 320px;
+        width: 286px;
     }
 
     @media (min-width: 600px) {
@@ -85,8 +85,8 @@ const Input = styled.input`
     }
 
     @media (max-width: 360px) {
-        width: 280px;
-        margin-right: 16px;
+        width: 240px;
+
     }
 
     @media (min-width: 600px) {
@@ -112,6 +112,11 @@ const StyledButton = styled(Button)`
     color: ${white};
     border: 2px solid ${black};
     background-color: ${black};
+
+    @media (max-width: 360px) {
+        width: 240px;
+  
+    }
 
     @media (min-width: 600px) {
         width: 350px;

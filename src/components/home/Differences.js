@@ -60,15 +60,13 @@ const H3 = styled.h3`
 
 // This will max width at 850px;
 const DifferencesContainer = styled.div`
-    display: grid;
-    grid-template-columns: 1fr;
     align-content: center;
     margin-top: 56px;
-    grid-gap: 32px;
 
-    @media(min-width: 840px){
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 32px;
+    @media (min-width: 840px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 32px;
     }
 `
 

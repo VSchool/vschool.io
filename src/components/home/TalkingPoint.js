@@ -7,7 +7,7 @@ const Container = styled.div`
     margin-bottom: 56px;
     width: 100%;
     max-width: 392px;
-    height: 90%;
+    height: 250px;
     position: relative;
 
     @media(max-width: 370px){

@@ -15,7 +15,7 @@ const FooterContainer = styled.div`
     padding: 0 24px;
 
     @media (min-width: 600px){
-      padding: 32px 0;
+      padding: 32px 0 72px 0;
       display: grid;
       grid-template-columns: 1fr 1fr;
       width: 620px;
@@ -23,7 +23,7 @@ const FooterContainer = styled.div`
     }
 
     @media (min-width: 840px){
-      padding: 40px 0;
+      padding: 40px 0 72px 0;
     }
 
     @media(min-width: 1200px){
