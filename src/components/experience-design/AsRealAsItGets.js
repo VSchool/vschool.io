@@ -109,6 +109,7 @@ const SubP = styled(P)`
 const KungFuContainer = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
 `
 
 const KungFu = styled.img`

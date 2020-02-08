@@ -84,31 +84,32 @@ const Anchor = styled(Link)`
   font-size: 16px;
 `
 
+const ComingSoon = styled.p`
+    padding: 8px 0;
+    color: ${blue.base};
+    font-family: "aktiv-grotesk";
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+`
+
 export default function News(props) {
     const { header } = props
     return (
         <Container>
             <NewsContainer>
                 <H1>{header}</H1>
-                {/*
-                  Will need to query/map out first news related articles.
-                  Static data for testing/designing purposes.
-                */}
                 <Links>
-                  {[
-                      "Full stack Instructor (Full Time) - Salt Lake City",
-                      "Full stack Instructor (Full Time) - Salt Lake City",
-                      "Full stack Instructor (Full Time) - Salt Lake City",
-                      "Full stack Instructor (Full Time) - Salt Lake City",
-                      "Full stack Instructor (Full Time) - Salt Lake City",
-                      "Full stack Instructor (Full Time) - Salt Lake City",
-                  ].map(pos => (
+                  {/* {[   This will be used to map out the queried news articles */}
+                      <ComingSoon>"Coming Soon"</ComingSoon>
+                  {/* ].map(pos => (
                       <Anchor to="/" key={pos}>{pos}</Anchor>
-                  ))}
+                  ))} */}
                 </Links>
-                <StyledButton buttonStyle="primary-light">
+                {/*  Re-add this button when blog/events is done */}
+                {/* <StyledButton buttonStyle="primary-light" disabled>
                     View All
-                </StyledButton>
+                </StyledButton> */}
             </NewsContainer>
         </Container>
     )

@@ -30,7 +30,11 @@ const GraySection = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 400px;
+
+
+    @media(min-width: 500px){
+   
+    }
 
     @media (min-width: 840px) {
         flex-direction: row-reverse;
@@ -40,11 +44,11 @@ const GraySection = styled.div`
 `
 
 const WhiteSection = styled.div`
-    height: 300px;
+    /* height: 300px; */
     background-color: ${gray.lighter};
 
     @media(min-width: 400px){
-      height: 200px;
+      /* height: 200px; */
     }
 
     @media (min-width: 840px) {
@@ -69,7 +73,6 @@ const Image = styled.img`
 `
 
 const TestimonialContainer = styled.div`
-    height: 520px;
     width: 100%;
     max-width: 350px;
     border: 2px solid ${orange.base};

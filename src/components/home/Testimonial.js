@@ -33,7 +33,11 @@ const GraySection = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 400px;
+    height: 680px;
+
+    @media(max-width: 365px){
+        height: 750px;
+    }
 
     @media (min-width: 840px) {
         flex-direction: row-reverse;
@@ -54,7 +58,6 @@ const WhiteSection = styled.div`
 const Image = styled.img`
     width: 232px;
     border-bottom: 15px solid ${green.base};
-
     margin-top: -24px;
 
     @media (min-width: 400px) {
@@ -83,12 +86,12 @@ const TestimonialContainer = styled.div`
         height: 382px;
         max-width: 740px;
         padding-left: 72px;
-        padding-top: 32px;
+        padding-top: 44px;
         padding-bottom: 32px;
         margin-bottom: -126px;
     }
 
-    @media (min-width: 920px) {
+    @media (min-width: 1000px) {
         padding-top: 62px;
         padding-bottom: 72px;
     }
@@ -109,9 +112,10 @@ const TestimonialText = styled.h2`
         align-self: flex-start;
     }
 
-    @media (min-width: 900px) {
+    @media (min-width: 1000px) {
         width: 100%;
-        max-width: 450px;
+        font-size: 32px;
+        max-width: 580px;
     }
 `
 
