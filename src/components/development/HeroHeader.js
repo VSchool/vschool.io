@@ -28,6 +28,21 @@ const Container = styled.div`
     }
 `
 
+const Title = styled.h6`
+    color: ${blue.dark};
+    font-family: "aktiv-grotesk-extended";
+    font-size: 14px;
+    letter-spacing: 0.25px;
+    line-height: 24px;
+    margin-bottom: 16px;
+    text-align: center;
+    font-weight: 800;
+
+    @media(min-width: 1200px){
+        font-size: 16px;
+    }
+`
+
 const H1 = styled.h1`
     font-family: "aktiv-grotesk";
     font-size: 36px;
@@ -128,6 +143,7 @@ const FlexContainer = styled.div`
 
 function HeroHeader(props) {
     const {
+        title,
         header,
         sub,
         sub2,
@@ -137,6 +153,9 @@ function HeroHeader(props) {
 
     return (
         <Container>
+            <Title>
+                {title}
+            </Title>
             <FlexContainer>
                 <H1>{header}</H1>
             </FlexContainer>

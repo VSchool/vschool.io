@@ -28,6 +28,21 @@ const Container = styled.div`
     }
 `
 
+const Title = styled.h6`
+    color: ${purple.dark};
+    font-family: "aktiv-grotesk-extended";
+    font-size: 14px;
+    letter-spacing: 0.25px;
+    line-height: 24px;
+    margin-bottom: 16px;
+    text-align: center;
+    font-weight: 800;
+
+    @media(min-width: 1200px){
+        font-size: 16px;
+    }
+`
+
 const H1 = styled.h1`
     font-family: "aktiv-grotesk";
     font-size: 36px;
@@ -130,7 +145,8 @@ function HeroHeader() {
     const {
         prismicXdPage: {
             data: {
-                main_page_title: { text: title },
+                page_title: {text: title},
+                main_page_title: { text: header },
                 subtitle: { text: sub },
                 invite: { text: invite },
                 make_it_happen_link: { url: link },
@@ -159,14 +175,20 @@ function HeroHeader() {
                     make_it_happen_btn {
                         text
                     }
+                    page_title {
+                        text
+                    }
                 }
             }
         }
     `)
     return (
         <Container>
+            <Title>
+                {title}
+            </Title>
             <FlexContainer>
-                <H1>{title}</H1>
+                <H1>{header}</H1>
             </FlexContainer>
             <FlexContainer>
                 <P>{sub}</P>

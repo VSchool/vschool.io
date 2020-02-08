@@ -16,7 +16,7 @@ const TextContainer = styled.div`
     margin: 0 24px;
 
     @media (max-width: 360px) {
-        width: 300px;
+        width: 286px;
         height: 330px;
         margin-right: 4px;
         margin-left: 4px;
@@ -61,7 +61,7 @@ const H2 = styled.h2`
 
     @media (max-width: 360px) {
         font-size: 16px;
-        width: 280px;
+        width: 100%
     }
 
     @media (min-width: 600px) {
@@ -95,7 +95,7 @@ const Bullet = styled.p`
 
     @media (max-width: 360px) {
         font-size: 12px;
-        width: 275px;
+        width: 260px;
     }
 
     @media (min-width: 600px) {

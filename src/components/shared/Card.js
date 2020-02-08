@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from "styled-components"
-import { gray, black, blue } from '@vschool/lotus'
+import { gray, black, blue, Button } from '@vschool/lotus'
 
 const Container = styled.div`
   width: 366px;
@@ -44,7 +44,6 @@ const TextContainer = styled.div`
   bottom: 0;
   right: 0;
   width: 95%;
-	height: 148px;
 	border: 2px solid ${gray.base};
 	background-color: ${gray.lightest};
   padding: 24px;
@@ -75,7 +74,8 @@ const P = styled.p`
 
 const Anchor = styled.a`
   margin-top: 24px;
-	color: ${blue.base};
+	/* color: ${blue.base}; */
+  color: #A09C06;
 	font-family: "aktiv-grotesk-extended";
 	font-size: 14px;
   display: inline-block;
@@ -101,7 +101,8 @@ export default function Card(props){
       <TextContainer>
         <H4>{card_header.text}</H4>
         <P>{card_text.text}</P>
-        <Anchor href={card_link.url}>{card_link_text.text}</Anchor>
+        {/* href={card_link.url} */}
+        <Anchor disabled>{card_link_text.text}</Anchor>
       </TextContainer>
     </Container>
   )
