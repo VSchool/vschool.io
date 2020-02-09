@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { Link } from "gatsby"
 import { gray, black } from "@vschool/lotus"
 
 const FooterSubLinks = styled.div`
@@ -73,7 +74,9 @@ export default function FooterSubInformation(props) {
     const { logo, footerSubLinks } = props
     return (
         <FooterSubLinks>
-            <Logo src={logo} />
+            <Link to="/development">
+                <Logo src={logo} />
+            </Link>
             <div>
               <SubContainer>
                   <FooterSubInfo>

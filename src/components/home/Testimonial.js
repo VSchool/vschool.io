@@ -47,7 +47,7 @@ const GraySection = styled.div`
 `
 
 const WhiteSection = styled.div`
-    height: 320px;
+
     background-color: ${gray.lighter};
 
     @media (min-width: 840px) {
