@@ -48,6 +48,8 @@ const ApplyButton = styled(Button)`
     font-size: 12px;
     letter-spacing: 0.86px;
     line-height: 16px;
+    width: 96px;
+    min-width: 0;
 `
 
 const ButtonContainer = styled.li`
