@@ -43,6 +43,10 @@ const Info = styled.p`
     line-height: 20px;
     font-weight: 800;
     margin-bottom: 16px;
+
+    @media(min-width: 600px){
+        height: 40px;
+    }
 `
 
 const Subject = styled.p`
