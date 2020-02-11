@@ -44,7 +44,8 @@ export default function LivingInSaltLake(){
       <MakeALeap 
         bgColor={blue.lightest}
         sessionColor={blue.light}/>
-      <CheckOutHousing />
+      {/* Re-add once housing page is complete */}
+      {/* <CheckOutHousing /> */}
     </Layout>
   )
 }

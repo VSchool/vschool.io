@@ -66,7 +66,6 @@ function DesktopMenu(props) {
                     button_text
                     button_link {
                         url
-                        id
                     }
                     logo {
                         url
@@ -95,11 +94,11 @@ function DesktopMenu(props) {
             <Ul>
                 {navItems}
                 <ButtonContainer>
-                    <Link to={buttonLink}>
+                    <a href={buttonLink}>
                         <ApplyButton buttonStyle="primary-dark" buttonSize="sm">
                             {buttonText}
                         </ApplyButton>
-                    </Link>
+                    </a>
                 </ButtonContainer>
             </Ul>
         </Container>
