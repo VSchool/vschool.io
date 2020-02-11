@@ -24,7 +24,6 @@ export default function Careers({ data }) {
         open_positions,
         position
     } = data.prismicCareers.data
-    console.log(data)
     return (
         <Layout>
             <SEO title={careers_header.text} />

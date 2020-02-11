@@ -219,8 +219,10 @@ const Footer = () => {
                 <Header>{ programsHeader }</Header>
                 {
                     startDates.map(({node: {data}}) => (
-                      <CourseLink to={data.course_name.text === "Experience Design" ? "/experience-design" : "/development"}>
-                        <CourseContainer key={data.course_name.text}>
+                      <CourseLink 
+                        to={data.course_name.text === "Experience Design" ? "/experience-design" : "/development"}
+                        key={data.course_name.text}>
+                        <CourseContainer >
                             <CourseTitle>{ data.course_name.text }</CourseTitle>
                             <StartDate>Starts { data.start_date }</StartDate>
                         </CourseContainer>
