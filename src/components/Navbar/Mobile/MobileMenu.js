@@ -53,7 +53,6 @@ function MobileMenu(props) {
                     button_text
                     button_link {
                         url
-                        id
                     }
                     mobile_logo {
                         url

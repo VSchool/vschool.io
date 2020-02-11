@@ -84,13 +84,11 @@ const Anchor = styled(Link)`
   font-size: 16px;
 `
 
-const ComingSoon = styled.p`
-    padding: 8px 0;
-    color: ${blue.base};
+const TempText = styled.p`
     font-family: "aktiv-grotesk";
-    text-decoration: none;
+    font-size: 14px;
+    color: #A09C96;
     font-weight: 500;
-    font-size: 16px;
 `
 
 export default function News(props) {
@@ -101,7 +99,7 @@ export default function News(props) {
                 <H1>{header}</H1>
                 <Links>
                   {/* {[   This will be used to map out the queried news articles */}
-                      <ComingSoon>"Coming Soon"</ComingSoon>
+                      <TempText>Nothing yet, but stay tuned!</TempText>
                   {/* ].map(pos => (
                       <Anchor to="/" key={pos}>{pos}</Anchor>
                   ))} */}

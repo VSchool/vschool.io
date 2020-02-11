@@ -31,7 +31,9 @@ const PositionContainer = styled.div`
 `
 
 const Anchor = styled.a`
-    color: ${blue.base};
+    /* TEMPORARY COLOR */
+    color: #A09C96; 
+    /* color: ${blue.base}; */
     font-family: "aktiv-grotesk";
     font-size: 20px;
     font-weight: 500;
@@ -43,7 +45,7 @@ export default function Position(props) {
     const { position_title, position_link, borderBottom } = props
     return (
         <PositionContainer borderBottom={borderBottom}>
-            <Anchor href={position_link.url}>{position_title.text}</Anchor>
+            <Anchor /*href={position_link.url}*/>{position_title.text}</Anchor>
         </PositionContainer>
     )
 }
