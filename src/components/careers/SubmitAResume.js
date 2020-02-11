@@ -124,7 +124,7 @@ function SubmitAResume(props) {
                 <P>{sub}</P>
             </FlexContainer>
             <FlexContainer>
-                <a href={link}>
+                <a href="mailto:info@vschool.io">
                     <StyledButton buttonStyle="primary-dark">
                         {btnText}
                     </StyledButton>

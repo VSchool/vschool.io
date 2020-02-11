@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { gray } from "@vschool/lotus"
-import { graphql, useStaticQuery } from 'gatsby'
 
 const Container = styled.div`
   width: 100vw;

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from "styled-components"
-import { gray, black, blue, Button } from '@vschool/lotus'
+import { gray, black, blue } from '@vschool/lotus'
 
 const Container = styled.div`
   width: 366px;
