@@ -30,7 +30,7 @@ const Container = styled.div`
     @media (min-width: 1200px) {
         padding-right: 96px;
         padding-left: 96px;
-        padding-bottom: 160px;
+        padding-bottom: 120px;
     }
 `
 
