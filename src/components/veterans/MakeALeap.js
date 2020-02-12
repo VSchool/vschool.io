@@ -14,6 +14,16 @@ const Container = styled.div`
         padding-left: 8px;
         padding-right: 8px;
     }
+
+    @media (min-width: 840px){
+        padding-bottom: 96px;
+        padding-top: 96px;
+    }
+
+    @media (min-width: 1200px){
+        padding-top: 128px;
+        padding-bottom: 160px;
+    }
 `
 const H1 = styled.h1`
     color: ${black};
