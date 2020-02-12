@@ -74,7 +74,7 @@ export default function FooterSubInformation(props) {
     const { logo, footerSubLinks } = props
     return (
         <FooterSubLinks>
-            <Link to="/development">
+            <Link to="/">
                 <Logo src={logo} />
             </Link>
             <div>
