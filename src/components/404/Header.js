@@ -151,7 +151,7 @@ function HeroHeader(props) {
             </FlexContainer>
             <FlexContainer>
                 <LinksContainer>
-                    <SLink to={link1}>{link1Text}</SLink>
+                    <SLink to="/">{link1Text}</SLink>
                     <SLink to={link2}>{link2Text}</SLink>
                     <SLink to={link3}>{link3Text}</SLink>
                 </LinksContainer>
