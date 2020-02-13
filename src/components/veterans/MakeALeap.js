@@ -211,7 +211,7 @@ export default function CallToAction({ bgColor, sessionColor }) {
                 <NextSession>
                     <SessionHeader>{nextSessionTitle}:</SessionHeader>
                     <SessionDate>
-                        {designDate}
+                        {devDate}
                     </SessionDate>
                 </NextSession>
             </SessionContainer>
