@@ -12,9 +12,10 @@ const SubMenuContainer = styled.ul`
     position: absolute;
     border-width: 2px;
     border-style: solid;
-    border-color: ${blue.lightest};
+    border-color: ${gray.light};
     top: 100%;
     left: 16px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
     &::before {
         content: "";
