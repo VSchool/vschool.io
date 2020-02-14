@@ -1,7 +1,7 @@
 import React from "react"
 import ReactModal from "react-modal"
 
-ReactModal.setAppElement("body")
+ReactModal.setAppElement("#___gatsby")
 
 export default function VideoModal(props) {
     const { show, toggle } = props
@@ -15,21 +15,25 @@ export default function VideoModal(props) {
                 overlay: {
                     backgroundColor: "rgba(0, 0, 0, .90)",
                     zIndex: 7,
-                    padding: "0 24px",
-                    overflowY: "hidden"
+                    overflowY: "hidden",
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: "center",
+                    position: "fixed",
+                    width: "100vw"
                 },
                 content: {
                     backgroundColor: "transparent",
                     zIndex: 8,
                     width: "100%",
-                    margin: 0,
                     padding: 0,
                     left: 0,
                     overflow: "auto",
                     maxWidth: 800,
                     margin: "0 auto",
                     bottom: "none",
-                    top: "30%"
+                    top: "30%",
+                    position: "static"
                 },
             }}
         >
