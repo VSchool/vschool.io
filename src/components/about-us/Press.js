@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { black, blue, Button } from "@vschool/lotus"
-import { Link } from "gatsby"
+import { black } from "@vschool/lotus"
 
 const Container = styled.div`
     width: 100%;
@@ -41,7 +40,7 @@ const Header = styled.h3`
 const TempText = styled.p`
     font-family: "aktiv-grotesk";
     font-size: 14px;
-    color: #A09C96;
+    color: #a09c96;
     font-weight: 500;
 `
 

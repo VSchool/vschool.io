@@ -92,7 +92,6 @@ export default function Card(props){
     card_text,
     card_photo,
     card_link_text,
-    card_link
   } = props
   return (
     <Container>

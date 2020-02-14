@@ -15,12 +15,12 @@ const Container = styled.div`
         padding-right: 8px;
     }
 
-    @media (min-width: 840px){
+    @media (min-width: 840px) {
         padding-bottom: 96px;
         padding-top: 96px;
     }
 
-    @media (min-width: 1200px){
+    @media (min-width: 1200px) {
         padding-top: 128px;
         padding-bottom: 160px;
     }
@@ -135,7 +135,7 @@ const StyledButton = styled(Button)`
     font-family: "aktiv-grotesk-extended";
     font-weight: 800;
     outline: none;
-    
+
     @media (min-width: 320px) and (max-width: 400px) {
         width: 302px;
     }
@@ -157,8 +157,6 @@ export default function CallToAction({ bgColor, sessionColor }) {
                 call_to_action_sub: { text: sub },
                 call_to_action_btn: { text: btnText },
                 next_session_title: { text: nextSessionTitle },
-                next_session_image_small: { url: sessionBG },
-                next_session_image_large: { url: sessionBGLarge },
                 call_to_action_link: { url: link },
             },
         },
@@ -203,16 +201,17 @@ export default function CallToAction({ bgColor, sessionColor }) {
             }
         }
     `)
-    let devDate = startDates[0].node.data.course_name.text === "Experience Design" ? startDates[1].node.data.start_date : startDates[0].node.data.start_date
+    let devDate =
+        startDates[0].node.data.course_name.text === "Experience Design"
+            ? startDates[1].node.data.start_date
+            : startDates[0].node.data.start_date
     return (
         <Container bgColor={bgColor}>
             <H1>{title}</H1>
             <SessionContainer sessionColor={sessionColor}>
                 <NextSession>
                     <SessionHeader>{nextSessionTitle}:</SessionHeader>
-                    <SessionDate>
-                        {devDate}
-                    </SessionDate>
+                    <SessionDate>{devDate}</SessionDate>
                 </NextSession>
             </SessionContainer>
             <Options>{sub}</Options>
