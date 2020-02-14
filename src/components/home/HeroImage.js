@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { gray, orange, green } from "@vschool/lotus"
+import { gray, green } from "@vschool/lotus"
 
 const Main = styled.div`
     background-color: ${gray.lighter};
