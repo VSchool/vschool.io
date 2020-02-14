@@ -29,6 +29,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     if (!result.data.allGhostPost) {
         return
     }
+
+    // Redirects
+    actions.createRedirect({
+        fromPath: "/fsjs",
+        toPath: "/development",
+        isPermanent: true,
+        force: true
+    })
+
     // Create pages for each Ghost post
     const items = result.data.allGhostPost.edges
     items.forEach(({ node }) => {
