@@ -42,10 +42,10 @@ const Anchor = styled.a`
 `
 
 export default function Position(props) {
-    const { position_title, position_link, borderBottom } = props
+    const { position_title, borderBottom } = props
     return (
         <PositionContainer borderBottom={borderBottom}>
-            <Anchor /*href={position_link.url}*/>{position_title.text}</Anchor>
+            <Anchor>{position_title.text}</Anchor>
         </PositionContainer>
     )
 }

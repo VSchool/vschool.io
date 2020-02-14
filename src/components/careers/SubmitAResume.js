@@ -114,7 +114,7 @@ const FlexContainer = styled.div`
 `
 
 function SubmitAResume(props) {
-    const { title, sub, btnText, link } = props
+    const { title, sub, btnText } = props
     return (
         <Container>
             <FlexContainer>

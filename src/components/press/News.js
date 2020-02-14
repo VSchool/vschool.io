@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { Link } from "gatsby"
-import { gray, black, Button, blue } from "@vschool/lotus"
+import { gray, black } from "@vschool/lotus"
 
 const Container = styled.div`
     background-color: ${gray.lightest};
@@ -51,7 +50,6 @@ const H1 = styled.h1`
 
 const NewsContainer = styled.div`
     padding-bottom: 96px;
-    
 
     @media (min-width: 1200px) {
         width: 1130px;
@@ -59,35 +57,19 @@ const NewsContainer = styled.div`
     }
 `
 
-const StyledButton = styled(Button)`
-    outline: none;
-    font-weight: 800;
-    font-family: "aktiv-grotesk-extended";
-    margin-top: 40px;
-`
-
 const Links = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
+    display: grid;
+    grid-template-columns: 1fr;
 
-  @media(min-width: 1200px){
-    grid-template-columns: 1fr 1fr;
-  }
-`
-
-const Anchor = styled(Link)`
-  padding: 8px 0;
-  color: ${blue.base};
-  font-family: "aktiv-grotesk";
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 16px;
+    @media (min-width: 1200px) {
+        grid-template-columns: 1fr 1fr;
+    }
 `
 
 const TempText = styled.p`
     font-family: "aktiv-grotesk";
     font-size: 14px;
-    color: #A09C96;
+    color: #a09c96;
     font-weight: 500;
 `
 
@@ -98,9 +80,9 @@ export default function News(props) {
             <NewsContainer>
                 <H1>{header}</H1>
                 <Links>
-                  {/* {[   This will be used to map out the queried news articles */}
-                      <TempText>Nothing yet, but stay tuned!</TempText>
-                  {/* ].map(pos => (
+                    {/* {[   This will be used to map out the queried news articles */}
+                    <TempText>Nothing yet, but stay tuned!</TempText>
+                    {/* ].map(pos => (
                       <Anchor to="/" key={pos}>{pos}</Anchor>
                   ))} */}
                 </Links>
