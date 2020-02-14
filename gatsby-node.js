@@ -66,6 +66,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         isPermanent: true,
         force: true
     })
+    
+    actions.createRedirect({
+        fromPath: "/free-course-react",
+        toPath: "/bootcamp-primer",
+        isPermanent: true,
+        force: true
+    })
 
     // Create pages for each Ghost post
     const items = result.data.allGhostPost.edges
