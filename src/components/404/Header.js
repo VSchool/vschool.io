@@ -133,7 +133,6 @@ function HeroHeader(props) {
         link1Text,
         link2Text,
         link3Text,
-        link1,
         link2,
         link3
     } = props
