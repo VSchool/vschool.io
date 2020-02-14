@@ -14,7 +14,6 @@ const Container = styled.div`
         padding-left: 8px;
         padding-right: 8px;
     }
-
 `
 const H1 = styled.h1`
     color: ${black};
@@ -126,7 +125,7 @@ const StyledButton = styled(Button)`
     font-family: "aktiv-grotesk-extended";
     font-weight: 800;
     outline: none;
-    
+
     @media (min-width: 320px) and (max-width: 400px) {
         width: 302px;
     }
@@ -148,8 +147,6 @@ export default function CallToAction({ bgColor, sessionColor }) {
                 call_to_action_sub: { text: sub },
                 call_to_action_btn: { text: btnText },
                 next_session_title: { text: nextSessionTitle },
-                next_session_image_small: { url: sessionBG },
-                next_session_image_large: { url: sessionBGLarge },
                 call_to_action_link: { url: link },
             },
         },

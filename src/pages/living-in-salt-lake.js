@@ -5,8 +5,7 @@ import {
   Header,
   HeroImage,
   StateFeatures,
-  Testimonial,
-  CheckOutHousing
+  Testimonial
 } from '../components/living-in-slc'
 
 import { MakeALeap } from '../components/development'
