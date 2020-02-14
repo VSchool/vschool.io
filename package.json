@@ -10,6 +10,7 @@
     "gatsby": "^2.19.10",
     "gatsby-image": "^2.2.39",
     "gatsby-plugin-manifest": "^2.2.40",
+    "gatsby-plugin-netlify": "^2.1.32",
     "gatsby-plugin-offline": "^3.0.33",
     "gatsby-plugin-react-helmet": "^3.1.21",
     "gatsby-plugin-sharp": "^2.4.4",
@@ -37,7 +38,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop -o -H $HOSTNAME -p 8000",
+    "develop": "gatsby develop -o",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
