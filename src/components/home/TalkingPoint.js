@@ -71,7 +71,6 @@ const StyledLink = styled(Link)`
 `
 
 export default function TalkingPoint(props) {
-    console.log(props)
     const {
         header,
         info,

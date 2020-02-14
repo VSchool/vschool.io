@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import Layout from "../components/layout"
 import { graphql } from "gatsby"
 import { gray, green } from "@vschool/lotus"
@@ -11,9 +11,13 @@ import {
     Ratings,
     Differences,
     Testimonial,
-    MakeALeap
+    MakeALeap,
+    VideoModal,
 } from "../components/home"
+
 export default function IndexPage({ data }) {
+    const [show, setShow] = useState(false)
+    const toggle = () => setShow(p => !p)
     const {
         hero_header_sub2: { text: invite },
         hero_header_sub1: { text: sub },
@@ -47,7 +51,9 @@ export default function IndexPage({ data }) {
                 btnText={btnText}
                 link={link}
             />
+            <VideoModal show={show} toggle={toggle} />
             <HeroImage
+                toggle={toggle}
                 heroImgLg={heroImgLg}
                 heroImgSm={heroImgSm}
                 greenCircle={greenCircle}
@@ -66,7 +72,7 @@ export default function IndexPage({ data }) {
                 cite={cite}
                 testimonialImg={testimonialImg}
             />
-            <MakeALeap bgColor={gray.lighter} sessionColor={green.lighter}/>
+            <MakeALeap bgColor={gray.lighter} sessionColor={green.lighter} />
         </Layout>
     )
 }

@@ -62,7 +62,7 @@ const GreenCircle = styled.img`
     bottom: 38px;
     z-index: 6;
     border-radius: 50%;
-
+    cursor: pointer;
 
     @media (min-width: 840px) {
         left: 42px;
@@ -83,6 +83,7 @@ const SmallImg = styled.img`
     margin-bottom: -80px;
     left: -440px;
     z-index: 1;
+    cursor: pointer;
 
     @media (min-width: 380px) {
         left: -375px;
@@ -129,6 +130,7 @@ const LargeImg = styled.img`
   margin-bottom: -80px;
   left: 0px;
   z-index: 6;
+  cursor: pointer;
 
   @media(min-width: 1050px){
     display: inline-block;
@@ -142,6 +144,7 @@ const OverlayImg = styled.img`
   z-index: 7;
   right: 0;
   bottom: 30px;
+  cursor: pointer;
 
   @media(min-width: 400px){
     width: 226px;
@@ -172,14 +175,15 @@ export default function HeroImage(props) {
       heroImgLg, 
       heroImgSm,
       greenCircle,
-      overlayImg
+      overlayImg,
+      toggle
     } = props
     return (
         <Main>
             <Container>
                 <GrayWall />
                 <WhiteWall />
-                <ImagesContainer>
+                <ImagesContainer onClick={toggle}>
                   <OverlayImg src={overlayImg}/>
                   <GreenCircle src={greenCircle}/>
                   <SmallImg src={heroImgSm} />
