@@ -37,7 +37,7 @@ module.exports = {
             resolve: `gatsby-source-prismic`,
             options: {
                 repositoryName: `vschool`,
-                accessToken: `${process.env.PRISMIC_API_KEY}`,
+                accessToken: process.env.PRISMIC_API_KEY,
                 linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
             },
         },
@@ -45,7 +45,7 @@ module.exports = {
             resolve: `gatsby-source-ghost`,
             options: {
                 apiUrl: `https://blog.vschool.io`,
-                contentApiKey: `7a801b092a229eef5613c5494e`,
+                contentApiKey: process.env.GHOST_API_KEY,
             },
         },
         // this (optional) plugin enables Progressive Web App + Offline functionality
