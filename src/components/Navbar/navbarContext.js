@@ -5,7 +5,6 @@ function NavbarContextProvider({ children }) {
     const [mainMenuOpen, setMainMenuOpen] = useState(false)
     const [subMenuOpen, setSubMenuOpen] = useState(false)
     const [chosenSubMenu, setChosenSubMenu] = useState(null)
-    // const [chosenSubMenuItems, setChosenSubMenuItems] = useState([])
 
     function toggleMainMenu() {
         setMainMenuOpen(state => !state)
