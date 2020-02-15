@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import { purple, black, Button } from "@vschool/lotus"
-import { graphql, useStaticQuery } from "gatsby"
 
 const FlexContainer = styled.div`
     display: flex;
@@ -25,8 +24,8 @@ const H5 = styled.h5`
     line-height: 26px;
     padding-bottom: 16px;
 
-    @media(min-width: 300px) and (max-width: 380px){
-      font-size: 18px;
+    @media (min-width: 300px) and (max-width: 380px) {
+        font-size: 18px;
     }
 
     @media (min-width: 900px) {
@@ -42,48 +41,20 @@ const StyledButton = styled(Button)`
     font-weight: 800;
     outline: none;
 
-    @media(min-width: 300px) and (max-width: 380px){
-      font-size: 12px;
+    @media (min-width: 300px) and (max-width: 380px) {
+        font-size: 12px;
     }
 `
 
-function LearnToCode() {
-    const { 
-      prismicXdPage: {
-        data: {
-          learn_to_code_title: {
-            text: title
-          },
-          learn_to_code_btn: {
-            text: btnText
-          },
-          learn_to_code_link: {
-            url: link
-          }
-        }
-      }
-    } = useStaticQuery(graphql`
-      {
-        prismicXdPage {
-          data {
-            learn_to_code_btn {
-              text
-            }
-            learn_to_code_title {
-              text
-            }
-            learn_to_code_link {
-              url
-            }
-          }
-        }
-      }
-    `)
+function LearnToCode(props) {
+    const { title, btnText, link } = props
     return (
         <FlexContainer>
-            <H5>{ title }</H5>
-            <a href={ link }>
-                <StyledButton buttonStyle="primary-light">{ btnText }</StyledButton>
+            <H5>{title}</H5>
+            <a href={link}>
+                <StyledButton buttonStyle="primary-light">
+                    {btnText}
+                </StyledButton>
             </a>
         </FlexContainer>
     )

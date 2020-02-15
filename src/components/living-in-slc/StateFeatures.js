@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { gray, black } from "@vschool/lotus"
-import { graphql, useStaticQuery } from 'gatsby'
 import Feature from './Feature.js'
 
 const Container = styled.div`
@@ -69,38 +68,11 @@ const FeatureList = styled.div`
   flex-direction: column;
 `
 
-export default function StateFeatures(){
-  const { 
-    prismicLivingInSaltLake: {
-      data: {
-        utah_features_header: {
-          text: header
-        },
-        utah_features: features
-      }
-    }
-  } = useStaticQuery(graphql`
-    {
-      prismicLivingInSaltLake {
-        data {
-          utah_features_header {
-            text
-          }
-          utah_features {
-            feature_description {
-              text
-            }
-            feature_title {
-              text
-            }
-            feature_image {
-              url
-            }
-          }
-        }
-      }
-    }
-  `)
+export default function StateFeatures(props){
+  const {
+    header,
+    features
+  } = props
   return(
     <Container>
       <H3>{ header }</H3>

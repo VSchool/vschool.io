@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import { gray, black, purple, Button } from "@vschool/lotus"
-import { useStaticQuery, graphql } from "gatsby"
 
 const Container = styled.div`
     background-color: ${purple.lightest};
@@ -10,19 +9,19 @@ const Container = styled.div`
     padding-right: 24px;
     padding-bottom: 64px;
 
-    @media (min-width: 600px){
-        padding-left: 32px; 
+    @media (min-width: 600px) {
+        padding-left: 32px;
         padding-right: 32px;
     }
 
-    @media (min-width: 840px){
+    @media (min-width: 840px) {
         padding-left: 40px;
         padding-right: 40px;
         padding-bottom: 96px;
         padding-top: 96px;
     }
 
-    @media (min-width: 1200px){
+    @media (min-width: 1200px) {
         padding-left: 88px;
         padding-right: 88px;
     }
@@ -38,7 +37,7 @@ const Title = styled.h6`
     text-align: center;
     font-weight: 800;
 
-    @media(min-width: 1200px){
+    @media (min-width: 1200px) {
         font-size: 16px;
     }
 `
@@ -141,52 +140,11 @@ const FlexContainer = styled.div`
     justify-content: center;
 `
 
-function HeroHeader() {
-    const {
-        prismicXdPage: {
-            data: {
-                page_title: {text: title},
-                main_page_title: { text: header },
-                subtitle: { text: sub },
-                invite: { text: invite },
-                make_it_happen_link: { url: link },
-                make_it_happen_btn: { text: btnText },
-            },
-        },
-    } = useStaticQuery(graphql`
-        {
-            prismicXdPage(
-                data: { main_page_title: { text: {} }, subtitle: {} }
-            ) {
-                id
-                data {
-                    main_page_title {
-                        text
-                    }
-                    subtitle {
-                        text
-                    }
-                    invite {
-                        text
-                    }
-                    make_it_happen_link {
-                        url
-                    }
-                    make_it_happen_btn {
-                        text
-                    }
-                    page_title {
-                        text
-                    }
-                }
-            }
-        }
-    `)
+function HeroHeader(props) {
+    const { title, header, sub, invite, link, btnText } = props
     return (
         <Container>
-            <Title>
-                {title}
-            </Title>
+            <Title>{title}</Title>
             <FlexContainer>
                 <H1>{header}</H1>
             </FlexContainer>

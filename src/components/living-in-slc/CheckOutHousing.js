@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import { black, gray, blue } from "@vschool/lotus"
-import { graphql, useStaticQuery } from "gatsby"
 
 const FlexContainer = styled.div`
     display: flex;
@@ -65,38 +64,12 @@ const Button = styled.button`
     }
 `
 
-function CheckOutHousing() {
-    const { 
-      prismicLivingInSaltLake: {
-        data: {
-          check_out_housing_link: {
-            url: link
-          },
-          check_out_housing_btn: {
-            text: btnText
-          },
-          check_out_housing_title: {
-            text: title
-          }
-        }
-      }
-    } = useStaticQuery(graphql`
-    {
-      prismicLivingInSaltLake {
-        data {
-          check_out_housing_link {
-            url
-          }
-          check_out_housing_btn {
-            text
-          }
-          check_out_housing_title {
-            text
-          }
-        }
-      }
-    }
-    `)
+function CheckOutHousing(props) {
+    const {
+      title,
+      btnText,
+      link
+    } = props
     return (
         <FlexContainer>
             <H5>{ title }</H5>
