@@ -14,10 +14,10 @@ import {
     Testimonial,
     ISA,
     PaymentOptions,
-    MakeALeap,
     FAQ,
     LearnDesign,
 } from "../components/development"
+import MakeALeap from "../components/shared/MakeALeap.js"
 
 export default function Development({ data }) {
     const {
@@ -37,6 +37,7 @@ export default function Development({ data }) {
         testimonial: { text: testimonial },
         testimonial_cite: { text: cite },
         testimonial_img: { url: testimonialImg },
+        make_a_leap_link: { url: makeALeapLink },
         learn_design_link: { url: learnDesignLink },
         learn_design_btn: { text: learnDesignBtn },
         learn_design: { text: learnDesignTitle },
@@ -46,6 +47,13 @@ export default function Development({ data }) {
         course_bullets,
         rating_images,
     } = data.prismicDevelopmentPage.data
+    const {
+        call_to_action_btn: { text: makeALeapBtnText },
+        call_to_action_sub: { text: makeALeapSub },
+        call_to_action_title: { text: makeALeapTitle },
+        next_session_title: { text: makeALeapSession },
+    } = data.prismicXdPage.data
+    const { start_date: startDate } = data.prismicStartDate.data
     return (
         <Layout>
             <SEO title={header} />
@@ -74,7 +82,16 @@ export default function Development({ data }) {
             />
             <ISA />
             <PaymentOptions />
-            <MakeALeap sessionColor={blue.light} bgColor={blue.lightest} />
+            <MakeALeap
+                sessionColor={blue.light}
+                bgColor={blue.lightest}
+                sub={makeALeapSub}
+                title={makeALeapTitle}
+                btnText={makeALeapBtnText}
+                nextSession={makeALeapSession}
+                link={makeALeapLink}
+                startDate={startDate}
+            />
             <LearnDesign
                 title={learnDesignTitle}
                 link={learnDesignLink}
@@ -87,6 +104,29 @@ export default function Development({ data }) {
 
 export const query = graphql`
     {
+        prismicStartDate(
+            data: { course_name: { text: { eq: "Web Development" } } }
+        ) {
+            data {
+                start_date(formatString: "MMM Do, YYYY")
+            }
+        }
+        prismicXdPage {
+            data {
+                call_to_action_btn {
+                    text
+                }
+                call_to_action_sub {
+                    text
+                }
+                call_to_action_title {
+                    text
+                }
+                next_session_title {
+                    text
+                }
+            }
+        }
         prismicDevelopmentPage {
             data {
                 page_title {
@@ -176,6 +216,9 @@ export const query = graphql`
                     text
                 }
                 invite_btn_link {
+                    url
+                }
+                make_a_leap_link {
                     url
                 }
                 faq {
