@@ -34,7 +34,6 @@ export default function LivingInSaltLake({ data }) {
         call_to_action_title: { text: makeALeapTitle },
         next_session_title: { text: makeALeapSession },
     } = data.prismicXdPage.data
-    console.log(data)
     return (
         <Layout>
             <SEO title={header} />
