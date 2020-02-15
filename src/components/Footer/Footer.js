@@ -137,7 +137,6 @@ const Footer = () => {
             data: {
                 footer_form_header: { text: formHeader },
                 footer_input_placeholder: { text: placeholder },
-                footer_button_text: { text: btnText },
                 footer_programs_header: { text: programsHeader },
                 body: footerSections,
                 footer_sub_links: footerSubLinks,
@@ -163,9 +162,6 @@ const Footer = () => {
       }
       prismicFooter {
         data {
-          footer_button_text {
-            text
-          }
           footer_form_header {
             text
           }
@@ -212,7 +208,6 @@ const Footer = () => {
                 <SubscribeForm 
                     formHeader={ formHeader }
                     placeholder={ placeholder }
-                    btnText={ btnText }
                 />
             </FormContainer>
             <FooterSection>
