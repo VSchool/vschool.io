@@ -86,7 +86,7 @@ const ErrorMsg = styled.div`
 const MsgHeader = styled.h6`
     color: ${props => props.color};
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 800;
 `
 
 const MsgInfo = styled.p`
@@ -124,7 +124,7 @@ export default function SubscribeForm(props) {
                             msg = "error"
                         }
                     } else {
-                        msg = "Begin Free Course"
+                        msg = "Subscribe"
                     }
                     return (
                         <>
@@ -136,6 +136,7 @@ export default function SubscribeForm(props) {
                             >
                                 <Header>{formHeader}</Header>
 
+                                {/* Display the form until the msg status changes to success or error */}
                                 {msg !== "success" && msg !== "error" ? (
                                     <>
                                         <Label htmlFor="EMAIL">
