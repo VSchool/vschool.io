@@ -10,30 +10,24 @@ export default function VideoModal(props) {
             isOpen={show}
             onRequestClose={toggle}
             shouldFocusAfterRender={true}
-            portalClassName="portal"
             style={{
                 overlay: {
                     backgroundColor: "rgba(0, 0, 0, .90)",
                     zIndex: 7,
                     overflowY: "hidden",
-                    display: 'flex',
-                    justifyContent: 'center',
+                    display: "flex",
+                    justifyContent: "center",
                     alignItems: "center",
                     position: "fixed",
-                    width: "100vw"
+                    width: "100vw",
                 },
                 content: {
-                    backgroundColor: "transparent",
                     zIndex: 8,
                     width: "100%",
                     padding: 0,
-                    left: 0,
                     overflow: "auto",
                     maxWidth: 800,
-                    margin: "0 auto",
-                    bottom: "none",
-                    top: "30%",
-                    position: "static"
+                    position: "static",
                 },
             }}
         >
