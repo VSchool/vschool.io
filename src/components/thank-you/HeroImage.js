@@ -7,6 +7,9 @@ const Container = styled.div`
   padding: 0 24px 96px 24px;
   background-position: center;
   background-color: ${gray.light};
+  display: flex;
+  justify-content: center;
+  align-items: center;
  
   @media (min-width: 320px) and (max-width: 414px){
     padding-left: 16px;
@@ -23,8 +26,6 @@ const Container = styled.div`
 
   @media(min-width: 1200px){
     padding: 0 176px;
-    display: flex;
-    justify-content: center;
     padding-bottom: 234px;
   }
 `
