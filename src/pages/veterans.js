@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "../components/layout.js"
 import SEO from "../components/seo.js"
 import { graphql } from "gatsby"
-import {gray, yellow} from "@vschool/lotus"
+import { gray, yellow } from "@vschool/lotus"
 import {
     Header,
     Trusted,
@@ -10,8 +10,9 @@ import {
     Courses,
     Ratings,
     Testimonial,
-    MakeALeap
 } from "../components/veterans"
+
+import MakeALeap from "../components/shared/MakeALeap.js"
 
 export default function Veterans({ data }) {
     const {
@@ -25,6 +26,7 @@ export default function Veterans({ data }) {
         testimonial_image: { url: testimonialImg },
         testimonial_cite: { text: cite },
         testimonial: { text: testimonial },
+        make_it_happen_link: { url: makeItHappenLink },
         bullets,
     } = data.prismicVeteransPage.data
     const {
@@ -33,6 +35,13 @@ export default function Veterans({ data }) {
         ratings,
         courses,
     } = data.prismicHomePage.data
+    const {
+        call_to_action_btn: { text: makeALeapBtnText },
+        call_to_action_sub: { text: makeALeapSub },
+        call_to_action_title: { text: makeALeapTitle },
+        next_session_title: { text: makeALeapSession },
+    } = data.prismicXdPage.data
+    const { start_date: startDate } = data.prismicStartDate.data
     const { edges: startDates } = data.allPrismicStartDate
     return (
         <Layout>
@@ -52,14 +61,20 @@ export default function Veterans({ data }) {
                 startDates={startDates}
             />
             <Ratings header={ratingsHeader} ratings={ratings} />
-            <Testimonial 
-              testimonialImg={testimonialImg}
-              testimonial={testimonial}
-              cite={cite}
+            <Testimonial
+                testimonialImg={testimonialImg}
+                testimonial={testimonial}
+                cite={cite}
             />
-            <MakeALeap 
-              bgColor={gray.lighter}
-              sessionColor={yellow.lighter}
+            <MakeALeap
+                bgColor={gray.lighter}
+                sessionColor={yellow.lighter}
+                title={makeALeapTitle}
+                btnText={makeALeapBtnText}
+                nextSession={makeALeapSession}
+                startDate={startDate}
+                sub={makeALeapSub}
+                link={makeItHappenLink}
             />
         </Layout>
     )
@@ -99,6 +114,9 @@ export const query = graphql`
                 testimonial {
                     text
                 }
+                make_it_happen_link {
+                    url
+                }
                 bullets {
                     bullet_header {
                         text
@@ -107,6 +125,13 @@ export const query = graphql`
                         text
                     }
                 }
+            }
+        }
+        prismicStartDate(
+            data: { course_name: { text: { eq: "Web Development" } } }
+        ) {
+            data {
+                start_date(formatString: "MMM Do, YYYY")
             }
         }
         allPrismicStartDate {
@@ -118,6 +143,22 @@ export const query = graphql`
                         }
                         start_date(formatString: "MMM Do, YYYY")
                     }
+                }
+            }
+        }
+        prismicXdPage {
+            data {
+                call_to_action_btn {
+                    text
+                }
+                call_to_action_sub {
+                    text
+                }
+                call_to_action_title {
+                    text
+                }
+                next_session_title {
+                    text
                 }
             }
         }

@@ -58,7 +58,7 @@ const ExperienceDesignPage = ({ data }) => {
         call_to_action_title: { text: makeItHappenTitle },
         call_to_action_sub: { text: makeItHappenSub },
         call_to_action_link: {url: callToActionLink},
-        call_to_action_btn: { text: makItHappenBtnText },
+        // call_to_action_btn: { text: callToActionBtnText },
         as_real_as_it_gets_title: { text: asRealAsItGetsTitle },
         as_real_as_it_gets_sub3: { text: asRealAsItGetsSub3 },
         as_real_as_it_gets_sub2: { text: asRealAsItGetsSub2 },
