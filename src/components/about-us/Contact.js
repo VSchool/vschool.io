@@ -48,7 +48,7 @@ export default function Contact(props) {
             <ContactItem>{cityAndState}</ContactItem>
             <ContactItem>{email}</ContactItem>
             <ContactItem>{phone}</ContactItem>
-            <a href={"https://calendly.com/v-school/experience-design"}>
+            <a href={"https://calendly.com/v-school/apply"}>
                 <StyledButton buttonStyle="primary-light">
                     Get In Touch
                 </StyledButton>
