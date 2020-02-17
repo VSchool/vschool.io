@@ -7,12 +7,15 @@ import MobileMenu from "./Mobile"
 import { NavbarContextProvider } from "./navbarContext"
 
 const Nav = styled.nav`
-    position: relative;
+    position: fixed;
     display: flex;
     align-items: center;
     background-color: ${gray.lighter};
     padding: 28px 16px;
+    width: 100%;
     height: 80px;
+    z-index: 999;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
 
     @media (min-width: 1000px) {
         padding: 28px 88px;
