@@ -33,6 +33,10 @@ const Layout = ({ children }) => {
 
     const ContentContainer = styled.div`
         flex-grow: 1;
+
+        & > main {
+            margin-top: 80px;
+        }
     `
 
     return (
@@ -40,7 +44,7 @@ const Layout = ({ children }) => {
             <MainContainer>
                 <ContentContainer>
                     <Navbar />
-                   
+
                     <main>{children}</main>
                 </ContentContainer>
                 <Footer />
