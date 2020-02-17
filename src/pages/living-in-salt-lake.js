@@ -22,9 +22,6 @@ export default function LivingInSaltLake({ data }) {
         sub_header: { text: sub },
         hero_image: { url: heroImg },
         header: { text: header },
-        check_out_housing_title: { text: housingTitle },
-        check_out_housing_link: { url: housingLink },
-        check_out_housing_btn: { text: housingBtnText },
         make_a_leap_link: { url: makeALeapLink },
     } = data.prismicLivingInSaltLake.data
     const { start_date: startDate } = data.prismicStartDate.data
