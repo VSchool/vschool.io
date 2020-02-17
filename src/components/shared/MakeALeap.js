@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import { graphql, useStaticQuery } from "gatsby"
 import { black, white, orange, Button } from "@vschool/lotus"
 
 const Container = styled.div`
@@ -13,6 +12,11 @@ const Container = styled.div`
     @media (min-width: 320px) and (max-width: 400px) {
         padding-left: 8px;
         padding-right: 8px;
+    }
+
+    @media (min-width: 1200px) {
+        padding-top: 160px;
+        padding-bottom: 160px;
     }
 `
 const H1 = styled.h1`
@@ -125,7 +129,7 @@ const StyledButton = styled(Button)`
     font-family: "aktiv-grotesk-extended";
     font-weight: 800;
     outline: none;
-    
+
     @media (min-width: 320px) and (max-width: 400px) {
         width: 302px;
     }
@@ -138,69 +142,24 @@ const StyledButton = styled(Button)`
     }
 `
 
-export default function CallToAction({ bgColor, sessionColor }) {
+export default function CallToAction(props) {
     const {
-        allPrismicStartDate: { edges: startDates },
-        prismicXdPage: {
-            data: {
-                call_to_action_title: { text: title },
-                call_to_action_sub: { text: sub },
-                call_to_action_btn: { text: btnText },
-                next_session_title: { text: nextSessionTitle },
-                call_to_action_link: { url: link },
-            },
-        },
-    } = useStaticQuery(graphql`
-        {
-            allPrismicStartDate {
-                edges {
-                    node {
-                        data {
-                            course_name {
-                                text
-                            }
-                            start_date(formatString: "MMM Do, YYYY")
-                        }
-                    }
-                }
-            }
-            prismicXdPage {
-                data {
-                    call_to_action_btn {
-                        text
-                    }
-                    call_to_action_sub {
-                        text
-                    }
-                    call_to_action_title {
-                        text
-                    }
-                    next_session_title {
-                        text
-                    }
-                    next_session_image_large {
-                        url
-                    }
-                    next_session_image_small {
-                        url
-                    }
-                    call_to_action_link {
-                        url
-                    }
-                }
-            }
-        }
-    `)
-    let designDate = startDates[0].node.data.course_name.text === "Experience Design" ? startDates[0].node.data.start_date : startDates[1].node.data.start_date
+        title,
+        sub,
+        btnText,
+        nextSession,
+        bgColor,
+        sessionColor,
+        startDate,
+        link,
+    } = props
     return (
         <Container bgColor={bgColor}>
             <H1>{title}</H1>
             <SessionContainer sessionColor={sessionColor}>
                 <NextSession>
-                    <SessionHeader>{nextSessionTitle}:</SessionHeader>
-                    <SessionDate>
-                        {designDate}
-                    </SessionDate>
+                    <SessionHeader>{nextSession}:</SessionHeader>
+                    <SessionDate>{startDate}</SessionDate>
                 </NextSession>
             </SessionContainer>
             <Options>{sub}</Options>

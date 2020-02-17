@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { gray } from "@vschool/lotus"
-import { graphql, useStaticQuery } from 'gatsby'
+
 
 const Container = styled.div`
   width: 100vw;
@@ -41,26 +41,10 @@ const Image = styled.img`
   }
 `
 
-export default function HeroImage(){
-  const { 
-    prismicLivingInSaltLake: {
-      data: {
-        hero_image: {
-          url: heroImg
-        }
-      }
-    }
-  } = useStaticQuery(graphql`
-  {
-    prismicLivingInSaltLake {
-      data {
-        hero_image {
-          url
-        }
-      }
-    }
-  }
-`)
+export default function HeroImage(props){
+  const {
+    heroImg
+  } = props
   return (
     <Container>
       <Image src={heroImg}/>

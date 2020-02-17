@@ -172,9 +172,6 @@ const Footer = () => {
             text
           }
           footer_sub_links {
-            footer_sub_link {
-              url
-            }
             footer_sub_link_text {
               text
             }

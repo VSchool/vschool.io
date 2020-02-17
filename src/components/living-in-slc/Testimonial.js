@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { gray, orange, blue } from "@vschool/lotus"
-import { graphql, useStaticQuery } from 'gatsby'
+
 
 
 const Container = styled.div`
@@ -123,46 +123,20 @@ const GridContainer = styled.div`
 
 
 export default function Testimonial(props){
-  const { 
-    prismicLivingInSaltLake: {
-      data: {
-        testimonial_text: {
-          text
-        },
-        testimonial_cite: {
-          text: cite
-        },
-        testimonial_image: {
-          url
-        }
-      }
-    }
-  } = useStaticQuery(graphql`
-  {
-    prismicLivingInSaltLake {
-      data {
-        testimonial_text {
-          text
-        }
-        testimonial_cite {
-          text
-        }
-        testimonial_image {
-          url
-        }
-      }
-    }
-  }
-`)
+  const {
+    testimonial,
+    cite,
+    testimonialImg
+  } = props
   return (
     <Container>
       <GridContainer>
         <CiteContainer>
-          <H2>"{text}"</H2>
+          <H2>"{testimonial}"</H2>
           <H4>{cite}</H4>
         </CiteContainer>
         <FlexContainer>
-          <Image src={url}/>
+          <Image src={testimonialImg}/>
         </FlexContainer>
       </GridContainer>
     </Container>
