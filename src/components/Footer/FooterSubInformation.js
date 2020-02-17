@@ -33,26 +33,26 @@ const SubContainer = styled.div`
     flex-wrap: wrap;
 `
 
-const FooterSubLink = styled.a`
-    display: inline-block;
-    color: ${gray.dark};
-    font-family: "aktiv-grotesk";
-    font-size: 12px;
-    font-weight: 400;
-    margin: 0 4px;
-    text-decoration: none;
+// const FooterSubLink = styled.a`
+//     display: inline-block;
+//     color: ${gray.dark};
+//     font-family: "aktiv-grotesk";
+//     font-size: 12px;
+//     font-weight: 400;
+//     margin: 0 4px;
+//     text-decoration: none;
     
     
-    :active {
-        text-decoration: none;
-        color: ${gray.dark};
-    }
+//     :active {
+//         text-decoration: none;
+//         color: ${gray.dark};
+//     }
 
-    :visited {
-        text-decoration: none;
-        color: ${gray.dark};
-    }
-`
+//     :visited {
+//         text-decoration: none;
+//         color: ${gray.dark};
+//     }
+// `
 
 const FooterSubInfo = styled.p`
     display: inline-block;
@@ -86,7 +86,7 @@ export default function FooterSubInformation(props) {
                       {footerSubLinks[1].footer_sub_link_text.text}
                   </FooterSubInfo>
               
-                  <FooterSubLink href={footerSubLinks[2].footer_sub_link.url}>
+                  {/* <FooterSubLink href={footerSubLinks[2].footer_sub_link.url}>
                       {footerSubLinks[2].footer_sub_link_text.text}
                   </FooterSubLink>
                   <FooterSubLink href={footerSubLinks[3].footer_sub_link.url}>
@@ -94,7 +94,7 @@ export default function FooterSubInformation(props) {
                   </FooterSubLink>
                   <FooterSubLink href={footerSubLinks[4].footer_sub_link.url}>
                       {footerSubLinks[4].footer_sub_link_text.text}
-                  </FooterSubLink>
+                  </FooterSubLink> */}
               </SubContainer>
             </div>
         </FooterSubLinks>

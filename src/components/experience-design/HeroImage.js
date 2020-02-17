@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from "styled-components"
 import { gray, purple, orange } from "@vschool/lotus"
-import { useStaticQuery, graphql } from "gatsby"
 
 const HeroContainer = styled.div`
   height: 700px;
@@ -193,45 +192,12 @@ const ImgMaskWhite = styled.div`
   }
 `
 
-function HeroImage(){
-
-  const { 
-    prismicXdPage: {
-      data: {
-        hero_img_large: {
-          url: heroImgLarge,
-          alt: heroImgLargeAlt
-        },
-        hero_img_small: {
-          url: heroImg,
-          alt: heroImgSmallAlt
-        },
-        hero_img_overlay: {
-          url: codeSnippetImg,
-          alt: codeSnippetImgAlt
-        }
-      }
-    }
-  } = useStaticQuery(graphql`
-  {
-    prismicXdPage {
-      data {
-        hero_img_large {
-          alt
-          url
-        }
-        hero_img_overlay {
-          alt
-          url
-        }
-        hero_img_small {
-          alt
-          url
-        }
-      }
-    }
-  }
-`)
+function HeroImage(props){
+  const {
+    overlayImg,
+    heroImgSm,
+    heroImgLg
+  } = props
   
   return (
     <HeroContainer>
@@ -239,9 +205,9 @@ function HeroImage(){
       <ImgMaskViolet />
       <ImgMaskWhite />
       <FlexContainer>
-        <Image heroImg={heroImg} alt={heroImgSmallAlt}/>
-        <ImgLarge heroImgLarge={heroImgLarge} alt={heroImgLargeAlt}/>
-        <CodeSnippet codeSnippetImg={codeSnippetImg} alt={codeSnippetImgAlt}/>
+        <Image heroImg={heroImgSm}/>
+        <ImgLarge heroImgLarge={heroImgLg}/>
+        <CodeSnippet codeSnippetImg={overlayImg}/>
       </FlexContainer>
       <OrangeBall />
       <WhiteBlock />

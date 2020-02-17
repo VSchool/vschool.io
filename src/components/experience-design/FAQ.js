@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import { AccordionGroup, Accordion, gray, black } from "@vschool/lotus"
-import { graphql, useStaticQuery } from "gatsby"
 
 const Container = styled.div`
     background-color: ${gray.lighter};
@@ -62,28 +61,9 @@ function FAQ(props) {
         whiteSpace: "pre-wrap",
         backgroundColor: gray.lighter,
         width: "100%",
-        maxWidth: 672
+        maxWidth: 672,
     }
-    const {
-        prismicXdPage: {
-            data: { faq },
-        },
-    } = useStaticQuery(graphql`
-        {
-            prismicXdPage {
-                data {
-                    faq {
-                        faq_info {
-                            text
-                        }
-                        faq_title {
-                            text
-                        }
-                    }
-                }
-            }
-        }
-    `)
+    const { faq } = props
     return (
         <Container>
             <H3>Frequently Asked Questions</H3>
