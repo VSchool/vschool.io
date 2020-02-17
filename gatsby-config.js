@@ -48,6 +48,13 @@ module.exports = {
                 contentApiKey: process.env.GHOST_API_KEY,
             },
         },
+        {
+            resolve: `gatsby-plugin-hotjar`,
+            options: {
+                id: process.env.HOTJAR_ID,
+                sv: 6,
+            },
+        },
         // this (optional) plugin enables Progressive Web App + Offline functionality
         // To learn more, visit: https://gatsby.dev/offline
         // `gatsby-plugin-offline`,
