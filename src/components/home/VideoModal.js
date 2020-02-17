@@ -34,6 +34,7 @@ export default function VideoModal(props) {
             <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
                 <iframe
                     src="https://player.vimeo.com/video/391329327"
+                    title="Alumni Testimonial"
                     style={{
                         position: "absolute",
                         top: 0,
