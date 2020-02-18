@@ -70,6 +70,12 @@ module.exports = {
                 defaultDataLayer: { platform: "gatsby" },
             },
         },
+        {
+            resolve: `gatsby-plugin-facebook-pixel`,
+            options: {
+                pixelId: process.env.FACEBOOK_PIXEL_ID,
+            },
+        },
         // this (optional) plugin enables Progressive Web App + Offline functionality
         // To learn more, visit: https://gatsby.dev/offline
         // `gatsby-plugin-offline`,
