@@ -10,7 +10,7 @@ import {
     Testimonial,
     ScholarshipDetails,
     Details
-} from "../components/va-scholarship"
+} from "../components/veteran-scholarship"
 import MakeALeap from "../components/shared/MakeALeap.js"
 
 
