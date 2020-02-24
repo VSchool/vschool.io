@@ -170,6 +170,11 @@ const Info = styled.p`
 	line-height: 20px;
     font-weight: 800;
     margin-bottom: 40px;
+    text-align: center;
+
+    @media(min-width: 1200px){
+        text-align: left;
+    }
 `
 
 function Header(props) {

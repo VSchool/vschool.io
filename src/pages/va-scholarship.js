@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/layout.js"
 import SEO from "../components/seo.js"
 import { graphql } from "gatsby"
+import { gray, yellow } from "@vschool/lotus"
 import {
     Header,
     Companies,
@@ -10,6 +11,8 @@ import {
     ScholarshipDetails,
     Details
 } from "../components/va-scholarship"
+import MakeALeap from "../components/shared/MakeALeap.js"
+
 
 export default function VaScholarship({ data }) {
     const {
@@ -28,6 +31,7 @@ export default function VaScholarship({ data }) {
         details,
         deadlines,
         cite: { text: cite },
+        make_a_leap_link: { url: makeALeapLink }
     } = data.prismicVaScholarship.data
     const {
         where_we_work_header: { text: whereWeWorkHeader },
@@ -35,6 +39,14 @@ export default function VaScholarship({ data }) {
         ratings,
         company_logos,
     } = data.prismicHomePage.data
+    const { start_date: startDate } = data.prismicStartDate.data
+    const {
+        call_to_action_btn: {text: callToActionBtnText},
+        call_to_action_sub: {text: callToActionSub},
+        call_to_action_title: {text: callToActionTitle},
+        next_session_title: {text: nextSession}
+    } = data.prismicXdPage.data
+    console.log(data)
     return (
         <Layout>
             <SEO title={header} />
@@ -61,12 +73,45 @@ export default function VaScholarship({ data }) {
                 cite={cite}
                 testimonialImg={testimonialImg}
             />
+            <MakeALeap 
+                title={callToActionTitle}
+                sub={callToActionSub}
+                btnText={callToActionBtnText}
+                nextSession={nextSession}
+                bgColor={gray.lighter}
+                sessionColor={yellow.lighter}
+                startDate={startDate}
+                link={makeALeapLink}
+            />
         </Layout>
     )
 }
 
 export const query = graphql`
     {
+        prismicStartDate(
+            data: { course_name: { text: { eq: "Web Development" } } }
+        ) {
+            data {
+                start_date(formatString: "MMM Do, YYYY")
+            }
+        }
+        prismicXdPage {
+            data {
+                call_to_action_btn {
+                    text
+                }
+                call_to_action_sub {
+                    text
+                }
+                call_to_action_title {
+                    text
+                }
+                next_session_title {
+                    text
+                }
+            }
+        }
         prismicVaScholarship {
             data {
                 testimonial_img {
@@ -123,6 +168,9 @@ export const query = graphql`
                 }
                 cite {
                     text
+                }
+                make_a_leap_link {
+                    url
                 }
             }
         }
