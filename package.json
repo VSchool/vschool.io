@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "vschool.io",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "V School's home page, built with Gatsby and Prismic",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Nate Jensen <nate@vschool.io>, Bob Ziroll <bziroll@vschool.io>",
   "dependencies": {
     "@vschool/lotus": "^1.1.0",
     "babel-plugin-styled-components": "^1.10.7",
@@ -13,6 +13,7 @@
     "gatsby-plugin-google-analytics": "^2.1.35",
     "gatsby-plugin-google-tagmanager": "^2.1.25",
     "gatsby-plugin-hotjar": "^1.0.1",
+    "gatsby-plugin-intercom": "^0.1.4",
     "gatsby-plugin-manifest": "^2.2.40",
     "gatsby-plugin-netlify": "^2.1.32",
     "gatsby-plugin-offline": "^3.0.33",
