@@ -47,7 +47,7 @@ const H1 = styled.h1`
     }
 
     @media (min-width: 1200px) {
-        font-size: 56px;
+
         line-height: 56px;
         margin-bottom: 48px;
     }
@@ -150,6 +150,10 @@ const StyledButton = styled(Button)`
     }
 `
 
+const StrikeThrough = styled.span`
+  text-decoration: line-through;
+`
+
 export default function CallToAction(props) {
     const {
         title,
@@ -161,9 +165,13 @@ export default function CallToAction(props) {
         startDate,
         link,
     } = props
+    const titleArr = title.split(" ")
+    const part1 = titleArr.slice(0, 2).join(' ')
+    const part2 = ` ${titleArr[2]} `
+    const part3 = ` ${titleArr.slice(3).join(' ')}`
     return (
         <Container bgColor={bgColor}>
-            <H1>{title}</H1>
+            <H1>{part1}<StrikeThrough>{part2}</StrikeThrough>{part3}</H1>
             <SessionContainer sessionColor={sessionColor}>
                 <NextSession>
                     <SessionHeader>{nextSession}:</SessionHeader>

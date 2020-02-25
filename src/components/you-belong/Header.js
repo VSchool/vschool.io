@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { gray, black, green, pink, Button } from "@vschool/lotus"
+import { gray, black, pink, Button } from "@vschool/lotus"
 
 const HeaderContainer = styled.div`
     background-color: ${pink.lightest};
@@ -128,6 +128,28 @@ const StyledButton = styled(Button)`
     }
 `
 
+const StyledPlayButton = styled(Button)`
+    width: 268px;
+    font-family: "aktiv-grotesk-extended";
+    font-weight: 800;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 26px;
+
+    @media (min-width: 300px) and (max-width: 380px) {
+        width: 260px;
+    }
+
+    @media (min-width: 1200px) {
+        font-size: 16px;
+        letter-spacing: 1.14px;
+        line-height: 24px;
+        height: 56px;
+    }
+`
+
 const ImgContainer = styled.div`
     display: flex;
     justify-content: center;
@@ -156,6 +178,18 @@ const FlexContainer = styled.div`
     }
 `
 
+const ButtonContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (min-width: 1200px) {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+`
+
 const Info = styled.p`
     width: 100%;
     max-width: 440px;
@@ -173,6 +207,27 @@ const Info = styled.p`
     }
 `
 
+const ButtonLink = styled.a`
+    margin-bottom: 16px;
+
+    @media (min-width: 1200px) {
+        margin-right: 16px;
+        margin-bottom: 0;
+    }
+`
+
+const PlaySymbol = styled.div`
+    width: 15px;
+    height: 15px;
+    box-sizing: border-box;
+    border-style: solid;
+    border-width: 37px;
+    border-width: 10px 0px 10px 15px;
+    border-color: transparent transparent transparent ${black};
+    margin: 0;
+    display: inline-block;
+`
+
 function Header(props) {
     const {
         header,
@@ -183,6 +238,7 @@ function Header(props) {
         info,
         title,
         videoBtnText,
+        toggle,
     } = props
 
     return (
@@ -200,19 +256,28 @@ function Header(props) {
                 <FlexContainer>
                     <Info>{info}</Info>
                 </FlexContainer>
-                <FlexContainer>
-                    <a href={link}>
-                        <StyledButton buttonStyle="primary-dark">
+                <ButtonContainer>
+                    <ButtonLink href={link}>
+                        <StyledButton
+                            buttonStyle="primary-dark"
+                            style={{ width: 200, minWidth: 200 }}
+                        >
                             {btnText}
                         </StyledButton>
-                    </a>
-                    <StyledButton
+                    </ButtonLink>
+                    <StyledPlayButton
                         buttonStyle="secondary-dark"
-                        style={{ backgroundColor: "transparent" }}
+                        onClick={toggle}
+                        style={{
+                            backgroundColor: "transparent",
+                            width: 200,
+                            minWidth: 200,
+                        }}
                     >
+                        <PlaySymbol></PlaySymbol>
                         {videoBtnText}
-                    </StyledButton>
-                </FlexContainer>
+                    </StyledPlayButton>
+                </ButtonContainer>
             </Container>
             <ImgContainer>
                 <HeroImg src={heroImg} />
