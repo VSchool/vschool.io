@@ -37,20 +37,20 @@ const DetailsContainer = styled.div`
     width: 100%;
     max-width: 1024px;
 
-    @media(min-width: 1200px){
-      display: grid;
-      align-items: flex-start;
-      grid-template-columns: 1fr 1fr;
+    @media (min-width: 1200px) {
+        display: grid;
+        align-items: flex-start;
+        grid-template-columns: 1fr 1fr;
     }
 `
 
 const Detail = styled.div`
     width: 100%;
     max-width: 440px;
-    margin-bottom: ${props => props.arr.length - 1 !== props.i ? "56px" : 0};
+    margin-bottom: ${props => (props.arr.length - 1 !== props.i ? "56px" : 0)};
 
-    @media(min-width: 1200px){
-      margin-right: ${props => props.i % 2 === 0 ? "88px" : 0}
+    @media (min-width: 1200px) {
+        margin-right: ${props => (props.i % 2 === 0 ? "88px" : 0)};
     }
 `
 
@@ -64,29 +64,32 @@ const Title = styled.h3`
 `
 
 const Info = styled.p`
-	color: ${gray.darker};
-	font-family: "aktiv-grotesk";
-	font-size: 16px;
-	font-weight: 500;
-	line-height: 24px;
-  margin-top: 16px;
+    color: ${gray.darker};
+    font-family: "aktiv-grotesk";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    margin-top: 16px;
 
-  @media(max-width: 400px){
-    font-size: 14px;
-  }
+    @media (max-width: 400px) {
+        font-size: 14px;
+    }
 `
 
 export default function Details(props) {
     const { details } = props
+    console.log(details)
     return (
         <FlexContainer>
             <DetailsContainer>
-                {details.map(({info, header}, i, arr) => (
-                    <Detail key={header.text + i} i={i} arr={arr}>
-                        <Title>{header.text}</Title>
-                        <Info>{info.text}</Info>
-                    </Detail>
-                ))}
+                {details.map(
+                    ({ detail_info: info, detail_title: title }, i, arr) => (
+                        <Detail key={title.text + i} i={i} arr={arr}>
+                            <Title>{title.text}</Title>
+                            <Info>{info.text}</Info>
+                        </Detail>
+                    )
+                )}
             </DetailsContainer>
         </FlexContainer>
     )

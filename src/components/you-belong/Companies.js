@@ -1,13 +1,14 @@
 import React from "react"
 import styled from "styled-components"
-import { gray, black } from "@vschool/lotus"
+import { black, pink } from "@vschool/lotus"
 
 const Container = styled.div`
-    background-color: ${gray.lighter};
+    background-color: ${pink.lightest};
     padding: 24px;
     display: flex;
     flex-direction: column;
     align-items:center;
+    padding-top: 64px;
 
     @media (max-width: 400px) {
         padding-left: 16px;
@@ -19,13 +20,15 @@ const Container = styled.div`
         padding-right: 48px;
     }
 
-    @media (min-width: 1100px) {
-        padding-top: 64px;
+    @media(min-width: 800px){
+      padding-top: 96px;
     }
+
 
     @media (min-width: 1200px) {
         padding-right: 96px;
         padding-left: 96px;
+        padding-top: 160px;
     }
 `
 
@@ -52,7 +55,7 @@ const H4 = styled.h4`
 `
 
 const LogoListContainer = styled.div`
-    background-color: ${gray.lighter};
+    background-color: ${pink.lightest};
     display: flex;
 
     @media(min-width: 1050px){
