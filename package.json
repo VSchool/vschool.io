@@ -1,9 +1,9 @@
 {
   "name": "vschool.io",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "V School's home page, built with Gatsby and Prismic",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Nate Jensen <nate@vschool.io>, Bob Ziroll <bziroll@vschool.io>",
   "dependencies": {
     "@vschool/lotus": "^1.1.0",
     "babel-plugin-styled-components": "^1.10.7",
