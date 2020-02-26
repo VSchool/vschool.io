@@ -4,7 +4,7 @@ import { gray, black } from "@vschool/lotus"
 import Deadlines from "./Deadlines.js"
 
 const Container = styled.div`
-    background-color: ${gray.lighter};
+    background-color: ${gray.lightest};
     padding-top: 64px;
     padding-left: 24px;
     padding-right: 24px;

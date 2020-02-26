@@ -5,7 +5,7 @@ import { gray, black } from "@vschool/lotus"
 const FlexContainer = styled.div`
     display: flex;
     justify-content: center;
-    background-color: ${gray.lighter};
+    background-color: ${gray.lightest};
     padding-left: 24px;
     padding-right: 24px;
     padding-bottom: 64px;
