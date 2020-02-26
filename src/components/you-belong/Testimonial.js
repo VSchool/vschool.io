@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { gray, yellow, orange, blue, pink} from "@vschool/lotus"
+import { gray, blue, pink} from "@vschool/lotus"
 
 const Container = styled.div`
   background-color: ${pink.lightest};
@@ -39,7 +39,7 @@ const GraySection = styled.div`
 
 const WhiteSection = styled.div`
 
-    background-color: ${gray.lighter};
+    background-color: ${gray.lightest};
 
     @media (min-width: 840px) {
         height: 120px;
