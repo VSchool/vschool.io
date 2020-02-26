@@ -79,7 +79,7 @@ const Title = styled.h5`
 `
 
 const DateText = styled.h2`
-    color: ${blue.darker};
+    color: ${blue.dark};
     font-family: "aktiv-grotesk-extended";
     font-size: 22px;
     line-height: 26px;
