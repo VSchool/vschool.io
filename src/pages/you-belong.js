@@ -107,7 +107,7 @@ export default function YouBelong({ data }) {
               btnText={callToActionBtnText}
               nextSession={nextSession}
               startDate={startDate}
-              bgColor={gray.lighter}
+              bgColor={gray.lightest}
               sessionColor={blue.lighter}
               link={callToActionBtnLink}
             />

@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { gray, black, pink } from "@vschool/lotus"
 
 const Container = styled.div`
-    background-color: ${gray.lighter};
+    background-color: ${gray.lightest};
     padding-left: 24px;
     padding-right: 24px;
     padding-bottom: 56px;
