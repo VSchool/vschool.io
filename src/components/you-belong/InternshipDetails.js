@@ -104,11 +104,13 @@ const Info = styled.p`
 `
 
 export default function InternshipDetails(props) {
-    const { title, header, info, img } = props
+    const { title, header, info, img, link } = props
     return (
         <Container>
             <FlexContainer>
-                <Img src={img} />
+                <a href={link} target="_blank">
+                  <Img src={img} />
+                </a>
                 <TextContainer>
                     <Title>{title}</Title>
                     <Header>{header}</Header>

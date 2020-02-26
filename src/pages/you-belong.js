@@ -12,9 +12,8 @@ import {
     Companies,
     Ratings,
     Testimonial,
-    MakeALeap
+    MakeALeap,
 } from "../components/you-belong"
-
 
 import { gray, blue } from "@vschool/lotus"
 
@@ -44,6 +43,7 @@ export default function YouBelong({ data }) {
         testimonial_cite: { text: cite },
         testimonial_img: { url: testimonialImg },
         deadlines_bg_img: { url: deadlinesBgImg },
+        internship_site_link: { url: internshipLink },
         deadlines,
         details,
     } = data.prismicYouBelong.data
@@ -87,29 +87,24 @@ export default function YouBelong({ data }) {
                 header={internshipDetailsHeader}
                 info={internshipDetailsInfo}
                 img={internshipImg}
+                link={internshipLink}
             />
-            <Companies 
-              header={whereWeWorkHeader}
-              logos={logos}
+            <Companies header={whereWeWorkHeader} logos={logos} />
+            <Ratings header={ratingsHeader} ratings={ratings} />
+            <Testimonial
+                testimonial={testimonial}
+                cite={cite}
+                testimonialImg={testimonialImg}
             />
-            <Ratings 
-              header={ratingsHeader}
-              ratings={ratings}
-            />
-            <Testimonial 
-              testimonial={testimonial}
-              cite={cite}
-              testimonialImg={testimonialImg}
-            />
-            <MakeALeap 
-              title={callToActionHeader}
-              sub={callToActionSub}
-              btnText={callToActionBtnText}
-              nextSession={nextSession}
-              startDate={startDate}
-              bgColor={gray.lightest}
-              sessionColor={blue.lighter}
-              link={callToActionBtnLink}
+            <MakeALeap
+                title={callToActionHeader}
+                sub={callToActionSub}
+                btnText={callToActionBtnText}
+                nextSession={nextSession}
+                startDate={startDate}
+                bgColor={gray.lightest}
+                sessionColor={blue.lighter}
+                link={callToActionBtnLink}
             />
         </Layout>
     )
@@ -221,6 +216,9 @@ export const query = graphql`
                     text
                 }
                 internship_img {
+                    url
+                }
+                internship_site_link {
                     url
                 }
                 scholarship_details_header {
