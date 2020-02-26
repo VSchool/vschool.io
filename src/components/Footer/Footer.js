@@ -67,7 +67,7 @@ const CourseContainer = styled.div`
 
 const CourseTitle = styled.h3`
     height: 18px;	
-    width: 144px;	
+    width: 156px;	
     color: ${gray.base};	
     font-family: "aktiv-grotesk";	
     font-size: 14px;	
@@ -88,7 +88,7 @@ const StartDate = styled.p`
 
 const Anchor = styled.a`
     padding-top: 8px;	
-    width: 144px;	
+    width: 156px;	
     color: ${gray.base};	
     font-family: "aktiv-grotesk";	
     font-size: 14px;	
@@ -108,7 +108,7 @@ const Anchor = styled.a`
 
 const SLink = styled(Link)`
     padding-top: 8px;	
-    width: 144px;	
+    width: 156px;	
     color: ${gray.base};	
     font-family: "aktiv-grotesk";	
     font-size: 14px;	
