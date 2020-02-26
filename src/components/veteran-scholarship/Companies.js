@@ -111,7 +111,7 @@ const LogoContainer = styled.div`
 `
 
 const Logo = styled.img`
-  width: ${props => props.i === 0 ? 40 : 64}px;
+  width: ${props => props.i === 0 ? 40 : 58}px;
 
   @media(min-width: 400px){
     width: ${props => props.i === 0 ? 40 : 72}px;

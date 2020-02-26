@@ -46,7 +46,6 @@ export default function VaScholarship({ data }) {
         call_to_action_title: {text: callToActionTitle},
         next_session_title: {text: nextSession}
     } = data.prismicXdPage.data
-    console.log(data)
     return (
         <Layout>
             <SEO title={header} />
