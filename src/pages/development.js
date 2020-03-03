@@ -12,12 +12,10 @@ import {
     Companies,
     Ratings,
     Testimonial,
-    ISA,
-    PaymentOptions,
     FAQ,
     LearnDesign,
 } from "../components/development"
-import MakeALeap from "../components/shared/MakeALeap.js"
+import { MakeALeap, PaymentOptions, ISA } from "../components/shared"
 
 export default function Development({ data }) {
     const {
@@ -37,6 +35,14 @@ export default function Development({ data }) {
         testimonial: { text: testimonial },
         testimonial_cite: { text: cite },
         testimonial_img: { url: testimonialImg },
+        isa_sub2: { text: isaSub2 },
+        isa_sub1: { text: isaSub1 },
+        isa_learn_more_link: { url: isaLink },
+        isa_learn_more_btn: { text: isaBtnText },
+        isa_info1: { text: isaInfo1 },
+        isa_info2: { text: isaInfo2 },
+        isa_header: { text: isaHeader },
+        isa_image: { url: isaImg },
         make_a_leap_link: { url: makeALeapLink },
         learn_design_link: { url: learnDesignLink },
         learn_design_btn: { text: learnDesignBtn },
@@ -45,6 +51,7 @@ export default function Development({ data }) {
         make_a_leap_header: { text: makeALeapTitle },
         make_a_leap_btn: { text: makeALeapBtnText },
         next_session: { text: makeALeapSession },
+        payment_options,
         faq,
         company_logos,
         modules,
@@ -78,8 +85,17 @@ export default function Development({ data }) {
                 cite={cite}
                 testimonialImg={testimonialImg}
             />
-            <ISA />
-            <PaymentOptions />
+            <ISA
+                header={isaHeader}
+                sub1={isaSub1}
+                sub2={isaSub2}
+                info1={isaInfo1}
+                info2={isaInfo2}
+                img={isaImg}
+                btnText={isaBtnText}
+                link={isaLink}
+            />
+            <PaymentOptions options={payment_options} />
             <MakeALeap
                 sessionColor={blue.light}
                 bgColor={blue.lightest}
@@ -123,6 +139,17 @@ export const query = graphql`
                 company_logos {
                     logo {
                         url
+                    }
+                }
+                payment_options {
+                    payment_type {
+                        text
+                    }
+                    payment_info_link {
+                        url
+                    }
+                    payment_info {
+                        text
                     }
                 }
                 course_bullets {
@@ -192,6 +219,30 @@ export const query = graphql`
                     text
                 }
                 testimonial_img {
+                    url
+                }
+                isa_sub2 {
+                    text
+                }
+                isa_sub1 {
+                    text
+                }
+                isa_learn_more_link {
+                    url
+                }
+                isa_learn_more_btn {
+                    text
+                }
+                isa_info1 {
+                    text
+                }
+                isa_info2 {
+                    text
+                }
+                isa_header {
+                    text
+                }
+                isa_image {
                     url
                 }
                 where_we_work_header {
