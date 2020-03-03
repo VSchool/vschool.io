@@ -36,17 +36,15 @@ export default function IndexPage({ data }) {
         testimonial_img: { url: testimonialImg },
         testimonial_cite: { text: cite },
         make_a_leap_link: { url: makeALeapLink },
+        make_a_leap_btn: { text: makeALeapBtnText },
+        make_a_leap_header: { text: makeALeapTitle },
+        make_a_leap_sub: { text: makeALeapSub },
+        next_session: { text: makeALeapSession },
         differences,
         ratings,
         company_logos,
         courses,
     } = data.prismicHomePage.data
-    const {
-        call_to_action_btn: { text: makeALeapBtnText },
-        call_to_action_sub: { text: makeALeapSub },
-        call_to_action_title: { text: makeALeapTitle },
-        next_session_title: { text: makeALeapSession },
-    } = data.prismicXdPage.data
     const { edges: startDates } = data.allPrismicStartDate
     const { start_date: startDate } = data.prismicStartDate.data
     return (
@@ -103,19 +101,15 @@ export const query = graphql`
                 start_date(formatString: "MMM Do, YYYY")
             }
         }
-        prismicXdPage {
-            data {
-                call_to_action_btn {
-                    text
-                }
-                call_to_action_sub {
-                    text
-                }
-                call_to_action_title {
-                    text
-                }
-                next_session_title {
-                    text
+        allPrismicStartDate {
+            edges {
+                node {
+                    data {
+                        course_name {
+                            text
+                        }
+                        start_date(formatString: "MMM Do, YYYY")
+                    }
                 }
             }
         }
@@ -216,17 +210,17 @@ export const query = graphql`
                 make_a_leap_link {
                     url
                 }
-            }
-        }
-        allPrismicStartDate {
-            edges {
-                node {
-                    data {
-                        course_name {
-                            text
-                        }
-                        start_date(formatString: "MMM Do, YYYY")
-                    }
+                make_a_leap_btn {
+                    text
+                }
+                make_a_leap_header {
+                    text
+                }
+                make_a_leap_sub {
+                    text
+                }
+                next_session {
+                    text
                 }
             }
         }

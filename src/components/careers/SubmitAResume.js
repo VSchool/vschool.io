@@ -114,11 +114,11 @@ const FlexContainer = styled.div`
 `
 
 function SubmitAResume(props) {
-    const { title, sub, btnText } = props
+    const { header, sub, btnText } = props
     return (
         <Container>
             <FlexContainer>
-                <H1>{title}</H1>
+                <H1>{header}</H1>
             </FlexContainer>
             <FlexContainer>
                 <P>{sub}</P>

@@ -22,15 +22,13 @@ export default function LivingInSaltLake({ data }) {
         sub_header: { text: sub },
         hero_image: { url: heroImg },
         header: { text: header },
+        make_a_leap_btn: { text: makeALeapBtnText },
+        make_a_leap_header: { text: makeALeapTitle },
+        make_a_leap_sub: { text: makeALeapSub },
+        next_session: { text: makeALeapSession },
         make_a_leap_link: { url: makeALeapLink },
     } = data.prismicLivingInSaltLake.data
     const { start_date: startDate } = data.prismicStartDate.data
-    const {
-        call_to_action_btn: { text: makeALeapBtnText },
-        call_to_action_sub: { text: makeALeapSub },
-        call_to_action_title: { text: makeALeapTitle },
-        next_session_title: { text: makeALeapSession },
-    } = data.prismicXdPage.data
     return (
         <Layout>
             <SEO title={header} />
@@ -65,22 +63,6 @@ export const query = graphql`
         ) {
             data {
                 start_date(formatString: "MMM Do, YYYY")
-            }
-        }
-        prismicXdPage {
-            data {
-                call_to_action_btn {
-                    text
-                }
-                call_to_action_sub {
-                    text
-                }
-                call_to_action_title {
-                    text
-                }
-                next_session_title {
-                    text
-                }
             }
         }
         prismicLivingInSaltLake {
@@ -124,6 +106,18 @@ export const query = graphql`
                     url
                 }
                 check_out_housing_btn {
+                    text
+                }
+                make_a_leap_btn {
+                    text
+                }
+                make_a_leap_header {
+                    text
+                }
+                make_a_leap_sub {
+                    text
+                }
+                next_session {
                     text
                 }
                 make_a_leap_link {

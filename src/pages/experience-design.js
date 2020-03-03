@@ -8,14 +8,14 @@ import {
     FAQ,
     HeroHeader,
     HeroImage,
-    ISA,
     LearnToCode,
-    PaymentOptions,
     Ratings,
     Skills,
     Testimonial,
 } from "../components/experience-design"
 import MakeALeap from "../components/shared/MakeALeap.js"
+import PaymentOptions from "../components/shared/PaymentOptions.js"
+import ISA from "../components/shared/ISA.js"
 import { purple } from "@vschool/lotus"
 import { graphql } from "gatsby"
 
@@ -39,13 +39,14 @@ const ExperienceDesignPage = ({ data }) => {
         learn_to_code_title: { text: learnToCode },
         learn_to_code_link: { url: learnToCodeLink },
         learn_to_code_btn: { text: learnToCodeBtnText },
-        isa_sub: { text: isaSub },
         isa_learn_more_link: { url: isaLink },
         isa_learn_more_btn: { text: isaBtnText },
-        isa_info: { text: isaInfo },
+        isa_info1: { text: isaInfo1 },
+        isa_info2: { text: isaInfo2 },
         isa_image: { url: isaImg },
         isa_header2: { text: isaHeader2 },
         isa_header1: { text: isaHeader1 },
+        isa_header: { text: isaHeader },
         invite: { text: invite },
         hero_img_small: { url: heroImgSm },
         hero_img_overlay: { url: heroImgOverlay },
@@ -57,7 +58,7 @@ const ExperienceDesignPage = ({ data }) => {
         course_bullets: courseBullets,
         call_to_action_title: { text: makeItHappenTitle },
         call_to_action_sub: { text: makeItHappenSub },
-        call_to_action_link: {url: callToActionLink},
+        call_to_action_link: { url: callToActionLink },
         // call_to_action_btn: { text: callToActionBtnText },
         as_real_as_it_gets_title: { text: asRealAsItGetsTitle },
         as_real_as_it_gets_sub3: { text: asRealAsItGetsSub3 },
@@ -115,10 +116,11 @@ const ExperienceDesignPage = ({ data }) => {
             />
             <Ratings rating1={rating1} rating2={rating2} rating3={rating3} />
             <ISA
-                header={isaHeader1}
-                sub1={isaSub}
+                header={isaHeader}
+                sub1={isaHeader1}
                 sub2={isaHeader2}
-                info={isaInfo}
+                info1={isaInfo1}
+                info2={isaInfo2}
                 img={isaImg}
                 btnText={isaBtnText}
                 link={isaLink}
@@ -230,16 +232,19 @@ export const query = graphql`
                 learn_to_code_btn {
                     text
                 }
-                isa_sub {
-                    text
-                }
                 isa_learn_more_link {
                     url
                 }
                 isa_learn_more_btn {
                     text
                 }
-                isa_info {
+                isa_header {
+                    text
+                }
+                isa_info1 {
+                    text
+                }
+                isa_info2 {
                     text
                 }
                 isa_image {

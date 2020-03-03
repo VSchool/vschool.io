@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import { gray, black, Button } from "@vschool/lotus"
-import { graphql, useStaticQuery } from "gatsby"
 
 const Container = styled.div`
     background-color: ${gray.lighter};
@@ -46,7 +45,7 @@ const H2 = styled.h2`
     line-height: 48px;
     text-align: center;
 
-    @media (min-width: 320px) and (max-width: 400px){
+    @media (min-width: 320px) and (max-width: 400px) {
         padding-left: 16px;
         padding-right: 16px;
     }
@@ -57,7 +56,7 @@ const H2 = styled.h2`
         padding-right: 48px;
         padding-top: 56px;
     }
-    @media (min-width: 1200px){
+    @media (min-width: 1200px) {
         padding-right: 96px;
         padding-left: 96px;
         padding-top: 96px;
@@ -178,62 +177,24 @@ const H4 = styled.h4`
 `
 
 function ISA(props) {
-    const {
-        prismicXdPage: {
-            data: {
-                isa_header1: { text: header },
-                isa_sub: { text: subHeader },
-                isa_header2: { text: header2 },
-                isa_info: { text },
-                isa_image: { url: isaBackground },
-                isa_learn_more_btn: { text: btnText },
-                isa_learn_more_link: { url: link },
-            },
-        },
-    } = useStaticQuery(graphql`
-        {
-            prismicXdPage {
-                data {
-                    isa_sub {
-                        text
-                    }
-                    isa_info {
-                        text
-                    }
-                    isa_header2 {
-                        text
-                    }
-                    isa_header1 {
-                        text
-                    }
-                    isa_image {
-                        url
-                    }
-                    isa_learn_more_btn {
-                        text
-                    }
-                    isa_learn_more_link {
-                        url
-                    }
-                }
-            }
-        }
-    `)
+    const { header, sub1, sub2, info1, info2, img, btnText, link } = props
     return (
         <Container>
-            <H2>Investing In Your Success</H2>
+            <H2>{header}</H2>
             <FlexContainer>
                 <LearnMoreContainer>
-                    <H3>{header}</H3>
-                    <P>{subHeader}</P>
+                    <H3>{sub1}</H3>
+                    <P>{info1}</P>
                     <a href={link}>
-                        <StyledButton buttonStyle="primary-dark">{btnText}</StyledButton>
+                        <StyledButton buttonStyle="primary-dark">
+                            {btnText}
+                        </StyledButton>
                     </a>
                 </LearnMoreContainer>
-                <AboutISABackground isaBackground={isaBackground}>
+                <AboutISABackground isaBackground={img}>
                     <AboutISA>
-                        <H4>{header2}</H4>
-                        <P>{text}</P>
+                        <H4>{sub2}</H4>
+                        <P>{info2}</P>
                     </AboutISA>
                 </AboutISABackground>
             </FlexContainer>
