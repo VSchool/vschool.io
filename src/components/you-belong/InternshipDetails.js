@@ -33,9 +33,9 @@ const FlexContainer = styled.div`
     flex-direction: column;
     align-items: center;
 
-    @media(min-width: 1200px){
-      flex-direction: row;
-      justify-content: center;
+    @media (min-width: 1200px) {
+        flex-direction: row;
+        justify-content: center;
     }
 `
 
@@ -44,20 +44,20 @@ const Img = styled.img`
     max-width: 467px;
     margin-bottom: 56px;
 
-    @media(min-width: 1200px){
-      margin-bottom: 0;
-      margin-right: 56px;
+    @media (min-width: 1200px) {
+        margin-bottom: 0;
+        margin-right: 56px;
     }
 `
 
 const TextContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-  @media(min-width: 1200px){
-    align-items: flex-start;
-  }
+    @media (min-width: 1200px) {
+        align-items: flex-start;
+    }
 `
 
 const Title = styled.h4`
@@ -69,8 +69,8 @@ const Title = styled.h4`
     font-weight: 800;
     margin-bottom: 16px;
 
-    @media(min-width: 1200px){
-      text-align: left;
+    @media (min-width: 1200px) {
+        text-align: left;
     }
 `
 
@@ -83,8 +83,8 @@ const Header = styled.h2`
     margin-bottom: 16px;
     text-align: center;
 
-    @media(min-width: 1200px){
-      text-align: left;
+    @media (min-width: 1200px) {
+        text-align: left;
     }
 `
 
@@ -97,9 +97,9 @@ const Info = styled.p`
     max-width: 600px;
     text-align: center;
 
-    @media(min-width: 1200px){
-      text-align: left;
-      max-width: 489px;
+    @media (min-width: 1200px) {
+        text-align: left;
+        max-width: 489px;
     }
 `
 
@@ -109,7 +109,7 @@ export default function InternshipDetails(props) {
         <Container>
             <FlexContainer>
                 <a href={link} target="_blank">
-                  <Img src={img} />
+                    <Img src={img} />
                 </a>
                 <TextContainer>
                     <Title>{title}</Title>

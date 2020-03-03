@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import { graphql, useStaticQuery } from "gatsby"
 import { blue, gray, black } from "@vschool/lotus"
 import Course from "./Course.js"
 
@@ -36,7 +35,7 @@ const SmallContainer = styled.div`
         border: 2px solid ${gray.dark};
         padding: 0;
         margin-bottom: 80px;
-        z-index: 1
+        z-index: 1;
     }
 `
 
@@ -56,61 +55,13 @@ const H1 = styled.h1`
     }
 `
 
-function Courses() {
-  const {
-    prismicBootcampPrimer: {
-      data: {
-        upcoming_courses_header: {
-          text: header
-        },
-        upcoming_courses: courses
-      }
-    },
-    allPrismicStartDate: {
-      edges: startDates
-    }
-  } = useStaticQuery(graphql`
-    {
-      allPrismicStartDate {
-      edges {
-        node {
-          data {
-            course_name {
-              text
-            }
-            start_date(formatString: "MMM Do, YYYY")
-          }
-        }
-      }
-    }
-      prismicBootcampPrimer {
-        data {
-          upcoming_courses_header {
-            text
-          }
-          upcoming_courses {
-            course {
-              text
-            }
-            course_date {
-              text
-            }
-            course_info {
-              text
-            }
-            course_link {
-              url
-            }
-          }
-        }
-      }
-    }
-  `)
+function Courses(props) {
+    const { header, courses, startDates } = props
     return (
         <LargeContainer>
             <SmallContainer>
-                <H1>{ header }</H1>
-                { courses.map((course, i) => (
+                <H1>{header}</H1>
+                {courses.map((course, i) => (
                     <Course key={i} {...course} startDates={startDates} />
                 ))}
             </SmallContainer>

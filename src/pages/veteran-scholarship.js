@@ -9,10 +9,9 @@ import {
     Ratings,
     Testimonial,
     ScholarshipDetails,
-    Details
+    Details,
 } from "../components/veteran-scholarship"
 import MakeALeap from "../components/shared/MakeALeap.js"
-
 
 export default function VaScholarship({ data }) {
     const {
@@ -28,24 +27,20 @@ export default function VaScholarship({ data }) {
         details_header: { text: detailsHeader },
         deadlines_background_img: { url: detailsBgImg },
         hero_img: { url: heroImg },
-        details,
-        deadlines,
-        cite: { text: cite },
-        make_a_leap_link: { url: makeALeapLink }
-    } = data.prismicVaScholarship.data
-    const {
         where_we_work_header: { text: whereWeWorkHeader },
         ratings_header: { text: ratingsHeader },
+        cite: { text: cite },
+        make_a_leap_link: { url: makeALeapLink },
+        make_a_leap_sub: { text: callToActionSub },
+        make_a_leap_header: { text: callToActionTitle },
+        make_a_leap_btn: { text: callToActionBtnText },
+        next_session: { text: nextSession },
         ratings,
         company_logos,
-    } = data.prismicHomePage.data
+        details,
+        deadlines,
+    } = data.prismicVaScholarship.data
     const { start_date: startDate } = data.prismicStartDate.data
-    const {
-        call_to_action_btn: {text: callToActionBtnText},
-        call_to_action_sub: {text: callToActionSub},
-        call_to_action_title: {text: callToActionTitle},
-        next_session_title: {text: nextSession}
-    } = data.prismicXdPage.data
     return (
         <Layout>
             <SEO title={header} />
@@ -58,13 +53,13 @@ export default function VaScholarship({ data }) {
                 link={headerBtnLink}
                 btnText={headerBtnText}
             />
-            <ScholarshipDetails 
-              header={detailsHeader}
-              deadlines={deadlines}
-              detailsInfo={detailsInfo}
-              detailsBgImg={detailsBgImg}
+            <ScholarshipDetails
+                header={detailsHeader}
+                deadlines={deadlines}
+                detailsInfo={detailsInfo}
+                detailsBgImg={detailsBgImg}
             />
-            <Details details={details}/>
+            <Details details={details} />
             <Companies header={whereWeWorkHeader} logos={company_logos} />
             <Ratings header={ratingsHeader} ratings={ratings} />
             <Testimonial
@@ -72,7 +67,7 @@ export default function VaScholarship({ data }) {
                 cite={cite}
                 testimonialImg={testimonialImg}
             />
-            <MakeALeap 
+            <MakeALeap
                 title={callToActionTitle}
                 sub={callToActionSub}
                 btnText={callToActionBtnText}
@@ -93,22 +88,6 @@ export const query = graphql`
         ) {
             data {
                 start_date(formatString: "MMM Do, YYYY")
-            }
-        }
-        prismicXdPage {
-            data {
-                call_to_action_btn {
-                    text
-                }
-                call_to_action_sub {
-                    text
-                }
-                call_to_action_title {
-                    text
-                }
-                next_session_title {
-                    text
-                }
             }
         }
         prismicVaScholarship {
@@ -143,6 +122,22 @@ export const query = graphql`
                 invite_btn {
                     text
                 }
+                where_we_work_header {
+                    text
+                }
+                ratings_header {
+                    text
+                }
+                ratings {
+                    rating_img {
+                        url
+                    }
+                }
+                company_logos {
+                    logo {
+                        url
+                    }
+                }
                 details_info {
                     text
                 }
@@ -168,28 +163,20 @@ export const query = graphql`
                 cite {
                     text
                 }
+                make_a_leap_sub {
+                    text
+                }
+                make_a_leap_header {
+                    text
+                }
+                make_a_leap_btn {
+                    text
+                }
+                next_session {
+                    text
+                }
                 make_a_leap_link {
                     url
-                }
-            }
-        }
-        prismicHomePage {
-            data {
-                where_we_work_header {
-                    text
-                }
-                ratings_header {
-                    text
-                }
-                ratings {
-                    rating_img {
-                        url
-                    }
-                }
-                company_logos {
-                    logo {
-                        url
-                    }
                 }
             }
         }

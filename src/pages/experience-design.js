@@ -57,7 +57,7 @@ const ExperienceDesignPage = ({ data }) => {
         course_bullets: courseBullets,
         call_to_action_title: { text: makeItHappenTitle },
         call_to_action_sub: { text: makeItHappenSub },
-        call_to_action_link: {url: callToActionLink},
+        call_to_action_link: { url: callToActionLink },
         // call_to_action_btn: { text: callToActionBtnText },
         as_real_as_it_gets_title: { text: asRealAsItGetsTitle },
         as_real_as_it_gets_sub3: { text: asRealAsItGetsSub3 },

@@ -27,20 +27,16 @@ export default function Veterans({ data }) {
         testimonial_cite: { text: cite },
         testimonial: { text: testimonial },
         make_it_happen_link: { url: makeItHappenLink },
-        bullets,
-    } = data.prismicVeteransPage.data
-    const {
         upcoming_programs_header: { text: programsHeader },
         ratings_header: { text: ratingsHeader },
+        make_a_leap_sub: { text: makeALeapSub },
+        make_a_leap_header: { text: makeALeapTitle },
+        make_a_leap_btn: { text: makeALeapBtnText },
+        next_session: { text: makeALeapSession },
         ratings,
         courses,
-    } = data.prismicHomePage.data
-    const {
-        call_to_action_btn: { text: makeALeapBtnText },
-        call_to_action_sub: { text: makeALeapSub },
-        call_to_action_title: { text: makeALeapTitle },
-        next_session_title: { text: makeALeapSession },
-    } = data.prismicXdPage.data
+        bullets,
+    } = data.prismicVeteransPage.data
     const { start_date: startDate } = data.prismicStartDate.data
     const { edges: startDates } = data.allPrismicStartDate
     return (
@@ -82,6 +78,25 @@ export default function Veterans({ data }) {
 
 export const query = graphql`
     {
+        prismicStartDate(
+            data: { course_name: { text: { eq: "Web Development" } } }
+        ) {
+            data {
+                start_date(formatString: "MMM Do, YYYY")
+            }
+        }
+        allPrismicStartDate {
+            edges {
+                node {
+                    data {
+                        course_name {
+                            text
+                        }
+                        start_date(formatString: "MMM Do, YYYY")
+                    }
+                }
+            }
+        }
         prismicVeteransPage {
             data {
                 veterans_sub {
@@ -125,45 +140,6 @@ export const query = graphql`
                         text
                     }
                 }
-            }
-        }
-        prismicStartDate(
-            data: { course_name: { text: { eq: "Web Development" } } }
-        ) {
-            data {
-                start_date(formatString: "MMM Do, YYYY")
-            }
-        }
-        allPrismicStartDate {
-            edges {
-                node {
-                    data {
-                        course_name {
-                            text
-                        }
-                        start_date(formatString: "MMM Do, YYYY")
-                    }
-                }
-            }
-        }
-        prismicXdPage {
-            data {
-                call_to_action_btn {
-                    text
-                }
-                call_to_action_sub {
-                    text
-                }
-                call_to_action_title {
-                    text
-                }
-                next_session_title {
-                    text
-                }
-            }
-        }
-        prismicHomePage {
-            data {
                 courses {
                     course_link {
                         url
@@ -174,6 +150,18 @@ export const query = graphql`
                     course {
                         text
                     }
+                }
+                make_a_leap_sub {
+                    text
+                }
+                make_a_leap_header {
+                    text
+                }
+                make_a_leap_btn {
+                    text
+                }
+                next_session {
+                    text
                 }
                 upcoming_programs_header {
                     text

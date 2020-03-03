@@ -1,7 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import {} from "@vschool/lotus"
-import { graphql, useStaticQuery } from "gatsby"
 
 const Header = styled.header`
     background-color: #e3e8fa;
@@ -10,21 +8,21 @@ const Header = styled.header`
     padding-right: 24px;
     padding-bottom: 64px;
 
-    @media (min-width: 600px){
-      padding-left: 32px; 
-      padding-right: 32px;
+    @media (min-width: 600px) {
+        padding-left: 32px;
+        padding-right: 32px;
     }
 
-    @media (min-width: 840px){
-      padding-left: 40px;
-      padding-right: 40px;
-      padding-bottom: 96px;
-      padding-top: 96px;
+    @media (min-width: 840px) {
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-bottom: 96px;
+        padding-top: 96px;
     }
 
-    @media (min-width: 1200px){
-      padding-left: 88px;
-      padding-right: 88px;
+    @media (min-width: 1200px) {
+        padding-left: 88px;
+        padding-right: 88px;
     }
 `
 
@@ -118,44 +116,14 @@ const FlexContainer = styled.div`
     justify-content: center;
 `
 
-function HeroHeader() {
-  const {
-    prismicBootcampPrimer: {
-      data: {
-        main_page_title: {
-          text: title
-        },
-        subtitle: {
-          text: sub
-        },
-        invitation_text: {
-          text: invite
-        }
-      }
-    }
-  } = useStaticQuery(graphql`
-    {
-      prismicBootcampPrimer {
-        data {
-          subtitle {
-            text
-          }
-          main_page_title {
-            text
-          }
-          invitation_text {
-            text
-          }
-        }
-      }
-    }
-  `)
+function HeroHeader(props) {
+    const { title, sub, invite } = props
     return (
         <Header>
-            <H1>{ title }</H1>
-            <P>{ sub }</P>
+            <H1>{title}</H1>
+            <P>{sub}</P>
             <FlexContainer>
-                <H5>{ invite }</H5>
+                <H5>{invite}</H5>
             </FlexContainer>
         </Header>
     )
