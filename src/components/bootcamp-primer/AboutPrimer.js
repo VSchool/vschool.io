@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import { graphql, useStaticQuery } from "gatsby"
 import { gray, black } from "@vschool/lotus"
 
 const TextContainer = styled.div`
@@ -75,45 +74,14 @@ const P = styled.p`
     }
 `
 
-function AboutPrimer() {
-  const {
-    prismicBootcampPrimer: {
-      data: {
-        about_primer_title: {
-          text: title
-        },
-        about_primer_sub1: {
-          text: sub1
-        },
-        about_primer_sub2: {
-          text: sub2
-        }
-      }
-    }
-  } = useStaticQuery(graphql`
-    {
-      prismicBootcampPrimer {
-        data {
-          about_primer_title {
-            text
-          }
-          about_primer_sub2 {
-            text
-          }
-          about_primer_sub1 {
-            text
-          }
-        }
-      }
-    }
-  `)
-
+function AboutPrimer(props) {
+    const { title, sub1, sub2 } = props
     return (
         <FlexContainer>
             <TextContainer>
-                <H3>{ title }</H3>
-                <P>{ sub1 }</P>
-                <P>{ sub2 }</P>
+                <H3>{title}</H3>
+                <P>{sub1}</P>
+                <P>{sub2}</P>
             </TextContainer>
         </FlexContainer>
     )

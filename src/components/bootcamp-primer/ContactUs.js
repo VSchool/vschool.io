@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import { graphql, useStaticQuery } from "gatsby"
 import { blue, black, gray, Button } from "@vschool/lotus"
 
 const Container = styled.div`
@@ -75,36 +74,8 @@ const StyledButton = styled(Button)`
     }
 `
 
-function ContactUs() {
-    const {
-        prismicBootcampPrimer: {
-            data: {
-                contact_us_title: { text: title },
-                contact_us_sub: { text: sub },
-                contact_us_btn: { text: btnText },
-                contact_us_link: { url: link },
-            },
-        },
-    } = useStaticQuery(graphql`
-        {
-            prismicBootcampPrimer {
-                data {
-                    contact_us_title {
-                        text
-                    }
-                    contact_us_sub {
-                        text
-                    }
-                    contact_us_link {
-                        url
-                    }
-                    contact_us_btn {
-                        text
-                    }
-                }
-            }
-        }
-    `)
+function ContactUs(props) {
+    const { title, sub, btnText, link } = props
     return (
         <Container>
             <H1>{title}</H1>

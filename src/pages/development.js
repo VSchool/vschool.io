@@ -12,12 +12,10 @@ import {
     Companies,
     Ratings,
     Testimonial,
-    ISA,
-    PaymentOptions,
     FAQ,
     LearnDesign,
 } from "../components/development"
-import MakeALeap from "../components/shared/MakeALeap.js"
+import { MakeALeap, PaymentOptions, ISA } from "../components/shared"
 
 export default function Development({ data }) {
     const {
@@ -37,22 +35,29 @@ export default function Development({ data }) {
         testimonial: { text: testimonial },
         testimonial_cite: { text: cite },
         testimonial_img: { url: testimonialImg },
+        isa_sub2: { text: isaSub2 },
+        isa_sub1: { text: isaSub1 },
+        isa_learn_more_link: { url: isaLink },
+        isa_learn_more_btn: { text: isaBtnText },
+        isa_info1: { text: isaInfo1 },
+        isa_info2: { text: isaInfo2 },
+        isa_header: { text: isaHeader },
+        isa_image: { url: isaImg },
         make_a_leap_link: { url: makeALeapLink },
         learn_design_link: { url: learnDesignLink },
         learn_design_btn: { text: learnDesignBtn },
         learn_design: { text: learnDesignTitle },
+        make_a_leap_sub: { text: makeALeapSub },
+        make_a_leap_header: { text: makeALeapTitle },
+        make_a_leap_btn: { text: makeALeapBtnText },
+        next_session: { text: makeALeapSession },
+        payment_options,
         faq,
         company_logos,
         modules,
         course_bullets,
         rating_images,
     } = data.prismicDevelopmentPage.data
-    const {
-        call_to_action_btn: { text: makeALeapBtnText },
-        call_to_action_sub: { text: makeALeapSub },
-        call_to_action_title: { text: makeALeapTitle },
-        next_session_title: { text: makeALeapSession },
-    } = data.prismicXdPage.data
     const { start_date: startDate } = data.prismicStartDate.data
     return (
         <Layout>
@@ -80,8 +85,17 @@ export default function Development({ data }) {
                 cite={cite}
                 testimonialImg={testimonialImg}
             />
-            <ISA />
-            <PaymentOptions />
+            <ISA
+                header={isaHeader}
+                sub1={isaSub1}
+                sub2={isaSub2}
+                info1={isaInfo1}
+                info2={isaInfo2}
+                img={isaImg}
+                btnText={isaBtnText}
+                link={isaLink}
+            />
+            <PaymentOptions options={payment_options} />
             <MakeALeap
                 sessionColor={blue.light}
                 bgColor={blue.lightest}
@@ -111,22 +125,6 @@ export const query = graphql`
                 start_date(formatString: "MMM Do, YYYY")
             }
         }
-        prismicXdPage {
-            data {
-                call_to_action_btn {
-                    text
-                }
-                call_to_action_sub {
-                    text
-                }
-                call_to_action_title {
-                    text
-                }
-                next_session_title {
-                    text
-                }
-            }
-        }
         prismicDevelopmentPage {
             data {
                 page_title {
@@ -141,6 +139,17 @@ export const query = graphql`
                 company_logos {
                     logo {
                         url
+                    }
+                }
+                payment_options {
+                    payment_type {
+                        text
+                    }
+                    payment_info_link {
+                        url
+                    }
+                    payment_info {
+                        text
                     }
                 }
                 course_bullets {
@@ -212,11 +221,47 @@ export const query = graphql`
                 testimonial_img {
                     url
                 }
+                isa_sub2 {
+                    text
+                }
+                isa_sub1 {
+                    text
+                }
+                isa_learn_more_link {
+                    url
+                }
+                isa_learn_more_btn {
+                    text
+                }
+                isa_info1 {
+                    text
+                }
+                isa_info2 {
+                    text
+                }
+                isa_header {
+                    text
+                }
+                isa_image {
+                    url
+                }
                 where_we_work_header {
                     text
                 }
                 invite_btn_link {
                     url
+                }
+                make_a_leap_sub {
+                    text
+                }
+                make_a_leap_header {
+                    text
+                }
+                make_a_leap_btn {
+                    text
+                }
+                next_session {
+                    text
                 }
                 make_a_leap_link {
                     url

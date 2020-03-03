@@ -44,20 +44,16 @@ export default function YouBelong({ data }) {
         testimonial_img: { url: testimonialImg },
         deadlines_bg_img: { url: deadlinesBgImg },
         internship_site_link: { url: internshipLink },
+        where_we_work_header: { text: whereWeWorkHeader },
+        ratings_header: { text: ratingsHeader },
+        company_logos: logos,
+        make_a_leap_btn: { text: callToActionBtnText },
+        make_a_leap_sub: { text: callToActionSub },
+        next_session: { text: nextSession },
+        ratings,
         deadlines,
         details,
     } = data.prismicYouBelong.data
-    const {
-        call_to_action_btn: { text: callToActionBtnText },
-        call_to_action_sub: { text: callToActionSub },
-        next_session_title: { text: nextSession },
-    } = data.prismicXdPage.data
-    const {
-        where_we_work_header: { text: whereWeWorkHeader },
-        ratings_header: { text: ratingsHeader },
-        ratings,
-        company_logos: logos,
-    } = data.prismicHomePage.data
     const { start_date: startDate } = data.prismicStartDate.data
     return (
         <Layout>
@@ -112,19 +108,6 @@ export default function YouBelong({ data }) {
 
 export const query = graphql`
     {
-        prismicXdPage {
-            data {
-                call_to_action_btn {
-                    text
-                }
-                call_to_action_sub {
-                    text
-                }
-                next_session_title {
-                    text
-                }
-            }
-        }
         prismicStartDate(
             data: { course_name: { text: { eq: "Web Development" } } }
         ) {
@@ -132,30 +115,19 @@ export const query = graphql`
                 start_date(formatString: "MMM Do, YYYY")
             }
         }
-        prismicHomePage {
-            data {
-                where_we_work_header {
-                    text
-                }
-                ratings_header {
-                    text
-                }
-                ratings {
-                    rating_img {
-                        url
-                    }
-                }
-                company_logos {
-                    logo {
-                        url
-                    }
-                }
-            }
-        }
         prismicYouBelong {
             data {
                 call_to_action_btn_link {
                     url
+                }
+                make_a_leap_btn {
+                    text
+                }
+                make_a_leap_sub {
+                    text
+                }
+                next_session {
+                    text
                 }
                 call_to_action_header {
                     text
@@ -238,6 +210,22 @@ export const query = graphql`
                 }
                 testimonial_img {
                     url
+                }
+                where_we_work_header {
+                    text
+                }
+                ratings_header {
+                    text
+                }
+                ratings {
+                    rating_img {
+                        url
+                    }
+                }
+                company_logos {
+                    logo {
+                        url
+                    }
                 }
             }
         }
