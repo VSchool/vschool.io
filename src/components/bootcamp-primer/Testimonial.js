@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import { graphql, useStaticQuery } from "gatsby"
 import { gray, orange, blue } from "@vschool/lotus"
 
 const Container = styled.div`
@@ -150,47 +149,20 @@ const P = styled.p`
     }
 `
 
-function Testimonial() {
-  const {
-    prismicBootcampPrimer: {
-      data: {
-        testimonial_text: {
-          text
-        },
-        testimonial_image: {
-          url: kevinImg
-        },
-        testimonial_cite: {
-          text: cite
-        }
-      }
-    }
-  } = useStaticQuery(graphql`
-    {
-      prismicBootcampPrimer {
-        data {
-          testimonial_text {
-            text
-          }
-          testimonial_image {
-            url
-          }
-          testimonial_cite {
-            text
-          }
-        }
-      }
-    }
-  `)
+function Testimonial(props) {
+    const { testimonial, cite, testimonialImg } = props
     return (
         <Container>
             <WhiteBlock />
             <OrangeBlock>
                 <FlexContainer>
-                    <Image src={ kevinImg } alt="V School Grad Kevin Bowen" />
+                    <Image
+                        src={testimonialImg}
+                        alt="V School Grad Kevin Bowen"
+                    />
                     <TestimonialContainer>
-                        <H1>"{ text }"</H1>
-                        <P>{ cite }</P>
+                        <H1>"{testimonial}"</H1>
+                        <P>{cite}</P>
                     </TestimonialContainer>
                 </FlexContainer>
             </OrangeBlock>

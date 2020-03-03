@@ -41,18 +41,16 @@ export default function Development({ data }) {
         learn_design_link: { url: learnDesignLink },
         learn_design_btn: { text: learnDesignBtn },
         learn_design: { text: learnDesignTitle },
+        make_a_leap_sub: { text: makeALeapSub },
+        make_a_leap_header: { text: makeALeapTitle },
+        make_a_leap_btn: { text: makeALeapBtnText },
+        next_session: { text: makeALeapSession },
         faq,
         company_logos,
         modules,
         course_bullets,
         rating_images,
     } = data.prismicDevelopmentPage.data
-    const {
-        call_to_action_btn: { text: makeALeapBtnText },
-        call_to_action_sub: { text: makeALeapSub },
-        call_to_action_title: { text: makeALeapTitle },
-        next_session_title: { text: makeALeapSession },
-    } = data.prismicXdPage.data
     const { start_date: startDate } = data.prismicStartDate.data
     return (
         <Layout>
@@ -109,22 +107,6 @@ export const query = graphql`
         ) {
             data {
                 start_date(formatString: "MMM Do, YYYY")
-            }
-        }
-        prismicXdPage {
-            data {
-                call_to_action_btn {
-                    text
-                }
-                call_to_action_sub {
-                    text
-                }
-                call_to_action_title {
-                    text
-                }
-                next_session_title {
-                    text
-                }
             }
         }
         prismicDevelopmentPage {
@@ -217,6 +199,18 @@ export const query = graphql`
                 }
                 invite_btn_link {
                     url
+                }
+                make_a_leap_sub {
+                    text
+                }
+                make_a_leap_header {
+                    text
+                }
+                make_a_leap_btn {
+                    text
+                }
+                next_session {
+                    text
                 }
                 make_a_leap_link {
                     url
