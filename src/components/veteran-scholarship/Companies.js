@@ -7,7 +7,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items:center;
-    padding-top: 64px;
+    padding-top: 160px;
     padding-left: 24px;
     padding-right: 24px;
     padding-bottom: 64px;
@@ -15,20 +15,20 @@ const Container = styled.div`
     @media (min-width: 600px) {
         padding-left: 32px;
         padding-right: 32px;
+        padding-top: 184px;
     }
 
     @media (min-width: 840px) {
         padding-left: 40px;
         padding-right: 40px;
         padding-bottom: 96px;
-        padding-top: 96px;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
     @media (min-width: 1200px) {
-        padding-top: 160px;
+        padding-top: 232px;
         padding-left: 88px;
         padding-right: 88px;
     }
