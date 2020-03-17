@@ -8,7 +8,7 @@ const Container = styled.div`
     padding-top: 64px;
     padding-left: 24px;
     padding-right: 24px;
-    padding-bottom: 56px;
+    margin-bottom: -96px;
 
     @media (min-width: 600px) {
         padding-left: 32px;
@@ -25,7 +25,7 @@ const Container = styled.div`
     }
 
     @media (min-width: 1200px) {
-        padding-top: 160px;
+        padding-top: 140px;
         padding-left: 88px;
         padding-right: 88px;
     }
@@ -48,8 +48,8 @@ const FixedContainer = styled.div`
 `
 
 const FlexContainer = styled.div`
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 `
 
 const H3 = styled.h3`
@@ -71,7 +71,7 @@ const H3 = styled.h3`
     }
 
     @media (min-width: 1200px) {
-        font-size: 48px;
+        font-size: 44px;
         line-height: 48px;
         margin-bottom: 56px;
         text-align: left;
@@ -79,18 +79,29 @@ const H3 = styled.h3`
 `
 
 export default function ScholarshipDetails(props) {
-    const { header, deadlines, detailsInfo, detailsBgImg } = props
+    const {
+        header,
+        deadlines,
+        detailsInfo,
+        detailsBgImg,
+        details,
+        link,
+        btnText,
+    } = props
     return (
         <Container>
             <FixedContainer>
                 <H3>{header}</H3>
             </FixedContainer>
             <FlexContainer>
-              <Deadlines 
-                deadlines={deadlines}
-                info={detailsInfo}
-                bgImg={detailsBgImg}
-              />
+                <Deadlines
+                    deadlines={deadlines}
+                    info={detailsInfo}
+                    bgImg={detailsBgImg}
+                    details={details}
+                    link={link}
+                    btnText={btnText}
+                />
             </FlexContainer>
         </Container>
     )

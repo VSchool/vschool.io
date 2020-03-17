@@ -9,7 +9,8 @@ import {
     Ratings,
     Testimonial,
     ScholarshipDetails,
-    Details,
+    LandingAJob,
+    Testimonial2,
 } from "../components/veteran-scholarship"
 import MakeALeap from "../components/shared/MakeALeap.js"
 
@@ -35,9 +36,17 @@ export default function VaScholarship({ data }) {
         make_a_leap_header: { text: callToActionTitle },
         make_a_leap_btn: { text: callToActionBtnText },
         next_session: { text: nextSession },
+        landing_a_job_header: { text: landingAJobHeader },
+        landing_a_job_sub: { text: landingAJobSub },
+        scholarship_apply_link: { url: applyLink },
+        scholarship_apply_btn: { text: applyBtnText },
+        testimonial2: { text: testimonial2 },
+        testimonial2_cite: { text: testimonial2Cite },
+        testimonial2_img: { url: testimonial2Img },
+        phases,
+        scholarship_details,
         ratings,
         company_logos,
-        details,
         deadlines,
     } = data.prismicVaScholarship.data
     const { start_date: startDate } = data.prismicStartDate.data
@@ -53,13 +62,25 @@ export default function VaScholarship({ data }) {
                 link={headerBtnLink}
                 btnText={headerBtnText}
             />
+            <LandingAJob
+                header={landingAJobHeader}
+                sub={landingAJobSub}
+                phases={phases}
+            />
+            <Testimonial2
+                testimonial={testimonial2}
+                cite={testimonial2Cite}
+                testimonialImg={testimonial2Img}
+            />
             <ScholarshipDetails
                 header={detailsHeader}
                 deadlines={deadlines}
                 detailsInfo={detailsInfo}
                 detailsBgImg={detailsBgImg}
+                details={scholarship_details}
+                link={applyLink}
+                btnText={applyBtnText}
             />
-            <Details details={details} />
             <Companies header={whereWeWorkHeader} logos={company_logos} />
             <Ratings header={ratingsHeader} ratings={ratings} />
             <Testimonial
@@ -144,14 +165,6 @@ export const query = graphql`
                 details_header {
                     text
                 }
-                details {
-                    info {
-                        text
-                    }
-                    header {
-                        text
-                    }
-                }
                 deadlines {
                     title {
                         text
@@ -177,6 +190,46 @@ export const query = graphql`
                 }
                 make_a_leap_link {
                     url
+                }
+                landing_a_job_header {
+                    text
+                }
+                landing_a_job_sub {
+                    text
+                }
+                scholarship_details {
+                    detail {
+                        text
+                    }
+                    checkmark {
+                        url
+                    }
+                }
+                scholarship_apply_link {
+                    url
+                }
+                scholarship_apply_btn {
+                    text
+                }
+                testimonial2 {
+                    text
+                }
+                testimonial2_cite {
+                    text
+                }
+                testimonial2_img {
+                    url
+                }
+                phases {
+                    phase_info {
+                        text
+                    }
+                    phase {
+                        text
+                    }
+                    phase_title {
+                        text
+                    }
                 }
             }
         }
