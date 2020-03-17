@@ -4,7 +4,6 @@ import { black, green, yellow} from "@vschool/lotus"
 
 const Container = styled.div`
     background-color: ${yellow.lightest};
-    padding-top: 96px;
     padding-left: 24px;
     padding-right: 24px;
     display: flex;
@@ -24,7 +23,8 @@ const Container = styled.div`
     }
 
     @media (min-width: 1100px) {
-        padding-top: 64px;
+        padding-top: 0px;
+        padding-bottom: 120px;
     }
 
     @media (min-width: 1200px) {
