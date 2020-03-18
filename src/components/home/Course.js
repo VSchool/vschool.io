@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { Link } from "gatsby"
 import { black, gray, orange, Button, white } from "@vschool/lotus"
 
 const CourseContainer = styled.div`
@@ -66,27 +67,18 @@ const StyledButton = styled(Button)`
     outline: none;
 `
 
-function Course({ course, course_info, course_link, startDates }) {
-    const start_date = startDates.find(
-        ({ node: { data } }) =>
-            data.course_name.text.toLowerCase() === course.text.toLowerCase()
-    ).node.data.start_date
+function Course({ course, course_info, course_link, course_start_date }) {
+    const start_date = course_start_date.document[0].data.start_date
     return (
         <CourseContainer>
             <H3>{course.text}</H3>
             <P>{course_info.text}</P>
             <H4>{start_date}</H4>
-            <StyledButton
-                buttonStyle="primary-light"
-                buttonSize="sm"
-                type="button"
-                onClick={() => {
-                    window.location = course_link.url
-                }}
-                target="_blank"
-            >
-                Learn More
-            </StyledButton>
+            <Link to={course_link.url}>
+                <StyledButton buttonStyle="primary-light" buttonSize="sm">
+                    Learn More
+                </StyledButton>
+            </Link>
         </CourseContainer>
     )
 }
