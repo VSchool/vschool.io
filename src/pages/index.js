@@ -45,7 +45,6 @@ export default function IndexPage({ data }) {
         company_logos,
         courses,
     } = data.prismicHomePage.data
-    const { edges: startDates } = data.allPrismicStartDate
     const { start_date: startDate } = data.prismicStartDate.data
     return (
         <Layout>
@@ -68,7 +67,6 @@ export default function IndexPage({ data }) {
             <Courses
                 header={coursesHeader}
                 courses={courses}
-                startDates={startDates}
             />
             <Companies header={weWorkHeader} logos={company_logos} />
             <Ratings header={ratingsHeader} ratings={ratings} />
@@ -99,18 +97,6 @@ export const query = graphql`
         ) {
             data {
                 start_date(formatString: "MMM Do, YYYY")
-            }
-        }
-        allPrismicStartDate {
-            edges {
-                node {
-                    data {
-                        course_name {
-                            text
-                        }
-                        start_date(formatString: "MMM Do, YYYY")
-                    }
-                }
             }
         }
         prismicHomePage {
@@ -197,6 +183,17 @@ export const query = graphql`
                     }
                     course {
                         text
+                    }
+                    course_start_date {
+                        document {
+                            data {
+                                course_name {
+                                    html
+                                    text
+                                }
+                                start_date(formatString: "MMM Do, YYYY")
+                            }
+                        }
                     }
                 }
                 company_logos {

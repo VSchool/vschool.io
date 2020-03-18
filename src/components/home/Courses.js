@@ -74,13 +74,13 @@ const CoursesContainer = styled.div`
 `
 
 export default function Courses(props) {
-    const { header, courses, startDates } = props
+    const { header, courses } = props
     return (
         <Container>
             <H3>{header}</H3>
             <CoursesContainer>
                 {courses.map((course, i) => (
-                    <Course key={i} {...course} startDates={startDates} />
+                    <Course key={i} {...course}/>
                 ))}
             </CoursesContainer>
         </Container>
