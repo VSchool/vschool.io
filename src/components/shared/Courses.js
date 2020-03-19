@@ -1,10 +1,10 @@
 import React from "react"
 import Course from "./Course.js"
 import styled from "styled-components"
-import { black, yellow } from "@vschool/lotus"
+import { black } from "@vschool/lotus"
 
 const Container = styled.div`
-    background-color: ${yellow.lightest};
+    background-color: ${props => props.bgColor};
     padding-left: 24px;
     padding-right: 24px;
     padding-bottom: 24px;
@@ -30,7 +30,6 @@ const Container = styled.div`
     @media (min-width: 1200px) {
         padding-right: 96px;
         padding-left: 96px;
-        padding-top: 24px;
     }
 `
 
@@ -75,13 +74,13 @@ const CoursesContainer = styled.div`
 `
 
 export default function Courses(props) {
-    const { header, courses, startDates } = props
+    const { header, courses, bgColor } = props
     return (
-        <Container>
+        <Container bgColor={bgColor}>
             <H3>{header}</H3>
             <CoursesContainer>
                 {courses.map((course, i) => (
-                    <Course key={i} {...course} startDates={startDates} />
+                    <Course key={i} {...course} />
                 ))}
             </CoursesContainer>
         </Container>

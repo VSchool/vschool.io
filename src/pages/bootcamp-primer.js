@@ -4,13 +4,15 @@ import SEO from "../components/seo"
 import {
     AboutPrimer,
     ContactUs,
-    Courses,
     CourseBullets,
     HeroHeader,
     HeroImage,
     InfoForm,
     Testimonial,
 } from "../components/bootcamp-primer"
+import { blue, gray } from "@vschool/lotus"
+
+import Courses from "../components/shared/Courses"
 
 import { graphql } from "gatsby"
 
@@ -38,7 +40,6 @@ export default function BootcampPrimerPage({ data }) {
         upcoming_courses,
         course_bullets,
     } = data.prismicBootcampPrimer.data
-    const {edges: startDates} = data.allPrismicStartDate
     return (
         <Layout>
             <SEO title={title} />
@@ -66,29 +67,25 @@ export default function BootcampPrimerPage({ data }) {
                 btnText={contactUsBtnText}
                 link={contactUsLink}
             />
-            <Courses 
+            <div
+                data-name="spacer"
+                style={{ backgroundColor: gray.lightest, height: 64 }}
+            ></div>
+            <Courses
                 header={coursesHeader}
                 courses={upcoming_courses}
-                startDates={startDates}
+                bgColor={gray.lightest}
             />
+            <div
+                data-name="spacer"
+                style={{ backgroundColor: gray.lightest, height: 96 }}
+            ></div>
         </Layout>
     )
 }
 
 export const query = graphql`
     {
-        allPrismicStartDate {
-            edges {
-                node {
-                    data {
-                        course_name {
-                            text
-                        }
-                        start_date(formatString: "MMM Do, YYYY")
-                    }
-                }
-            }
-        }
         prismicBootcampPrimer {
             data {
                 upcoming_courses_header {
@@ -103,6 +100,17 @@ export const query = graphql`
                     }
                     course {
                         text
+                    }
+                    course_start_date {
+                        document {
+                            data {
+                                course_name {
+                                    html
+                                    text
+                                }
+                                start_date(formatString: "MMM Do, YYYY")
+                            }
+                        }
                     }
                 }
                 testimonial_text {
