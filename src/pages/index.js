@@ -6,7 +6,6 @@ import SEO from "../components/seo"
 import {
     HeroHeader,
     HeroImage,
-    Courses,
     Companies,
     Ratings,
     Differences,
@@ -15,6 +14,8 @@ import {
 } from "../components/home"
 
 import MakeALeap from "../components/shared/MakeALeap.js"
+import Courses from "../components/shared/Courses.js"
+
 export default function IndexPage({ data }) {
     const [show, setShow] = useState(false)
     const toggle = () => setShow(p => !p)
@@ -65,6 +66,7 @@ export default function IndexPage({ data }) {
                 overlayImg={overlayImg}
             />
             <Courses
+                bgColor={gray.lighter}
                 header={coursesHeader}
                 courses={courses}
             />
