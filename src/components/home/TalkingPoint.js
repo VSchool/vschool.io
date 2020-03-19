@@ -7,11 +7,11 @@ const Container = styled.div`
     margin-bottom: 56px;
     width: 100%;
     max-width: 392px;
-    height: 250px;
+
     position: relative;
 
     @media(max-width: 370px){
-      height: 288px;
+   
     }
 `
 
@@ -53,8 +53,7 @@ const Links = styled.div`
     display: flex;
     width: 75%;
     justify-content: space-between;
-    position: absolute;
-    bottom: 0;
+
 
     @media(max-width: 360px){
        width: 90%;
