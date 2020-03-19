@@ -7,10 +7,11 @@ import {
     Header,
     Trusted,
     VetStudents,
-    Courses,
     Ratings,
     Testimonial,
 } from "../components/veterans"
+
+import Courses from "../components/shared/Courses"
 
 import MakeALeap from "../components/shared/MakeALeap.js"
 
@@ -38,7 +39,6 @@ export default function Veterans({ data }) {
         bullets,
     } = data.prismicVeteransPage.data
     const { start_date: startDate } = data.prismicStartDate.data
-    const { edges: startDates } = data.allPrismicStartDate
     return (
         <Layout>
             <SEO title={header} />
@@ -52,9 +52,9 @@ export default function Veterans({ data }) {
             <Trusted header={trustedHeader} bullets={bullets} />
             <VetStudents img={studentsImg} />
             <Courses
+                bgColor={yellow.lightest}
                 header={programsHeader}
                 courses={courses}
-                startDates={startDates}
             />
             <Ratings header={ratingsHeader} ratings={ratings} />
             <Testimonial
@@ -83,18 +83,6 @@ export const query = graphql`
         ) {
             data {
                 start_date(formatString: "MMM Do, YYYY")
-            }
-        }
-        allPrismicStartDate {
-            edges {
-                node {
-                    data {
-                        course_name {
-                            text
-                        }
-                        start_date(formatString: "MMM Do, YYYY")
-                    }
-                }
             }
         }
         prismicVeteransPage {
@@ -149,6 +137,17 @@ export const query = graphql`
                     }
                     course {
                         text
+                    }
+                    course_start_date {
+                        document {
+                            data {
+                                course_name {
+                                    html
+                                    text
+                                }
+                                start_date(formatString: "MMM Do, YYYY")
+                            }
+                        }
                     }
                 }
                 make_a_leap_sub {
