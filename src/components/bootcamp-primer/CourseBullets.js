@@ -10,13 +10,11 @@ const FlexContainer = styled.div`
 `
 
 const TextContainer = styled.div`
-    height: 368px;
     border: 2px solid ${blue.lighter};
     margin: 0 24px;
 
     @media (max-width: 360px) {
         width: 286px;
-        height: 330px;
         margin-right: 4px;
         margin-left: 4px;
     }
@@ -50,7 +48,6 @@ const TextContainer = styled.div`
 `
 
 const H2 = styled.h2`
-    height: 52px;
     width: 320px;
     color: ${black};
     font-family: "aktiv-grotesk";
