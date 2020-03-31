@@ -8,6 +8,7 @@ const Container = styled.div`
     padding-right: 24px;
     background-position: center;
     display: flex;
+    align-items: center;
     justify-content: center;
     background-color: ${blue.lightest};
 
