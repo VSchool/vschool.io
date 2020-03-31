@@ -9,6 +9,8 @@ const FlexContainer = styled.div`
     padding-left: 24px;
     padding-right: 24px;
     padding-bottom: 64px;
+    padding-top: 48px;
+    flex-direction: column;
 
     @media (min-width: 600px) {
         padding-left: 32px;
@@ -19,8 +21,6 @@ const FlexContainer = styled.div`
         padding-left: 40px;
         padding-right: 40px;
         padding-bottom: 96px;
-        display: flex;
-        flex-direction: column;
         align-items: center;
     }
 
@@ -76,10 +76,33 @@ const Info = styled.p`
     }
 `
 
+const H4 = styled.h4`
+    width: 100%;
+    color: ${black};
+    font-family: "aktiv-grotesk";
+    font-size: 28px;
+    font-weight: 900;
+    text-align: center;
+    padding-bottom: 48px;
+
+    @media (min-width: 600px) {
+        max-width: 800px;
+        padding-bottom: 56px;
+    }
+
+    @media (min-width: 840px) {
+    }
+
+    @media (min-width: 1200px) {
+        font-size: 32px;
+    }
+`
+
 export default function Details(props) {
-    const { details } = props
+    const { details, header } = props
     return (
         <FlexContainer>
+            <H4>{header}</H4>
             <DetailsContainer>
                 {details.map(
                     ({ detail_info: info, detail_title: title }, i, arr) => (
