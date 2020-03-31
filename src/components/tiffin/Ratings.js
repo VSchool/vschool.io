@@ -47,6 +47,7 @@ const H4 = styled.h4`
 
     @media (max-width: 400px) {
         font-size: 22px;
+        width: 225px;
     }
 
     @media (min-width: 500px) {

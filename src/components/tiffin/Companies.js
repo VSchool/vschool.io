@@ -55,6 +55,22 @@ const LogoListContainer = styled.div`
     background-color: ${blue.lightest};
     display: flex;
 
+    & > div:nth-child(1) > div:nth-child(5) > img {
+      width: 60px;
+    }
+
+    & > div:nth-child(2) > div:nth-child(1) > img {
+      width: 160px;
+    }
+
+    & > div:nth-child(2) > div:nth-child(4) > img {
+      width: 140px;
+    }
+
+    & > div:nth-child(2) > div:nth-child(5) > img {
+      width: 140px;
+    }
+
     @media (min-width: 1050px) {
         flex-direction: column;
         width: 100%;
