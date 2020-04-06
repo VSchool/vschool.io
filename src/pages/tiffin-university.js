@@ -65,7 +65,6 @@ export default function Tiffin({ data }) {
         faq_header: { text: faqHeader },
         faq,
     } = data.prismicTiffin.data
-    const { start_date } = data.prismicStartDate.data
     return (
         <Layout>
             <SEO title={header} />
@@ -113,7 +112,7 @@ export default function Tiffin({ data }) {
                 nextSession={nextSession}
                 bgColor={blue.lightest}
                 sessionColor={blue.lighter}
-                startDate={start_date}
+                startDate={scholarship_details[1].detail_date}
                 link={makeALeapLink}
             />
             <FAQ faq={faq} header={faqHeader} />
@@ -123,13 +122,6 @@ export default function Tiffin({ data }) {
 
 export const query = graphql`
     {
-        prismicStartDate(
-            data: { course_name: { text: { eq: "Web Development" } } }
-        ) {
-            data {
-                start_date(formatString: "MMM Do, YYYY")
-            }
-        }
         prismicTiffin {
             data {
                 about_course {
@@ -268,7 +260,8 @@ export const query = graphql`
                     detail_title {
                         text
                     }
-                    detail_date {
+                    detail_date(formatString: "MMM Do, YYYY")
+                    detail_info {
                         text
                     }
                 }

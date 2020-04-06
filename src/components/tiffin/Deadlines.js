@@ -97,14 +97,15 @@ const DateText = styled.h2`
 
 export default function Deadlines(props) {
     const { deadlines, bgImg, info } = props
+    console.log(props)
     return (
         <DeadlinesContainer bgImg={bgImg}>
             <DeadlinesBox>
                 <List>
-                    {deadlines.map(({ detail_title: title, detail_date: date }, i) => (
+                    {deadlines.map(({ detail_title: title, detail_date: date, detail_info: info }, i) => (
                         <Deadline key={title.text + i}>
                             <Title>{title.text}</Title>
-                            <DateText>{date.text}</DateText>
+                            <DateText>{!info.text ? date : info.text}</DateText>
                         </Deadline>
                     ))}
                 </List>
