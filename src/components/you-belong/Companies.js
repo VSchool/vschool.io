@@ -58,6 +58,149 @@ const LogoListContainer = styled.div`
     background-color: ${pink.lightest};
     display: flex;
 
+    & > div:nth-child(1) > div:nth-child(1) > img {
+        width: 40px;
+    }
+
+    & > div:nth-child(1) > div:nth-child(2) > img {
+        width: 100px;
+    }
+
+    & > div:nth-child(1) > div:nth-child(3) > img {
+        width: 100px;
+    }
+
+    & > div:nth-child(1) > div:nth-child(4) > img {
+        width: 140px;
+    }
+
+    & > div:nth-child(1) > div:nth-child(5) > img {
+        width: 60px;
+    }
+
+    & > div:nth-child(1) > div:nth-child(6) > img {
+        width: 90px;
+    }
+
+    & > div:nth-child(2) > div:nth-child(1) > img {
+        width: 80px;
+    }
+
+    & > div:nth-child(2) > div:nth-child(2) > img {
+        width: 110px;
+    }
+
+    & > div:nth-child(2) > div:nth-child(3) > img {
+        width: 100px;
+    }
+
+    & > div:nth-child(2) > div:nth-child(4) > img {
+        width: 140px;
+    }
+
+    & > div:nth-child(2) > div:nth-child(5) > img {
+        width: 150px;
+    }
+
+    & > div:nth-child(3) > div:nth-child(1) > img {
+        width: 150px;
+    }
+
+    & > div:nth-child(3) > div:nth-child(2) > img {
+        width: 130px;
+    }
+
+    & > div:nth-child(3) > div:nth-child(3) > img {
+        width: 120px;
+    }
+
+    & > div:nth-child(3) > div:nth-child(4) > img {
+        width: 130px;
+    }
+
+    & > div:nth-child(3) > div:nth-child(5) > img {
+        width: 90px;
+    }
+
+    @media (max-width: 700px) {
+        & > div:nth-child(1) > div:nth-child(1) > img {
+            width: 100%;
+            max-width: 35px;
+        }
+
+        & > div:nth-child(1) > div:nth-child(2) > img {
+            width: 100%;
+            max-width: 80px;
+        }
+
+        & > div:nth-child(1) > div:nth-child(3) > img {
+            width: 100%;
+            max-width: 80px;
+        }
+
+        & > div:nth-child(1) > div:nth-child(4) > img {
+            width: 100%;
+        }
+
+        & > div:nth-child(1) > div:nth-child(5) > img {
+            width: 100%;
+            max-width: 50px;
+        }
+
+        & > div:nth-child(1) > div:nth-child(6) > img {
+            width: 100%;
+            max-width: 80px;
+        }
+
+        & > div:nth-child(2) > div:nth-child(1) > img {
+            width: 100%;
+            max-width: 80px;
+        }
+
+        & > div:nth-child(2) > div:nth-child(2) > img {
+            width: 100%;
+            max-width: 100px;
+        }
+
+        & > div:nth-child(2) > div:nth-child(3) > img {
+            width: 100%;
+            max-width: 90px;
+        }
+
+        & > div:nth-child(2) > div:nth-child(4) > img {
+            width: 100%;
+            max-width: 110px;
+        }
+
+        & > div:nth-child(2) > div:nth-child(5) > img {
+            width: 100%;
+        }
+
+        & > div:nth-child(3) > div:nth-child(1) > img {
+            width: 100%;
+        }
+
+        & > div:nth-child(3) > div:nth-child(2) > img {
+            width: 100%;
+            max-width: 110px;
+        }
+
+        & > div:nth-child(3) > div:nth-child(3) > img {
+            width: 100%;
+            max-width: 110px;
+        }
+
+        & > div:nth-child(3) > div:nth-child(4) > img {
+            width: 100%;
+            max-width: 130px;
+        }
+
+        & > div:nth-child(3) > div:nth-child(5) > img {
+            width: 100%;
+            max-width: 70px;
+        }
+    }
+
     @media(min-width: 1050px){
       flex-direction: column;
       width: 100%; 
@@ -70,10 +213,11 @@ const LogoList = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 400px;
-  margin: 0 24px;
+  margin: 0 8px;
 
   @media(min-width: 500px){
     height: 450px;
+    margin: 0 24px;
   }
 
   @media(min-width: 600px){
