@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { gray, black, pink } from "@vschool/lotus"
+import Link from "../shared/QueryLink"
 
 const Container = styled.div`
     background-color: ${gray.lightest};
@@ -108,9 +109,9 @@ export default function InternshipDetails(props) {
     return (
         <Container>
             <FlexContainer>
-                <a href={link} target="_blank">
+                <Link to={link} target="_blank">
                     <Img src={img} />
-                </a>
+                </Link>
                 <TextContainer>
                     <Title>{title}</Title>
                     <Header>{header}</Header>

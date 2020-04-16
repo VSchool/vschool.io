@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { gray, black, Button } from "@vschool/lotus"
+import Link from "../shared/QueryLink"
 
 const Container = styled.div`
     background-color: ${gray.lighter};
@@ -185,11 +186,11 @@ function ISA(props) {
                 <LearnMoreContainer>
                     <H3>{sub1}</H3>
                     <P>{info1}</P>
-                    <a href={link}>
+                    <Link to={link}>
                         <StyledButton buttonStyle="primary-dark">
                             {btnText}
                         </StyledButton>
-                    </a>
+                    </Link>
                 </LearnMoreContainer>
                 <AboutISABackground isaBackground={img}>
                     <AboutISA>
