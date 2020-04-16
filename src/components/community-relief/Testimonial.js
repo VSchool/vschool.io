@@ -43,9 +43,9 @@ const CiteContainer = styled.div`
     @media (min-width: 900px) {
         grid-column: 2 / 3;
         width: 550px;
-        height: 436px;
         padding-left: 40px;
         padding-right: 40px;
+        padding-bottom: 64px;
     }
 
     @media (min-width: 1024px) {
