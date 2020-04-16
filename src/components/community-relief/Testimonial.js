@@ -1,11 +1,11 @@
 import React from "react"
 import styled from "styled-components"
-import { green, gray, orange } from "@vschool/lotus"
+import { green, orange } from "@vschool/lotus"
 
 const Container = styled.div`
-    background-color: ${gray.lightest};
-    padding-top: 8px;
-    padding-bottom: 96px;
+    background-color: ${green.lightest};
+    padding-top: 160px;
+    padding-bottom: 24px;
     padding-left: 24px;
     padding-right: 24px;
 
@@ -17,12 +17,13 @@ const Container = styled.div`
     @media (min-width: 900px) {
         display: flex;
         justify-content: center;
-        padding-bottom: 110px;
+        padding-top: 176px;
     }
 `
 
 const CiteContainer = styled.div`
     border: 2px solid ${green.base};
+    background-color: ${green.lighter};
     padding-left: 32px;
     padding-right: 32px;
     padding-top: 64px;
@@ -35,6 +36,8 @@ const CiteContainer = styled.div`
         width: 286px;
         padding-left: 16px;
         padding-right: 16px;
+        padding-top: 32px;
+        padding-bottom: 56px;
     }
 
     @media (min-width: 900px) {
@@ -61,7 +64,7 @@ const H2 = styled.h2`
     line-height: 36px;
 
     @media (min-width: 320px) and (max-width: 415px) {
-        font-size: 28px;
+        font-size: 24px;
     }
 `
 

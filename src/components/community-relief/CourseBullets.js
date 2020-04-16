@@ -4,8 +4,8 @@ import Bullet from "./Bullet.js"
 import { gray, black } from "@vschool/lotus"
 
 const Container = styled.div`
-    background-color: ${gray.lightest};
-    padding: 48px 24px;
+    background-color: ${gray.lighter};
+    padding: 24px 24px 48px 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,37 +22,9 @@ const Container = styled.div`
     }
 
     @media (min-width: 1200px) {
-        padding: 96px;
+        padding: 48px;
     }
 `
-
-// Can use this for a header of this section if one is added
-// const H3 = styled.h3`
-//     color: ${black};
-//     font-family: "aktiv-grotesk";
-//     font-size: 32px;
-//     font-weight: 900;
-//     text-align: center;
-//     width: 320px;
-//     margin-left: auto;
-//     margin-right: auto;
-
-//     @media (min-width: 320px) and (max-width: 400px) {
-//         font-size: 28px;
-//         width: 286px;
-//     }
-
-//     @media (min-width: 840px) {
-//         width: 628px;
-//         font-size: 40px;
-//     }
-
-//     @media (min-width: 1200px) {
-//         margin-left: auto;
-//         margin-right: auto;
-//         font-size: 48px;
-//     }
-// `
 
 // This will max width at 850px;
 const BulletsContainer = styled.div`

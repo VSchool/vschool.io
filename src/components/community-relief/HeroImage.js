@@ -7,6 +7,7 @@ const Container = styled.div`
   padding: 0 24px;
   background-position: center;
   background-color: ${green.lightest};
+  padding-bottom: 48px;
  
   @media (min-width: 320px) and (max-width: 414px){
     padding-left: 16px;

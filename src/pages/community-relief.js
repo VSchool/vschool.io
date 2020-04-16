@@ -51,28 +51,36 @@ export default function CommunityRelief({ data }) {
     return (
         <Layout>
             <SEO title="Community Relief" />
-            <HeroHeader
-                title={header}
-                sub={subheader}
+             <AboutScholarship
+                title={aboutScholarshipSub1}
+                header={header}
+                info={subheader}
+                img={aboutScholarshipImg}
                 link={inviteLink1}
                 btnText={inviteBtn1}
             />
-            <HeroImage heroImg={heroImg} />
-            <Information info1={info1} info2={info2} />
-            <AboutCourse header={modulesHeader} />
-            <Modules modules={modules} />
-            <AboutScholarship
+            {/* <AboutScholarship
                 title={aboutScholarshipSub1}
                 header={aboutScholarshipHeader}
                 info={aboutScholarshipSub2}
                 img={aboutScholarshipImg}
-            />
+            /> */}
+            <Information info1={info1} info2={info2} />
+            <CourseBullets bullets={about_course_bullets} />
+            <AboutCourse header={modulesHeader} />
+            <Modules modules={modules} />
             <CTABanner
                 title={invite2}
                 btnText={inviteBtn2}
                 link={inviteLink2}
             />
-            <CourseBullets bullets={about_course_bullets} />
+            <HeroHeader
+                title={aboutScholarshipHeader}
+                sub={aboutScholarshipSub1}
+                link={inviteLink1}
+                btnText={inviteBtn1}
+            />
+            <HeroImage heroImg={heroImg} />
             <Testimonial
                 testimonial={testimonial}
                 cite={cite}
