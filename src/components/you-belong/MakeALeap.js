@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { black, white, orange, Button } from "@vschool/lotus"
+import Link from "../shared/QueryLink"
 
 const Container = styled.div`
     background-color: ${props => props.bgColor};
@@ -33,7 +34,6 @@ const H1 = styled.h1`
     max-width: 500px;
     width: 100%;
 
-
     @media (min-width: 320px) and (max-width: 414px) {
         font-size: 38px;
         max-width: 400px;
@@ -47,7 +47,6 @@ const H1 = styled.h1`
     }
 
     @media (min-width: 1200px) {
-
         line-height: 56px;
         margin-bottom: 48px;
     }
@@ -151,7 +150,7 @@ const StyledButton = styled(Button)`
 `
 
 const StrikeThrough = styled.span`
-  text-decoration: line-through;
+    text-decoration: line-through;
 `
 
 export default function CallToAction(props) {
@@ -166,12 +165,16 @@ export default function CallToAction(props) {
         link,
     } = props
     const titleArr = title.split(" ")
-    const part1 = titleArr.slice(0, 2).join(' ')
+    const part1 = titleArr.slice(0, 2).join(" ")
     const part2 = ` ${titleArr[2]} `
-    const part3 = ` ${titleArr.slice(3).join(' ')}`
+    const part3 = ` ${titleArr.slice(3).join(" ")}`
     return (
         <Container bgColor={bgColor}>
-            <H1>{part1}<StrikeThrough>{part2}</StrikeThrough>{part3}</H1>
+            <H1>
+                {part1}
+                <StrikeThrough>{part2}</StrikeThrough>
+                {part3}
+            </H1>
             <SessionContainer sessionColor={sessionColor}>
                 <NextSession>
                     <SessionHeader>{nextSession}:</SessionHeader>
@@ -180,11 +183,11 @@ export default function CallToAction(props) {
             </SessionContainer>
             <Options>{sub}</Options>
             <FlexContainer>
-                <a href={link}>
+                <Link to={link}>
                     <StyledButton buttonStyle="primary-dark">
                         {btnText}
                     </StyledButton>
-                </a>
+                </Link>
             </FlexContainer>
         </Container>
     )

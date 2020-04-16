@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { gray, black, blue, Button } from "@vschool/lotus"
+import Link from "../shared/QueryLink"
 
 const Container = styled.div`
     background-color: ${blue.lightest};
@@ -136,11 +137,11 @@ export default function PageHeader(props) {
             </FlexContainer>
             <H6>{invite}</H6>
             <FlexContainer>
-                <a href={link}>
+                <Link to={link}>
                     <StyledButton buttonStyle="primary-dark">
                         {btnText}
                     </StyledButton>
-                </a>
+                </Link>
             </FlexContainer>
         </Container>
     )

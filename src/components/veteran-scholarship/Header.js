@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { gray, yellow, black, green, Button } from "@vschool/lotus"
+import Link from "../shared/QueryLink"
 
 const HeaderContainer = styled.div`
     background-color: ${yellow.lightest};
@@ -9,19 +10,19 @@ const HeaderContainer = styled.div`
     padding-right: 24px;
     padding-bottom: 64px;
 
-    @media (min-width: 600px){
-        padding-left: 32px; 
+    @media (min-width: 600px) {
+        padding-left: 32px;
         padding-right: 32px;
     }
 
-    @media (min-width: 840px){
+    @media (min-width: 840px) {
         padding-left: 40px;
         padding-right: 40px;
         padding-bottom: 96px;
         padding-top: 96px;
     }
 
-    @media (min-width: 1200px){
+    @media (min-width: 1200px) {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -31,28 +32,28 @@ const HeaderContainer = styled.div`
 `
 
 const Container = styled.div`
-  @media(min-width: 1200px){
-    margin-right: 56px;
-  }
+    @media (min-width: 1200px) {
+        margin-right: 56px;
+    }
 `
 
 const Title = styled.h5`
-	color: ${green.dark};
-	font-family: "aktiv-grotesk-extended";
-	font-size: 14px;
-	letter-spacing: 0.25px;
-	line-height: 20px;
+    color: ${green.dark};
+    font-family: "aktiv-grotesk-extended";
+    font-size: 14px;
+    letter-spacing: 0.25px;
+    line-height: 20px;
     font-weight: 800;
     max-width: 350px;
     margin-bottom: 16px;
     text-align: center;
 
-    @media(max-width: 400px){
+    @media (max-width: 400px) {
         font-size: 12px;
         max-width: 300px;
     }
 
-    @media(min-width: 1200px){
+    @media (min-width: 1200px) {
         text-align: left;
     }
 `
@@ -65,13 +66,10 @@ const H1 = styled.h1`
     text-align: center;
     color: ${black};
     margin-bottom: 16px;
-   
-   
 
     @media (min-width: 600px) {
         font-size: 40px;
         width: 460px;
-    
     }
 
     @media (min-width: 840px) {
@@ -85,7 +83,6 @@ const H1 = styled.h1`
         width: 550px;
         line-height: 56px;
         text-align: left;
-      
     }
 `
 
@@ -97,11 +94,11 @@ const P = styled.p`
     line-height: 28px;
     text-align: center;
     margin-bottom: 24px;
-   
-    @media(min-width: 600px){
-      width: 460px;
-    } 
-    
+
+    @media (min-width: 600px) {
+        width: 460px;
+    }
+
     @media (min-width: 840px) {
         line-height: 26px;
         width: 600px;
@@ -133,88 +130,80 @@ const StyledButton = styled(Button)`
 `
 
 const ImgContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 
 const HeroImg = styled.img`
-  width: 100%;
-  max-width: 496px;
-  margin-top: 56px;
+    width: 100%;
+    max-width: 496px;
+    margin-top: 56px;
 
-  @media(min-width: 1200px){
-    margin-top: 0;
-  }
+    @media (min-width: 1200px) {
+        margin-top: 0;
+    }
 `
 
 const FlexContainer = styled.div`
     display: flex;
     justify-content: center;
 
-    @media(min-width: 1200px){
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-start;
+    @media (min-width: 1200px) {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
     }
 `
 
 const Info = styled.p`
     width: 100%;
     max-width: 440px;
-	color: ${black};
-	font-family: "aktiv-grotesk-extended";
-	font-size: 14px;
-	letter-spacing: 0.25px;
-	line-height: 20px;
+    color: ${black};
+    font-family: "aktiv-grotesk-extended";
+    font-size: 14px;
+    letter-spacing: 0.25px;
+    line-height: 20px;
     font-weight: 800;
     margin-bottom: 40px;
     text-align: center;
 
-    @media(min-width: 1200px){
+    @media (min-width: 1200px) {
         text-align: left;
     }
 `
 
 function Header(props) {
-    const {
-        header,
-        sub,
-        heroImg,
-        link,
-        btnText,
-        info,
-        title
-    } = props
+    const { header, sub, heroImg, link, btnText, info, title } = props
 
     return (
-      <HeaderContainer>
-        <Container>
-            <FlexContainer>
-                <Title>{title}</Title>
-            </FlexContainer>
-            <FlexContainer>
-                <H1>{header}</H1>
-            </FlexContainer>
-            <FlexContainer>
-                <P>{sub}</P>
-            </FlexContainer>
-            <FlexContainer>
-                <Info>{info}</Info>
-            </FlexContainer>
-            <FlexContainer>
-                <a href={link}>
-                    <StyledButton buttonStyle="primary-dark">
-                        {btnText}
-                    </StyledButton>
-                </a>
-            </FlexContainer>
-        </Container>
-        <ImgContainer>
-          <HeroImg src={heroImg}/>
-        </ImgContainer>
-      </HeaderContainer>
+        <HeaderContainer>
+            <Container>
+                <FlexContainer>
+                    <Title>{title}</Title>
+                </FlexContainer>
+                <FlexContainer>
+                    <H1>{header}</H1>
+                </FlexContainer>
+                <FlexContainer>
+                    <P>{sub}</P>
+                </FlexContainer>
+                <FlexContainer>
+                    <Info>{info}</Info>
+                </FlexContainer>
+                <FlexContainer>
+                    <Link to={link}>
+                        <StyledButton buttonStyle="primary-dark">
+                            {btnText}
+                        </StyledButton>
+                    </Link>
+                </FlexContainer>
+            </Container>
+            <ImgContainer>
+                <HeroImg src={heroImg} />
+            </ImgContainer>
+        </HeaderContainer>
     )
 }
 
