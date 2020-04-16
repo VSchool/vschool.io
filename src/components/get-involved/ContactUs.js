@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { black, gray, Button } from "@vschool/lotus"
+import Link from "../shared/QueryLink"
 
 const FlexContainer = styled.div`
     display: flex;
@@ -44,11 +45,11 @@ export default function ContactUs(props) {
     return (
         <FlexContainer>
             <H5>{title}</H5>
-            <a href={link}>
+            <Link to={link}>
                 <StyledButton buttonStyle="primary-light" buttonSize="sm">
                     {btnText}
                 </StyledButton>
-            </a>
+            </Link>
         </FlexContainer>
     )
 }
