@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
-import { useStaticQuery, Link, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
+import Link from "../../shared/QueryLink"
 import styled from "styled-components"
 
 import { NavbarContext } from "../navbarContext"

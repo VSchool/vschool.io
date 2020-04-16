@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
+import Link from "../shared/QueryLink"
 import { blue, black, green, gray } from "@vschool/lotus"
 
 const Container = styled.div`
@@ -10,8 +11,7 @@ const Container = styled.div`
 
     position: relative;
 
-    @media(max-width: 370px){
-   
+    @media (max-width: 370px) {
     }
 `
 
@@ -31,8 +31,8 @@ const Header = styled.h3`
     font-weight: 800;
     margin-bottom: 16px;
 
-    @media(max-width: 400px){
-      font-size: 22px;
+    @media (max-width: 400px) {
+        font-size: 22px;
     }
 `
 
@@ -44,8 +44,8 @@ const Info = styled.p`
     line-height: 24px;
     margin-bottom: 16px;
 
-    @media(max-width: 400px){
-      font-size: 15px;
+    @media (max-width: 400px) {
+        font-size: 15px;
     }
 `
 
@@ -54,19 +54,18 @@ const Links = styled.div`
     width: 75%;
     justify-content: space-between;
 
-
-    @media(max-width: 360px){
-       width: 90%;
+    @media (max-width: 360px) {
+        width: 90%;
     }
 `
 
 const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: ${blue.base};	
-  font-family: "aktiv-grotesk-extended";	
-  font-size: 14px;	
-  letter-spacing: 1px;	
-  font-weight: 800;
+    text-decoration: none;
+    color: ${blue.base};
+    font-family: "aktiv-grotesk-extended";
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-weight: 800;
 `
 
 export default function TalkingPoint(props) {
@@ -85,8 +84,10 @@ export default function TalkingPoint(props) {
             <Header>{header.text}</Header>
             <Info>{info.text}</Info>
             <Links>
-              <StyledLink to={link.url}>{link_text.text}</StyledLink>
-              <StyledLink to={link2 ? link2.url : ""}>{link2_text.text}</StyledLink>
+                <StyledLink to={link.url}>{link_text.text}</StyledLink>
+                <StyledLink to={link2 ? link2.url : ""}>
+                    {link2_text.text}
+                </StyledLink>
             </Links>
         </Container>
     )
