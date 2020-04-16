@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { black, gray, Button } from "@vschool/lotus"
+import Link from "../shared/QueryLink"
 
 const Container = styled.div`
     width: 100%;
@@ -48,11 +49,11 @@ export default function Contact(props) {
             <ContactItem>{cityAndState}</ContactItem>
             <ContactItem>{email}</ContactItem>
             <ContactItem>{phone}</ContactItem>
-            <a href={"https://calendly.com/v-school/apply"}>
+            <Link to="https://calendly.com/v-school/apply">
                 <StyledButton buttonStyle="primary-light">
                     Get In Touch
                 </StyledButton>
-            </a>
+            </Link>
         </Container>
     )
 }

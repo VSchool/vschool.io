@@ -1,7 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 import { gray, black, blue } from "@vschool/lotus"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
+import Link from "../shared/QueryLink"
 
 const Container = styled.div`
     background-color: ${gray.light};
@@ -10,19 +11,19 @@ const Container = styled.div`
     padding-right: 24px;
     padding-bottom: 64px;
 
-    @media (min-width: 600px){
-        padding-left: 32px; 
+    @media (min-width: 600px) {
+        padding-left: 32px;
         padding-right: 32px;
     }
 
-    @media (min-width: 840px){
+    @media (min-width: 840px) {
         padding-left: 40px;
         padding-right: 40px;
         padding-bottom: 96px;
         padding-top: 96px;
     }
 
-    @media (min-width: 1200px){
+    @media (min-width: 1200px) {
         padding-left: 88px;
         padding-right: 88px;
     }
@@ -38,11 +39,11 @@ const Title = styled.h6`
     text-align: center;
     font-weight: 800;
 
-    @media(max-width: 400px){
+    @media (max-width: 400px) {
         font-size: 12px;
     }
 
-    @media(min-width: 1200px){
+    @media (min-width: 1200px) {
         font-size: 16px;
     }
 `
@@ -106,7 +107,7 @@ const LinksContainer = styled.div`
     width: 377px;
     justify-content: space-between;
 
-    @media(max-width: 425px){
+    @media (max-width: 425px) {
         flex-direction: column;
         align-items: center;
     }
@@ -114,16 +115,16 @@ const LinksContainer = styled.div`
 
 const SLink = styled(Link)`
     text-decoration: none;
-    color: ${blue.base};	
-    font-family: "aktiv-grotesk";	
-    font-size: 16px;	
-    font-weight: 500;	
+    color: ${blue.base};
+    font-family: "aktiv-grotesk";
+    font-size: 16px;
+    font-weight: 500;
     line-height: 24px;
 
-    @media(max-width: 425px){
+    @media (max-width: 425px) {
         margin: 8px 0;
     }
-`   
+`
 
 function HeroHeader(props) {
     const {
@@ -134,14 +135,12 @@ function HeroHeader(props) {
         link2Text,
         link3Text,
         link2,
-        link3
+        link3,
     } = props
 
     return (
         <Container>
-            <Title>
-                {title}
-            </Title>
+            <Title>{title}</Title>
             <FlexContainer>
                 <H1>{header}</H1>
             </FlexContainer>
