@@ -8,7 +8,7 @@ const Container = styled.div`
     padding-top: 64px;
     padding-left: 24px;
     padding-right: 24px;
-    padding-bottom: 64px;
+    padding-bottom: 24px;
 
     @media (min-width: 600px){
         padding-left: 32px; 
@@ -18,7 +18,7 @@ const Container = styled.div`
     @media (min-width: 840px){
         padding-left: 40px;
         padding-right: 40px;
-        padding-bottom: 80px;
+        padding-bottom: 40px;
         padding-top: 96px;
     }
 
@@ -30,7 +30,7 @@ const Container = styled.div`
 
 const H1 = styled.h1`
     font-family: "aktiv-grotesk";
-    font-size: 36px;
+    font-size: 30px;
     font-weight: 900;
     line-height: 40px;
     text-align: center;
@@ -39,17 +39,16 @@ const H1 = styled.h1`
     width: 460px;
 
     @media (min-width: 600px) {
-        font-size: 40px;
+        font-size: 36px;
     }
 
     @media (min-width: 840px) {
-        font-size: 48px;
         line-height: 48px;
         width: 600px;
     }
 
     @media (min-width: 1200px) {
-        font-size: 56px;
+        font-size: 40px;
         width: 946px;
         padding-left: 160px;
         padding-right: 160px;
@@ -120,13 +119,13 @@ function HeroHeader(props) {
             <FlexContainer>
                 <P>{sub}</P>
             </FlexContainer>
-            <FlexContainer>
+            {/* <FlexContainer>
                 <a href={link}>
                     <StyledButton buttonStyle="primary-dark">
                         {btnText}
                     </StyledButton>
                 </a>
-            </FlexContainer>
+            </FlexContainer> */}
         </Container>
     )
 }

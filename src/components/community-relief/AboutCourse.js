@@ -6,14 +6,16 @@ const Container = styled.div`
   background-color: ${gray.lighter};
   padding-left: 24px;
   padding-right: 24px;
-  padding-top: 48px;
+  padding-top: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: -48px;
 
   @media (min-width: 320px) and (max-width: 400px){
     padding-left: 16px;
     padding-right: 16px;
+    padding-top: 16px;
   }
 
   @media (min-width: 600px){

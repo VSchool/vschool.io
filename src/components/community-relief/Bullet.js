@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { black, green, gray } from "@vschool/lotus"
+import { black, green } from "@vschool/lotus"
 
 const Container = styled.div`
     margin-bottom: 56px;
@@ -8,19 +8,23 @@ const Container = styled.div`
     position: relative;
     margin-left: 16px;
     margin-right: 16px;
-    height: 250px;
+    height: 200px;
+    
+    @media(max-width: 420px){
+        height: 250px;
+    }
 
-    @media(min-width: 350px){
-      width: 100%;
+    @media (min-width: 350px) {
+        width: 100%;
+    }
+
+    @media (min-width: 1200px) {
+        height: 250px;
     }
 `
 
 const HeaderContainer = styled.div`
-  height: 80px;
-
-  @media (min-width: 1200px) {
-    height: 104px;
-  }
+    height: 80px;
 `
 
 const Header = styled.h3`

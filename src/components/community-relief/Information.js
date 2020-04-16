@@ -6,8 +6,7 @@ const Container = styled.div`
     background-color: ${gray.lighter};
     padding-left: 24px;
     padding-right: 24px;
-    padding-bottom: 28px;
-    padding-top: 184px;
+    padding-top: 96px;
 
     @media (min-width: 320px) and (max-width: 400px) {
         padding-left: 16px;
@@ -35,7 +34,7 @@ const P = styled.p`
     width: 366px;
     margin-right: auto;
     margin-left: auto;
-    margin-bottom: 24px;
+    padding-bottom: 24px;
 
     @media (min-width: 320px) and (max-width: 414px) {
         width: 286px;

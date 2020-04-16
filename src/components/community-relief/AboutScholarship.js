@@ -1,13 +1,13 @@
 import React from "react"
 import styled from "styled-components"
-import { gray, black, green } from "@vschool/lotus"
+import { gray, black, green, Button } from "@vschool/lotus"
 
 const Container = styled.div`
     background-color: ${green.lightest};
     padding-left: 24px;
     padding-right: 24px;
     padding-bottom: 56px;
-    padding-top: 96px;
+    padding-top: 80px;
 
     @media (min-width: 600px) {
         padding-left: 32px;
@@ -106,8 +106,29 @@ const Info = styled.p`
     }
 `
 
-export default function InternshipDetails(props) {
-    const { title, header, info, img, link } = props
+const StyledButton = styled(Button)`
+    width: 268px;
+    font-family: "aktiv-grotesk-extended";
+    font-weight: 800;
+    outline: none;
+    margin-bottom: 48px;
+
+    @media (min-width: 300px) and (max-width: 380px) {
+        width: 260px;
+    }
+
+    @media (min-width: 1200px) {
+        font-size: 16px;
+        letter-spacing: 1.14px;
+        line-height: 24px;
+        height: 56px;
+        margin-top: 24px;
+        margin-bottom: 0px;
+    }
+`
+
+export default function AboutScholarship(props) {
+    const { title, header, info, img, link, btnText } = props
     return (
         <Container>
             <FlexContainer>
@@ -115,10 +136,12 @@ export default function InternshipDetails(props) {
                     <Title>{title}</Title>
                     <Header>{header}</Header>
                     <Info>{info}</Info>
+                    <a href={link}>
+                        <StyledButton>{btnText}</StyledButton>
+                    </a>
                 </TextContainer>
-                <a href={link} target="_blank">
-                    <Img src={img} />
-                </a>
+
+                <Img src={img} />
             </FlexContainer>
         </Container>
     )

@@ -7,8 +7,7 @@ const FlexContainer = styled.div`
     flex-direction: column;
     align-items: center;
     background-color: ${green.lighter};
-    padding-top: 24px;
-    padding-bottom: 24px;
+    padding: 24px;
 
     @media (min-width: 900px) {
       flex-direction: row;
@@ -23,7 +22,7 @@ const H5 = styled.h5`
     font-weight: 800;
     line-height: 26px;
     padding-bottom: 16px;
-
+    text-align: center;
 
     @media(min-width: 320px) and (max-width: 400px){
       font-size: 14px;
