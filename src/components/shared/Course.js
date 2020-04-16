@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
+import Link from "../shared/QueryLink"
 import { black, gray, orange, Button, white } from "@vschool/lotus"
 
 const CourseContainer = styled.div`

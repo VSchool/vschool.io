@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { black, gray, blue } from "@vschool/lotus"
+import Link from "../shared/QueryLink"
 
 const FlexContainer = styled.div`
     display: flex;
@@ -11,8 +12,8 @@ const FlexContainer = styled.div`
     padding-bottom: 24px;
 
     @media (min-width: 900px) {
-      flex-direction: row;
-      justify-content: center;
+        flex-direction: row;
+        justify-content: center;
     }
 `
 
@@ -24,10 +25,9 @@ const H5 = styled.h5`
     line-height: 26px;
     padding-bottom: 16px;
 
-
-    @media(min-width: 320px) and (max-width: 400px){
-      font-size: 16px;
-    } 
+    @media (min-width: 320px) and (max-width: 400px) {
+        font-size: 16px;
+    }
 
     @media (min-width: 900px) {
         margin-right: 16px;
@@ -65,17 +65,13 @@ const Button = styled.button`
 `
 
 function LearnDesign(props) {
-    const {
-      title,
-      btnText,
-      link
-    } = props
+    const { title, btnText, link } = props
     return (
         <FlexContainer>
-            <H5>{ title }</H5>
-            <a href={ link }>
-                <Button>{ btnText }</Button>
-            </a>
+            <H5>{title}</H5>
+            <Link to={link}>
+                <Button>{btnText}</Button>
+            </Link>
         </FlexContainer>
     )
 }

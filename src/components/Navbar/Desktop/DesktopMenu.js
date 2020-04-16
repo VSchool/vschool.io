@@ -1,8 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-import Link from "../../Link/Link"
-import { useQueryString } from "../../../hooks/useQueryString"
+import Link from "../../shared/QueryLink"
+// import { useQueryString } from "../../../hooks/useQueryString"
 import { Button } from "@vschool/lotus"
 
 import DesktopMenuItem from "./DesktopMenuItem"
@@ -59,8 +59,8 @@ const ButtonContainer = styled.li`
 `
 
 function DesktopMenu(props) {
-    const query = useQueryString()
-    console.log(query)
+    // const query = useQueryString()
+    // console.log(query)
     const data = useStaticQuery(graphql`
         {
             prismicNavigationBar {
@@ -98,11 +98,11 @@ function DesktopMenu(props) {
             <Ul>
                 {navItems}
                 <ButtonContainer>
-                    <a href={`${buttonLink}${query}`}>
+                    <Link to={buttonLink}>
                         <ApplyButton buttonStyle="primary-dark" buttonSize="sm">
                             {buttonText}
                         </ApplyButton>
-                    </a>
+                    </Link>
                 </ButtonContainer>
             </Ul>
         </Container>

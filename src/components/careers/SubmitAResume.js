@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { gray, black, Button } from "@vschool/lotus"
+import Link from "../shared/QueryLink"
 
 const Container = styled.div`
     background-color: ${gray.light};
@@ -124,11 +125,11 @@ function SubmitAResume(props) {
                 <P>{sub}</P>
             </FlexContainer>
             <FlexContainer>
-                <a href="mailto:info@vschool.io">
+                <Link to="mailto:info@vschool.io">
                     <StyledButton buttonStyle="primary-dark">
                         {btnText}
                     </StyledButton>
-                </a>
+                </Link>
             </FlexContainer>
         </Container>
     )
