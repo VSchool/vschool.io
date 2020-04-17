@@ -11,8 +11,10 @@ export default function({ to, children, ...rest }) {
     // See https://www.gatsbyjs.org/docs/debugging-html-builds/ for more details
     const [query, setQuery] = useState("")
     useEffect(() => {
-        setQuery(window.sessionStorage.getItem("query"))
+        const sessionQuery = sessionStorage.getItem("query") || ""
+        setQuery(sessionQuery)
     }, [])
+    
     return to.startsWith("/") ? (
         <Link to={to} {...rest}>
             {children}
