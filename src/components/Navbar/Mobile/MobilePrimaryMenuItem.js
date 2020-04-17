@@ -1,7 +1,8 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
 import { gray } from "@vschool/lotus"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
+import Link from "../../shared/QueryLink"
 
 import Arrow from "../Arrow"
 import { NavbarContext } from "../navbarContext"

@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { black, white, orange, Button } from "@vschool/lotus"
+import Link from "../shared/QueryLink"
 
 const Container = styled.div`
     background-color: ${props => props.bgColor};
@@ -32,7 +33,6 @@ const H1 = styled.h1`
     margin-bottom: 32px;
     max-width: 500px;
     width: 100%;
-
 
     @media (min-width: 320px) and (max-width: 414px) {
         font-size: 38px;
@@ -172,11 +172,11 @@ export default function CallToAction(props) {
             </SessionContainer>
             <Options>{sub}</Options>
             <FlexContainer>
-                <a href={link}>
+                <Link to={link}>
                     <StyledButton buttonStyle="primary-dark">
                         {btnText}
                     </StyledButton>
-                </a>
+                </Link>
             </FlexContainer>
         </Container>
     )
