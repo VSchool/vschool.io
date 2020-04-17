@@ -35,7 +35,7 @@ const GraySection = styled.div`
     align-items: center;
     height: 680px;
 
-    @media(max-width: 365px){
+    @media (max-width: 365px) {
         height: 750px;
     }
 
@@ -47,7 +47,6 @@ const GraySection = styled.div`
 `
 
 const WhiteSection = styled.div`
-
     background-color: ${gray.lighter};
 
     @media (min-width: 840px) {

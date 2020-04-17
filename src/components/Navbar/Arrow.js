@@ -6,7 +6,7 @@ const Svg = styled.svg`
     width: 20px;
 `
 
-export default ({className}) => {
+export default ({ className }) => {
     return (
         <Svg
             className={className}

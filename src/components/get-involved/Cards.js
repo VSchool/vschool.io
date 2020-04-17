@@ -39,9 +39,9 @@ const CardsList = styled.div`
     display: grid;
     grid-template-columns: 1fr;
 
-    @media(min-width: 840px){
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 8px;
+    @media (min-width: 840px) {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 8px;
     }
 
     @media (min-width: 1200px) {
@@ -55,9 +55,9 @@ export default function Cards(props) {
     return (
         <Container>
             <CardsList>
-                {
-                  cards.map(card => <Card {...card}/>)
-                }
+                {cards.map(card => (
+                    <Card {...card} />
+                ))}
             </CardsList>
         </Container>
     )

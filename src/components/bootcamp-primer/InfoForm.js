@@ -86,7 +86,6 @@ const Input = styled.input`
 
     @media (max-width: 360px) {
         width: 240px;
-
     }
 
     @media (min-width: 600px) {
@@ -115,7 +114,6 @@ const StyledButton = styled(Button)`
 
     @media (max-width: 360px) {
         width: 240px;
-  
     }
 
     @media (min-width: 600px) {
@@ -205,9 +203,7 @@ function InfoForm() {
                                     value={inputs.EMAIL}
                                 />
                             </Label>
-                            <StyledButton>
-                                {msg}
-                            </StyledButton>
+                            <StyledButton>{msg}</StyledButton>
                         </Form>
                     </FormContainer>
                 )
