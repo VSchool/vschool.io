@@ -6,7 +6,8 @@ import { Link } from "gatsby"
 // This makes it so we can track the UTM parameters on sites outside of our own
 // like on links to Calendly.
 export default function({ to, children, ...rest }) {
-    const query = sessionStorage.getItem("query") || ""
+    const windowGlobal = typeof window !== 'undefined' && window
+    const query = windowGlobal.sessionStorage.getItem("query") || ""
     return to.startsWith("/") ? (
         <Link to={to} {...rest}>
             {children}
