@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { purple, black, Button } from "@vschool/lotus"
+import Link from "../shared/QueryLink"
 
 const FlexContainer = styled.div`
     display: flex;
@@ -51,11 +52,11 @@ function LearnToCode(props) {
     return (
         <FlexContainer>
             <H5>{title}</H5>
-            <a href={link}>
+            <Link to={link}>
                 <StyledButton buttonStyle="primary-light">
                     {btnText}
                 </StyledButton>
-            </a>
+            </Link>
         </FlexContainer>
     )
 }

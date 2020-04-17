@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
+import Link from "../shared/QueryLink"
 import { gray, black } from "@vschool/lotus"
 
 const FooterSubLinks = styled.div`
@@ -12,16 +13,15 @@ const FooterSubLinks = styled.div`
     background-color: ${black};
     margin-top: 40px;
 
-    @media (min-width: 600px){
-      margin: 0 32px;
+    @media (min-width: 600px) {
+        margin: 0 32px;
     }
 
-    @media (min-width: 840px){
-      margin: 0 40px;
+    @media (min-width: 840px) {
+        margin: 0 40px;
     }
 
-    @media(min-width: 1200px){
-      
+    @media (min-width: 1200px) {
         width: 1114px;
         margin: 0 auto;
     }
@@ -41,8 +41,7 @@ const SubContainer = styled.div`
 //     font-weight: 400;
 //     margin: 0 4px;
 //     text-decoration: none;
-    
-    
+
 //     :active {
 //         text-decoration: none;
 //         color: ${gray.dark};
@@ -61,7 +60,6 @@ const FooterSubInfo = styled.p`
     font-size: 12px;
     font-weight: 400;
     margin: 0 4px;
-    
 `
 
 const Logo = styled.img`
@@ -78,15 +76,15 @@ export default function FooterSubInformation(props) {
                 <Logo src={logo} />
             </Link>
             <div>
-              <SubContainer>
-                  <FooterSubInfo>
-                      {footerSubLinks[0].footer_sub_link_text.text}
-                  </FooterSubInfo>
-                  <FooterSubInfo>
-                      {footerSubLinks[1].footer_sub_link_text.text}
-                  </FooterSubInfo>
-              
-                  {/* <FooterSubLink href={footerSubLinks[2].footer_sub_link.url}>
+                <SubContainer>
+                    <FooterSubInfo>
+                        {footerSubLinks[0].footer_sub_link_text.text}
+                    </FooterSubInfo>
+                    <FooterSubInfo>
+                        {footerSubLinks[1].footer_sub_link_text.text}
+                    </FooterSubInfo>
+
+                    {/* <FooterSubLink href={footerSubLinks[2].footer_sub_link.url}>
                       {footerSubLinks[2].footer_sub_link_text.text}
                   </FooterSubLink>
                   <FooterSubLink href={footerSubLinks[3].footer_sub_link.url}>
@@ -95,7 +93,7 @@ export default function FooterSubInformation(props) {
                   <FooterSubLink href={footerSubLinks[4].footer_sub_link.url}>
                       {footerSubLinks[4].footer_sub_link_text.text}
                   </FooterSubLink> */}
-              </SubContainer>
+                </SubContainer>
             </div>
         </FooterSubLinks>
     )

@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { gray, green, Button } from "@vschool/lotus"
+import Link from "../shared/QueryLink"
 
 const DeadlinesContainer = styled.div`
     background-image: url(${props => props.bgImg});
@@ -12,7 +13,6 @@ const DeadlinesContainer = styled.div`
     padding: 24px;
     max-width: 600px;
     width: 100%;
-
 
     @media (min-width: 1200px) {
         width: 1024px;
@@ -130,7 +130,7 @@ const Info = styled.p`
     font-weight: 500;
     line-height: 18px;
 
-    @media(min-width: 1200px){
+    @media (min-width: 1200px) {
         max-width: 320px;
     }
 `
@@ -176,9 +176,9 @@ export default function Deadlines(props) {
                     ))}
                 </DetailsContainer>
                 <ApplyContainer>
-                    <a href={link}>
+                    <Link to={link}>
                         <StyledButton>{btnText}</StyledButton>
-                    </a>
+                    </Link>
                     <Info>{info}</Info>
                 </ApplyContainer>
             </DeadlinesBox>

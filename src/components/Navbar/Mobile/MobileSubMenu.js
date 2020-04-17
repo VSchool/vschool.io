@@ -1,6 +1,7 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
+import Link from "../../shared/QueryLink"
 import { gray, black, green, Button } from "@vschool/lotus"
 import { animated } from "react-spring"
 import { useMenuAnimation } from "./useMenuAnimation"
