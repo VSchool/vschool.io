@@ -1,7 +1,6 @@
-// import { Link } from "gatsby"
-import Link from "./shared/QueryLink"
 import PropTypes from "prop-types"
 import React from "react"
+import Link from "./shared/QueryLink"
 
 const Header = ({ siteTitle }) => (
     <header

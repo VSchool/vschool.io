@@ -12,7 +12,7 @@ const DeadlinesContainer = styled.div`
     padding: 24px;
 
     max-width: 600px;
-  
+
     height: 500px;
 
     @media (min-width: 1200px) {
@@ -31,8 +31,7 @@ const DeadlinesBox = styled.div`
     height: 100%;
     width: 100%;
 
-    @media (max-width: 360px){
-   
+    @media (max-width: 360px) {
     }
 
     @media (min-width: 1200px) {
@@ -49,7 +48,6 @@ const List = styled.div`
     justify-content: space-around;
     align-items: center;
 
-
     @media (min-width: 1200px) {
         flex-direction: row;
         justify-content: space-between;
@@ -57,9 +55,8 @@ const List = styled.div`
 `
 
 const Deadline = styled.div`
-
-    @media(min-width: 1200px){
-      height: 60px;
+    @media (min-width: 1200px) {
+        height: 60px;
     }
 `
 
@@ -73,8 +70,8 @@ const Title = styled.h5`
     margin-bottom: 4px;
     text-align: center;
 
-    @media(min-width: 1200px){
-      text-align: left;
+    @media (min-width: 1200px) {
+        text-align: left;
     }
 `
 
@@ -86,12 +83,12 @@ const DateText = styled.h2`
     font-weight: 800;
     text-align: center;
 
-    @media(min-width: 400px){
-      font-size: 24px;
+    @media (min-width: 400px) {
+        font-size: 24px;
     }
 
-    @media(min-width: 1200px){
-      text-align: left;
+    @media (min-width: 1200px) {
+        text-align: left;
     }
 `
 
@@ -102,12 +99,23 @@ export default function Deadlines(props) {
         <DeadlinesContainer bgImg={bgImg}>
             <DeadlinesBox>
                 <List>
-                    {deadlines.map(({ detail_title: title, detail_date: date, detail_info: info }, i) => (
-                        <Deadline key={title.text + i}>
-                            <Title>{title.text}</Title>
-                            <DateText>{!info.text ? date : info.text}</DateText>
-                        </Deadline>
-                    ))}
+                    {deadlines.map(
+                        (
+                            {
+                                detail_title: title,
+                                detail_date: date,
+                                detail_info: info,
+                            },
+                            i
+                        ) => (
+                            <Deadline key={title.text + i}>
+                                <Title>{title.text}</Title>
+                                <DateText>
+                                    {!info.text ? date : info.text}
+                                </DateText>
+                            </Deadline>
+                        )
+                    )}
                 </List>
             </DeadlinesBox>
         </DeadlinesContainer>
