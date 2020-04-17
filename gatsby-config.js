@@ -13,7 +13,8 @@ module.exports = {
         {
             resolve: `gatsby-plugin-canonical-urls`,
             options: {
-                siteUrl: `https://vschool.io`
+                siteUrl: `https://vschool.io`,
+                stripQueryString: true,
             },
         },
         {
