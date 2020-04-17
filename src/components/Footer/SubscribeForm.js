@@ -67,7 +67,7 @@ const SuccessMsg = styled.div`
     margin-bottom: 40px;
     background-color: green;
     width: 232px;
-    background-color: #DAECE8;
+    background-color: #daece8;
     border: 1px solid #058266;
     border-radius: 2px;
     padding: 12px 12px 0px 12px;
@@ -76,9 +76,9 @@ const SuccessMsg = styled.div`
 const ErrorMsg = styled.div`
     height: 56px;
     margin-bottom: 40px;
-    background-color: #F6DFDF;
+    background-color: #f6dfdf;
     width: 232px;
-    border: 1px solid #C92A2A;
+    border: 1px solid #c92a2a;
     border-radius: 2px;
     padding: 12px 12px 0px 12px;
 `
@@ -92,7 +92,6 @@ const MsgHeader = styled.h6`
 const MsgInfo = styled.p`
     color: ${props => props.color};
     font-size: 12px;
-
 `
 
 export default function SubscribeForm(props) {
@@ -111,14 +110,16 @@ export default function SubscribeForm(props) {
                 url={url}
                 render={({ subscribe, status, message }) => {
                     let msg
-                    let duplicate = message ? message.slice(0, message.indexOf(" ")) : ""
+                    let duplicate = message
+                        ? message.slice(0, message.indexOf(" "))
+                        : ""
                     if (status === "sending") {
                         msg = "Submitting..."
                     } else if (status === "success") {
                         msg = "success"
                     } else if (status === "error") {
                         // If they have already subscribed, show success instead of error
-                        if(duplicate === inputs.EMAIL){
+                        if (duplicate === inputs.EMAIL) {
                             msg = "success"
                         } else {
                             msg = "error"
@@ -153,13 +154,22 @@ export default function SubscribeForm(props) {
                                     </>
                                 ) : msg === "success" ? (
                                     <SuccessMsg>
-                                        <MsgHeader color={green.darker}>Success!</MsgHeader>
-                                        <MsgInfo color={green.darker}>You've subscribed to our newsletter.</MsgInfo>
+                                        <MsgHeader color={green.darker}>
+                                            Success!
+                                        </MsgHeader>
+                                        <MsgInfo color={green.darker}>
+                                            You've subscribed to our newsletter.
+                                        </MsgInfo>
                                     </SuccessMsg>
                                 ) : (
                                     <ErrorMsg>
-                                        <MsgHeader color="#961F1F">Uh oh!</MsgHeader>
-                                        <MsgInfo color="#961F1F">There was an issue with your request.</MsgInfo>
+                                        <MsgHeader color="#961F1F">
+                                            Uh oh!
+                                        </MsgHeader>
+                                        <MsgInfo color="#961F1F">
+                                            There was an issue with your
+                                            request.
+                                        </MsgInfo>
                                     </ErrorMsg>
                                 )}
                             </Form>

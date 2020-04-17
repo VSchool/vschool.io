@@ -36,8 +36,8 @@ const WhiteWall = styled.div`
     bottom: 0px;
     z-index: 6;
 
-    @media(min-width: 840px){
-      width: 88px;
+    @media (min-width: 840px) {
+        width: 88px;
     }
 `
 const GrayWall = styled.div`
@@ -49,8 +49,8 @@ const GrayWall = styled.div`
     z-index: 2;
     background-color: ${green.lightest};
 
-    @media(min-width: 840px){
-      width: 88px;
+    @media (min-width: 840px) {
+        width: 88px;
     }
 `
 
@@ -71,11 +71,10 @@ const GreenCircle = styled.img`
         height: 96px;
     }
 
-    @media(min-width: 1050px){
-      left: -44px;
-      z-index: 7;
+    @media (min-width: 1050px) {
+        left: -44px;
+        z-index: 7;
     }
-   
 `
 const SmallImg = styled.img`
     height: 530px;
@@ -124,70 +123,64 @@ const SmallImg = styled.img`
 `
 
 const LargeImg = styled.img`
-  display: none;
-  height: 530px;
-  position: relative;
-  margin-bottom: -80px;
-  left: 0px;
-  z-index: 6;
-  cursor: pointer;
+    display: none;
+    height: 530px;
+    position: relative;
+    margin-bottom: -80px;
+    left: 0px;
+    z-index: 6;
+    cursor: pointer;
 
-  @media(min-width: 1050px){
-    display: inline-block;
-  }
+    @media (min-width: 1050px) {
+        display: inline-block;
+    }
 `
 
 const OverlayImg = styled.img`
-  width: 200px;
-  height: 165px;
-  position: absolute;
-  z-index: 7;
-  right: 0;
-  bottom: 30px;
-  cursor: pointer;
+    width: 200px;
+    height: 165px;
+    position: absolute;
+    z-index: 7;
+    right: 0;
+    bottom: 30px;
+    cursor: pointer;
 
-  @media(min-width: 400px){
-    width: 226px;
-    height: 175px;
-  }
+    @media (min-width: 400px) {
+        width: 226px;
+        height: 175px;
+    }
 
-  @media(min-width: 600px){
-    bottom: 82px
-  }
+    @media (min-width: 600px) {
+        bottom: 82px;
+    }
 
-  @media(min-width: 900px){
-    right: 56px;
-  }
+    @media (min-width: 900px) {
+        right: 56px;
+    }
 
-  @media(min-width: 1050px){
-    display: none;
-  }
+    @media (min-width: 1050px) {
+        display: none;
+    }
 `
 
 const ImagesContainer = styled.div`
-  @media(min-width: 1050px){
-    position: relative;
-  }
+    @media (min-width: 1050px) {
+        position: relative;
+    }
 `
 
 export default function HeroImage(props) {
-    const { 
-      heroImgLg, 
-      heroImgSm,
-      greenCircle,
-      overlayImg,
-      toggle
-    } = props
+    const { heroImgLg, heroImgSm, greenCircle, overlayImg, toggle } = props
     return (
         <Main>
             <Container>
                 <GrayWall />
                 <WhiteWall />
                 <ImagesContainer onClick={toggle}>
-                  <OverlayImg src={overlayImg}/>
-                  <GreenCircle src={greenCircle}/>
-                  <SmallImg src={heroImgSm} />
-                  <LargeImg src={heroImgLg} />
+                    <OverlayImg src={overlayImg} />
+                    <GreenCircle src={greenCircle} />
+                    <SmallImg src={heroImgSm} />
+                    <LargeImg src={heroImgLg} />
                 </ImagesContainer>
             </Container>
             <WhiteBase />

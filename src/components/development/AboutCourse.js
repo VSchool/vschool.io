@@ -1,32 +1,32 @@
-import React from 'react'
-import styled from 'styled-components'
-import {gray, black} from "@vschool/lotus"
+import React from "react"
+import styled from "styled-components"
+import { gray, black } from "@vschool/lotus"
 
 const Container = styled.div`
-  background-color: ${gray.lighter};
-  padding-left: 24px;
-  padding-right: 24px;
-  padding-top: 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    background-color: ${gray.lighter};
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-  @media (min-width: 320px) and (max-width: 400px){
-    padding-left: 16px;
-    padding-right: 16px;
-  }
+    @media (min-width: 320px) and (max-width: 400px) {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
 
-  @media (min-width: 600px){
-    padding-left: 48px;
-    padding-right: 48px;
-    padding-top: 56px;
-  }
+    @media (min-width: 600px) {
+        padding-left: 48px;
+        padding-right: 48px;
+        padding-top: 56px;
+    }
 
-  @media (min-width: 1200px){
-    padding-right: 96px;
-    padding-left: 96px;
-    padding-top: 96px;
-  }
+    @media (min-width: 1200px) {
+        padding-right: 96px;
+        padding-left: 96px;
+        padding-top: 96px;
+    }
 `
 
 const H1 = styled.h1`
@@ -68,7 +68,6 @@ const P = styled.p`
     margin-bottom: 24px;
 
     @media (min-width: 600px) {
-     
         width: 560px;
     }
 
@@ -85,15 +84,12 @@ const P = styled.p`
     }
 `
 
-export default function AboutCourse(props){
-  const {
-    header,
-    sub
-  } = props
-  return (
-    <Container>
-      <H1>{header}</H1>
-      <P>{sub}</P>
-    </Container>
-  )
+export default function AboutCourse(props) {
+    const { header, sub } = props
+    return (
+        <Container>
+            <H1>{header}</H1>
+            <P>{sub}</P>
+        </Container>
+    )
 }

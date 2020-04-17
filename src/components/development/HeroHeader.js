@@ -10,19 +10,19 @@ const Container = styled.div`
     padding-right: 24px;
     padding-bottom: 64px;
 
-    @media (min-width: 600px){
-        padding-left: 32px; 
+    @media (min-width: 600px) {
+        padding-left: 32px;
         padding-right: 32px;
     }
 
-    @media (min-width: 840px){
+    @media (min-width: 840px) {
         padding-left: 40px;
         padding-right: 40px;
         padding-bottom: 96px;
         padding-top: 96px;
     }
 
-    @media (min-width: 1200px){
+    @media (min-width: 1200px) {
         padding-left: 88px;
         padding-right: 88px;
     }
@@ -38,7 +38,7 @@ const Title = styled.h6`
     text-align: center;
     font-weight: 800;
 
-    @media(min-width: 1200px){
+    @media (min-width: 1200px) {
         font-size: 16px;
     }
 `
@@ -142,20 +142,11 @@ const FlexContainer = styled.div`
 `
 
 function HeroHeader(props) {
-    const {
-        title,
-        header,
-        sub,
-        sub2,
-        link,
-        btnText
-    } = props
+    const { title, header, sub, sub2, link, btnText } = props
 
     return (
         <Container>
-            <Title>
-                {title}
-            </Title>
+            <Title>{title}</Title>
             <FlexContainer>
                 <H1>{header}</H1>
             </FlexContainer>
