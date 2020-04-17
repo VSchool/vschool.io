@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 import { gray, black, pink, Button } from "@vschool/lotus"
 import Link from "../shared/QueryLink"
-// import { useQueryString } from "../../hooks/useQueryString"
 
 const HeaderContainer = styled.div`
     background-color: ${pink.lightest};

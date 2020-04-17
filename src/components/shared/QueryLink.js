@@ -1,14 +1,20 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
-import { useQueryString } from "../../hooks/useQueryString"
 
-// Custom component that adds the site's current query string
-// to all links so they're maintained around the site
-// When importing, still use `import Link from "../path/to/shared/QueryLink"`
-function QueryLink({ to, children, ...rest }) {
-    const query = useQueryString()
+// A replacement for regular anchor elements that automatically implements
+// the querystring from sessionStorage
+// This makes it so we can track the UTM parameters on sites outside of our own
+// like on links to Calendly.
+export default function({ to, children, ...rest }) {
+    // Had to put query in state and useEffect because Gatsby didn't have reference to
+    // `window` or `sessionStorage` at build time. Inside useEffect, it'll only run after mount
+    // See https://www.gatsbyjs.org/docs/debugging-html-builds/ for more details
+    const [query, setQuery] = useState("")
+    useEffect(() => {
+        setQuery(window.sessionStorage.getItem("query"))
+    }, [])
     return to.startsWith("/") ? (
-        <Link {...rest} to={`${to}${query}`}>
+        <Link to={to} {...rest}>
             {children}
         </Link>
     ) : (
@@ -17,5 +23,3 @@ function QueryLink({ to, children, ...rest }) {
         </a>
     )
 }
-
-export default QueryLink

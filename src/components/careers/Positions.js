@@ -13,7 +13,7 @@ const Container = styled.div`
     @media (min-width: 600px) {
         padding-left: 32px;
         padding-right: 32px;
-        padding-bottom:96px;
+        padding-bottom: 96px;
     }
 
     @media (min-width: 840px) {
@@ -43,20 +43,20 @@ const H3 = styled.h3`
         font-size: 32px;
     }
 
-    @media(min-width: 800px){
-      font-size: 38px;
-      padding-bottom: 72px;
+    @media (min-width: 800px) {
+        font-size: 38px;
+        padding-bottom: 72px;
     }
 
-    @media (min-width: 1000px){
-      font-size: 44px;
+    @media (min-width: 1000px) {
+        font-size: 44px;
     }
 `
 
 const FlexContainer = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 `
 
 export default function Positions(props) {
@@ -65,9 +65,14 @@ export default function Positions(props) {
         <Container>
             <H3>{header}</H3>
             <FlexContainer>
-              {positions.length && positions.map((p, i, arr) => (
-                  <Position {...p} key={p.position_title.text + i} borderBottom={i === arr.length - 1} />
-              ))}
+                {positions.length &&
+                    positions.map((p, i, arr) => (
+                        <Position
+                            {...p}
+                            key={p.position_title.text + i}
+                            borderBottom={i === arr.length - 1}
+                        />
+                    ))}
             </FlexContainer>
         </Container>
     )

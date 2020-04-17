@@ -19,7 +19,6 @@ const Container = styled.div`
         padding-right: 48px;
     }
 
-
     @media (min-width: 1200px) {
         padding-right: 96px;
         padding-left: 96px;
@@ -31,9 +30,7 @@ const GraySection = styled.div`
     flex-direction: column;
     align-items: center;
 
-
-    @media(min-width: 500px){
-   
+    @media (min-width: 500px) {
     }
 
     @media (min-width: 840px) {
@@ -47,8 +44,8 @@ const WhiteSection = styled.div`
     /* height: 300px; */
     background-color: ${gray.lighter};
 
-    @media(min-width: 400px){
-      /* height: 200px; */
+    @media (min-width: 400px) {
+        /* height: 200px; */
     }
 
     @media (min-width: 840px) {
