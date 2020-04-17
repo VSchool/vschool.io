@@ -34,7 +34,6 @@ export default function CommunityRelief({ data }) {
         invite2_btn_link: { url: inviteLink2 },
         invite2_btn: { text: inviteBtn2 },
         invite2: { text: invite2 },
-        invite: { text: invite1 },
         info2: { text: info2 },
         info1: { text: info1 },
         hero_image: { url: heroImg },
@@ -52,19 +51,12 @@ export default function CommunityRelief({ data }) {
         <Layout>
             <SEO title="Community Relief" />
              <AboutScholarship
-                title={aboutScholarshipSub1}
                 header={header}
                 info={subheader}
                 img={aboutScholarshipImg}
                 link={inviteLink1}
                 btnText={inviteBtn1}
             />
-            {/* <AboutScholarship
-                title={aboutScholarshipSub1}
-                header={aboutScholarshipHeader}
-                info={aboutScholarshipSub2}
-                img={aboutScholarshipImg}
-            /> */}
             <Information info1={info1} info2={info2} />
             <CourseBullets bullets={about_course_bullets} />
             <AboutCourse header={modulesHeader} />
@@ -75,8 +67,9 @@ export default function CommunityRelief({ data }) {
                 link={inviteLink2}
             />
             <HeroHeader
+                banner={aboutScholarshipSub1}
                 title={aboutScholarshipHeader}
-                sub={aboutScholarshipSub1}
+                sub={aboutScholarshipSub2}
                 link={inviteLink1}
                 btnText={inviteBtn1}
             />
@@ -151,9 +144,6 @@ export const query = graphql`
                     text
                 }
                 invite2 {
-                    text
-                }
-                invite {
                     text
                 }
                 info2 {
