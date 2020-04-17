@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
 
 // A replacement for regular anchor elements that automatically implements
@@ -6,8 +6,13 @@ import { Link } from "gatsby"
 // This makes it so we can track the UTM parameters on sites outside of our own
 // like on links to Calendly.
 export default function({ to, children, ...rest }) {
-    const windowGlobal = typeof window !== 'undefined' && window
-    const query = windowGlobal.sessionStorage.getItem("query") || ""
+    // Had to put query in state and useEffect because Gatsby didn't have reference to
+    // `window` or `sessionStorage` at build time. Inside useEffect, it'll only run after mount
+    // See https://www.gatsbyjs.org/docs/debugging-html-builds/ for more details
+    const [query, setQuery] = useState("")
+    useEffect(() => {
+        setQuery(window.sessionStorage.getItem("query"))
+    }, [])
     return to.startsWith("/") ? (
         <Link to={to} {...rest}>
             {children}
