@@ -10,8 +10,8 @@
 exports.onClientEntry = () => {
     const href = window.location.origin + window.location.pathname
     if (window.location.href !== href) {
-        sessionStorage.setItem("query", window.location.search)
-        console.log(window.location)
-        window.location.replace(href)
+        const query = window.location.search || ""
+        sessionStorage.setItem("query", query)
+        // window.location.replace(href)
     }
 }
