@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { gray, black, green, Button } from "@vschool/lotus"
+import { gray, black, green } from "@vschool/lotus"
 
 
 const Container = styled.div`
@@ -80,52 +80,44 @@ const P = styled.p`
     }
 `
 
-const StyledButton = styled(Button)`
-    width: 318px;
-    font-family: "aktiv-grotesk-extended";
-    font-weight: 800;
-    outline: none;
-
-    @media (min-width: 300px) and (max-width: 380px) {
-        width: 286px;
-    }
-
-    @media (min-width: 1200px) {
-        font-size: 16px;
-        letter-spacing: 1.14px;
-        line-height: 24px;
-        height: 56px;
-    }
-`
-
 const FlexContainer = styled.div`
     display: flex;
     justify-content: center;
+`
+
+const Title = styled.h4`
+    color: ${green.darker};
+    font-family: "aktiv-grotesk-extended";
+    font-size: 16px;
+    letter-spacing: 0.25px;
+    line-height: 24px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    text-align: center;
+
+    @media (min-width: 1200px) {
+        text-align: left;
+    }
 `
 
 function HeroHeader(props) {
     const {
         title,
         sub,
-        link,
-        btnText
+        banner
     } = props
 
     return (
         <Container>
+            <FlexContainer>
+              <Title>{banner}</Title>
+            </FlexContainer>
             <FlexContainer>
                 <H1>{title}</H1>
             </FlexContainer>
             <FlexContainer>
                 <P>{sub}</P>
             </FlexContainer>
-            {/* <FlexContainer>
-                <a href={link}>
-                    <StyledButton buttonStyle="primary-dark">
-                        {btnText}
-                    </StyledButton>
-                </a>
-            </FlexContainer> */}
         </Container>
     )
 }
