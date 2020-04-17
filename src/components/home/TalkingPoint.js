@@ -1,18 +1,13 @@
 import React from "react"
 import styled from "styled-components"
-// import { Link } from "gatsby"
-import Link from "../shared/QueryLink"
 import { blue, black, green, gray } from "@vschool/lotus"
+import Link from "../shared/QueryLink"
 
 const Container = styled.div`
     margin-bottom: 56px;
     width: 100%;
     max-width: 392px;
-
     position: relative;
-
-    @media (max-width: 370px) {
-    }
 `
 
 const Tag = styled.div`

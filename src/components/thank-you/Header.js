@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import { gray, black, blue } from "@vschool/lotus"
-// import { Link } from "gatsby"
 import Link from "../shared/QueryLink"
 
 const Container = styled.div`

@@ -32,17 +32,17 @@ const Container = styled.div`
 `
 
 const Title = styled.h5`
-  color: #7C2B3A;
-  font-family: "aktiv-grotesk-extended";
-  font-size: 16px;
-  letter-spacing: 0.25px;
-  line-height: 24px;
-  font-weight: 800;
-  margin-bottom: 16px;
+    color: #7c2b3a;
+    font-family: "aktiv-grotesk-extended";
+    font-size: 16px;
+    letter-spacing: 0.25px;
+    line-height: 24px;
+    font-weight: 800;
+    margin-bottom: 16px;
 
-  @media(max-width: 500px){
-    font-size: 14px;
-  }
+    @media (max-width: 500px) {
+        font-size: 14px;
+    }
 `
 
 const FixedContainer = styled.div`
@@ -62,8 +62,8 @@ const FixedContainer = styled.div`
 `
 
 const FlexContainer = styled.div`
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 `
 
 const H3 = styled.h3`
@@ -92,23 +92,23 @@ const H3 = styled.h3`
 `
 
 const Info = styled.p`
-  color: #514F4B;
-  font-family: "aktiv-grotesk";
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 28px;
-  margin-bottom: 56px;
-  text-align: center;
-  max-width: 600px;
-  
-  @media(max-width: 400px){
-    font-size: 16px;
-  }
+    color: #514f4b;
+    font-family: "aktiv-grotesk";
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 28px;
+    margin-bottom: 56px;
+    text-align: center;
+    max-width: 600px;
 
-  @media(min-width: 1200px){
-    text-align: left;
-    max-width: 1024px;
-  }
+    @media (max-width: 400px) {
+        font-size: 16px;
+    }
+
+    @media (min-width: 1200px) {
+        text-align: left;
+        max-width: 1024px;
+    }
 `
 
 export default function ScholarshipDetails(props) {
@@ -116,20 +116,20 @@ export default function ScholarshipDetails(props) {
     return (
         <Container>
             <FixedContainer>
-              <Title>{title}</Title>
+                <Title>{title}</Title>
             </FixedContainer>
             <FixedContainer>
                 <H3>{header}</H3>
             </FixedContainer>
             <FixedContainer>
-              <Info>{sub}</Info>
+                <Info>{sub}</Info>
             </FixedContainer>
             <FlexContainer>
-              <Deadlines 
-                deadlines={deadlines}
-                info={detailsInfo}
-                bgImg={bgImg}
-              />
+                <Deadlines
+                    deadlines={deadlines}
+                    info={detailsInfo}
+                    bgImg={bgImg}
+                />
             </FlexContainer>
         </Container>
     )

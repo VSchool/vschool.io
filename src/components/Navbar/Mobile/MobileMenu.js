@@ -1,8 +1,8 @@
 import React, { useContext } from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Link from "../../shared/QueryLink"
 import styled from "styled-components"
 
+import Link from "../../shared/QueryLink"
 import { NavbarContext } from "../navbarContext"
 import MobileButton from "./MobileButton"
 import MobilePrimaryMenu from "./MobilePrimaryMenu"

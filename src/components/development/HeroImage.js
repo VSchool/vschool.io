@@ -36,8 +36,8 @@ const WhiteWall = styled.div`
     bottom: 0px;
     z-index: 6;
 
-    @media(min-width: 840px){
-      width: 88px;
+    @media (min-width: 840px) {
+        width: 88px;
     }
 `
 const GrayWall = styled.div`
@@ -49,8 +49,8 @@ const GrayWall = styled.div`
     z-index: 2;
     background-color: ${blue.lightest};
 
-    @media(min-width: 840px){
-      width: 88px;
+    @media (min-width: 840px) {
+        width: 88px;
     }
 `
 
@@ -69,10 +69,9 @@ const OrangeCircle = styled.div`
         bottom: 52px;
     }
 
-    @media(min-width: 1050px){
-      display: none;
+    @media (min-width: 1050px) {
+        display: none;
     }
-   
 `
 const SmallImg = styled.img`
     height: 530px;
@@ -120,66 +119,61 @@ const SmallImg = styled.img`
 `
 
 const LargeImg = styled.img`
-  display: none;
-  height: 530px;
-  position: relative;
-  margin-bottom: -80px;
-  left: 0px;
-  z-index: 6;
+    display: none;
+    height: 530px;
+    position: relative;
+    margin-bottom: -80px;
+    left: 0px;
+    z-index: 6;
 
-  @media(min-width: 1050px){
-    display: inline-block;
-  }
+    @media (min-width: 1050px) {
+        display: inline-block;
+    }
 `
 
 const OverlayImg = styled.img`
-  width: 170px;
-  height: 240px;
-  position: absolute;
-  z-index: 7;
-  right: 0;
-  bottom: 30px;
+    width: 170px;
+    height: 240px;
+    position: absolute;
+    z-index: 7;
+    right: 0;
+    bottom: 30px;
 
-  @media(min-width: 600px){
-    width: 250px;
-    height: 328px;
-  }
+    @media (min-width: 600px) {
+        width: 250px;
+        height: 328px;
+    }
 
-  @media(min-width: 600px){
+    @media (min-width: 600px) {
+    }
 
-  }
+    @media (min-width: 900px) {
+        right: 56px;
+    }
 
-  @media(min-width: 900px){
-    right: 56px;
-  }
-
-  @media(min-width: 1050px){
-    display: none;
-  }
+    @media (min-width: 1050px) {
+        display: none;
+    }
 `
 
 const ImagesContainer = styled.div`
-  @media(min-width: 1050px){
-    position: relative;
-  }
+    @media (min-width: 1050px) {
+        position: relative;
+    }
 `
 
 export default function HeroImage(props) {
-    const { 
-      heroImgLg, 
-      heroImgSm,
-      overlayImg
-    } = props
+    const { heroImgLg, heroImgSm, overlayImg } = props
     return (
         <Main>
             <Container>
                 <GrayWall />
                 <WhiteWall />
                 <ImagesContainer>
-                  <OverlayImg src={overlayImg}/>
-                  <OrangeCircle />
-                  <SmallImg src={heroImgSm} />
-                  <LargeImg src={heroImgLg} />
+                    <OverlayImg src={overlayImg} />
+                    <OrangeCircle />
+                    <SmallImg src={heroImgSm} />
+                    <LargeImg src={heroImgLg} />
                 </ImagesContainer>
             </Container>
             <WhiteBase />

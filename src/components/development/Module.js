@@ -6,8 +6,8 @@ const SubjectContainer = styled.div`
     width: 232px;
     margin-bottom: 56px;
 
-    @media(min-width: 600px){
-      margin-bottom: 0;
+    @media (min-width: 600px) {
+        margin-bottom: 0;
     }
 `
 
@@ -44,7 +44,7 @@ const Info = styled.p`
     font-weight: 800;
     margin-bottom: 16px;
 
-    @media(min-width: 600px){
+    @media (min-width: 600px) {
         height: 40px;
     }
 `
