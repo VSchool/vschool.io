@@ -3,6 +3,7 @@ import Layout from "../components/layout"
 import { graphql } from "gatsby"
 import { gray, green } from "@vschool/lotus"
 import SEO from "../components/seo"
+import { Helmet } from "react-helmet"
 import {
     HeroHeader,
     HeroImage,
@@ -50,6 +51,14 @@ export default function IndexPage({ data }) {
     return (
         <Layout>
             <SEO title="Home" />
+
+            {/* Insert Pinterest claim code into head of index page */}
+            <Helmet>
+                <meta
+                    name="p:domain_verify"
+                    content="e7ec9d78e5ee9bcdffca6388ba0cdfa8"
+                />
+            </Helmet>
             <HeroHeader
                 title={title}
                 sub={sub}
