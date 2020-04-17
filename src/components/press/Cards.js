@@ -28,7 +28,6 @@ const Container = styled.div`
         padding-right: 40px;
     }
 
-
     @media (min-width: 1200px) {
         padding-left: 88px;
         padding-right: 88px;
@@ -40,8 +39,8 @@ const CardsList = styled.div`
     display: flex;
     flex-direction: column;
 
-    @media(min-width: 1200px){
-      flex-direction: row
+    @media (min-width: 1200px) {
+        flex-direction: row;
     }
 `
 

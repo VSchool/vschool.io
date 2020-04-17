@@ -51,7 +51,7 @@ const H3 = styled.h3`
 // `
 
 function FAQ(props) {
-    const {faq} = props
+    const { faq } = props
     const styles = {
         color: "#456AE2",
         fontFamily: "aktiv-grotesk",
@@ -62,7 +62,7 @@ function FAQ(props) {
         whiteSpace: "pre-wrap",
         backgroundColor: gray.lighter,
         width: "100%",
-        maxWidth: 672
+        maxWidth: 672,
     }
     return (
         <Container>

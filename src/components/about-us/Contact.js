@@ -49,7 +49,7 @@ export default function Contact(props) {
             <ContactItem>{cityAndState}</ContactItem>
             <ContactItem>{email}</ContactItem>
             <ContactItem>{phone}</ContactItem>
-            <Link to="https://calendly.com/v-school/apply">
+            <Link to={"https://calendly.com/v-school/apply"}>
                 <StyledButton buttonStyle="primary-light">
                     Get In Touch
                 </StyledButton>

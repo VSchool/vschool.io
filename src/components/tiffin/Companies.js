@@ -56,19 +56,19 @@ const LogoListContainer = styled.div`
     display: flex;
 
     & > div:nth-child(1) > div:nth-child(5) > img {
-      width: 60px;
+        width: 60px;
     }
 
     & > div:nth-child(2) > div:nth-child(1) > img {
-      width: 160px;
+        width: 160px;
     }
 
     & > div:nth-child(2) > div:nth-child(4) > img {
-      width: 140px;
+        width: 140px;
     }
 
     & > div:nth-child(2) > div:nth-child(5) > img {
-      width: 140px;
+        width: 140px;
     }
 
     @media (min-width: 1050px) {
