@@ -63,6 +63,25 @@ const H4 = styled.h4`
     }
 `
 
+const Image = styled.img`
+    width: 100%;
+    max-width: 230px;
+    margin: 16px 0;
+
+    @media (min-width: 400px) {
+        max-width: 280px;
+    }
+
+    @media (min-width: 600px) {
+        max-width: 300px;
+    }
+
+    @media (min-width: 900px) {
+        width: 100%;
+        max-width: 229px;
+    }
+`
+
 const RatingsContainer = styled.div`
     border: 2px solid ${blue.light};
     display: flex;
@@ -104,24 +123,7 @@ const RatingsContainer = styled.div`
     }
 `
 
-const Image = styled.img`
-    width: 100%;
-    max-width: 230px;
-    margin: 16px 0;
 
-    @media (min-width: 400px) {
-        max-width: 280px;
-    }
-
-    @media (min-width: 600px) {
-        max-width: 300px;
-    }
-
-    @media (min-width: 900px) {
-        width: 100%;
-        max-width: 229px;
-    }
-`
 
 export default function Ratings(props) {
     const { header, ratings } = props
