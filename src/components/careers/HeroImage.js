@@ -36,8 +36,8 @@ const WhiteWall = styled.div`
     bottom: 0px;
     z-index: 6;
 
-    @media(min-width: 840px){
-      width: 88px;
+    @media (min-width: 840px) {
+        width: 88px;
     }
 `
 const GrayWall = styled.div`
@@ -49,8 +49,8 @@ const GrayWall = styled.div`
     z-index: 2;
     background-color: ${gray.light};
 
-    @media(min-width: 840px){
-      width: 88px;
+    @media (min-width: 840px) {
+        width: 88px;
     }
 `
 
@@ -64,15 +64,13 @@ const OrangeBall = styled.div`
     z-index: 6;
     border-radius: 50%;
 
-
     @media (min-width: 840px) {
         left: 58px;
     }
 
-    @media(min-width: 1050px){
-      display: none;
+    @media (min-width: 1050px) {
+        display: none;
     }
-   
 `
 const SmallImg = styled.img`
     height: 530px;
@@ -120,23 +118,20 @@ const SmallImg = styled.img`
 `
 
 const LargeImg = styled.img`
-  display: none;
-  height: 530px;
-  position: relative;
-  margin-bottom: -80px;
-  left: 0px;
-  z-index: 6;
+    display: none;
+    height: 530px;
+    position: relative;
+    margin-bottom: -80px;
+    left: 0px;
+    z-index: 6;
 
-  @media(min-width: 1050px){
-    display: inline-block;
-  }
+    @media (min-width: 1050px) {
+        display: inline-block;
+    }
 `
 
 export default function HeroImage(props) {
-    const { 
-      heroImgLg, 
-      heroImgSm 
-    } = props
+    const { heroImgLg, heroImgSm } = props
     return (
         <Main>
             <Container>
