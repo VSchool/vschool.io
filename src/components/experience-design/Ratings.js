@@ -6,6 +6,16 @@ const Container = styled.div`
     background-color: ${gray.lighter};
 `
 
+const RateImg = styled.img`
+    padding-bottom: 72px;
+
+    @media (min-width: 1024px) {
+        height: 176px;
+        width: 176px;
+        padding-bottom: 68px;
+    }
+`
+
 const FlexContainer = styled.div`
     background-color: ${orange.lighter};
     display: flex;
@@ -16,6 +26,15 @@ const FlexContainer = styled.div`
     margin-left: 24px;
     margin-right: 24px;
     margin-top: -188px;
+
+    & ${RateImg}:nth-child(2){
+        width: 280px;
+        
+         
+        @media(max-width: 350px){
+            width: 250px;
+        }
+    }
 
     @media (min-width: 600px) {
         margin-right: 44px;
@@ -46,15 +65,7 @@ const TintedBackground = styled.div`
     }
 `
 
-const RateImg = styled.img`
-    padding-bottom: 72px;
 
-    @media (min-width: 1024px) {
-        height: 176px;
-        width: 176px;
-        padding-bottom: 68px;
-    }
-`
 
 function Ratings(props) {
     const { rating1, rating2, rating3 } = props
