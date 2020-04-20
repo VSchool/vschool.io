@@ -3,7 +3,6 @@ import Layout from "../components/layout.js"
 import SEO from "../components/seo.js"
 import { Header, Cards, ContactUs } from "../components/get-involved"
 import { graphql } from "gatsby"
-import {} from "@vschool/lotus"
 
 export default function GetInvolved({ data }) {
     const {
