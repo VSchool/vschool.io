@@ -3,13 +3,18 @@ import styled from "styled-components"
 import { black, green } from "@vschool/lotus"
 
 const Container = styled.div`
-    margin-bottom: 56px;
+    margin-bottom: 32px;
     max-width: 500px;
     position: relative;
     margin-left: 16px;
     margin-right: 16px;
     height: 200px;
-    
+
+    @media(max-width: 360px){
+        margin-left: 8px;
+        margin-right: 8px;
+    }   
+
     @media(max-width: 420px){
         height: 250px;
     }
@@ -20,6 +25,7 @@ const Container = styled.div`
 
     @media (min-width: 1200px) {
         height: 250px;
+        margin: 8px 16px;
     }
 `
 
