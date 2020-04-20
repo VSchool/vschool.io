@@ -71,6 +71,10 @@ const RatingsContainer = styled.div`
     padding-bottom: 32px;
     margin-top: -48px;
 
+    & ${Image}:nth-child(2){
+        width: 170px;
+    }
+
     @media (min-width: 500px) {
         width: 400px;
     }
