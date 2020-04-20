@@ -10,7 +10,7 @@ import {
     InfoForm,
     Testimonial,
 } from "../components/bootcamp-primer"
-import { blue, gray } from "@vschool/lotus"
+import { gray } from "@vschool/lotus"
 
 import Courses from "../components/shared/Courses"
 
@@ -28,7 +28,6 @@ export default function BootcampPrimerPage({ data }) {
         hero_image_small: { url: heroImgSm },
         hero_image_overlay: { url: heroImgOverlay },
         hero_image_large: { url: heroImgLg },
-        email_collection_button_text: { text },
         course_bullets_title: { text: bulletsTitle },
         contact_us_title: { text: contactUsTitle },
         contact_us_sub: { text: contactUsSub },
