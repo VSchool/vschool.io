@@ -3,7 +3,12 @@ import Layout from "../components/layout.js"
 import SEO from "../components/seo.js"
 import { graphql } from "gatsby"
 
-import { HeroHeader, Testimonial1, Testimonial2 } from "../components/methodology"
+import {
+    HeroHeader,
+    Testimonial1,
+    Testimonial2,
+    Differences,
+} from "../components/methodology"
 
 export default function Methodology({ data }) {
     const {
@@ -38,21 +43,22 @@ export default function Methodology({ data }) {
     return (
         <Layout>
             <SEO title="Methodology" />
-            <HeroHeader 
-             title={pageSubheader1}
-             header={pageHeader}
-             info={pageSubheader2}
-             img={heroImg}
-             link={headerBtnLink}
-             btnText={headerBtnText}
+            <HeroHeader
+                title={pageSubheader1}
+                header={pageHeader}
+                info={pageSubheader2}
+                img={heroImg}
+                link={headerBtnLink}
+                btnText={headerBtnText}
             />
-            <Testimonial1 
+            <Testimonial1
                 testimonial={testimonial1}
                 cite={cite1}
                 course={testimonialProgram1}
                 testimonialImg={testimonialImg1}
             />
-            <Testimonial2 
+            <Differences header={differencesHeader} differences={differences} />
+            <Testimonial2
                 testimonial={testimonial2}
                 cite={cite2}
                 course={testimonialProgram2}

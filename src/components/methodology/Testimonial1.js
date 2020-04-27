@@ -3,21 +3,35 @@ import styled from "styled-components"
 import { blue, yellow, gray } from "@vschool/lotus"
 
 const Container = styled.div`
-    background-color: ${blue.lightest};
+    background-color: ${gray.lightest};
     padding-bottom: 24px;
-    padding-left: 24px;
-    padding-right: 24px;
-    margin-top: -40px;
-
-    @media (min-width: 320px) and (max-width: 415px) {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
+    z-index: 1;
 
     @media (min-width: 1100px) {
         display: flex;
         justify-content: center;
     }
+`
+
+const BlueBackground = styled.div`
+  background-color: ${blue.lightest};
+  padding-left: 24px;
+  padding-right: 24px;
+  z-index: 2;
+  height: 250px;
+  flex-basis: 100%;
+
+  @media (min-width: 320px) and (max-width: 415px) {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+  @media(min-width: 1100px){
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    height: 200px;
+  }
 `
 
 const CiteContainer = styled.div`
@@ -44,6 +58,8 @@ const CiteContainer = styled.div`
       height: 352px;
       padding-top: 72px;
       padding-bottom: 72px;
+      position: relative;
+      z-index: 2;
     }
 `
 
@@ -57,6 +73,8 @@ const Testimonial = styled.h2`
     @media (min-width: 320px) and (max-width: 415px) {
         font-size: 20px;
     }
+
+
 `
 
 const Cite = styled.h4`
@@ -103,15 +121,26 @@ const TestimonialImg = styled.img`
 
     @media (min-width: 1100px) {
       margin-top: 80px;
-      margin-right: -24px
+      margin-right: -24px;
+      position: relative;
+      z-index: 2;
     }
 `
 
 const GridContainer = styled.div`
+    margin-top: -250px;
+    padding-left: 24px;
+    padding-right: 24px;
+
+    @media (min-width: 320px) and (max-width: 415px) {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
     @media (min-width: 1100px) {
         display: flex;
         flex-direction: row-reverse;
-        
+        margin-top: -48px;
     }
 `
 
@@ -119,6 +148,7 @@ function Testimonial1(props) {
     const { testimonial, cite, course, testimonialImg } = props
     return (
         <Container>
+          <BlueBackground/>
             <GridContainer>
                 <CiteContainer>
                     <Testimonial>"{testimonial}"</Testimonial>
