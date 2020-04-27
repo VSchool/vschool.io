@@ -93,7 +93,7 @@ const DateText = styled.h2`
 `
 
 export default function Deadlines(props) {
-    const { deadlines, bgImg, info } = props
+    const { deadlines, bgImg } = props
     return (
         <DeadlinesContainer bgImg={bgImg}>
             <DeadlinesBox>
