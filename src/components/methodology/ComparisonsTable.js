@@ -5,7 +5,6 @@ import yesIcon from "../../images/icons/yes.png"
 import noIcon from "../../images/icons/no.png"
 import naIcon from "../../images/icons/na.png"
 
-
 const tableHeads = ["Skills", "Theory", "Experience", "Job"]
 
 function getIcon(label) {
@@ -24,9 +23,14 @@ function getIcon(label) {
 const FlexTable = styled.div`
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+    border-bottom: 1px solid ${gray.darker};
 
     @media (min-width: 800px) {
         grid-template-columns: 75px 200px 100px 100px 100px 100px;
+    }
+
+    @media (min-width: 1200px) {
+        grid-template-columns: 75px 225px 150px 150px 150px 150px;
     }
 `
 
@@ -37,6 +41,10 @@ const TableCell = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    border-right: ${({ right }) =>
+        right ? `2px solid ${gray.darker}` : `1px solid ${gray.darker}`};
+    border-top: ${({ i }) =>
+        i === 0 ? `2px solid ${gray.darker}` : `1px solid ${gray.darker}`};
 
     @media (min-width: 800px) {
         max-width: 100%;
@@ -81,6 +89,7 @@ const Head = styled.div`
 
 const Img = styled.img`
     width: 100%;
+    border-left: 1px solid ${gray.darker};
 `
 
 const Type = styled.h6`
@@ -108,24 +117,24 @@ export default function ComparisonsTable(props) {
     return (
         <FlexTable>
             <HeadsContainer>{tablehead}</HeadsContainer>
-            {comparisons.map(item => (
+            {comparisons.map((item, i) => (
                 <>
-                    <TableCell>
+                    <TableCell i={i}>
                         <Img src={item.icon.url} />
                     </TableCell>
-                    <TableCellHidden>
+                    <TableCellHidden i={i}>
                         <Type>{item.type.text}</Type>
                     </TableCellHidden>
-                    <TableCell>
+                    <TableCell i={i}>
                         <Icon src={getIcon(item.skills.text)} />
                     </TableCell>
-                    <TableCell>
+                    <TableCell i={i}>
                         <Icon src={getIcon(item.theory.text)} />
                     </TableCell>
-                    <TableCell>
+                    <TableCell i={i}>
                         <Icon src={getIcon(item.experience.text)} />
                     </TableCell>
-                    <TableCell>
+                    <TableCell right i={i}>
                         <Icon src={getIcon(item.job.text)} />
                     </TableCell>
                 </>

@@ -111,7 +111,7 @@ const TestimonialImg = styled.img`
     margin-top: -56px;
 
     @media (min-width: 320px) and (max-width: 415px) {
-        width: 280px;
+        width: 250px;
     }
 
     @media (min-width: 900px) {

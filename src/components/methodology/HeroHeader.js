@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { gray, black, blue, Button } from "@vschool/lotus"
+import Link from "../shared/QueryLink"
 
 const Container = styled.div`
     background-color: ${blue.lightest};
@@ -149,9 +150,9 @@ export default function HeroHeader(props) {
                     <Header>{header}</Header>
                     <Title>{title}</Title>
                     <Info>{info}</Info>
-                    <a href={link}>
+                    <Link to={link}>
                         <StyledButton>{btnText}</StyledButton>
-                    </a>
+                    </Link>
                 </TextContainer>
                 <Img src={img} />
             </FlexContainer>
