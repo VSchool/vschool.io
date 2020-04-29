@@ -18,7 +18,7 @@ const BlueBackground = styled.div`
   padding-left: 24px;
   padding-right: 24px;
   z-index: 2;
-  height: 250px;
+  height: 235px;
   flex-basis: 100%;
 
   @media (min-width: 320px) and (max-width: 415px) {
@@ -128,7 +128,7 @@ const TestimonialImg = styled.img`
 `
 
 const GridContainer = styled.div`
-    margin-top: -250px;
+    margin-top: -270px;
     padding-left: 24px;
     padding-right: 24px;
 
