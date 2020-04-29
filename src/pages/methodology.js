@@ -8,8 +8,12 @@ import {
     Testimonial1,
     Testimonial2,
     Differences,
-    SchoolComparisons
+    SchoolComparisons,
+    CTA
 } from "../components/methodology"
+
+import Courses from "../components/shared/Courses.js"
+import { gray } from "@vschool/lotus"
 
 export default function Methodology({ data }) {
     const {
@@ -59,16 +63,27 @@ export default function Methodology({ data }) {
                 testimonialImg={testimonialImg1}
             />
             <Differences header={differencesHeader} differences={differences} />
-            <SchoolComparisons 
+            <SchoolComparisons
                 header={comparisonsHeader}
                 subheader={comparisonsSubheader}
                 comparisons={comparisons}
+            />
+            <Courses
+                header={programsHeader}
+                courses={courses}
+                bgColor={gray.lightest}
             />
             <Testimonial2
                 testimonial={testimonial2}
                 cite={cite2}
                 course={testimonialProgram2}
                 testimonialImg={testimonialImg2}
+            />
+            <CTA 
+                header={ctaHeader}
+                subheader={ctaSubHeader}
+                btnText={ctaBtn}
+                link={ctaLink}
             />
         </Layout>
     )

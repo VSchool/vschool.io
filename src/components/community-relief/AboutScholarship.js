@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { gray, black, green, Button } from "@vschool/lotus"
+import Link from "../shared/QueryLink"
 
 const Container = styled.div`
     background-color: ${green.lightest};
@@ -136,9 +137,9 @@ export default function AboutScholarship(props) {
                     <Title>{title}</Title>
                     <Header>{header}</Header>
                     <Info>{info}</Info>
-                    <a href={link}>
+                    <Link to={link}>
                         <StyledButton>{btnText}</StyledButton>
-                    </a>
+                    </Link>
                 </TextContainer>
 
                 <Img src={img} />
