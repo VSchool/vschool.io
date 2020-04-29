@@ -20,6 +20,7 @@ import Courses from "../components/shared/Courses.js"
 export default function IndexPage({ data }) {
     const [show, setShow] = useState(false)
     const toggle = () => setShow(p => !p)
+    console.log("TEST-DEPLOY")
     const {
         hero_header_sub2: { text: invite },
         hero_header_sub1: { text: sub },
