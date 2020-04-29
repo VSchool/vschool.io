@@ -9,6 +9,7 @@ import {
     Testimonial2,
     Differences,
     SchoolComparisons,
+    Pathways,
     CTA
 } from "../components/methodology"
 
@@ -63,6 +64,7 @@ export default function Methodology({ data }) {
                 testimonialImg={testimonialImg1}
             />
             <Differences header={differencesHeader} differences={differences} />
+            <Pathways />
             <SchoolComparisons
                 header={comparisonsHeader}
                 subheader={comparisonsSubheader}
