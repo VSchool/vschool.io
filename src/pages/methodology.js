@@ -8,6 +8,7 @@ import {
     Testimonial1,
     Testimonial2,
     Differences,
+    SchoolComparisons
 } from "../components/methodology"
 
 export default function Methodology({ data }) {
@@ -58,6 +59,11 @@ export default function Methodology({ data }) {
                 testimonialImg={testimonialImg1}
             />
             <Differences header={differencesHeader} differences={differences} />
+            <SchoolComparisons 
+                header={comparisonsHeader}
+                subheader={comparisonsSubheader}
+                comparisons={comparisons}
+            />
             <Testimonial2
                 testimonial={testimonial2}
                 cite={cite2}
