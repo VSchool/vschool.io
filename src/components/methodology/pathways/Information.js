@@ -19,6 +19,17 @@ const Container = styled.div`
     max-width: 380px;
     position: relative;
     overflow: hidden;
+
+    @media(min-width: 1200px){
+      border-left: 2px solid ${gray.darker};
+      height: 400px;
+      display: flex;
+      align-items: center;
+      padding-top: 56px;
+      margin-left: 44px;
+      padding-bottom: 0;
+      padding-left: 24px;
+    }
 `
 
 const HeaderContainer = styled.div`
