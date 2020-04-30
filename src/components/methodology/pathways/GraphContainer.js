@@ -35,12 +35,39 @@ const BarAnimation4 = keyframes`
   }
 `
 
+const EndTextAnimation = keyframes`
+  0% {
+    bottom: -20px;
+  }
+  100% {
+    bottom: 0;
+  }
+`
+
+const OpacityAnimation = keyframes`
+  0% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`
+
 const Container = styled.div`
     margin: 24px 16px;
     width: 100%;
     max-width: 380px;
-    height: 300px;
+
     border-bottom: 2px solid ${gray.darker};
+    padding-bottom: 42px;
+
+    @media (min-width: 1200px) {
+        max-width: 600px;
+        border-bottom: none;
+    }
 `
 
 const SectionContainer = styled.div`
@@ -49,11 +76,15 @@ const SectionContainer = styled.div`
 `
 
 const TextContainer = styled.div`
-    display: flex;
     margin-bottom: 8px;
+    height: 16px;
     margin-top: 16px;
     width: 100%;
-    justify-content: space-between;
+    position: relative;
+
+    @media (min-width: 1200px) {
+        margin-top: 48px;
+    }
 `
 
 const BarTitle = styled.p`
@@ -62,20 +93,71 @@ const BarTitle = styled.p`
     letter-spacing: 0.5px;
     color: ${black};
     font-weight: 700;
+    display: inline-block;
 
     @media (max-width: 1200px) {
-        font-size: 10px;
+        font-size: 9px;
     }
 `
 
 const BarEndText = styled.p`
-    font-size: 14px;
+    font-size: 10px;
+    font-family: "aktiv-grotesk";
+    color: ${gray.darker};
+    position: absolute;
+    min-width: 60px;
+    animation: ${EndTextAnimation} 750ms cubic-bezier(0.97, -0.03, 0.14, 1.12)
+            1s,
+        ${OpacityAnimation} 1400ms ease-in-out;
+    z-index: 1;
+    left: ${({ end }) => end + "%"};
+    bottom: 0;
+
+    @media (max-width: 500px) {
+        left: ${({ end, num }) => (num === 0 ? end - 16 + "%" : end + "%")};
+    }
+
+    @media (min-width: 1200px) {
+        min-width: 100px;
+        font-size: 12px;
+    }
+`
+
+const BarEndText2 = styled(BarEndText)``
+const BarEndText3 = styled(BarEndText)``
+const BarEndText4 = styled(BarEndText)``
+
+const CompletedBarEndText = styled.p`
+    font-size: 10px;
     font-family: "aktiv-grotesk";
     color: ${gray.darker};
     justify-self: flex-end;
+    position: absolute;
+    display: inline-block;
+    min-width: 60px;
+    left: ${({ end }) => end + "%"};
+    bottom: 0;
 
-    @media (max-width: 1200px) {
-        font-size: 10px;
+    @media (max-width: 500px) {
+        left: ${({ end, num }) => (num === 0 ? end - 16 + "%" : end + "%")};
+    }
+
+    @media (min-width: 1200px) {
+        min-width: 100px;
+        font-size: 12px;
+    }
+`
+
+const EndTextLine = styled.span`
+    position: relative;
+    display: inline-block;
+    width: 1px;
+    height: 6px;
+    background-color: ${gray.dark};
+    bottom: -8px;
+
+    @media (max-width: 500px) {
+        left: ${({ num }) => (num === 0 ? 45 + "px" : 0)};
     }
 `
 
@@ -83,26 +165,34 @@ const Bar = styled.div`
     height: 32px;
     background-color: ${({ bgColor }) => bgColor};
     max-width: 100%;
-    animation: ${BarAnimation1} 1s linear;
+    animation: ${BarAnimation1} 1s cubic-bezier(0.97, -0.03, 0.14, 1.12);
+    position: relative;
+    z-index: 2;
 `
 
 const Bar2 = styled.div`
     height: 32px;
     background-color: ${({ bgColor }) => bgColor};
     max-width: 70%;
-    animation: ${BarAnimation2} 800ms linear;
+    animation: ${BarAnimation2} 1s cubic-bezier(0.97, -0.03, 0.14, 1.12);
+    position: relative;
+    z-index: 2;
 `
 const Bar3 = styled.div`
     height: 32px;
     background-color: ${({ bgColor }) => bgColor};
     max-width: 45%;
-    animation: ${BarAnimation3} 500ms linear;
+    animation: ${BarAnimation3} 1s cubic-bezier(0.97, -0.03, 0.14, 1.12);
+    position: relative;
+    z-index: 2;
 `
 const Bar4 = styled.div`
     height: 32px;
     background-color: ${({ bgColor }) => bgColor};
     max-width: 30%;
-    animation: ${BarAnimation4} 500ms linear;
+    animation: ${BarAnimation4} 1s cubic-bezier(0.97, -0.03, 0.14, 1.12);
+    position: relative;
+    z-index: 2;
 `
 
 const CompletedBar = styled.div`
@@ -120,15 +210,19 @@ const UnvisitedBar = styled.div`
 export default function GraphContainer(props) {
     const { currentBar, completedBars, additionalBars } = props.info
     const { changeView, selectedBar } = props
-    let CurrentBar
+    let CurrentBar, CurrentEndText
     if (selectedBar === 0) {
         CurrentBar = Bar
+        CurrentEndText = BarEndText
     } else if (selectedBar === 1) {
         CurrentBar = Bar2
+        CurrentEndText = BarEndText2
     } else if (selectedBar === 2) {
         CurrentBar = Bar3
+        CurrentEndText = BarEndText3
     } else if (selectedBar === 3) {
         CurrentBar = Bar4
+        CurrentEndText = BarEndText4
     }
 
     return (
@@ -140,7 +234,13 @@ export default function GraphContainer(props) {
                 >
                     <TextContainer width={item.barEnd}>
                         <BarTitle>{item.title}</BarTitle>
-                        <BarEndText>{item.endText}</BarEndText>
+                        <CompletedBarEndText
+                            end={item.barEnd}
+                            num={item.barNum}
+                        >
+                            <EndTextLine num={item.barNum} />
+                            {item.endText}
+                        </CompletedBarEndText>
                     </TextContainer>
                     <CompletedBar
                         start={item.barStart}
@@ -152,7 +252,13 @@ export default function GraphContainer(props) {
             <SectionContainer onClick={() => changeView(currentBar.barNum)}>
                 <TextContainer width={currentBar.barEnd}>
                     <BarTitle>{currentBar.title}</BarTitle>
-                    <BarEndText>{currentBar.endText}</BarEndText>
+                    <CurrentEndText
+                        end={currentBar.barEnd}
+                        num={currentBar.barNum}
+                    >
+                        <EndTextLine num={currentBar.barNum} />
+                        {currentBar.endText}
+                    </CurrentEndText>
                 </TextContainer>
                 <CurrentBar bgColor={currentBar.color} />
             </SectionContainer>
@@ -165,10 +271,7 @@ export default function GraphContainer(props) {
                         <BarTitle>{item.title}</BarTitle>
                         <BarEndText>{item.endText}</BarEndText>
                     </TextContainer>
-                    <UnvisitedBar
-                        start={item.barStart}
-                        bgColor={item.color}
-                    />
+                    <UnvisitedBar start={item.barStart} bgColor={item.color} />
                 </SectionContainer>
             ))}
         </Container>

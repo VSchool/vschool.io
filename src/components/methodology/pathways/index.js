@@ -197,6 +197,12 @@ const FixedContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0 16px;
+
+    @media(min-width: 1200px){
+      flex-direction: row;
+      justify-content: center;
+    }
 `
 
 export default function Pathways(props) {
