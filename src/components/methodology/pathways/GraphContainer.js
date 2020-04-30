@@ -106,9 +106,10 @@ const BarEndText = styled.p`
     color: ${gray.darker};
     position: absolute;
     min-width: 60px;
+    opacity: 0;
     animation: ${EndTextAnimation} 750ms cubic-bezier(0.97, -0.03, 0.14, 1.12)
-            1s,
-        ${OpacityAnimation} 1400ms ease-in-out;
+            500ms,
+        ${OpacityAnimation} 500ms ease-in-out 300ms forwards;
     z-index: 1;
     left: ${({ end }) => end + "%"};
     bottom: 0;
@@ -165,7 +166,7 @@ const Bar = styled.div`
     height: 32px;
     background-color: ${({ bgColor }) => bgColor};
     max-width: 100%;
-    animation: ${BarAnimation1} 1s cubic-bezier(0.97, -0.03, 0.14, 1.12);
+    animation: ${BarAnimation1} 700ms ease-in;
     position: relative;
     z-index: 2;
 `
@@ -174,7 +175,7 @@ const Bar2 = styled.div`
     height: 32px;
     background-color: ${({ bgColor }) => bgColor};
     max-width: 70%;
-    animation: ${BarAnimation2} 1s cubic-bezier(0.97, -0.03, 0.14, 1.12);
+    animation: ${BarAnimation2} 700ms ease-in;
     position: relative;
     z-index: 2;
 `
@@ -182,7 +183,7 @@ const Bar3 = styled.div`
     height: 32px;
     background-color: ${({ bgColor }) => bgColor};
     max-width: 45%;
-    animation: ${BarAnimation3} 1s cubic-bezier(0.97, -0.03, 0.14, 1.12);
+    animation: ${BarAnimation3} 700ms ease-in;
     position: relative;
     z-index: 2;
 `
@@ -190,7 +191,7 @@ const Bar4 = styled.div`
     height: 32px;
     background-color: ${({ bgColor }) => bgColor};
     max-width: 30%;
-    animation: ${BarAnimation4} 1s cubic-bezier(0.97, -0.03, 0.14, 1.12);
+    animation: ${BarAnimation4} 700ms ease-in;
     position: relative;
     z-index: 2;
 `

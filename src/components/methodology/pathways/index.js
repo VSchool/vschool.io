@@ -10,7 +10,7 @@ const mockGraphData = [
         currentBar: {
             title: "V School",
             endText: "Job Offer",
-            color: green.light,
+            color: green.base,
             barStart: 4,
             barEnd: 100,
             barNum: 0,
@@ -18,19 +18,19 @@ const mockGraphData = [
         additionalBars: [
             {
                 title: "Bootcamps",
-                color: yellow.light,
+                color: yellow.base,
                 barStart: 4,
                 barNum: 1,
             },
             {
                 title: "Traditional Education",
-                color: purple.light,
+                color: purple.base,
                 barStart: 4,
                 barNum: 2,
             },
             {
                 title: "Self Taught",
-                color: blue.light,
+                color: blue.base,
                 barStart: 4,
                 barNum: 3,
             },
@@ -41,7 +41,7 @@ const mockGraphData = [
             {
                 title: "V School",
                 endText: "Job Offer",
-                color: green.light,
+                color: green.base,
                 barEnd: 100,
                 barNum: 0,
             },
@@ -49,7 +49,7 @@ const mockGraphData = [
         currentBar: {
             title: "Bootcamps",
             endText: "A Certificate",
-            color: yellow.light,
+            color: yellow.base,
             barStart: 4,
             barEnd: 70,
             barNum: 1,
@@ -57,13 +57,13 @@ const mockGraphData = [
         additionalBars: [
             {
                 title: "Traditional Education",
-                color: purple.light,
+                color: purple.base,
                 barStart: 4,
                 barNum: 2,
             },
             {
                 title: "Self Taught",
-                color: blue.light,
+                color: blue.base,
                 barStart: 4,
                 barNum: 3,
             },
@@ -74,14 +74,14 @@ const mockGraphData = [
             {
                 title: "V School",
                 endText: "Job Offer",
-                color: green.light,
+                color: green.base,
                 barEnd: 100,
                 barNum: 0,
             },
             {
                 title: "Bootcamps",
                 endText: "A Certificate",
-                color: yellow.light,
+                color: yellow.base,
                 barEnd: 70,
                 barNum: 1,
             },
@@ -89,7 +89,7 @@ const mockGraphData = [
         currentBar: {
             title: "Traditional Education",
             endText: "A Degree",
-            color: purple.light,
+            color: purple.base,
             barStart: 4,
             barEnd: 45,
             barNum: 2,
@@ -97,7 +97,7 @@ const mockGraphData = [
         additionalBars: [
             {
                 title: "Self Taught",
-                color: blue.light,
+                color: blue.base,
                 barStart: 4,
                 barNum: 3,
             },
@@ -108,21 +108,21 @@ const mockGraphData = [
             {
                 title: "V School",
                 endText: "Job Offer",
-                color: green.light,
+                color: green.base,
                 barEnd: 100,
                 barNum: 0,
             },
             {
                 title: "Bootcamps",
                 endText: "A Certificate",
-                color: yellow.light,
+                color: yellow.base,
                 barEnd: 70,
                 barNum: 1,
             },
             {
                 title: "Traditional Education",
                 endText: "A Degree",
-                color: purple.light,
+                color: purple.base,
                 barEnd: 45,
                 barNum: 2,
             },
@@ -130,7 +130,7 @@ const mockGraphData = [
         currentBar: {
             title: "Self Taught",
             endText: "1M Google Searches",
-            color: blue.light,
+            color: blue.base,
             barStart: 4,
             barEnd: 30,
             barNum: 3,
