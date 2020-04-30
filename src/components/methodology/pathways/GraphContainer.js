@@ -37,7 +37,7 @@ const BarAnimation4 = keyframes`
 
 const Container = styled.div`
     margin: 24px 16px;
-
+    width: 100%;
     max-width: 380px;
     height: 300px;
     border-bottom: 2px solid ${gray.darker};
@@ -83,26 +83,26 @@ const Bar = styled.div`
     height: 32px;
     background-color: ${({ bgColor }) => bgColor};
     max-width: 100%;
-    animation: ${BarAnimation1} 2s linear;
+    animation: ${BarAnimation1} 1s linear;
 `
 
 const Bar2 = styled.div`
     height: 32px;
     background-color: ${({ bgColor }) => bgColor};
     max-width: 70%;
-    animation: ${BarAnimation2} 2s linear;
+    animation: ${BarAnimation2} 800ms linear;
 `
 const Bar3 = styled.div`
     height: 32px;
     background-color: ${({ bgColor }) => bgColor};
     max-width: 45%;
-    animation: ${BarAnimation3} 2s linear;
+    animation: ${BarAnimation3} 500ms linear;
 `
 const Bar4 = styled.div`
     height: 32px;
     background-color: ${({ bgColor }) => bgColor};
     max-width: 30%;
-    animation: ${BarAnimation4} 2s linear;
+    animation: ${BarAnimation4} 500ms linear;
 `
 
 const CompletedBar = styled.div`
