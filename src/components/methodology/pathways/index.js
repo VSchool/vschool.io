@@ -11,24 +11,28 @@ const mockGraphData = [
             title: "V School",
             endText: "Job Offer",
             color: green.light,
-            barStart: 10,
+            barStart: 4,
             barEnd: 100,
+            barNum: 0
         },
         additionalBars: [
             {
                 title: "Bootcamps",
                 color: yellow.light,
-                barStart: 10,
+                barStart: 4,
+                barNum: 1
             },
             {
                 title: "Traditional Education",
                 color: purple.light,
-                barStart: 10,
+                barStart: 4,
+                barNum: 2
             },
             {
                 title: "Self Taught",
                 color: blue.light,
-                barStart: 10,
+                barStart: 4,
+                barNum: 3
             },
         ],
     },
@@ -39,25 +43,29 @@ const mockGraphData = [
                 endText: "Job Offer",
                 color: green.light,
                 barEnd: 100,
+                barNum: 0
             },
         ],
         currentBar: {
             title: "Bootcamps",
             endText: "A Certificate",
             color: yellow.light,
-            barStart: 10,
+            barStart: 4,
             barEnd: 70,
+            barNum: 1
         },
         additionalBars: [
             {
                 title: "Traditional Education",
                 color: purple.light,
-                barStart: 10,
+                barStart: 4,
+                barNum: 2
             },
             {
                 title: "Self Taught",
                 color: blue.light,
-                barStart: 10,
+                barStart: 4,
+                barNum: 3
             },
         ],
     },
@@ -68,26 +76,30 @@ const mockGraphData = [
                 endText: "Job Offer",
                 color: green.light,
                 barEnd: 100,
+                barNum: 0
             },
             {
                 title: "Bootcamps",
                 endText: "A Certificate",
                 color: yellow.light,
                 barEnd: 70,
+                barNum: 1
             },
         ],
         currentBar: {
             title: "Traditional Education",
             endText: "A Degree",
             color: purple.light,
-            barStart: 10,
+            barStart: 4,
             barEnd: 45,
+            barNum: 2
         },
         additionalBars: [
             {
                 title: "Self Taught",
                 color: blue.light,
-                barStart: 10,
+                barStart: 4,
+                barNum: 3
             },
         ],
     },
@@ -98,26 +110,30 @@ const mockGraphData = [
                 endText: "Job Offer",
                 color: green.light,
                 barEnd: 100,
+                barNum: 0
             },
             {
                 title: "Bootcamps",
                 endText: "A Certificate",
                 color: yellow.light,
                 barEnd: 70,
+                barNum: 1
             },
             {
                 title: "Traditional Education",
                 endText: "A Degree",
                 color: purple.light,
                 barEnd: 45,
+                barNum: 2
             },
         ],
         currentBar: {
             title: "Self Taught",
             endText: "1M Google Searches",
             color: blue.light,
-            barStart: 10,
+            barStart: 4,
             barEnd: 30,
+            barNum: 3
         },
         additionalBars: [],
     },
@@ -186,6 +202,7 @@ export default function Pathways(props) {
                 <GraphContainer
                     info={mockGraphData[selectedInfo]}
                     changeView={setSelectedInfo}
+                    selectedBar={selectedInfo}
                 />
                 <Information info={mockInfoData[selectedInfo]} />
             </FixedContainer>

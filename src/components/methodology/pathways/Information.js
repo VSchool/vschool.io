@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useLayoutEffect } from "react"
 import styled from "styled-components"
 import { gray } from "@vschool/lotus"
 
@@ -72,7 +72,7 @@ const BulletText = styled.p`
 export default function Information(props) {
     const { title, highlight, info, bullets } = props.info
 
-    useEffect(() => {
+    useLayoutEffect(() => {
       // trigger animation for float from side/bottom on new info
     }, [title])
 
