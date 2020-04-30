@@ -12,6 +12,17 @@ const Float = keyframes`
     opacity: 1;
   }
 `
+const OpacityAnimation = keyframes`
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`
 
 const Container = styled.div`
     padding: 24px 16px;
@@ -20,15 +31,15 @@ const Container = styled.div`
     position: relative;
     overflow: hidden;
 
-    @media(min-width: 1200px){
-      border-left: 2px solid ${gray.darker};
-      height: 400px;
-      display: flex;
-      align-items: center;
-      padding-top: 56px;
-      margin-left: 44px;
-      padding-bottom: 0;
-      padding-left: 24px;
+    @media (min-width: 1200px) {
+        border-left: 2px solid ${gray.darker};
+        height: 400px;
+        display: flex;
+        align-items: center;
+        padding-top: 56px;
+        margin-left: 44px;
+        padding-bottom: 0;
+        padding-left: 24px;
     }
 `
 
@@ -37,6 +48,8 @@ const HeaderContainer = styled.div`
     z-index: 3;
     display: inline-block;
     margin-bottom: 32px;
+    opacity: 0;
+    animation: ${Float} 400ms cubic-bezier(0.97, -0.03, 0.14, 1.12) 850ms forwards, ${OpacityAnimation} 700ms linear 700ms forwards;
 `
 
 const Header = styled.h3`
@@ -63,12 +76,18 @@ const Info = styled.p`
     font-size: 16px;
     line-height: 24px;
     color: ${gray.darker};
+    position: relative;
+    opacity: 0;
+    animation: ${Float} 400ms cubic-bezier(0.97, -0.03, 0.14, 1.12) 900ms forwards, ${OpacityAnimation} 700ms linear 700ms forwards;
 `
 
 const BulletsContainer = styled.div`
     display: flex;
     flex-direction: column;
     margin-top: 32px;
+    position: relative;
+    opacity: 0;
+    animation: ${Float} 400ms cubic-bezier(0.97, -0.03, 0.14, 1.12) 900ms forwards, ${OpacityAnimation} 700ms linear 700ms forwards;
 `
 
 const Bullet = styled.div`
@@ -96,25 +115,25 @@ const BulletText = styled.p`
 const AnimatedContainer1 = styled.div`
     position: relative;
     width: 100%;
-    animation: ${Float} 1s linear;
+    animation: ${Float} 200ms linear;
 `
 
 const AnimatedContainer2 = styled.div`
     position: relative;
     width: 100%;
-    animation: ${Float} 1s linear;
+    animation: ${Float} 200ms linear;
 `
 
 const AnimatedContainer3 = styled.div`
     position: relative;
     width: 100%;
-    animation: ${Float} 1s linear;
+    animation: ${Float} 200ms linear;
 `
 
 const AnimatedContainer4 = styled.div`
     position: relative;
     width: 100%;
-    animation: ${Float} 1s linear;
+    animation: ${Float} 200ms linear;
 `
 
 export default function Information(props) {
