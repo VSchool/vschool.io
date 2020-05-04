@@ -9,8 +9,9 @@ import {
     Testimonial2,
     Differences,
     SchoolComparisons,
+    PathwaysHeader,
     Pathways,
-    CTA
+    CTA,
 } from "../components/methodology"
 
 import Courses from "../components/shared/Courses.js"
@@ -64,6 +65,10 @@ export default function Methodology({ data }) {
                 testimonialImg={testimonialImg1}
             />
             <Differences header={differencesHeader} differences={differences} />
+            <PathwaysHeader
+                header={pathwaysHeader}
+                subheader={pathwaysSubheader}
+            />
             <Pathways />
             <SchoolComparisons
                 header={comparisonsHeader}
@@ -81,7 +86,7 @@ export default function Methodology({ data }) {
                 course={testimonialProgram2}
                 testimonialImg={testimonialImg2}
             />
-            <CTA 
+            <CTA
                 header={ctaHeader}
                 subheader={ctaSubHeader}
                 btnText={ctaBtn}

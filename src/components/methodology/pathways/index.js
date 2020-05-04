@@ -1,8 +1,9 @@
 import React, { useState } from "react"
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import { green, yellow, purple, blue } from "@vschool/lotus"
 import Information from "./Information.js"
 import GraphContainer from "./GraphContainer.js"
+import arrow from "../../../images/icons/arrow.png"
 
 const mockGraphData = [
     {
@@ -186,6 +187,21 @@ const mockInfoData = [
     },
 ]
 
+const ArrowBounce = keyframes`
+  0% {
+    top: 150px;
+  }
+  30% {
+    top: 145px;
+  }
+  70% {
+    top: 150px;
+  }
+  100% {
+    top: 150px
+  }
+`
+
 const PathwaysContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -198,10 +214,11 @@ const FixedContainer = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 0 16px;
+    position: relative;
 
-    @media(min-width: 1200px){
-      flex-direction: row;
-      justify-content: center;
+    @media (min-width: 1200px) {
+        flex-direction: row;
+        justify-content: center;
     }
 `
 
@@ -218,6 +235,7 @@ export default function Pathways(props) {
                 <Information
                     info={mockInfoData[selectedInfo]}
                     selectedInfo={selectedInfo}
+                    setSelectedInfo={setSelectedInfo}
                 />
             </FixedContainer>
         </PathwaysContainer>

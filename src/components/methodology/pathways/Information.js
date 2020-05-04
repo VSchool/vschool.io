@@ -1,6 +1,7 @@
 import React from "react"
 import styled, { keyframes } from "styled-components"
 import { gray } from "@vschool/lotus"
+import arrow from "../../../images/icons/arrow.png"
 
 const Float = keyframes`
   0% {
@@ -24,12 +25,43 @@ const OpacityAnimation = keyframes`
   }
 `
 
+const ArrowBounce = keyframes`
+  0% {
+    top: 150px;
+  }
+  30% {
+    top: 145px;
+  }
+  70% {
+    top: 150px;
+  }
+  100% {
+    top: 150px;
+  }
+`
+
+const LeftArrowBounce = keyframes`
+  0% {
+    top: 155px;
+  }
+  30% {
+    top: 150px;
+  }
+  70% {
+    top: 155px;
+  }
+  100% {
+    top: 155px;
+  }
+`
+
+
 const Container = styled.div`
     padding: 24px 16px;
     width: 100%;
     max-width: 380px;
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
 
     @media (min-width: 1200px) {
         border-left: 2px solid ${gray.darker};
@@ -49,7 +81,9 @@ const HeaderContainer = styled.div`
     display: inline-block;
     margin-bottom: 32px;
     opacity: 0;
-    animation: ${Float} 400ms cubic-bezier(0.97, -0.03, 0.14, 1.12) 850ms forwards, ${OpacityAnimation} 700ms linear 700ms forwards;
+    animation: ${Float} 400ms cubic-bezier(0.97, -0.03, 0.14, 1.12) 850ms
+            forwards,
+        ${OpacityAnimation} 700ms linear 700ms forwards;
 `
 
 const Header = styled.h3`
@@ -78,7 +112,9 @@ const Info = styled.p`
     color: ${gray.darker};
     position: relative;
     opacity: 0;
-    animation: ${Float} 400ms cubic-bezier(0.97, -0.03, 0.14, 1.12) 900ms forwards, ${OpacityAnimation} 700ms linear 700ms forwards;
+    animation: ${Float} 400ms cubic-bezier(0.97, -0.03, 0.14, 1.12) 900ms
+            forwards,
+        ${OpacityAnimation} 700ms linear 700ms forwards;
 `
 
 const BulletsContainer = styled.div`
@@ -87,7 +123,9 @@ const BulletsContainer = styled.div`
     margin-top: 32px;
     position: relative;
     opacity: 0;
-    animation: ${Float} 400ms cubic-bezier(0.97, -0.03, 0.14, 1.12) 900ms forwards, ${OpacityAnimation} 700ms linear 700ms forwards;
+    animation: ${Float} 400ms cubic-bezier(0.97, -0.03, 0.14, 1.12) 900ms
+            forwards,
+        ${OpacityAnimation} 700ms linear 700ms forwards;
 `
 
 const Bullet = styled.div`
@@ -116,29 +154,101 @@ const AnimatedContainer1 = styled.div`
     position: relative;
     width: 100%;
     animation: ${Float} 200ms linear;
+    overflow: hidden;
 `
 
 const AnimatedContainer2 = styled.div`
     position: relative;
     width: 100%;
     animation: ${Float} 200ms linear;
+    overflow: hidden;
 `
 
 const AnimatedContainer3 = styled.div`
     position: relative;
     width: 100%;
     animation: ${Float} 200ms linear;
+    overflow: hidden;
 `
 
 const AnimatedContainer4 = styled.div`
     position: relative;
     width: 100%;
     animation: ${Float} 200ms linear;
+    overflow: hidden;
+`
+const LeftArrow = styled.button`
+    font-size: 32px;
+    left: -16px;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    transform: translateY(0px) rotate(90deg);
+    animation: ${ArrowBounce} 1s linear infinite;
+    background-image: url(${arrow});
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: ${gray.lightest};
+
+    @media (min-width: 500px) {
+        left: -24px;
+    }
+
+    @media (min-width: 700px) {
+        height: 32px;
+        width: 32px;
+        left: -40px;
+    }
+
+    @media(min-width: 1200px){
+      transform: translateY(50px) rotate(90deg);
+      left: -750px;
+      width: 40px;
+      height: 40px;
+      animation: ${LeftArrowBounce} 1s linear infinite;
+    }
+`
+const RightArrow = styled.button`
+    font-size: 32px;
+    color: black;
+    right: -16px;
+    width: 24px;
+    height: 24px;
+    transform: translateY(0px) rotate(-90deg);
+    position: absolute;
+    animation: ${ArrowBounce} 1s linear infinite;
+    background-image: url(${arrow});
+    background-image: url(${arrow});
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: ${gray.lightest};
+
+    @media (min-width: 500px) {
+        right: -24px;
+    }
+
+    @media (min-width: 700px) {
+        height: 32px;
+        width: 32px;
+        right: -40px;
+    }
+
+    @media(min-width: 1200px){
+      transform: translateY(50px) rotate(-90deg);
+      width: 40px;
+      height: 40px;
+    }
 `
 
 export default function Information(props) {
     const { title, highlight, info, bullets } = props.info
-    const { selectedInfo } = props
+    const { selectedInfo, setSelectedInfo } = props
 
     let CurrentContainer
     if (selectedInfo === 0) {
@@ -153,6 +263,15 @@ export default function Information(props) {
 
     return (
         <Container>
+            {selectedInfo > 0 && (
+                <LeftArrow
+                    onClick={() =>
+                        selectedInfo > 0
+                            ? setSelectedInfo(selectedInfo - 1)
+                            : setSelectedInfo(0)
+                    }
+                ></LeftArrow>
+            )}
             <CurrentContainer>
                 <HeaderContainer>
                     <Header>{title}</Header>
@@ -168,6 +287,15 @@ export default function Information(props) {
                     ))}
                 </BulletsContainer>
             </CurrentContainer>
+            {selectedInfo < 3 && (
+                <RightArrow
+                    onClick={() =>
+                        selectedInfo < 3
+                            ? setSelectedInfo(selectedInfo + 1)
+                            : setSelectedInfo(3)
+                    }
+                ></RightArrow>
+            )}
         </Container>
     )
 }
