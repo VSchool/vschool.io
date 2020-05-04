@@ -2,7 +2,6 @@ import React, { useRef } from "react"
 import styled, { keyframes } from "styled-components"
 import { gray, black } from "@vschool/lotus"
 
-
 const BarAnimation1 = keyframes`
   0% {
     width: 3%;
@@ -177,6 +176,11 @@ const Bar = styled.div`
     }
 `
 
+const InvisibleBar = styled(Bar)`
+  width: 3%;
+  animation: none;
+`
+
 const Bar2 = styled.div`
     height: 32px;
     background-color: ${({ bgColor }) => bgColor};
@@ -236,27 +240,7 @@ const UnvisitedBar = styled.div`
 
 export default function GraphContainer(props) {
     const { currentBar, completedBars, additionalBars } = props.info
-    const { changeView, selectedBar } = props
-    const container = useRef(null)
-    // const [disabled, setDisabled] = useState(false)
-    // const { enableScroll, disableScroll } = useScrollEffect()
-
-    // useEffect(() => {
-    //     document.addEventListener("wheel", e => {
-    //         handleScroll(
-    //             e,
-    //             container,
-    //             disabled,
-    //             setDisabled,
-    //             selectedBar,
-    //             changeView
-    //         )
-    //     })
-
-    //     return () => {
-    //         document.removeEventListener("wheel", handleScroll)
-    //     }
-    // }, [])
+    const { changeView, selectedBar, startAnimation } = props
 
     let CurrentBar, CurrentEndText
     if (selectedBar === 0) {
@@ -300,15 +284,20 @@ export default function GraphContainer(props) {
             <SectionContainer onClick={() => changeView(currentBar.barNum)}>
                 <TextContainer width={currentBar.barEnd}>
                     <BarTitle>{currentBar.title}</BarTitle>
-                    <CurrentEndText
-                        end={currentBar.barEnd}
-                        num={currentBar.barNum}
-                    >
-                        <EndTextLine num={currentBar.barNum} />
-                        {currentBar.endText}
-                    </CurrentEndText>
+                    {startAnimation && (
+                        <>
+                            <CurrentEndText
+                                end={currentBar.barEnd}
+                                num={currentBar.barNum}
+                            >
+                                <EndTextLine num={currentBar.barNum} />
+                                {currentBar.endText}
+                            </CurrentEndText>
+                        </>
+                    )}
                 </TextContainer>
-                <CurrentBar bgColor={currentBar.color} />
+                { !startAnimation && <InvisibleBar bgColor={currentBar.color}/> }
+                { startAnimation && <CurrentBar bgColor={currentBar.color} /> }
             </SectionContainer>
             {additionalBars.map((item, i) => (
                 <SectionContainer

@@ -1,9 +1,8 @@
-import React, { useState } from "react"
-import styled, { keyframes } from "styled-components"
+import React, { useState, useRef, useEffect, useLayoutEffect } from "react"
+import styled from "styled-components"
 import { green, yellow, purple, blue } from "@vschool/lotus"
 import Information from "./Information.js"
 import GraphContainer from "./GraphContainer.js"
-import arrow from "../../../images/icons/arrow.png"
 
 const mockGraphData = [
     {
@@ -187,21 +186,6 @@ const mockInfoData = [
     },
 ]
 
-const ArrowBounce = keyframes`
-  0% {
-    top: 150px;
-  }
-  30% {
-    top: 145px;
-  }
-  70% {
-    top: 150px;
-  }
-  100% {
-    top: 150px
-  }
-`
-
 const PathwaysContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -224,16 +208,36 @@ const FixedContainer = styled.div`
 
 export default function Pathways(props) {
     const [selectedInfo, setSelectedInfo] = useState(0)
+    const [startAnimation, setStartAnimation] = useState(false)
+    const containerRef = useRef()
+
+    function handleScroll() {
+        if (
+            containerRef.current.offsetTop - 500 < window.scrollY &&
+            !startAnimation
+        ) {
+            setStartAnimation(true)
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener("wheel", handleScroll)
+
+        return () => window.removeEventListener("wheel", handleScroll)
+    }, [handleScroll])
+
     return (
         <PathwaysContainer>
-            <FixedContainer>
+            <FixedContainer ref={containerRef}>
                 <GraphContainer
                     info={mockGraphData[selectedInfo]}
                     changeView={setSelectedInfo}
                     selectedBar={selectedInfo}
+                    startAnimation={startAnimation}
                 />
                 <Information
                     info={mockInfoData[selectedInfo]}
+                    startAnimation={startAnimation}
                     selectedInfo={selectedInfo}
                     setSelectedInfo={setSelectedInfo}
                 />
