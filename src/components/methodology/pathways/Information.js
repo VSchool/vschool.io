@@ -24,7 +24,6 @@ const OpacityAnimation = keyframes`
     opacity: 1;
   }
 `
-
 const ArrowBounce = keyframes`
   0% {
     top: 150px;
@@ -39,7 +38,6 @@ const ArrowBounce = keyframes`
     top: 150px;
   }
 `
-
 const LeftArrowBounce = keyframes`
   0% {
     top: 155px;
@@ -221,7 +219,6 @@ const RightArrow = styled.button`
     position: absolute;
     animation: ${ArrowBounce} 1s linear infinite;
     background-image: url(${arrow});
-    background-image: url(${arrow});
     background-size: contain;
     background-repeat: no-repeat;
     border: none;
@@ -281,8 +278,8 @@ export default function Information(props) {
                         </HeaderContainer>
                         <Info>{info}</Info>
                         <BulletsContainer>
-                            {bullets.map(text => (
-                                <Bullet>
+                            {bullets.map((text, i) => (
+                                <Bullet key={i + text}>
                                     <BulletDot bgColor={highlight} />
                                     <BulletText key={text}>{text}</BulletText>
                                 </Bullet>
