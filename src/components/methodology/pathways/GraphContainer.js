@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useRef } from "react"
 import styled, { keyframes } from "styled-components"
 import { gray, black } from "@vschool/lotus"
+
 
 const BarAnimation1 = keyframes`
   0% {
@@ -26,6 +27,7 @@ const BarAnimation3 = keyframes`
     width: 45%;
   }
 `
+
 const BarAnimation4 = keyframes`
   0% {
     width: 3%;
@@ -57,7 +59,7 @@ const OpacityAnimation = keyframes`
 `
 
 const Container = styled.div`
-    margin: 24px 16px;
+    margin: 0px 16px 24px 16px;
     width: 100%;
     max-width: 380px;
 
@@ -105,7 +107,7 @@ const BarEndText = styled.p`
     font-family: "aktiv-grotesk";
     color: ${gray.darker};
     position: absolute;
-    min-width: 60px;
+    width: fit-content;
     opacity: 0;
     animation: ${EndTextAnimation} 750ms cubic-bezier(0.97, -0.03, 0.14, 1.12)
             500ms,
@@ -135,7 +137,7 @@ const CompletedBarEndText = styled.p`
     justify-self: flex-end;
     position: absolute;
     display: inline-block;
-    min-width: 60px;
+    width: fit-content;
     left: ${({ end }) => end + "%"};
     bottom: 0;
 
@@ -144,7 +146,7 @@ const CompletedBarEndText = styled.p`
     }
 
     @media (min-width: 1200px) {
-        min-width: 100px;
+        width: fit-content;
         font-size: 12px;
     }
 `
@@ -169,6 +171,10 @@ const Bar = styled.div`
     animation: ${BarAnimation1} 700ms ease-in;
     position: relative;
     z-index: 2;
+
+    @media (max-width: 500px) {
+        height: 16px;
+    }
 `
 
 const Bar2 = styled.div`
@@ -178,6 +184,10 @@ const Bar2 = styled.div`
     animation: ${BarAnimation2} 700ms ease-in;
     position: relative;
     z-index: 2;
+
+    @media (max-width: 500px) {
+        height: 16px;
+    }
 `
 const Bar3 = styled.div`
     height: 32px;
@@ -186,6 +196,10 @@ const Bar3 = styled.div`
     animation: ${BarAnimation3} 700ms ease-in;
     position: relative;
     z-index: 2;
+
+    @media (max-width: 500px) {
+        height: 16px;
+    }
 `
 const Bar4 = styled.div`
     height: 32px;
@@ -194,23 +208,56 @@ const Bar4 = styled.div`
     animation: ${BarAnimation4} 700ms ease-in;
     position: relative;
     z-index: 2;
+
+    @media (max-width: 500px) {
+        height: 16px;
+    }
 `
 
 const CompletedBar = styled.div`
     height: 32px;
     width: ${({ end }) => end + "%"};
     background-color: ${({ bgColor }) => bgColor};
+
+    @media (max-width: 500px) {
+        height: 16px;
+    }
 `
 
 const UnvisitedBar = styled.div`
     height: 32px;
     width: ${({ start }) => start + "%"};
+
+    @media (max-width: 500px) {
+        height: 16px;
+    }
     background-color: ${({ bgColor }) => bgColor};
 `
 
 export default function GraphContainer(props) {
     const { currentBar, completedBars, additionalBars } = props.info
     const { changeView, selectedBar } = props
+    const container = useRef(null)
+    // const [disabled, setDisabled] = useState(false)
+    // const { enableScroll, disableScroll } = useScrollEffect()
+
+    // useEffect(() => {
+    //     document.addEventListener("wheel", e => {
+    //         handleScroll(
+    //             e,
+    //             container,
+    //             disabled,
+    //             setDisabled,
+    //             selectedBar,
+    //             changeView
+    //         )
+    //     })
+
+    //     return () => {
+    //         document.removeEventListener("wheel", handleScroll)
+    //     }
+    // }, [])
+
     let CurrentBar, CurrentEndText
     if (selectedBar === 0) {
         CurrentBar = Bar
