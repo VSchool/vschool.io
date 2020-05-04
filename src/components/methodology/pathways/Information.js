@@ -55,12 +55,12 @@ const LeftArrowBounce = keyframes`
   }
 `
 
-
 const Container = styled.div`
     padding: 24px 16px;
     width: 100%;
     max-width: 380px;
     position: relative;
+    height: 400px;
     /* overflow: hidden; */
 
     @media (min-width: 1200px) {
@@ -203,12 +203,12 @@ const LeftArrow = styled.button`
         left: -40px;
     }
 
-    @media(min-width: 1200px){
-      transform: translateY(50px) rotate(90deg);
-      left: -750px;
-      width: 40px;
-      height: 40px;
-      animation: ${LeftArrowBounce} 1s linear infinite;
+    @media (min-width: 1200px) {
+        transform: translateY(50px) rotate(90deg);
+        left: -750px;
+        width: 40px;
+        height: 40px;
+        animation: ${LeftArrowBounce} 1s linear infinite;
     }
 `
 const RightArrow = styled.button`
@@ -239,16 +239,16 @@ const RightArrow = styled.button`
         right: -40px;
     }
 
-    @media(min-width: 1200px){
-      transform: translateY(50px) rotate(-90deg);
-      width: 40px;
-      height: 40px;
+    @media (min-width: 1200px) {
+        transform: translateY(50px) rotate(-90deg);
+        width: 40px;
+        height: 40px;
     }
 `
 
 export default function Information(props) {
     const { title, highlight, info, bullets } = props.info
-    const { selectedInfo, setSelectedInfo } = props
+    const { selectedInfo, setSelectedInfo, startAnimation } = props
 
     let CurrentContainer
     if (selectedInfo === 0) {
@@ -263,38 +263,42 @@ export default function Information(props) {
 
     return (
         <Container>
-            {selectedInfo > 0 && (
-                <LeftArrow
-                    onClick={() =>
-                        selectedInfo > 0
-                            ? setSelectedInfo(selectedInfo - 1)
-                            : setSelectedInfo(0)
-                    }
-                ></LeftArrow>
-            )}
-            <CurrentContainer>
-                <HeaderContainer>
-                    <Header>{title}</Header>
-                    <Underline bgColor={highlight} />
-                </HeaderContainer>
-                <Info>{info}</Info>
-                <BulletsContainer>
-                    {bullets.map(text => (
-                        <Bullet>
-                            <BulletDot bgColor={highlight} />
-                            <BulletText key={text}>{text}</BulletText>
-                        </Bullet>
-                    ))}
-                </BulletsContainer>
-            </CurrentContainer>
-            {selectedInfo < 3 && (
-                <RightArrow
-                    onClick={() =>
-                        selectedInfo < 3
-                            ? setSelectedInfo(selectedInfo + 1)
-                            : setSelectedInfo(3)
-                    }
-                ></RightArrow>
+            {startAnimation && (
+                <>
+                    {selectedInfo > 0 && (
+                        <LeftArrow
+                            onClick={() =>
+                                selectedInfo > 0
+                                    ? setSelectedInfo(selectedInfo - 1)
+                                    : setSelectedInfo(0)
+                            }
+                        ></LeftArrow>
+                    )}
+                    <CurrentContainer>
+                        <HeaderContainer>
+                            <Header>{title}</Header>
+                            <Underline bgColor={highlight} />
+                        </HeaderContainer>
+                        <Info>{info}</Info>
+                        <BulletsContainer>
+                            {bullets.map(text => (
+                                <Bullet>
+                                    <BulletDot bgColor={highlight} />
+                                    <BulletText key={text}>{text}</BulletText>
+                                </Bullet>
+                            ))}
+                        </BulletsContainer>
+                    </CurrentContainer>
+                    {selectedInfo < 3 && (
+                        <RightArrow
+                            onClick={() =>
+                                selectedInfo < 3
+                                    ? setSelectedInfo(selectedInfo + 1)
+                                    : setSelectedInfo(3)
+                            }
+                        ></RightArrow>
+                    )}
+                </>
             )}
         </Container>
     )
