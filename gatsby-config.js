@@ -48,13 +48,13 @@ module.exports = {
                 linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
             },
         },
-        // {
-        //     resolve: `gatsby-source-ghost`,
-        //     options: {
-        //         apiUrl: `https://blog.vschool.io`,
-        //         contentApiKey: process.env.GHOST_API_KEY,
-        //     },
-        // },
+        {
+            resolve: `gatsby-source-ghost`,
+            options: {
+                apiUrl: `https://blog.vschool.io`,
+                contentApiKey: process.env.GHOST_API_KEY,
+            },
+        },
         {
             resolve: `gatsby-plugin-hotjar`,
             options: {
