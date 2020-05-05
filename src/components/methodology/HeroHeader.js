@@ -1,10 +1,10 @@
 import React from "react"
 import styled from "styled-components"
-import { gray, black, green, Button } from "@vschool/lotus"
+import { gray, black, blue, Button } from "@vschool/lotus"
 import Link from "../shared/QueryLink"
 
 const Container = styled.div`
-    background-color: ${green.lightest};
+    background-color: ${blue.lightest};
     padding-left: 24px;
     padding-right: 24px;
     padding-bottom: 56px;
@@ -21,7 +21,7 @@ const Container = styled.div`
     }
 
     @media (min-width: 1200px) {
-        padding-bottom: 96px;
+        padding-bottom: 160px;
         padding-left: 88px;
         padding-right: 88px;
         padding-top: 96px;
@@ -61,14 +61,19 @@ const TextContainer = styled.div`
 `
 
 const Title = styled.h4`
-    color: ${green.darker};
+    color: ${blue.base};
     font-family: "aktiv-grotesk-extended";
-    font-size: 16px;
     letter-spacing: 0.25px;
-    line-height: 24px;
+    line-height: 20px;
     font-weight: 800;
     margin-bottom: 16px;
     text-align: center;
+    font-size: 14px;
+
+    @media (min-width: 600px) {
+        font-size: 16px;
+        line-height: 24px;
+    }
 
     @media (min-width: 1200px) {
         text-align: left;
@@ -80,10 +85,14 @@ const Header = styled.h2`
     font-family: "aktiv-grotesk";
     font-size: 44px;
     font-weight: 900;
-    line-height: 48px;
-    margin-bottom: 16px;
+    line-height: 56px;
+    margin-bottom: 32px;
     text-align: center;
     max-width: 500px;
+
+    @media (min-width: 600px) {
+        font-size: 56px;
+    }
 
     @media (min-width: 1200px) {
         text-align: left;
@@ -93,12 +102,16 @@ const Header = styled.h2`
 const Info = styled.p`
     color: ${gray.darker};
     font-family: "aktiv-grotesk";
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     line-height: 28px;
     max-width: 600px;
     text-align: center;
     margin-bottom: 48px;
+
+    @media (min-width: 600px) {
+        font-size: 20px;
+    }
 
     @media (min-width: 1200px) {
         text-align: left;
@@ -108,7 +121,7 @@ const Info = styled.p`
 `
 
 const StyledButton = styled(Button)`
-    width: 268px;
+    width: 305px;
     font-family: "aktiv-grotesk-extended";
     font-weight: 800;
     outline: none;
@@ -123,25 +136,24 @@ const StyledButton = styled(Button)`
         letter-spacing: 1.14px;
         line-height: 24px;
         height: 56px;
-        margin-top: 24px;
+        margin-top: 32px;
         margin-bottom: 0px;
     }
 `
 
-export default function AboutScholarship(props) {
+export default function HeroHeader(props) {
     const { title, header, info, img, link, btnText } = props
     return (
         <Container>
             <FlexContainer>
                 <TextContainer>
-                    <Title>{title}</Title>
                     <Header>{header}</Header>
+                    <Title>{title}</Title>
                     <Info>{info}</Info>
                     <Link to={link}>
                         <StyledButton>{btnText}</StyledButton>
                     </Link>
                 </TextContainer>
-
                 <Img src={img} />
             </FlexContainer>
         </Container>
