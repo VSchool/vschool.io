@@ -2,7 +2,6 @@ import React from "react"
 import styled, { keyframes } from "styled-components"
 import { gray } from "@vschool/lotus"
 
-
 const Float = keyframes`
   0% {
     top: 350px;
@@ -25,7 +24,6 @@ const OpacityAnimation = keyframes`
   }
 `
 
-
 const Container = styled.div`
     padding: 24px 16px;
     width: 100%;
@@ -39,7 +37,7 @@ const Container = styled.div`
         height: 400px;
         display: flex;
         align-items: center;
-        padding-top: 56px;
+        padding-top: 8px;
         margin-left: 44px;
         padding-bottom: 0;
         padding-left: 24px;
