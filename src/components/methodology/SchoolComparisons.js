@@ -8,7 +8,7 @@ const Container = styled.div`
     padding-left: 24px;
     padding-right: 24px;
     padding-bottom: 56px;
-    padding-top: 80px;
+    padding-top: 96px;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -1,8 +1,9 @@
-import React, { useState, useRef, useEffect, useLayoutEffect } from "react"
+import React, { useState, useRef, useEffect, useCallback } from "react"
 import styled from "styled-components"
 import { green, yellow, purple, blue } from "@vschool/lotus"
 import Information from "./Information.js"
 import GraphContainer from "./GraphContainer.js"
+import ProgressBar from "./ProgressBar.js"
 
 const mockGraphData = [
     {
@@ -211,22 +212,22 @@ export default function Pathways(props) {
     const [startAnimation, setStartAnimation] = useState(false)
     const containerRef = useRef()
 
-    function handleScroll() {
+    const handleScroll = useCallback(() => {
         if (
             containerRef.current.offsetTop - 500 < window.scrollY &&
             !startAnimation
         ) {
             setStartAnimation(true)
         }
-    }
+    }, [startAnimation])
 
     useEffect(() => {
         window.addEventListener("wheel", handleScroll)
         window.addEventListener("touchmove", handleScroll)
 
         return () => {
-          window.removeEventListener("wheel", handleScroll)
-          window.removeEventListener("touchmove", handleScroll)
+            window.removeEventListener("wheel", handleScroll)
+            window.removeEventListener("touchmove", handleScroll)
         }
     }, [handleScroll])
 
@@ -246,6 +247,10 @@ export default function Pathways(props) {
                     setSelectedInfo={setSelectedInfo}
                 />
             </FixedContainer>
+            <ProgressBar
+                selectedInfo={selectedInfo}
+                setSelectedInfo={setSelectedInfo}
+            />
         </PathwaysContainer>
     )
 }
