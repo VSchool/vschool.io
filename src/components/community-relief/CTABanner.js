@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { black, gray, green } from "@vschool/lotus"
+import Link from "../shared/QueryLink"
 
 const FlexContainer = styled.div`
     display: flex;
@@ -72,9 +73,9 @@ export default function CTABanner(props) {
     return (
         <FlexContainer>
             <H5>{ title }</H5>
-            <a href={ link }>
+            <Link to={ link }>
                 <Button>{ btnText }</Button>
-            </a>
+            </Link>
         </FlexContainer>
     )
 }
