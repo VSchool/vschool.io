@@ -38,7 +38,7 @@ const Dot = styled.div`
 const LeftArrow = styled.button`
     border: none;
     outline: none;
-    background-color: ${gray.lighter};
+    background-color: ${gray.lightest};
     background-image: url(${leftArrow});
     width: 24px;
     height: 24px;
