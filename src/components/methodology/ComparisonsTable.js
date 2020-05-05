@@ -1,4 +1,4 @@
-import React from "react"
+import React, {Fragment} from "react"
 import styled from "styled-components"
 import { gray } from "@vschool/lotus"
 import yesIcon from "../../images/icons/yes.png"
@@ -118,7 +118,7 @@ export default function ComparisonsTable(props) {
         <FlexTable>
             <HeadsContainer>{tablehead}</HeadsContainer>
             {comparisons.map((item, i) => (
-                <>
+                <Fragment key={item.icon.url}>
                     <TableCell i={i}>
                         <Img src={item.icon.url} />
                     </TableCell>
@@ -137,7 +137,7 @@ export default function ComparisonsTable(props) {
                     <TableCell right i={i}>
                         <Icon src={getIcon(item.job.text)} />
                     </TableCell>
-                </>
+                </Fragment>
             ))}
         </FlexTable>
     )
