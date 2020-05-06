@@ -116,7 +116,8 @@ const BarEndText = styled.p`
     bottom: 0;
 
     @media (max-width: 500px) {
-        left: ${({ end, num }) => (num === 0 ? end - 16 + "%" : end + "%")};
+        left: ${({ end, num }) => (num !== 0 ? end + "%" : "auto")};
+        right: ${({ end, num }) => (num === 0 && 0)};
     }
 
     @media (min-width: 1200px) {
@@ -141,7 +142,8 @@ const CompletedBarEndText = styled.p`
     bottom: 0;
 
     @media (max-width: 500px) {
-        left: ${({ end, num }) => (num === 0 ? end - 16 + "%" : end + "%")};
+        left: ${({ end, num }) => (num !== 0 ? end + "%" : "auto")};
+        right: ${({ num }) => (num === 0 ? 0 : "auto")};
     }
 
     @media (min-width: 1200px) {
@@ -177,45 +179,21 @@ const Bar = styled.div`
 `
 
 const InvisibleBar = styled(Bar)`
-  width: 3%;
-  animation: none;
+    width: 3%;
+    animation: none;
 `
 
-const Bar2 = styled.div`
-    height: 32px;
-    background-color: ${({ bgColor }) => bgColor};
+const Bar2 = styled(Bar)`
     max-width: 70%;
     animation: ${BarAnimation2} 700ms ease-in;
-    position: relative;
-    z-index: 2;
-
-    @media (max-width: 500px) {
-        height: 16px;
-    }
 `
-const Bar3 = styled.div`
-    height: 32px;
-    background-color: ${({ bgColor }) => bgColor};
+const Bar3 = styled(Bar)`
     max-width: 45%;
     animation: ${BarAnimation3} 700ms ease-in;
-    position: relative;
-    z-index: 2;
-
-    @media (max-width: 500px) {
-        height: 16px;
-    }
 `
-const Bar4 = styled.div`
-    height: 32px;
-    background-color: ${({ bgColor }) => bgColor};
+const Bar4 = styled(Bar)`
     max-width: 30%;
     animation: ${BarAnimation4} 700ms ease-in;
-    position: relative;
-    z-index: 2;
-
-    @media (max-width: 500px) {
-        height: 16px;
-    }
 `
 
 const CompletedBar = styled.div`
@@ -296,8 +274,8 @@ export default function GraphContainer(props) {
                         </>
                     )}
                 </TextContainer>
-                { !startAnimation && <InvisibleBar bgColor={currentBar.color}/> }
-                { startAnimation && <CurrentBar bgColor={currentBar.color} /> }
+                {!startAnimation && <InvisibleBar bgColor={currentBar.color} />}
+                {startAnimation && <CurrentBar bgColor={currentBar.color} />}
             </SectionContainer>
             {additionalBars.map((item, i) => (
                 <SectionContainer
