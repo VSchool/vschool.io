@@ -180,8 +180,8 @@ export default function Information(props) {
         <Container>
             {startAnimation && (
                 <Swipe
-                    onSwipeRight={handleSwipeRight}
-                    onSwipeLeft={handleSwipeLeft}
+                    onSwipeRight={handleSwipeLeft}
+                    onSwipeLeft={handleSwipeRight}
                 >
                     <CurrentContainer>
                         <HeaderContainer>
