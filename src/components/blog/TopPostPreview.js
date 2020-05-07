@@ -18,6 +18,14 @@ const PublishedDate = styled.p``
 
 const TopPostTitle = styled.h1``
 
+const PostPreview = styled.p``
+
+const AuthorContainer = styled.div``
+
+const AuthorImg = styled.img``
+
+const AuthorPosition = styled.p``
+
 export default function TopPostPreview(props) {
     const {
         published_at,
@@ -35,6 +43,8 @@ export default function TopPostPreview(props) {
                 <PublishedDate>{published_at}</PublishedDate>
             </TagAndDate>
             <TopPostTitle>{title}</TopPostTitle>
+            <PostPreview></PostPreview>
+
         </TopPostContainer>
     )
 }
