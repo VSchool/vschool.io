@@ -1,6 +1,7 @@
 import React from "react"
 import styled, { keyframes } from "styled-components"
 import { gray } from "@vschool/lotus"
+import Swipe from 'react-easy-swipe';
 
 const Float = keyframes`
   0% {
@@ -150,7 +151,7 @@ const AnimatedContainer4 = styled.div`
 
 export default function Information(props) {
     const { title, highlight, info, bullets } = props.info
-    const { selectedInfo, startAnimation } = props
+    const { selectedInfo, startAnimation, setSelectedInfo } = props
 
     let CurrentContainer
     if (selectedInfo === 0) {
@@ -163,10 +164,25 @@ export default function Information(props) {
         CurrentContainer = AnimatedContainer4
     }
 
+    const handleSwipeRight = () => {
+        if(selectedInfo < 3){
+            setSelectedInfo(selectedInfo + 1)
+        }
+    }
+
+    const handleSwipeLeft = () => {
+        if(selectedInfo > 0){
+            setSelectedInfo(selectedInfo - 1)
+        }
+    }
+
     return (
         <Container>
             {startAnimation && (
-                <>
+                <Swipe
+                    onSwipeRight={handleSwipeLeft}
+                    onSwipeLeft={handleSwipeRight}
+                >
                     <CurrentContainer>
                         <HeaderContainer>
                             <Header>{title}</Header>
@@ -182,7 +198,7 @@ export default function Information(props) {
                             ))}
                         </BulletsContainer>
                     </CurrentContainer>
-                </>
+                </Swipe>
             )}
         </Container>
     )
