@@ -25,6 +25,7 @@ export const query = graphql`
                     published_at(formatString: "MMMM DD, YYYY")
                     feature_image
                     url
+                    excerpt
                     authors {
                         slug
                         name
