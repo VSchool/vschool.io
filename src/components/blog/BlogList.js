@@ -7,6 +7,7 @@ const PageContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 96px;
 `
 
 const GridContainer = styled.div`
@@ -20,11 +21,12 @@ const GridContainer = styled.div`
 
     @media (min-width: 400px) {
         grid-template-columns: 1fr 1fr;
-        max-width: 800px;
     }
 
     @media(min-width: 1200px){
         grid-template-columns: 1fr 1fr 1fr;
+        max-width: 1080px;
+        grid-gap: 24px;
     }
 `
 

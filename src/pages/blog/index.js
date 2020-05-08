@@ -26,6 +26,9 @@ export const query = graphql`
                     feature_image
                     url
                     excerpt
+                    primary_tag {
+                        name
+                      }
                     authors {
                         slug
                         name
