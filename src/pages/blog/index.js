@@ -9,7 +9,7 @@ export default function Blog({ data }) {
     return (
         <Layout>
             <SEO title="Blog" />
-            <BlogNav />
+            {/* <BlogNav /> */}
             <BlogList posts={edges} />
         </Layout>
     )
