@@ -3,6 +3,7 @@ import styled from "styled-components"
 import PostPreview from "./PostPreview.js"
 import TopPostPreview from "./TopPostPreview.js"
 import LearnCodeOrDesign from "./LearnCodeOrDesign.js"
+import SubscribeBanner from "./SubscribeBanner.js"
 
 const PageContainer = styled.div`
     display: flex;
@@ -45,15 +46,25 @@ export default function BlogList(props) {
                 {posts.slice(1, 6).map(({ node }) => (
                     <PostPreview key={node.id} {...node} />
                 ))}
+                {posts.slice(1, 6).reverse().map(({ node }) => (
+                    <PostPreview key={node.id} {...node} />
+                ))}
             </GridContainer>
             <LearnCodeOrDesign />
             <SecondGridContainer>
                 {posts.slice(1, 6).map(({ node }) => (
                     <PostPreview key={node.id} {...node} />
                 ))}
+                {posts.slice(1, 6).reverse().map(({ node }) => (
+                    <PostPreview key={node.id} {...node} />
+                ))}
             </SecondGridContainer>
+            <SubscribeBanner />
             <InfiniteGridContainer>
                 {posts.slice(1, 6).map(({ node }) => (
+                    <PostPreview key={node.id} {...node} />
+                ))}
+                {posts.slice(1, 6).reverse().map(({ node }) => (
                     <PostPreview key={node.id} {...node} />
                 ))}
             </InfiniteGridContainer>

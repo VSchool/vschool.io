@@ -11,7 +11,7 @@ export const getColorFromTag = tag => {
         case "news":
             return blue.light
         case "product":
-            return green.light
+            return green.lighter
         case "events":
             return pink.light
         default:
