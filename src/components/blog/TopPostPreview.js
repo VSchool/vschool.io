@@ -7,17 +7,16 @@ import AuthorBox from "./AuthorBox.js"
 
 const TopPostContainer = styled.div`
     @media (min-width: 1200px) {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
+        display: flex;
     }
 `
 
 const InfoContainer = styled.div`
     width: 100%;
-    grid-column: 2 / 3;
 
     @media (min-width: 1200px) {
-        margin-left: 8px;
+        margin-left: 24px;
+        width: 400px;
     }
 `
 
@@ -29,7 +28,6 @@ const ImageContainer = styled.div`
     @media (min-width: 1200px) {
         height: 384px;
         width: 680px;
-        grid-column: 1 / 2;
     }
 `
 

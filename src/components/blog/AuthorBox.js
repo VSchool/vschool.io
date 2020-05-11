@@ -7,9 +7,13 @@ const Container = styled.div`
     margin-top: 16px;
 `
 
-const Image = styled.img`
+const Image = styled.div`
+    background-image: url(${({ src }) => src});
     width: 32px;
     height: 32px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 `
 
 const Name = styled.p`
@@ -23,11 +27,10 @@ const Name = styled.p`
 `
 
 export default function AuthorBox(props) {
-    const { name, profileImg } = props
-
+    const { name, profile_image } = props
     return (
         <Container>
-            <Image src={profileImg && profileImg} />
+            <Image src={profile_image && profile_image} />
             <Name>{name}</Name>
         </Container>
     )
