@@ -5,12 +5,17 @@ import { getColorFromTag } from "./utils"
 import QueryLink from "../shared/QueryLink.js"
 import AuthorBox from "./AuthorBox.js"
 
-const PreviewContainer = styled.div``
+const PreviewContainer = styled.div`
+`
 
 const ImageContainer = styled.div`
     position: relative;
     height: 106px;
     width: 100%;
+
+    @media (min-width: 450px) {
+        height: 130px;
+    }
 
     @media (min-width: 1200px) {
         height: 188px;
@@ -25,6 +30,10 @@ const ImageBackground = styled.div`
     right: 0;
     background-color: ${({ bgColor }) => bgColor};
     z-index: 1;
+
+    @media (min-width: 450px) {
+        height: 128px;
+    }
 
     @media (min-width: 1200px) {
         height: 180px;
@@ -50,6 +59,10 @@ const PreviewImage = styled.div`
         padding-top: 75%;
     }
 
+    @media (min-width: 450px) {
+        height: 125px;
+    }
+
     @media (min-width: 1200px) {
         height: 180px;
         width: 97%;
@@ -73,7 +86,7 @@ const Tag = styled.div`
     padding: 0 12px;
     margin-top: 16px;
     font-size: 10px;
-    font-weight: 800;
+    font-weight: 700;
     font-family: "aktiv-grotesk";
     text-transform: uppercase;
 `
@@ -84,6 +97,7 @@ const PublishedDate = styled.p`
     line-height: 16px;
     letter-spacing: 0.5px;
     margin-top: 16px;
+    font-weight: 600;
 `
 
 const Title = styled.h2`
@@ -93,6 +107,7 @@ const Title = styled.h2`
     color: ${black};
     margin-top: 8px;
     font-size: 20px;
+    width: 100%;
 `
 
 const Excerpt = styled.p`
@@ -104,6 +119,7 @@ const Excerpt = styled.p`
     height: 126px;
     position: relative;
     overflow: hidden;
+    font-weight: 500;
 
     &::after {
         content: "";
@@ -131,8 +147,22 @@ const Excerpt = styled.p`
 `
 
 const StyledLink = styled(QueryLink)`
+    display: block;
     text-decoration: none;
     color: ${black};
+    border-bottom: 2px solid ${gray.base};
+    padding-bottom: 32px;
+    padding-top: 64px;
+    width: 100%;
+    max-width: 290px;
+
+    @media (min-width: 400px) {
+        max-width: 226px;
+    }
+
+    @media (min-width: 1200px) {
+        max-width: 333px;
+    }
 `
 
 export default function PostPreview(props) {
@@ -146,9 +176,10 @@ export default function PostPreview(props) {
         primary_tag,
         authors,
     } = props
-   
 
-    const postColor = getColorFromTag(primary_tag.name.toLowerCase())
+    const postColor = getColorFromTag(
+        primary_tag ? primary_tag.name.toLowerCase() : ""
+    )
     return (
         <StyledLink to={`/blog/${slug}`}>
             <PreviewContainer>
