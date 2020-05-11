@@ -39,7 +39,7 @@ const Header = styled.h2`
 const FixedContainer = styled.div`
     @media (min-width: 1000px) {
         display: flex;
-        width: 1080px;
+        width: 1050px;
         justify-content: space-between;
     }
 `
