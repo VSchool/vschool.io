@@ -41,7 +41,7 @@ export default function BlogList(props) {
     return (
         <PageContainer>
             <GridContainer>
-                <TopPostPreview {...posts[0].node} />
+                <TopPostPreview {...posts[3].node} />
                 {posts.slice(1, 6).map(({ node }) => (
                     <PostPreview key={node.id} {...node} />
                 ))}

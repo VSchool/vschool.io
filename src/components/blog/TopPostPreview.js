@@ -151,9 +151,13 @@ const StyledLink = styled(QueryLink)`
     text-decoration: none;
     color: ${black};
     grid-column: 1 / -1;
-    width: 100%;
+    width: 290px;
     border-bottom: 2px solid ${gray.base};
     padding-bottom: 32px;
+
+    @media(min-width: 400px){
+        width: 100%
+    }
 
     @media (min-width: 1200px) {
         grid-column: 1 / 4;

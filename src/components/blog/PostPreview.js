@@ -5,8 +5,7 @@ import { getColorFromTag } from "./utils"
 import QueryLink from "../shared/QueryLink.js"
 import AuthorBox from "./AuthorBox.js"
 
-const PreviewContainer = styled.div`
-`
+const PreviewContainer = styled.div``
 
 const ImageContainer = styled.div`
     position: relative;
@@ -147,7 +146,7 @@ const Excerpt = styled.p`
 `
 
 const StyledLink = styled(QueryLink)`
-    display: block;
+    /* display: block; */
     text-decoration: none;
     color: ${black};
     border-bottom: 2px solid ${gray.base};
@@ -157,6 +156,10 @@ const StyledLink = styled(QueryLink)`
     max-width: 290px;
 
     @media (min-width: 400px) {
+        max-width: 175px;
+    }
+
+    @media (min-width: 500px) {
         max-width: 226px;
     }
 
