@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import { black, gray, white, Button } from "@vschool/lotus"
+import { black, gray, white, Button, green } from "@vschool/lotus"
+import MailchimpSubscribe from "react-mailchimp-subscribe"
 
 const Container = styled.div`
     width: 100%;
@@ -88,20 +89,137 @@ const StyledButton = styled(Button)`
     }
 `
 
+const Label = styled.label`
+    width: 100%;
+`
+
+const SuccessMsg = styled.div`
+    height: 56px;
+    margin-bottom: 40px;
+    background-color: green;
+    width: 232px;
+    background-color: #daece8;
+    border: 1px solid #058266;
+    border-radius: 2px;
+    padding: 12px 12px 0px 12px;
+`
+
+const ErrorMsg = styled.div`
+    height: 56px;
+    margin-bottom: 40px;
+    background-color: #f6dfdf;
+    width: 232px;
+    border: 1px solid #c92a2a;
+    border-radius: 2px;
+    padding: 12px 12px 0px 12px;
+`
+
+const MsgHeader = styled.h6`
+    color: ${props => props.color};
+    font-size: 12px;
+    font-weight: 800;
+`
+
+const MsgInfo = styled.p`
+    color: ${props => props.color};
+    font-size: 12px;
+`
+
 export default function SubscribeBanner(props) {
+    const [EMAIL, setEmail] = useState("")
+    const handleChange = e => {
+        setEmail(e.target.value)
+    }
+    const { header, btnText } = props
+    const url =
+        "//vschool.us16.list-manage.com/subscribe/post?u=f5ba48f36061bdea6c3b83712&amp;id=7b3742eafe"
     return (
         <Container>
             <FixedContainer>
-                <Header>
-                    Industy insights you won't delete. Delivered to your inbox
-                    weekly.
-                </Header>
-                <Form>
-                    <Input type="text" placeholder="Your Email Address" />
+                <Header>{header}</Header>
+                {/* <Form>
+                    <Input
+                        type="text"
+                        value={EMAIL}
+                        onChange={handleChange}
+                        placeholder="Your Email Address"
+                    />
                     <StyledButton buttonStyle="secondary-light">
-                        Subscribe
+                        {btnText}
                     </StyledButton>
-                </Form>
+                </Form> */}
+                <MailchimpSubscribe
+                    url={url}
+                    render={({ subscribe, status, message }) => {
+                        let msg
+                        let duplicate = message
+                            ? message.slice(0, message.indexOf(" "))
+                            : ""
+                        if (status === "sending") {
+                            msg = "Submitting..."
+                        } else if (status === "success") {
+                            msg = "success"
+                        } else if (status === "error") {
+                            // If they have already subscribed, show success instead of error
+                            if (duplicate === EMAIL) {
+                                msg = "success"
+                            } else {
+                                msg = "error"
+                            }
+                        } else {
+                            msg = "Subscribe"
+                        }
+                        return (
+                            <>
+                                <Form
+                                    onSubmit={e => {
+                                        e.preventDefault()
+                                        subscribe({ EMAIL })
+                                    }}
+                                >
+                                    {/* Display the form until the msg status changes to success or error */}
+                                    {msg !== "success" && msg !== "error" ? (
+                                        <>
+                                            <Label htmlFor="EMAIL">
+                                                <Input
+                                                    name="EMAIL"
+                                                    value={EMAIL}
+                                                    onChange={handleChange}
+                                                    placeholder={
+                                                        "Your Email Address"
+                                                    }
+                                                />
+                                            </Label>
+                                            <StyledButton buttonStyle="secondary-light">
+                                                {msg}
+                                            </StyledButton>
+                                        </>
+                                    ) : msg === "success" ? (
+                                        <SuccessMsg>
+                                            <MsgHeader color={green.darker}>
+                                                Success!
+                                            </MsgHeader>
+                                            <MsgInfo color={green.darker}>
+                                                You've subscribed to our
+                                                newsletter.
+                                            </MsgInfo>
+                                        </SuccessMsg>
+                                    ) : (
+                                        <ErrorMsg>
+                                            <MsgHeader color="#961F1F">
+                                                Uh oh!
+                                            </MsgHeader>
+                                            <MsgInfo color="#961F1F">
+                                                There was an issue with your
+                                                request.
+                                            </MsgInfo>
+                                        </ErrorMsg>
+                                    )}
+                                </Form>
+                            </>
+                        )
+                    }}
+                />
             </FixedContainer>
         </Container>
     )

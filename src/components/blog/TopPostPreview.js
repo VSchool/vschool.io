@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import QueryLink from "../shared/QueryLink.js"
-import { black, gray } from "@vschool/lotus"
+import { black, gray, blue } from "@vschool/lotus"
 import { getColorFromTag } from "./utils"
 import AuthorBox from "./AuthorBox.js"
 
@@ -155,13 +155,19 @@ const StyledLink = styled(QueryLink)`
     border-bottom: 2px solid ${gray.base};
     padding-bottom: 32px;
 
-    @media(min-width: 400px){
-        width: 100%
+    @media (min-width: 400px) {
+        width: 100%;
     }
 
     @media (min-width: 1200px) {
         grid-column: 1 / 4;
         padding-bottom: 55px;
+    }
+
+    &:hover {
+        & h1 {
+            color: ${blue.base};
+        }
     }
 `
 
@@ -177,7 +183,9 @@ export default function TopPostPreview(props) {
         excerpt,
     } = props
 
-    const postColor = getColorFromTag(primary_tag ? primary_tag.name.toLowerCase() : "")
+    const postColor = getColorFromTag(
+        primary_tag ? primary_tag.name.toLowerCase() : ""
+    )
     return (
         <StyledLink to={`/blog/${slug}`}>
             <TopPostContainer>

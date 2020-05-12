@@ -6,11 +6,36 @@ import { graphql } from "gatsby"
 
 export default function Blog({ data }) {
     const { edges } = data.allGhostPost
+    const {
+        code_start_date,
+        design_start_date,
+        learn_btn: { text: learnBtnText },
+        learn_code_btn_link: { url: learnCodeBtnLink },
+        learn_design_btn_link: { url: learnDesignBtnLink },
+        learn_header: { text: learnHeader },
+        next_code_session: { text: nextCodeSession },
+        next_design_session: { text: nextDesignSession },
+        subscribe_btn: { text: subscribeBtnText },
+        subscribe_header: { text: subscribeHeader },
+    } = data.prismicBlogItems.data
+
     return (
         <Layout>
             <SEO title="Blog" />
-            {/* <BlogNav /> */}
-            <BlogList posts={edges} />
+            <BlogNav />
+            <BlogList
+                posts={edges}
+                codeStartDate={code_start_date.document[0].data.start_date}
+                designStartDate={design_start_date.document[0].data.start_date}
+                learnHeader={learnHeader}
+                learnBtnText={learnBtnText}
+                learnCodeLink={learnCodeBtnLink}
+                learnDesignLink={learnDesignBtnLink}
+                nextCodeSession={nextCodeSession}
+                nextDesignSession={nextDesignSession}
+                subscribeBtnText={subscribeBtnText}
+                subscribeHeader={subscribeHeader}
+            />
         </Layout>
     )
 }
@@ -28,7 +53,7 @@ export const query = graphql`
                     excerpt
                     primary_tag {
                         name
-                      }
+                    }
                     authors {
                         slug
                         name
@@ -38,9 +63,47 @@ export const query = graphql`
                 }
             }
         }
+        prismicBlogItems {
+            data {
+                code_start_date {
+                    document {
+                        data {
+                            start_date(formatString: "MMMM D, YYYY")
+                        }
+                    }
+                }
+                design_start_date {
+                    document {
+                        data {
+                            start_date(formatString: "MMMM D, YYYY")
+                        }
+                    }
+                }
+                learn_btn {
+                    text
+                }
+                learn_code_btn_link {
+                    url
+                }
+                learn_design_btn_link {
+                    url
+                }
+                learn_header {
+                    text
+                }
+                next_code_session {
+                    text
+                }
+                next_design_session {
+                    text
+                }
+                subscribe_btn {
+                    text
+                }
+                subscribe_header {
+                    text
+                }
+            }
+        }
     }
 `
-
-// Insert a page query here to get a list of the blogs.
-// Probably want to sort them by ascending date
-// Then map over them with their URLs to Link to them.
