@@ -141,17 +141,6 @@ export default function SubscribeBanner(props) {
         <Container>
             <FixedContainer>
                 <Header>{header}</Header>
-                {/* <Form>
-                    <Input
-                        type="text"
-                        value={EMAIL}
-                        onChange={handleChange}
-                        placeholder="Your Email Address"
-                    />
-                    <StyledButton buttonStyle="secondary-light">
-                        {btnText}
-                    </StyledButton>
-                </Form> */}
                 <MailchimpSubscribe
                     url={url}
                     render={({ subscribe, status, message }) => {
