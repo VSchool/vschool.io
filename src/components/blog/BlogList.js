@@ -58,12 +58,6 @@ export default function BlogList(props) {
                 {posts.slice(1, 6).map(({ node }) => (
                     <PostPreview key={node.id} {...node} />
                 ))}
-                {posts
-                    .slice(1, 6)
-                    .reverse()
-                    .map(({ node }) => (
-                        <PostPreview key={node.id} {...node} />
-                    ))}
             </GridContainer>
             <LearnCodeOrDesign
                 header={learnHeader}
@@ -79,12 +73,6 @@ export default function BlogList(props) {
                 {posts.slice(1, 6).map(({ node }) => (
                     <PostPreview key={node.id} {...node} />
                 ))}
-                {posts
-                    .slice(1, 6)
-                    .reverse()
-                    .map(({ node }) => (
-                        <PostPreview key={node.id} {...node} />
-                    ))}
             </SecondGridContainer>
             <SubscribeBanner
                 header={subscribeHeader}
@@ -94,12 +82,6 @@ export default function BlogList(props) {
                 {posts.slice(1, 6).map(({ node }) => (
                     <PostPreview key={node.id} {...node} />
                 ))}
-                {posts
-                    .slice(1, 6)
-                    .reverse()
-                    .map(({ node }) => (
-                        <PostPreview key={node.id} {...node} />
-                    ))}
             </InfiniteGridContainer>
         </PageContainer>
     )
