@@ -2,7 +2,11 @@ import React from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
 import Layout from "../components/layout"
+import BackButton from "../components/blog/blogPage/BackButton.js"
+import BlogNav from "../components/blog/blogNav"
 import { black, gray, blue } from "@vschool/lotus"
+import { getColorFromTag } from "../components/blog/utils"
+import AuthorBox from "../components/blog/AuthorBox.js"
 
 const PageContainer = styled.div`
     padding: 18px;
@@ -10,7 +14,7 @@ const PageContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: ${gray.lighter};
+    background-color: ${gray.lightest};
 
     @media (min-width: 1200px) {
         padding: 0 264px;
@@ -23,12 +27,13 @@ const PostBodyContainer = styled.section`
     display: flex;
     flex-direction: column;
     padding-bottom: 64px;
+    font-family: "aktiv-grotesk";
 
     & figure {
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: ${gray.lighter};
+        background-color: ${gray.lightest};
         padding: 24px;
         margin: 16px 0;
     }
@@ -43,6 +48,11 @@ const PostBodyContainer = styled.section`
         max-width: 100%;
         max-height: 400px;
     }
+    & img:nth-child(1) {
+        -webkit-box-shadow: 4px 4px 0px 0px ${({ bgColor }) => bgColor};
+        -moz-box-shadow: 4px 4px 0px 0px ${({ bgColor }) => bgColor};
+        box-shadow: 4px 4px 0px 0px ${({ bgColor }) => bgColor};
+    }
     & p {
         font-family: "aktiv-grotesk";
         font-size: 16px;
@@ -56,10 +66,42 @@ const PostBodyContainer = styled.section`
         margin-left: 8px;
         text-decoration: none;
     }
+`
 
-    & a::before {
-        content: "- ";
+const TagAndDateContainer = styled.div`
+    display: flex;
+    width: 100%;
+    align-items: center;
+    width: 100%;
+    max-width: 672px;
+
+    @media (min-width: 1000px) {
     }
+`
+
+const Tag = styled.div`
+    height: 24px;
+    border-radius: 16px;
+    background-color: ${({ bgColor }) => bgColor};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    padding: 0 12px;
+    font-size: 10px;
+    font-weight: 700;
+    font-family: "aktiv-grotesk";
+    text-transform: uppercase;
+`
+
+const PublishedDate = styled.p`
+    font-family: "aktiv-grotesk-extended";
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    color: ${gray.darker};
+    margin-left: 16px;
 `
 
 const PostTitle = styled.h1`
@@ -73,17 +115,60 @@ const PostTitle = styled.h1`
     max-width: 672px;
     font-size: 32px;
     letter-spacing: 0.5px;
-    line-height: 26px;
-    padding: 56px 0;
+    padding: 16px 0 16px 0;
+`
+// AuthorBox
+const AuthorContainer = styled.div`
+    display: flex;
+    margin-top: 16px;
+    width: 100%;
+    max-width: 672px;
+`
+
+const Image = styled.div`
+    background-image: url(${({ src }) => src});
+    width: 32px;
+    height: 32px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+`
+
+const Name = styled.p`
+    font-size: 12px;
+    line-height: 16px;
+    font-family: "aktiv-grotesk-extended";
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-left: 8px;
+    color: ${black};
 `
 
 function Post({ data }) {
     const post = data.ghostPost
+    const { title, published_at, primary_tag, authors } = post
+
+    const postColor = getColorFromTag(
+        primary_tag ? primary_tag.name.toLowerCase() : ""
+    )
     return (
         <Layout>
+            <BlogNav />
             <PageContainer>
-                <PostTitle>{post.title}</PostTitle>
+                <BackButton />
+                <PostTitle>{title}</PostTitle>
+                <TagAndDateContainer>
+                    <Tag bgColor={postColor}>
+                        {primary_tag && primary_tag.name}
+                    </Tag>
+                    <PublishedDate>{published_at}</PublishedDate>
+                </TagAndDateContainer>
+                <AuthorContainer>
+                    <Image src={authors[0].profile_image} />
+                    <Name>{authors[0].name}</Name>
+                </AuthorContainer>
                 <PostBodyContainer
+                    bgColor={postColor}
                     dangerouslySetInnerHTML={{ __html: post.html }}
                 />
             </PageContainer>
@@ -103,8 +188,17 @@ export const postQuery = graphql`
             title
             url
             updated_at
-            published_at
+            published_at(formatString: "MMMM DD, YYYY")
             page
+            primary_tag {
+                name
+            }
+            authors {
+                slug
+                name
+                profile_image
+                cover_image
+            }
         }
     }
 `
