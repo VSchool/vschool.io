@@ -6,7 +6,7 @@ import BackButton from "../components/blog/blogPage/BackButton.js"
 import BlogNav from "../components/blog/blogNav"
 import { black, gray, blue } from "@vschool/lotus"
 import { getColorFromTag } from "../components/blog/utils"
-import AuthorBox from "../components/blog/AuthorBox.js"
+import CTAFooter from "../components/blog/blogPage/CTAFooter.js"
 
 const PageContainer = styled.div`
     padding: 18px;
@@ -41,7 +41,7 @@ const PostBodyContainer = styled.section`
     & figcaption {
         font-family: "aktiv-grotesk-extended";
         font-size: 12px;
-        margin: 8px;
+        margin: 16px;
     }
 
     & img {
@@ -68,14 +68,26 @@ const PostBodyContainer = styled.section`
     }
 `
 
+const DetailsContainer = styled.div`
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    max-width: 672px;
+
+    @media (min-width: 1000px) {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+`
+
 const TagAndDateContainer = styled.div`
     display: flex;
     width: 100%;
     align-items: center;
-    width: 100%;
     max-width: 672px;
 
     @media (min-width: 1000px) {
+        justify-content: flex-end;
     }
 `
 
@@ -157,20 +169,23 @@ function Post({ data }) {
             <PageContainer>
                 <BackButton />
                 <PostTitle>{title}</PostTitle>
-                <TagAndDateContainer>
-                    <Tag bgColor={postColor}>
-                        {primary_tag && primary_tag.name}
-                    </Tag>
-                    <PublishedDate>{published_at}</PublishedDate>
-                </TagAndDateContainer>
-                <AuthorContainer>
-                    <Image src={authors[0].profile_image} />
-                    <Name>{authors[0].name}</Name>
-                </AuthorContainer>
+                <DetailsContainer>
+                    <TagAndDateContainer>
+                        <Tag bgColor={postColor}>
+                            {primary_tag && primary_tag.name}
+                        </Tag>
+                        <PublishedDate>{published_at}</PublishedDate>
+                    </TagAndDateContainer>
+                    <AuthorContainer>
+                        <Image src={authors[0].profile_image} />
+                        <Name>{authors[0].name}</Name>
+                    </AuthorContainer>
+                </DetailsContainer>
                 <PostBodyContainer
                     bgColor={postColor}
                     dangerouslySetInnerHTML={{ __html: post.html }}
                 />
+                <CTAFooter />
             </PageContainer>
         </Layout>
     )
