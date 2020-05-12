@@ -38,7 +38,19 @@ const SecondGridContainer = styled(GridContainer)``
 const InfiniteGridContainer = styled(GridContainer)``
 
 export default function BlogList(props) {
-    const { posts } = props
+    const {
+        posts,
+        codeStartDate,
+        designStartDate,
+        learnHeader,
+        learnBtnText,
+        learnCodeLink,
+        learnDesignLink,
+        nextCodeSession,
+        nextDesignSession,
+        subscribeBtnText,
+        subscribeHeader,
+    } = props
     return (
         <PageContainer>
             <GridContainer>
@@ -46,27 +58,48 @@ export default function BlogList(props) {
                 {posts.slice(1, 6).map(({ node }) => (
                     <PostPreview key={node.id} {...node} />
                 ))}
-                {posts.slice(1, 6).reverse().map(({ node }) => (
-                    <PostPreview key={node.id} {...node} />
-                ))}
+                {posts
+                    .slice(1, 6)
+                    .reverse()
+                    .map(({ node }) => (
+                        <PostPreview key={node.id} {...node} />
+                    ))}
             </GridContainer>
-            <LearnCodeOrDesign />
+            <LearnCodeOrDesign
+                header={learnHeader}
+                learnBtnText={learnBtnText}
+                codeStartDate={codeStartDate}
+                designStartDate={designStartDate}
+                learnCodeLink={learnCodeLink}
+                learnDesignLink={learnDesignLink}
+                nextCodeSession={nextCodeSession}
+                nextDesignSession={nextDesignSession}
+            />
             <SecondGridContainer>
                 {posts.slice(1, 6).map(({ node }) => (
                     <PostPreview key={node.id} {...node} />
                 ))}
-                {posts.slice(1, 6).reverse().map(({ node }) => (
-                    <PostPreview key={node.id} {...node} />
-                ))}
+                {posts
+                    .slice(1, 6)
+                    .reverse()
+                    .map(({ node }) => (
+                        <PostPreview key={node.id} {...node} />
+                    ))}
             </SecondGridContainer>
-            <SubscribeBanner />
+            <SubscribeBanner
+                header={subscribeHeader}
+                btnText={subscribeBtnText}
+            />
             <InfiniteGridContainer>
                 {posts.slice(1, 6).map(({ node }) => (
                     <PostPreview key={node.id} {...node} />
                 ))}
-                {posts.slice(1, 6).reverse().map(({ node }) => (
-                    <PostPreview key={node.id} {...node} />
-                ))}
+                {posts
+                    .slice(1, 6)
+                    .reverse()
+                    .map(({ node }) => (
+                        <PostPreview key={node.id} {...node} />
+                    ))}
             </InfiniteGridContainer>
         </PageContainer>
     )

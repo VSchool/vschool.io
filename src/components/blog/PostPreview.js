@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { black, gray } from "@vschool/lotus"
+import { black, gray, blue } from "@vschool/lotus"
 import { getColorFromTag } from "./utils"
 import QueryLink from "../shared/QueryLink.js"
 import AuthorBox from "./AuthorBox.js"
@@ -146,7 +146,6 @@ const Excerpt = styled.p`
 `
 
 const StyledLink = styled(QueryLink)`
-    /* display: block; */
     text-decoration: none;
     color: ${black};
     border-bottom: 2px solid ${gray.base};
@@ -165,6 +164,12 @@ const StyledLink = styled(QueryLink)`
 
     @media (min-width: 1200px) {
         max-width: 333px;
+    }
+
+    &:hover {
+        & h2 {
+            color: ${blue.base};
+        }
     }
 `
 

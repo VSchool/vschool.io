@@ -101,20 +101,30 @@ const StyledButton = styled(Button)`
 `
 
 export default function LearnCodeOrDesign(props) {
+    const {
+        codeStartDate,
+        designStartDate,
+        header,
+        learnBtnText,
+        learnCodeLink,
+        learnDesignLink,
+        nextCodeSession,
+        nextDesignSession,
+    } = props
     return (
         <Container>
             <FixedContainer>
-                <Header>Learn code or design. Change your life.</Header>
+                <Header>{header}</Header>
                 <FlexContainer>
                     <InfoContainer>
                         <Info>
                             <TextContainer>
-                                <NextSession>Next Code Session:</NextSession>
-                                <CourseDate>January 2, 2020</CourseDate>
+                                <NextSession>{nextCodeSession}</NextSession>
+                                <CourseDate>{codeStartDate}</CourseDate>
                             </TextContainer>
-                            <QueryLink to={"/hi"}>
+                            <QueryLink to={learnCodeLink}>
                                 <StyledButton buttonStyle="secondary-light">
-                                    Apply
+                                    {learnBtnText}
                                 </StyledButton>
                             </QueryLink>
                         </Info>
@@ -122,12 +132,12 @@ export default function LearnCodeOrDesign(props) {
                     <InfoContainer>
                         <Info>
                             <TextContainer>
-                                <NextSession>Next Design Session:</NextSession>
-                                <CourseDate>January 2, 2020</CourseDate>
+                                <NextSession>{nextDesignSession}</NextSession>
+                                <CourseDate>{designStartDate}</CourseDate>
                             </TextContainer>
-                            <QueryLink to={"/hi"}>
+                            <QueryLink to={learnDesignLink}>
                                 <StyledButton buttonStyle="secondary-light">
-                                    Apply
+                                    {learnBtnText}
                                 </StyledButton>
                             </QueryLink>
                         </Info>
