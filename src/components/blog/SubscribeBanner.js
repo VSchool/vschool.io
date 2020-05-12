@@ -91,6 +91,10 @@ const StyledButton = styled(Button)`
 
 const Label = styled.label`
     width: 100%;
+
+    @media (min-width: 1000px) {
+        width: auto;
+    }
 `
 
 const SuccessMsg = styled.div`
