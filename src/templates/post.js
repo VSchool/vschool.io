@@ -46,9 +46,8 @@ const PostBodyContainer = styled.section`
     }
 
     & img {
-        width: 100%;
-        max-width: 672px;
         max-height: 400px;
+        max-width: 100%;
     }
     & img:nth-child(1) {
         -webkit-box-shadow: 4px 4px 0px 0px ${({ bgColor }) => bgColor};

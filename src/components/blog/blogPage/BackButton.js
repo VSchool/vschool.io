@@ -17,6 +17,7 @@ const Container = styled.div`
 
 const ButtonContainer = styled.div`
     display: flex;
+    align-items: center;
 `
 
 const Arrow = styled.img`
