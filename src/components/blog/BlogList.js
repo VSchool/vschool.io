@@ -1,9 +1,10 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 import PostPreview from "./PostPreview.js"
 import TopPostPreview from "./TopPostPreview.js"
 import LearnCodeOrDesign from "./LearnCodeOrDesign.js"
 import SubscribeBanner from "./SubscribeBanner.js"
+import { BlogFilterContext } from "./context/BlogFilterProvider.js"
 
 const PageContainer = styled.div`
     display: flex;
@@ -51,11 +52,22 @@ export default function BlogList(props) {
         subscribeBtnText,
         subscribeHeader,
     } = props
+
+    const { blogFilter } = useContext(BlogFilterContext)
+    
+    let currentPosts =
+        blogFilter === "Blog Home"
+            ? posts
+            : posts.filter(
+                  ({ node }) =>
+                      node.primary_tag.name.toLowerCase() ===
+                      blogFilter.toLowerCase()
+              )
     return (
         <PageContainer>
             <GridContainer>
-                <TopPostPreview {...posts[0].node} />
-                {posts.slice(1, 6).map(({ node }) => (
+                <TopPostPreview {...currentPosts[0].node} />
+                {currentPosts.slice(1, 6).map(({ node }) => (
                     <PostPreview key={node.id} {...node} />
                 ))}
             </GridContainer>
@@ -70,7 +82,7 @@ export default function BlogList(props) {
                 nextDesignSession={nextDesignSession}
             />
             <SecondGridContainer>
-                {posts.slice(1, 6).map(({ node }) => (
+                {currentPosts.slice(1, 6).map(({ node }) => (
                     <PostPreview key={node.id} {...node} />
                 ))}
             </SecondGridContainer>
@@ -79,7 +91,7 @@ export default function BlogList(props) {
                 btnText={subscribeBtnText}
             />
             <InfiniteGridContainer>
-                {posts.slice(1, 6).map(({ node }) => (
+                {currentPosts.slice(1, 6).map(({ node }) => (
                     <PostPreview key={node.id} {...node} />
                 ))}
             </InfiniteGridContainer>

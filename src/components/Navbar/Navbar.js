@@ -7,7 +7,7 @@ import MobileMenu from "./Mobile"
 import { NavbarContextProvider } from "./navbarContext"
 
 const Nav = styled.nav`
-    position: fixed;
+    position: ${({ isBlog }) => (isBlog ? "static" : "fixed")};
     display: flex;
     align-items: center;
     background-color: ${gray.lighter};

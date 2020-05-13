@@ -7,6 +7,7 @@ import BlogNav from "../components/blog/blogNav"
 import { black, gray, blue } from "@vschool/lotus"
 import { getColorFromTag } from "../components/blog/utils"
 import CTAFooter from "../components/blog/blogPage/CTAFooter.js"
+import { BlogFilterContext } from "../components/blog/context/BlogFilterProvider.js"
 
 const PageContainer = styled.div`
     padding: 18px;
@@ -45,7 +46,7 @@ const PostBodyContainer = styled.section`
     }
 
     & img {
-        max-width: 100%;
+        max-width: 672px;
         max-height: 400px;
     }
     & img:nth-child(1) {
@@ -127,9 +128,9 @@ const PostTitle = styled.h1`
     max-width: 672px;
     font-size: 32px;
     letter-spacing: 0.5px;
-    padding: 16px 0 16px 0;
+    padding: 16px 0;
 
-    @media(min-width: 1000px){
+    @media (min-width: 1000px) {
         font-size: 44px;
         line-height: 48px;
         padding-top: 32px;
@@ -141,6 +142,7 @@ const AuthorContainer = styled.div`
     margin-top: 16px;
     width: 100%;
     max-width: 672px;
+    padding-bottom: 16px;
 `
 
 const Image = styled.div`
@@ -171,28 +173,36 @@ function Post({ data }) {
     )
     return (
         <BlogLayout>
-            <BlogNav />
-            <PageContainer>
-                <BackButton />
-                <PostTitle>{title}</PostTitle>
-                <DetailsContainer>
-                    <TagAndDateContainer>
-                        <Tag bgColor={postColor}>
-                            {primary_tag && primary_tag.name}
-                        </Tag>
-                        <PublishedDate>{published_at}</PublishedDate>
-                    </TagAndDateContainer>
-                    <AuthorContainer>
-                        <Image src={authors[0].profile_image} />
-                        <Name>{authors[0].name}</Name>
-                    </AuthorContainer>
-                </DetailsContainer>
-                <PostBodyContainer
-                    bgColor={postColor}
-                    dangerouslySetInnerHTML={{ __html: post.html }}
-                />
-                <CTAFooter />
-            </PageContainer>
+            <BlogFilterContext.Consumer>
+                {value => (
+                    <>
+                        <BlogNav />
+                        <PageContainer>
+                            <BackButton blogFilter={value.blogFilter} />
+                            <PostTitle>{title}</PostTitle>
+                            <DetailsContainer>
+                                <TagAndDateContainer>
+                                    <Tag bgColor={postColor}>
+                                        {primary_tag && primary_tag.name}
+                                    </Tag>
+                                    <PublishedDate>
+                                        {published_at}
+                                    </PublishedDate>
+                                </TagAndDateContainer>
+                                <AuthorContainer>
+                                    <Image src={authors[0].profile_image} />
+                                    <Name>{authors[0].name}</Name>
+                                </AuthorContainer>
+                            </DetailsContainer>
+                            <PostBodyContainer
+                                bgColor={postColor}
+                                dangerouslySetInnerHTML={{ __html: post.html }}
+                            />
+                            <CTAFooter />
+                        </PageContainer>
+                    </>
+                )}
+            </BlogFilterContext.Consumer>
         </BlogLayout>
     )
 }

@@ -3,6 +3,7 @@ import styled from "styled-components"
 import Navbar from "./Navbar/Navbar"
 import Footer from "./Footer/Footer"
 import "./layout.css"
+import BlogFilterProvider from "../components/blog/context/BlogFilterProvider.js"
 
 const MainContainer = styled.div`
     display: flex;
@@ -14,13 +15,14 @@ const ContentContainer = styled.div`
     flex-grow: 1;
 
     & > main {
-        margin-top: 80px;
+        margin-top: ${({ isBlog }) =>
+        isBlog ? 0 : "80px"};
     }
 `
 
 export default function BlogLayout({ children }) {
     return (
-        <>
+        <BlogFilterProvider>
             <MainContainer>
                 <ContentContainer isBlog={true}>
                     <Navbar isBlog={true} />
@@ -29,6 +31,6 @@ export default function BlogLayout({ children }) {
                 </ContentContainer>
                 <Footer />
             </MainContainer>
-        </>
+        </BlogFilterProvider>
     )
 }
