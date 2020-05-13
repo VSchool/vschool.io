@@ -6,19 +6,19 @@ const NavContainer = styled.nav`
     height: 48px;
     background-color: ${gray.lighter};
     position: sticky;
-    top: 80px;
+    top: 0;
     z-index: 4;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 16px;
-    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 8px -8px rgba(0, 0, 0, 0.2);
 `
 
 const FixedContainer = styled.div`
     width: 100%;
-    
-    @media(min-width: 1000px){
+
+    @media (min-width: 1000px) {
         padding-left: 72px;
     }
 `

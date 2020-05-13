@@ -38,13 +38,14 @@ const StyledLink = styled(Link)`
     max-width: 672px;
 `
 
-export default function BackButton() {
+export default function BackButton(props) {
+    const { blogFilter } = props
     return (
         <Container>
             <StyledLink to={"/blog"}>
                 <ButtonContainer>
                     <Arrow src={backArrow} />
-                    <Text>Back to Blog Home</Text>
+                    <Text>Back to {blogFilter}</Text>
                 </ButtonContainer>
             </StyledLink>
         </Container>
