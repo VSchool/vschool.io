@@ -1,5 +1,5 @@
 import React from "react"
-import Layout from "../../components/layout"
+import BlogLayout from "../../components/blogLayout"
 import SEO from "../../components/seo"
 import { BlogNav, BlogList } from "../../components/blog"
 import { graphql } from "gatsby"
@@ -20,7 +20,7 @@ export default function Blog({ data }) {
     } = data.prismicBlogItems.data
 
     return (
-        <Layout>
+        <BlogLayout>
             <SEO title="Blog" />
             <BlogNav />
             <BlogList
@@ -36,7 +36,7 @@ export default function Blog({ data }) {
                 subscribeBtnText={subscribeBtnText}
                 subscribeHeader={subscribeHeader}
             />
-        </Layout>
+        </BlogLayout>
     )
 }
 

@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
-import Layout from "../components/layout"
+import BlogLayout from "../components/bloglayout"
 import BackButton from "../components/blog/blogPage/BackButton.js"
 import BlogNav from "../components/blog/blogNav"
 import { black, gray, blue } from "@vschool/lotus"
@@ -128,6 +128,12 @@ const PostTitle = styled.h1`
     font-size: 32px;
     letter-spacing: 0.5px;
     padding: 16px 0 16px 0;
+
+    @media(min-width: 1000px){
+        font-size: 44px;
+        line-height: 48px;
+        padding-top: 32px;
+    }
 `
 // AuthorBox
 const AuthorContainer = styled.div`
@@ -164,7 +170,7 @@ function Post({ data }) {
         primary_tag ? primary_tag.name.toLowerCase() : ""
     )
     return (
-        <Layout>
+        <BlogLayout>
             <BlogNav />
             <PageContainer>
                 <BackButton />
@@ -187,7 +193,7 @@ function Post({ data }) {
                 />
                 <CTAFooter />
             </PageContainer>
-        </Layout>
+        </BlogLayout>
     )
 }
 

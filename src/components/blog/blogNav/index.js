@@ -12,11 +12,15 @@ const NavContainer = styled.nav`
     justify-content: center;
     align-items: center;
     padding: 0 16px;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
 `
 
 const FixedContainer = styled.div`
     width: 100%;
-    max-width: 1050px;
+    
+    @media(min-width: 1000px){
+        padding-left: 72px;
+    }
 `
 
 const Header = styled.h2`

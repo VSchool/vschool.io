@@ -9,6 +9,10 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     width: 100%;
+
+    @media (min-width: 1000px) {
+        padding-top: 64px;
+    }
 `
 
 const ButtonContainer = styled.div`

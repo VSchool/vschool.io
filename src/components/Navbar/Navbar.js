@@ -15,16 +15,17 @@ const Nav = styled.nav`
     width: 100%;
     height: 80px;
     z-index: 999;
-    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: ${({ isBlog }) =>
+        isBlog ? "none" : "0 2px 8px 0 rgba(0, 0, 0, 0.2)"};
 
     @media (min-width: 1000px) {
         padding: 28px 88px;
     }
 `
 
-function Navbar() {
+function Navbar(props) {
     return (
-        <Nav>
+        <Nav isBlog={props.isBlog}>
             {/* Only displays on ≥ 1000px screens using a CSS media query */}
             <DesktopMenu />
 
