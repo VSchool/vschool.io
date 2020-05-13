@@ -46,6 +46,7 @@ const PostBodyContainer = styled.section`
     }
 
     & img {
+        width: 100%;
         max-width: 672px;
         max-height: 400px;
     }
