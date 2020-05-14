@@ -11,7 +11,7 @@ const PageContainer = styled.div`
     flex-direction: column;
     align-items: center;
     padding-bottom: 96px;
-    padding-top: 64px; /* because we are not using a blog nav yet */
+    padding-top: 64px; 
 `
 
 const GridContainer = styled.div`
