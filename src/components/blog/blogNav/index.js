@@ -2,9 +2,10 @@ import React from "react"
 import styled from "styled-components"
 import { gray, black } from "@vschool/lotus"
 
+
 const NavContainer = styled.nav`
     height: 48px;
-    background-color: ${gray.lighter};
+    background-color: ${gray.light};
     position: sticky;
     top: 0;
     z-index: 3;
