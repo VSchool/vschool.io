@@ -166,7 +166,7 @@ const Name = styled.p`
 
 function Post({ data }) {
     const post = data.ghostPost
-    const { title, published_at, primary_tag, authors } = post
+    const { title, published_at, primary_tag, authors, url } = post
 
     const postColor = getColorFromTag(
         primary_tag ? primary_tag.name.toLowerCase() : ""
@@ -198,7 +198,7 @@ function Post({ data }) {
                                 bgColor={postColor}
                                 dangerouslySetInnerHTML={{ __html: post.html }}
                             />
-                            <CTAFooter />
+                            <CTAFooter url={url}/>
                         </PageContainer>
                     </>
                 )}
