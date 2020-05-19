@@ -8,6 +8,11 @@ import {
     RespondingHeader,
     ResponsiveIndustry,
     Quotes,
+    ResponsiveAbility,
+    ResponsiveLife,
+    CTA,
+    Testimonial,
+    WorkWithUs
 } from "../components/responsive-learning"
 
 export default function ResponsiveLearning({ data }) {
@@ -81,6 +86,43 @@ export default function ResponsiveLearning({ data }) {
                 img={industryImg}
             />
             <Quotes quotes={companies} />
+            <ResponsiveAbility
+                header={abilityHeader}
+                description={abilityDescription}
+                desktopImg={abilityImg}
+                mobileImg={abilityImgMobile}
+                bullets={ability_bullets}
+            />
+            <ResponsiveLife
+                header={lifeHeader}
+                description={lifeInfo}
+                testimonial={testimonial1}
+                img={testimonial1Img}
+                cite={cite1}
+                course={citeCourse1}
+                bullets={life_bullets}
+            />
+            <CTA
+                header={ctaHeader}
+                subHeader={ctaSubheader}
+                btnText={ctaBtnText}
+                link={ctaLink}
+                courses={cta_courses}
+            />
+            <Testimonial 
+              testimonial={testmonial2}
+              cite={testimonial2Cite}
+              course={testimonial2CiteCourse}
+              img={testimonial2Img}
+            />
+            <WorkWithUs 
+              header={workWithUsHeader}
+              subHeader={workWithUsSubheader}
+              btnText={workWithUsBtnText}
+              link={workWithUsLink}
+              info={workWithUsInfo}
+              invite={workWithUsInvite}
+            />
         </Layout>
     )
 }
@@ -136,7 +178,7 @@ export const query = graphql`
                     session_date {
                         document {
                             data {
-                                start_date(formatString: "MM DD, YYY")
+                                start_date(formatString: "MMMM Do, YYYY")
                             }
                         }
                     }
