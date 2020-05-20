@@ -26,6 +26,10 @@ const Container = styled.div`
     @media (min-width: 1200px) {
         padding-left: 88px;
         padding-right: 88px;
+        flex-direction: row-reverse;
+        padding-top: 0;
+        padding-bottom: 160px;
+        height: 0px;
     }
 `
 
@@ -42,6 +46,13 @@ const TestimonialContainer = styled.div`
     flex-direction: column;
     width: 100%;
     max-width: 378px;
+
+    @media(min-width: 1200px){
+        max-width: 616px;
+        padding-left: 64px;
+        padding-bottom: 72px;
+        padding-right: 40px;
+    }
 `
 
 const TestimonialText = styled.h4`
@@ -83,6 +94,23 @@ const Image = styled.img`
         max-width: 250px;
         bottom: -170px;
     }
+
+    @media(min-width: 1200px){
+        display: none;
+    }
+`
+
+const ImageDesktop = styled.img`
+    display: none;
+
+    @media(min-width: 1200px){
+        display: inline-block;
+        width: 320px;
+        position: relative;
+        right: -24px;
+        top: -80px;
+        border-bottom: 20px solid ${purple.base};
+    }
 `
 
 export default function Testimonial(props) {
@@ -95,6 +123,7 @@ export default function Testimonial(props) {
                 <Course>{course}</Course>
                 <Image src={img} />
             </TestimonialContainer>
+            <ImageDesktop src={img}/>
         </Container>
     )
 }

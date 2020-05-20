@@ -8,11 +8,27 @@ const BulletsContainer = styled.div`
     & div:nth-child(6) {
         border-bottom: 2px solid ${green.light};
     }
+
+    @media (min-width: 1200px) {
+        display: grid;
+        grid-template-columns: 408px 408px;
+
+        & div:nth-child(odd) {
+            margin-right: 34px;
+        }
+
+        & div:nth-child(5) {
+            border-bottom: 2px solid ${green.light};
+        }
+    }
 `
 
 const Bullet = styled.div`
     border-top: 2px solid ${green.light};
     padding: 8px 0;
+
+    @media (min-width: 1200px) {
+    }
 `
 
 const BulletText = styled.p`

@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { gray, purple } from "@vschool/lotus"
+import { gray, purple, black } from "@vschool/lotus"
 
 const Container = styled.div`
     background-color: ${gray.lightest};
@@ -37,6 +37,13 @@ const Header = styled.h1`
     line-height: 48px;
     width: 100%;
     max-width: 366px;
+    color: ${black};
+
+    @media(min-width: 1200px){
+        font-size: 56px;
+        line-height: 56px;
+        max-width: 500px;
+    }
 `
 
 const SubHeader = styled.h4`
@@ -47,6 +54,13 @@ const SubHeader = styled.h4`
     line-height: 20px;
     margin-top: 16px;
     text-align: center;
+
+    @media(min-width: 1200px){
+        margin-top: 32px;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.25px;
+    }
 `
 
 const Description = styled.p`
@@ -58,6 +72,12 @@ const Description = styled.p`
     margin-top: 16px;
     width: 100%;
     max-width: 366px;
+
+    @media(min-width: 1200px){
+        font-size: 20px;
+        line-height: 28px;
+        max-width: 848px;
+    }
 `
 
 export default function RespondingHeader(props) {

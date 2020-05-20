@@ -28,6 +28,7 @@ const Container = styled.div`
     @media (min-width: 1200px) {
         padding-left: 88px;
         padding-right: 88px;
+        padding-top: 160px;
     }
 `
 
@@ -46,6 +47,13 @@ const Header = styled.h2`
     width: 100%;
     max-width: 366px;
     z-index: 2;
+    color: ${black};
+
+    @media (min-width: 1200px) {
+        max-width: 100%;
+        font-size: 56px;
+        line-height: 56px;
+    }
 `
 
 const GreenUnderline = styled.span`
@@ -56,6 +64,16 @@ const GreenUnderline = styled.span`
     left: 8px;
     top: 24px;
     z-index: 1;
+
+    @media(max-width: 415px){
+        display: none;
+    }
+
+    @media(min-width: 1200px){
+        width: 258px;
+        left: -24px;
+        top: 32px;
+    }
 `
 
 const SubHeader = styled.h4`
@@ -68,6 +86,13 @@ const SubHeader = styled.h4`
     width: 100%;
     max-width: 366px;
     text-align: center;
+
+    @media (min-width: 1200px) {
+        max-width: 760px;
+        margin-top: 32px;
+        font-size: 16px;
+        line-height: 24px;
+    }
 `
 
 const Description = styled.p`
@@ -79,6 +104,13 @@ const Description = styled.p`
     line-height: 24px;
     font-family: "aktiv-grotesk";
     color: ${gray.darker};
+
+    @media (min-width: 1200px) {
+        max-width: 848px;
+        margin-top: 32px;
+        font-size: 20px;
+        line-height: 28px;
+    }
 `
 
 const InfoContainer = styled.div`
@@ -89,8 +121,19 @@ const InfoContainer = styled.div`
     width: 100%;
     margin-top: 64px;
 
-    & div:nth-child(1){
-      margin-bottom: 64px;
+    & div:nth-child(1) {
+        margin-bottom: 64px;
+    }
+
+    @media (min-width: 1200px) {
+        flex-direction: row;
+        margin-top: 96px;
+        align-items: flex-start;
+
+        & div:nth-child(1) {
+            margin-bottom: 0;
+            margin-right: 16px;
+        }
     }
 `
 
@@ -101,6 +144,11 @@ const Info = styled.div`
     justify-content: center;
     width: 100%;
     max-width: 378px;
+
+    @media (min-width: 1200px) {
+        max-width: 493px;
+        align-items: flex-start;
+    }
 `
 
 const InfoHeader = styled.h4`
@@ -111,12 +159,23 @@ const InfoHeader = styled.h4`
     color: ${black};
     width: 100%;
     max-width: 365px;
+
+    @media (min-width: 1200px) {
+        font-size: 32px;
+        line-height: 38px;
+        max-width: 493px;
+    }
 `
 
 const InfoImg = styled.img`
     width: 100%;
     max-width: 378px;
     margin-top: 32px;
+
+    @media(min-width: 1200px){
+        max-width: 493px;
+        margin-top: 48px;
+    }
 `
 
 const InfoText = styled.p`
@@ -128,6 +187,13 @@ const InfoText = styled.p`
     font-family: "aktiv-grotesk";
     font-size: 16px;
     line-height: 24px;
+
+    @media(min-width: 1200px){
+        font-size: 20px;
+        line-height: 28px;
+        max-width: 448px;
+        margin-top: 32px;
+    }
 `
 
 export default function MasterBasedLearning(props) {

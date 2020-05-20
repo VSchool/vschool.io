@@ -28,12 +28,19 @@ const Container = styled.div`
     @media (min-width: 1200px) {
         padding-left: 88px;
         padding-right: 88px;
+        padding-bottom: 130px;
+        flex-direction: row;
     }
 `
 
 const TextContainer = styled.div`
-  width: 100%;
-  max-width: 392px;
+    width: 100%;
+    max-width: 392px;
+
+    @media(min-width: 1200px){
+        max-width: 494px;
+        margin-right: 40px;
+    }
 `
 
 const Title = styled.h4`
@@ -45,6 +52,10 @@ const Title = styled.h4`
     color: ${purple.darker};
     width: 100%;
     max-width: 250px;
+
+    @media(min-width: 1200px){
+        max-width: 100%;
+    }
 `
 
 const Header = styled.h1`
@@ -55,6 +66,11 @@ const Header = styled.h1`
     line-height: 48px;
     margin-top: 16px;
     width: 100%;
+
+    @media (min-width: 1200px) {
+        font-size: 56px;
+        line-height: 56px;
+    }
 `
 
 const SubHeader = styled.p`
@@ -66,12 +82,22 @@ const SubHeader = styled.p`
     margin-top: 32px;
     width: 100%;
     max-width: 392px;
+
+    @media(min-width: 1200px){
+        max-width: 100%;
+        font-size: 20px;
+        line-height: 28px;
+    }
 `
 
 const Image = styled.img`
-  width: 100%;
-  max-width: 379px;
-  margin-top: 64px;
+    width: 100%;
+    max-width: 379px;
+    margin-top: 64px;
+
+    @media(min-width: 1200px){
+        max-width: 494px;
+    }
 `
 
 export default function PageHeader(props) {
@@ -83,7 +109,7 @@ export default function PageHeader(props) {
                 <Header>{header}</Header>
                 <SubHeader>{subHeader}</SubHeader>
             </TextContainer>
-            <Image src={img}/>
+            <Image src={img} />
         </Container>
     )
 }
