@@ -28,10 +28,19 @@ const Container = styled.div`
     @media (min-width: 1200px) {
         padding-left: 88px;
         padding-right: 88px;
+        padding-top: 40px;
     }
 `
 
-const InfoContainer = styled.div``
+const InfoContainer = styled.div`
+    @media(min-width: 1200px){
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 56px;
+    }
+`
 
 
 const TextContainer = styled.div`
@@ -40,6 +49,10 @@ const TextContainer = styled.div`
     justify-content: center;
     width: 100%;
     max-width: 366px;
+
+    @media(min-width: 1200px){
+        margin-left: 32px;
+    }
 `
 
 const Header = styled.h2`
@@ -48,6 +61,11 @@ const Header = styled.h2`
     font-weight: 900;
     font-size: 32px;
     line-height: 38px;
+
+    @media(min-width: 1200px){
+        font-size: 44px;
+        line-height: 48px;
+    }
 `
 
 const Info = styled.p`
@@ -57,10 +75,20 @@ const Info = styled.p`
     line-height: 24px;
     color: ${gray.darker};
     margin-top: 16px;
+
+    @media(min-width: 1200px){
+        max-width: 316px;
+    }
 `
 
 const DesktopImage = styled.img`
     display: none;
+
+    @media(min-width: 1200px){
+        width: 100%;
+        max-width: 585px;
+        display: inline-block;
+    }
 `
 
 const MobileImage = styled(DesktopImage)`
@@ -68,6 +96,10 @@ const MobileImage = styled(DesktopImage)`
     width: 100%;
     max-width: 377px;
     margin-top: 48px;
+
+    @media(min-width: 1200px){
+        display: none;
+    }
 `
 
 export default function ResponsiveAbility(props) {

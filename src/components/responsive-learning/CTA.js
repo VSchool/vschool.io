@@ -22,12 +22,13 @@ const Container = styled.div`
     @media (min-width: 840px) {
         padding-left: 40px;
         padding-right: 40px;
-        padding-bottom: 96px;
     }
 
     @media (min-width: 1200px) {
         padding-left: 88px;
         padding-right: 88px;
+        padding-top: 160px;
+        padding-bottom: 480px;
     }
 `
 
@@ -40,6 +41,13 @@ const Header = styled.h2`
     text-align: center;
     width: 240px;
     margin-bottom: 16px;
+
+    @media (min-width: 1200px) {
+        font-size: 56px;
+        line-height: 56px;
+        width: 100%;
+        margin-bottom: 48px;
+    }
 `
 
 const CoursesContainer = styled.div`
@@ -48,6 +56,12 @@ const CoursesContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @media (min-width: 1200px) {
+        & div:nth-child(2) {
+            margin-top: 24px;
+        }
+    }
 `
 
 const CourseContainer = styled.div`
@@ -62,6 +76,11 @@ const CourseContainer = styled.div`
 
     background-image: url(${({ bgImg }) => bgImg});
     background-size: cover;
+
+    @media (min-width: 1200px) {
+        max-width: 642px;
+        margin-top: 0;
+    }
 `
 
 const CourseInfoContainer = styled.div`
@@ -104,20 +123,31 @@ const SubHeader = styled.p`
     line-height: 20px;
     width: 270px;
     margin-top: 32px;
+
+    @media (min-width: 1200px) {
+        font-size: 16px;
+        line-height: 24px;
+        width: 100%;
+    }
 `
 
 const StyledButton = styled(Button)`
     max-width: 314px;
     width: 100%;
-    margin-top: 32px;
+
     font-family: "aktiv-grotesk-extended";
 `
 
 const StyledLink = styled(QueryLink)`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  text-decoration: none;
+    margin-top: 32px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+
+    @media (min-width: 1200px) {
+        margin-top: 48px;
+    }
 `
 
 export default function CTA(props) {

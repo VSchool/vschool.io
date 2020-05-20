@@ -12,6 +12,14 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
 
+    & div:nth-child(2) {
+        margin-top: 109px;
+    }
+
+    & div:nth-child(2) img {
+        width: 113px;
+    }
+
     @media (min-width: 600px) {
         padding-left: 32px;
         padding-right: 32px;
@@ -20,20 +28,19 @@ const Container = styled.div`
     @media (min-width: 840px) {
         padding-left: 40px;
         padding-right: 40px;
-        padding-bottom: 96px;
     }
 
     @media (min-width: 1200px) {
         padding-left: 88px;
         padding-right: 88px;
-    }
+        padding-top: 24px;
+        flex-direction: row;
+        align-items: flex-start;
 
-    & div:nth-child(2) {
-        margin-top: 109px;
-    }
-
-    & div:nth-child(2) img {
-        width: 113px;
+        & div:nth-child(2) {
+            margin-top: 0;
+            margin-left: 48px;
+        }
     }
 `
 
@@ -42,6 +49,10 @@ const QuoteContainer = styled.div`
     flex-direction: column;
     width: 100%;
     max-width: 334px;
+
+    @media(min-width: 1200px){
+        max-width: 376px;
+    }
 `
 
 const Logo = styled.img`
@@ -56,6 +67,11 @@ const Quote = styled.p`
     line-height: 24px;
     color: ${gray.darker};
     margin-top: 24px;
+
+    @media(min-width: 1200px){
+        margin-top: 16px;
+        
+    }
 `
 
 const CiteContainer = styled.div`
@@ -63,6 +79,10 @@ const CiteContainer = styled.div`
     justify-content: center;
     align-items: center;
     margin-top: 24px;
+
+    @media(min-width: 1200px){
+        margin-top: 16px;
+    }
 `
 
 const Cite = styled.p`
