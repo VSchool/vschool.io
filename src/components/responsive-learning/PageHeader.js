@@ -52,6 +52,8 @@ const Title = styled.h4`
     color: ${purple.darker};
     width: 100%;
     max-width: 250px;
+    margin-top: 32px;
+    text-transform: uppercase;
 
     @media(min-width: 1200px){
         max-width: 100%;
@@ -105,8 +107,8 @@ export default function PageHeader(props) {
     return (
         <Container>
             <TextContainer>
-                <Title>{title}</Title>
-                <Header>{header}</Header>
+                <Header>{title}</Header>
+                <Title>{header}</Title>
                 <SubHeader>{subHeader}</SubHeader>
             </TextContainer>
             <Image src={img} />
