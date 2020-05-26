@@ -42,6 +42,11 @@ const Header = styled.h2`
     color: ${black};
     margin-top: 16px;
     font-weight: 900;
+
+    @media(min-width: 1200px){
+      font-size: 44px;
+      line-height: 48px;
+    }
 `
 
 const Subheader = styled.p`
@@ -54,6 +59,12 @@ const Subheader = styled.p`
     max-width: 366px;
     margin-top: 16px;
     margin-bottom: 32px;
+
+    @media(min-width: 1200px){
+      font-size: 20px;
+      line-height: 28px;
+      max-width: 520px;
+    }
 `
 
 const StyledButton = styled(Button)`

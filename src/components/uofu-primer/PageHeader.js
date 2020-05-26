@@ -29,12 +29,18 @@ const Container = styled.div`
     @media (min-width: 1200px) {
         padding-left: 88px;
         padding-right: 88px;
+        padding-top: 96px;
     }
 `
 
 const Logo = styled.img`
     width: 180px;
     height: 47px;
+
+    @media(min-width: 1200px){
+        width: 319px;
+        height: 83px;
+    }
 `
 
 const Header = styled.h1`
@@ -48,6 +54,12 @@ const Header = styled.h1`
     font-weight: 900;
     width: 100%;
     max-width: 366px;
+
+    @media(min-width: 1200px){
+        font-size: 56px;
+        line-height: 56px;
+        max-width: 100%;
+    }
 `
 
 const Subheader = styled.h5`
@@ -59,6 +71,11 @@ const Subheader = styled.h5`
     color: ${black};
     font-weight: 800;
     padding-bottom: 48px;
+
+    @media(min-width: 1200px){
+        font-size: 16px;
+        line-height: 24px;
+    }
 `
 
 const Info = styled.p`
@@ -69,6 +86,13 @@ const Info = styled.p`
     color: ${gray.darker};
     width: 100%;
     max-width: 366px;
+
+    @media(min-width: 1200px){
+        font-size: 20px;
+        line-height: 28px;
+        max-width: 848px;
+        text-align: left;
+    }
 `
 
 export default function PageHeader(props) {

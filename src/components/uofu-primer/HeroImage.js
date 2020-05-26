@@ -34,12 +34,31 @@ const ImageContainer = styled.div`
     max-width: 384px;
     position: relative;
     margin-top: -360px;
+
+    @media (min-width: 1200px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 `
 
 const HeroImg = styled.img`
     width: 100%;
     position: relative;
     z-index: 1;
+
+    @media (min-width: 1200px) {
+        display: none;
+    }
+`
+
+const HeroImgDesktop = styled.img`
+    display: none;
+
+    @media (min-width: 1200px) {
+        display: block;
+        width: 911px;
+    }
 `
 
 const CodeSnippet = styled.img`
@@ -58,6 +77,10 @@ const CodeSnippet = styled.img`
         width: 180px;
         bottom: -24px;
     }
+
+    @media (min-width: 1200px) {
+        display: none;
+    }
 `
 
 export default function HeroImage(props) {
@@ -66,6 +89,7 @@ export default function HeroImage(props) {
         <Container>
             <ImageContainer>
                 <HeroImg src={mobileImg} />
+                <HeroImgDesktop src={desktopImg} />
                 <CodeSnippet src={snippet} />
             </ImageContainer>
         </Container>

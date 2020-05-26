@@ -37,6 +37,13 @@ const Header = styled.h2`
     color: ${black};
     width: 100%;
     max-width: 366px;
+
+    @media (min-width: 1200px) {
+        font-size: 44px;
+        line-height: 48px;
+        max-width: 934px;
+        font-weight: 900;
+    }
 `
 
 const InfoContainer = styled.div`
@@ -45,6 +52,17 @@ const InfoContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media (min-width: 1200px) {
+        flex-direction: row;
+        justify-content: center;
+        max-width: 934px;
+        margin-top: 48px;
+
+        & p:nth-child(2){
+          margin-left: 60px;
+        }
+    }
 `
 
 const Info = styled.p`
@@ -53,6 +71,13 @@ const Info = styled.p`
     line-height: 24px;
     color: ${gray.darker};
     margin-top: 24px;
+
+    @media (min-width: 1200px) {
+        max-width: 468px;
+        font-size: 20px;
+        line-height: 28px;
+        margin-top: 0;
+    }
 `
 
 export default function AboutPrimer(props) {
