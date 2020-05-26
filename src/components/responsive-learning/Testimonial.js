@@ -84,6 +84,7 @@ const Course = styled.p`
 
 const Image = styled.img`
     position: absolute;
+    box-sizing: border-box;
     width: 100%;
     max-width: 320px;
     bottom: -265px;
