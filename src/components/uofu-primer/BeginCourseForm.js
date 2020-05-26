@@ -25,7 +25,12 @@ const Form = styled.form`
     }
 
     @media (min-width: 1200px) {
-        width: 1024px;
+        width: 100%;
+        max-width: 1024px;
+        height: 152px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 `
 
@@ -70,6 +75,7 @@ const Input = styled.input`
     }
 
     @media (min-width: 1200px) {
+        max-width: 350px;
         width: 350px;
     }
 `
@@ -82,11 +88,16 @@ const StyledButton = styled(Button)`
     border: 2px solid ${black};
     background-color: ${gray.darker};
     font-family: "aktiv-grotesk-extended";
+
+    @media(min-width: 1200px){
+        width: 255px;
+        margin-top: 0;
+    }
 `
 
 const ErrorMsg = styled.div`
     position: absolute;
-    bottom: -20px;
+    bottom: 340px;
     width: 90%;
     text-align: center;
 `
