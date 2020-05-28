@@ -9,9 +9,6 @@ export const primaryNavItemsQuery = graphql`
                 label {
                     text
                 }
-                link {
-                    url
-                }
             }
             items {
                 sub_nav_link {
