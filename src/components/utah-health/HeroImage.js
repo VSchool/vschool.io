@@ -61,36 +61,13 @@ const HeroImgDesktop = styled.img`
     }
 `
 
-const CodeSnippet = styled.img`
-    position: absolute;
-    z-index: 2;
-    width: 250px;
-    right: 0;
-    bottom: -52px;
-
-    @media (max-width: 400px) {
-        width: 200px;
-        bottom: -32px;
-    }
-
-    @media (max-width: 350px) {
-        width: 180px;
-        bottom: -24px;
-    }
-
-    @media (min-width: 1200px) {
-        display: none;
-    }
-`
-
 export default function HeroImage(props) {
-    const { desktopImg, mobileImg, snippet } = props
+    const { desktopImg, mobileImg } = props
     return (
         <Container>
             <ImageContainer>
                 <HeroImg src={mobileImg} />
                 <HeroImgDesktop src={desktopImg} />
-                <CodeSnippet src={snippet} />
             </ImageContainer>
         </Container>
     )

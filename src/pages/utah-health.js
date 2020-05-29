@@ -9,9 +9,10 @@ import {
     HeroImage,
     AboutPrimer,
     NeverLearnAlone,
-} from "../components/uofu-primer"
+    GoogleForm,
+} from "../components/utah-health"
 
-export default function UofUPrimer({ data }) {
+export default function UtahHealth({ data }) {
     const {
         vslogo: { url: vsLogo },
         ulogo: { url: uLogo },
@@ -26,7 +27,7 @@ export default function UofUPrimer({ data }) {
         invite_btn: { text: inviteBtnText },
         hero_image: { url: heroImg },
         hero_image_mobile: { url: heroImgMobile },
-        code_snippet_mobile: { url: codeSnippet },
+        google_form_info: { text: googleInfo },
         google_form_link: { url: googleLink },
         google_form_btn: { text: googleBtnText },
         about_primer_header: { text: aboutPrimerHeader },
@@ -44,15 +45,16 @@ export default function UofUPrimer({ data }) {
                 info2={pageInfo2}
             />
             <BeginCourseForm />
-            <HeroImage
-                desktopImg={heroImg}
-                mobileImg={heroImgMobile}
-                snippet={codeSnippet}
-            />
+            <HeroImage desktopImg={heroImg} mobileImg={heroImgMobile} />
             <AboutPrimer
                 header={aboutPrimerHeader}
                 info1={aboutPrimer1}
                 info2={aboutPrimer2}
+            />
+            <GoogleForm
+                link={googleLink}
+                btnText={googleBtnText}
+                info={googleInfo}
             />
             <NeverLearnAlone
                 header={learnHeader}
@@ -109,8 +111,8 @@ export const query = graphql`
                 hero_image_mobile {
                     url
                 }
-                code_snippet_mobile {
-                    url
+                google_form_info {
+                    text
                 }
                 google_form_link {
                     url

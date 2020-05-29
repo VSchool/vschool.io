@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { gray, black, Button } from "@vschool/lotus"
+import QueryLink from "../shared/QueryLink.js"
 
 const Container = styled.div`
     background-color: #fad6db;
@@ -43,9 +44,9 @@ const Header = styled.h2`
     margin-top: 16px;
     font-weight: 900;
 
-    @media(min-width: 1200px){
-      font-size: 44px;
-      line-height: 48px;
+    @media (min-width: 1200px) {
+        font-size: 44px;
+        line-height: 48px;
     }
 `
 
@@ -60,10 +61,10 @@ const Subheader = styled.p`
     margin-top: 16px;
     margin-bottom: 32px;
 
-    @media(min-width: 1200px){
-      font-size: 20px;
-      line-height: 28px;
-      max-width: 520px;
+    @media (min-width: 1200px) {
+        font-size: 20px;
+        line-height: 28px;
+        max-width: 520px;
     }
 `
 
@@ -72,14 +73,22 @@ const StyledButton = styled(Button)`
     font-weight: 800;
 `
 
+const StyledLink = styled(QueryLink)`
+    text-decoration: none;
+`
+
 export default function NeverLearnAlone(props) {
-    const { header, subheader, btnText, logo } = props
+    const { header, subheader, btnText, logo, link } = props
     return (
         <Container>
             <Logo src={logo} />
             <Header>{header}</Header>
             <Subheader>{subheader}</Subheader>
-            <StyledButton buttonStyle="primary-light">{btnText}</StyledButton>
+            <StyledLink to={link}>
+                <StyledButton buttonStyle="primary-light">
+                    {btnText}
+                </StyledButton>
+            </StyledLink>
         </Container>
     )
 }
