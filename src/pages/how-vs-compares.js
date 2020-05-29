@@ -17,7 +17,7 @@ import {
 import Courses from "../components/shared/Courses.js"
 import { gray } from "@vschool/lotus"
 
-export default function Methodology({ data }) {
+export default function HowVSCompares({ data }) {
     const {
         testimonial_program2: { text: testimonialProgram2 },
         testimonial_program1: { text: testimonialProgram1 },
@@ -49,7 +49,7 @@ export default function Methodology({ data }) {
     } = data.prismicMethodologyPage.data
     return (
         <Layout>
-            <SEO title="Methodology" />
+            <SEO title="How VS Compares" />
             <HeroHeader
                 title={pageSubheader1}
                 header={pageHeader}
