@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { green, gray, black } from "@vschool/lotus"
+import { gray, black } from "@vschool/lotus"
 
 const Container = styled.div`
     background-color: ${gray.lightest};
@@ -78,7 +78,7 @@ const Image = styled.img`
     max-width: 377px;
     margin-top: 48px;
 
-    @media(min-width: 1200px){
+    @media (min-width: 1200px) {
         max-width: 585px;
     }
 `

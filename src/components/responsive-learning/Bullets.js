@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { green, black, gray } from "@vschool/lotus"
+import { green, black } from "@vschool/lotus"
 
 const BulletsContainer = styled.div`
     margin-top: 48px;

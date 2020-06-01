@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { blue, black, gray } from "@vschool/lotus"
+import { blue, black } from "@vschool/lotus"
 
 const Container = styled.div`
     background-color: ${blue.lightest};

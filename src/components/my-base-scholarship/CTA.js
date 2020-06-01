@@ -67,10 +67,9 @@ const WhiteBackground = styled.div`
     background-color: ${gray.lighter};
     padding: 16px 56px;
 
-    @media(max-width: 350px){
+    @media (max-width: 350px) {
         padding: 16px;
     }
-
 `
 
 const NextSession = styled.p`
