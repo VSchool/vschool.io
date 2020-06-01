@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { gray, black, green } from "@vschool/lotus"
+import { gray, black } from "@vschool/lotus"
 import Bullets from "./Bullets.js"
 
 const Container = styled.div`

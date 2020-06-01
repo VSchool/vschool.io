@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { gray, blue, black, green, Button } from "@vschool/lotus"
+import { gray, blue, black, Button } from "@vschool/lotus"
 import Link from "../shared/QueryLink"
 
 const HeaderContainer = styled.div`
