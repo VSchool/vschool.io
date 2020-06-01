@@ -41,6 +41,7 @@ const Title = styled.h5`
 
     @media (min-width: 1200px) {
         text-align: left;
+        margin-bottom: 32px;
     }
 `
 
@@ -114,7 +115,8 @@ const HeroImg = styled.img`
     margin-top: 56px;
 
     @media (min-width: 1200px) {
-        max-width: 470px
+        max-width: 470px;
+        margin-top: 0;
     }
 `
 
@@ -136,19 +138,43 @@ const Info = styled.p`
     }
 `
 
+const Logos = styled.div`
+    display: flex;
+    align-items: center;
+`
+
 const MyBaseLogo = styled.img`
     height: 48px;
     width: 118px;
+    margin-bottom: 16px;
+`
+
+const ArhnLogo = styled.img`
+    margin-left: 24px;
+    width: 160px;
 `
 
 export default function HeroHeader(props) {
-    const { header, sub, logo, heroImg, link, btnText, info, title } = props
+    const {
+        header,
+        sub,
+        logo,
+        heroImg,
+        link,
+        arhnLogo,
+        btnText,
+        info,
+        title,
+    } = props
 
     return (
         <HeaderContainer>
             <Container>
                 <Title>{title}</Title>
-                <MyBaseLogo src={logo} />
+                <Logos>
+                    <MyBaseLogo src={logo} />
+                    <ArhnLogo src={arhnLogo} />
+                </Logos>
                 <H1>{header}</H1>
                 <P>{sub}</P>
                 <Info>{info}</Info>
