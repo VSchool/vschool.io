@@ -4,6 +4,10 @@ import { gray, orange } from "@vschool/lotus"
 
 const Container = styled.div`
     background-color: ${gray.lighter};
+
+    @media(min-width: 800px){
+        padding-bottom: 56px;
+    }
 `
 
 const RateImg = styled.img`
@@ -29,6 +33,7 @@ const FlexContainer = styled.div`
 
     & ${RateImg}:nth-child(2){
         width: 280px;
+        height: 160px;
         
          
         @media(max-width: 350px){
