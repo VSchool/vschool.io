@@ -30,6 +30,7 @@ export default function MyBaseScholarship({ data }) {
         scholarship_bg_img: { url: scholarshipBgImg },
         ratings,
         phases,
+        my_base_scholarship_link: { url: myBaseScholarshipLink },
         page_title: { text: pageTitle },
         page_subheader: { text: pageSubheader },
         page_info: { text: pageInfo },
@@ -89,7 +90,11 @@ export default function MyBaseScholarship({ data }) {
                 bgImg={scholarshipBgImg}
             />
             <Companies header={companiesHeader} logos={logos} />
-            <Ratings header={ratingsHeader} ratings={ratings} />
+            <Ratings
+                header={ratingsHeader}
+                ratings={ratings}
+                bootcampRankingsLink={myBaseScholarshipLink}
+            />
             <Testimonial2
                 testimonial={testimonial2}
                 cite={cite2}
@@ -136,6 +141,9 @@ export const query = graphql`
                 }
                 scholarship_info {
                     text
+                }
+                my_base_scholarship_link {
+                    url
                 }
                 scholarship_bullets {
                     checkmark {
