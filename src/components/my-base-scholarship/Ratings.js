@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { blue, black } from "@vschool/lotus"
+import QueryLink from "../shared/QueryLink.js"
 
 const Container = styled.div`
     background-color: ${blue.lightest};
@@ -90,15 +91,23 @@ const RatingsContainer = styled.div`
     }
 `
 
+const StyledLink = styled(QueryLink)``
+
 export default function Ratings(props) {
-    const { header, ratings } = props
+    const { header, ratings, bootcampRankingsLink } = props
     return (
         <Container>
             <H4>{header}</H4>
             <RatingsContainer>
-                {ratings.map(({ rating }) => (
-                    <Image key={rating.url} src={rating.url} />
-                ))}
+                {ratings.map(({ rating }, i) =>
+                    i === 2 ? (
+                        <StyledLink to={bootcampRankingsLink}>
+                            <Image key={rating.url} src={rating.url} />
+                        </StyledLink>
+                    ) : (
+                        <Image key={rating.url} src={rating.url} />
+                    )
+                )}
             </RatingsContainer>
         </Container>
     )
