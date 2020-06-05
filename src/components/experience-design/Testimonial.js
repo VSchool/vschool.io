@@ -2,20 +2,13 @@ import React from "react"
 import styled from "styled-components"
 import { orange, purple } from "@vschool/lotus"
 
-const Container = styled.div`
+const Container = styled.section`
     background-color: ${orange.lightest};
     padding-top: 56px;
-    padding-left: 24px;
-    padding-right: 24px;
 
     @media (min-width: 320px) and (max-width: 415px) {
         padding-left: 16px;
         padding-right: 16px;
-    }
-
-    @media (min-width: 900px) {
-        display: flex;
-        justify-content: center;
     }
 `
 
