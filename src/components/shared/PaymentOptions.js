@@ -2,14 +2,9 @@ import React from "react"
 import styled from "styled-components"
 import { gray, white, black, blue } from "@vschool/lotus"
 
-const FlexContainer = styled.div`
+const FlexContainer = styled.section`
     background-color: ${gray.lighter};
     padding-top: 56px;
-    padding-left: 24px;
-    padding-right: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     padding-bottom: 72px;
 
     @media (min-width: 860px) {
