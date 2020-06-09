@@ -1,9 +1,15 @@
 @import url("https://use.typekit.net/rfo4ebp.css");
 
-/* Sass Variables */
+/* Scss Variables */
 $media-md: 600px;
 $media-lg: 840px;
 $media-xl: 1200px;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 html {
     font-family: "aktiv-grotesk";
@@ -11,11 +17,6 @@ html {
     -webkit-text-size-adjust: 100%;
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
 
 /* Sections should be used universally to represent a 
 logical separation in the content of any given page, 
