@@ -9,6 +9,7 @@ module.exports = {
         author: `@vschool`,
     },
     plugins: [
+        `gatsby-plugin-sass`,
         `gatsby-plugin-react-helmet`,
         {
             resolve: `gatsby-plugin-canonical-urls`,

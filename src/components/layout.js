@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 import Navbar from "./Navbar/Navbar"
 import Footer from "./Footer/Footer"
-import "./layout.css"
+import "./layout.scss"
 
 const Layout = ({ children }) => {
     // const data = useStaticQuery(graphql`
