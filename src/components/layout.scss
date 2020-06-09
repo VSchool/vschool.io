@@ -1,5 +1,10 @@
 @import url("https://use.typekit.net/rfo4ebp.css");
 
+/* Sass Variables */
+$media-md: 600px;
+$media-lg: 840px;
+$media-xl: 1200px;
+
 html {
     font-family: "aktiv-grotesk";
     -ms-text-size-adjust: 100%;
@@ -12,45 +17,55 @@ html {
     padding: 0;
 }
 
-
+/* Sections should be used universally to represent a 
+logical separation in the content of any given page, 
+and additional tweaks should be made in the styled-component 
+of the specific page that needs it (e.g. negative margin) */
 section {
     padding-left: 24px;
     padding-right: 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
 
-@media only screen and (min-width: 600px) {
-    section {
-        padding-left: 32px;
-        padding-right: 32px;
+    @media only screen and (min-width: $media-md) {
+        section {
+            padding-left: 32px;
+            padding-right: 32px;
+        }
+    }
+
+    @media only screen and (min-width: $media-lg) {
+        section {
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+    }
+
+    @media only screen and (min-width: $media-xl) {
+        section {
+            padding-left: 96px;
+            padding-right: 96px;
+        }
     }
 }
 
-@media only screen and (min-width: 840px) {
-    section {
-        padding-left: 40px;
-        padding-right: 40px;
-    }
+
+h1,
+h2,
+h3,
+p,
+span {
+    font-family: "aktiv-grotesk";
 }
 
-@media only screen and (min-width: 1200px) {
-    section {
-        padding-left: 96px;
-        padding-right: 96px;
-    }
+// Smaller headers use the extended font
+h4,
+h5,
+h6 {
+    font-family: "aktiv-grotesk-extended";
+    text-transform: uppercase;
 }
-
-
-/* h1, h2, h3, h4, h5, h6, p, span {
-    
-} */
-
-
-
-
-
 
 /* ------------------------------------------------- */
 /* Styles added by gastby that we can choose to keep */
