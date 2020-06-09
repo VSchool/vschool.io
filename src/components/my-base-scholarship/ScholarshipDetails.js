@@ -3,31 +3,14 @@ import styled from "styled-components"
 import { gray, black, Button } from "@vschool/lotus"
 import QueryLink from "../shared/QueryLink.js"
 
-const Container = styled.div`
+const Container = styled.section`
     background-color: ${gray.lighter};
     padding-top: 64px;
-    padding-left: 24px;
-    padding-right: 24px;
     padding-bottom: 56px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     height: 400px;
-
-    @media (min-width: 600px) {
-        padding-left: 32px;
-        padding-right: 32px;
-    }
-
-    @media (min-width: 840px) {
-        padding-left: 40px;
-        padding-right: 40px;
-    }
 
     @media (min-width: 1200px) {
         padding-top: 96px;
-        padding-left: 88px;
-        padding-right: 88px;
     }
 `
 
@@ -38,7 +21,6 @@ const HeaderContainer = styled.div`
 `
 
 const Header = styled.h2`
-    font-family: "aktiv-grotesk";
     font-weight: 900;
     font-size: 32px;
     line-height: 38px;

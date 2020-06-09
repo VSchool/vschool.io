@@ -106,7 +106,7 @@ const TestimonialText = styled.h2`
     }
 `
 
-const Cite = styled.h5`
+const Cite = styled.h3`
     color: ${yellow.darker};
     font-family: "aktiv-grotesk-extended";
     font-weight: 800;

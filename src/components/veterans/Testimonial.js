@@ -2,28 +2,14 @@ import React from "react"
 import styled from "styled-components"
 import { gray, yellow, orange, green } from "@vschool/lotus"
 
-const Container = styled.div`
+const Container = styled.section`
     background-color: ${yellow.lightest};
     padding-top: 64px;
-    padding-left: 24px;
-    padding-right: 24px;
     padding-bottom: 64px;
 
-    @media (min-width: 600px) {
-        padding-left: 32px;
-        padding-right: 32px;
-    }
-
     @media (min-width: 840px) {
-        padding-left: 40px;
-        padding-right: 40px;
         padding-bottom: 96px;
         padding-top: 96px;
-    }
-
-    @media (min-width: 1200px) {
-        padding-left: 88px;
-        padding-right: 88px;
     }
 `
 
@@ -111,7 +97,6 @@ const TestimonialText = styled.h2`
 
 const Cite = styled.h5`
     color: ${yellow.darker};
-    font-family: "aktiv-grotesk-extended";
     font-weight: 800;
     font-size: 18px;
     margin-top: 24px;

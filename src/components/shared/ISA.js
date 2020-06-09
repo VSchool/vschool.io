@@ -168,7 +168,7 @@ const AboutISA = styled.div`
     }
 `
 
-const H4 = styled.h4`
+const ISAText = styled.h3`
     color: ${black};
     font-family: "aktiv-grotesk";
     font-weight: 800;
@@ -194,7 +194,7 @@ function ISA(props) {
                 </LearnMoreContainer>
                 <AboutISABackground isaBackground={img}>
                     <AboutISA>
-                        <H4>{sub2}</H4>
+                        <ISAText>{sub2}</ISAText>
                         <P>{info2}</P>
                     </AboutISA>
                 </AboutISABackground>

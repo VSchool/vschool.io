@@ -3,15 +3,10 @@ import styled from "styled-components"
 import { blue, black, Button } from "@vschool/lotus"
 import Link from "../shared/QueryLink"
 
-const Container = styled.div`
+const Container = styled.section`
     background-color: ${blue.lightest};
     padding-top: 96px;
-    padding-left: 24px;
-    padding-right: 24px;
     padding-bottom: 160px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 
     @media (min-width: 320px) and (max-width: 400px) {
         padding-left: 8px;
@@ -25,7 +20,6 @@ const Container = styled.div`
 
 const Header = styled.h1`
     color: ${black};
-    font-family: "aktiv-grotesk";
     font-size: 32px;
     font-weight: 900;
     line-height: 48px;

@@ -3,21 +3,13 @@ import styled from "styled-components"
 import { gray, yellow, black, Button } from "@vschool/lotus"
 import Link from "../shared/QueryLink"
 
-const HeaderContainer = styled.div`
+const HeaderContainer = styled.section`
     background-color: ${yellow.lightest};
     padding-top: 64px;
-    padding-left: 24px;
-    padding-right: 24px;
     padding-bottom: 64px;
-
-    @media (min-width: 600px) {
-        padding-left: 32px;
-        padding-right: 32px;
-    }
+    display: block;
 
     @media (min-width: 840px) {
-        padding-left: 40px;
-        padding-right: 40px;
         padding-bottom: 96px;
         padding-top: 96px;
     }
@@ -26,8 +18,7 @@ const HeaderContainer = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
-        padding-left: 88px;
-        padding-right: 88px;
+        flex-direction: row;
     }
 `
 

@@ -17,10 +17,9 @@ const Container = styled.section`
 
 `
 
-const H4 = styled.h4`
+const H4 = styled.h3`
     width: 100%;
     color: ${black};
-    font-family: "aktiv-grotesk";
     font-size: 28px;
     font-weight: 900;
     text-align: center;

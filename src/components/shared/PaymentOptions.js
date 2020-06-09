@@ -34,7 +34,7 @@ const Option = styled.div`
     }
 `
 
-const H4 = styled.h4`
+const PaymentTitle = styled.h3`
     color: ${black};
     font-family: "aktiv-grotesk";
     font-size: 24px;
@@ -79,7 +79,7 @@ function PaymentOptions(props) {
                 ({ payment_type, payment_info, payment_info_link }) => {
                     return (
                         <Option key={payment_type.text}>
-                            <H4>{payment_type.text}</H4>
+                            <PaymentTitle>{payment_type.text}</PaymentTitle>
                             <P>{payment_info.text}</P>
                             <LearnMore href={payment_info_link.url}>
                                 Learn More

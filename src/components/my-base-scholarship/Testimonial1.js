@@ -2,25 +2,11 @@ import React from "react"
 import styled from "styled-components"
 import { gray, blue, yellow } from "@vschool/lotus"
 
-const Container = styled.div`
+const Container = styled.section`
     background-color: ${gray.lighter};
-    padding-left: 24px;
-    padding-right: 24px;
     padding-bottom: 64px;
 
-    @media (min-width: 600px) {
-        padding-left: 32px;
-        padding-right: 32px;
-    }
-
-    @media (min-width: 840px) {
-        padding-left: 40px;
-        padding-right: 40px;
-    }
-
     @media (min-width: 1200px) {
-        padding-left: 88px;
-        padding-right: 88px;
         padding-top: 32px;
     }
 `
@@ -35,7 +21,6 @@ const GraySection = styled.div`
         justify-content: center;
     }
 `
-
 
 const Image = styled.img`
     width: 232px;
@@ -64,8 +49,6 @@ const TestimonialContainer = styled.div`
         padding-top: 44px;
         padding-bottom: 44px;
     }
-
-
 `
 
 const TestimonialText = styled.h2`
@@ -78,13 +61,12 @@ const TestimonialText = styled.h2`
     max-width: 320px;
 
     @media (min-width: 1200px) {
-      width: 100%;
+        width: 100%;
         max-width: 580px;
     }
-
 `
 
-const Cite = styled.h5`
+const Cite = styled.h3`
     color: ${blue.darker};
     font-family: "aktiv-grotesk-extended";
     font-weight: 800;
@@ -93,7 +75,6 @@ const Cite = styled.h5`
     max-width: 300px;
     align-self: center;
 
- 
     @media (min-width: 1200px) {
         align-self: flex-start;
         max-width: 100%;

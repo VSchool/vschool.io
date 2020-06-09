@@ -19,10 +19,9 @@ const Container = styled.section`
     }
 `
 
-const H4 = styled.h4`
+const H4 = styled.h3`
     background-color: ${gray.lighter};
     color: ${black};
-    font-family: "aktiv-grotesk";
     font-size: 24px;
     font-weight: 800;
     display: inline-block;

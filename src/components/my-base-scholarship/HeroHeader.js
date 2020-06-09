@@ -3,21 +3,15 @@ import styled from "styled-components"
 import { gray, blue, black, Button } from "@vschool/lotus"
 import Link from "../shared/QueryLink"
 
-const HeaderContainer = styled.div`
+const HeaderContainer = styled.section`
     background-color: ${blue.lightest};
     padding-top: 96px;
-    padding-left: 24px;
-    padding-right: 24px;
     padding-bottom: 64px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
 
     @media (min-width: 1200px) {
         flex-direction: row;
         justify-content: center;
-        padding-left: 88px;
-        padding-right: 88px;
     }
 `
 
@@ -29,12 +23,10 @@ const Container = styled.div`
 
 const Title = styled.h5`
     color: ${blue.base};
-    font-family: "aktiv-grotesk-extended";
     font-size: 14px;
     letter-spacing: 0.25px;
     line-height: 20px;
     font-weight: 800;
-    max-width: 350px;
     margin-bottom: 16px;
     width: 100%;
     max-width: 326px;
@@ -46,7 +38,6 @@ const Title = styled.h5`
 `
 
 const H1 = styled.h1`
-    font-family: "aktiv-grotesk";
     font-size: 44px;
     font-weight: 900;
     line-height: 44px;
@@ -67,7 +58,6 @@ const H1 = styled.h1`
 
 const P = styled.p`
     color: ${gray.darker};
-    font-family: "aktiv-grotesk";
     font-size: 16px;
     font-weight: 500;
     line-height: 28px;
@@ -141,17 +131,19 @@ const Info = styled.p`
 const Logos = styled.div`
     display: flex;
     align-items: center;
+    width: 100%;
 `
 
 const MyBaseLogo = styled.img`
-    height: 48px;
-    width: 118px;
+    width: 100%;
+    max-width: 118px;
     margin-bottom: 16px;
 `
 
 const ArhnLogo = styled.img`
     margin-left: 24px;
-    width: 160px;
+    width: 100%;
+    max-width: 140px;
 `
 
 export default function HeroHeader(props) {

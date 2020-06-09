@@ -16,7 +16,6 @@ const Container = styled.section`
 `
 
 const H1 = styled.h1`
-    font-family: "aktiv-grotesk";
     font-size: 36px;
     font-weight: 900;
     line-height: 40px;
@@ -46,7 +45,6 @@ const H1 = styled.h1`
 
 const P = styled.p`
     color: ${gray.darker};
-    font-family: "aktiv-grotesk";
     font-size: 16px;
     font-weight: 700;
     line-height: 24px;
@@ -70,7 +68,6 @@ const P = styled.p`
 
 const H6 = styled.h6`
     color: ${black};
-    font-family: "aktiv-grotesk-extended";
     font-size: 14px;
     line-height: 20px;
     text-align: center;

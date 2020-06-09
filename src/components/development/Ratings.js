@@ -18,7 +18,7 @@ const Container = styled.section`
     }
 `
 
-const H4 = styled.h4`
+const H4 = styled.h3`
     background-color: ${orange.lightest};
     color: ${black};
     font-family: "aktiv-grotesk";

@@ -35,7 +35,7 @@ const GridItem = styled.div`
     }
 `
 
-const H4 = styled.h4`
+const H4 = styled.h2`
     color: ${black};
     font-family: "aktiv-grotesk";
     font-size: 24px;
@@ -57,7 +57,7 @@ const H4 = styled.h4`
     }
 `
 
-const H5 = styled.h5`
+const H5 = styled.h3`
     color: ${black};
     font-family: "aktiv-grotesk";
     font-size: 20px;
