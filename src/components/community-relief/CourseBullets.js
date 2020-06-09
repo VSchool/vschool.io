@@ -3,26 +3,18 @@ import styled from "styled-components"
 import Bullet from "./Bullet.js"
 import { gray } from "@vschool/lotus"
 
-const Container = styled.div`
+const Container = styled.section`
     background-color: ${gray.lighter};
     padding: 24px 24px 96px 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: space-between;
 
     @media (max-width: 360px) {
-      padding-left: 0px;
-      padding-right: 0px;
-    }
-
-    @media (min-width: 600px) {
-        padding-left: 48px;
-        padding-right: 48px;
+        padding-left: 0px;
+        padding-right: 0px;
     }
 
     @media (min-width: 1200px) {
-        padding: 48px;
+        padding-top: 48px;
         padding-bottom: 160px;
     }
 `
@@ -38,10 +30,10 @@ const BulletsContainer = styled.div`
     border: 2px solid ${gray.dark};
     padding: 48px 16px 0 16px;
     background-color: ${gray.lightest};
-    
+
     @media (max-width: 360px) {
-      padding-left: 4px;
-      padding-right: 4px;
+        padding-left: 4px;
+        padding-right: 4px;
     }
     @media (min-width: 600px) {
         padding-left: 48px;
@@ -49,9 +41,9 @@ const BulletsContainer = styled.div`
     }
 
     @media (min-width: 1200px) {
-      flex-direction: row;
-      align-items: flex-start;
-      padding: 24px 16px;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 24px 16px;
     }
 `
 

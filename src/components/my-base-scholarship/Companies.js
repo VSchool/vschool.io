@@ -2,30 +2,13 @@ import React from "react"
 import styled from "styled-components"
 import { blue, black } from "@vschool/lotus"
 
-const Container = styled.div`
+const Container = styled.section`
     background-color: ${blue.lightest};
     padding-top: 260px;
-    padding-left: 24px;
-    padding-right: 24px;
     padding-bottom: 56px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    @media (min-width: 600px) {
-        padding-left: 32px;
-        padding-right: 32px;
-    }
-
-    @media (min-width: 840px) {
-        padding-left: 40px;
-        padding-right: 40px;
-    }
 
     @media (min-width: 1200px) {
         padding-top: 160px;
-        padding-left: 88px;
-        padding-right: 88px;
     }
 `
 
@@ -40,11 +23,11 @@ const Header = styled.h2`
     max-width: 380px;
     margin-top: 72px;
 
-    @media(max-width: 400px){
-      margin-top: 180px;
+    @media (max-width: 400px) {
+        margin-top: 180px;
     }
 
-    @media(min-width: 1200px){
+    @media (min-width: 1200px) {
         max-width: 560px;
         line-height: 40px;
     }
@@ -213,7 +196,6 @@ const LogoList = styled.div`
     justify-content: space-between;
     height: 400px;
     margin: 0 8px;
-
 
     @media (min-width: 1200px) {
         flex-direction: row;

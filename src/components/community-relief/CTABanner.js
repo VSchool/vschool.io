@@ -16,9 +16,8 @@ const FlexContainer = styled.div`
     }
 `
 
-const H5 = styled.h5`
+const H5 = styled.h3`
     color: ${black};
-    font-family: "aktiv-grotesk";
     font-size: 20px;
     font-weight: 800;
     line-height: 26px;

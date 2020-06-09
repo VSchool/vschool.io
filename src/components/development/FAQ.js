@@ -52,7 +52,7 @@ function FAQ(props) {
         whiteSpace: "pre-wrap",
         backgroundColor: gray.lighter,
         width: "100%",
-        maxWidth: 672,
+        maxWidth: 672
     }
     return (
         <Container>

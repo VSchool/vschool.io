@@ -87,7 +87,7 @@ const NextSession = styled.div`
     }
 `
 
-const SessionText = styled.h5`
+const SessionText = styled.h3`
     font-family: "aktiv-grotesk";
     font-size: 20px;
     font-weight: 800;

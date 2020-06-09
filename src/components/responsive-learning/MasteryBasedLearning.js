@@ -2,32 +2,18 @@ import React from "react"
 import styled from "styled-components"
 import { gray, green, purple, black } from "@vschool/lotus"
 
-const Container = styled.div`
+const Container = styled.section`
     padding-top: 96px;
     background-color: ${gray.lightest};
-    padding-left: 24px;
-    padding-right: 24px;
     padding-bottom: 96px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
 
-    @media (min-width: 600px) {
-        padding-left: 32px;
-        padding-right: 32px;
-    }
-
     @media (min-width: 840px) {
-        padding-left: 40px;
-        padding-right: 40px;
         padding-bottom: 96px;
         padding-top: 96px;
     }
 
     @media (min-width: 1200px) {
-        padding-left: 88px;
-        padding-right: 88px;
         padding-top: 160px;
     }
 `
@@ -38,7 +24,6 @@ const HeaderContainer = styled.div`
 
 const Header = styled.h2`
     position: relative;
-    font-family: "aktiv-grotesk";
     font-style: normal;
     font-weight: 800;
     font-size: 44px;
@@ -77,7 +62,6 @@ const GreenUnderline = styled.span`
 `
 
 const SubHeader = styled.h4`
-    font-family: "aktiv-grotesk-extended";
     font-weight: 800;
     font-size: 14px;
     line-height: 20px;
@@ -102,7 +86,6 @@ const Description = styled.p`
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
-    font-family: "aktiv-grotesk";
     color: ${gray.darker};
 
     @media (min-width: 1200px) {
@@ -151,8 +134,7 @@ const Info = styled.div`
     }
 `
 
-const InfoHeader = styled.h4`
-    font-family: "aktiv-grotesk";
+const InfoHeader = styled.h3`
     font-weight: 800;
     font-size: 24px;
     line-height: 30px;
@@ -184,7 +166,6 @@ const InfoText = styled.p`
     margin-top: 16px;
     font-weight: 500;
     color: ${gray.darker};
-    font-family: "aktiv-grotesk";
     font-size: 16px;
     line-height: 24px;
 

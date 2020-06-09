@@ -45,7 +45,7 @@ const P = styled.p`
     }
 `
 
-const H4 = styled.h4`
+const H4 = styled.h3`
     color: ${orange.dark};
     font-size: 16px;
     font-family: "aktiv-grotesk-extended";

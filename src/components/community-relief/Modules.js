@@ -3,15 +3,10 @@ import styled from "styled-components"
 import { gray } from "@vschool/lotus"
 import Module from "./Module.js"
 
-const Container = styled.div`
+const Container = styled.section`
     background-color: ${gray.lighter};
-    padding-left: 24px;
-    padding-right: 24px;
     padding-top: 56px;
     padding-bottom: 56px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 
     @media (min-width: 320px) and (max-width: 400px) {
         padding-left: 16px;
@@ -19,14 +14,10 @@ const Container = styled.div`
     }
 
     @media (min-width: 600px) {
-        padding-left: 48px;
-        padding-right: 48px;
         padding-bottom: 96px;
     }
 
     @media (min-width: 1200px) {
-        padding-right: 96px;
-        padding-left: 96px;
         padding-top: 96px;
         padding-bottom: 96px;
     }

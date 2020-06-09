@@ -56,7 +56,7 @@ const H2 = styled.h2`
     }
 `
 
-const H4 = styled.h4`
+const Cite = styled.h3`
     color: ${orange.dark};
     font-family: "aktiv-grotesk-extended";
     font-size: 20px;
@@ -112,7 +112,7 @@ function Testimonial(props) {
             <GridContainer>
                 <CiteContainer>
                     <H2>"{testimonial}"</H2>
-                    <H4>{cite}</H4>
+                    <Cite>{cite}</Cite>
                 </CiteContainer>
                 <FlexContainer>
                     <DustinImg src={testimonialImg} />

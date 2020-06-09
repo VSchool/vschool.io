@@ -7,7 +7,7 @@ const BulletContainer = styled.div`
     }
 `
 
-const H5 = styled.h5`
+const H3 = styled.h3`
     color: #21201f;
     font-family: "aktiv-grotesk";
     font-size: 20px;
@@ -29,7 +29,7 @@ const P = styled.p`
 function Bullet(props) {
     return (
         <BulletContainer>
-            <H5>{props.bullet_title.text}</H5>
+            <H3>{props.bullet_title.text}</H3>
             <P>{props.bullet_description.text}</P>
         </BulletContainer>
     )
