@@ -20,7 +20,6 @@ const Container = styled.section`
 
 const H3 = styled.h3`
     color: ${black};
-    font-family: "aktiv-grotesk";
     font-size: 32px;
     font-weight: 900;
     line-height: 40px;
@@ -84,7 +83,6 @@ const BulletHeader = styled.h3`
 
 const BulletText = styled.p`
     color: #514f4b;
-    font-family: "aktiv-grotesk";
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;

@@ -34,7 +34,6 @@ const Anchor = styled.a`
     /* TEMPORARY COLOR */
     color: #A09C96; 
     /* color: ${blue.base}; */
-    font-family: "aktiv-grotesk";
     font-size: 20px;
     font-weight: 500;
     line-height: 28px;

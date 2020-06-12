@@ -53,9 +53,8 @@ const TextContainer = styled.div`
     }
 `
 
-const H4 = styled.h4`
+const H3 = styled.h3`
     color: ${black};
-    font-family: "aktiv-grotesk";
     font-size: 20px;
     font-weight: 800;
 
@@ -66,7 +65,6 @@ const H4 = styled.h4`
 
 const P = styled.p`
     color: ${gray.darker};
-    font-family: "aktiv-grotesk";
     font-size: 14px;
     font-weight: 500;
     margin-top: 8px;
@@ -97,7 +95,7 @@ export default function Card(props) {
             <BackgroundImg src={card_image.url} />
             <OverlayImg src={card_photo.url} />
             <TextContainer>
-                <H4>{card_header.text}</H4>
+                <H3>{card_header.text}</H3>
                 <P>{card_text.text}</P>
                 {/* href={card_link.url} */}
                 <Anchor disabled>{card_link_text.text}</Anchor>

@@ -17,9 +17,8 @@ const TitleContainer = styled.div`
     margin-bottom: 8px;
 `
 
-const Title = styled.h6`
+const Title = styled.h3`
     color: ${black};
-    font-family: "aktiv-grotesk";
     font-size: 24px;
     font-weight: 800;
     position: relative;
@@ -51,7 +50,6 @@ const Info = styled.p`
 
 const Subject = styled.p`
     color: ${gray.darkest};
-    font-family: "aktiv-grotesk";
     font-size: 14px;
     font-weight: 700;
     line-height: 22px;

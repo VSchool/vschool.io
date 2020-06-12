@@ -1,39 +1,27 @@
 import React from "react"
 import styled from "styled-components"
+import { black } from "@vschool/lotus"
 
-const Header = styled.header`
+const Header = styled.section`
     background-color: #e3e8fa;
     padding-top: 64px;
-    padding-left: 24px;
-    padding-right: 24px;
     padding-bottom: 64px;
 
-    @media (min-width: 600px) {
-        padding-left: 32px;
-        padding-right: 32px;
-    }
-
     @media (min-width: 840px) {
-        padding-left: 40px;
-        padding-right: 40px;
         padding-bottom: 96px;
         padding-top: 96px;
-    }
-
-    @media (min-width: 1200px) {
-        padding-left: 88px;
-        padding-right: 88px;
     }
 `
 
 const H1 = styled.h1`
-    color: #21201f;
-    font-family: "aktiv-grotesk";
+    color: ${black};
     font-size: 36px;
     font-weight: 900;
     line-height: 40px;
     text-align: center;
     margin: 0;
+    width: 100%;
+    max-width: 1024px;
 
     @media (min-width: 600px) {
         font-size: 40px;
@@ -64,12 +52,13 @@ const H1 = styled.h1`
 
 const P = styled.p`
     color: #514f4b;
-    font-family: aktiv-grotesk;
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
     text-align: center;
     margin: 16px 24px 24px 24px;
+    width: 100%;
+    max-width: 1024px;
 
     @media (max-width: 840px) and (min-width: 600px) {
         font-size: 18px;

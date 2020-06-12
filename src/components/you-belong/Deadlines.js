@@ -2,17 +2,13 @@ import React from "react"
 import styled from "styled-components"
 import { gray, blue } from "@vschool/lotus"
 
-const DeadlinesContainer = styled.div`
+const DeadlinesContainer = styled.section`
     background-image: url(${props => props.bgImg});
     background-size: contain;
     background-position: center;
-    display: flex;
     justify-content: center;
-    align-items: center;
     padding: 24px;
-
     max-width: 600px;
-
     height: 500px;
 
     @media (min-width: 1200px) {
@@ -62,7 +58,6 @@ const Deadline = styled.div`
 
 const Title = styled.h5`
     color: ${gray.darker};
-    font-family: "aktiv-grotesk-extended";
     font-size: 14px;
     letter-spacing: 0.25px;
     line-height: 20px;
