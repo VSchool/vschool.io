@@ -34,7 +34,6 @@ const TextContainer = styled.div`
 
 const H3 = styled.h3`
     color: ${black};
-    font-family: "aktiv-grotesk";
     font-size: 24px;
     font-weight: 900;
     line-height: 28px;
@@ -55,7 +54,6 @@ const H3 = styled.h3`
 
 const P = styled.p`
     color: #514f4b;
-    font-family: "aktiv-grotesk";
     font-size: 16px;
     font-weight: 500;
     text-align: center;

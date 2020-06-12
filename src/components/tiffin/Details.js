@@ -2,31 +2,15 @@ import React from "react"
 import styled from "styled-components"
 import { gray, black } from "@vschool/lotus"
 
-const FlexContainer = styled.div`
-    display: flex;
+const FlexContainer = styled.section`
     justify-content: center;
     background-color: ${gray.lightest};
-    padding-left: 24px;
-    padding-right: 24px;
     padding-bottom: 64px;
     padding-top: 48px;
-    flex-direction: column;
-
-    @media (min-width: 600px) {
-        padding-left: 32px;
-        padding-right: 32px;
-    }
 
     @media (min-width: 840px) {
-        padding-left: 40px;
-        padding-right: 40px;
         padding-bottom: 96px;
         align-items: center;
-    }
-
-    @media (min-width: 1200px) {
-        padding-left: 88px;
-        padding-right: 88px;
     }
 `
 
@@ -56,7 +40,6 @@ const Detail = styled.div`
 
 const Title = styled.h3`
     color: ${black};
-    font-family: "aktiv-grotesk";
     font-size: 24px;
     line-height: 30px;
     font-weight: 800;
@@ -65,7 +48,6 @@ const Title = styled.h3`
 
 const Info = styled.p`
     color: ${gray.darker};
-    font-family: "aktiv-grotesk";
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
@@ -76,10 +58,9 @@ const Info = styled.p`
     }
 `
 
-const H4 = styled.h4`
+const H3 = styled.h3`
     width: 100%;
     color: ${black};
-    font-family: "aktiv-grotesk";
     font-size: 28px;
     font-weight: 900;
     text-align: center;
@@ -102,7 +83,7 @@ export default function Details(props) {
     const { details, header } = props
     return (
         <FlexContainer>
-            <H4>{header}</H4>
+            <H3>{header}</H3>
             <DetailsContainer>
                 {details.map(
                     ({ detail_info: info, detail_title: title }, i, arr) => (

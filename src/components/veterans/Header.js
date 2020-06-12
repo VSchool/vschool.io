@@ -29,7 +29,6 @@ const Container = styled.div`
 `
 
 const H1 = styled.h1`
-    font-family: "aktiv-grotesk";
     font-size: 36px;
     font-weight: 900;
     line-height: 40px;
@@ -58,7 +57,6 @@ const H1 = styled.h1`
 
 const P = styled.p`
     color: ${gray.darker};
-    font-family: "aktiv-grotesk";
     font-size: 16px;
     font-weight: 500;
     line-height: 28px;

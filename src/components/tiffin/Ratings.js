@@ -2,14 +2,9 @@ import React from "react"
 import styled from "styled-components"
 import { black, blue } from "@vschool/lotus"
 
-const Container = styled.div`
+const Container = styled.section`
     background-color: ${blue.lightest};
     padding-top: 96px;
-    padding-left: 24px;
-    padding-right: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     padding-bottom: 96px;
 
     @media (max-width: 400px) {
@@ -18,26 +13,18 @@ const Container = styled.div`
         padding-top: 56px;
     }
 
-    @media (min-width: 600px) {
-        padding-left: 48px;
-        padding-right: 48px;
-    }
-
     @media (min-width: 1100px) {
         padding-top: 64px;
     }
 
     @media (min-width: 1200px) {
-        padding-right: 96px;
-        padding-left: 96px;
         padding-bottom: 128px;
     }
 `
 
-const H4 = styled.h4`
+const H3 = styled.h3`
     background-color: ${blue.lightest};
     color: ${black};
-    font-family: "aktiv-grotesk";
     font-size: 24px;
     font-weight: 800;
     display: inline-block;
@@ -92,7 +79,7 @@ const RatingsContainer = styled.div`
     padding-bottom: 32px;
     margin-top: -48px;
 
-    & ${Image}:nth-child(2){
+    & ${Image}:nth-child(2) {
         width: 170px;
     }
 
@@ -123,13 +110,11 @@ const RatingsContainer = styled.div`
     }
 `
 
-
-
 export default function Ratings(props) {
     const { header, ratings } = props
     return (
         <Container>
-            <H4>{header}</H4>
+            <H3>{header}</H3>
             <RatingsContainer>
                 {ratings.map(({ rating }) => (
                     <Image key={rating.url} src={rating.url} />

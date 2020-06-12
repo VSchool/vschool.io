@@ -3,36 +3,27 @@ import styled from "styled-components"
 import { gray, black } from "@vschool/lotus"
 import Position from "./Position.js"
 
-const Container = styled.div`
+const Container = styled.section`
     background-color: ${gray.lighter};
     padding-top: 16px;
-    padding-left: 24px;
-    padding-right: 24px;
     padding-bottom: 96px;
 
     @media (min-width: 600px) {
-        padding-left: 32px;
-        padding-right: 32px;
         padding-bottom: 96px;
     }
 
     @media (min-width: 840px) {
-        padding-left: 40px;
-        padding-right: 40px;
         padding-bottom: 160px;
         padding-top: 80px;
     }
 
     @media (min-width: 1200px) {
-        padding-left: 88px;
-        padding-right: 88px;
         padding-bottom: 160px;
     }
 `
 
 const H3 = styled.h3`
     color: ${black};
-    font-family: "aktiv-grotesk";
     font-size: 30px;
     font-weight: 900;
     line-height: 40px;
