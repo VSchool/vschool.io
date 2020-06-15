@@ -3,14 +3,9 @@ import styled from "styled-components"
 import { blue, black, gray, Button } from "@vschool/lotus"
 import QueryLink from "../shared/QueryLink.js"
 
-const Container = styled.div`
+const Container = styled.section`
     background-color: ${gray.lighter};
     padding-top: 32px;
-    padding-left: 24px;
-    padding-right: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     padding-bottom: 208px;
 
     @media (max-width: 400px) {
@@ -19,20 +14,12 @@ const Container = styled.div`
         padding-top: 56px;
     }
 
-    @media (min-width: 600px) {
-        padding-left: 48px;
-        padding-right: 48px;
-    }
-
     @media (min-width: 1200px) {
-        padding-right: 96px;
-        padding-left: 96px;
         padding-top: 120px;
     }
 `
 
 const Header = styled.h2`
-    font-family: "aktiv-grotesk";
     font-weight: 900;
     font-size: 32px;
     line-height: 38px;
@@ -83,7 +70,6 @@ const NextSession = styled.p`
 `
 
 const StartDate = styled.p`
-    font-family: "aktiv-grotesk";
     font-weight: 800;
     font-size: 20px;
     line-height: 26px;

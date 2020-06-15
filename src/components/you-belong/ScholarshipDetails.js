@@ -3,21 +3,12 @@ import styled from "styled-components"
 import { gray, black } from "@vschool/lotus"
 import Deadlines from "./Deadlines.js"
 
-const Container = styled.div`
+const Container = styled.section`
     background-color: ${gray.lightest};
     padding-top: 64px;
-    padding-left: 24px;
-    padding-right: 24px;
     padding-bottom: 56px;
 
-    @media (min-width: 600px) {
-        padding-left: 32px;
-        padding-right: 32px;
-    }
-
     @media (min-width: 840px) {
-        padding-left: 40px;
-        padding-right: 40px;
         padding-top: 96px;
         display: flex;
         flex-direction: column;
@@ -26,14 +17,11 @@ const Container = styled.div`
 
     @media (min-width: 1200px) {
         padding-top: 160px;
-        padding-left: 88px;
-        padding-right: 88px;
     }
 `
 
 const Title = styled.h5`
     color: #7c2b3a;
-    font-family: "aktiv-grotesk-extended";
     font-size: 16px;
     letter-spacing: 0.25px;
     line-height: 24px;
@@ -68,7 +56,6 @@ const FlexContainer = styled.div`
 
 const H3 = styled.h3`
     color: ${black};
-    font-family: "aktiv-grotesk";
     font-size: 32px;
     font-weight: 900;
     line-height: 40px;
@@ -93,7 +80,6 @@ const H3 = styled.h3`
 
 const Info = styled.p`
     color: #514f4b;
-    font-family: "aktiv-grotesk";
     font-size: 18px;
     font-weight: 500;
     line-height: 28px;

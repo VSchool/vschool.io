@@ -79,7 +79,7 @@ const Testimonial = styled.h2`
     }
 `
 
-const Cite = styled.h4`
+const Cite = styled.h3`
     color: ${blue.dark};
     font-family: "aktiv-grotesk-extended";
     font-size: 20px;
@@ -89,12 +89,12 @@ const Cite = styled.h4`
 `
 
 const Course = styled.h6`
-    font-family: "aktiv-grotesk-extended";
     font-size: 12px;
     line-height: 16px;
     letter-spacing: 0.5px;
     color: ${gray.darker};
     margin-top: 8px;
+    text-transform: none;
 `
 
 const FlexContainer = styled.div`

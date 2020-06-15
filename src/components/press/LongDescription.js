@@ -2,26 +2,13 @@ import React from "react"
 import styled from "styled-components"
 import { black, gray } from "@vschool/lotus"
 
-const Container = styled.div`
-    padding: 0 24px 0 24px;
+const Container = styled.section`
     background-color: ${gray.light};
-
-    @media (min-width: 600px) {
-        padding: 0 44px 0 44px;
-    }
-
-    @media (min-width: 840px) {
-        padding: 0 88px 0 88px;
-    }
-
-    @media (min-width: 1200px) {
-        padding: 0;
-    }
+    display: block;
 `
 
 const H3 = styled.h3`
     color: ${black};
-    font-family: "aktiv-grotesk";
     font-size: 20px;
     font-weight: 800;
     padding-top: 40px;
@@ -38,7 +25,6 @@ const H3 = styled.h3`
 
 const P = styled.p`
     color: ${gray.darker};
-    font-family: "aktiv-grotesk";
     font-size: 16px;
     font-weight: 500;
     padding-top: 24px;

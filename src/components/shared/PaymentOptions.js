@@ -2,14 +2,9 @@ import React from "react"
 import styled from "styled-components"
 import { gray, white, black, blue } from "@vschool/lotus"
 
-const FlexContainer = styled.div`
+const FlexContainer = styled.section`
     background-color: ${gray.lighter};
     padding-top: 56px;
-    padding-left: 24px;
-    padding-right: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     padding-bottom: 72px;
 
     @media (min-width: 860px) {
@@ -39,7 +34,7 @@ const Option = styled.div`
     }
 `
 
-const H4 = styled.h4`
+const PaymentTitle = styled.h3`
     color: ${black};
     font-family: "aktiv-grotesk";
     font-size: 24px;
@@ -84,7 +79,7 @@ function PaymentOptions(props) {
                 ({ payment_type, payment_info, payment_info_link }) => {
                     return (
                         <Option key={payment_type.text}>
-                            <H4>{payment_type.text}</H4>
+                            <PaymentTitle>{payment_type.text}</PaymentTitle>
                             <P>{payment_info.text}</P>
                             <LearnMore href={payment_info_link.url}>
                                 Learn More

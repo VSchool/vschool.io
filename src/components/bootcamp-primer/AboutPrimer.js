@@ -4,6 +4,8 @@ import { gray, black } from "@vschool/lotus"
 
 const TextContainer = styled.div`
     background-color: ${gray.lighter};
+    width: 100%;
+    max-width: 1024px;
 
     @media (min-width: 840px) {
         display: grid;
@@ -23,7 +25,6 @@ const FlexContainer = styled.div`
 const H3 = styled.h3`
     background-color: ${gray.lighter};
     color: ${black};
-    font-family: "aktiv-grotesk";
     font-weight: 900;
     font-size: 24px;
     line-height: 30px;
@@ -52,7 +53,6 @@ const H3 = styled.h3`
 
 const P = styled.p`
     color: ${gray.darker};
-    font-family: "aktiv-grotesk";
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;

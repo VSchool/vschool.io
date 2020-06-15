@@ -3,30 +3,13 @@ import styled from "styled-components"
 import QueryLink from "../shared/QueryLink.js"
 import { black, green, purple, white, Button } from "@vschool/lotus"
 
-const Container = styled.div`
+const Container = styled.section`
     background-color: ${green.lightest};
-    padding-left: 24px;
-    padding-right: 24px;
     padding-bottom: 380px; /* 284 + 96 */
     padding-top: 96px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
 
-    @media (min-width: 600px) {
-        padding-left: 32px;
-        padding-right: 32px;
-    }
-
-    @media (min-width: 840px) {
-        padding-left: 40px;
-        padding-right: 40px;
-    }
-
     @media (min-width: 1200px) {
-        padding-left: 88px;
-        padding-right: 88px;
         padding-top: 160px;
         padding-bottom: 480px;
     }
@@ -36,7 +19,6 @@ const Header = styled.h2`
     font-weight: 800;
     font-size: 32px;
     line-height: 38px;
-    font-family: "aktiv-grotesk";
     color: black;
     text-align: center;
     width: 240px;
@@ -107,7 +89,6 @@ const CourseDate = styled.p`
     font-weight: 800;
     font-size: 20px;
     line-height: 26px;
-    font-family: "aktiv-grotesk";
     text-align: center;
     color: ${purple.dark};
     margin-top: 4px;
@@ -134,7 +115,6 @@ const SubHeader = styled.p`
 const StyledButton = styled(Button)`
     max-width: 314px;
     width: 100%;
-
     font-family: "aktiv-grotesk-extended";
 `
 

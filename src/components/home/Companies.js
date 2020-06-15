@@ -2,37 +2,24 @@ import React from "react"
 import styled from "styled-components"
 import { gray, black } from "@vschool/lotus"
 
-const Container = styled.div`
+const Container = styled.section`
     background-color: ${gray.lighter};
     padding: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 
     @media (max-width: 400px) {
         padding-left: 16px;
         padding-right: 16px;
     }
 
-    @media (min-width: 600px) {
-        padding-left: 48px;
-        padding-right: 48px;
-    }
-
     @media (min-width: 1100px) {
         padding-top: 64px;
     }
 
-    @media (min-width: 1200px) {
-        padding-right: 96px;
-        padding-left: 96px;
-    }
 `
 
-const H4 = styled.h4`
+const H4 = styled.h3`
     width: 100%;
     color: ${black};
-    font-family: "aktiv-grotesk";
     font-size: 28px;
     font-weight: 900;
     text-align: center;

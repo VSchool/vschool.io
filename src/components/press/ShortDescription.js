@@ -21,7 +21,6 @@ const Container = styled.div`
 
 const H3 = styled.h3`
     color: ${black};
-    font-family: "aktiv-grotesk";
     font-size: 20px;
     font-weight: 800;
     padding-bottom: 24px;
@@ -44,7 +43,6 @@ const H3 = styled.h3`
 
 const P = styled.p`
     color: ${gray.darker};
-    font-family: "aktiv-grotesk";
     font-size: 20px;
     font-weight: 500;
     line-height: 28px;

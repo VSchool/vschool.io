@@ -2,18 +2,9 @@ import React from "react"
 import styled from "styled-components"
 import { gray, black } from "@vschool/lotus"
 
-const Container = styled.div`
-    padding: 0 24px;
+const Container = styled.section`
     background-color: ${gray.lighter};
     z-index: 1;
-
-    @media (min-width: 600px) {
-        padding: 0 44px;
-    }
-
-    @media (min-width: 1200px) {
-        padding: 0 88px;
-    }
 `
 
 const GridContainer = styled.div`
@@ -44,7 +35,7 @@ const GridItem = styled.div`
     }
 `
 
-const H4 = styled.h4`
+const H4 = styled.h2`
     color: ${black};
     font-family: "aktiv-grotesk";
     font-size: 24px;
@@ -66,7 +57,7 @@ const H4 = styled.h4`
     }
 `
 
-const H5 = styled.h5`
+const H5 = styled.h3`
     color: ${black};
     font-family: "aktiv-grotesk";
     font-size: 20px;

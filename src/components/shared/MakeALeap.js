@@ -3,15 +3,10 @@ import styled from "styled-components"
 import { black, white, orange, Button } from "@vschool/lotus"
 import Link from "../shared/QueryLink"
 
-const Container = styled.div`
+const Container = styled.section`
     background-color: ${props => props.bgColor};
     padding-top: 96px;
-    padding-left: 24px;
-    padding-right: 24px;
     padding-bottom: 96px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 
     @media (min-width: 320px) and (max-width: 400px) {
         padding-left: 8px;
@@ -92,7 +87,7 @@ const NextSession = styled.div`
     }
 `
 
-const SessionText = styled.h5`
+const SessionText = styled.h3`
     font-family: "aktiv-grotesk";
     font-size: 20px;
     font-weight: 800;

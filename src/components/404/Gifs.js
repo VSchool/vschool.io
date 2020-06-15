@@ -64,6 +64,7 @@ const GifRow1 = styled.div`
 const GifRow2 = styled.div`
     display: flex;
     justify-content: space-around;
+    align-items: center;
 
     @media (min-width: 700px) {
         justify-content: space-around;

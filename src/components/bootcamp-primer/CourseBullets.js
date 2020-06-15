@@ -50,7 +50,6 @@ const TextContainer = styled.div`
 const H2 = styled.h2`
     width: 320px;
     color: ${black};
-    font-family: "aktiv-grotesk";
     font-size: 20px;
     line-height: 26px;
     margin: 16px;
@@ -83,7 +82,6 @@ const H2 = styled.h2`
 const Bullet = styled.p`
     width: 318px;
     color: ${gray.darker};
-    font-family: "aktiv-grotesk";
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
