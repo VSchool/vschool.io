@@ -17,7 +17,7 @@ const TitleContainer = styled.div`
     margin-bottom: 8px;
 `
 
-const Title = styled.h6`
+const Title = styled.h3`
     color: ${black};
     font-family: "aktiv-grotesk";
     font-size: 24px;

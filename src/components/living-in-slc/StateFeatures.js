@@ -3,10 +3,8 @@ import styled from "styled-components"
 import { gray, black } from "@vschool/lotus"
 import Feature from "./Feature.js"
 
-const Container = styled.div`
+const Container = styled.section`
     background-color: ${gray.lighter};
-    padding-left: 24px;
-    padding-right: 24px;
     padding-bottom: 28px;
     padding-top: 160px;
 
@@ -17,21 +15,16 @@ const Container = styled.div`
     }
 
     @media (min-width: 600px) {
-        padding-left: 48px;
-        padding-right: 48px;
         padding-top: 208px;
     }
 
     @media (min-width: 1200px) {
-        padding-right: 96px;
-        padding-left: 96px;
         padding-top: 240px;
     }
 `
 
 const H3 = styled.h3`
     color: ${black};
-    font-family: "aktiv-grotesk";
     font-size: 32px;
     font-weight: 900;
     line-height: 40px;

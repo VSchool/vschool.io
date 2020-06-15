@@ -2,29 +2,17 @@ import React from "react"
 import styled from "styled-components"
 import { black, yellow } from "@vschool/lotus"
 
-const Container = styled.div`
+const Container = styled.section`
     background-color: ${yellow.lightest};
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     padding-top: 160px;
-    padding-left: 24px;
-    padding-right: 24px;
     padding-bottom: 64px;
 
     @media (min-width: 600px) {
-        padding-left: 32px;
-        padding-right: 32px;
         padding-top: 184px;
     }
 
     @media (min-width: 840px) {
-        padding-left: 40px;
-        padding-right: 40px;
         padding-bottom: 96px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
     }
 
     @media (min-width: 1200px) {
@@ -34,10 +22,9 @@ const Container = styled.div`
     }
 `
 
-const H4 = styled.h4`
+const H3 = styled.h3`
     width: 100%;
     color: ${black};
-    font-family: "aktiv-grotesk";
     font-size: 28px;
     font-weight: 900;
     text-align: center;
@@ -282,7 +269,7 @@ export default function Companies(props) {
     const { header, logos } = props
     return (
         <Container>
-            <H4>{header}</H4>
+            <H3>{header}</H3>
             <LogoListContainer>
                 <LogoList>
                     {logos.slice(0, 6).map(({ logo }, i) => (

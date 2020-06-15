@@ -2,26 +2,13 @@ import React from "react"
 import styled from "styled-components"
 import { orange, black, gray } from "@vschool/lotus"
 
-const Container = styled.div`
+const Container = styled.section`
     background-color: ${orange.lightest};
     padding-top: 96px;
-    padding-left: 24px;
-    padding-right: 24px;
     padding-bottom: 16px;
-
-    @media (min-width: 900px) {
-        padding-left: 44px;
-        padding-right: 44px;
-        padding-bottom: 64px;
-    }
-
-    @media (min-width: 1024px) {
-        padding-top: 160px;
-    }
-
+    
     @media (min-width: 1200px) {
-        padding-left: 88px;
-        padding-right: 88px;
+        padding-top: 160px;
     }
 `
 

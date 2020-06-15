@@ -17,7 +17,7 @@ const FlexContainer = styled.div`
     }
 `
 
-const H5 = styled.h5`
+const H3 = styled.h3`
     color: ${black};
     font-family: "aktiv-grotesk";
     font-size: 20px;
@@ -68,7 +68,7 @@ function LearnDesign(props) {
     const { title, btnText, link } = props
     return (
         <FlexContainer>
-            <H5>{title}</H5>
+            <H3>{title}</H3>
             <Link to={link}>
                 <Button>{btnText}</Button>
             </Link>

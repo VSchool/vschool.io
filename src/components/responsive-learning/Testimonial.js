@@ -2,30 +2,13 @@ import React from "react"
 import styled from "styled-components"
 import { gray, purple } from "@vschool/lotus"
 
-const Container = styled.div`
+const Container = styled.section`
     background-color: ${gray.lightest};
-    padding-left: 24px;
-    padding-right: 24px;
     padding-bottom: 265px;
     padding-top: 96px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
 
-    @media (min-width: 600px) {
-        padding-left: 32px;
-        padding-right: 32px;
-    }
-
-    @media (min-width: 840px) {
-        padding-left: 40px;
-        padding-right: 40px;
-    }
-
     @media (min-width: 1200px) {
-        padding-left: 88px;
-        padding-right: 88px;
         flex-direction: row-reverse;
         padding-top: 0;
         padding-bottom: 160px;
@@ -36,7 +19,7 @@ const Container = styled.div`
 const TestimonialContainer = styled.div`
     border: 2px solid ${purple.base};
     background-color: ${purple.lightest};
-    padding-top: 80px;
+    padding-top: 56px;
     padding-left: 24px;
     padding-right: 24px;
     padding-bottom: 125px;
@@ -47,7 +30,7 @@ const TestimonialContainer = styled.div`
     width: 100%;
     max-width: 378px;
 
-    @media(min-width: 1200px){
+    @media (min-width: 1200px) {
         max-width: 616px;
         padding-left: 64px;
         padding-bottom: 72px;
@@ -55,7 +38,7 @@ const TestimonialContainer = styled.div`
     }
 `
 
-const TestimonialText = styled.h4`
+const TestimonialText = styled.h3`
     font-family: "aktiv-grotesk-extended";
     color: ${purple.darker};
     font-weight: bold;
@@ -96,7 +79,7 @@ const Image = styled.img`
         bottom: -170px;
     }
 
-    @media(min-width: 1200px){
+    @media (min-width: 1200px) {
         display: none;
     }
 `
@@ -104,7 +87,7 @@ const Image = styled.img`
 const ImageDesktop = styled.img`
     display: none;
 
-    @media(min-width: 1200px){
+    @media (min-width: 1200px) {
         display: inline-block;
         width: 320px;
         position: relative;
@@ -124,7 +107,7 @@ export default function Testimonial(props) {
                 <Course>{course}</Course>
                 <Image src={img} />
             </TestimonialContainer>
-            <ImageDesktop src={img}/>
+            <ImageDesktop src={img} />
         </Container>
     )
 }

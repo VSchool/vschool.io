@@ -32,7 +32,6 @@ const Bullet = styled.div`
 `
 
 const BulletText = styled.p`
-    font-family: "aktiv-grotesk";
     font-weight: 700;
     font-size: 14px;
     line-height: 22px;

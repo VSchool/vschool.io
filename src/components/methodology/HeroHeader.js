@@ -3,27 +3,13 @@ import styled from "styled-components"
 import { gray, black, blue, Button } from "@vschool/lotus"
 import Link from "../shared/QueryLink"
 
-const Container = styled.div`
+const Container = styled.section`
     background-color: ${blue.lightest};
-    padding-left: 24px;
-    padding-right: 24px;
     padding-bottom: 56px;
     padding-top: 80px;
 
-    @media (min-width: 600px) {
-        padding-left: 32px;
-        padding-right: 32px;
-    }
-
-    @media (min-width: 840px) {
-        padding-left: 40px;
-        padding-right: 40px;
-    }
-
     @media (min-width: 1200px) {
         padding-bottom: 160px;
-        padding-left: 88px;
-        padding-right: 88px;
         padding-top: 96px;
     }
 `
@@ -62,7 +48,6 @@ const TextContainer = styled.div`
 
 const Title = styled.h4`
     color: ${blue.base};
-    font-family: "aktiv-grotesk-extended";
     letter-spacing: 0.25px;
     line-height: 20px;
     font-weight: 800;
@@ -82,7 +67,6 @@ const Title = styled.h4`
 
 const Header = styled.h2`
     color: ${black};
-    font-family: "aktiv-grotesk";
     font-size: 44px;
     font-weight: 900;
     line-height: 56px;
@@ -101,7 +85,6 @@ const Header = styled.h2`
 
 const Info = styled.p`
     color: ${gray.darker};
-    font-family: "aktiv-grotesk";
     font-size: 16px;
     font-weight: 500;
     line-height: 28px;

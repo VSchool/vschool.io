@@ -2,14 +2,9 @@ import React from "react"
 import styled from "styled-components"
 import { gray, black, green } from "@vschool/lotus"
 
-const Container = styled.div`
+const Container = styled.section`
     background-color: ${gray.lighter};
     padding-top: 96px;
-    padding-left: 24px;
-    padding-right: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     padding-bottom: 96px;
 
     @media (max-width: 400px) {
@@ -18,26 +13,15 @@ const Container = styled.div`
         padding-top: 56px;
     }
 
-    @media (min-width: 600px) {
-        padding-left: 48px;
-        padding-right: 48px;
-    }
-
-    @media (min-width: 1100px) {
-        padding-top: 64px;
-    }
-
     @media (min-width: 1200px) {
-        padding-right: 96px;
-        padding-left: 96px;
+        padding-top: 64px;
         padding-bottom: 160px;
     }
 `
 
-const H4 = styled.h4`
+const H4 = styled.h3`
     background-color: ${gray.lighter};
     color: ${black};
-    font-family: "aktiv-grotesk";
     font-size: 24px;
     font-weight: 800;
     display: inline-block;

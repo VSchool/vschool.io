@@ -16,7 +16,6 @@ const PhaseContainer = styled.div`
 
 const PhaseNumber = styled.h4`
     color: ${blue.base};
-    font-family: "aktiv-grotesk-extended";
     font-size: 14px;
     letter-spacing: 0.25px;
     line-height: 20px;
@@ -26,7 +25,6 @@ const PhaseNumber = styled.h4`
 
 const Title = styled.h3`
     color: ${black};
-    font-family: "aktiv-grotesk";
     font-size: 24px;
     line-height: 30px;
     font-weight: 800;
@@ -35,7 +33,6 @@ const Title = styled.h3`
 
 const Info = styled.p`
     color: ${gray.darker};
-    font-family: "aktiv-grotesk";
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
