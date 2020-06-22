@@ -1,5 +1,6 @@
 import { blue, gray } from "@vschool/lotus"
 import React from "react"
+import QueryLink from "../shared/QueryLink.js"
 import styled from "styled-components"
 
 const PositionContainer = styled.div`
@@ -30,10 +31,9 @@ const PositionContainer = styled.div`
     }
 `
 
-const Anchor = styled.a`
+const Anchor = styled(QueryLink)`
     /* TEMPORARY COLOR */
-    color: #A09C96; 
-    /* color: ${blue.base}; */
+    color: ${blue.base};
     font-size: 20px;
     font-weight: 500;
     line-height: 28px;
@@ -41,10 +41,10 @@ const Anchor = styled.a`
 `
 
 export default function Position(props) {
-    const { position_title, borderBottom } = props
+    const { position_title, borderBottom, position_link } = props
     return (
         <PositionContainer borderBottom={borderBottom}>
-            <Anchor>{position_title.text}</Anchor>
+            <Anchor to={position_link.url}>{position_title.text}</Anchor>
         </PositionContainer>
     )
 }
