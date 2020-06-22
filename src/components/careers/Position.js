@@ -32,8 +32,7 @@ const PositionContainer = styled.div`
 
 const Anchor = styled.a`
     /* TEMPORARY COLOR */
-    color: #A09C96; 
-    /* color: ${blue.base}; */
+    color: ${blue.base};
     font-size: 20px;
     font-weight: 500;
     line-height: 28px;
