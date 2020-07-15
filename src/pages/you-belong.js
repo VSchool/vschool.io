@@ -29,8 +29,6 @@ export default function YouBelong({ data }) {
         header_info: { text: headerInfo },
         header_sub: { text: headerSub },
         header_title: { text: headerTitle },
-        header_video_btn: { text: headerVideoBtnText },
-        header_video_btn_link: { url: headerVideoLink },
         hero_img: { url: headerHeroImg },
         internship_details_header: { text: internshipDetailsHeader },
         internship_details_info: { text: internshipDetailsInfo },
@@ -66,10 +64,8 @@ export default function YouBelong({ data }) {
                 btnText={headerBtnText}
                 info={headerSub}
                 title={headerTitle}
-                videoBtnText={headerVideoBtnText}
                 toggle={toggle}
             />
-            <VideoModal show={show} toggle={toggle} url={headerVideoLink} />
             <ScholarshipDetails
                 title={scholarshipTitle}
                 header={scholarshipHeader}
@@ -168,12 +164,6 @@ export const query = graphql`
                 }
                 header_title {
                     text
-                }
-                header_video_btn {
-                    text
-                }
-                header_video_btn_link {
-                    url
                 }
                 hero_img {
                     url
