@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { gray, black } from "@vschool/lotus"
-import Phase from "./Phase.js"
+import Phase from "../shared/Phase.js"
 
 const Container = styled.section`
     background-color: ${gray.lighter};
