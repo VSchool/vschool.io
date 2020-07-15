@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { gray, black } from "@vschool/lotus"
 import Deadlines from "./Deadlines.js"
+import Phase from "../shared/Phase"
 
 const Container = styled.section`
     background-color: ${gray.lightest};
@@ -49,9 +50,25 @@ const FixedContainer = styled.div`
     }
 `
 
-const FlexContainer = styled.div`
+const FlexContainer = styled.section`
     display: flex;
     justify-content: center;
+    margin-top: 56px;
+`
+
+const PhasesContainer = styled.section`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 56px;
+    width: 100%;
+    max-width: 366px;
+
+    @media (min-width: 1200px) {
+        flex-direction: row;
+        justify-content: center;
+        max-width: 1180px;
+    }
 `
 
 const H3 = styled.h3`
@@ -83,7 +100,6 @@ const Info = styled.p`
     font-size: 18px;
     font-weight: 500;
     line-height: 28px;
-    margin-bottom: 56px;
     text-align: center;
     max-width: 600px;
 
@@ -98,7 +114,8 @@ const Info = styled.p`
 `
 
 export default function ScholarshipDetails(props) {
-    const { title, header, sub, deadlines, detailsInfo, bgImg } = props
+    const { title, header, sub, deadlines, detailsInfo, bgImg, phases } = props
+    console.log("I'm here")
     return (
         <Container>
             <FixedContainer>
@@ -110,6 +127,11 @@ export default function ScholarshipDetails(props) {
             <FixedContainer>
                 <Info>{sub}</Info>
             </FixedContainer>
+            <PhasesContainer>
+                {phases.map(phase => (
+                    <Phase {...phase} key={phase.phase_num.text} />
+                ))}
+            </PhasesContainer>
             <FlexContainer>
                 <Deadlines
                     deadlines={deadlines}
