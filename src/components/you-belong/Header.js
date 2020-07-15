@@ -112,29 +112,6 @@ const StyledButton = styled(Button)`
         height: 56px;
     }
 `
-
-const StyledPlayButton = styled(Button)`
-    width: 268px;
-    font-family: "aktiv-grotesk-extended";
-    font-weight: 800;
-    outline: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0px 26px;
-
-    @media (min-width: 300px) and (max-width: 380px) {
-        width: 260px;
-    }
-
-    @media (min-width: 1200px) {
-        font-size: 16px;
-        letter-spacing: 1.14px;
-        line-height: 24px;
-        height: 56px;
-    }
-`
-
 const ImgContainer = styled.div`
     display: flex;
     justify-content: center;
@@ -201,29 +178,8 @@ const ButtonLink = styled.a`
     }
 `
 
-const PlaySymbol = styled.div`
-    width: 15px;
-    height: 15px;
-    box-sizing: border-box;
-    border-style: solid;
-    border-width: 37px;
-    border-width: 10px 0px 10px 15px;
-    border-color: transparent transparent transparent ${black};
-    margin: 0;
-    display: inline-block;
-`
-
 function Header(props) {
-    const {
-        header,
-        sub,
-        heroImg,
-        link,
-        btnText,
-        info,
-        title,
-        toggle,
-    } = props
+    const { header, sub, heroImg, link, btnText, info, title } = props
 
     return (
         <HeaderContainer>

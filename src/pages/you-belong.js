@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import Layout from "../components/layout.js"
 import SEO from "../components/seo.js"
 import { graphql } from "gatsby"
@@ -17,8 +17,6 @@ import {
 import { gray, blue } from "@vschool/lotus"
 
 export default function YouBelong({ data }) {
-    const [show, setShow] = useState(false)
-    const toggle = () => setShow(p => !p)
     const {
         call_to_action_btn_link: { url: callToActionBtnLink },
         call_to_action_header: { text: callToActionHeader },
@@ -52,6 +50,7 @@ export default function YouBelong({ data }) {
         details,
     } = data.prismicYouBelong.data
     const { start_date: startDate } = data.prismicStartDate.data
+    const { phases } = data.prismicEducationPhases.data
     return (
         <Layout>
             <SEO title={header} />
@@ -63,7 +62,6 @@ export default function YouBelong({ data }) {
                 btnText={headerBtnText}
                 info={headerSub}
                 title={headerTitle}
-                toggle={toggle}
             />
             <ScholarshipDetails
                 title={scholarshipTitle}
@@ -71,6 +69,7 @@ export default function YouBelong({ data }) {
                 sub={scholarshipSub}
                 deadlines={deadlines}
                 bgImg={deadlinesBgImg}
+                phases={phases}
             />
             <Details details={details} />
             <InternshipDetails
