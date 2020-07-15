@@ -29,7 +29,6 @@ export default function MyBaseScholarship({ data }) {
         ratings_header: { text: ratingsHeader },
         scholarship_bg_img: { url: scholarshipBgImg },
         ratings,
-        phases,
         my_base_scholarship_link: { url: myBaseScholarshipLink },
         page_title: { text: pageTitle },
         page_subheader: { text: pageSubheader },
@@ -55,6 +54,9 @@ export default function MyBaseScholarship({ data }) {
         cite2: { text: cite2 },
         cite: { text: cite },
     } = data.prismicMyBaseScholarship.data
+
+    const {phases} = data.prismicEducationPhases.data
+
     return (
         <Layout>
             <SEO title="My Base Scholarship" />
@@ -170,17 +172,6 @@ export const query = graphql`
                         url
                     }
                 }
-                phases {
-                    phase_num {
-                        text
-                    }
-                    phase_info {
-                        text
-                    }
-                    phase_header {
-                        text
-                    }
-                }
                 page_title {
                     text
                 }
@@ -251,6 +242,21 @@ export const query = graphql`
                 }
                 cite {
                     text
+                }
+            }
+        }
+        prismicEducationPhases {
+            data {
+                phases {
+                    phase_header {
+                        text
+                    }
+                    phase_info {
+                        text
+                    }
+                    phase_num {
+                        text
+                    }
                 }
             }
         }

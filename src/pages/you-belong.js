@@ -5,7 +5,6 @@ import { graphql } from "gatsby"
 
 import {
     Header,
-    VideoModal,
     ScholarshipDetails,
     Details,
     InternshipDetails,
@@ -109,6 +108,21 @@ export const query = graphql`
         ) {
             data {
                 start_date(formatString: "MMM Do, YYYY")
+            }
+        }
+        prismicEducationPhases {
+            data {
+                phases {
+                    phase_header {
+                        text
+                    }
+                    phase_info {
+                        text
+                    }
+                    phase_num {
+                        text
+                    }
+                }
             }
         }
         prismicYouBelong {

@@ -7,7 +7,6 @@ const Container = styled.section`
     background-color: ${gray.lighter};
     padding-top: 64px;
     padding-bottom: 56px;
-
     @media (min-width: 840px) {
         padding-top: 96px;
     }
