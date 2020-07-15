@@ -222,7 +222,6 @@ function Header(props) {
         btnText,
         info,
         title,
-        videoBtnText,
         toggle,
     } = props
 
@@ -250,18 +249,6 @@ function Header(props) {
                             {btnText}
                         </StyledButton>
                     </ButtonLink>
-                    <StyledPlayButton
-                        buttonStyle="secondary-dark"
-                        onClick={toggle}
-                        style={{
-                            backgroundColor: "transparent",
-                            width: 200,
-                            minWidth: 200,
-                        }}
-                    >
-                        <PlaySymbol></PlaySymbol>
-                        {videoBtnText}
-                    </StyledPlayButton>
                 </ButtonContainer>
             </Container>
             <ImgContainer>
