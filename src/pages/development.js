@@ -78,6 +78,15 @@ export default function Development({ data }) {
             <AboutCourse header={aboutHeader} sub={aboutSub} />
             <Modules modules={modules} />
             <CourseBullets bullets={course_bullets} />
+
+            {/* 
+            TODO: Replace this with the new AlumniCompanies component
+            filtering for only the ones our FSJS alumni work at.
+            
+            This may likely require a big change to how the companies logos
+            are saved, i.e. need to make each one the same height/width with 
+            so they don't need to be manually adjusted in CSS one at a time
+            */}
             <Companies header={companiesHeader} logos={company_logos} />
             <Ratings header={ratingsHeader} ratings={rating_images} />
             <Testimonial
