@@ -2,17 +2,19 @@ import React from "react"
 import Layout from "../components/layout.js"
 import SEO from "../components/seo.js"
 import { graphql } from "gatsby"
+import { pink } from "@vschool/lotus"
 
 import {
     Header,
     ScholarshipDetails,
     Details,
     InternshipDetails,
-    Companies,
     Ratings,
     Testimonial,
     MakeALeap,
 } from "../components/you-belong"
+
+import { AlumniCompanies } from "../components/shared"
 
 import { gray, blue } from "@vschool/lotus"
 
@@ -39,9 +41,7 @@ export default function YouBelong({ data }) {
         testimonial_img: { url: testimonialImg },
         deadlines_bg_img: { url: deadlinesBgImg },
         internship_site_link: { url: internshipLink },
-        where_we_work_header: { text: whereWeWorkHeader },
         ratings_header: { text: ratingsHeader },
-        company_logos: logos,
         make_a_leap_btn: { text: callToActionBtnText },
         make_a_leap_sub: { text: callToActionSub },
         next_session: { text: nextSession },
@@ -79,7 +79,7 @@ export default function YouBelong({ data }) {
                 img={internshipImg}
                 link={internshipLink}
             />
-            <Companies header={whereWeWorkHeader} logos={logos} />
+            <AlumniCompanies backgroundColor={pink.lightest} />
             <Ratings header={ratingsHeader} ratings={ratings} />
             <Testimonial
                 testimonial={testimonial}
@@ -222,11 +222,6 @@ export const query = graphql`
                 }
                 ratings {
                     rating_img {
-                        url
-                    }
-                }
-                company_logos {
-                    logo {
                         url
                     }
                 }

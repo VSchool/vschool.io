@@ -1,9 +1,20 @@
+/**
+A self-contained component that retrieves its own data from a 
+componentized Prismic document. This way, we don't need to repeat
+the companies all over the website in Prismic, but can use a single
+document in Prismic to maintain all the logos
+
+TODO: Find a better way to display the logos in the grid than doing
+the crazy .slice() trick from below and resizing each. and. every. logo.
+ */
+
 import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
-import { gray, black } from "@vschool/lotus"
+import { black } from "@vschool/lotus"
 
 const Container = styled.section`
-    background-color: ${gray.lighter};
+    background-color: ${props => props.backgroundColor};
     padding: 24px;
 
     @media (max-width: 400px) {
@@ -14,7 +25,6 @@ const Container = styled.section`
     @media (min-width: 1100px) {
         padding-top: 64px;
     }
-
 `
 
 const H4 = styled.h3`
@@ -39,7 +49,7 @@ const H4 = styled.h3`
 `
 
 const LogoListContainer = styled.div`
-    background-color: ${gray.lighter};
+    background-color: ${props => props.backgroundColor};
     display: flex;
 
     & > div:nth-child(1) > div:nth-child(1) > img {
@@ -240,30 +250,53 @@ const Logo = styled.img`
     width: 80px;
 `
 
-export default function Companies(props) {
-    const { header, logos } = props
+function AlumniCompanies(props) {
+    const data = useStaticQuery(graphql`
+        {
+            prismicAlumniCompanies {
+                data {
+                    companies_header {
+                        text
+                    }
+                    company_logos {
+                        company_logo {
+                            url
+                        }
+                    }
+                }
+            }
+        }
+    `)
+
+    console.log(data)
+    const {
+        companies_header: { text: header },
+        company_logos: logos,
+    } = data.prismicAlumniCompanies.data
+
+    console.log(logos)
     return (
-        <Container>
+        <Container backgroundColor={props.backgroundColor}>
             <H4>{header}</H4>
             <LogoListContainer>
                 <LogoList>
-                    {logos.slice(0, 6).map(({ logo }, i) => (
-                        <LogoContainer key={logo.url}>
-                            <Logo i={i} src={logo.url} />
+                    {logos.slice(0, 6).map(({ company_logo }, i) => (
+                        <LogoContainer key={company_logo.url}>
+                            <Logo i={i} src={company_logo.url} />
                         </LogoContainer>
                     ))}
                 </LogoList>
                 <LogoList>
-                    {logos.slice(6, 11).map(({ logo }, i) => (
-                        <LogoContainer key={logo.url}>
-                            <Logo src={logo.url} />
+                    {logos.slice(6, 11).map(({ company_logo }, i) => (
+                        <LogoContainer key={company_logo.url}>
+                            <Logo src={company_logo.url} />
                         </LogoContainer>
                     ))}
                 </LogoList>
                 <LogoList>
-                    {logos.slice(11).map(({ logo }, i) => (
-                        <LogoContainer key={logo.url}>
-                            <Logo src={logo.url} />
+                    {logos.slice(11).map(({ company_logo }, i) => (
+                        <LogoContainer key={company_logo.url}>
+                            <Logo src={company_logo.url} />
                         </LogoContainer>
                     ))}
                 </LogoList>
@@ -271,3 +304,5 @@ export default function Companies(props) {
         </Container>
     )
 }
+
+export default AlumniCompanies
