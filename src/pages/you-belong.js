@@ -214,9 +214,6 @@ export const query = graphql`
                 testimonial_img {
                     url
                 }
-                where_we_work_header {
-                    text
-                }
                 ratings_header {
                     text
                 }
