@@ -88,8 +88,8 @@ export default function Ratings(props) {
             <RatingsContainer>
                 {ratings.map(({ rating }, i) =>
                     i === 2 ? (
-                        <StyledLink to={bootcampRankingsLink}>
-                            <Image key={rating.url} src={rating.url} />
+                        <StyledLink to={bootcampRankingsLink} key={rating.url}>
+                            <Image src={rating.url} />
                         </StyledLink>
                     ) : (
                         <Image key={rating.url} src={rating.url} />
