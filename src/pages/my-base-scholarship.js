@@ -22,12 +22,7 @@ export default function MyBaseScholarship({ data }) {
         testimonial2: { text: testimonial2 },
         testimonial: { text: testimonial },
         start_date,
-        scholarship_info: { text: scholarshipInfo },
-        scholarship_bullets,
-        scholarship_btn_link: { url: scholarshipBtnLink },
-        scholarship_btn: { text: scholarshipBtnText },
         ratings_header: { text: ratingsHeader },
-        scholarship_bg_img: { url: scholarshipBgImg },
         ratings,
         bootcamp_rankings_link: { url: bootcampRankingsLink },
         page_title: { text: pageTitle },
@@ -41,9 +36,6 @@ export default function MyBaseScholarship({ data }) {
         logos,
         landing_a_job_info: { text: landingAJobInfo },
         landing_a_job_header: { text: landingAJobHeader },
-        details_header: { text: detailsHeader },
-        deadline_date: { text: deadlineDate },
-        deadline_text: { text: deadlineText },
         cta_subheader: { text: ctaSubheader },
         cta_next_session: { text: ctaNextSession },
         cta_header: { text: ctaHeader },
@@ -53,9 +45,10 @@ export default function MyBaseScholarship({ data }) {
         companies_header: { text: companiesHeader },
         cite2: { text: cite2 },
         cite: { text: cite },
+        body: scholarships,
     } = data.prismicMyBaseScholarship.data
 
-    const {phases} = data.prismicEducationPhases.data
+    const { phases } = data.prismicEducationPhases.data
 
     return (
         <Layout>
@@ -81,16 +74,7 @@ export default function MyBaseScholarship({ data }) {
                 cite={cite}
                 testimonialImg={testimonialImg}
             />
-            <ScholarshipDetails
-                header={detailsHeader}
-                deadlineText={deadlineText}
-                deadlineDate={deadlineDate}
-                bullets={scholarship_bullets}
-                info={scholarshipInfo}
-                btnText={scholarshipBtnText}
-                link={scholarshipBtnLink}
-                bgImg={scholarshipBgImg}
-            />
+            <ScholarshipDetails />
             <Companies header={companiesHeader} logos={logos} />
             <Ratings
                 header={ratingsHeader}
@@ -141,27 +125,7 @@ export const query = graphql`
                         }
                     }
                 }
-                scholarship_info {
-                    text
-                }
                 bootcamp_rankings_link {
-                    url
-                }
-                scholarship_bullets {
-                    checkmark {
-                        url
-                    }
-                    bullet {
-                        text
-                    }
-                }
-                scholarship_btn_link {
-                    url
-                }
-                scholarship_btn {
-                    text
-                }
-                scholarship_bg_img {
                     url
                 }
                 ratings_header {
@@ -205,15 +169,6 @@ export const query = graphql`
                     text
                 }
                 landing_a_job_header {
-                    text
-                }
-                details_header {
-                    text
-                }
-                deadline_date {
-                    text
-                }
-                deadline_text {
                     text
                 }
                 cta_subheader {
