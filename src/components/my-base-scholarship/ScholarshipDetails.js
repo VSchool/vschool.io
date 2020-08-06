@@ -31,7 +31,6 @@ const Header = styled.h2`
     @media (min-width: 1200px) {
         font-size: 44px;
         line-height: 48px;
-        align-self: flex-start;
     }
 `
 
