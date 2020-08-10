@@ -178,7 +178,6 @@ export default function PostPreview(props) {
         published_at,
         slug,
         title,
-        url,
         feature_image,
         excerpt,
         primary_tag,

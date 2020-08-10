@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import { Button, gray, black } from "@vschool/lotus"
+import { gray } from "@vschool/lotus"
 import facebook from "../../../images/icons/facebook.png"
 import twitter from "../../../images/icons/twitter.png"
 import linkdin from "../../../images/icons/linkdin.png"
@@ -14,11 +14,6 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     padding-bottom: 192px;
-`
-
-const StyledButton = styled(Button)`
-    font-family: "aktiv-grotesk-extended";
-    height: 56px;
 `
 
 const IconContainer = styled.div`
@@ -53,16 +48,15 @@ const CopiedPopup = styled.span`
     border-radius: 20px;
     font-size: 12px;
 
-    opacity: ${({show}) => show ? 1 : 0};
+    opacity: ${({ show }) => (show ? 1 : 0)};
     transition: opacity 150ms linear;
-`   
-
+`
 
 export default function CTAFooter(props) {
     const [copied, setCopied] = useState(false)
     const { url } = props
 
-    function handleCopy(){
+    function handleCopy() {
         setCopied(true)
         setTimeout(() => setCopied(false), 1000)
     }
@@ -88,7 +82,7 @@ export default function CTAFooter(props) {
                 </StyledLink>
                 <CopyToClipboard text={url} onCopy={handleCopy}>
                     <CopiedText>
-                        <CopiedPopup show={copied}>Copied!</CopiedPopup> 
+                        <CopiedPopup show={copied}>Copied!</CopiedPopup>
                         <Icon src={othericon} />
                     </CopiedText>
                 </CopyToClipboard>

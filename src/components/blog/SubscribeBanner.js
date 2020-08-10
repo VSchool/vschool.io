@@ -134,7 +134,7 @@ export default function SubscribeBanner(props) {
     const handleChange = e => {
         setEmail(e.target.value)
     }
-    const { header, btnText } = props
+    const { header } = props
     const url =
         "//vschool.us16.list-manage.com/subscribe/post?u=f5ba48f36061bdea6c3b83712&amp;id=7b3742eafe"
     return (
