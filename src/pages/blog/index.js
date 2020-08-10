@@ -1,5 +1,5 @@
 import React from "react"
-import BlogLayout from "../../components/blogLayout"
+import BlogLayout from "../../components/blog/blogLayout"
 import SEO from "../../components/seo"
 import { BlogNav, BlogList } from "../../components/blog"
 import { graphql } from "gatsby"

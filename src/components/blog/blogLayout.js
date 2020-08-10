@@ -1,9 +1,9 @@
 import React from "react"
 import styled from "styled-components"
-import Navbar from "./Navbar/Navbar"
-import Footer from "./Footer/Footer"
-import "./layout.css"
-import BlogFilterProvider from "../components/blog/context/BlogFilterProvider.js"
+import Navbar from "../Navbar/Navbar"
+import Footer from "../Footer/Footer"
+import "../layout.scss"
+import BlogFilterProvider from "./context/BlogFilterProvider.js"
 
 const MainContainer = styled.div`
     display: flex;
@@ -15,8 +15,7 @@ const ContentContainer = styled.div`
     flex-grow: 1;
 
     & > main {
-        margin-top: ${({ isBlog }) =>
-        isBlog ? 0 : "80px"};
+        margin-top: ${({ isBlog }) => (isBlog ? 0 : "80px")};
     }
 `
 

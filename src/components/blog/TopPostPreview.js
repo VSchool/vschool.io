@@ -176,7 +176,6 @@ export default function TopPostPreview(props) {
         published_at,
         slug,
         title,
-        url,
         feature_image,
         primary_tag,
         authors,

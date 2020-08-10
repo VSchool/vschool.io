@@ -45,7 +45,6 @@ export default function MyBaseScholarship({ data }) {
         companies_header: { text: companiesHeader },
         cite2: { text: cite2 },
         cite: { text: cite },
-        body: scholarships,
     } = data.prismicMyBaseScholarship.data
 
     const { phases } = data.prismicEducationPhases.data

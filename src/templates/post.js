@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
-import BlogLayout from "../components/blogLayout"
+import BlogLayout from "../components/blog/blogLayout"
 import BackButton from "../components/blog/blogPage/BackButton.js"
 import BlogNav from "../components/blog/blogNav"
 import { black, gray, blue } from "@vschool/lotus"
