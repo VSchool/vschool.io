@@ -2,20 +2,10 @@ import React from "react"
 import styled from "styled-components"
 import { AccordionGroup, Accordion, gray, black } from "@vschool/lotus"
 
-const Container = styled.div`
+const Container = styled.section`
     background-color: ${gray.lighter};
-    padding-left: 24px;
-    padding-right: 24px;
     padding-bottom: 96px;
     padding-top: 96px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    @media (min-width: 600px) {
-        padding-left: 44px;
-        padding-right: 44px;
-    }
 
     @media (min-width: 1200px) {
         padding-top: 160px;
@@ -62,7 +52,7 @@ function FAQ(props) {
         whiteSpace: "pre-wrap",
         backgroundColor: gray.lighter,
         width: "100%",
-        maxWidth: 672,
+        maxWidth: 672
     }
     return (
         <Container>

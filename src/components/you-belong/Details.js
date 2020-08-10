@@ -2,26 +2,14 @@ import React from "react"
 import styled from "styled-components"
 import { gray, black } from "@vschool/lotus"
 
-const FlexContainer = styled.div`
+const FlexContainer = styled.section`
     display: flex;
     justify-content: center;
     background-color: ${gray.lightest};
-    padding-left: 24px;
-    padding-right: 24px;
     padding-bottom: 64px;
 
-    @media (min-width: 600px) {
-        padding-left: 32px;
-        padding-right: 32px;
-    }
-
     @media (min-width: 840px) {
-        padding-left: 40px;
-        padding-right: 40px;
         padding-bottom: 96px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
     }
 
     @media (min-width: 1200px) {
@@ -56,7 +44,6 @@ const Detail = styled.div`
 
 const Title = styled.h3`
     color: ${black};
-    font-family: "aktiv-grotesk";
     font-size: 24px;
     line-height: 30px;
     font-weight: 800;
@@ -65,7 +52,6 @@ const Title = styled.h3`
 
 const Info = styled.p`
     color: ${gray.darker};
-    font-family: "aktiv-grotesk";
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;

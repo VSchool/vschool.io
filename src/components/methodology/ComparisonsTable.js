@@ -92,7 +92,7 @@ const Img = styled.img`
     border-left: 1px solid ${gray.darker};
 `
 
-const Type = styled.h6`
+const Type = styled.h3`
     font-size: 20px;
     font-family: "aktiv-grotesk";
     text-align: right;

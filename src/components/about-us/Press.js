@@ -9,7 +9,6 @@ const Container = styled.div`
 
 const Header = styled.h3`
     color: ${black};
-    font-family: "aktiv-grotesk";
     font-size: 32px;
     font-weight: 900;
     line-height: 38px;
@@ -38,7 +37,6 @@ const Header = styled.h3`
 // `
 
 const TempText = styled.p`
-    font-family: "aktiv-grotesk";
     font-size: 14px;
     color: #a09c96;
     font-weight: 500;

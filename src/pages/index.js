@@ -7,15 +7,15 @@ import { Helmet } from "react-helmet"
 import {
     HeroHeader,
     HeroImage,
-    Companies,
     Ratings,
     Differences,
     Testimonial,
     VideoModal,
 } from "../components/home"
 
-import MakeALeap from "../components/shared/MakeALeap.js"
-import Courses from "../components/shared/Courses.js"
+import { AlumniCompanies } from "../components/shared"
+import MakeALeap from "../components/shared/MakeALeap"
+import Courses from "../components/shared/Courses"
 
 export default function IndexPage({ data }) {
     const [show, setShow] = useState(false)
@@ -31,7 +31,6 @@ export default function IndexPage({ data }) {
         hero_green_circle: { url: greenCircle },
         hero_overlay_img: { url: overlayImg },
         upcoming_programs_header: { text: coursesHeader },
-        where_we_work_header: { text: weWorkHeader },
         ratings_header: { text: ratingsHeader },
         what_makes_us_different_header: { text: differenceHeader },
         testimonial_text: { text: testimonial },
@@ -44,7 +43,6 @@ export default function IndexPage({ data }) {
         next_session: { text: makeALeapSession },
         differences,
         ratings,
-        company_logos,
         courses,
     } = data.prismicHomePage.data
     const { start_date: startDate } = data.prismicStartDate.data
@@ -79,7 +77,7 @@ export default function IndexPage({ data }) {
                 header={coursesHeader}
                 courses={courses}
             />
-            <Companies header={weWorkHeader} logos={company_logos} />
+            <AlumniCompanies />
             <Ratings header={ratingsHeader} ratings={ratings} />
             <Differences header={differenceHeader} differences={differences} />
             <Testimonial

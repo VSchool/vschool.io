@@ -21,7 +21,6 @@ const Tag = styled.div`
 
 const Header = styled.h3`
     color: ${black};
-    font-family: "aktiv-grotesk";
     font-size: 24px;
     font-weight: 800;
     margin-bottom: 16px;
@@ -33,7 +32,6 @@ const Header = styled.h3`
 
 const Info = styled.p`
     color: ${gray.darker};
-    font-family: "aktiv-grotesk";
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;

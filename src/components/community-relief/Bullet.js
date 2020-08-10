@@ -35,7 +35,6 @@ const HeaderContainer = styled.div`
 
 const Header = styled.h3`
     color: ${green.darkest};
-    font-family: "aktiv-grotesk";
     font-size: 24px;
     font-weight: 800;
     margin-bottom: 8px;
@@ -47,7 +46,6 @@ const Header = styled.h3`
 
 const Info = styled.p`
     color: ${black};
-    font-family: "aktiv-grotesk";
     font-size: 16px;
     font-weight: 800;
     line-height: 24px;
@@ -59,7 +57,6 @@ const Info = styled.p`
 
 const P = styled.p`
     color: #514f4b;
-    font-family: "aktiv-grotesk";
     font-size: 16px;
     font-weight: 500;
     margin: 8px 0;
