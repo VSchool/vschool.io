@@ -55,6 +55,7 @@ const ApplyButton = styled(Button)`
 
 const ButtonContainer = styled.li`
     list-style: none;
+    margin-left: 40px;
 `
 
 function DesktopMenu(props) {

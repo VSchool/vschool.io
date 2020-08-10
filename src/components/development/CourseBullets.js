@@ -3,24 +3,12 @@ import styled from "styled-components"
 import Bullet from "./Bullet.js"
 import { gray, blue } from "@vschool/lotus"
 
-const Container = styled.div`
-    padding-top: 56px;
-    padding-left: 24px;
-    padding-right: 24px;
+const Container = styled.section`
     background-color: ${gray.lighter};
+    padding-top: 56px;
 
     @media (min-width: 600px) {
         padding-top: 96px;
-    }
-
-    @media (min-width: 840px) {
-        padding-left: 44px;
-        padding-right: 44px;
-    }
-
-    @media (min-width: 1200px) {
-        padding-left: 88px;
-        padding-right: 88px;
     }
 `
 
@@ -55,15 +43,16 @@ const BlueBar = styled.div`
     position: relative;
     z-index: 3;
     bottom: -24px;
+    width: 100%;
+    max-width: 770px;
 
     @media (min-width: 900px) {
-        width: 770px;
         margin-right: auto;
         margin-left: auto;
     }
 
     @media (min-width: 1200px) {
-        width: 1024px;
+        max-width: 1024px;
     }
 `
 

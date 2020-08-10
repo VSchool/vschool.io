@@ -77,7 +77,7 @@ const Testimonial = styled.h2`
 
 `
 
-const Cite = styled.h4`
+const Cite = styled.h3`
     color: ${blue.dark};
     font-family: "aktiv-grotesk-extended";
     font-size: 20px;
@@ -86,7 +86,7 @@ const Cite = styled.h4`
     padding-top: 24px;
 `
 
-const Course = styled.h6`
+const Course = styled.p`
   font-family: "aktiv-grotesk-extended";
   font-size: 12px;
   line-height: 16px;
@@ -99,10 +99,6 @@ const FlexContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-
-    @media (min-width: 1100px) {
-       
-    }
 `
 
 const TestimonialImg = styled.img`

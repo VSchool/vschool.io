@@ -1,59 +1,44 @@
 import React from "react"
 import styled from "styled-components"
-import { gray, black } from "@vschool/lotus"
+import { blue, black } from "@vschool/lotus"
 
-const Container = styled.div`
-    background-color: ${gray.lighter};
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    @media (max-width: 400px) {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-
-    @media (min-width: 600px) {
-        padding-left: 48px;
-        padding-right: 48px;
-    }
-
-    @media (min-width: 1100px) {
-        padding-top: 64px;
-    }
+const Container = styled.section`
+    background-color: ${blue.lightest};
+    padding-top: 260px;
+    padding-bottom: 56px;
 
     @media (min-width: 1200px) {
-        padding-right: 96px;
-        padding-left: 96px;
+        padding-top: 160px;
     }
 `
 
-const H4 = styled.h4`
-    width: 100%;
-    color: ${black};
+const Header = styled.h2`
     font-family: "aktiv-grotesk";
-    font-size: 28px;
     font-weight: 900;
+    font-size: 32px;
+    line-height: 38px;
     text-align: center;
-    padding-bottom: 48px;
+    color: ${black};
+    width: 100%;
+    max-width: 380px;
+    margin-top: 72px;
 
-    @media (min-width: 600px) {
-        max-width: 540px;
-        padding-bottom: 56px;
-    }
-
-    @media (min-width: 840px) {
+    @media (max-width: 400px) {
+        margin-top: 180px;
     }
 
     @media (min-width: 1200px) {
-        font-size: 32px;
+        max-width: 560px;
+        line-height: 40px;
     }
 `
 
 const LogoListContainer = styled.div`
-    background-color: ${gray.lighter};
+    background-color: ${blue.lightest};
     display: flex;
+    width: 100%;
+    max-width: 380px;
+    margin-top: 48px;
 
     & > div:nth-child(1) > div:nth-child(1) > img {
         width: 40px;
@@ -119,7 +104,7 @@ const LogoListContainer = styled.div`
         width: 90px;
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 1200px) {
         & > div:nth-child(1) > div:nth-child(1) > img {
             width: 100%;
             max-width: 35px;
@@ -198,7 +183,7 @@ const LogoListContainer = styled.div`
         }
     }
 
-    @media (min-width: 1050px) {
+    @media (min-width: 1200px) {
         flex-direction: column;
         width: 100%;
         max-width: 1024px;
@@ -212,24 +197,7 @@ const LogoList = styled.div`
     height: 400px;
     margin: 0 8px;
 
-    @media (min-width: 500px) {
-        height: 450px;
-        margin: 0 24px;
-    }
-
-    @media (min-width: 600px) {
-        height: 500px;
-    }
-
-    @media (min-width: 700px) {
-        height: 550px;
-    }
-
-    @media (min-width: 840px) {
-        height: 600px;
-    }
-
-    @media (min-width: 1050px) {
+    @media (min-width: 1200px) {
         flex-direction: row;
         height: 56px;
         margin: 24px 0;
@@ -243,7 +211,7 @@ const LogoContainer = styled.div`
     height: 100%;
     width: 100%;
 
-    @media (min-width: 1050px) {
+    @media (min-width: 1200px) {
         width: auto;
         height: auto;
     }
@@ -257,7 +225,7 @@ export default function Companies(props) {
     const { header, logos } = props
     return (
         <Container>
-            <H4>{header}</H4>
+            <Header>{header}</Header>
             <LogoListContainer>
                 <LogoList>
                     {logos.slice(0, 6).map(({ logo }, i) => (

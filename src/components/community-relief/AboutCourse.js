@@ -1,36 +1,20 @@
-import React from 'react'
-import styled from 'styled-components'
-import {gray, black} from "@vschool/lotus"
+import React from "react"
+import styled from "styled-components"
+import { gray, black } from "@vschool/lotus"
 
-const Container = styled.div`
-  background-color: ${gray.lighter};
-  padding-left: 24px;
-  padding-right: 24px;
-  padding-top: 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: -48px;
+const Container = styled.section`
+    background-color: ${gray.lighter};
+    padding-top: 24px;
+    margin-top: -48px;
 
-  @media (min-width: 320px) and (max-width: 400px){
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-top: 16px;
-  }
-
-  @media (min-width: 600px){
-    padding-left: 48px;
-    padding-right: 48px;
-  }
-
-  @media (min-width: 1200px){
-    padding-right: 96px;
-    padding-left: 96px;
-  }
+    @media (min-width: 320px) and (max-width: 400px) {
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 16px;
+    }
 `
 
 const H1 = styled.h1`
-    font-family: "aktiv-grotesk";
     font-size: 32px;
     font-weight: 900;
     line-height: 40px;
@@ -59,13 +43,11 @@ const H1 = styled.h1`
     }
 `
 
-export default function AboutCourse(props){
-  const {
-    header
-  } = props
-  return (
-    <Container>
-      <H1>{header}</H1>
-    </Container>
-  )
+export default function AboutCourse(props) {
+    const { header } = props
+    return (
+        <Container>
+            <H1>{header}</H1>
+        </Container>
+    )
 }

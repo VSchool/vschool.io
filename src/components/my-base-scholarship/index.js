@@ -1,0 +1,8 @@
+export { default as HeroHeader } from "./HeroHeader.js"
+export { default as LandingAJob } from "./LandingAJob.js"
+export { default as Testimonial1 } from "./Testimonial1.js"
+export { default as ScholarshipDetails } from "./ScholarshipDetails.js"
+export { default as Companies } from "./Companies.js"
+export { default as Ratings } from "./Ratings.js"
+export { default as Testimonial2 } from "./Testimonial2.js"
+export { default as CTA } from "./CTA.js"
