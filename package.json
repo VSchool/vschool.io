@@ -3,7 +3,14 @@
   "private": true,
   "description": "V School's home page, built with Gatsby and Prismic",
   "version": "0.1.0",
-  "author": "Nate Jensen <nate@vschool.io>, Bob Ziroll <bziroll@vschool.io>",
+  "contributors": [
+    {
+      "name": "Nate Jensen"
+    },
+    {
+      "name": "Bob Ziroll"
+    }
+  ],
   "dependencies": {
     "@reach/router": "^1.3.3",
     "@vschool/lotus": "^1.1.0",
