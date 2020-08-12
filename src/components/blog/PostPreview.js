@@ -131,7 +131,7 @@ const Excerpt = styled.p`
         background: linear-gradient(
             to right,
             rgba(255, 255, 255, 0),
-            rgba(255, 255, 255, 1) 50%
+            rgba(255, 255, 255, 1) 80%
         );
     }
 
@@ -181,12 +181,12 @@ export default function PostPreview(props) {
         feature_image,
         excerpt,
         primary_tag,
-        authors,
+        tags,
+        primary_author,
     } = props
 
-    const postColor = getColorFromTag(
-        primary_tag ? primary_tag.name.toLowerCase() : ""
-    )
+    const postColor = primary_tag ? primary_tag.description : gray.light
+
     return (
         <StyledLink to={`/blog/${slug}`}>
             <PreviewContainer>
@@ -202,7 +202,7 @@ export default function PostPreview(props) {
                 </TagAndDateContainer>
                 <Title>{title}</Title>
                 <Excerpt>{excerpt}</Excerpt>
-                <AuthorBox {...authors[0]} />
+                <AuthorBox {...primary_author} />
             </PreviewContainer>
         </StyledLink>
     )
