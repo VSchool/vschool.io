@@ -133,7 +133,7 @@ const Excerpt = styled.p`
         background: linear-gradient(
             to right,
             rgba(255, 255, 255, 0),
-            rgba(255, 255, 255, 1) 50%
+            rgba(255, 255, 255, 1) 80%
         );
     }
 
@@ -178,13 +178,12 @@ export default function TopPostPreview(props) {
         title,
         feature_image,
         primary_tag,
-        authors,
+        primary_author,
         excerpt,
     } = props
 
-    const postColor = getColorFromTag(
-        primary_tag ? primary_tag.name.toLowerCase() : ""
-    )
+    const postColor = primary_tag ? primary_tag.description : gray.light
+
     return (
         <StyledLink to={`/blog/${slug}`}>
             <TopPostContainer>
@@ -201,7 +200,7 @@ export default function TopPostPreview(props) {
                     </TagAndDateContainer>
                     <TopPostTitle>{title}</TopPostTitle>
                     <Excerpt>{excerpt}</Excerpt>
-                    <AuthorBox {...authors[0]} />
+                    <AuthorBox {...primary_author} />
                 </InfoContainer>
             </TopPostContainer>
         </StyledLink>

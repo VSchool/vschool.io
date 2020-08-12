@@ -40,13 +40,12 @@ const StyledLink = styled(Link)`
 `
 
 export default function BackButton(props) {
-    const { blogFilter } = props
     return (
         <Container>
             <StyledLink to={"/blog"}>
                 <ButtonContainer>
                     <Arrow src={backArrow} />
-                    <Text>Back to {blogFilter}</Text>
+                    <Text>Back to Blog Home</Text>
                 </ButtonContainer>
             </StyledLink>
         </Container>

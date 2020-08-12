@@ -54,6 +54,12 @@ export const query = graphql`
                     primary_tag {
                         name
                     }
+                    tags {
+                        description
+                        id
+                        name
+                    }
+                    featured
                     authors {
                         slug
                         name
