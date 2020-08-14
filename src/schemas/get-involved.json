@@ -1,0 +1,104 @@
+{
+    "Main": {
+        "prismic_display_name": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Prismic Display Name",
+                "useAsTitle": true
+            }
+        },
+        "uid": {
+            "type": "UID",
+            "config": {
+                "label": "get-involved",
+                "useAsTitle": true
+            }
+        },
+        "get_involved_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Get Involved Header"
+            }
+        },
+        "get_involved_sub": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "Get Involved Sub"
+            }
+        },
+        "cards": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "card_image": {
+                        "type": "Image",
+                        "config": {
+                            "constraint": {},
+                            "thumbnails": [],
+                            "label": "Card_Image"
+                        }
+                    },
+                    "card_photo": {
+                        "type": "Image",
+                        "config": {
+                            "constraint": {},
+                            "thumbnails": [],
+                            "label": "Card_Photo"
+                        }
+                    },
+                    "card_header": {
+                        "type": "StructuredText",
+                        "config": {
+                            "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                            "label": "Card Header"
+                        }
+                    },
+                    "card_text": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                            "label": "Card Text"
+                        }
+                    },
+                    "card_link_text": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                            "label": "Card Link Text"
+                        }
+                    },
+                    "card_link": {
+                        "type": "Link",
+                        "config": {
+                            "label": "Card Link"
+                        }
+                    }
+                },
+                "label": "Cards"
+            }
+        },
+        "contact_us": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "Contact Us"
+            }
+        },
+        "contact_us_btn": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "Contact Us Btn"
+            }
+        },
+        "contact_us_btn_link": {
+            "type": "Link",
+            "config": {
+                "label": "Contact Us Btn Link"
+            }
+        }
+    }
+}

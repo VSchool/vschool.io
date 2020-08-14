@@ -1,0 +1,111 @@
+{
+    "Main": {
+        "prismic_display_name": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Prismic Display Name",
+                "useAsTitle": true
+            }
+        },
+        "footer_form_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Footer Form Header"
+            }
+        },
+        "footer_input_placeholder": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "Footer Input Placeholder"
+            }
+        },
+        "footer_button_text": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "Footer Button Text"
+            }
+        },
+        "footer_programs_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Footer Programs Header"
+            }
+        },
+        "vs_logo": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "VS Logo"
+            }
+        },
+        "footer_sub_links": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "footer_sub_link_text": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                            "label": "Footer Sub Link Text"
+                        }
+                    },
+                    "footer_sub_link": {
+                        "type": "Link",
+                        "config": {
+                            "label": "Footer Sub Link"
+                        }
+                    }
+                },
+                "label": "Footer Sub Links"
+            }
+        },
+        "body": {
+            "type": "Slices",
+            "fieldset": "Slice zone",
+            "config": {
+                "labels": {
+                    "footer_section": []
+                },
+                "choices": {
+                    "footer_section": {
+                        "type": "Slice",
+                        "fieldset": "Footer Section",
+                        "description": "Header and links for a footer section",
+                        "icon": "clear_all",
+                        "display": "list",
+                        "non-repeat": {
+                            "footer_header": {
+                                "type": "StructuredText",
+                                "config": {
+                                    "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                                    "label": "Footer Header"
+                                }
+                            }
+                        },
+                        "repeat": {
+                            "footer_link_text": {
+                                "type": "StructuredText",
+                                "config": {
+                                    "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                                    "label": "Footer Link Text"
+                                }
+                            },
+                            "footer_link": {
+                                "type": "Link",
+                                "config": {
+                                    "label": "Footer Link"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

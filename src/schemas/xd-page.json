@@ -1,0 +1,462 @@
+{
+    "Main": {
+        "prismic_display_name": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Prismic Display Name",
+                "useAsTitle": true
+            }
+        },
+        "uid": {
+            "type": "UID",
+            "config": {
+                "label": "URL Path",
+                "useAsTitle": true
+            }
+        },
+        "page_title": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "page title"
+            }
+        },
+        "main_page_title": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Main Page Title"
+            }
+        },
+        "make_it_happen_link": {
+            "type": "Link",
+            "config": {
+                "label": "Make It Happen Link"
+            }
+        },
+        "make_it_happen_btn": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "Make It Happen Btn"
+            }
+        },
+        "subtitle": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Subtitle"
+            }
+        },
+        "invite": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Invite"
+            }
+        },
+        "hero_img_small": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Hero_Img_Small"
+            }
+        },
+        "hero_img_large": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Hero_Img_Large"
+            }
+        },
+        "hero_img_overlay": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Hero_Img_Overlay"
+            }
+        },
+        "about_course_title": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "About Course Title"
+            }
+        },
+        "about_course_sub": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "About Course Sub"
+            }
+        },
+        "hard_skills_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Hard Skills Header"
+            }
+        },
+        "hard_skills": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "hard_skill": {
+                        "type": "StructuredText",
+                        "config": {
+                            "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                            "label": "Hard Skill"
+                        }
+                    }
+                },
+                "label": "Hard Skills"
+            }
+        },
+        "soft_skills_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Soft Skills Header"
+            }
+        },
+        "soft_skills": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "soft_skill": {
+                        "type": "StructuredText",
+                        "config": {
+                            "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                            "label": "Soft Skill"
+                        }
+                    }
+                },
+                "label": "Soft Skills"
+            }
+        },
+        "course_bullets": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "bullet_title": {
+                        "type": "StructuredText",
+                        "config": {
+                            "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                            "label": "Bullet Title"
+                        }
+                    },
+                    "bullet_description": {
+                        "type": "StructuredText",
+                        "config": {
+                            "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                            "label": "Bullet Description"
+                        }
+                    }
+                },
+                "label": "Course Bullets"
+            }
+        },
+        "course_bullets_image": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Course Bullets Image"
+            }
+        },
+        "as_real_as_it_gets_title": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "As Real As It Gets Title"
+            }
+        },
+        "as_real_as_it_gets_sub1": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "As Real As It Gets Sub1"
+            }
+        },
+        "as_real_as_it_gets_sub2": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "As Real As It Gets Sub2"
+            }
+        },
+        "as_real_as_it_gets_sub3": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "As Real As It Gets Sub3"
+            }
+        },
+        "as_real_as_it_gets_image": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "As Real As It Gets Image"
+            }
+        },
+        "testimonial_text": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Testimonial Text"
+            }
+        },
+        "testimonial_cite": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Testimonial Cite"
+            }
+        },
+        "testimonial_image": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Testimonial Image"
+            }
+        },
+        "rating_image1": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Rating Image1"
+            }
+        },
+        "rating_image2": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Rating Image2"
+            }
+        },
+        "rating_image3": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Rating Image3"
+            }
+        },
+        "isa_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "ISA header"
+            }
+        },
+        "isa_header1": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "ISA Header1"
+            }
+        },
+        "isa_sub": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "ISA Sub"
+            }
+        },
+        "isa_header2": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "ISA Header2"
+            }
+        },
+        "isa_info": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "ISA Info"
+            }
+        },
+        "isa_info1": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "ISA info1"
+            }
+        },
+        "isa_info2": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "ISA info2"
+            }
+        },
+        "isa_learn_more_btn": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "ISA learn more btn"
+            }
+        },
+        "isa_learn_more_link": {
+            "type": "Link",
+            "config": {
+                "label": "ISA learn more link"
+            }
+        },
+        "isa_image": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "ISA Image"
+            }
+        },
+        "payment_options": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "payment_type": {
+                        "type": "StructuredText",
+                        "config": {
+                            "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                            "label": "Payment Type"
+                        }
+                    },
+                    "payment_info": {
+                        "type": "StructuredText",
+                        "config": {
+                            "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                            "label": "Payment Info"
+                        }
+                    },
+                    "payment_info_link": {
+                        "type": "Link",
+                        "config": {
+                            "label": "Payment Info Link"
+                        }
+                    }
+                },
+                "label": "Payment Options"
+            }
+        },
+        "call_to_action_title": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Call To Action Title"
+            }
+        },
+        "call_to_action_sub": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "Call To Action Sub"
+            }
+        },
+        "call_to_action_btn": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "Call To Action Btn"
+            }
+        },
+        "call_to_action_link": {
+            "type": "Link",
+            "config": {
+                "label": "Call To Action Link"
+            }
+        },
+        "next_session_title": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Next Session Title"
+            }
+        },
+        "next_session_date": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "Next Session Date"
+            }
+        },
+        "next_session_image_small": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Next Session Image Small"
+            }
+        },
+        "next_session_image_large": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Next Session Image Large"
+            }
+        },
+        "learn_to_code_title": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Learn To Code Title"
+            }
+        },
+        "learn_to_code_btn": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "Learn To Code Btn"
+            }
+        },
+        "learn_to_code_link": {
+            "type": "Link",
+            "config": {
+                "label": "Learn To Code Link"
+            }
+        },
+        "faq": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "faq_title": {
+                        "type": "StructuredText",
+                        "config": {
+                            "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                            "label": "FAQ title"
+                        }
+                    },
+                    "faq_info": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                            "label": "FAQ info"
+                        }
+                    }
+                },
+                "label": "FAQ"
+            }
+        },
+        "body": {
+            "type": "Slices",
+            "fieldset": "Slice zone",
+            "config": {
+                "labels": {
+                    "skills": [],
+                    "skills1": []
+                },
+                "choices": {}
+            }
+        }
+    }
+}
