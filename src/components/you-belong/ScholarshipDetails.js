@@ -115,7 +115,6 @@ const Info = styled.p`
 
 export default function ScholarshipDetails(props) {
     const { title, header, sub, deadlines, detailsInfo, bgImg, phases } = props
-    console.log("I'm here")
     return (
         <Container>
             <FixedContainer>

@@ -180,6 +180,11 @@ const Footer = () => {
                     body {
                         ... on PrismicFooterBodyFooterSection {
                             id
+                            primary {
+                                footer_header {
+                                    text
+                                }
+                            }
                             items {
                                 footer_link {
                                     url
@@ -194,6 +199,7 @@ const Footer = () => {
             }
         }
     `)
+
     return (
         <Container>
             <FooterContainer>
@@ -223,8 +229,8 @@ const Footer = () => {
                         </CourseLink>
                     ))}
                 </FooterSection>
-                {footerSections.map(({ primary, items }, i) => (
-                    <FooterSection key={primary.footer_header.text + i}>
+                {footerSections.map(({ id, primary, items }, i) => (
+                    <FooterSection key={id}>
                         <Header>{primary.footer_header.text}</Header>
                         {items.map((item, j) =>
                             item.footer_link.url[0] === "h" ? (
