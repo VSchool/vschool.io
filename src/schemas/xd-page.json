@@ -446,17 +446,6 @@
                 },
                 "label": "FAQ"
             }
-        },
-        "body": {
-            "type": "Slices",
-            "fieldset": "Slice zone",
-            "config": {
-                "labels": {
-                    "skills": [],
-                    "skills1": []
-                },
-                "choices": {}
-            }
         }
     }
 }

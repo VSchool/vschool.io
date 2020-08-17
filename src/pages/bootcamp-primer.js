@@ -102,12 +102,15 @@ export const query = graphql`
                     }
                     course_start_date {
                         document {
-                            data {
-                                course_name {
-                                    html
-                                    text
+                            ... on PrismicStartDate {
+                                id
+                                data {
+                                    course_name {
+                                        html
+                                        text
+                                    }
+                                    start_date(formatString: "MMMM Do, YYYY")
                                 }
-                                start_date(formatString: "MMM Do, YYYY")
                             }
                         }
                     }

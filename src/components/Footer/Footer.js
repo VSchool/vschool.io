@@ -178,17 +178,15 @@ const Footer = () => {
                         url
                     }
                     body {
-                        items {
-                            footer_link {
-                                url
-                            }
-                            footer_link_text {
-                                text
-                            }
-                        }
-                        primary {
-                            footer_header {
-                                text
+                        ... on PrismicFooterBodyFooterSection {
+                            id
+                            items {
+                                footer_link {
+                                    url
+                                }
+                                footer_link_text {
+                                    text
+                                }
                             }
                         }
                     }

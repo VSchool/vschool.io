@@ -1,103 +1,103 @@
 {
-    "Main" : {
-      "prismic_display_name" : {
-        "type" : "StructuredText",
-        "config" : {
-          "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
-          "label" : "Prismic Display Name",
-          "useAsTitle" : true
-        }
-      },
-      "uid" : {
-        "type" : "UID",
-        "config" : {
-          "label" : "404 Error",
-          "useAsTitle" : true
-        }
-      },
-      "404_page_title" : {
-        "type" : "StructuredText",
-        "config" : {
-          "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-          "label" : "404 Page Title"
-        }
-      },
-      "404_page_header" : {
-        "type" : "StructuredText",
-        "config" : {
-          "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
-          "label" : "404 Page Header"
-        }
-      },
-      "404_page_sub" : {
-        "type" : "StructuredText",
-        "config" : {
-          "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-          "label" : "404 Page Sub"
-        }
-      },
-      "link1_text" : {
-        "type" : "StructuredText",
-        "config" : {
-          "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-          "label" : "link1 text"
-        }
-      },
-      "link1" : {
-        "type" : "Link",
-        "config" : {
-          "label" : "link1"
-        }
-      },
-      "link2_text" : {
-        "type" : "StructuredText",
-        "config" : {
-          "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-          "label" : "link2 text"
-        }
-      },
-      "link2" : {
-        "type" : "Link",
-        "config" : {
-          "label" : "link2"
-        }
-      },
-      "link3_text" : {
-        "type" : "StructuredText",
-        "config" : {
-          "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-          "label" : "link3 text"
-        }
-      },
-      "link3" : {
-        "type" : "Link",
-        "config" : {
-          "label" : "link3"
-        }
-      },
-      "gifs_background" : {
-        "type" : "Image",
-        "config" : {
-          "constraint" : { },
-          "thumbnails" : [ ],
-          "label" : "Gifs Background"
-        }
-      },
-      "gifs" : {
-        "type" : "Group",
-        "config" : {
-          "fields" : {
-            "gif" : {
-              "type" : "Image",
-              "config" : {
-                "constraint" : { },
-                "thumbnails" : [ ],
-                "label" : "gif"
-              }
+    "Main": {
+        "prismic_display_name": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Prismic Display Name",
+                "useAsTitle": true
             }
-          },
-          "label" : "gifs"
+        },
+        "uid": {
+            "type": "UID",
+            "config": {
+                "label": "404 Error",
+                "useAsTitle": true
+            }
+        },
+        "page_title": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "404 Page Title"
+            }
+        },
+        "page_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "404 Page Header"
+            }
+        },
+        "page_sub": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "404 Page Sub"
+            }
+        },
+        "link1_text": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "link1 text"
+            }
+        },
+        "link1": {
+            "type": "Link",
+            "config": {
+                "label": "link1"
+            }
+        },
+        "link2_text": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "link2 text"
+            }
+        },
+        "link2": {
+            "type": "Link",
+            "config": {
+                "label": "link2"
+            }
+        },
+        "link3_text": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "link3 text"
+            }
+        },
+        "link3": {
+            "type": "Link",
+            "config": {
+                "label": "link3"
+            }
+        },
+        "gifs_background": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Gifs Background"
+            }
+        },
+        "gifs": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "gif": {
+                        "type": "Image",
+                        "config": {
+                            "constraint": {},
+                            "thumbnails": [],
+                            "label": "gif"
+                        }
+                    }
+                },
+                "label": "gifs"
+            }
         }
-      }
     }
-  }
+}

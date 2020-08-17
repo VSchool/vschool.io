@@ -138,17 +138,6 @@ export const query = graphql`
                     course {
                         text
                     }
-                    course_start_date {
-                        document {
-                            data {
-                                course_name {
-                                    html
-                                    text
-                                }
-                                start_date(formatString: "MMM Do, YYYY")
-                            }
-                        }
-                    }
                 }
                 make_a_leap_sub {
                     text

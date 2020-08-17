@@ -306,6 +306,7 @@
                         "type": "Link",
                         "config": {
                             "select": "document",
+                            "customtypes": ["start_date"],
                             "label": "session date"
                         }
                     }
