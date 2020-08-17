@@ -17,7 +17,6 @@ html {
     -webkit-text-size-adjust: 100%;
 }
 
-
 /* Sections should be used universally to represent a 
 logical separation in the content of any given page, 
 and additional tweaks should be made in the styled-component 
@@ -51,7 +50,6 @@ section {
     }
 }
 
-
 h1,
 h2,
 h3,
@@ -68,7 +66,16 @@ h6 {
     text-transform: uppercase;
 }
 
+// PrismJS styles
+.code-toolbar {
+    width: 100%;
+    margin: 20px;
+}
 
+code {
+    color: #c25;
+    font-size: 1.1em;
+}
 
 /* ------------------------------------------------- */
 /* Styles added by gastby that we can choose to keep */
