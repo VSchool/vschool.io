@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 import QueryLink from "../shared/QueryLink.js"
 import { black, gray, blue } from "@vschool/lotus"
-import { getColorFromTag } from "./utils"
 import AuthorBox from "./AuthorBox.js"
 
 const TopPostContainer = styled.div`

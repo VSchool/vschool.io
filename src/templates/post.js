@@ -63,8 +63,8 @@ const PostBodyContainer = styled.section`
     & a {
         font-family: "aktiv-grotesk-extended";
         color: ${blue.base};
-        display: block;
-        margin-left: 8px;
+        /* display: block;
+        margin-left: 8px; */
         text-decoration: none;
     }
 `
@@ -166,6 +166,7 @@ const Name = styled.p`
 
 function Post({ data }) {
     const post = data.ghostPost
+    console.log(post)
     const { title, published_at, primary_tag, authors, url } = post
 
     const postColor = getColorFromTag(
@@ -198,7 +199,7 @@ function Post({ data }) {
                                 bgColor={postColor}
                                 dangerouslySetInnerHTML={{ __html: post.html }}
                             />
-                            <CTAFooter url={url}/>
+                            <CTAFooter url={url} />
                         </PageContainer>
                     </>
                 )}

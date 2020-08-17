@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react"
-import { useStaticQuery, graphql } from "gatsby"
 
 export const BlogFilterContext = React.createContext()
 
