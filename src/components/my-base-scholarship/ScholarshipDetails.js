@@ -233,7 +233,7 @@ export default function ScholarshipDetails(props) {
     const scholarships = data.prismicMyBaseScholarship.data.body
     const scholarshipComponents = scholarships.map(scholarship => {
         const {
-            scholarship_subtitle: { text: subtitle },
+            // scholarship_subtitle: { text: subtitle },
             scholarship_application_deadline: { text: deadline },
             scholarship_background_image: { url: backgroundImg },
             scholarship_button_text: { text: buttonText },

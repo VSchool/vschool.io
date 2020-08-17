@@ -1,0 +1,374 @@
+{
+    "Main": {
+        "prismic_display_name": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Prismic Display Name",
+                "useAsTitle": true
+            }
+        },
+        "uid": {
+            "type": "UID",
+            "config": {
+                "label": "my-base-scholarship"
+            }
+        },
+        "page_title": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "page title"
+            }
+        },
+        "my_base_logo": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "my base logo"
+            }
+        },
+        "ahrn_logo": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "ahrn logo"
+            }
+        },
+        "page_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "page header"
+            }
+        },
+        "page_hero": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "page hero"
+            }
+        },
+        "page_info": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "page info"
+            }
+        },
+        "page_subheader": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "page subheader"
+            }
+        },
+        "page_btn": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "page btn"
+            }
+        },
+        "page_btn_link": {
+            "type": "Link",
+            "config": {
+                "label": "page btn link"
+            }
+        },
+        "landing_a_job_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "landing a job header"
+            }
+        },
+        "landing_a_job_info": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "landing a job info"
+            }
+        },
+        "phases": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "phase_num": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                            "label": "phase num"
+                        }
+                    },
+                    "phase_header": {
+                        "type": "StructuredText",
+                        "config": {
+                            "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                            "label": "phase header"
+                        }
+                    },
+                    "phase_info": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                            "label": "phase info"
+                        }
+                    }
+                },
+                "label": "phases"
+            }
+        },
+        "testimonial": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "testimonial"
+            }
+        },
+        "cite": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "cite"
+            }
+        },
+        "testimonial_img": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "testimonial img"
+            }
+        },
+        "testimonial2": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "testimonial2"
+            }
+        },
+        "cite2": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "cite2"
+            }
+        },
+        "testimonial_img2": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "testimonial img2"
+            }
+        },
+        "cta_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "cta header"
+            }
+        },
+        "cta_bg_img": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "cta bg img"
+            }
+        },
+        "cta_next_session": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "cta next session"
+            }
+        },
+        "start_date": {
+            "type": "Link",
+            "config": {
+                "select": "document",
+                "customtypes": ["start_date"],
+                "label": "start date"
+            }
+        },
+        "cta_subheader": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "cta subheader"
+            }
+        },
+        "cta_btn_link": {
+            "type": "Link",
+            "config": {
+                "label": "cta btn link"
+            }
+        },
+        "cta_btn": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "cta btn"
+            }
+        }
+    },
+    "Company Logos": {
+        "companies_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "companies header"
+            }
+        },
+        "logos": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "logo": {
+                        "type": "Image",
+                        "config": {
+                            "constraint": {},
+                            "thumbnails": [],
+                            "label": "logo"
+                        }
+                    }
+                },
+                "label": "logos"
+            }
+        }
+    },
+    "Ratings": {
+        "ratings_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "ratings header"
+            }
+        },
+        "ratings": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "rating": {
+                        "type": "Image",
+                        "config": {
+                            "constraint": {},
+                            "thumbnails": [],
+                            "label": "rating"
+                        }
+                    }
+                },
+                "label": "ratings"
+            }
+        },
+        "bootcamp_rankings_link": {
+            "type": "Link",
+            "config": {
+                "label": "Bootcamp Rankings Link"
+            }
+        }
+    },
+    "Scholarship Details": {
+        "details_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "details header"
+            }
+        },
+        "body": {
+            "type": "Slices",
+            "fieldset": "Slice zone",
+            "config": {
+                "labels": {
+                    "scholarship": []
+                },
+                "choices": {
+                    "scholarship": {
+                        "type": "Slice",
+                        "fieldset": "Scholarship",
+                        "description": "Each one represents a scholarship being offered",
+                        "icon": "attach_money",
+                        "display": "list",
+                        "non-repeat": {
+                            "scholarship_name": {
+                                "type": "StructuredText",
+                                "config": {
+                                    "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                                    "label": "Scholarship Name",
+                                    "placeholder": "COVID-19 Scholarship"
+                                }
+                            },
+                            "scholarship_background_image": {
+                                "type": "Image",
+                                "config": {
+                                    "constraint": {},
+                                    "thumbnails": [],
+                                    "label": "Scholarship Background Image"
+                                }
+                            },
+                            "scholarship_subtitle": {
+                                "type": "StructuredText",
+                                "config": {
+                                    "single": "heading3, heading4, heading5, heading6",
+                                    "label": "Scholarship Subtitle",
+                                    "placeholder": "Application Deadline"
+                                }
+                            },
+                            "scholarship_application_deadline": {
+                                "type": "StructuredText",
+                                "config": {
+                                    "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                                    "label": "Scholarship Application Deadline"
+                                }
+                            },
+                            "scholarship_button_text": {
+                                "type": "StructuredText",
+                                "config": {
+                                    "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                                    "label": "Scholarship Button Text"
+                                }
+                            },
+                            "scholarship_button_link": {
+                                "type": "Link",
+                                "config": {
+                                    "allowTargetBlank": true,
+                                    "label": "Scholarship Button Link"
+                                }
+                            },
+                            "scholarship_details": {
+                                "type": "StructuredText",
+                                "config": {
+                                    "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                                    "label": "Scholarship Details"
+                                }
+                            }
+                        },
+                        "repeat": {
+                            "scholarship_bullet_icon": {
+                                "type": "Image",
+                                "config": {
+                                    "constraint": {},
+                                    "thumbnails": [],
+                                    "label": "Scholarship Bullet Icon"
+                                }
+                            },
+                            "scholarship_bullet_text": {
+                                "type": "StructuredText",
+                                "config": {
+                                    "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                                    "label": "Scholarship Bullet Text"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

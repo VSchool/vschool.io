@@ -8,14 +8,6 @@
                 "useAsTitle": true
             }
         },
-        "video-test": {
-            "type": "Link",
-            "config": {
-                "select": "media",
-                "label": "video-test",
-                "useAsTitle": true
-            }
-        },
         "uid": {
             "type": "UID",
             "config": {

@@ -67,13 +67,13 @@ export const query = graphql`
                 gifs_background {
                     url
                 }
-                _404_page_title {
+                page_title {
                     text
                 }
-                _404_page_sub {
+                page_sub {
                     text
                 }
-                _404_page_header {
+                page_header {
                     text
                 }
             }
