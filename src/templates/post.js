@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useEffect } from "react"
+import Prism from "prismjs"
 import { graphql } from "gatsby"
 import styled from "styled-components"
 import BlogLayout from "../components/blog/blogLayout"
@@ -11,7 +12,6 @@ import { BlogFilterContext } from "../components/blog/context/BlogFilterProvider
 
 const PageContainer = styled.div`
     padding: 18px;
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,10 +25,49 @@ const PageContainer = styled.div`
 const PostBodyContainer = styled.section`
     width: 100%;
     max-width: 672px;
-    display: flex;
-    flex-direction: column;
+    /* display: flex; */
+    /* flex-direction: column; */
+    padding: 0;
     padding-bottom: 64px;
     font-family: "aktiv-grotesk";
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+        align-self: flex-start;
+    }
+
+    h2 {
+        margin-top: 48px;
+        margin-bottom: 32px;
+    }
+
+    h3 {
+        margin-top: 32px;
+        margin-bottom: 8px;
+    }
+
+    li {
+        margin: 5px 0;
+    }
+
+    blockquote {
+        font-size: 18px;
+        line-height: 28px;
+        font-style: italic;
+        font-family: "aktiv-grotesk-extended";
+        font-weight: 900;
+        margin-top: 48px;
+        margin-bottom: 48px;
+
+        @media (min-width: 600px) {
+            letter-spacing: 0.375px;
+            font-size: 24px;
+        }
+    }
 
     & figure {
         display: flex;
@@ -36,7 +75,10 @@ const PostBodyContainer = styled.section`
         align-items: center;
         background-color: ${gray.lightest};
         padding: 24px;
-        margin: 16px 0;
+
+        @media (min-width: 1000px) {
+            margin: 16px 0;
+        }
     }
 
     & figcaption {
@@ -63,8 +105,6 @@ const PostBodyContainer = styled.section`
     & a {
         font-family: "aktiv-grotesk-extended";
         color: ${blue.base};
-        /* display: block;
-        margin-left: 8px; */
         text-decoration: none;
     }
 `
@@ -165,8 +205,12 @@ const Name = styled.p`
 `
 
 function Post({ data }) {
+    useEffect(() => {
+        // call the highlightAll() function to style our code blocks
+        Prism.highlightAll()
+    })
+
     const post = data.ghostPost
-    console.log(post)
     const { title, published_at, primary_tag, authors, url } = post
 
     const postColor = getColorFromTag(
@@ -197,7 +241,9 @@ function Post({ data }) {
                             </DetailsContainer>
                             <PostBodyContainer
                                 bgColor={postColor}
-                                dangerouslySetInnerHTML={{ __html: post.html }}
+                                dangerouslySetInnerHTML={{
+                                    __html: post.html,
+                                }}
                             />
                             <CTAFooter url={url} />
                         </PageContainer>

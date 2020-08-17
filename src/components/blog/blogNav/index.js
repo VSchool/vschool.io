@@ -15,6 +15,8 @@ const NavContainer = styled.nav`
     align-items: center;
     padding: 0 16px;
     box-shadow: 0 8px 8px -8px rgba(0, 0, 0, 0.2);
+    overflow-x: scroll;
+    overflow-y: hidden;
 `
 
 const FixedContainer = styled.div`
@@ -35,32 +37,45 @@ const Header = styled.h2`
     line-height: 28px;
     font-weight: 700;
     margin-right: auto;
+
+    @media (min-width: 1000px) {
+    }
 `
 
 const TagsList = styled.ul`
     display: flex;
     list-style: none;
+    margin-left: 46px;
 `
 
 const Tag = styled.li`
-    padding: 15px 16px;
-    cursor: pointer;
+    padding: 15px 8px;
     position: relative;
+    cursor: pointer;
+
+    @media (min-width: 600px) {
+        padding: 15px 16px;
+    }
 
     &:last-child {
         /* Offset the padding in the last item */
         margin-right: -16px;
     }
 
+    /* Underline effect for active and hover states */
     &:hover {
         :after {
             content: "";
             display: block;
-            width: calc(100% - 32px);
+            width: calc(100% - 16px);
             border-bottom: 4px solid ${black};
-            /* margin: 0 auto; */
+            margin: 0 auto;
             position: absolute;
             bottom: 0;
+
+            @media (min-width: 600px) {
+                width: calc(100% - 32px);
+            }
         }
     }
 
@@ -70,11 +85,15 @@ const Tag = styled.li`
             &:after {
                 content: "";
                 display: block;
-                width: calc(100% - 32px);
+                width: calc(100% - 16px);
                 border-bottom: 4px solid ${black};
-                /* margin: 0 auto; */
+                margin: 0 auto;
                 position: absolute;
                 bottom: 0;
+
+                @media (min-width: 600px) {
+                    width: calc(100% - 32px);
+                }
             }
         `}
 `
@@ -96,7 +115,7 @@ export default function BlogNav(props) {
             }
         }
     `)
-    
+
     const { blogFilter, setBlogFilter } = useContext(BlogFilterContext)
 
     // drill into the `node` property for each one
