@@ -63,6 +63,7 @@ module.exports = {
                     "isa-page": require("./src/schemas/isa-page.json"),
                     "living-in-salt-lake": require("./src/schemas/living-in-salt-lake.json"),
                     "methodology-page": require("./src/schemas/methodology-page.json"),
+                    "my-base-scholarship": require("./src/schemas/my-base-scholarship.json"),
                     navigation_bar: require("./src/schemas/navigation_bar.json"),
                     press: require("./src/schemas/press.json"),
                     responsive_learning: require("./src/schemas/responsive_learning.json"),
@@ -74,7 +75,7 @@ module.exports = {
                     veterans_page: require("./src/schemas/veterans_page.json"),
                     "xd-page": require("./src/schemas/xd-page.json"),
                     "you-belong": require("./src/schemas/you-belong.json"),
-                }
+                },
                 // linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
             },
         },
