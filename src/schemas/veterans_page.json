@@ -1,0 +1,211 @@
+{
+    "Main": {
+        "prismic_display_name": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Prismic Display Name",
+                "useAsTitle": true
+            }
+        },
+        "uid": {
+            "type": "UID",
+            "config": {
+                "label": "veterans",
+                "useAsTitle": true
+            }
+        },
+        "veterans_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "veterans header"
+            }
+        },
+        "veterans_sub": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "veterans sub"
+            }
+        },
+        "veterans_btn": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "veterans btn"
+            }
+        },
+        "veterans_btn_link": {
+            "type": "Link",
+            "config": {
+                "label": "veterans btn link"
+            }
+        },
+        "veterans_hero_image": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "veterans hero image"
+            }
+        },
+        "trusted_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "trusted header"
+            }
+        },
+        "bullets": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "bullet_header": {
+                        "type": "StructuredText",
+                        "config": {
+                            "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                            "label": "bullet header"
+                        }
+                    },
+                    "bullet_info": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                            "label": "bullet info"
+                        }
+                    }
+                },
+                "label": "bullets"
+            }
+        },
+        "veteran_students": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "veteran students"
+            }
+        },
+        "upcoming_programs_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Upcoming Programs Header"
+            }
+        },
+        "courses": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "course": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                            "label": "course"
+                        }
+                    },
+                    "course_link": {
+                        "type": "Link",
+                        "config": {
+                            "label": "course link"
+                        }
+                    },
+                    "course_info": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                            "label": "course info"
+                        }
+                    },
+                    "course_start_date": {
+                        "type": "Link",
+                        "config": {
+                            "label": "course start date"
+                        }
+                    }
+                },
+                "label": "courses"
+            }
+        },
+        "ratings_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Ratings Header"
+            }
+        },
+        "ratings": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "rating_img": {
+                        "type": "Image",
+                        "config": {
+                            "constraint": {},
+                            "thumbnails": [],
+                            "label": "rating img"
+                        }
+                    }
+                },
+                "label": "ratings"
+            }
+        },
+        "testimonial": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "testimonial"
+            }
+        },
+        "testimonial_cite": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "testimonial cite"
+            }
+        },
+        "testimonial_image": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "testimonial image"
+            }
+        },
+        "make_a_leap_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Make a leap header"
+            }
+        },
+        "next_session": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "Next session"
+            }
+        },
+        "make_a_leap_sub": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "Make a leap sub"
+            }
+        },
+        "make_a_leap_btn": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "Make a leap btn"
+            }
+        },
+        "make_it_happen_link": {
+            "type": "Link",
+            "config": {
+                "label": "Make It Happen Link"
+            }
+        }
+    }
+}

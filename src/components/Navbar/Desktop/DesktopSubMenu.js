@@ -93,9 +93,9 @@ function SubMenu({ items }) {
             <SubMenuItem key={subNavLink.id + i}>
                 <ItemLink as={Link} to={subNavLink.url}>
                     {subNavLabel.text}
-                    {startDate && (
+                    {startDate.document && (
                         <StartDate>
-                            Starts {startDate.document[0].data.start_date}
+                            Starts {startDate?.document?.data.start_date}
                         </StartDate>
                     )}
                 </ItemLink>

@@ -1,0 +1,44 @@
+{
+    "Main": {
+        "prismic_display_name": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Prismic Display Name",
+                "useAsTitle": true
+            }
+        },
+        "phases": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "phase_num": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                            "label": "Phase Num",
+                            "placeholder": "Phase 1"
+                        }
+                    },
+                    "phase_header": {
+                        "type": "StructuredText",
+                        "config": {
+                            "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                            "label": "Phase Header",
+                            "placeholder": "Skills Building"
+                        }
+                    },
+                    "phase_info": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                            "label": "Phase Info",
+                            "placeholder": "This phase consists of..."
+                        }
+                    }
+                },
+                "label": "Phases"
+            }
+        }
+    }
+}

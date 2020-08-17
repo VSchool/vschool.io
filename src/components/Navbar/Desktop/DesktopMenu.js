@@ -63,7 +63,7 @@ function DesktopMenu(props) {
         {
             prismicNavigationBar {
                 data {
-                    # See query.js for the NavItems fragment
+                    # See queries/navItems.js for the NavItems fragment
                     ...NavItems
                     button_text
                     button_link {
@@ -85,7 +85,7 @@ function DesktopMenu(props) {
     } = data.prismicNavigationBar.data
 
     const navItems = nav.map(item => (
-        <DesktopMenuItem key={item.primary.label.text} data={item} />
+        <DesktopMenuItem key={item.id} data={item} />
     ))
 
     return (

@@ -68,7 +68,7 @@ const StyledButton = styled(Button)`
 `
 
 function Course({ course, course_info, course_link, course_start_date }) {
-    const start_date = course_start_date.document[0].data.start_date
+    const start_date = course_start_date?.document.data.start_date
     return (
         <CourseContainer>
             <H3>{course.text}</H3>
