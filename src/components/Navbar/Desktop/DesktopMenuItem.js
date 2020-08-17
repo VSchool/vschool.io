@@ -45,7 +45,9 @@ const ItemLink = styled(Link)`
 function DesktopMenuItem({ data }) {
     return (
         <NavItem>
-            {data.primary.link ? (
+            {/* For some reason, empty link fields are returning "/undefined"
+                in the data 🙄 */}
+            {data.primary.link.url !== "/undefined" ? (
                 <ItemLink to={data.primary.link.url}>
                     {data.primary.label.text}
                 </ItemLink>

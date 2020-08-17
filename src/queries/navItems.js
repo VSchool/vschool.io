@@ -2,26 +2,34 @@ import React from "react"
 import { graphql } from "gatsby"
 
 export const primaryNavItemsQuery = graphql`
-    fragment NavItems on PrismicNavigationBarData {
+    fragment NavItems on PrismicNavigationBarDataType {
         nav {
-            slice_label
-            primary {
-                label {
-                    text
+            ... on PrismicNavigationBarNavNavItem {
+                id
+                primary {
+                    label {
+                        text
+                    }
+                    link {
+                        url
+                    }
                 }
-            }
-            items {
-                sub_nav_link {
-                    url
-                    id
-                }
-                sub_nav_link_label {
-                    text
-                }
-                start_date {
-                    document {
-                        data {
-                            start_date(formatString: "MMM Do, YYYY")
+                items {
+                    sub_nav_link {
+                        id
+                        url
+                    }
+                    sub_nav_link_label {
+                        text
+                    }
+                    start_date {
+                        document {
+                            ... on PrismicStartDate {
+                                id
+                                data {
+                                    start_date(formatString: "MMM Do, YYYY")
+                                }
+                            }
                         }
                     }
                 }

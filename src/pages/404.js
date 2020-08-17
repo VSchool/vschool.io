@@ -12,9 +12,9 @@ const NotFoundPage = ({ data }) => {
         link2: { url: link2 },
         link1_text: { text: link1Text },
         link1: { url: link1 },
-        _404_page_title: { text: title },
-        _404_page_sub: { text: sub },
-        _404_page_header: { text: header },
+        page_title: { text: title },
+        page_sub: { text: sub },
+        page_header: { text: header },
         gifs_background: { url: gifsBackground },
         gifs,
     } = data.prismic404Page.data
@@ -67,13 +67,13 @@ export const query = graphql`
                 gifs_background {
                     url
                 }
-                _404_page_title {
+                page_title {
                     text
                 }
-                _404_page_sub {
+                page_sub {
                     text
                 }
-                _404_page_header {
+                page_header {
                     text
                 }
             }

@@ -1,0 +1,408 @@
+{
+    "Main": {
+        "prismic_display_name": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Prismic Display Name",
+                "useAsTitle": true
+            }
+        },
+        "uid": {
+            "type": "UID",
+            "config": {
+                "label": "responsive learning"
+            }
+        },
+        "page_title": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "page title"
+            }
+        },
+        "page_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "page header"
+            }
+        },
+        "page_subheader": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "page subheader"
+            }
+        },
+        "header_img": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "header img"
+            }
+        },
+        "mastery_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "mastery header"
+            }
+        },
+        "mastery_subheader": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "mastery subheader"
+            }
+        },
+        "mastery_description": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "mastery description"
+            }
+        },
+        "mastery_info": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "graph": {
+                        "type": "Image",
+                        "config": {
+                            "constraint": {},
+                            "thumbnails": [],
+                            "label": "graph"
+                        }
+                    },
+                    "header": {
+                        "type": "StructuredText",
+                        "config": {
+                            "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                            "label": "header"
+                        }
+                    },
+                    "info": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                            "label": "info"
+                        }
+                    }
+                },
+                "label": "mastery info"
+            }
+        },
+        "responding_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "responding header"
+            }
+        },
+        "responding_subheader": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "responding subheader"
+            }
+        },
+        "responding_description": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "responding description"
+            }
+        },
+        "industry_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "industry header"
+            }
+        },
+        "industry_info": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "industry info"
+            }
+        },
+        "industry_image": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "industry image"
+            }
+        },
+        "companies": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "logo": {
+                        "type": "Image",
+                        "config": {
+                            "constraint": {},
+                            "thumbnails": [],
+                            "label": "logo"
+                        }
+                    },
+                    "testimonial": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                            "label": "testimonial"
+                        }
+                    },
+                    "cite": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                            "label": "cite"
+                        }
+                    },
+                    "position": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                            "label": "position"
+                        }
+                    }
+                },
+                "label": "companies"
+            }
+        },
+        "ability_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "ability header"
+            }
+        },
+        "ability_description": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "ability description"
+            }
+        },
+        "ability_image": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "ability image"
+            }
+        },
+        "ability_image_mobile": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "ability image mobile"
+            }
+        },
+        "ability_bullets": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "bullet": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                            "label": "bullet"
+                        }
+                    }
+                },
+                "label": "ability bullets"
+            }
+        },
+        "life_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "life header"
+            }
+        },
+        "life_info": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "life info"
+            }
+        },
+        "testimonial": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "testimonial"
+            }
+        },
+        "cite": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "cite"
+            }
+        },
+        "cite_course": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "cite course"
+            }
+        },
+        "testimonial_image": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "testimonial image"
+            }
+        },
+        "life_bullets": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "bullet": {
+                        "type": "Text",
+                        "config": {
+                            "label": "bullet"
+                        }
+                    }
+                },
+                "label": "life bullets"
+            }
+        },
+        "cta_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "cta header"
+            }
+        },
+        "cta_courses": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "bg_image": {
+                        "type": "Image",
+                        "config": {
+                            "constraint": {},
+                            "thumbnails": [],
+                            "label": "bg image"
+                        }
+                    },
+                    "next_session": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                            "label": "next session"
+                        }
+                    },
+                    "session_date": {
+                        "type": "Link",
+                        "config": {
+                            "select": "document",
+                            "customtypes": ["start_date"],
+                            "label": "session date"
+                        }
+                    }
+                },
+                "label": "cta courses"
+            }
+        },
+        "cta_subheader": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "cta subheader"
+            }
+        },
+        "cta_btn": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "cta btn"
+            }
+        },
+        "cta_btn_link": {
+            "type": "Link",
+            "config": {
+                "label": "cta btn link"
+            }
+        },
+        "testimonial2": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "testimonial2"
+            }
+        },
+        "testimonial2_cite": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "testimonial2 cite"
+            }
+        },
+        "testimonial2_cite_course": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "testimonial2 cite course"
+            }
+        },
+        "testimonial2_image": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "testimonial2 image"
+            }
+        },
+        "work_with_us_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "work with us header"
+            }
+        },
+        "work_with_us_subheader": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "work with us subheader"
+            }
+        },
+        "work_with_us_info": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "work with us info"
+            }
+        },
+        "work_with_us_invite": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "work with us invite"
+            }
+        },
+        "work_with_us_btn": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "work with us btn"
+            }
+        },
+        "work_with_us_btn_link": {
+            "type": "Link",
+            "config": {
+                "label": "work with us btn link"
+            }
+        }
+    }
+}

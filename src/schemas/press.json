@@ -1,0 +1,126 @@
+{
+    "Main": {
+        "prismic_display_name": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Prismic Display Name",
+                "useAsTitle": true
+            }
+        },
+        "uid": {
+            "type": "UID",
+            "config": {
+                "label": "press",
+                "useAsTitle": true
+            }
+        },
+        "press_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Press Header"
+            }
+        },
+        "short_description_title": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Short Description Title"
+            }
+        },
+        "short_description": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "Short Description"
+            }
+        },
+        "boilerplate_description_title": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Boilerplate Description Title"
+            }
+        },
+        "boilerplate_description": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "Boilerplate Description"
+            }
+        },
+        "boilerplate_description_p2": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "Boilerplate Description p2"
+            }
+        },
+        "boilerplate_description_p3": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "Boilerplate Description p3"
+            }
+        },
+        "cards": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "card_image": {
+                        "type": "Image",
+                        "config": {
+                            "constraint": {},
+                            "thumbnails": [],
+                            "label": "Card Image"
+                        }
+                    },
+                    "card_photo": {
+                        "type": "Image",
+                        "config": {
+                            "constraint": {},
+                            "thumbnails": [],
+                            "label": "Card Photo"
+                        }
+                    },
+                    "card_header": {
+                        "type": "StructuredText",
+                        "config": {
+                            "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                            "label": "Card Header"
+                        }
+                    },
+                    "card_text": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                            "label": "Card Text"
+                        }
+                    },
+                    "card_link_text": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                            "label": "Card Link Text"
+                        }
+                    },
+                    "card_link": {
+                        "type": "Link",
+                        "config": {
+                            "label": "Card Link"
+                        }
+                    }
+                },
+                "label": "Cards"
+            }
+        },
+        "news": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "News"
+            }
+        }
+    }
+}

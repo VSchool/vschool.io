@@ -188,36 +188,39 @@ export default function ScholarshipDetails(props) {
                         text
                     }
                     body {
-                        primary {
-                            scholarship_subtitle {
-                                text
+                        ... on PrismicMyBaseScholarshipBodyScholarship {
+                            id
+                            primary {
+                                scholarship_subtitle {
+                                    text
+                                }
+                                scholarship_application_deadline {
+                                    text
+                                }
+                                scholarship_background_image {
+                                    url
+                                }
+                                scholarship_button_text {
+                                    text
+                                }
+                                scholarship_button_link {
+                                    url
+                                    target
+                                }
+                                scholarship_details {
+                                    text
+                                }
+                                scholarship_name {
+                                    text
+                                }
                             }
-                            scholarship_application_deadline {
-                                text
-                            }
-                            scholarship_background_image {
-                                url
-                            }
-                            scholarship_button_text {
-                                text
-                            }
-                            scholarship_button_link {
-                                url
-                                target
-                            }
-                            scholarship_details {
-                                text
-                            }
-                            scholarship_name {
-                                text
-                            }
-                        }
-                        items {
-                            scholarship_bullet_icon {
-                                url
-                            }
-                            scholarship_bullet_text {
-                                text
+                            items {
+                                scholarship_bullet_icon {
+                                    url
+                                }
+                                scholarship_bullet_text {
+                                    text
+                                }
                             }
                         }
                     }
@@ -233,7 +236,7 @@ export default function ScholarshipDetails(props) {
     const scholarships = data.prismicMyBaseScholarship.data.body
     const scholarshipComponents = scholarships.map(scholarship => {
         const {
-            scholarship_subtitle: { text: subtitle },
+            // scholarship_subtitle: { text: subtitle },
             scholarship_application_deadline: { text: deadline },
             scholarship_background_image: { url: backgroundImg },
             scholarship_button_text: { text: buttonText },
