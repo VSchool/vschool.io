@@ -53,7 +53,9 @@ function MobilePrimaryMenuItem({ data }) {
                 <Item onClick={handleClick}>{data.primary.label.text}</Item>
             )}
 
-            {data.items.length > 0 && <StyledArrow />}
+            {data.items[0]?.sub_nav_link.url !== "/undefined" && (
+                <StyledArrow />
+            )}
         </MenuItem>
     )
 }

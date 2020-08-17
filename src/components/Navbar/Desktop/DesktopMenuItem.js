@@ -54,7 +54,7 @@ function DesktopMenuItem({ data }) {
             ) : (
                 <span>{data.primary.label.text}</span>
             )}
-            {data.items.length > 0 && (
+            {data.items[0]?.sub_nav_link.url !== "/undefined" && (
                 <>
                     <Arrow />
                     <DesktopSubMenu items={data.items} />
