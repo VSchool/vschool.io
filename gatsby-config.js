@@ -76,7 +76,7 @@ module.exports = {
                     "xd-page": require("./src/schemas/xd-page.json"),
                     "you-belong": require("./src/schemas/you-belong.json"),
                 },
-                // linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
+                linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
             },
         },
         // {
