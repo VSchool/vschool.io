@@ -12,7 +12,7 @@ import {
     ResponsiveLife,
     CTA,
     Testimonial,
-    WorkWithUs
+    WorkWithUs,
 } from "../components/responsive-learning"
 
 export default function ResponsiveLearning({ data }) {
@@ -109,19 +109,19 @@ export default function ResponsiveLearning({ data }) {
                 link={ctaLink}
                 courses={cta_courses}
             />
-            <Testimonial 
-              testimonial={testmonial2}
-              cite={testimonial2Cite}
-              course={testimonial2CiteCourse}
-              img={testimonial2Img}
+            <Testimonial
+                testimonial={testmonial2}
+                cite={testimonial2Cite}
+                course={testimonial2CiteCourse}
+                img={testimonial2Img}
             />
-            <WorkWithUs 
-              header={workWithUsHeader}
-              subHeader={workWithUsSubheader}
-              btnText={workWithUsBtnText}
-              link={workWithUsLink}
-              info={workWithUsInfo}
-              invite={workWithUsInvite}
+            <WorkWithUs
+                header={workWithUsHeader}
+                subHeader={workWithUsSubheader}
+                btnText={workWithUsBtnText}
+                link={workWithUsLink}
+                info={workWithUsInfo}
+                invite={workWithUsInvite}
             />
         </Layout>
     )
@@ -177,8 +177,14 @@ export const query = graphql`
                 cta_courses {
                     session_date {
                         document {
-                            data {
-                                start_date(formatString: "MMMM Do, YYYY")
+                            ... on PrismicStartDate {
+                                id
+                                data {
+                                    course_name {
+                                        text
+                                    }
+                                    start_date(formatString: "MMMM Do, YYYY")
+                                }
                             }
                         }
                     }

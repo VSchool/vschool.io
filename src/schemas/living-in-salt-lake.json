@@ -1,0 +1,154 @@
+{
+    "Main": {
+        "prismic_display_name": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Prismic Display Name",
+                "useAsTitle": true
+            }
+        },
+        "uid": {
+            "type": "UID",
+            "config": {
+                "label": "URL Path",
+                "useAsTitle": true
+            }
+        },
+        "header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Header"
+            }
+        },
+        "sub_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading4, heading5, heading6",
+                "label": "Sub Header"
+            }
+        },
+        "hero_image": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Hero Image"
+            }
+        },
+        "utah_features_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Utah Features Header"
+            }
+        },
+        "utah_features": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "feature_image": {
+                        "type": "Image",
+                        "config": {
+                            "constraint": {},
+                            "thumbnails": [],
+                            "label": "Feature Image"
+                        }
+                    },
+                    "feature_title": {
+                        "type": "StructuredText",
+                        "config": {
+                            "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                            "label": "Feature Title"
+                        }
+                    },
+                    "feature_description": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                            "label": "Feature Description"
+                        }
+                    }
+                },
+                "label": "Utah Features"
+            }
+        },
+        "testimonial_text": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Testimonial Text"
+            }
+        },
+        "testimonial_cite": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "Testimonial Cite"
+            }
+        },
+        "testimonial_image": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Testimonial Image"
+            }
+        },
+        "check_out_housing_title": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Check Out Housing Title"
+            }
+        },
+        "check_out_housing_btn": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "Check Out Housing Btn"
+            }
+        },
+        "check_out_housing_link": {
+            "type": "Link",
+            "config": {
+                "label": "Check Out Housing Link"
+            }
+        },
+        "make_a_leap_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Make a leap header"
+            }
+        },
+        "next_session": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "Next session"
+            }
+        },
+        "make_a_leap_sub": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "Make a leap sub"
+            }
+        },
+        "make_a_leap_btn": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "Make a leap btn"
+            }
+        },
+        "make_a_leap_link": {
+            "type": "Link",
+            "config": {
+                "label": "Make a leap link"
+            }
+        }
+    }
+}

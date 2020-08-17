@@ -1,0 +1,103 @@
+{
+    "Main": {
+        "prismic_display_name": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1",
+                "label": "Prismic Display Name",
+                "useAsTitle": true
+            }
+        },
+        "logo": {
+            "type": "Link",
+            "config": {
+                "select": "media",
+                "label": "Logo"
+            }
+        },
+        "mobile_logo": {
+            "type": "Link",
+            "config": {
+                "select": "media",
+                "label": "Mobile Logo"
+            }
+        },
+        "button_text": {
+            "type": "Text",
+            "config": {
+                "label": "Button Text"
+            }
+        },
+        "button_link": {
+            "type": "Link",
+            "config": {
+                "label": "Button Link"
+            }
+        },
+        "nav": {
+            "type": "Slices",
+            "fieldset": "Slice zone",
+            "config": {
+                "labels": {
+                    "nav_item": [
+                        {
+                            "name": "button-cta",
+                            "display": "Adds a button to the sub-item"
+                        }
+                    ]
+                },
+                "choices": {
+                    "nav_item": {
+                        "type": "Slice",
+                        "fieldset": "Nav Item",
+                        "description": "Nav Item with optional Sub Navigation",
+                        "icon": "insert_link",
+                        "non-repeat": {
+                            "label": {
+                                "type": "StructuredText",
+                                "config": {
+                                    "single": "paragraph",
+                                    "label": "Label",
+                                    "placeholder": "Enter Link Label..."
+                                }
+                            },
+                            "link": {
+                                "type": "Link",
+                                "config": {
+                                    "select": "document",
+                                    "label": "Link"
+                                }
+                            }
+                        },
+                        "repeat": {
+                            "sub_nav_link_label": {
+                                "type": "StructuredText",
+                                "config": {
+                                    "single": "paragraph",
+                                    "label": "Sub Nav Link Label",
+                                    "placeholder": "Enter Sub Nav Link Label..."
+                                }
+                            },
+                            "sub_nav_link": {
+                                "type": "Link",
+                                "config": {
+                                    "select": "document",
+                                    "label": "Sub Nav Link"
+                                }
+                            },
+                            "start_date": {
+                                "type": "Link",
+                                "config": {
+                                    "select": "document",
+                                    "customtypes": ["start_date"],
+                                    "label": "Start Date"
+                                }
+                            }
+                        },
+                        "display": "list"
+                    }
+                }
+            }
+        }
+    }
+}

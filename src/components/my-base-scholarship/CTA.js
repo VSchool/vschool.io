@@ -138,7 +138,7 @@ export default function CTA(props) {
                 <WhiteBackground>
                     <NextSession>{nextSession}</NextSession>
                     <StartDate>
-                        {startDate.document[0].data.start_date}
+                        {startDate?.document?.data.start_date}
                     </StartDate>
                 </WhiteBackground>
             </InfoContainer>

@@ -1,0 +1,111 @@
+{
+    "Main": {
+        "prismic_display_name": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Prismic Display Name",
+                "useAsTitle": true
+            }
+        },
+        "uid": {
+            "type": "UID",
+            "config": {
+                "label": "careers",
+                "useAsTitle": true
+            }
+        },
+        "careers_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Careers_header"
+            }
+        },
+        "careers_sub_header": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "Careers_sub_header"
+            }
+        },
+        "header_invite": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "Header Invite"
+            }
+        },
+        "careers_hero_img_sm": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Careers_hero_img_sm"
+            }
+        },
+        "careers_hero_img_lg": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Careers_hero_img_lg"
+            }
+        },
+        "open_positions": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Open_Positions"
+            }
+        },
+        "position": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "position_title": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                            "label": "Position_Title"
+                        }
+                    },
+                    "position_link": {
+                        "type": "Link",
+                        "config": {
+                            "label": "Position_Link"
+                        }
+                    }
+                },
+                "label": "Position"
+            }
+        },
+        "no_openings": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "No_Openings_Header"
+            }
+        },
+        "no_openings_sub": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "No_Openings_Sub"
+            }
+        },
+        "btn_text": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "Btn_Text"
+            }
+        },
+        "btn_link": {
+            "type": "Link",
+            "config": {
+                "label": "Btn_Link"
+            }
+        }
+    }
+}

@@ -86,42 +86,38 @@ function MobileSubMenu() {
 
     const menuAnimation = useMenuAnimation(subMenuOpen)
 
-    const subMenuItems =
-        chosenSubMenu &&
-        chosenSubMenu.items &&
-        chosenSubMenu.items.map(item => {
-            return (
-                <li>
-                    {chosenSubMenu.slice_label ? (
-                        item.sub_nav_link_label.text
-                    ) : (
-                        <ItemLink to={item.sub_nav_link.url}>
-                            {item.sub_nav_link_label.text}
-                        </ItemLink>
-                    )}
-                    {item.start_date && (
-                        <StartDate>
-                            Next session:{" "}
-                            <span>
-                                {item.start_date.document[0].data.start_date}
-                            </span>
-                        </StartDate>
-                    )}
-                    {chosenSubMenu.slice_label && item.start_date && (
-                        <Link to={item.sub_nav_link.url}>
-                            <StyledButton>Make it Happen</StyledButton>
-                        </Link>
-                    )}
-                    {chosenSubMenu.slice_label && !item.start_date && (
-                        <Link to={item.sub_nav_link.url}>
-                            <StyledButton buttonStyle="primary-light">
-                                Make it Happen
-                            </StyledButton>
-                        </Link>
-                    )}
-                </li>
-            )
-        })
+    const subMenuItems = chosenSubMenu?.items?.map(item => {
+
+        return (
+            <li key={item.sub_nav_link.id}>
+                {chosenSubMenu.slice_label ? (
+                    item.sub_nav_link_label.text
+                ) : (
+                    <ItemLink to={item.sub_nav_link.url}>
+                        {item.sub_nav_link_label.text}
+                    </ItemLink>
+                )}
+                {item.start_date.document && (
+                    <StartDate>
+                        Next session:{" "}
+                        <span>{item.start_date.document?.data.start_date}</span>
+                    </StartDate>
+                )}
+                {chosenSubMenu.slice_label && item.start_date && (
+                    <Link to={item.sub_nav_link.url}>
+                        <StyledButton>Make it Happen</StyledButton>
+                    </Link>
+                )}
+                {chosenSubMenu.slice_label && !item.start_date && (
+                    <Link to={item.sub_nav_link.url}>
+                        <StyledButton buttonStyle="primary-light">
+                            Make it Happen
+                        </StyledButton>
+                    </Link>
+                )}
+            </li>
+        )
+    })
 
     return (
         <Overlay style={menuAnimation}>
