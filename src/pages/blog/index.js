@@ -25,8 +25,8 @@ export default function Blog({ data }) {
             <BlogNav />
             <BlogList
                 posts={edges}
-                codeStartDate={code_start_date.document[0].data.start_date}
-                designStartDate={design_start_date.document[0].data.start_date}
+                codeStartDate={code_start_date.document?.data.start_date}
+                designStartDate={design_start_date.document?.data.start_date}
                 learnHeader={learnHeader}
                 learnBtnText={learnBtnText}
                 learnCodeLink={learnCodeBtnLink}
@@ -73,15 +73,21 @@ export const query = graphql`
             data {
                 code_start_date {
                     document {
-                        data {
-                            start_date(formatString: "MMMM D, YYYY")
+                        ... on PrismicStartDate {
+                            id
+                            data {
+                                start_date(formatString: "MMMM D, YYYY")
+                            }
                         }
                     }
                 }
                 design_start_date {
                     document {
-                        data {
-                            start_date(formatString: "MMMM D, YYYY")
+                        ... on PrismicStartDate {
+                            id
+                            data {
+                                start_date(formatString: "MMMM D, YYYY")
+                            }
                         }
                     }
                 }

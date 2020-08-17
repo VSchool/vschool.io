@@ -82,7 +82,10 @@ const Tag = styled.li`
 export default function BlogNav(props) {
     const data = useStaticQuery(graphql`
         {
-            allGhostTag(sort: { fields: slug, order: ASC }) {
+            allGhostTag(
+                filter: { slug: { ne: "data-schema" } }
+                sort: { fields: slug, order: ASC }
+            ) {
                 edges {
                     node {
                         id
@@ -93,11 +96,13 @@ export default function BlogNav(props) {
             }
         }
     `)
-
+    
     const { blogFilter, setBlogFilter } = useContext(BlogFilterContext)
 
     // drill into the `node` property for each one
-    const tags = data.allGhostTag.edges.map(item => item.node)
+    const tags = data.allGhostTag.edges
+        .filter(item => item)
+        .map(item => item.node)
 
     const tagComponents = tags.map(tag => (
         <Tag

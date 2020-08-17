@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react"
+import React, { useContext } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import PostPreview from "./PostPreview.js"
@@ -6,7 +6,6 @@ import TopPostPreview from "./TopPostPreview.js"
 import LearnCodeOrDesign from "./LearnCodeOrDesign.js"
 import SubscribeBanner from "./SubscribeBanner.js"
 import { BlogFilterContext } from "./context/BlogFilterProvider.js"
-import { useBlogFilter } from "./utils/useBlogFilter"
 
 const PageContainer = styled.div`
     display: flex;
@@ -36,14 +35,13 @@ const GridContainer = styled.div`
     }
 `
 
-const SecondGridContainer = styled(GridContainer)``
-
-const InfiniteGridContainer = styled(GridContainer)``
-
 export default function BlogList(props) {
     const data = useStaticQuery(graphql`
         {
-            allGhostPost(sort: { fields: published_at, order: DESC }) {
+            allGhostPost(
+                sort: { fields: published_at, order: DESC }
+                filter: { slug: { ne: "data-schema" } }
+            ) {
                 edges {
                     node {
                         title
@@ -72,7 +70,6 @@ export default function BlogList(props) {
     `)
 
     const { blogFilter } = useContext(BlogFilterContext)
-
     // Drill down into the `node` property on each post
     // so we don't have to deal with it elsewhere
     const posts = data.allGhostPost.edges.map(post => post.node)
@@ -87,12 +84,10 @@ export default function BlogList(props) {
         blogFilter === "all"
             ? posts.find(post => post.featured)
             : currentPosts[0]
-    console.log(featured)
 
     const currentPostsWithoutFeatured = currentPosts.filter(
-        post => post.id !== featured.id
+        post => post.slug !== featured.slug
     )
-    console.log(currentPostsWithoutFeatured)
 
     const {
         codeStartDate,
@@ -117,7 +112,7 @@ export default function BlogList(props) {
              */}
                 <TopPostPreview {...featured} />
                 {currentPostsWithoutFeatured.slice(1, 7).map(post => (
-                    <PostPreview key={post.id} {...post} />
+                    <PostPreview key={post.slug} {...post} />
                 ))}
             </GridContainer>
             <LearnCodeOrDesign
@@ -132,7 +127,7 @@ export default function BlogList(props) {
             />
             <GridContainer>
                 {currentPostsWithoutFeatured.slice(7, 13).map(post => (
-                    <PostPreview key={post.id} {...post} />
+                    <PostPreview key={post.slug} {...post} />
                 ))}
             </GridContainer>
             <SubscribeBanner
@@ -141,7 +136,7 @@ export default function BlogList(props) {
             />
             <GridContainer>
                 {currentPostsWithoutFeatured.slice(13).map(post => (
-                    <PostPreview key={post.id} {...post} />
+                    <PostPreview key={post.slug} {...post} />
                 ))}
             </GridContainer>
         </PageContainer>

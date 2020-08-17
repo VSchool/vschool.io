@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import { black, gray, blue } from "@vschool/lotus"
-import { getColorFromTag } from "./utils"
 import QueryLink from "../shared/QueryLink.js"
 import AuthorBox from "./AuthorBox.js"
 
@@ -181,7 +180,6 @@ export default function PostPreview(props) {
         feature_image,
         excerpt,
         primary_tag,
-        tags,
         primary_author,
     } = props
 
