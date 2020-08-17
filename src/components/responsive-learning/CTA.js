@@ -144,7 +144,7 @@ export default function CTA(props) {
                         <CourseInfoContainer>
                             <NextSession>{next_session.text}</NextSession>
                             <CourseDate>
-                                {session_date.document[0].data.start_date}
+                                {session_date.document.data.start_date}
                             </CourseDate>
                         </CourseInfoContainer>
                     </CourseContainer>

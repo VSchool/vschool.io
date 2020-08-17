@@ -6,6 +6,14 @@ export const primaryNavItemsQuery = graphql`
         nav {
             ... on PrismicNavigationBarNavNavItem {
                 id
+                primary {
+                    label {
+                        text
+                    }
+                    link {
+                        url
+                    }
+                }
                 items {
                     sub_nav_link {
                         id

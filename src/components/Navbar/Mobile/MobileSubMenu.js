@@ -103,7 +103,7 @@ function MobileSubMenu() {
                         <StartDate>
                             Next session:{" "}
                             <span>
-                                {item.start_date.document[0].data.start_date}
+                                {item.start_date.document?.data.start_date}
                             </span>
                         </StartDate>
                     )}

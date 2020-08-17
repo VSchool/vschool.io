@@ -79,6 +79,7 @@ const StartDate = styled.span`
 `
 
 function SubMenu({ items }) {
+    console.log(items)
     // TODO: Remove `i` and remove `+i` from the `key` prop once the links on Prismic are correct
     // Currently we're linking the same page most places, and it causes React to have two items with
     // the same "key" since it has the same ID
@@ -94,7 +95,7 @@ function SubMenu({ items }) {
                     {subNavLabel.text}
                     {startDate && (
                         <StartDate>
-                            Starts {startDate.document[0].data.start_date}
+                            Starts {startDate?.document?.data.start_date}
                         </StartDate>
                     )}
                 </ItemLink>
