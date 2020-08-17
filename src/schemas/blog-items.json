@@ -1,0 +1,80 @@
+{
+    "Main": {
+        "prismic_display_name": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Prismic Display Name",
+                "useAsTitle": true
+            }
+        },
+        "learn_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "learn header"
+            }
+        },
+        "next_code_session": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "next code session"
+            }
+        },
+        "next_design_session": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "next design session"
+            }
+        },
+        "learn_btn": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "learn btn"
+            }
+        },
+        "learn_code_btn_link": {
+            "type": "Link",
+            "config": {
+                "label": "learn code btn link"
+            }
+        },
+        "code_start_date": {
+            "type": "Link",
+            "config": {
+                "select": "document",
+                "label": "code start date"
+            }
+        },
+        "learn_design_btn_link": {
+            "type": "Link",
+            "config": {
+                "label": "learn design btn link"
+            }
+        },
+        "design_start_date": {
+            "type": "Link",
+            "config": {
+                "select": "document",
+                "label": "design start date"
+            }
+        },
+        "subscribe_header": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "subscribe header"
+            }
+        },
+        "subscribe_btn": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "subscribe btn"
+            }
+        }
+    }
+}

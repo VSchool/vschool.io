@@ -1,0 +1,103 @@
+{
+    "Main" : {
+      "prismic_display_name" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+          "label" : "Prismic Display Name",
+          "useAsTitle" : true
+        }
+      },
+      "uid" : {
+        "type" : "UID",
+        "config" : {
+          "label" : "Slug URL",
+          "placeholder" : "e.g. application"
+        }
+      },
+      "header_title" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+          "label" : "Header Title"
+        }
+      },
+      "header_subtitle" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading2, heading3, heading4, heading5, heading6",
+          "label" : "Header Subtitle"
+        }
+      },
+      "header_paragraph" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+          "label" : "Header Paragraph"
+        }
+      },
+      "header_image" : {
+        "type" : "Image",
+        "config" : {
+          "constraint" : { },
+          "thumbnails" : [ ],
+          "label" : "Header Image"
+        }
+      },
+      "how_to_apply_header" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+          "label" : "How to Apply Header"
+        }
+      },
+      "how_to_apply_steps" : {
+        "type" : "Group",
+        "config" : {
+          "fields" : {
+            "step_number" : {
+              "type" : "StructuredText",
+              "config" : {
+                "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label" : "Step Number"
+              }
+            },
+            "step_title" : {
+              "type" : "StructuredText",
+              "config" : {
+                "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label" : "Step Title"
+              }
+            },
+            "step_description" : {
+              "type" : "Text",
+              "config" : {
+                "label" : "Step Description"
+              }
+            }
+          },
+          "label" : "How to Apply Steps"
+        }
+      },
+      "start_app_title" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+          "label" : "Start App Title"
+        }
+      },
+      "start_app_subtitle" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+          "label" : "Start App Subtitle"
+        }
+      },
+      "start_app_button_text" : {
+        "type" : "Text",
+        "config" : {
+          "label" : "Start App Button Text"
+        }
+      }
+    }
+  }

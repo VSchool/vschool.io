@@ -49,7 +49,7 @@ function MobileMenu(props) {
         {
             prismicNavigationBar {
                 data {
-                    # See query.js for the NavItems fragment
+                    # See queries/navItems.js for the NavItems fragment
                     ...NavItems
                     button_text
                     button_link {

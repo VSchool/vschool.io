@@ -268,13 +268,11 @@ function AlumniCompanies(props) {
         }
     `)
 
-    console.log(data)
     const {
         companies_header: { text: header },
         company_logos: logos,
     } = data.prismicAlumniCompanies.data
 
-    console.log(logos)
     return (
         <Container backgroundColor={props.backgroundColor}>
             <H4>{header}</H4>
