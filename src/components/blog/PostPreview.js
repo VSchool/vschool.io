@@ -4,21 +4,6 @@ import { black, gray, blue } from "@vschool/lotus"
 import QueryLink from "../shared/QueryLink.js"
 import AuthorBox from "./AuthorBox.js"
 
-const PreviewContainer = styled.div``
-
-const ImageContainer = styled.div`
-    position: relative;
-    width: 100%;
-
-    @media (min-width: 450px) {
-        height: 130px;
-    }
-
-    @media (min-width: 1200px) {
-        height: 188px;
-    }
-`
-
 const PreviewImage = styled.div`
     width: 98%;
     position: relative;
@@ -167,20 +152,14 @@ export default function PostPreview(props) {
 
     return (
         <StyledLink to={`/blog/${slug}`}>
-            <PreviewContainer>
-                <ImageContainer>
-                    <PreviewImage img={feature_image} bgColor={postColor} />
-                </ImageContainer>
-                <TagAndDateContainer>
-                    <Tag bgColor={postColor}>
-                        {primary_tag && primary_tag.name}
-                    </Tag>
-                    <PublishedDate>{published_at}</PublishedDate>
-                </TagAndDateContainer>
-                <Title>{title}</Title>
-                <Excerpt>{excerpt}</Excerpt>
-                <AuthorBox {...primary_author} />
-            </PreviewContainer>
+            <PreviewImage img={feature_image} bgColor={postColor} />
+            <TagAndDateContainer>
+                <Tag bgColor={postColor}>{primary_tag && primary_tag.name}</Tag>
+                <PublishedDate>{published_at}</PublishedDate>
+            </TagAndDateContainer>
+            <Title>{title}</Title>
+            <Excerpt>{excerpt}</Excerpt>
+            <AuthorBox {...primary_author} />
         </StyledLink>
     )
 }
