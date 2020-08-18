@@ -176,7 +176,7 @@ const PostTitle = styled.h1`
         padding-top: 32px;
     }
 `
-// AuthorBox
+
 const AuthorContainer = styled.div`
     display: flex;
     margin-top: 16px;
@@ -185,13 +185,17 @@ const AuthorContainer = styled.div`
     padding-bottom: 16px;
 `
 
-const Image = styled.div`
-    background-image: url(${({ src }) => src});
+const AuthorImage = styled.img`
     width: 32px;
     height: 32px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    object-fit: cover;
+`
+
+const FeatureImage = styled.img`
+    width: 100%;
+    max-width: 672px;
+    max-height: 400px;
+    object-fit: cover;
 `
 
 const Name = styled.p`
@@ -211,7 +215,15 @@ function Post({ data }) {
     })
 
     const post = data.ghostPost
-    const { title, published_at, primary_tag, authors, url } = post
+    console.log(post)
+    const {
+        title,
+        published_at,
+        primary_tag,
+        authors,
+        url,
+        feature_image,
+    } = post
 
     const postColor = getColorFromTag(
         primary_tag ? primary_tag.name.toLowerCase() : ""
@@ -235,10 +247,13 @@ function Post({ data }) {
                                     </PublishedDate>
                                 </TagAndDateContainer>
                                 <AuthorContainer>
-                                    <Image src={authors[0].profile_image} />
+                                    <AuthorImage
+                                        src={authors[0].profile_image}
+                                    />
                                     <Name>{authors[0].name}</Name>
                                 </AuthorContainer>
                             </DetailsContainer>
+                            <FeatureImage src={feature_image} />
                             <PostBodyContainer
                                 bgColor={postColor}
                                 dangerouslySetInnerHTML={{
