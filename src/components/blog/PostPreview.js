@@ -4,49 +4,14 @@ import { black, gray, blue } from "@vschool/lotus"
 import QueryLink from "../shared/QueryLink.js"
 import AuthorBox from "./AuthorBox.js"
 
-const PreviewContainer = styled.div``
-
-const ImageContainer = styled.div`
-    position: relative;
-    height: 106px;
-    width: 100%;
-
-    @media (min-width: 450px) {
-        height: 130px;
-    }
-
-    @media (min-width: 1200px) {
-        height: 188px;
-    }
-`
-
-const ImageBackground = styled.div`
-    width: 98%;
-    height: 101px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background-color: ${({ bgColor }) => bgColor};
-    z-index: 1;
-
-    @media (min-width: 450px) {
-        height: 128px;
-    }
-
-    @media (min-width: 1200px) {
-        height: 180px;
-        width: 97%;
-    }
-`
-
 const PreviewImage = styled.div`
     width: 98%;
-    height: 101px;
     position: relative;
     background: url() 50% 50% no-repeat;
     background-image: ${({ img }) => `url(${img})`};
     background-size: cover;
     background-clip: content-box;
+    box-shadow: ${({ bgColor }) => `5px 5px 0px 0px ${bgColor}`};
     left: 0;
     top: 0;
     z-index: 2;
@@ -187,21 +152,14 @@ export default function PostPreview(props) {
 
     return (
         <StyledLink to={`/blog/${slug}`}>
-            <PreviewContainer>
-                <ImageContainer>
-                    <PreviewImage img={feature_image} />
-                    <ImageBackground bgColor={postColor} />
-                </ImageContainer>
-                <TagAndDateContainer>
-                    <Tag bgColor={postColor}>
-                        {primary_tag && primary_tag.name}
-                    </Tag>
-                    <PublishedDate>{published_at}</PublishedDate>
-                </TagAndDateContainer>
-                <Title>{title}</Title>
-                <Excerpt>{excerpt}</Excerpt>
-                <AuthorBox {...primary_author} />
-            </PreviewContainer>
+            <PreviewImage img={feature_image} bgColor={postColor} />
+            <TagAndDateContainer>
+                <Tag bgColor={postColor}>{primary_tag && primary_tag.name}</Tag>
+                <PublishedDate>{published_at}</PublishedDate>
+            </TagAndDateContainer>
+            <Title>{title}</Title>
+            <Excerpt>{excerpt}</Excerpt>
+            <AuthorBox {...primary_author} />
         </StyledLink>
     )
 }

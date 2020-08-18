@@ -19,43 +19,41 @@ const InfoContainer = styled.div`
     }
 `
 
-const ImageContainer = styled.div`
-    position: relative;
-    height: 217px;
-    width: 100%;
+// const ImageContainer = styled.div`
+//     position: relative;
+//     height: 217px;
+//     width: 100%;
 
-    @media (min-width: 1200px) {
-        height: 384px;
-        width: 680px;
-    }
-`
+//     @media (min-width: 1200px) {
+//         height: 384px;
+//         width: 680px;
+//     }
+// `
 
-const ImageBackground = styled.div`
-    width: 99%;
-    height: 214px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background-color: ${({ bgColor }) => bgColor};
-    z-index: 1;
+// const ImageBackground = styled.div`
+//     width: 99%;
+//     height: 214px;
+//     position: absolute;
+//     bottom: 0;
+//     right: 0;
+//     background-color: ${({ bgColor }) => bgColor};
+//     z-index: 1;
 
-    @media (min-width: 1200px) {
-        height: 378px;
-        width: 99%;
-    }
-`
+//     @media (min-width: 1200px) {
+//         height: 378px;
+//         width: 99%;
+//     }
+// `
 
 const PreviewImage = styled.div`
     width: 99%;
-    height: 214px;
     position: relative;
-    background: url() 50% 50% no-repeat;
-    background-image: ${({ img }) => `url(${img})`};
+    background: ${({ img }) => `url(${img}) no-repeat center center`};
     background-size: cover;
     background-clip: content-box;
+    box-shadow: ${({ bgColor }) => `5px 5px 0px 0px ${bgColor}`};
     left: 0;
     top: 0;
-    z-index: 2;
 
     &:before {
         display: block;
@@ -186,10 +184,7 @@ export default function TopPostPreview(props) {
     return (
         <StyledLink to={`/blog/${slug}`}>
             <TopPostContainer>
-                <ImageContainer>
-                    <PreviewImage img={feature_image} />
-                    <ImageBackground bgColor={postColor} />
-                </ImageContainer>
+                <PreviewImage img={feature_image} bgColor={postColor} />
                 <InfoContainer>
                     <TagAndDateContainer>
                         <Tag bgColor={postColor}>
