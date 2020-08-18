@@ -73,13 +73,11 @@ export default function BlogList(props) {
     // Drill down into the `node` property on each post
     // so we don't have to deal with it elsewhere
     const posts = data.allGhostPost.edges.map(post => post.node)
-    // console.log(posts)
     const currentPosts = posts.filter(post => {
         return blogFilter === "all"
             ? true
             : post.primary_tag.slug === blogFilter
     })
-
     const featured =
         blogFilter === "all"
             ? posts.find(post => post.featured)
@@ -111,7 +109,7 @@ export default function BlogList(props) {
                 "featured" tag included
              */}
                 <TopPostPreview {...featured} />
-                {currentPostsWithoutFeatured.slice(1, 7).map(post => (
+                {currentPostsWithoutFeatured.slice(0, 6).map(post => (
                     <PostPreview key={post.slug} {...post} />
                 ))}
             </GridContainer>
@@ -126,7 +124,7 @@ export default function BlogList(props) {
                 nextDesignSession={nextDesignSession}
             />
             <GridContainer>
-                {currentPostsWithoutFeatured.slice(7, 13).map(post => (
+                {currentPostsWithoutFeatured.slice(6, 12).map(post => (
                     <PostPreview key={post.slug} {...post} />
                 ))}
             </GridContainer>
@@ -135,7 +133,7 @@ export default function BlogList(props) {
                 btnText={subscribeBtnText}
             />
             <GridContainer>
-                {currentPostsWithoutFeatured.slice(13).map(post => (
+                {currentPostsWithoutFeatured.slice(12).map(post => (
                     <PostPreview key={post.slug} {...post} />
                 ))}
             </GridContainer>
