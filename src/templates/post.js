@@ -25,8 +25,6 @@ const PageContainer = styled.div`
 const PostBodyContainer = styled.section`
     width: 100%;
     max-width: 672px;
-    /* display: flex; */
-    /* flex-direction: column; */
     padding: 0;
     padding-bottom: 64px;
     font-family: "aktiv-grotesk";
@@ -215,7 +213,6 @@ function Post({ data }) {
     })
 
     const post = data.ghostPost
-    console.log(post)
     const {
         title,
         published_at,
