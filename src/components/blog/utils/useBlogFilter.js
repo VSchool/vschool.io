@@ -1,8 +1,6 @@
 import { useState, useEffect, useContext } from "React"
 import { BlogFilterContext } from "../context/BlogFilterProvider.js"
 
-// Can't, for the life of me, get this to work.
-// Keep getting "Invalid hook call" error.
 export function useBlogFilter(allBlogs) {
     const { blogFilter } = useContext(BlogFilterContext)
     const [featuredPost, setFeaturedPost] = useState(null)
