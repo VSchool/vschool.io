@@ -44,7 +44,7 @@ export default function BootcampPrimerPage({ data }) {
         <Layout>
             <SEO title={title} />
             <HeroHeader title={title} sub={subTitle} invite={invite} />
-            <MailchimpSubscribeForm />
+            <MailchimpSubscribeForm formUrl="//vschool.us16.list-manage.com/subscribe/post?u=f5ba48f36061bdea6c3b83712&amp;id=75906113f1"/>
             <CourseBullets title={bulletsTitle} bullets={course_bullets} />
             <HeroImage
                 heroImgSm={heroImgSm}
