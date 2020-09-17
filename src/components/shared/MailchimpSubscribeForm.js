@@ -4,17 +4,19 @@ import PropTypes from "prop-types"
 import { blue, white, black, gray, Button } from "@vschool/lotus"
 import MailchimpSubscribe from "react-mailchimp-subscribe"
 
-const FormContainer = styled.section`
+const FormContainer = styled.div`
+    padding: 32px 24px;
     position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    padding: 32px 24px;
+    align-items: center;
+    width: 100%;
 
     /* TODO:  Use defaultProps to set these defaults instead*/
-    background-color: ${props => props.backgroundColor || blue.lightest};
+    background-color: ${props => props.backgroundColor || blue.light};
     border: ${props =>
-        props.borderColor ? `2px solid ${props.borderColor}` : "none"
-    };
+        props.borderColor ? `2px solid ${props.borderColor}` : "none"};
 `
 
 const Form = styled.form`
@@ -27,14 +29,15 @@ const Form = styled.form`
         align-items: center;
     }
 
-    @media (min-width: 960px) {
+    @media (min-width: 800px) {
         flex-direction: row;
-        justify-content: space-evenly;
-        height: 150px;
+        justify-content: center;
     }
 `
 
 const Label = styled.label`
+    display: block;
+    width: 100%;
     color: ${blue.darker};
     font-family: "aktiv-grotesk";
     font-size: 12px;
@@ -44,7 +47,8 @@ const Label = styled.label`
     display: flex;
     flex-direction: column;
 
-    @media (min-width: 960px) {
+    @media (min-width: 800px) {
+        max-width: 350px;
         margin-left: 8px;
         margin-right: 8px;
     }
@@ -52,7 +56,6 @@ const Label = styled.label`
 
 const Input = styled.input`
     height: 50px;
-
     border: 2px solid ${blue.light};
     background-color: ${white};
     margin-top: 7px;
@@ -84,10 +87,16 @@ const Input = styled.input`
 `
 
 const StyledButton = styled(Button)`
-    width: 300px;
-    color: ${white};
-    border: 2px solid ${black};
-    background-color: ${black};
+    width: 100%;
+    position: relative;
+    top: 3px;
+    /* color: ${white}; */
+    /* border: 2px solid ${black}; */
+    /* background-color: ${black}; */
+
+    @media(min-width: 800px) {
+        max-width: 300px;
+    }
 `
 
 const ErrorMsg = styled.p`
@@ -96,7 +105,7 @@ const ErrorMsg = styled.p`
     width: 90%;
     text-align: center;
     color: #7c2637;
-    margin: 0;
+    margin-bottom: 20px;
 `
 
 function MailchimpSubscribeForm({ style, formUrl }) {
@@ -147,7 +156,7 @@ function MailchimpSubscribeForm({ style, formUrl }) {
                                 subscribe(inputs)
                             }}
                         >
-                            <Label htmlfor="NAME">
+                            <Label>
                                 Name
                                 <Input
                                     placeholder="Name"
@@ -156,7 +165,7 @@ function MailchimpSubscribeForm({ style, formUrl }) {
                                     value={inputs.NAME}
                                 />
                             </Label>
-                            <Label htmlfor="EMAIL">
+                            <Label>
                                 Email
                                 <Input
                                     placeholder="Email"
@@ -165,7 +174,9 @@ function MailchimpSubscribeForm({ style, formUrl }) {
                                     value={inputs.EMAIL}
                                 />
                             </Label>
-                            <StyledButton>{msg}</StyledButton>
+                            <StyledButton buttonStyle="primary-dark">
+                                {msg}
+                            </StyledButton>
                         </Form>
                     </FormContainer>
                 )

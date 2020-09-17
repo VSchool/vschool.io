@@ -7,6 +7,7 @@ import MailchimpSubscribeForm from "../shared/MailchimpSubscribeForm"
 const HeroContainer = styled.section`
     background-color: #daf2fb;
     padding-top: 65px;
+    padding-bottom: 357px;
 
     @media (min-width: 1024px) {
         padding-top: 100px;
@@ -15,21 +16,24 @@ const HeroContainer = styled.section`
 
 const MotherCodersLogo = styled.img`
     width: 182px;
-    margin-bottom: 16px;
+    margin-bottom: 32px;
 `
 
 const HeroTitle = styled.h1`
     color: ${black};
     text-align: center;
+    margin-bottom: 32px;
+    font-weight: 900;
 `
 
 const HeroSubtitle = styled.h5`
     color: #1d4c5d;
     text-align: center;
+    margin-bottom: 32px;
 `
 
 const Paragraphs = styled.div`
-    margin-bottom: 32px;
+    margin-bottom: 48px;
     & > p {
         color: ${gray.darker};
         text-align: center;
