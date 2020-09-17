@@ -179,6 +179,8 @@ export default function TopPostPreview(props) {
         excerpt,
     } = props
 
+    console.log(props)
+
     const postColor = primary_tag ? primary_tag.description : gray.light
 
     return (

@@ -148,6 +148,10 @@ export default function PostPreview(props) {
         primary_author,
     } = props
 
+    // console.log(props)
+
+    // console.log(excerpt)
+
     const postColor = primary_tag ? primary_tag.description : gray.light
 
     return (
