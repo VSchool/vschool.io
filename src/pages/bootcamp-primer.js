@@ -7,9 +7,10 @@ import {
     CourseBullets,
     HeroHeader,
     HeroImage,
-    InfoForm,
     Testimonial,
 } from "../components/bootcamp-primer"
+import MailchimpSubscribeForm from "../components/shared/MailchimpSubscribeForm"
+
 import { gray } from "@vschool/lotus"
 
 import Courses from "../components/shared/Courses"
@@ -43,7 +44,7 @@ export default function BootcampPrimerPage({ data }) {
         <Layout>
             <SEO title={title} />
             <HeroHeader title={title} sub={subTitle} invite={invite} />
-            <InfoForm />
+            <MailchimpSubscribeForm />
             <CourseBullets title={bulletsTitle} bullets={course_bullets} />
             <HeroImage
                 heroImgSm={heroImgSm}

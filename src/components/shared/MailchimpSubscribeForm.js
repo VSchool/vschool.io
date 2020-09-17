@@ -3,45 +3,44 @@ import styled from "styled-components"
 import { blue, white, black, Button } from "@vschool/lotus"
 import MailchimpSubscribe from "react-mailchimp-subscribe"
 
-const FormContainer = styled.div`
+const FormContainer = styled.section`
     position: relative;
-    background-color: ${blue.lightest};
     display: flex;
     justify-content: center;
     padding-top: 32px;
-    margin-top: -1px;
+    /* margin-top: -1px; */
 `
 
 const Form = styled.form`
     height: 304px;
-    width: 360px;
-    background-color: ${blue.lighter};
-    padding: 32px 24px;
+    width: 100%;
+    background-color: ${props => props.backgroundColor || blue.lightest};
+    /* padding: 32px 24px; */
 
     @media (max-width: 360px) {
-        width: 286px;
+        /* width: 286px; */
     }
 
     @media (min-width: 600px) {
-        width: 480px;
+        /* width: 480px; */
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
     @media (min-width: 840px) {
-        width: 700px;
+        /* width: 700px; */
     }
 
     @media (min-width: 960px) {
-        width: 800px;
+        /* width: 800px; */
         flex-direction: row;
         justify-content: space-evenly;
         height: 150px;
     }
 
     @media (min-width: 1200px) {
-        width: 1024px;
+        /* width: 1024px; */
     }
 `
 
@@ -62,7 +61,7 @@ const Label = styled.label`
 
 const Input = styled.input`
     height: 50px;
-    width: 310px;
+    /* width: 310px; */
     border: 2px solid ${blue.light};
     background-color: ${white};
     margin-top: 7px;
@@ -76,7 +75,7 @@ const Input = styled.input`
 
     ::placeholder {
         height: 20px;
-        width: 287px;
+        /* width: 287px; */
         color: ${black};
         font-family: "aktiv-grotesk";
         font-size: 16px;
@@ -85,24 +84,24 @@ const Input = styled.input`
     }
 
     @media (max-width: 360px) {
-        width: 240px;
+        /* width: 240px; */
     }
 
     @media (min-width: 600px) {
         display: block;
-        width: 350px;
+        /* width: 350px; */
     }
 
     @media (min-width: 840px) {
-        width: 500px;
+        /* width: 500px; */
     }
 
     @media (min-width: 960px) {
-        width: 250px;
+        /* width: 250px; */
     }
 
     @media (min-width: 1200px) {
-        width: 350px;
+        /* width: 350px; */
     }
 `
 
@@ -113,19 +112,19 @@ const StyledButton = styled(Button)`
     background-color: ${black};
 
     @media (max-width: 360px) {
-        width: 240px;
+        /* width: 240px; */
     }
 
     @media (min-width: 600px) {
-        width: 350px;
+        /* width: 350px; */
     }
 
     @media (min-width: 840px) {
-        width: 500px;
+        /* width: 500px; */
     }
 
     @media (min-width: 960px) {
-        width: 224px;
+        /* width: 224px; */
     }
 `
 
@@ -136,8 +135,8 @@ const ErrorMsg = styled.div`
     text-align: center;
 `
 
-function InfoForm() {
-    const initInputs = { NAME: "", EMAIL: "" }
+function MailchimpSubscribeForm({ backgroundColor }) {
+    const initInputs = { name: "", email: "" }
     const [inputs, setInputs] = useState(initInputs)
 
     function handleChange(e) {
@@ -178,29 +177,32 @@ function InfoForm() {
                             </ErrorMsg>
                         )}
                         {status === "success" &&
-                            redirectTo("https://scrimba.com/g/gbootcampprimer")}
+                            redirectTo(
+                                "https://scrimba.com/learn/bootcampprimer"
+                            )}
                         <Form
+                            backgroundColor={backgroundColor}
                             onSubmit={e => {
                                 e.preventDefault()
                                 subscribe(inputs)
                             }}
                         >
-                            <Label htmlfor="NAME">
+                            <Label htmlfor="name">
                                 Name
                                 <Input
                                     placeholder="Name"
                                     onChange={handleChange}
-                                    name="NAME"
-                                    value={inputs.NAME}
+                                    name="name"
+                                    value={inputs.name}
                                 />
                             </Label>
-                            <Label htmlfor="EMAIL">
+                            <Label htmlfor="email">
                                 Email
                                 <Input
                                     placeholder="Email"
                                     onChange={handleChange}
-                                    name="EMAIL"
-                                    value={inputs.EMAIL}
+                                    name="email"
+                                    value={inputs.email}
                                 />
                             </Label>
                             <StyledButton>{msg}</StyledButton>
@@ -212,4 +214,4 @@ function InfoForm() {
     )
 }
 
-export default InfoForm
+export default MailchimpSubscribeForm
