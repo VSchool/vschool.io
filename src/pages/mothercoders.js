@@ -7,7 +7,7 @@ import MotherCoders from "../components/mothercoders"
 export default function BootcampPrimerPage() {
     return (
         <Layout>
-            <SEO title="Mother Coders" />
+            <SEO title="MotherCoders" />
             <MotherCoders />
         </Layout>
     )
