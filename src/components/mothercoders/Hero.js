@@ -7,6 +7,7 @@ import MailchimpSubscribeForm from "../shared/MailchimpSubscribeForm"
 const HeroContainer = styled.section`
     background-color: #daf2fb;
     padding-top: 65px;
+    padding-bottom: 357px;
 
     @media (min-width: 1024px) {
         padding-top: 100px;
@@ -15,20 +16,24 @@ const HeroContainer = styled.section`
 
 const MotherCodersLogo = styled.img`
     width: 182px;
-    margin-bottom: 16px;
+    margin-bottom: 32px;
 `
 
 const HeroTitle = styled.h1`
     color: ${black};
     text-align: center;
+    margin-bottom: 32px;
+    font-weight: 900;
 `
 
 const HeroSubtitle = styled.h5`
     color: #1d4c5d;
     text-align: center;
+    margin-bottom: 32px;
 `
 
 const Paragraphs = styled.div`
+    margin-bottom: 48px;
     & > p {
         color: ${gray.darker};
         text-align: center;
@@ -79,8 +84,6 @@ export default function Hero() {
         image,
     } = data.prismicMotherCoders.data
 
-    console.log(data.prismicMotherCoders.data.header_info)
-
     return (
         <HeroContainer>
             <MotherCodersLogo src={logo.url} alt={logo.alt} />
@@ -88,7 +91,10 @@ export default function Hero() {
             <HeroSubtitle>{subtitleText}</HeroSubtitle>
             {/* This uses innerHTML because Prismic has multiple paragraphs in one element */}
             <Paragraphs dangerouslySetInnerHTML={{ __html: headerInfoHtml }} />
-            <MailchimpSubscribeForm backgroundColor="#48BFE9" />
+            <MailchimpSubscribeForm
+                style={{ backgroundColor: "#48BFE9", borderColor: "#3286a3" }}
+                formUrl="//vschool.us16.list-manage.com/subscribe/post?u=f5ba48f36061bdea6c3b83712&amp;id=b5b314c19b"
+            />
         </HeroContainer>
     )
 }
