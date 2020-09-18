@@ -12,6 +12,7 @@ const FormContainer = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
+    max-width: 1024px;
 
     /* TODO:  Use defaultProps to set these defaults instead*/
     background-color: ${props => props.backgroundColor || blue.light};

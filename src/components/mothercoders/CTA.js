@@ -7,6 +7,7 @@ import Link from "../shared/QueryLink"
 const Container = styled.section`
     background-color: #daf2fb;
     padding-top: 96px;
+    padding-bottom: 96px;
 `
 
 const VSLogo = styled.img`
@@ -18,12 +19,24 @@ const Header = styled.h2`
     font-size: 32px;
     line-height: 40px;
     color: ${black};
+    margin-bottom: 16px;
+    font-weight: 900;
+
+    @media only screen and (min-width: 800px) {
+        margin-bottom: 24px;
+        font-size: 44px;
+        line-height: 48px;
+    }
 `
 
 const P = styled.p`
     color: ${gray.darker};
     text-align: center;
     margin-bottom: 32px;
+`
+
+const Arrow = styled.span`
+    margin-left: 12px;
 `
 
 export default function CTA() {
@@ -65,7 +78,9 @@ export default function CTA() {
             <Header>{titleText}</Header>
             <P>{paragraphText}</P>
             <Link to="/">
-                <Button buttonStyle="primary-dark">Visit vschool.io</Button>
+                <Button buttonStyle="primary-dark">
+                    Visit vschool.io <Arrow>&rarr;</Arrow>
+                </Button>
             </Link>
         </Container>
     )
