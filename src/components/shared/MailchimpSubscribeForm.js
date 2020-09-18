@@ -1,60 +1,55 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import { blue, white, black, Button } from "@vschool/lotus"
+import PropTypes from "prop-types"
+import { blue, white, black, gray, Button } from "@vschool/lotus"
 import MailchimpSubscribe from "react-mailchimp-subscribe"
 
 const FormContainer = styled.div`
+    padding: 32px 24px;
     position: relative;
-    background-color: ${blue.lightest};
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    padding-top: 32px;
-    margin-top: -1px;
+    align-items: center;
+    width: 100%;
+    max-width: 1024px;
+
+    /* TODO:  Use defaultProps to set these defaults instead*/
+    background-color: ${props => props.backgroundColor || blue.light};
+    border: ${props =>
+        props.borderColor ? `2px solid ${props.borderColor}` : "none"};
 `
 
 const Form = styled.form`
-    height: 304px;
-    width: 360px;
-    background-color: ${blue.lighter};
-    padding: 32px 24px;
-
-    @media (max-width: 360px) {
-        width: 286px;
-    }
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 
     @media (min-width: 600px) {
-        width: 480px;
-        display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    @media (min-width: 840px) {
-        width: 700px;
-    }
-
-    @media (min-width: 960px) {
-        width: 800px;
+    @media (min-width: 800px) {
         flex-direction: row;
-        justify-content: space-evenly;
-        height: 150px;
-    }
-
-    @media (min-width: 1200px) {
-        width: 1024px;
+        justify-content: center;
     }
 `
 
 const Label = styled.label`
+    display: block;
+    width: 100%;
     color: ${blue.darker};
     font-family: "aktiv-grotesk";
     font-size: 12px;
     font-weight: bold;
     letter-spacing: 0.25px;
     line-height: 16px;
-    display: block;
+    display: flex;
+    flex-direction: column;
 
-    @media (min-width: 960px) {
+    @media (min-width: 800px) {
+        max-width: 350px;
         margin-left: 8px;
         margin-right: 8px;
     }
@@ -62,7 +57,6 @@ const Label = styled.label`
 
 const Input = styled.input`
     height: 50px;
-    width: 310px;
     border: 2px solid ${blue.light};
     background-color: ${white};
     margin-top: 7px;
@@ -76,67 +70,47 @@ const Input = styled.input`
 
     ::placeholder {
         height: 20px;
-        width: 287px;
-        color: ${black};
+        color: ${gray.darker};
         font-family: "aktiv-grotesk";
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 500;
-        line-height: 20px;
-    }
+        line-height: 18px;
 
-    @media (max-width: 360px) {
-        width: 240px;
+        @media (min-width: 800px) {
+            font-size: 16px;
+            line-height: 24px;
+        }
     }
 
     @media (min-width: 600px) {
         display: block;
-        width: 350px;
-    }
-
-    @media (min-width: 840px) {
-        width: 500px;
-    }
-
-    @media (min-width: 960px) {
-        width: 250px;
-    }
-
-    @media (min-width: 1200px) {
-        width: 350px;
     }
 `
 
 const StyledButton = styled(Button)`
-    width: 300px;
-    color: ${white};
-    border: 2px solid ${black};
-    background-color: ${black};
+    width: 100%;
+    min-width: initial;
+    position: relative;
+    top: 3px;
+    /* color: ${white}; */
+    /* border: 2px solid ${black}; */
+    /* background-color: ${black}; */
 
-    @media (max-width: 360px) {
-        width: 240px;
-    }
-
-    @media (min-width: 600px) {
-        width: 350px;
-    }
-
-    @media (min-width: 840px) {
-        width: 500px;
-    }
-
-    @media (min-width: 960px) {
-        width: 224px;
+    @media(min-width: 800px) {
+        max-width: 300px;
     }
 `
 
-const ErrorMsg = styled.div`
-    position: absolute;
-    bottom: -20px;
+const ErrorMsg = styled.p`
+    /* position: absolute; */
+    /* bottom: -20px; */
     width: 90%;
     text-align: center;
+    color: #7c2637;
+    margin-bottom: 20px;
 `
 
-function InfoForm() {
+function MailchimpSubscribeForm({ style, formUrl }) {
     const initInputs = { NAME: "", EMAIL: "" }
     const [inputs, setInputs] = useState(initInputs)
 
@@ -152,11 +126,9 @@ function InfoForm() {
         window.location.href = url
     }
 
-    const url =
-        "//vschool.us16.list-manage.com/subscribe/post?u=f5ba48f36061bdea6c3b83712&amp;id=75906113f1"
     return (
         <MailchimpSubscribe
-            url={url}
+            url={formUrl}
             render={({ subscribe, status, message }) => {
                 let msg
                 if (status === "sending") {
@@ -168,24 +140,25 @@ function InfoForm() {
                 }
 
                 return (
-                    <FormContainer>
+                    <FormContainer {...style}>
                         {status === "error" && (
                             <ErrorMsg>
-                                <div style={{ color: "#BF6B1C" }}>
-                                    There seems to have been a problem. Please
-                                    try a different email address.
-                                </div>
+                                There seems to have been a problem. Please try a
+                                different email address.
                             </ErrorMsg>
                         )}
                         {status === "success" &&
-                            redirectTo("https://scrimba.com/g/gbootcampprimer")}
+                            redirectTo(
+                                "https://scrimba.com/learn/bootcampprimer"
+                            )}
                         <Form
                             onSubmit={e => {
+                                console.log(inputs)
                                 e.preventDefault()
                                 subscribe(inputs)
                             }}
                         >
-                            <Label htmlfor="NAME">
+                            <Label>
                                 Name
                                 <Input
                                     placeholder="Name"
@@ -194,7 +167,7 @@ function InfoForm() {
                                     value={inputs.NAME}
                                 />
                             </Label>
-                            <Label htmlfor="EMAIL">
+                            <Label>
                                 Email
                                 <Input
                                     placeholder="Email"
@@ -203,7 +176,9 @@ function InfoForm() {
                                     value={inputs.EMAIL}
                                 />
                             </Label>
-                            <StyledButton>{msg}</StyledButton>
+                            <StyledButton buttonStyle="primary-dark">
+                                {msg}
+                            </StyledButton>
                         </Form>
                     </FormContainer>
                 )
@@ -212,4 +187,17 @@ function InfoForm() {
     )
 }
 
-export default InfoForm
+MailchimpSubscribeForm.propTypes = {
+    formUrl: function(props, propName, componentName) {
+        if (!props[propName]) {
+            return new Error(`${propName} is required`)
+        }
+        if (!props[propName].startsWith("//")) {
+            return new Error(
+                `Invalid ${propName} value. URL must start with // (no http or https in the URL)`
+            )
+        }
+    },
+}
+
+export default MailchimpSubscribeForm

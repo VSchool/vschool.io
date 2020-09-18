@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { black } from "@vschool/lotus"
+// import
 
 const Header = styled.section`
     background-color: #e3e8fa;

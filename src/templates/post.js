@@ -222,6 +222,8 @@ function Post({ data }) {
         feature_image,
     } = post
 
+    console.log(post.html)
+
     const postColor = getColorFromTag(
         primary_tag ? primary_tag.name.toLowerCase() : ""
     )

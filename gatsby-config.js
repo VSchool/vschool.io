@@ -63,6 +63,7 @@ module.exports = {
                     "isa-page": require("./src/schemas/isa-page.json"),
                     "living-in-salt-lake": require("./src/schemas/living-in-salt-lake.json"),
                     "methodology-page": require("./src/schemas/methodology-page.json"),
+                    mother_coders: require("./src/schemas/mother_coders.json"),
                     "my-base-scholarship": require("./src/schemas/my-base-scholarship.json"),
                     navigation_bar: require("./src/schemas/navigation_bar.json"),
                     press: require("./src/schemas/press.json"),

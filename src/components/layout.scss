@@ -29,24 +29,18 @@ section {
     align-items: center;
 
     @media only screen and (min-width: $media-md) {
-        section {
-            padding-left: 32px;
-            padding-right: 32px;
-        }
+        padding-left: 32px;
+        padding-right: 32px;
     }
 
     @media only screen and (min-width: $media-lg) {
-        section {
-            padding-left: 40px;
-            padding-right: 40px;
-        }
+        padding-left: 40px;
+        padding-right: 40px;
     }
 
     @media only screen and (min-width: $media-xl) {
-        section {
-            padding-left: 96px;
-            padding-right: 96px;
-        }
+        padding-left: 96px;
+        padding-right: 96px;
     }
 }
 
@@ -64,6 +58,44 @@ h5,
 h6 {
     font-family: "aktiv-grotesk-extended";
     text-transform: uppercase;
+}
+
+h1 {
+    font-size: 44px;
+    line-height: 48px;
+
+    @media only screen and (min-width: $media-xl) {
+        font-size: 56px;
+        line-height: 56px;
+    }
+}
+
+h2 {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 800;
+
+    @media only screen and (min-width: $media-lg) {
+        font-size: 44px;
+        line-height: 48px;
+    }
+}
+
+h5 {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 24px;
+    
+    @media only screen and (min-width: $media-lg) {
+        font-size: 20px;
+        line-height: 32px;
+    }
+
 }
 
 // PrismJS styles
