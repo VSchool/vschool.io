@@ -63,6 +63,22 @@ h6 {
 h1 {
     font-size: 44px;
     line-height: 48px;
+
+    @media only screen and (min-width: $media-xl) {
+        font-size: 56px;
+        line-height: 56px;
+    }
+}
+
+h2 {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 800;
+
+    @media only screen and (min-width: $media-lg) {
+        font-size: 44px;
+        line-height: 48px;
+    }
 }
 
 h5 {
@@ -74,6 +90,12 @@ h5 {
 p {
     font-size: 16px;
     line-height: 24px;
+    
+    @media only screen and (min-width: $media-lg) {
+        font-size: 20px;
+        line-height: 32px;
+    }
+
 }
 
 // PrismJS styles

@@ -7,7 +7,7 @@ import QueryLink from "../shared/QueryLink.js"
 const Container = styled.section`
     background-color: ${gray.lighter};
     padding-top: 64px;
-    padding-bottom: 56px;
+    margin-bottom: -370px;
 
     @media (min-width: 1200px) {
         padding-top: 96px;

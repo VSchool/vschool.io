@@ -88,6 +88,7 @@ const Input = styled.input`
 
 const StyledButton = styled(Button)`
     width: 100%;
+    min-width: initial;
     position: relative;
     top: 3px;
     /* color: ${white}; */
