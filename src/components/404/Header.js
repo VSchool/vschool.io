@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { graphql, useStaticQuery } from "gatsby"
 import { gray, black, blue } from "@vschool/lotus"
 import Link from "../shared/QueryLink"
 
@@ -108,17 +109,49 @@ const SLink = styled(Link)`
     }
 `
 
-function HeroHeader(props) {
+function HeroHeader() {
+    const data = useStaticQuery(graphql`
+        {
+            prismic404Page {
+                data {
+                    link3_text {
+                        text
+                    }
+                    link3 {
+                        url
+                    }
+                    link2_text {
+                        text
+                    }
+                    link2 {
+                        url
+                    }
+                    link1_text {
+                        text
+                    }
+                    page_title {
+                        text
+                    }
+                    page_sub {
+                        text
+                    }
+                    page_header {
+                        text
+                    }
+                }
+            }
+        }
+    `)
     const {
-        title,
-        header,
-        sub,
-        link1Text,
-        link2Text,
-        link3Text,
-        link2,
-        link3,
-    } = props
+        page_title: { text: title },
+        page_header: { text: header },
+        page_sub: { text: sub },
+        link1_text: { text: link1Text },
+        link2_text: { text: link2Text },
+        link3_text: { text: link3Text },
+        link2: { url: link2Url },
+        link3: { url: link3Url },
+    } = data.prismic404Page.data
 
     return (
         <Container>
@@ -132,8 +165,8 @@ function HeroHeader(props) {
             <FlexContainer>
                 <LinksContainer>
                     <SLink to="/">{link1Text}</SLink>
-                    <SLink to={link2}>{link2Text}</SLink>
-                    <SLink to={link3}>{link3Text}</SLink>
+                    <SLink to={link2Url}>{link2Text}</SLink>
+                    <SLink to={link3Url}>{link3Text}</SLink>
                 </LinksContainer>
             </FlexContainer>
         </Container>
