@@ -42,6 +42,14 @@ const Paragraphs = styled.div`
     & > p:not(:first-child) {
         margin-top: 20px;
     }
+
+    @media only screen and (min-width: 1024px) {
+        max-width: 850px;
+
+        & > p {
+            text-align: left;
+        }
+    }
 `
 
 export default function Hero() {

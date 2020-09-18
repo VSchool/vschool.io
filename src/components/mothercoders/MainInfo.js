@@ -16,9 +16,19 @@ const Img = styled.img`
     }
 `
 
+const InfoTitle = styled.h2`
+    margin-bottom: 24px;
+
+    @media only screen and (min-width: 800px) {
+        margin-bottom: 48px;
+        max-width: 1024px;
+    }
+`
+
 const Paragraphs = styled.div`
     display: flex;
     flex-direction: column;
+    margin-bottom: 48px;
 
     @media only screen and (min-width: 840px) {
         flex-direction: row;
@@ -28,6 +38,7 @@ const Paragraphs = styled.div`
 
     & > p {
         color: ${gray.darker};
+        margin-bottom: 24px;
 
         @media only screen and (min-width: 840px) {
             width: 48%;
@@ -64,7 +75,7 @@ export default function MainInfo() {
     return (
         <Container>
             <Img src={image.url} alt={image.alt} />
-            <h2>{infoTitle}</h2>
+            <InfoTitle>{infoTitle}</InfoTitle>
             <Paragraphs dangerouslySetInnerHTML={{ __html: infoHtml }} />
         </Container>
     )
