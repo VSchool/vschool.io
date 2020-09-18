@@ -4,10 +4,10 @@ import MainInfo from "./MainInfo"
 import CTA from "./CTA"
 export default function MotherCoders() {
     return (
-        <div>
+        <>
             <Hero />
             <MainInfo />
             <CTA />
-        </div>
+        </>
     )
 }

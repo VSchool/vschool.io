@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { graphql, useStaticQuery } from "gatsby"
 import { gray } from "@vschool/lotus"
 
 const Container = styled.div`
@@ -80,7 +81,26 @@ const Gif = styled.img`
 `
 
 export default function Gifs(props) {
-    const { gifs, gifsBackground } = props
+    const data = useStaticQuery(graphql`
+        {
+            prismic404Page {
+                data {
+                    gifs {
+                        gif {
+                            url
+                        }
+                    }
+                    gifs_background {
+                        url
+                    }
+                }
+            }
+        }
+    `)
+    const {
+        gifs,
+        gifs_background: { url: gifsBackground },
+    } = data.prismic404Page.data
     return (
         <Container>
             <GifsContainer bg={gifsBackground}>
