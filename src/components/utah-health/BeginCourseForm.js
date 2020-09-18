@@ -102,7 +102,7 @@ const ErrorMsg = styled.div`
     text-align: center;
 `
 
-function InfoForm() {
+function MailchimpSubscribeForm() {
     const initInputs = { NAME: "", EMAIL: "" }
     const [inputs, setInputs] = useState(initInputs)
 
@@ -178,4 +178,4 @@ function InfoForm() {
     )
 }
 
-export default InfoForm
+export default MailchimpSubscribeForm

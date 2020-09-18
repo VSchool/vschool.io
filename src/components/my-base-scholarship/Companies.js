@@ -4,11 +4,11 @@ import { blue, black } from "@vschool/lotus"
 
 const Container = styled.section`
     background-color: ${blue.lightest};
-    padding-top: 260px;
+    padding-top: 370px;
     padding-bottom: 56px;
 
     @media (min-width: 1200px) {
-        padding-top: 160px;
+        padding-top: 400px;
     }
 `
 
