@@ -1,5 +1,5 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import { gray, black, Button } from "@vschool/lotus"
 import QueryLink from "../shared/QueryLink.js"
@@ -15,12 +15,6 @@ const Container = styled.section`
         padding-right: 88px;
     }
 `
-
-// const HeaderContainer = styled.div`
-//     @media (min-width: 1200px) {
-//         width: 1024px;
-//     }
-// `
 
 const Header = styled.h2`
     font-weight: 900;
@@ -50,8 +44,16 @@ const ScholarshipContainer = styled.div`
     padding: 16px;
     margin: 24px 16px;
     max-width: 496px;
-    /* max-width: 380px; */
-
+    opacity: ${props => (!props.active ? "50%" : "inherit")};
+    /* Gray out if disabled */
+    /* ${props => {
+        return (
+            props.active === false &&
+            css`
+                opacity: 50%;
+            `
+        )
+    }} */
     @media (min-width: 1200px) {
         padding: 24px;
         /* max-width: 1024px; */
@@ -213,6 +215,7 @@ export default function ScholarshipDetails(props) {
                                 scholarship_name {
                                     text
                                 }
+                                active
                             }
                             items {
                                 scholarship_bullet_icon {
@@ -242,15 +245,20 @@ export default function ScholarshipDetails(props) {
             scholarship_name: { text: scholarshipName },
             scholarship_button_link: { url: buttonUrl, target: buttonTarget },
             scholarship_details: { text: detailsText },
+            active,
         } = scholarship.primary
 
         return (
             <ScholarshipContainer
                 backgroundImg={backgroundImg}
                 key={scholarship.id}
+                active={active}
             >
                 <WhiteContainer>
-                    <ScholarshipName>{scholarshipName}</ScholarshipName>
+                    <ScholarshipName>
+                        {scholarshipName}
+                        {!active && " (ended)"}
+                    </ScholarshipName>
                     <DeadlineText>Application deadline:</DeadlineText>
                     <DateText>{deadline}</DateText>
                     <BulletsContainer>
@@ -272,7 +280,9 @@ export default function ScholarshipDetails(props) {
                     </BulletsContainer>
                     <LinkAndInfo>
                         <StyledLink to={buttonUrl} target={buttonTarget}>
-                            <StyledButton>{buttonText}</StyledButton>
+                            <StyledButton disabled={!active}>
+                                {buttonText}
+                            </StyledButton>
                         </StyledLink>
                         <Info>{detailsText}</Info>
                     </LinkAndInfo>
