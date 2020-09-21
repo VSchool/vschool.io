@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { black } from "@vschool/lotus"
 
 const Container = styled.div`
@@ -43,7 +44,21 @@ const TempText = styled.p`
 `
 
 export default function Press(props) {
-    const { header } = props
+    const data = useStaticQuery(graphql`
+        {
+            prismicAbout {
+                data {
+                    press {
+                        text
+                    }
+                }
+            }
+        }
+    `)
+    const {
+        press: { text: header },
+    } = data.prismicAbout.data
+    
     return (
         <Container>
             <Header>{header}</Header>

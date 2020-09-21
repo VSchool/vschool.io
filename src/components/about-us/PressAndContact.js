@@ -45,28 +45,20 @@ const FixedContainer = styled.div`
     }
 `
 
-export default function PressAndContact(props) {
-    const {
-        pressHeader,
-        contactUsHeader,
-        businessName,
-        streetAddress,
-        cityAndState,
-        email,
-        phone,
-    } = props
+export default function PressAndContact() {
+    // const {
+    //     contactUsHeader,
+    //     businessName,
+    //     streetAddress,
+    //     cityAndState,
+    //     email,
+    //     phone,
+    // } = props
     return (
         <Container>
             <FixedContainer>
-                <Press header={pressHeader} />
-                <Contact
-                    header={contactUsHeader}
-                    businessName={businessName}
-                    streetAddress={streetAddress}
-                    cityAndState={cityAndState}
-                    email={email}
-                    phone={phone}
-                />
+                <Press />
+                <Contact />
             </FixedContainer>
         </Container>
     )

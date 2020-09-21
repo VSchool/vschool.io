@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { black, gray, Button } from "@vschool/lotus"
 import Link from "../shared/QueryLink"
 
@@ -31,15 +32,42 @@ const StyledButton = styled(Button)`
     margin-top: 40px;
 `
 
-export default function Contact(props) {
+export default function Contact() {
+    const data = useStaticQuery(graphql`
+        {
+            prismicAbout {
+                data {
+                    business_name {
+                        text
+                    }
+                    city_and_state {
+                        text
+                    }
+                    contact_us {
+                        text
+                    }
+                    email {
+                        text
+                    }
+                    phone {
+                        text
+                    }
+                    street_address {
+                        text
+                    }
+                }
+            }
+        }
+    `)
+
     const {
-        header,
-        businessName,
-        streetAddress,
-        cityAndState,
-        email,
-        phone,
-    } = props
+        business_name: { text: businessName },
+        city_and_state: { text: cityAndState },
+        contact_us: { text: header },
+        email: { text: email },
+        phone: { text: phone },
+        street_address: { text: streetAddress },
+    } = data.prismicAbout.data
 
     return (
         <Container>
