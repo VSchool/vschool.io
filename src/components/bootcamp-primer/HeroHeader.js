@@ -1,7 +1,8 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { black } from "@vschool/lotus"
-// import
+import MailchimpSubscribeForm from "../shared/MailchimpSubscribeForm"
 
 const Header = styled.section`
     background-color: #e3e8fa;
@@ -88,33 +89,44 @@ const P = styled.p`
 `
 
 const H5 = styled.h5`
-    color: #21201f;
-    font-family: aktiv-grotesk-extended;
+    color: ${black};
     font-size: 14px;
     line-height: 20px;
-    text-align: center;
-    margin: 0px 84px 0px 84px;
     letter-spacing: 0;
-
-    @media (min-width: 840px) {
-        margin-bottom: 16px;
-    }
+    margin-bottom: 32px;
 `
 
-const FlexContainer = styled.div`
-    display: flex;
-    justify-content: center;
-`
+function HeroHeader() {
+    const data = useStaticQuery(graphql`
+        {
+            prismicBootcampPrimer {
+                data {
+                    main_page_title {
+                        text
+                    }
+                    subtitle {
+                        text
+                    }
+                    invitation_text {
+                        text
+                    }
+                }
+            }
+        }
+    `)
 
-function HeroHeader(props) {
-    const { title, sub, invite } = props
+    const {
+        main_page_title: { text: title },
+        subtitle: { text: subTitle },
+        invitation_text: { text: invite },
+    } = data.prismicBootcampPrimer.data
+
     return (
         <Header>
             <H1>{title}</H1>
-            <P>{sub}</P>
-            <FlexContainer>
-                <H5>{invite}</H5>
-            </FlexContainer>
+            <P>{subTitle}</P>
+            <H5>{invite}</H5>
+            <MailchimpSubscribeForm formUrl="//vschool.us16.list-manage.com/subscribe/post?u=f5ba48f36061bdea6c3b83712&amp;id=75906113f1" />
         </Header>
     )
 }

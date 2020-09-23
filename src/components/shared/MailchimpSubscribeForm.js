@@ -152,7 +152,6 @@ function MailchimpSubscribeForm({ style, formUrl }) {
                             )}
                         <Form
                             onSubmit={e => {
-                                console.log(inputs)
                                 e.preventDefault()
                                 subscribe(inputs)
                             }}
