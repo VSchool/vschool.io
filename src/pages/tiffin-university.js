@@ -47,7 +47,6 @@ export default function Tiffin({ data }) {
         testimonial: { text: testimonial },
         testimonial_img: { url: testimonialImg },
         cite: { text: cite },
-        payment_options,
         make_a_leap_btn: { text: makeALeapBtn },
         make_a_leap_header: { text: makeALeapHeader },
         make_a_leap_link: { url: makeALeapLink },
@@ -85,7 +84,7 @@ export default function Tiffin({ data }) {
                 cite={cite}
                 testimonialImg={testimonialImg}
             />
-            <PaymentOptions options={payment_options} />
+            <PaymentOptions />
             <MakeALeap
                 title={makeALeapHeader}
                 sub={makeALeapSub}
@@ -193,17 +192,6 @@ export const query = graphql`
                 }
                 next_session {
                     text
-                }
-                payment_options {
-                    payment_info {
-                        text
-                    }
-                    payment_info_link {
-                        url
-                    }
-                    payment_type {
-                        text
-                    }
                 }
                 ratings {
                     rating {
