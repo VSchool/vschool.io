@@ -29,7 +29,6 @@ const ExperienceDesignPage = ({ data }) => {
         rating_image3: { url: rating1 },
         rating_image2: { url: rating2 },
         rating_image1: { url: rating3 },
-        payment_options: paymentOptions,
         page_title: { text: pageTitle },
         next_session_title: { text: nextSession },
         make_it_happen_link: { url: makeItHappenLink },
@@ -104,7 +103,7 @@ const ExperienceDesignPage = ({ data }) => {
                 testimonialImg={testimonialImg}
             />
             <Ratings rating1={rating1} rating2={rating2} rating3={rating3} />
-            <PaymentOptions options={paymentOptions} />
+            <PaymentOptions />
             <MakeALeap
                 bgColor={purple.lightest}
                 sessionColor={purple.light}
@@ -166,17 +165,6 @@ export const query = graphql`
                 }
                 rating_image1 {
                     url
-                }
-                payment_options {
-                    payment_type {
-                        text
-                    }
-                    payment_info_link {
-                        url
-                    }
-                    payment_info {
-                        text
-                    }
                 }
                 page_title {
                     text

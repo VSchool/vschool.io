@@ -178,7 +178,7 @@ const ISAText = styled.h3`
     padding-bottom: 14px;
 `
 
-function ISA(props) {
+function ISA() {
     const data = useStaticQuery(graphql`
         {
             prismicPaymentOptions {
