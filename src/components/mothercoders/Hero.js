@@ -71,13 +71,6 @@ export default function Hero() {
                         text
                         html
                     }
-                    contact_button_text {
-                        text
-                    }
-                    image {
-                        url
-                        alt
-                    }
                 }
             }
         }
@@ -88,8 +81,6 @@ export default function Hero() {
         title: { text: titleText },
         subtitle: { text: subtitleText },
         header_info: { html: headerInfoHtml },
-        contact_button_text: { text: buttonText },
-        image,
     } = data.prismicMotherCoders.data
 
     return (

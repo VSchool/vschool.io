@@ -2,7 +2,6 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import NotFound from "../components/404"
-import { Header, Gifs } from "../components/404"
 
 const NotFoundPage = () => {
     return (

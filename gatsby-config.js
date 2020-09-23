@@ -66,6 +66,7 @@ module.exports = {
                     mother_coders: require("./src/schemas/mother_coders.json"),
                     "my-base-scholarship": require("./src/schemas/my-base-scholarship.json"),
                     navigation_bar: require("./src/schemas/navigation_bar.json"),
+                    payment_options: require("./src/schemas/payment_options.json"),
                     press: require("./src/schemas/press.json"),
                     responsive_learning: require("./src/schemas/responsive_learning.json"),
                     start_date: require("./src/schemas/start_date.json"),

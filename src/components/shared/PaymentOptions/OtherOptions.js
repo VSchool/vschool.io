@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { gray, white, black, blue } from "@vschool/lotus"
 
 const FlexContainer = styled.section`
@@ -71,8 +72,27 @@ const LearnMore = styled.a`
     }
 `
 
-function PaymentOptions(props) {
-    const { options } = props
+function OtherOptions(props) {
+    const data = useStaticQuery(graphql`
+        {
+            prismicPaymentOptions {
+                data {
+                    payment_options {
+                        payment_info {
+                            text
+                        }
+                        payment_info_link {
+                            url
+                        }
+                        payment_type {
+                            text
+                        }
+                    }
+                }
+            }
+        }
+    `)
+    const { payment_options: options } = data.prismicPaymentOptions.data
     return (
         <FlexContainer>
             {options.map(
@@ -92,4 +112,4 @@ function PaymentOptions(props) {
     )
 }
 
-export default PaymentOptions
+export default OtherOptions

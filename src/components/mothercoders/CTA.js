@@ -44,12 +44,6 @@ export default function CTA() {
         {
             prismicMotherCoders {
                 data {
-                    cta_button_text {
-                        text
-                    }
-                    cta_button_url {
-                        url
-                    }
                     cta_paragraph {
                         text
                     }
@@ -66,8 +60,6 @@ export default function CTA() {
     `)
 
     const {
-        cta_button_text: { test: buttonText },
-        cta_button_url: { url: buttonUrl },
         cta_paragraph: { text: paragraphText },
         cta_title: { text: titleText },
         v_school_logo: { url: logoUrl, alt: logoAlt },

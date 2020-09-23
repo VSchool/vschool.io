@@ -14,8 +14,7 @@ import {
     Testimonial,
 } from "../components/experience-design"
 import MakeALeap from "../components/shared/MakeALeap.js"
-import PaymentOptions from "../components/shared/PaymentOptions.js"
-import ISA from "../components/shared/ISA.js"
+import PaymentOptions from "../components/shared/PaymentOptions"
 import { purple } from "@vschool/lotus"
 import { graphql } from "gatsby"
 
@@ -39,14 +38,6 @@ const ExperienceDesignPage = ({ data }) => {
         learn_to_code_title: { text: learnToCode },
         learn_to_code_link: { url: learnToCodeLink },
         learn_to_code_btn: { text: learnToCodeBtnText },
-        isa_learn_more_link: { url: isaLink },
-        isa_learn_more_btn: { text: isaBtnText },
-        isa_info1: { text: isaInfo1 },
-        isa_info2: { text: isaInfo2 },
-        isa_image: { url: isaImg },
-        isa_header2: { text: isaHeader2 },
-        isa_header1: { text: isaHeader1 },
-        isa_header: { text: isaHeader },
         invite: { text: invite },
         hero_img_small: { url: heroImgSm },
         hero_img_overlay: { url: heroImgOverlay },
@@ -59,7 +50,6 @@ const ExperienceDesignPage = ({ data }) => {
         call_to_action_title: { text: makeItHappenTitle },
         call_to_action_sub: { text: makeItHappenSub },
         call_to_action_link: { url: callToActionLink },
-        // call_to_action_btn: { text: callToActionBtnText },
         as_real_as_it_gets_title: { text: asRealAsItGetsTitle },
         as_real_as_it_gets_sub3: { text: asRealAsItGetsSub3 },
         as_real_as_it_gets_sub2: { text: asRealAsItGetsSub2 },
@@ -100,7 +90,6 @@ const ExperienceDesignPage = ({ data }) => {
                 Delete it uncomment the <DownloadSyllabus/> component above.
             */}
             <div style={{ backgroundColor: "#FBF9F6", height: 32 }}></div>
-            {/* */}
 
             <AsRealAsItGets
                 title={asRealAsItGetsTitle}
@@ -115,16 +104,6 @@ const ExperienceDesignPage = ({ data }) => {
                 testimonialImg={testimonialImg}
             />
             <Ratings rating1={rating1} rating2={rating2} rating3={rating3} />
-            <ISA
-                header={isaHeader}
-                sub1={isaHeader1}
-                sub2={isaHeader2}
-                info1={isaInfo1}
-                info2={isaInfo2}
-                img={isaImg}
-                btnText={isaBtnText}
-                link={isaLink}
-            />
             <PaymentOptions options={paymentOptions} />
             <MakeALeap
                 bgColor={purple.lightest}
@@ -230,30 +209,6 @@ export const query = graphql`
                     url
                 }
                 learn_to_code_btn {
-                    text
-                }
-                isa_learn_more_link {
-                    url
-                }
-                isa_learn_more_btn {
-                    text
-                }
-                isa_header {
-                    text
-                }
-                isa_info1 {
-                    text
-                }
-                isa_info2 {
-                    text
-                }
-                isa_image {
-                    url
-                }
-                isa_header2 {
-                    text
-                }
-                isa_header1 {
                     text
                 }
                 invite {
