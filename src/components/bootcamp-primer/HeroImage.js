@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { gray, blue, orange } from "@vschool/lotus"
 
 const HeroContainer = styled.div`
@@ -177,8 +178,30 @@ const ImgMaskWhite = styled.div`
     }
 `
 
-function HeroImage(props) {
-    const { heroImgSm, heroImgLg, heroImgOverlay } = props
+function HeroImage() {
+    const data = useStaticQuery(graphql`
+        {
+            prismicBootcampPrimer {
+                data {
+                    hero_image_small {
+                        url
+                    }
+                    hero_image_overlay {
+                        url
+                    }
+                    hero_image_large {
+                        url
+                    }
+                }
+            }
+        }
+    `)
+    const {
+        hero_image_small: { url: heroImgSm },
+        hero_image_overlay: { url: heroImgOverlay },
+        hero_image_large: { url: heroImgLg },
+    } = data.prismicBootcampPrimer.data
+
     return (
         <HeroContainer>
             <BlueBlock />
