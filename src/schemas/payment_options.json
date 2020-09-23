@@ -1,0 +1,98 @@
+{
+  "ISA": {
+    "prismic_display_name": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Prismic Display Name",
+        "useAsTitle": true
+      }
+    },
+    "isa_header": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "ISA Header"
+      }
+    },
+    "isa_header1": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "ISA Header1"
+      }
+    },
+    "isa_header2": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "ISA Header2"
+      }
+    },
+    "isa_info1": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "ISA Info1"
+      }
+    },
+    "isa_info2": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "ISA Info2"
+      }
+    },
+    "isa_learn_more_btn": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "ISA Learn More Button"
+      }
+    },
+    "isa_learn_more_link": {
+      "type": "Link",
+      "config": {
+        "label": "ISA Learn More Link"
+      }
+    },
+    "isa_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "ISA Image"
+      }
+    }
+  },
+  "Other Options": {
+    "payment_options": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "payment_type": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+              "label": "Payment Type"
+            }
+          },
+          "payment_info": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+              "label": "Payment Info"
+            }
+          },
+          "payment_info_link": {
+            "type": "Link",
+            "config": {
+              "label": "Payment Info Link"
+            }
+          }
+        },
+        "label": "Payment Options"
+      }
+    }
+  }
+}

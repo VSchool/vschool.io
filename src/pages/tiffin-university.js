@@ -18,8 +18,7 @@ import {
     FAQ,
 } from "../components/tiffin"
 
-import ISA from "../components/shared/ISA.js"
-import PaymentOptions from "../components/shared/PaymentOptions.js"
+import PaymentOptions from "../components/shared/PaymentOptions"
 import MakeALeap from "../components/shared/MakeALeap.js"
 
 export default function Tiffin({ data }) {
@@ -48,14 +47,6 @@ export default function Tiffin({ data }) {
         testimonial: { text: testimonial },
         testimonial_img: { url: testimonialImg },
         cite: { text: cite },
-        isa_header: { text: isaHeader },
-        isa_sub1: { text: isaSub1 },
-        isa_sub2: { text: isaSub2 },
-        isa_info1: { text: isaInfo1 },
-        isa_info2: { text: isaInfo2 },
-        isa_image: { url: isaImg },
-        isa_learn_more_btn: { text: isaBtnText },
-        isa_learn_more_link: { url: isaBtnLink },
         payment_options,
         make_a_leap_btn: { text: makeALeapBtn },
         make_a_leap_header: { text: makeALeapHeader },
@@ -93,16 +84,6 @@ export default function Tiffin({ data }) {
                 testimonial={testimonial}
                 cite={cite}
                 testimonialImg={testimonialImg}
-            />
-            <ISA
-                header={isaHeader}
-                sub1={isaSub1}
-                sub2={isaSub2}
-                info1={isaInfo1}
-                info2={isaInfo2}
-                img={isaImg}
-                btnText={isaBtnText}
-                link={isaBtnLink}
             />
             <PaymentOptions options={payment_options} />
             <MakeALeap
@@ -169,30 +150,6 @@ export const query = graphql`
                 }
                 header_img2 {
                     url
-                }
-                isa_header {
-                    text
-                }
-                isa_image {
-                    url
-                }
-                isa_info1 {
-                    text
-                }
-                isa_info2 {
-                    text
-                }
-                isa_learn_more_btn {
-                    text
-                }
-                isa_learn_more_link {
-                    url
-                }
-                isa_sub1 {
-                    text
-                }
-                isa_sub2 {
-                    text
                 }
                 logos {
                     logo {

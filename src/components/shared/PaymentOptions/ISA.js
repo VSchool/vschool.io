@@ -1,7 +1,8 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { gray, black, Button } from "@vschool/lotus"
-import Link from "../shared/QueryLink"
+import Link from "../../shared/QueryLink"
 
 const Container = styled.div`
     background-color: ${gray.lighter};
@@ -178,13 +179,55 @@ const ISAText = styled.h3`
 `
 
 function ISA(props) {
-    const { header, sub1, sub2, info1, info2, img, btnText, link } = props
+    const data = useStaticQuery(graphql`
+        {
+            prismicPaymentOptions {
+                data {
+                    isa_header {
+                        text
+                    }
+                    isa_header1 {
+                        text
+                    }
+                    isa_header2 {
+                        text
+                    }
+                    isa_image {
+                        url
+                    }
+                    isa_info1 {
+                        text
+                    }
+                    isa_info2 {
+                        text
+                    }
+                    isa_learn_more_btn {
+                        text
+                    }
+                    isa_learn_more_link {
+                        url
+                    }
+                }
+            }
+        }
+    `)
+    const {
+        isa_header: { text: header },
+        isa_header1: { text: subHeader1 },
+        isa_header2: { text: subHeader2 },
+        isa_image: { url: img },
+        isa_info1: { text: info1 },
+        isa_info2: { text: info2 },
+        isa_learn_more_btn: { text: btnText },
+        isa_learn_more_link: { url: link },
+    } = data.prismicPaymentOptions.data
+
     return (
         <Container>
             <H2>{header}</H2>
             <FlexContainer>
                 <LearnMoreContainer>
-                    <H3>{sub1}</H3>
+                    <H3>{subHeader1}</H3>
                     <P>{info1}</P>
                     <Link to={link}>
                         <StyledButton buttonStyle="primary-dark">
@@ -194,7 +237,7 @@ function ISA(props) {
                 </LearnMoreContainer>
                 <AboutISABackground isaBackground={img}>
                     <AboutISA>
-                        <ISAText>{sub2}</ISAText>
+                        <ISAText>{subHeader2}</ISAText>
                         <P>{info2}</P>
                     </AboutISA>
                 </AboutISABackground>

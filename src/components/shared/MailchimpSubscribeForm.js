@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import PropTypes from "prop-types"
 import { blue, white, black, gray, Button } from "@vschool/lotus"
 import MailchimpSubscribe from "react-mailchimp-subscribe"
 
