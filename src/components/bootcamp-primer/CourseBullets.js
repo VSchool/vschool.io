@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { blue, black, gray } from "@vschool/lotus"
 
 const FlexContainer = styled.div`
@@ -108,12 +109,32 @@ const BulletText = styled.span`
     padding-left: 8px;
 `
 
-function CourseBullets(props) {
-    const { title, bullets } = props
+function CourseBullets() {
+    const data = useStaticQuery(graphql`
+        {
+            prismicBootcampPrimer {
+                data {
+                    course_bullets {
+                        bullet {
+                            text
+                        }
+                    }
+                    course_bullets_title {
+                        text
+                    }
+                }
+            }
+        }
+    `)
+
+    const {
+        course_bullets: bullets,
+        course_bullets_title: { text: bulletsTitle },
+    } = data.prismicBootcampPrimer.data
     return (
         <FlexContainer>
             <TextContainer>
-                <H2>{title}</H2>
+                <H2>{bulletsTitle}</H2>
                 {bullets.map(({ bullet }, i) => (
                     <Bullet key={i}>
                         •<BulletText>{bullet.text}</BulletText>

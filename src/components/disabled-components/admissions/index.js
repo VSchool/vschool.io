@@ -1,12 +1,12 @@
 import React from "react"
 import Header from "./Header.js"
-import Gifs from "./Gifs.js"
+import PaymentOptions from "../shared/PaymentOptions"
 
-export default function NotFound404() {
+export default function Admissions() {
     return (
         <>
             <Header />
-            <Gifs />
+            <PaymentOptions />
         </>
     )
 }

@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import Link from "./QueryLink"
+import Link from "../QueryLink"
 import { black, gray, orange, Button, white } from "@vschool/lotus"
 
 const CourseContainer = styled.div`
@@ -22,6 +22,7 @@ const H3 = styled.h3`
     font-size: 20px;
     font-weight: 900;
     line-height: 26px;
+    margin-bottom: 16px;
 
     @media (max-width: 400px) {
         font-size: 18px;
@@ -34,7 +35,7 @@ const P = styled.p`
     font-weight: 500;
     line-height: 24px;
     height: 64px;
-    margin-top: 16px;
+    margin-bottom: 32px;
 
     @media (max-width: 460px) {
         font-size: 14px;
@@ -67,14 +68,13 @@ const StyledButton = styled(Button)`
     outline: none;
 `
 
-function Course({ course, course_info, course_link, course_start_date }) {
-    const start_date = course_start_date?.document.data.start_date
+function Course({ name, info, link, start_date }) {
     return (
         <CourseContainer>
-            <H3>{course.text}</H3>
-            <P>{course_info.text}</P>
+            <H3>{name.text}</H3>
+            <P>{info.text}</P>
             <H4>{start_date}</H4>
-            <Link to={course_link.url}>
+            <Link to={link.url}>
                 <StyledButton buttonStyle="primary-light" buttonSize="sm">
                     Learn More
                 </StyledButton>

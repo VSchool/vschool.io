@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { gray, black, pink, Button } from "@vschool/lotus"
 import Link from "../shared/QueryLink"
 
@@ -139,7 +140,72 @@ const FlexContainer = styled.div`
 `
 
 function Header(props) {
-    const { header, sub, heroImg, link, btnText } = props
+    const data = useStaticQuery(graphql`
+        {
+            prismicIsaPage {
+                data {
+                    financing_sub {
+                        text
+                    }
+                    financing_hero_img {
+                        url
+                    }
+                    financing_header {
+                        text
+                    }
+                    financing_btn_link {
+                        url
+                    }
+                    financing_btn {
+                        text
+                    }
+                    payment_options {
+                        payment_type {
+                            text
+                        }
+                        payment_info_link {
+                            url
+                        }
+                        payment_info {
+                            text
+                        }
+                    }
+                    isa_sub2 {
+                        text
+                    }
+                    isa_sub1 {
+                        text
+                    }
+                    isa_learn_more_link {
+                        url
+                    }
+                    isa_learn_more_btn {
+                        text
+                    }
+                    isa_info1 {
+                        text
+                    }
+                    isa_info2 {
+                        text
+                    }
+                    isa_header {
+                        text
+                    }
+                    isa_image {
+                        url
+                    }
+                }
+            }
+        }
+    `)
+
+    const {
+        financing_header: { text: header },
+        financing_sub: { text: sub },
+        financing_hero_img: { url: heroImg },
+        financing_btn_link: { url: link },
+        financing_btn: { text: btnText },
+    } = data.prismicIsaPage.data
 
     return (
         <HeaderContainer>
