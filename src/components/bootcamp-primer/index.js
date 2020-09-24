@@ -1,14 +1,21 @@
 import React from "react"
+import styled from "styled-components"
 import AboutPrimer from "./AboutPrimer"
 import ContactUs from "./ContactUs"
 import CourseBullets from "./CourseBullets"
 import HeroHeader from "./HeroHeader"
 import HeroImage from "./HeroImage"
-import MailchimpSubscribeForm from "../shared/MailchimpSubscribeForm"
 import Testimonial from "./Testimonial"
 import Courses from "../shared/Courses"
+import { gray } from "@vschool/lotus"
+
+const StyledCourses = styled(Courses)`
+    background-color: ${gray.lightest};
+    padding-top: 96px;
+`
 
 export default function BootcampPrimer() {
+
     return (
         <>
             <HeroHeader />
@@ -17,17 +24,7 @@ export default function BootcampPrimer() {
             <AboutPrimer />
             <Testimonial />
             <ContactUs />
-            {/* 
-            <Courses
-                header={coursesHeader}
-                courses={upcoming_courses}
-                bgColor={gray.lightest}
-            /> 
-            <div
-                data-name="spacer"
-                style={{ backgroundColor: gray.lightest, height: 96 }}
-            ></div> 
-            */}
+            <StyledCourses />
         </>
     )
 }

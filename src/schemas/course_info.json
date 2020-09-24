@@ -1,0 +1,53 @@
+{
+  "Main": {
+    "prismic_display_name": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Prismic Display Name"
+      }
+    },
+    "section_header": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Section Header"
+      }
+    },
+    "course_info": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "name": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+              "label": "Name"
+            }
+          },
+          "info": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+              "label": "Info"
+            }
+          },
+          "link": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "label": "Link"
+            }
+          },
+          "start_date": {
+            "type": "Date",
+            "config": {
+              "label": "Start Date"
+            }
+          }
+        },
+        "label": "Course Info"
+      }
+    }
+  }
+}

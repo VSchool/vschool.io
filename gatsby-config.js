@@ -55,6 +55,7 @@ module.exports = {
                     bootcamp_primer: require("./src/schemas/bootcamp_primer.json"),
                     careers: require("./src/schemas/careers.json"),
                     "community-relief-scholarship": require("./src/schemas/community-relief-scholarship.json"),
+                    course_info: require("./src/schemas/course_info.json"),
                     "development-page": require("./src/schemas/development-page.json"),
                     education_phases: require("./src/schemas/education_phases.json"),
                     footer: require("./src/schemas/footer.json"),

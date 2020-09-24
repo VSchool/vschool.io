@@ -12,7 +12,6 @@ import {
 } from "../components/veterans"
 
 import Courses from "../components/shared/Courses"
-
 import MakeALeap from "../components/shared/MakeALeap.js"
 
 export default function Veterans({ data }) {
@@ -51,6 +50,7 @@ export default function Veterans({ data }) {
             />
             <Trusted header={trustedHeader} bullets={bullets} />
             <VetStudents img={studentsImg} />
+            {/* TODO: When refactoring this, need to move the color into a styled component wrapping the Courses component */}
             <Courses
                 bgColor={yellow.lightest}
                 header={programsHeader}
