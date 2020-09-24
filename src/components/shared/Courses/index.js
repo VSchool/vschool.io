@@ -1,10 +1,11 @@
 import React from "react"
-import Course from "./Course.js"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
+
+import Course from "./Course"
 import { black } from "@vschool/lotus"
 
 const Container = styled.section`
-    background-color: ${props => props.bgColor};
     padding-bottom: 24px;
     padding-top: 24px;
 
@@ -59,13 +60,42 @@ const CoursesContainer = styled.div`
 `
 
 export default function Courses(props) {
-    const { header, courses, bgColor } = props
+    const data = useStaticQuery(graphql`
+        {
+            prismicCourseInfo {
+                data {
+                    section_header {
+                        text
+                    }
+                    course_info {
+                        info {
+                            text
+                        }
+                        link {
+                            id
+                            url
+                        }
+                        name {
+                            text
+                        }
+                        start_date(formatString: "MMMM Do, YYYY")
+                    }
+                }
+            }
+        }
+    `)
+
+    const {
+        section_header: { text: header },
+        course_info: courses,
+    } = data.prismicCourseInfo.data
+
     return (
-        <Container bgColor={bgColor}>
+        <Container {...props}>
             <H3>{header}</H3>
             <CoursesContainer>
-                {courses.map((course, i) => (
-                    <Course key={i} {...course} />
+                {courses.map(course => (
+                    <Course key={course.link.id} {...course} />
                 ))}
             </CoursesContainer>
         </Container>

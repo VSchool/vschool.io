@@ -1,7 +1,30 @@
-export { default as AboutPrimer } from "./AboutPrimer"
-export { default as ContactUs } from "./ContactUs"
-export { default as CourseBullets } from "./CourseBullets"
-export { default as HeroHeader } from "./HeroHeader"
-export { default as HeroImage } from "./HeroImage"
-export { default as MailchimpSubscribeForm } from "../shared/MailchimpSubscribeForm"
-export { default as Testimonial } from "./Testimonial"
+import React from "react"
+import styled from "styled-components"
+import AboutPrimer from "./AboutPrimer"
+import ContactUs from "./ContactUs"
+import CourseBullets from "./CourseBullets"
+import HeroHeader from "./HeroHeader"
+import HeroImage from "./HeroImage"
+import Testimonial from "./Testimonial"
+import Courses from "../shared/Courses"
+import { gray } from "@vschool/lotus"
+
+const StyledCourses = styled(Courses)`
+    background-color: ${gray.lightest};
+    padding-top: 96px;
+`
+
+export default function BootcampPrimer() {
+
+    return (
+        <>
+            <HeroHeader />
+            <CourseBullets />
+            <HeroImage />
+            <AboutPrimer />
+            <Testimonial />
+            <ContactUs />
+            <StyledCourses />
+        </>
+    )
+}

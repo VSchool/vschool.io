@@ -14,8 +14,7 @@ import {
     CTA,
 } from "../components/methodology"
 
-import Courses from "../components/shared/Courses.js"
-import { gray } from "@vschool/lotus"
+import Courses from "../components/shared/Courses"
 
 export default function HowVSCompares({ data }) {
     const {
@@ -25,7 +24,6 @@ export default function HowVSCompares({ data }) {
         testimonial_img1: { url: testimonialImg1 },
         testimonial2: { text: testimonial2 },
         testimonial1: { text: testimonial1 },
-        programs_header: { text: programsHeader },
         pathways_subheader: { text: pathwaysSubheader },
         pathways_header: { text: pathwaysHeader },
         page_subheader2: { text: pageSubheader2 },
@@ -40,7 +38,6 @@ export default function HowVSCompares({ data }) {
         cta_link: { url: ctaLink },
         cta_header: { text: ctaHeader },
         cta_btn: { text: ctaBtn },
-        courses,
         comparisons,
         comparison_subheader: { text: comparisonsSubheader },
         comparison_header: { text: comparisonsHeader },
@@ -75,11 +72,7 @@ export default function HowVSCompares({ data }) {
                 subheader={comparisonsSubheader}
                 comparisons={comparisons}
             />
-            <Courses
-                header={programsHeader}
-                courses={courses}
-                bgColor={gray.lightest}
-            />
+            <Courses />
             <Testimonial2
                 testimonial={testimonial2}
                 cite={cite2}
@@ -116,9 +109,6 @@ export const query = graphql`
                     text
                 }
                 testimonial1 {
-                    text
-                }
-                programs_header {
                     text
                 }
                 pathways_subheader {
@@ -167,31 +157,6 @@ export const query = graphql`
                 }
                 cta_btn {
                     text
-                }
-                courses {
-                    course_start_date {
-                        document {
-                            ... on PrismicStartDate {
-                                id
-                                data {
-                                    start_date(formatString: "MMMM Do, YYYY")
-                                    course_name {
-                                        text
-                                        html
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    course_link {
-                        url
-                    }
-                    course_info {
-                        text
-                    }
-                    course {
-                        text
-                    }
                 }
                 comparisons {
                     type {

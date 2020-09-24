@@ -1,3 +1,14 @@
-export { default as Header } from "./Header.js"
-export { default as HeroImage } from "./HeroImage.js"
-export { default as PressAndContact } from "./PressAndContact.js"
+import React from 'react'
+import Header from "./Header.js"
+import HeroImage from "./HeroImage.js"
+import PressAndContact from "./PressAndContact.js"
+
+export default function index() {
+    return (
+        <>
+            <Header />
+            <HeroImage />
+            <PressAndContact />
+        </>
+    )
+}

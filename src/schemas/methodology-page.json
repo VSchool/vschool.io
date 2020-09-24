@@ -1,295 +1,253 @@
 {
     "Main": {
-        "prismic_display_name": {
-            "type": "StructuredText",
-            "config": {
-                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-                "label": "Prismic Display Name",
-                "useAsTitle": true
-            }
-        },
-        "uid": {
-            "type": "UID",
-            "config": {
-                "label": "how-vs-compares"
-            }
-        },
-        "page_header": {
-            "type": "StructuredText",
-            "config": {
-                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-                "label": "page header"
-            }
-        },
-        "page_subheader1": {
-            "type": "StructuredText",
-            "config": {
-                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                "label": "page subheader1"
-            }
-        },
-        "page_subheader2": {
-            "type": "StructuredText",
-            "config": {
-                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                "label": "page subheader2"
-            }
-        },
-        "header_btn": {
-            "type": "StructuredText",
-            "config": {
-                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                "label": "header btn"
-            }
-        },
-        "header_btn_link": {
-            "type": "Link",
-            "config": {
-                "label": "header btn link"
-            }
-        },
-        "hero_image": {
-            "type": "Image",
-            "config": {
-                "constraint": {},
-                "thumbnails": [],
-                "label": "hero image"
-            }
-        },
-        "testimonial1": {
-            "type": "StructuredText",
-            "config": {
-                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                "label": "testimonial1"
-            }
-        },
-        "cite1": {
-            "type": "StructuredText",
-            "config": {
-                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                "label": "cite1"
-            }
-        },
-        "testimonial_program1": {
-            "type": "StructuredText",
-            "config": {
-                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                "label": "testimonial program1"
-            }
-        },
-        "testimonial_img1": {
-            "type": "Image",
-            "config": {
-                "constraint": {},
-                "thumbnails": [],
-                "label": "testimonial img1"
-            }
-        },
-        "difference_header": {
-            "type": "StructuredText",
-            "config": {
-                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-                "label": "difference header"
-            }
-        },
-        "differences": {
-            "type": "Group",
-            "config": {
-                "fields": {
-                    "title": {
-                        "type": "StructuredText",
-                        "config": {
-                            "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-                            "label": "title"
-                        }
-                    },
-                    "info": {
-                        "type": "StructuredText",
-                        "config": {
-                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                            "label": "info"
-                        }
-                    }
-                },
-                "label": "differences"
-            }
-        },
-        "pathways_header": {
-            "type": "StructuredText",
-            "config": {
-                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-                "label": "pathways header"
-            }
-        },
-        "pathways_subheader": {
-            "type": "StructuredText",
-            "config": {
-                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                "label": "pathways subheader"
-            }
-        },
-        "comparison_header": {
-            "type": "StructuredText",
-            "config": {
-                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-                "label": "comparison header"
-            }
-        },
-        "comparison_subheader": {
-            "type": "StructuredText",
-            "config": {
-                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                "label": "comparison subheader"
-            }
-        },
-        "comparisons": {
-            "type": "Group",
-            "config": {
-                "fields": {
-                    "icon": {
-                        "type": "Image",
-                        "config": {
-                            "constraint": {},
-                            "thumbnails": [],
-                            "label": "icon"
-                        }
-                    },
-                    "type": {
-                        "type": "StructuredText",
-                        "config": {
-                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                            "label": "type"
-                        }
-                    },
-                    "skills": {
-                        "type": "StructuredText",
-                        "config": {
-                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                            "label": "skills"
-                        }
-                    },
-                    "theory": {
-                        "type": "StructuredText",
-                        "config": {
-                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                            "label": "theory"
-                        }
-                    },
-                    "experience": {
-                        "type": "StructuredText",
-                        "config": {
-                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                            "label": "experience"
-                        }
-                    },
-                    "job": {
-                        "type": "StructuredText",
-                        "config": {
-                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                            "label": "job"
-                        }
-                    }
-                },
-                "label": "comparisons"
-            }
-        },
-        "programs_header": {
-            "type": "StructuredText",
-            "config": {
-                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-                "label": "programs header"
-            }
-        },
-        "courses": {
-            "type": "Group",
-            "config": {
-                "fields": {
-                    "course": {
-                        "type": "StructuredText",
-                        "config": {
-                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                            "label": "course"
-                        }
-                    },
-                    "course_info": {
-                        "type": "StructuredText",
-                        "config": {
-                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                            "label": "course info"
-                        }
-                    },
-                    "course_link": {
-                        "type": "Link",
-                        "config": {
-                            "label": "course link"
-                        }
-                    },
-                    "course_start_date": {
-                        "type": "Link",
-                        "config": {
-                            "select": "document",
-                            "label": "course start date"
-                        }
-                    }
-                },
-                "label": "courses"
-            }
-        },
-        "testimonial2": {
-            "type": "StructuredText",
-            "config": {
-                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                "label": "testimonial2"
-            }
-        },
-        "cite2": {
-            "type": "StructuredText",
-            "config": {
-                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                "label": "cite2"
-            }
-        },
-        "testimonial_program2": {
-            "type": "StructuredText",
-            "config": {
-                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                "label": "testimonial program2"
-            }
-        },
-        "testimonial_img2": {
-            "type": "Image",
-            "config": {
-                "constraint": {},
-                "thumbnails": [],
-                "label": "testimonial img2"
-            }
-        },
-        "cta_header": {
-            "type": "StructuredText",
-            "config": {
-                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-                "label": "cta header"
-            }
-        },
-        "cta_subheader": {
-            "type": "StructuredText",
-            "config": {
-                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                "label": "cta subheader"
-            }
-        },
-        "cta_link": {
-            "type": "Link",
-            "config": {
-                "label": "cta link"
-            }
-        },
-        "cta_btn": {
-            "type": "StructuredText",
-            "config": {
-                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                "label": "cta btn"
-            }
+      "prismic_display_name": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+          "label": "Prismic Display Name",
+          "useAsTitle": true
         }
+      },
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "how-vs-compares"
+        }
+      },
+      "page_header": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+          "label": "page header"
+        }
+      },
+      "page_subheader1": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+          "label": "page subheader1"
+        }
+      },
+      "page_subheader2": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+          "label": "page subheader2"
+        }
+      },
+      "header_btn": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+          "label": "header btn"
+        }
+      },
+      "header_btn_link": {
+        "type": "Link",
+        "config": {
+          "label": "header btn link"
+        }
+      },
+      "hero_image": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "hero image"
+        }
+      },
+      "testimonial1": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+          "label": "testimonial1"
+        }
+      },
+      "cite1": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+          "label": "cite1"
+        }
+      },
+      "testimonial_program1": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+          "label": "testimonial program1"
+        }
+      },
+      "testimonial_img1": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "testimonial img1"
+        }
+      },
+      "difference_header": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+          "label": "difference header"
+        }
+      },
+      "differences": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "title": {
+              "type": "StructuredText",
+              "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "title"
+              }
+            },
+            "info": {
+              "type": "StructuredText",
+              "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "info"
+              }
+            }
+          },
+          "label": "differences"
+        }
+      },
+      "pathways_header": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+          "label": "pathways header"
+        }
+      },
+      "pathways_subheader": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+          "label": "pathways subheader"
+        }
+      },
+      "comparison_header": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+          "label": "comparison header"
+        }
+      },
+      "comparison_subheader": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+          "label": "comparison subheader"
+        }
+      },
+      "comparisons": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "icon": {
+              "type": "Image",
+              "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "icon"
+              }
+            },
+            "type": {
+              "type": "StructuredText",
+              "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "type"
+              }
+            },
+            "skills": {
+              "type": "StructuredText",
+              "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "skills"
+              }
+            },
+            "theory": {
+              "type": "StructuredText",
+              "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "theory"
+              }
+            },
+            "experience": {
+              "type": "StructuredText",
+              "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "experience"
+              }
+            },
+            "job": {
+              "type": "StructuredText",
+              "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "label": "job"
+              }
+            }
+          },
+          "label": "comparisons"
+        }
+      },
+      "testimonial2": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+          "label": "testimonial2"
+        }
+      },
+      "cite2": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+          "label": "cite2"
+        }
+      },
+      "testimonial_program2": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+          "label": "testimonial program2"
+        }
+      },
+      "testimonial_img2": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "testimonial img2"
+        }
+      },
+      "cta_header": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+          "label": "cta header"
+        }
+      },
+      "cta_subheader": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+          "label": "cta subheader"
+        }
+      },
+      "cta_link": {
+        "type": "Link",
+        "config": {
+          "label": "cta link"
+        }
+      },
+      "cta_btn": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+          "label": "cta btn"
+        }
+      }
     }
-}
+  }
