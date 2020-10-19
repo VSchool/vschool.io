@@ -78,7 +78,16 @@ export default function Courses(props) {
                         name {
                             text
                         }
-                        start_date(formatString: "MMMM Do, YYYY")
+                        start_date {
+                            document {
+                                ... on PrismicStartDate {
+                                    id
+                                    data {
+                                        start_date(formatString: "MMM Do, YYYY")
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
