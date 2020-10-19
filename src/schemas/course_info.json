@@ -40,8 +40,12 @@
             }
           },
           "start_date": {
-            "type": "Date",
+            "type": "Link",
             "config": {
+              "select": "document",
+              "customtypes": [
+                "start_date"
+              ],
               "label": "Start Date"
             }
           }

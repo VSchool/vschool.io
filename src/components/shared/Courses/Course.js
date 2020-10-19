@@ -69,11 +69,12 @@ const StyledButton = styled(Button)`
 `
 
 function Course({ name, info, link, start_date }) {
+    const nextStartDate = start_date.document.data.start_date
     return (
         <CourseContainer>
             <H3>{name.text}</H3>
             <P>{info.text}</P>
-            <H4>{start_date}</H4>
+            <H4>{nextStartDate}</H4>
             <Link to={link.url}>
                 <StyledButton buttonStyle="primary-light" buttonSize="sm">
                     Learn More
