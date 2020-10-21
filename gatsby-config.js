@@ -57,6 +57,7 @@ module.exports = {
                     "community-relief-scholarship": require("./src/schemas/community-relief-scholarship.json"),
                     course_info: require("./src/schemas/course_info.json"),
                     "development-page": require("./src/schemas/development-page.json"),
+                    digital_family_page: require("./src/schemas/digital_family_page.json"),
                     education_phases: require("./src/schemas/education_phases.json"),
                     footer: require("./src/schemas/footer.json"),
                     "get-involved": require("./src/schemas/get-involved.json"),
