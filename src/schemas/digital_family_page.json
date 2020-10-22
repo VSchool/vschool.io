@@ -123,6 +123,29 @@
         "label": "Impact Title"
       }
     },
+    "impact_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Impact Image"
+      }
+    },
+    "impact_caption": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Impact Caption"
+      }
+    },
+    "impact_symbols": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Impact Symbols"
+      }
+    },
     "impact_stats_list": {
       "type": "Group",
       "config": {

@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-import { gray, black, blue, Button } from "@vschool/lotus"
+import { gray, blue, Button } from "@vschool/lotus"
 
 const Container = styled.section`
     background-color: ${blue.lightest};
