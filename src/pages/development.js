@@ -9,13 +9,17 @@ import {
     AboutCourse,
     Modules,
     CourseBullets,
-    Companies,
+    // Companies,
     Ratings,
     Testimonial,
     FAQ,
     LearnDesign,
 } from "../components/development"
-import { MakeALeap, PaymentOptions } from "../components/shared"
+import {
+    MakeALeap,
+    PaymentOptions,
+    CompanyLogoGrid,
+} from "../components/shared"
 
 export default function Development({ data }) {
     const {
@@ -50,6 +54,10 @@ export default function Development({ data }) {
         rating_images,
     } = data.prismicDevelopmentPage.data
     const { start_date: startDate } = data.prismicStartDate.data
+
+    const alumniCompanyLogos = company_logos.document.data.company_logos
+        .filter(company => company.alumni_employer)
+        .map(company => company.logo)
     return (
         <Layout>
             <SEO title={header} />
@@ -70,15 +78,11 @@ export default function Development({ data }) {
             <Modules modules={modules} />
             <CourseBullets bullets={course_bullets} />
 
-            {/* 
-            TODO: Replace this with the new AlumniCompanies component
-            filtering for only the ones our FSJS alumni work at.
-            
-            This may likely require a big change to how the companies logos
-            are saved, i.e. need to make each one the same height/width with 
-            so they don't need to be manually adjusted in CSS one at a time
-            */}
-            <Companies header={companiesHeader} logos={company_logos} />
+            <section style={{ marginTop: 96 }}>
+                <h3>{companiesHeader}</h3>
+                <CompanyLogoGrid logos={alumniCompanyLogos} />
+            </section>
+
             <Ratings header={ratingsHeader} ratings={rating_images} />
             <Testimonial
                 testimonial={testimonial}
@@ -127,8 +131,19 @@ export const query = graphql`
                     text
                 }
                 company_logos {
-                    logo {
-                        url
+                    document {
+                        ... on PrismicCompanyLogos {
+                            id
+                            data {
+                                company_logos {
+                                    alumni_employer
+                                    logo {
+                                        alt
+                                        url
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
                 course_bullets {
