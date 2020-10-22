@@ -14,7 +14,7 @@ import {
     MakeALeap,
 } from "../components/you-belong"
 
-import { AlumniCompanies } from "../components/shared"
+import CompanyLogoGrid from "../components/shared/CompanyLogoGrid"
 
 import { gray, blue } from "@vschool/lotus"
 
@@ -45,10 +45,16 @@ export default function YouBelong({ data }) {
         make_a_leap_btn: { text: callToActionBtnText },
         make_a_leap_sub: { text: callToActionSub },
         next_session: { text: nextSession },
+        companies_title: { text: companiesTitle },
+        company_logos,
         ratings,
         deadlines,
         details,
     } = data.prismicYouBelong.data
+
+    const alumniCompanyLogos = company_logos.document.data.company_logos
+        .filter(company => company.alumni_employer)
+        .map(company => company.logo)
     const { start_date: startDate } = data.prismicStartDate.data
     const { phases } = data.prismicEducationPhases.data
     return (
@@ -79,7 +85,11 @@ export default function YouBelong({ data }) {
                 img={internshipImg}
                 link={internshipLink}
             />
-            <AlumniCompanies backgroundColor={pink.lightest} />
+            {/* TODO: Move to separate component */}
+            <section>
+                <h3>{companiesTitle}</h3>
+                <CompanyLogoGrid logos={alumniCompanyLogos} />
+            </section>
             <Ratings header={ratingsHeader} ratings={ratings} />
             <Testimonial
                 testimonial={testimonial}
@@ -126,6 +136,25 @@ export const query = graphql`
         }
         prismicYouBelong {
             data {
+                companies_title {
+                    text
+                }
+                company_logos {
+                    document {
+                        ... on PrismicCompanyLogos {
+                            id
+                            data {
+                                company_logos {
+                                    alumni_employer
+                                    logo {
+                                        alt
+                                        url
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
                 call_to_action_btn_link {
                     url
                 }
