@@ -69,7 +69,9 @@ export default function Hero() {
         explainer_goals_list: goalsList,
     } = data.prismicDigitalFamilyPage.data
 
-    const goals = goalsList.map(goal => <li>{goal.goal_title.text}</li>)
+    const goals = goalsList.map(goal => (
+        <li key={goal.goal_title.text}>{goal.goal_title.text}</li>
+    ))
 
     return (
         <Container>

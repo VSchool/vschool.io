@@ -49,12 +49,12 @@ module.exports = {
                 schemas: {
                     "404_page": require("./src/schemas/404_page.json"),
                     about: require("./src/schemas/about.json"),
-                    alumni_companies: require("./src/schemas/alumni_companies.json"),
                     application_page: require("./src/schemas/application_page.json"),
                     "blog-items": require("./src/schemas/blog-items.json"),
                     bootcamp_primer: require("./src/schemas/bootcamp_primer.json"),
                     careers: require("./src/schemas/careers.json"),
                     "community-relief-scholarship": require("./src/schemas/community-relief-scholarship.json"),
+                    company_logos: require("./src/schemas/company_logos.json"),
                     course_info: require("./src/schemas/course_info.json"),
                     "development-page": require("./src/schemas/development-page.json"),
                     digital_family_page: require("./src/schemas/digital_family_page.json"),
