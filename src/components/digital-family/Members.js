@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import { white, gray, black, blue, Button } from "@vschool/lotus"
 
-import AlumniCompanies2 from "../shared/AlumniCompanies2"
+import CompanyLogoGrid from "../shared/CompanyLogoGrid"
 
 const Container = styled.section`
     padding-left: 16px;
@@ -40,6 +40,22 @@ export default function Members() {
                     members_description {
                         text
                     }
+                    members_list {
+                        document {
+                            ... on PrismicCompanyLogos {
+                                id
+                                data {
+                                    company_logos {
+                                        digital_family_member
+                                        logo {
+                                            alt
+                                            url
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -49,14 +65,19 @@ export default function Members() {
         members_title: { text: title },
         members_subtitle: { text: subtitle },
         members_description: { text: description },
+        members_list,
     } = data.prismicDigitalFamilyPage.data
+
+    const logos = members_list.document.data.company_logos
+        .filter(company => company.digital_family_member)
+        .map(company => company.logo)
 
     return (
         <Container>
             <Title>{title}</Title>
             <Callout>{subtitle}</Callout>
             <Description>{description}</Description>
-            <AlumniCompanies2 companiesFilter="df"/>
+            <CompanyLogoGrid logos={logos} />
         </Container>
     )
 }

@@ -1,0 +1,46 @@
+{
+  "Main": {
+    "prismic_display_name": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Prismic Display Name",
+        "useAsTitle": true
+      }
+    },
+    "company_logos": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "logo": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Logo"
+            }
+          },
+          "alumni_employer": {
+            "type": "Boolean",
+            "config": {
+              "placeholder_false": "No",
+              "placeholder_true": "Yes",
+              "default_value": false,
+              "label": "Alumni Employer"
+            }
+          },
+          "digital_family_member": {
+            "type": "Boolean",
+            "config": {
+              "placeholder_false": "No",
+              "placeholder_true": "Yes",
+              "default_value": false,
+              "label": "Digital Family Member"
+            }
+          }
+        },
+        "label": "Company Logos"
+      }
+    }
+  }
+}

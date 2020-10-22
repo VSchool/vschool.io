@@ -13,7 +13,7 @@ import {
     VideoModal,
 } from "../components/home"
 
-import { AlumniCompanies } from "../components/shared"
+import CompanyLogoGrid from "../components/shared/CompanyLogoGrid"
 import MakeALeap from "../components/shared/MakeALeap"
 import Courses from "../components/shared/Courses"
 
@@ -41,10 +41,18 @@ export default function IndexPage({ data }) {
         make_a_leap_header: { text: makeALeapTitle },
         make_a_leap_sub: { text: makeALeapSub },
         next_session: { text: makeALeapSession },
+        where_we_work_header: { text: whereWeWorkHeader },
+        company_logos,
         differences,
         ratings,
         courses,
     } = data.prismicHomePage.data
+
+    // Filter for companies our alumni are working at
+    const alumniCompanyLogos = company_logos.document.data.company_logos
+        .filter(company => company.alumni_employer)
+        .map(company => company.logo)
+
     const { start_date: startDate } = data.prismicStartDate.data
     return (
         <Layout>
@@ -77,7 +85,12 @@ export default function IndexPage({ data }) {
                 header={coursesHeader}
                 courses={courses}
             />
-            <AlumniCompanies />
+            {/* TODO: Move this to its own component in the components 
+            directory while recfactoring like the bootcamp-primer */}
+            <section>
+                <h3 style={{ textAlign: "center" }}>{whereWeWorkHeader}</h3>
+                <CompanyLogoGrid logos={alumniCompanyLogos} />
+            </section>
             <Ratings header={ratingsHeader} ratings={ratings} />
             <Differences header={differenceHeader} differences={differences} />
             <Testimonial
@@ -208,8 +221,19 @@ export const query = graphql`
                     }
                 }
                 company_logos {
-                    logo {
-                        url
+                    document {
+                        ... on PrismicCompanyLogos {
+                            id
+                            data {
+                                company_logos {
+                                    alumni_employer
+                                    logo {
+                                        url
+                                        alt
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
                 upcoming_programs_header {
