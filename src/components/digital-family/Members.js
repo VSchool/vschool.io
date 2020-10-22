@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-import { white, gray, black, blue, Button } from "@vschool/lotus"
+import { gray, blue } from "@vschool/lotus"
 
 import CompanyLogoGrid from "../shared/CompanyLogoGrid"
 

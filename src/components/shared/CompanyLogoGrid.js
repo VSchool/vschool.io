@@ -1,7 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
-import { black } from "@vschool/lotus"
 
 const Container = styled.section`
     padding: 24px;
@@ -13,27 +11,6 @@ const Container = styled.section`
 
     @media (min-width: 1100px) {
         padding-top: 64px;
-    }
-`
-
-const H4 = styled.h3`
-    width: 100%;
-    color: ${black};
-    font-size: 28px;
-    font-weight: 900;
-    text-align: center;
-    padding-bottom: 48px;
-
-    @media (min-width: 600px) {
-        max-width: 540px;
-        padding-bottom: 56px;
-    }
-
-    @media (min-width: 840px) {
-    }
-
-    @media (min-width: 1200px) {
-        font-size: 32px;
     }
 `
 
