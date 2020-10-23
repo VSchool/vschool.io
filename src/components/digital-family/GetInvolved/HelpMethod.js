@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { blue, yellow, gray } from "@vschool/lotus"
+import { blue, gray } from "@vschool/lotus"
 
 const Container = styled.div`
     margin-bottom: 48px;

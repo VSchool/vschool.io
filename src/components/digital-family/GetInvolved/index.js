@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-import { blue, yellow, gray } from "@vschool/lotus"
+import { blue, gray } from "@vschool/lotus"
 
 import HelpMethod from "./HelpMethod"
 
@@ -63,7 +63,7 @@ export default function GetInvolved() {
     const {
         get_involved_title: { text: title },
         get_involved_subtitle: { text: subtitle },
-        get_involved_text: { text: text },
+        get_involved_text: { text },
     } = data.prismicDigitalFamilyPage.data
 
     const helpMethods = data.prismicDigitalFamilyPage.data.body.map(method => (
