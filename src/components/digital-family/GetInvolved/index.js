@@ -5,6 +5,10 @@ import { blue, gray } from "@vschool/lotus"
 
 import HelpMethod from "./HelpMethod"
 
+const Container = styled.section`
+    margin-bottom: 96px;
+`
+
 const Title = styled.h2`
     text-align: center;
     margin-bottom: 24px;
@@ -69,14 +73,13 @@ export default function GetInvolved() {
     const helpMethods = data.prismicDigitalFamilyPage.data.body.map(method => (
         <HelpMethod method={method} key={method.id} />
     ))
-    console.log(data.prismicDigitalFamilyPage.data.body)
 
     return (
-        <section>
+        <Container>
             <Title>{title}</Title>
             <Subtitle>{subtitle}</Subtitle>
             <Description>{text}</Description>
             <HelpMethodsContainer>{helpMethods}</HelpMethodsContainer>
-        </section>
+        </Container>
     )
 }

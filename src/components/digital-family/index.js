@@ -4,6 +4,8 @@ import Explainer from "./Explainer"
 import Members from "./Members"
 import Impact from "./Impact"
 import GetInvolved from "./GetInvolved"
+import Form from "./Form"
+import Courses from "./Courses"
 
 export default function index() {
     return (
@@ -13,6 +15,8 @@ export default function index() {
             <Members />
             <Impact />
             <GetInvolved />
+            <Form />
+            <Courses />
         </>
     )
 }

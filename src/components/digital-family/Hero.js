@@ -21,6 +21,17 @@ const Subtitle = styled.p`
 const List = styled.ul`
     list-style-type: none;
     margin-bottom: 32px;
+    align-self: flex-start;
+`
+
+const ListItem = styled.li`
+    color: ${gray.darker};
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 18px;
+    &:before {
+        content: "- ";
+    }
 `
 
 const StyledButton = styled(Button)`
@@ -70,7 +81,7 @@ export default function Hero() {
     } = data.prismicDigitalFamilyPage.data
 
     const goals = goalsList.map(goal => (
-        <li key={goal.goal_title.text}>{goal.goal_title.text}</li>
+        <ListItem key={goal.goal_title.text}>{goal.goal_title.text}</ListItem>
     ))
 
     return (
