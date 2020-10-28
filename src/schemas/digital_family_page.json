@@ -264,5 +264,28 @@
         "label": "Form Button Text"
       }
     }
+  },
+  "Courses": {
+    "courses_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Courses Title"
+      }
+    },
+    "courses_subtitle": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Courses Subtitle"
+      }
+    },
+    "courses_text": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Courses Text"
+      }
+    }
   }
 }

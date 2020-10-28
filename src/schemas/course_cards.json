@@ -1,0 +1,68 @@
+{
+    "Main": {
+      "prismic_display_name": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+          "label": "Prismic Display Name",
+          "useAsTitle": true
+        }
+      },
+      "body": {
+        "type": "Slices",
+        "fieldset": "Slice zone",
+        "config": {
+          "labels": {
+            "course": []
+          },
+          "choices": {
+            "course": {
+              "type": "Slice",
+              "fieldset": "Course",
+              "description": "Info about a course",
+              "icon": "school",
+              "display": "list",
+              "non-repeat": {
+                "course_icon": {
+                  "type": "Image",
+                  "config": {
+                    "constraint": {},
+                    "thumbnails": [],
+                    "label": "Course Icon"
+                  }
+                },
+                "course_name": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                    "label": "Course Name"
+                  }
+                },
+                "course_info": {
+                  "type": "StructuredText",
+                  "config": {
+                    "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                    "label": "Course Info"
+                  }
+                },
+                "button_text": {
+                  "type": "StructuredText",
+                  "config": {
+                    "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                    "label": "Button Text"
+                  }
+                },
+                "button_url": {
+                  "type": "Link",
+                  "config": {
+                    "label": "Button URL"
+                  }
+                }
+              },
+              "repeat": {}
+            }
+          }
+        }
+      }
+    }
+  }

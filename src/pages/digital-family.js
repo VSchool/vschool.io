@@ -6,7 +6,7 @@ import DigitalFamily from "../components/digital-family"
 export default function DigitalFamilyPage() {
     return (
         <Layout>
-            <SEO title={"Bootcamp Primer"} />
+            <SEO title={"Digital Family"} />
             <DigitalFamily />
         </Layout>
     )

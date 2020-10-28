@@ -24,7 +24,6 @@ const Option = styled.li`
 `
 
 export default function HelpMethod({ method }) {
-    // console.log(method)
     const title = method.primary.method_title.text
     const options = method.items.map(item => (
         <Option>{item.method_option.text}</Option>

@@ -55,6 +55,7 @@ module.exports = {
                     careers: require("./src/schemas/careers.json"),
                     "community-relief-scholarship": require("./src/schemas/community-relief-scholarship.json"),
                     company_logos: require("./src/schemas/company_logos.json"),
+                    course_cards: require("./src/schemas/course_cards.json"),
                     course_info: require("./src/schemas/course_info.json"),
                     "development-page": require("./src/schemas/development-page.json"),
                     digital_family_page: require("./src/schemas/digital_family_page.json"),
