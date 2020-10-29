@@ -3,18 +3,31 @@ import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import { blue, yellow, gray } from "@vschool/lotus"
 
-const Container = styled.section`
-    margin-left: 18px;
-    margin-right: 26px;
+const Section = styled.section`
+    padding-top: 90px;
+`
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
     background-color: ${yellow.base};
-    padding: 0;
     box-shadow: 8px 8px 0px 0px ${blue.base}, 8px 8px 6px 0 rgba(0, 0, 0, 0.75);
     margin-bottom: 96px;
+    max-width: 450px;
+
+    @media (min-width: 800px) {
+        max-width: 1000px;
+        flex-direction: row-reverse;
+        /* height: 430px; */
+    }
 `
 
 const ImageContainer = styled.div`
     position: relative;
     width: 100%;
+
+    @media (min-width: 800px) {
+        width: auto;
+    }
 `
 
 const Caption = styled.p`
@@ -27,11 +40,23 @@ const Caption = styled.p`
     width: 166px;
     border-left: 2px solid ${gray.lighter};
     padding-left: 16px;
+
+    @media (min-width: 800px) {
+        right: 24px;
+        bottom: 32px;
+        width: 210px;
+        font-size: 14px;
+        line-height: 18px;
+    }
 `
 
 const Image = styled.img`
     width: 100%;
     object-fit: cover;
+
+    @media (min-width: 800px) {
+        height: 100%;
+    }
 `
 
 const SymbolsContainer = styled.div`
@@ -49,31 +74,50 @@ const SymbolsContainer = styled.div`
     background-image: ${props => `url(${props.bgImg})`};
     background-repeat: no-repeat;
     background-position: center center;
+
+    @media (min-width: 800px) {
+        right: 200px;
+        transform: translate(-25%, 0);
+        bottom: 32px;
+    }
 `
 
 const TextContainer = styled.div`
     padding: 20px;
     padding-top: 37px;
     width: 100%;
+
+    @media (min-width: 800px) {
+        width: 60%;
+    }
 `
 
 const Title = styled.h3`
     color: ${blue.darkest};
     margin-bottom: 13px;
     text-align: center;
+
+    @media (min-width: 800px) {
+        text-align: left;
+        margin-bottom: 48px;
+    }
 `
 
 const StatsContainer = styled.div`
     display: flex;
     justify-content: space-between;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
     margin-bottom: 20px;
+    max-width: 400px;
+
+    @media (min-width: 800px) {
+        max-width: none;
+        margin-bottom: 48px;
+    }
 `
 
 const StatGroup = styled.div`
     text-align: center;
+    margin: 0 10px;
 `
 
 const StatNum = styled.h1`
@@ -85,6 +129,11 @@ const StatText = styled.h6`
     color: ${blue.darkest};
     font-size: 8px;
     line-height: 12px;
+
+    @media (min-width: 800px) {
+        font-size: 14px;
+        line-height: 20px;
+    }
 `
 
 const P = styled.p`
@@ -93,6 +142,10 @@ const P = styled.p`
     padding-left: 4px;
     padding-right: 4px;
     margin-bottom: 40px;
+
+    @media (min-width: 800px) {
+        max-width: 67%;
+    }
 `
 
 const Footnote = styled.p`
@@ -101,6 +154,10 @@ const Footnote = styled.p`
     color: ${gray.darker};
     padding-left: 4px;
     padding-right: 4px;
+
+    @media (min-width: 800px) {
+        max-width: 67%;
+    }
 `
 
 export default function Impact() {
@@ -159,18 +216,20 @@ export default function Impact() {
     ))
 
     return (
-        <Container>
-            <ImageContainer>
-                <Image src={image.url} alt={image.alt} />
-                <Caption>{captionText}</Caption>
-                <SymbolsContainer bgImg={symbols.url} />
-            </ImageContainer>
-            <TextContainer>
-                <Title>{title}</Title>
-                <StatsContainer>{stats}</StatsContainer>
-                <P>{mainText}</P>
-                <Footnote>{footnote}</Footnote>
-            </TextContainer>
-        </Container>
+        <Section>
+            <Container>
+                <ImageContainer>
+                    <Image src={image.url} alt={image.alt} />
+                    <Caption>{captionText}</Caption>
+                    <SymbolsContainer bgImg={symbols.url} />
+                </ImageContainer>
+                <TextContainer>
+                    <Title>{title}</Title>
+                    <StatsContainer>{stats}</StatsContainer>
+                    <P>{mainText}</P>
+                    <Footnote>{footnote}</Footnote>
+                </TextContainer>
+            </Container>
+        </Section>
     )
 }

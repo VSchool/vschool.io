@@ -4,6 +4,11 @@ import { blue, gray } from "@vschool/lotus"
 
 const Container = styled.div`
     margin-bottom: 48px;
+    flex-basis: calc(100% / 3);
+
+    @media (min-width: 800px) {
+        padding: 0 20px;
+    }
 `
 
 const Title = styled.h4`
