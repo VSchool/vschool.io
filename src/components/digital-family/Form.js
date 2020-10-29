@@ -55,6 +55,8 @@ const Subtitle = styled.h6`
 `
 
 const Form = styled.form`
+    display: flex;
+    flex-direction: column;
     width: 100%;
     margin-bottom: 64px;
 `
@@ -66,6 +68,11 @@ const BoxGroup = styled(CheckboxRadioGroup)`
 const StyledButton = styled(Button)`
     width: 100%;
     margin-bottom: 64px;
+
+    @media (min-width: 600px) {
+        width: 232px;
+        align-self: flex-end;
+    }
 `
 
 // TODO: Still needs desktop styling
@@ -209,7 +216,7 @@ export default function GetInvolvedForm() {
                         value={formData.message}
                         placeholder="Tell us a little bit about how you would like to get involved with V School"
                     />
-                    <StyledButton>{buttonText}</StyledButton>
+                    <StyledButton size="large">{buttonText}</StyledButton>
                 </Form>
             </Container>
         </Section>
