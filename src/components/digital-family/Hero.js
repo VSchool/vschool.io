@@ -21,8 +21,8 @@ const Section = styled.section`
 
 const TextContainer = styled.div`
     max-width: 500px;
-    padding-right: 30px;
     @media (min-width: 1000px) {
+        padding-right: 30px;
         flex-basis: 50%;
     }
 `
@@ -67,7 +67,7 @@ const ListItem = styled.li`
 const StyledButton = styled(Button)`
     width: 100%;
 
-    @media (min-width: 800px) {
+    @media (min-width: 600px) {
         width: 232px;
     }
 `
