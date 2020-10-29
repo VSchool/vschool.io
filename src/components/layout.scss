@@ -53,8 +53,6 @@ span {
 }
 
 // Smaller headers use the extended font
-h4,
-h5,
 h6 {
     font-family: "aktiv-grotesk-extended";
     text-transform: uppercase;
@@ -81,11 +79,11 @@ h1 {
 //     }
 // }
 
-h5 {
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: 0.25px;
-}
+// h5 {
+//     font-size: 14px;
+//     line-height: 20px;
+//     letter-spacing: 0.25px;
+// }
 
 p {
     font-size: 16px;
@@ -95,7 +93,6 @@ p {
         font-size: 20px;
         line-height: 32px;
     }
-
 }
 
 // PrismJS styles

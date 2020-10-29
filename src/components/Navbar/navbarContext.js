@@ -36,8 +36,6 @@ function NavbarContextProvider({ children }) {
                 toggleSubMenu,
                 chosenSubMenu,
                 setChosenSubMenu,
-                // chosenSubMenuItems,
-                // setChosenSubMenuItems,
                 closeBothMenus,
             }}
         >

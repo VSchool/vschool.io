@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
+import styled from "styled-components"
+
+const StyledLink = styled(Link)`
+    text-decoration: none;
+`
+
+const StyledAnchor = styled.a`
+    text-decoration: none;
+`
 
 // A replacement for regular anchor elements that automatically implements
 // the querystring from sessionStorage
@@ -14,14 +23,14 @@ export default function({ to, children, ...rest }) {
         const sessionQuery = sessionStorage.getItem("query") || ""
         setQuery(sessionQuery)
     }, [])
-    
+
     return to.startsWith("/") ? (
-        <Link to={to} {...rest}>
+        <StyledLink to={to} {...rest}>
             {children}
-        </Link>
+        </StyledLink>
     ) : (
-        <a {...rest} href={`${to}${query}`}>
+        <StyledAnchor {...rest} href={`${to}${query}`}>
             {children}
-        </a>
+        </StyledAnchor>
     )
 }
