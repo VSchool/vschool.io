@@ -1,9 +1,8 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, navigate } from "gatsby"
 import {
     blue,
-    gray,
     Button,
     TextInput,
     Textarea,
@@ -42,8 +41,49 @@ const StyledButton = styled(Button)`
     margin-bottom: 64px;
 `
 
-// TODO: Still needs state management, a place to submit to, and desktop styling
+// TODO: Still needs desktop styling
 export default function GetInvolvedForm() {
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        message: "",
+        selectedOptions: [],
+    })
+
+    function handleChange(e) {
+        const { name, value } = e.target
+        setFormData(prevData => ({
+            ...prevData,
+            [name]: value,
+        }))
+    }
+
+    function handleCheckboxChange(e) {
+        const { checked, value } = e.target
+        setFormData(prevData => ({
+            ...prevData,
+            selectedOptions: checked
+                ? [...prevData.selectedOptions, value]
+                : prevData.selectedOptions.filter(option => option !== value),
+        }))
+    }
+
+    async function handleSubmit(e) {
+        e.preventDefault()
+        const options = {
+            method: "POST",
+            body: JSON.stringify(formData),
+        }
+        try {
+            const res = await fetch(
+                "https://hooks.zapier.com/hooks/catch/666916/oq1triu/",
+                options
+            )
+            const data = await res.json()
+            navigate("/digital-family/thanks")
+        } catch (e) {}
+    }
+
     const data = useStaticQuery(graphql`
         {
             prismicDigitalFamilyPage {
@@ -77,25 +117,42 @@ export default function GetInvolvedForm() {
         form_subtitle: { text: subtitle },
         form_button_text: { text: buttonText },
         body,
-        id,
     } = data.prismicDigitalFamilyPage.data
 
     const checkboxOptions = body.map(option => (
-        <Checkbox key={id}>{option.primary.method_title.text}</Checkbox>
+        <Checkbox
+            key={option.id}
+            name="selectedOptions"
+            value={option.primary.method_title.text}
+            checked={formData.selectedOptions.includes(
+                option.primary.method_title.text
+            )}
+            onChange={handleCheckboxChange}
+        >
+            {option.primary.method_title.text}
+        </Checkbox>
     ))
 
     return (
         <Container>
             <Title>{title}</Title>
             <Subtitle>{subtitle}</Subtitle>
-            <Form>
+            <Form onSubmit={handleSubmit}>
                 <TextInput
                     label="Name"
+                    name="name"
+                    type="text"
+                    onChange={handleChange}
+                    value={formData.name}
                     required
                     validationText="auto-generate"
                 />
                 <TextInput
                     label="Email"
+                    name="email"
+                    type="email"
+                    onChange={handleChange}
+                    value={formData.email}
                     required
                     validationText="auto-generate"
                 />
@@ -109,6 +166,9 @@ export default function GetInvolvedForm() {
                 </CheckboxRadioGroup>
                 <Textarea
                     label="Message"
+                    name="message"
+                    onChange={handleChange}
+                    value={formData.message}
                     placeholder="Tell us a little bit about how you would like to get involved with V School"
                 />
                 <StyledButton>{buttonText}</StyledButton>

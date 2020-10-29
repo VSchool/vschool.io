@@ -152,7 +152,7 @@ export default function Impact() {
     } = data.prismicDigitalFamilyPage.data
 
     const stats = statsList.map(stat => (
-        <StatGroup>
+        <StatGroup key={stat.stat_number.text}>
             <StatNum>{stat.stat_number.text}</StatNum>
             <StatText>{stat.stat_text.text}</StatText>
         </StatGroup>
