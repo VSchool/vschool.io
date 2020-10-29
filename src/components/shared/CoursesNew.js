@@ -69,10 +69,9 @@ export default function CoursesNew() {
             }
         }
     `)
-
-    console.log(data.prismicCourseCards.data.body)
+    
     const courseCards = data.prismicCourseCards.data.body.map(course => (
-        <FlexCard>
+        <FlexCard key={course.id}>
             <Icon
                 src={course.primary.course_icon.url}
                 alt={course.primary.course_icon.alt}
