@@ -86,7 +86,7 @@ export default function YouBelong({ data }) {
                 link={internshipLink}
             />
             {/* TODO: Move to separate component */}
-            <section>
+            <section style={{ backgroundColor: pink.lightest, paddingTop: 88 }}>
                 <h3>{companiesTitle}</h3>
                 <CompanyLogoGrid logos={alumniCompanyLogos} />
             </section>

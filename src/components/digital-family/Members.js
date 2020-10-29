@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-import { white, gray, black, blue, Button } from "@vschool/lotus"
+import { gray, blue } from "@vschool/lotus"
 
 import CompanyLogoGrid from "../shared/CompanyLogoGrid"
 
@@ -15,15 +15,29 @@ const Container = styled.section`
 
 const Title = styled.h2`
     margin-bottom: 24px;
+
+    @media (min-width: 1000px) {
+        margin-bottom: 32px;
+    }
 `
 
 const Callout = styled.h6`
     color: ${blue.dark};
     margin-bottom: 24px;
+
+    @media (min-width: 800px) {
+        margin-bottom: 32px;
+    }
 `
 
 const Description = styled.p`
+    margin-bottom: 40px;
     color: ${gray.darker};
+    max-width: 674px;
+
+    @media (min-width: 1000px) {
+        margin-bottom: 16px;
+    }
 `
 
 export default function Members() {
