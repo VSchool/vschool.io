@@ -12,22 +12,44 @@ const Container = styled.section`
 const Title = styled.h2`
     text-align: center;
     margin-bottom: 24px;
+
+    @media (min-width: 800px) {
+        margin-bottom: 32px;
+    }
 `
 
 const Subtitle = styled.h6`
     color: ${blue.base};
     text-align: center;
     margin-bottom: 24px;
+
+    @media (min-width: 800px) {
+        margin-bottom: 32px;
+    }
 `
 
 const Description = styled.p`
     color: ${gray.darker};
     text-align: center;
     margin-bottom: 64px;
+    max-width: 674px;
+
+    @media (min-width: 800px) {
+        margin-bottom: 96px;
+    }
 `
 
 const HelpMethodsContainer = styled.div`
     align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 800px) {
+        align-self: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        max-width: 1000px;
+    }
 `
 
 export default function GetInvolved() {

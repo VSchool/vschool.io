@@ -7,11 +7,18 @@ const Container = styled.section`
     margin-top: -160px;
     padding-top: 256px;
     background-color: ${white};
+    @media (min-width: 1000px) {
+        margin-top: 0;
+        padding-top: 160px;
+    }
 `
 
 const Title = styled.h2`
     text-align: center;
     margin-bottom: 24px;
+    @media (min-width: 1000px) {
+        margin-bottom: 32px;
+    }
 `
 
 const Callout = styled.h6`
@@ -24,16 +31,35 @@ const Description = styled.p`
     color: ${gray.darker};
     margin-bottom: 48px;
     text-align: center;
+    max-width: 674px;
+
+    @media (min-width: 1035px) {
+        margin-bottom: 96px;
+    }
 `
 
 const GoalsContainer = styled.div`
     display: flex;
     flex-direction: column;
     margin-right: 100px;
+    max-width: 1100px;
+    align-self: flex-start;
+
+    @media (min-width: 1035px) {
+        align-self: center;
+        margin-right: 0;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 160px;
+    }
 `
 
 const Goal = styled.div`
     margin-bottom: 48px;
+    max-width: 400px;
+    &:not(:last-child) {
+        margin-right: 32px;
+    }
 
     & > h3 {
         color: ${gray.darkest};
