@@ -47,6 +47,7 @@ const HelpMethodsContainer = styled.div`
     @media (min-width: 800px) {
         align-self: center;
         flex-direction: row;
+        justify-content: center;
         flex-wrap: wrap;
         max-width: 1000px;
     }
