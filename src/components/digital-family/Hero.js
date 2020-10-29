@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
+import { Link, animateScroll as scroll } from "react-scroll"
 import { gray, blue, Button } from "@vschool/lotus"
 
 const Section = styled.section`
@@ -119,7 +120,9 @@ export default function Hero() {
                 <Title>{title}</Title>
                 <Subtitle>{subtitle}</Subtitle>
                 <List>{goals}</List>
-                <StyledButton size="xl">{buttonText}</StyledButton>
+                <Link to="get-involved-form" smooth={true} offset={-100}>
+                    <StyledButton size="xl">{buttonText}</StyledButton>
+                </Link>
             </TextContainer>
             <ImageContainer>
                 <Image src={imgUrl} alt="image" />

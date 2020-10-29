@@ -46,6 +46,7 @@
     "react-helmet": "^5.2.1",
     "react-mailchimp-subscribe": "^2.1.0",
     "react-modal": "^3.11.1",
+    "react-scroll": "^1.8.1",
     "react-spring": "^8.0.27",
     "styled-components": "^4.4.1"
   },
