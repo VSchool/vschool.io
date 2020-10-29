@@ -104,7 +104,7 @@ export default function Thanks() {
                 <Title>{header}</Title>
                 <Text>{text}</Text>
                 <Image src={imageUrl} alt={imageAlt} />
-                <StyledLink to={buttonUrl}>
+                <StyledLink to={"/"}>
                     <StyledButton size="lg">{buttonText}</StyledButton>
                 </StyledLink>
             </ContentContainer>

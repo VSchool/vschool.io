@@ -25,6 +25,13 @@ const Text = styled.p`
     color: ${gray.darker};
     margin-bottom: 48px;
     text-align: center;
+    max-width: 674px;
+    align-self: center;
+`
+
+const CardsContainer = styled.div`
+    display: flex;
+    justify-content: center;
 `
 
 export default function CourseList() {
@@ -56,7 +63,9 @@ export default function CourseList() {
             <Title>{title}</Title>
             <Subtitle>{subtitle}</Subtitle>
             <Text>{text}</Text>
-            <CoursesNew />
+            <CardsContainer>
+                <CoursesNew />
+            </CardsContainer>
         </Container>
     )
 }
