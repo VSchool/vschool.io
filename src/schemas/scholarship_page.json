@@ -1,100 +1,115 @@
 {
-    "Hero": {
-      "prismic_display_name": {
-        "type": "StructuredText",
-        "config": {
-          "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-          "label": "Prismic Display Name"
-        }
-      },
-      "hero_scholarship_name": {
-        "type": "StructuredText",
-        "config": {
-          "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-          "label": "Hero Scholarship Name"
-        }
-      },
-      "hero_scholarship_amount": {
-        "type": "StructuredText",
-        "config": {
-          "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-          "label": "Hero Scholarship Amount"
-        }
-      },
-      "hero_text": {
-        "type": "StructuredText",
-        "config": {
-          "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-          "label": "Hero Text"
-        }
-      },
-      "hero_image": {
-        "type": "Image",
-        "config": {
-          "constraint": {},
-          "thumbnails": [],
-          "label": "Hero Image"
-        }
-      },
-      "hero_background_image": {
-        "type": "Image",
-        "config": {
-          "constraint": {},
-          "thumbnails": [],
-          "label": "Hero Background Image"
-        }
-      },
-      "hero_button_text": {
-        "type": "StructuredText",
-        "config": {
-          "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-          "label": "Hero Button Text"
-        }
+  "Hero": {
+    "prismic_display_name": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Prismic Display Name"
       }
     },
-    "Stages": {
-      "stages_title": {
-        "type": "StructuredText",
-        "config": {
-          "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-          "label": "Stages Title"
-        }
-      },
-      "stages_text": {
-        "type": "StructuredText",
-        "config": {
-          "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-          "label": "Stages Text"
-        }
-      },
-      "stages_list": {
-        "type": "Group",
-        "config": {
-          "fields": {
-            "stage_number": {
-              "type": "StructuredText",
-              "config": {
-                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-                "label": "Stage Number"
-              }
-            },
-            "stage_name": {
-              "type": "StructuredText",
-              "config": {
-                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-                "label": "Stage Name"
-              }
-            },
-            "stage_text": {
-              "type": "StructuredText",
-              "config": {
-                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-                "label": "Stage Text"
-              }
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "slug"
+      }
+    },
+    "active": {
+      "type": "Boolean",
+      "config": {
+        "placeholder_false": "Inactive",
+        "placeholder_true": "Active",
+        "default_value": false,
+        "label": "Active"
+      }
+    },
+    "hero_scholarship_name": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Hero Scholarship Name"
+      }
+    },
+    "hero_scholarship_amount": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Hero Scholarship Amount"
+      }
+    },
+    "hero_text": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Hero Text"
+      }
+    },
+    "hero_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Hero Image"
+      }
+    },
+    "hero_background_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Hero Background Image"
+      }
+    },
+    "hero_button_text": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Hero Button Text"
+      }
+    }
+  },
+  "Stages": {
+    "stages_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Stages Title"
+      }
+    },
+    "stages_text": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Stages Text"
+      }
+    },
+    "stages_list": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "stage_number": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+              "label": "Stage Number"
             }
           },
-          "label": "Stages List"
-        }
+          "stage_name": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+              "label": "Stage Name"
+            }
+          },
+          "stage_text": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+              "label": "Stage Text"
+            }
+          }
+        },
+        "label": "Stages List"
       }
     }
   }
+}
