@@ -34,7 +34,6 @@ const ItemLink = styled(Link)`
     display: block;
     text-decoration: none;
     line-height: 20px;
-    padding: 16px;
     color: inherit;
 
     :visited {

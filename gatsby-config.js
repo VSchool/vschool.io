@@ -72,6 +72,8 @@ module.exports = {
                     payment_options: require("./src/schemas/payment_options.json"),
                     press: require("./src/schemas/press.json"),
                     responsive_learning: require("./src/schemas/responsive_learning.json"),
+                    scholarships_intro_page: require("./src/schemas/scholarships_intro_page.json"),
+                    scholarship_page: require("./src/schemas/scholarship_page.json"),
                     start_date: require("./src/schemas/start_date.json"),
                     "thank-you-page": require("./src/schemas/thank-you-page.json"),
                     tiffin: require("./src/schemas/tiffin.json"),

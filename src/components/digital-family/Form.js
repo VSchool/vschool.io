@@ -103,7 +103,7 @@ export default function GetInvolvedForm() {
         }))
     }
 
-    async function handleSubmit(e) {
+    async function handleSubmit(e, formUrl) {
         e.preventDefault()
         setCheckboxError(formData.selectedOptions.length === 0)
         if (formData.selectedOptions.length === 0) {
@@ -114,10 +114,7 @@ export default function GetInvolvedForm() {
             body: JSON.stringify(formData),
         }
         try {
-            const res = await fetch(
-                "https://hooks.zapier.com/hooks/catch/666916/oq1triu/",
-                options
-            )
+            const res = await fetch(formUrl, options)
             const data = await res.json()
             navigate("/digital-family/thanks")
         } catch (e) {
@@ -138,6 +135,9 @@ export default function GetInvolvedForm() {
                     form_title {
                         text
                     }
+                    form_submission_url {
+                        url
+                    }
                     body {
                         ... on PrismicDigitalFamilyPageBodyGetInvolvedMethod {
                             id
@@ -157,6 +157,7 @@ export default function GetInvolvedForm() {
         form_title: { text: title },
         form_subtitle: { text: subtitle },
         form_button_text: { text: buttonText },
+        form_submission_url: { url: formUrl },
         body,
     } = data.prismicDigitalFamilyPage.data
 
@@ -179,7 +180,7 @@ export default function GetInvolvedForm() {
             <Container>
                 <Title>{title}</Title>
                 <Subtitle>{subtitle}</Subtitle>
-                <Form onSubmit={handleSubmit}>
+                <Form onSubmit={e => handleSubmit(e, formUrl)}>
                     <InputsContainer>
                         <TextInput
                             label="Name"
