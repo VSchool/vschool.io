@@ -60,5 +60,112 @@
         "label": "Scholarships Subtitle"
       }
     }
+  },
+  "Testimonial": {
+    "testimonial_text": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Testimonial Text"
+      }
+    },
+    "testimonial_attribution": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Testimonial Attribution"
+      }
+    },
+    "testimonial_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Testimonial Image"
+      }
+    },
+    "testimonial_video_link": {
+      "type": "Link",
+      "config": {
+        "label": "Testimonial Video Link"
+      }
+    }
+  },
+  "Courses": {
+    "courses_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Courses Title"
+      }
+    },
+    "courses_subtitle": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Courses Subtitle"
+      }
+    },
+    "courses_text": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Courses Text"
+      }
+    }
+  },
+  "Digital Family": {
+    "digital_family_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Digital Family Title"
+      }
+    },
+    "digital_family_subtitle": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Digital Family Subtitle"
+      }
+    },
+    "digital_family_description_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Digital Family Description Title"
+      }
+    },
+    "digital_family_description": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Digital Family Description"
+      }
+    },
+    "digital_family_want_to_talk": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Digital Family Want to Talk"
+      }
+    },
+    "digital_family_button_text": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Digital Family Button Text"
+      }
+    },
+    "digital_family_button_link": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "customtypes": [
+          "digital_family_page"
+        ],
+        "label": "Digital Family Button Link"
+      }
+    }
   }
 }

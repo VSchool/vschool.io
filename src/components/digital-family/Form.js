@@ -114,11 +114,10 @@ export default function GetInvolvedForm() {
             body: JSON.stringify(formData),
         }
         try {
-            const res = await fetch(formUrl, options)
-            const data = await res.json()
+            await fetch(formUrl, options)
             navigate("/digital-family/thanks")
         } catch (e) {
-            console.error(e.message)
+            alert(e.message)
         }
     }
 
@@ -217,7 +216,7 @@ export default function GetInvolvedForm() {
                         value={formData.message}
                         placeholder="Tell us a little bit about how you would like to get involved with V School"
                     />
-                    <StyledButton size="large">{buttonText}</StyledButton>
+                    <StyledButton size="lg">{buttonText}</StyledButton>
                 </Form>
             </Container>
         </Section>
