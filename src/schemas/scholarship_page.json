@@ -1,16 +1,23 @@
 {
-  "Hero": {
-    "prismic_display_name": {
+  "Meta": {
+    "scholarship_name": {
       "type": "StructuredText",
       "config": {
         "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "Prismic Display Name"
+        "label": "Scholarship Name"
       }
     },
     "uid": {
       "type": "UID",
       "config": {
-        "label": "slug"
+        "label": "Slug"
+      }
+    },
+    "summary": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Summary"
       }
     },
     "active": {
@@ -20,6 +27,32 @@
         "placeholder_true": "Active",
         "default_value": false,
         "label": "Active"
+      }
+    },
+    "public": {
+      "type": "Boolean",
+      "config": {
+        "placeholder_false": "Private",
+        "placeholder_true": "Public",
+        "default_value": true,
+        "label": "Public"
+      }
+    },
+    "icon": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Icon"
+      }
+    }
+  },
+  "Hero": {
+    "prismic_display_name": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Prismic Display Name"
       }
     },
     "hero_scholarship_name": {
