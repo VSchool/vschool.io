@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-const Container = styled.section`
+const Container = styled.div`
     padding: 24px;
 
     @media (max-width: 400px) {
@@ -10,7 +10,7 @@ const Container = styled.section`
     }
 
     @media (min-width: 1100px) {
-        padding-top: 64px;
+        /* padding-top: 64px; */
     }
 `
 

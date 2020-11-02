@@ -78,11 +78,11 @@ export default function Hero() {
     const {
         hero_title: { text: title },
         hero_subtitle: { text: subtitle },
-        hero_text: { text: text },
+        hero_text: { text },
         hero_image: { url: imageUrl, alt: imageAlt },
         hero_image_background: { url: backgroundImageUrl },
     } = data.prismicScholarshipsIntroPage.data
-    console.log(backgroundImageUrl)
+
     return (
         <Section>
             <HeroLayout
