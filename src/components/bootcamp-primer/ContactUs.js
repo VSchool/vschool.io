@@ -107,7 +107,7 @@ function ContactUs(props) {
         <Container>
             <H1>{title}</H1>
             <P>{subTitle}</P>
-            {/* TODO: Check it this should be using QueryLink instead of a window.location hack */}
+            {/* TODO: Check if this should be using QueryLink instead of a window.location hack */}
             <StyledButton
                 buttonStyle="primary-light"
                 type="button"

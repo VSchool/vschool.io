@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import Link from "../QueryLink"
-import { black, gray, orange, Button, white, TextButton } from "@vschool/lotus"
+import { black, gray, orange, Button, white } from "@vschool/lotus"
 
 const CourseContainer = styled.div`
     margin: 24px 0;

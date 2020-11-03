@@ -1,9 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-import { black, green, gray, Button } from "@vschool/lotus"
+import { green, gray, Button } from "@vschool/lotus"
 import Link from "../shared/QueryLink"
-import CoursesNew from "../shared/CoursesNew"
 import CompanyLogoGrid from "../shared/CompanyLogoGrid"
 
 const Container = styled.section`
