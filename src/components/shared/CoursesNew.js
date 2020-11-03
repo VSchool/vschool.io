@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-import { CardGroup, Card, black, gray, blue } from "@vschool/lotus"
+import { CardGroup, Card, black, gray, blue, TextButton } from "@vschool/lotus"
 import Link from "./QueryLink"
 
 const FlexCard = styled(Card)`
@@ -27,14 +27,8 @@ const CourseInfo = styled.p`
     line-height: 18px;
 `
 
-const TextButton = styled(Link)`
+const StyledLink = styled(Link)`
     margin-top: auto;
-    font-family: "aktiv-grotesk-extended";
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 16px;
-    color: ${blue.base};
-    text-decoration: none;
 `
 
 export default function CoursesNew() {
@@ -69,7 +63,7 @@ export default function CoursesNew() {
             }
         }
     `)
-    
+
     const courseCards = data.prismicCourseCards.data.body.map(course => (
         <FlexCard key={course.id}>
             <Icon
@@ -78,9 +72,9 @@ export default function CoursesNew() {
             />
             <CourseName>{course.primary.course_name.text}</CourseName>
             <CourseInfo>{course.primary.course_info.text}</CourseInfo>
-            <TextButton to={course.primary.button_url.url}>
-                {course.primary.button_text.text}
-            </TextButton>
+            <StyledLink to={course.primary.button_url.url}>
+                <TextButton>{course.primary.button_text.text}</TextButton>
+            </StyledLink>
         </FlexCard>
     ))
 
