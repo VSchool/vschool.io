@@ -160,7 +160,7 @@ export default function Testimonial() {
             >
                 <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
                     <iframe
-                        src={videoUrl}
+                        src={`${videoUrl}?autoplay=1`}
                         title="Alumni Testimonial"
                         style={{
                             position: "absolute",
