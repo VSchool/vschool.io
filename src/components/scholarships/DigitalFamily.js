@@ -47,7 +47,9 @@ const FlexContainer = styled.div`
     }
 `
 
-const LogoContainer = styled.div``
+const LogoContainer = styled.div`
+    margin-right: 20px;
+`
 const TextContainer = styled.div`
     display: flex;
     flex-direction: column;

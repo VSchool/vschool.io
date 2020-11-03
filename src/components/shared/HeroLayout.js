@@ -7,7 +7,7 @@ const Container = styled.div`
 
     @media (min-width: 1000px) {
         flex-direction: row;
-        align-items: flex-start;
+        align-items: center;
         justify-content: center;
     }
 `
