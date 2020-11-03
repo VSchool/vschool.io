@@ -1,0 +1,112 @@
+{
+    "Meta": {
+      "prismic_display_name": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+          "label": "Prismic Display Name",
+          "placeholder": "Scholarship Page Shared Data"
+        }
+      }
+    },
+    "Landing a Job": {
+      "stages_title": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+          "label": "Stages Title"
+        }
+      },
+      "stages_text": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+          "label": "Stages Text"
+        }
+      },
+      "stages_list": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "stage_number": {
+              "type": "StructuredText",
+              "config": {
+                "single": "heading6",
+                "label": "Stage Number"
+              }
+            },
+            "stage_name": {
+              "type": "StructuredText",
+              "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Stage Name"
+              }
+            },
+            "stage_description": {
+              "type": "StructuredText",
+              "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Stage Description"
+              }
+            }
+          },
+          "label": "Stages List"
+        }
+      }
+    },
+    "Form": {
+      "form_title": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+          "label": "Form Title"
+        }
+      },
+      "form_disclaimer": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+          "label": "Form Disclaimer"
+        }
+      },
+      "form_button_text": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+          "label": "Form Button Text"
+        }
+      }
+    },
+    "Companies": {
+      "companies_title": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+          "label": "Companies Title"
+        }
+      }
+    },
+    "Courses": {
+      "courses_title": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+          "label": "Courses Title"
+        }
+      },
+      "courses_subtitle": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading6",
+          "label": "Courses Subtitle"
+        }
+      },
+      "courses_text": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+          "label": "Courses Text"
+        }
+      }
+    }
+  }

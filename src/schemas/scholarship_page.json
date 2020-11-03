@@ -17,7 +17,42 @@
       "type": "StructuredText",
       "config": {
         "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label": "Summary"
+        "label": "Summary",
+        "placeholder": "Info to exist on the scholarship cards"
+      }
+    },
+    "primary_theme_color": {
+      "type": "Select",
+      "config": {
+        "options": [
+          "blue",
+          "pink",
+          "purple",
+          "red",
+          "green",
+          "yellow",
+          "orange",
+          "gray"
+        ],
+        "default_value": "blue",
+        "label": "Primary Theme Color"
+      }
+    },
+    "secondary_theme_color": {
+      "type": "Select",
+      "config": {
+        "options": [
+          "yellow",
+          "blue",
+          "pink",
+          "purple",
+          "red",
+          "green",
+          "orange",
+          "gray"
+        ],
+        "default_value": "yellow",
+        "label": "Secondary Theme Color"
       }
     },
     "active": {
@@ -48,25 +83,11 @@
     }
   },
   "Hero": {
-    "prismic_display_name": {
+    "hero_title": {
       "type": "StructuredText",
       "config": {
         "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "Prismic Display Name"
-      }
-    },
-    "hero_scholarship_name": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "Hero Scholarship Name"
-      }
-    },
-    "hero_scholarship_amount": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "Hero Scholarship Amount"
+        "label": "Hero Title"
       }
     },
     "hero_text": {
@@ -74,6 +95,13 @@
       "config": {
         "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
         "label": "Hero Text"
+      }
+    },
+    "hero_scholarship_amount": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Hero Scholarship Amount"
       }
     },
     "hero_image": {
@@ -84,12 +112,12 @@
         "label": "Hero Image"
       }
     },
-    "hero_background_image": {
+    "hero_card_image": {
       "type": "Image",
       "config": {
         "constraint": {},
         "thumbnails": [],
-        "label": "Hero Background Image"
+        "label": "Hero Card Image"
       }
     },
     "hero_button_text": {
@@ -100,48 +128,58 @@
       }
     }
   },
-  "Stages": {
-    "stages_title": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "Stages Title"
-      }
-    },
-    "stages_text": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "Stages Text"
-      }
-    },
-    "stages_list": {
+  "Scholarship FAQ": {
+    "faq_list": {
       "type": "Group",
       "config": {
         "fields": {
-          "stage_number": {
+          "faq_question": {
             "type": "StructuredText",
             "config": {
               "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-              "label": "Stage Number"
+              "label": "FAQ Question"
             }
           },
-          "stage_name": {
-            "type": "StructuredText",
-            "config": {
-              "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-              "label": "Stage Name"
-            }
-          },
-          "stage_text": {
+          "faq_answer": {
             "type": "StructuredText",
             "config": {
               "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-              "label": "Stage Text"
+              "label": "FAQ Answer"
             }
           }
         },
-        "label": "Stages List"
+        "label": "FAQ List"
+      }
+    }
+  },
+  "Testimonial": {
+    "testimonial_quote": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Testimonial Quote"
+      }
+    },
+    "testimonial_name": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Testimonial Name"
+      }
+    },
+    "testimonial_status": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Testimonial Status"
+      }
+    },
+    "testimonial_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Testimonial Image"
       }
     }
   }
