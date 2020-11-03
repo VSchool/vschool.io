@@ -36,23 +36,32 @@ const Subtitle = styled.h6`
 const FlexContainer = styled.div`
     display: flex;
     flex-direction: column;
+    max-width: 1200px;
 
     @media (min-width: 1000px) {
         flex-direction: row;
         align-items: center;
 
-        & > div {
+        /* & > div {
             flex-basis: 50%;
-        }
+        } */
     }
 `
 
 const LogoContainer = styled.div`
-    margin-right: 20px;
+    flex: 1 1 50%;
+    @media (min-width: 1000px) {
+        margin-right: 50px;
+    }
 `
 const TextContainer = styled.div`
     display: flex;
     flex-direction: column;
+    flex: 1 1 50%;
+    margin-top: 70px;
+    @media (min-width: 1000px) {
+        margin-top: 0;
+    }
 `
 
 const DescriptionTitle = styled.h3`
@@ -132,6 +141,7 @@ export default function CourseList() {
 
     const companyLogos = data.prismicCompanyLogos.data.company_logos
         .filter(company => company.digital_family_member)
+        .filter((company, i) => i < 15)
         .map(company => company.logo)
     console.log(companyLogos)
 
