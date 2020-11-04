@@ -21,7 +21,6 @@ import TiffinUniversityPage from "../components/tiffin-university"
 
 export default function Tiffin({ data }) {
     const {
-        modules,
         header_img2: { url: headerImg2 },
         companies_header: { text: companiesHeader },
         logos,
@@ -46,7 +45,6 @@ export default function Tiffin({ data }) {
             <br />
             <hr />
             <br />
-            <Modules modules={modules} />
             <HeroImageTwo heroImg={headerImg2} />
             <Companies header={companiesHeader} logos={logos} />
             <Ratings header={ratingsHeader} ratings={ratings} />

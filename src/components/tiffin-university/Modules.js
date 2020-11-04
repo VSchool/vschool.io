@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { gray } from "@vschool/lotus"
 import Module from "./Module.js"
 
@@ -34,8 +35,41 @@ const ModulesContainer = styled.div`
     }
 `
 
-export default function Modules(props) {
-    const { modules } = props
+export default function Modules() {
+        const data = useStaticQuery(graphql`
+        {
+            prismicTiffin {
+                data {
+                    modules {
+                        module_title {
+                            text
+                        }
+                        module_sub {
+                            text
+                        }
+                        subject1 {
+                            text
+                        }
+                        subject2 {
+                            text
+                        }
+                        subject3 {
+                            text
+                        }
+                        subject4 {
+                            text
+                        }
+                        subject5 {
+                            text
+                        }
+                    }
+                }
+            }
+        }
+    `)
+
+    const { modules } = data.prismicTiffin.data
+
     return (
         <Container>
             <ModulesContainer>
