@@ -1,4 +1,5 @@
 import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { blue } from "@vschool/lotus"
 
@@ -41,11 +42,26 @@ const Image = styled.img`
     }
 `
 
-export default function HeroImage(props) {
-    const { heroImg } = props
+export default function HeroImage() {
+    const data = useStaticQuery(graphql`
+        {
+            prismicTiffin {
+                data {
+                    header_img {
+                        url
+                    }
+                }
+            }
+        }
+    `)
+
+    const {
+        header_img: { url: headerImg },
+    } = data.prismicTiffin.data
+
     return (
         <Container>
-            <Image src={heroImg} />
+            <Image src={headerImg} />
         </Container>
     )
 }
