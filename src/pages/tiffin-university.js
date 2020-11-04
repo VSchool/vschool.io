@@ -4,11 +4,7 @@ import SEO from "../components/seo.js"
 import { graphql } from "gatsby"
 import { blue } from "@vschool/lotus"
 import {
-    LogoHeader,
-    PageHeader,
-    HeroImage,
     HeroImageTwo,
-    ScholarshipDetails,
     Details,
     Modules,
     AboutCourse,
@@ -16,28 +12,15 @@ import {
     Ratings,
     Testimonial,
     FAQ,
-} from "../components/tiffin"
+} from "../components/tiffin-university"
 
 import PaymentOptions from "../components/shared/PaymentOptions"
 import MakeALeap from "../components/shared/MakeALeap.js"
 
+import TiffinUniversityPage from "../components/tiffin-university"
+
 export default function Tiffin({ data }) {
     const {
-        tf_logo: { url: tfLogo },
-        vschool_logo: { url: vsLogo },
-        header: { text: header },
-        sub_header: { text: subheader },
-        sub_header2: { text: subheader2 },
-        header_btn: { text: headerBtnText },
-        header_btn_link: { url: headerLink },
-        header_img: { url: headerImg },
-        tiffin_header: { text: tiffinHeader },
-        tiffin_sub_header: { text: tiffinSub },
-        scholarship_details_img: { url: scholarshipDetailsImg },
-        scholarship_details,
-        details_header: { text: detailsHeader },
-        details,
-        about_course: { text: aboutCourse },
         modules,
         header_img2: { url: headerImg2 },
         companies_header: { text: companiesHeader },
@@ -51,30 +34,18 @@ export default function Tiffin({ data }) {
         make_a_leap_header: { text: makeALeapHeader },
         make_a_leap_link: { url: makeALeapLink },
         make_a_leap_sub: { text: makeALeapSub },
+        scholarship_details,
         next_session: { text: nextSession },
         faq_header: { text: faqHeader },
         faq,
     } = data.prismicTiffin.data
     return (
         <Layout>
-            <SEO title={header} />
-            <LogoHeader logo1={tfLogo} logo2={vsLogo} />
-            <PageHeader
-                title={header}
-                sub={subheader}
-                invite={subheader2}
-                link={headerLink}
-                btnText={headerBtnText}
-            />
-            <HeroImage heroImg={headerImg} />
-            <ScholarshipDetails
-                header={tiffinHeader}
-                sub={tiffinSub}
-                deadlines={scholarship_details}
-                bgImg={scholarshipDetailsImg}
-            />
-            <Details header={detailsHeader} details={details} />
-            <AboutCourse header={aboutCourse} />
+            <SEO title={"Tiffin University"} />
+            <TiffinUniversityPage />
+            <br />
+            <hr />
+            <br />
             <Modules modules={modules} />
             <HeroImageTwo heroImg={headerImg2} />
             <Companies header={companiesHeader} logos={logos} />
@@ -134,18 +105,6 @@ export const query = graphql`
                 }
                 faq_header {
                     text
-                }
-                header {
-                    text
-                }
-                header_btn {
-                    text
-                }
-                header_btn_link {
-                    url
-                }
-                header_img {
-                    url
                 }
                 header_img2 {
                     url
@@ -210,31 +169,10 @@ export const query = graphql`
                         text
                     }
                 }
-                scholarship_details_img {
-                    url
-                }
-                sub_header {
-                    text
-                }
-                sub_header2 {
-                    text
-                }
                 testimonial {
                     text
                 }
                 testimonial_img {
-                    url
-                }
-                tf_logo {
-                    url
-                }
-                tiffin_header {
-                    text
-                }
-                tiffin_sub_header {
-                    text
-                }
-                vschool_logo {
                     url
                 }
             }

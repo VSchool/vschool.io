@@ -1,4 +1,5 @@
 import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { gray, black } from "@vschool/lotus"
 import Deadlines from "./Deadlines.js"
@@ -79,21 +80,53 @@ const Info = styled.p`
     }
 `
 
-export default function ScholarshipDetails(props) {
-    const { header, sub, deadlines, detailsInfo, bgImg } = props
+export default function ScholarshipDetails() {
+    const data = useStaticQuery(graphql`
+        {
+            prismicTiffin {
+                data {
+                    tiffin_header {
+                        text
+                    }
+                    tiffin_sub_header {
+                        text
+                    }
+                    scholarship_details {
+                        detail_title {
+                            text
+                        }
+                        detail_date(formatString: "MMM Do, YYYY")
+                        detail_info {
+                            text
+                        }
+                    }
+                    scholarship_details_img {
+                        url
+                    }
+                }
+            }
+        }
+    `)
+
+    const {
+        tiffin_header: { text: tiffinHeader },
+        tiffin_sub_header: { text: tiffinSub },
+        scholarship_details_img: { url: scholarshipDetailsImg },
+        scholarship_details: scholarshipDetails,
+    } = data.prismicTiffin.data
+
     return (
         <Container>
             <FixedContainer>
-                <H3>{header}</H3>
+                <H3>{tiffinHeader}</H3>
             </FixedContainer>
             <FixedContainer>
-                <Info>{sub}</Info>
+                <Info>{tiffinSub}</Info>
             </FixedContainer>
             <FlexContainer>
                 <Deadlines
-                    deadlines={deadlines}
-                    info={detailsInfo}
-                    bgImg={bgImg}
+                    deadlines={scholarshipDetails}
+                    bgImg={scholarshipDetailsImg}
                 />
             </FlexContainer>
         </Container>

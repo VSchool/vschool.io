@@ -1,5 +1,7 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
+
 import { gray, black } from "@vschool/lotus"
 
 const Container = styled.section`
@@ -42,10 +44,25 @@ const H1 = styled.h1`
 `
 
 export default function AboutCourse(props) {
-    const { header } = props
+    const data = useStaticQuery(graphql`
+        {
+            prismicTiffin {
+                data {
+                    about_course {
+                        text
+                    }
+                }
+            }
+        }
+    `)
+
+        const {
+        about_course: { text: aboutCourse },
+    } = data.prismicTiffin.data
+
     return (
         <Container>
-            <H1>{header}</H1>
+            <H1>{aboutCourse}</H1>
         </Container>
     )
 }

@@ -15,7 +15,6 @@ const StyledCourses = styled(Courses)`
 `
 
 export default function BootcampPrimer() {
-
     return (
         <>
             <HeroHeader />
