@@ -5,7 +5,6 @@ import { graphql } from "gatsby"
 import { blue } from "@vschool/lotus"
 import {
     HeroImageTwo,
-    Details,
     AboutCourse,
     Companies,
     Ratings,
