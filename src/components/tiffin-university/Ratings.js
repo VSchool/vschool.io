@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { black, blue } from "@vschool/lotus"
 
 const Container = styled.section`
@@ -111,10 +112,28 @@ const RatingsContainer = styled.div`
 `
 
 export default function Ratings(props) {
-    const { header, ratings } = props
+    const data = useStaticQuery(graphql`
+    {
+        prismicTiffin {
+            data {
+                ratings {
+                    rating {
+                        url
+                    }
+                }
+                ratings_header {
+                    text
+                }
+            }
+        }
+    }
+`)
+
+const { ratings_header: { text: ratingsHeader }, ratings } = data.prismicTiffin.data
+
     return (
         <Container>
-            <H3>{header}</H3>
+            <H3>{ratingsHeader}</H3>
             <RatingsContainer>
                 {ratings.map(({ rating }) => (
                     <Image key={rating.url} src={rating.url} />
