@@ -4,7 +4,6 @@ import SEO from "../components/seo.js"
 import { graphql } from "gatsby"
 import { blue } from "@vschool/lotus"
 import {
-    HeroImageTwo,
     Companies,
     Ratings,
     Testimonial,
@@ -18,7 +17,6 @@ import TiffinUniversityPage from "../components/tiffin-university"
 
 export default function Tiffin({ data }) {
     const {
-        header_img2: { url: headerImg2 },
         companies_header: { text: companiesHeader },
         logos,
         ratings_header: { text: ratingsHeader },
@@ -42,7 +40,6 @@ export default function Tiffin({ data }) {
             <br />
             <hr />
             <br />
-            <HeroImageTwo heroImg={headerImg2} />
             <Companies header={companiesHeader} logos={logos} />
             <Ratings header={ratingsHeader} ratings={ratings} />
             <Testimonial
