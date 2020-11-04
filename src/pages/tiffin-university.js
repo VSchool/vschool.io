@@ -4,8 +4,6 @@ import SEO from "../components/seo.js"
 import { graphql } from "gatsby"
 import { blue } from "@vschool/lotus"
 import {
-    Ratings,
-    Testimonial,
     FAQ,
 } from "../components/tiffin-university"
 
@@ -16,11 +14,6 @@ import TiffinUniversityPage from "../components/tiffin-university"
 
 export default function Tiffin({ data }) {
     const {
-        ratings_header: { text: ratingsHeader },
-        ratings,
-        testimonial: { text: testimonial },
-        testimonial_img: { url: testimonialImg },
-        cite: { text: cite },
         make_a_leap_btn: { text: makeALeapBtn },
         make_a_leap_header: { text: makeALeapHeader },
         make_a_leap_link: { url: makeALeapLink },
@@ -37,12 +30,6 @@ export default function Tiffin({ data }) {
             <br />
             <hr />
             <br />
-            <Ratings header={ratingsHeader} ratings={ratings} />
-            <Testimonial
-                testimonial={testimonial}
-                cite={cite}
-                testimonialImg={testimonialImg}
-            />
             <PaymentOptions />
             <MakeALeap
                 title={makeALeapHeader}
