@@ -6,7 +6,6 @@ import { blue } from "@vschool/lotus"
 import {
     HeroImageTwo,
     Details,
-    Modules,
     AboutCourse,
     Companies,
     Ratings,
