@@ -8,7 +8,7 @@ import Details from "./Details.js"
 import AboutCourse from "./AboutCourse.js"
 import Modules from "./Modules.js"
 import HeroImageTwo from "./HeroImageTwo.js"
-export { default as Companies } from "./Companies.js"
+import Companies from "./Companies.js"
 export { default as Ratings } from "./Ratings.js"
 export { default as Testimonial } from "./Testimonial.js"
 export { default as FAQ } from "./FAQ.js"
@@ -24,6 +24,7 @@ export default function TiffinUniversityPage() {
             <AboutCourse />
             <Modules />
             <HeroImageTwo />
+            <Companies />
         </>
     )
 }
