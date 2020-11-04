@@ -4,6 +4,7 @@ import styled from "styled-components"
 const Container = styled.div`
     display: flex;
     flex-direction: column;
+    max-width: 1200px;
 
     @media (min-width: 1000px) {
         flex-direction: row;
@@ -28,6 +29,10 @@ const ImageContainer = styled.div`
     @media (min-width: 1000px) {
         flex-basis: 50%;
         margin-top: 0;
+    }
+
+    & img {
+        max-width: 100%;
     }
 `
 
