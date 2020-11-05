@@ -2,7 +2,6 @@ import React from "react"
 import Layout from "../components/layout.js"
 import SEO from "../components/seo.js"
 import {
-    HeroImage,
     Positions,
     SubmitAResume,
 } from "../components/careers"
@@ -12,8 +11,6 @@ import CareersPage from '../components/careers'
 
 export default function Careers({ data }) {
     const {
-        careers_hero_img_sm: { url: heroImgSm },
-        careers_hero_img_lg: { url: heroImgLg },
         btn_text: { text: btnText },
         btn_link: { url: link },
         no_openings: { text: noOpeningsHeader },
@@ -29,7 +26,6 @@ export default function Careers({ data }) {
             <br />
             <hr />
             <br />
-            <HeroImage heroImgLg={heroImgLg} heroImgSm={heroImgSm} />
             <Positions header={open_positions.text} positions={position} />
             <SubmitAResume
                 header={noOpeningsHeader}
