@@ -2,10 +2,10 @@ import React from "react"
 import Layout from "../components/layout.js"
 import SEO from "../components/seo.js"
 import { graphql } from "gatsby"
+import ComparesPage from '../components/methodology'
 
 import {
     HeroHeader,
-    Testimonial1,
     Testimonial2,
     Differences,
     SchoolComparisons,
@@ -19,11 +19,8 @@ import Courses from "../components/shared/Courses"
 export default function HowVSCompares({ data }) {
     const {
         testimonial_program2: { text: testimonialProgram2 },
-        testimonial_program1: { text: testimonialProgram1 },
         testimonial_img2: { url: testimonialImg2 },
-        testimonial_img1: { url: testimonialImg1 },
         testimonial2: { text: testimonial2 },
-        testimonial1: { text: testimonial1 },
         pathways_subheader: { text: pathwaysSubheader },
         pathways_header: { text: pathwaysHeader },
         page_subheader2: { text: pageSubheader2 },
@@ -42,11 +39,15 @@ export default function HowVSCompares({ data }) {
         comparison_subheader: { text: comparisonsSubheader },
         comparison_header: { text: comparisonsHeader },
         cite2: { text: cite2 },
-        cite1: { text: cite1 },
     } = data.prismicMethodologyPage.data
+
     return (
         <Layout>
             <SEO title="How VS Compares" />
+            <ComparesPage />
+            <br />
+            <hr />
+            <br />
             <HeroHeader
                 title={pageSubheader1}
                 header={pageHeader}
@@ -54,12 +55,6 @@ export default function HowVSCompares({ data }) {
                 img={heroImg}
                 link={headerBtnLink}
                 btnText={headerBtnText}
-            />
-            <Testimonial1
-                testimonial={testimonial1}
-                cite={cite1}
-                course={testimonialProgram1}
-                testimonialImg={testimonialImg1}
             />
             <Differences header={differencesHeader} differences={differences} />
             <PathwaysHeader
