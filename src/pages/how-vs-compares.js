@@ -4,17 +4,7 @@ import SEO from "../components/seo.js"
 import { graphql } from "gatsby"
 import ComparesPage from '../components/methodology'
 
-import {
-    CTA,
-} from "../components/methodology"
-
 export default function HowVSCompares({ data }) {
-    const {
-        cta_subheader: { text: ctaSubHeader },
-        cta_link: { url: ctaLink },
-        cta_header: { text: ctaHeader },
-        cta_btn: { text: ctaBtn },
-    } = data.prismicMethodologyPage.data
 
     return (
         <Layout>
@@ -23,12 +13,6 @@ export default function HowVSCompares({ data }) {
             <br />
             <hr />
             <br />
-            <CTA
-                header={ctaHeader}
-                subheader={ctaSubHeader}
-                btnText={ctaBtn}
-                link={ctaLink}
-            />
         </Layout>
     )
 }
