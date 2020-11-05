@@ -2,7 +2,6 @@ import React from "react"
 import Layout from "../components/layout.js"
 import SEO from "../components/seo.js"
 import {
-    Positions,
     SubmitAResume,
 } from "../components/careers"
 import { graphql } from "gatsby"
@@ -26,7 +25,6 @@ export default function Careers({ data }) {
             <br />
             <hr />
             <br />
-            <Positions header={open_positions.text} positions={position} />
             <SubmitAResume
                 header={noOpeningsHeader}
                 sub={no_openings_sub.text}
