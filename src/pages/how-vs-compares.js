@@ -9,8 +9,6 @@ import {
     CTA,
 } from "../components/methodology"
 
-import Courses from "../components/shared/Courses"
-
 export default function HowVSCompares({ data }) {
     const {
         testimonial_program2: { text: testimonialProgram2 },
@@ -30,7 +28,6 @@ export default function HowVSCompares({ data }) {
             <br />
             <hr />
             <br />
-            <Courses />
             <Testimonial2
                 testimonial={testimonial2}
                 cite={cite2}
