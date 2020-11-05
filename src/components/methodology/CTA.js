@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { blue, black, Button } from "@vschool/lotus"
 import Link from "../shared/QueryLink"
 
@@ -76,14 +77,42 @@ const StyledButton = styled(Button)`
     }
 `
 
-export default function CTA(props) {
-    const { header, subheader, btnText, link } = props
+export default function CTA() {
+        const data = useStaticQuery(graphql`
+          {
+            prismicMethodologyPage {
+              id
+              data {
+                cta_header {
+                  text
+                }
+                cta_link {
+                  url
+                }
+                cta_subheader {
+                  text
+                }
+                cta_btn {
+                  text
+                }
+              }
+            }
+          }
+        `)
+        
+    const {
+        cta_subheader: { text: ctaSubHeader },
+        cta_link: { url: ctaLink },
+        cta_header: { text: ctaHeader },
+        cta_btn: { text: ctaBtn },
+    } = data.prismicMethodologyPage.data
+
     return (
         <Container>
-            <Header>{header}</Header>
-            <Subheader>{subheader}</Subheader>
-            <Link to={link}>
-                <StyledButton>{btnText}</StyledButton>
+            <Header>{ctaHeader}</Header>
+            <Subheader>{ctaSubHeader}</Subheader>
+            <Link to={ctaLink}>
+                <StyledButton>{ctaBtn}</StyledButton>
             </Link>
         </Container>
     )

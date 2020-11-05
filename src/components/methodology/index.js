@@ -7,7 +7,7 @@ import Pathways from "./pathways"
 import SchoolComparisons from "./SchoolComparisons.js"
 import Courses from '../shared/Courses'
 import Testimonial2 from "./Testimonial2.js"
-export { default as CTA } from "./CTA.js"
+import CTA from "./CTA.js"
 
 export default function ComparesPage() {
     return (
@@ -20,6 +20,7 @@ export default function ComparesPage() {
             <SchoolComparisons />
             <Courses />
             <Testimonial2 />
+            <CTA />
        </>
     )
 }
