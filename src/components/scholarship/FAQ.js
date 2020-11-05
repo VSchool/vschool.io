@@ -5,6 +5,11 @@ import { gray } from "@vschool/lotus"
 
 const Container = styled.section`
     padding-bottom: 96px;
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
 
     @media (min-width: 800px) {
         flex-direction: row;
