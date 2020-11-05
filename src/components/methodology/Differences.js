@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { gray, black } from "@vschool/lotus"
 
 const Container = styled.section`
@@ -65,11 +66,36 @@ const Info = styled.p`
     line-height: 26px;
 `
 
-export default function Differences(props) {
-    const { header, differences } = props
+export default function Differences() {
+    const data = useStaticQuery(graphql`
+        {
+        prismicMethodologyPage {
+            id
+            data {
+            difference_header {
+                text
+            }
+            differences {
+                info {
+                text
+                }
+                title {
+                text
+                }
+            }
+            }
+        }
+        }
+    `)
+
+    const {
+        differences,
+        difference_header: { text: differencesHeader }
+    } = data.prismicMethodologyPage.data
+
     return (
         <Container>
-            <Header>{header}</Header>
+            <Header>{differencesHeader}</Header>
             <DifferencesContainer>
                 {differences.map(item => (
                     <Difference key={item.title.text}>
