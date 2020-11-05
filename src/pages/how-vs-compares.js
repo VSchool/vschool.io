@@ -10,9 +10,6 @@ export default function HowVSCompares({ data }) {
         <Layout>
             <SEO title="How VS Compares" />
             <ComparesPage />
-            <br />
-            <hr />
-            <br />
         </Layout>
     )
 }
