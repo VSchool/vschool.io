@@ -6,7 +6,6 @@ import ComparesPage from '../components/methodology'
 
 import {
     Testimonial2,
-    SchoolComparisons,
     CTA,
 } from "../components/methodology"
 
@@ -21,9 +20,6 @@ export default function HowVSCompares({ data }) {
         cta_link: { url: ctaLink },
         cta_header: { text: ctaHeader },
         cta_btn: { text: ctaBtn },
-        comparisons,
-        comparison_subheader: { text: comparisonsSubheader },
-        comparison_header: { text: comparisonsHeader },
         cite2: { text: cite2 },
     } = data.prismicMethodologyPage.data
 
@@ -34,11 +30,6 @@ export default function HowVSCompares({ data }) {
             <br />
             <hr />
             <br />
-            <SchoolComparisons
-                header={comparisonsHeader}
-                subheader={comparisonsSubheader}
-                comparisons={comparisons}
-            />
             <Courses />
             <Testimonial2
                 testimonial={testimonial2}
