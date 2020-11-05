@@ -5,20 +5,15 @@ import { graphql } from "gatsby"
 import ComparesPage from '../components/methodology'
 
 import {
-    Testimonial2,
     CTA,
 } from "../components/methodology"
 
 export default function HowVSCompares({ data }) {
     const {
-        testimonial_program2: { text: testimonialProgram2 },
-        testimonial_img2: { url: testimonialImg2 },
-        testimonial2: { text: testimonial2 },
         cta_subheader: { text: ctaSubHeader },
         cta_link: { url: ctaLink },
         cta_header: { text: ctaHeader },
         cta_btn: { text: ctaBtn },
-        cite2: { text: cite2 },
     } = data.prismicMethodologyPage.data
 
     return (
@@ -28,12 +23,6 @@ export default function HowVSCompares({ data }) {
             <br />
             <hr />
             <br />
-            <Testimonial2
-                testimonial={testimonial2}
-                cite={cite2}
-                course={testimonialProgram2}
-                testimonialImg={testimonialImg2}
-            />
             <CTA
                 header={ctaHeader}
                 subheader={ctaSubHeader}
