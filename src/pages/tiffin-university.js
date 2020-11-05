@@ -4,7 +4,7 @@ import SEO from "../components/seo.js"
 import { graphql } from "gatsby"
 import TiffinUniversityPage from "../components/tiffin-university"
 
-export default function Tiffin({ data }) {
+export default function Tiffin() {
 
     return (
         <Layout>

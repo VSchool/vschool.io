@@ -1,5 +1,4 @@
 import React from "react"
-
 import LogoHeader from "./LogoHeader.js"
 import PageHeader from "./PageHeader.js"
 import HeroImage from "./HeroImage.js"
@@ -14,9 +13,7 @@ import Testimonial from "./Testimonial.js"
 import PaymentOptions from '../shared/PaymentOptions'
 import MakeALeap from '../shared/MakeALeap.js'
 import FAQ from "./FAQ.js"
-
 import { blue } from "@vschool/lotus"
-
 
 export default function TiffinUniversityPage() {
     return (
