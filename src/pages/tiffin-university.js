@@ -2,27 +2,10 @@ import React from "react"
 import Layout from "../components/layout.js"
 import SEO from "../components/seo.js"
 import { graphql } from "gatsby"
-import { blue } from "@vschool/lotus"
-import {
-    FAQ,
-} from "../components/tiffin-university"
-
-// import PaymentOptions from "../components/shared/PaymentOptions"
-import MakeALeap from "../components/shared/MakeALeap.js"
-
 import TiffinUniversityPage from "../components/tiffin-university"
 
 export default function Tiffin({ data }) {
-    const {
-        make_a_leap_btn: { text: makeALeapBtn },
-        make_a_leap_header: { text: makeALeapHeader },
-        make_a_leap_link: { url: makeALeapLink },
-        make_a_leap_sub: { text: makeALeapSub },
-        scholarship_details,
-        next_session: { text: nextSession },
-        faq_header: { text: faqHeader },
-        faq,
-    } = data.prismicTiffin.data
+
     return (
         <Layout>
             <SEO title={"Tiffin University"} />
@@ -30,18 +13,6 @@ export default function Tiffin({ data }) {
             <br />
             <hr />
             <br />
-            {/* <PaymentOptions /> */}
-            <MakeALeap
-                title={makeALeapHeader}
-                sub={makeALeapSub}
-                btnText={makeALeapBtn}
-                nextSession={nextSession}
-                bgColor={blue.lightest}
-                sessionColor={blue.lighter}
-                startDate={scholarship_details[1].detail_date}
-                link={makeALeapLink}
-            />
-            <FAQ faq={faq} header={faqHeader} />
         </Layout>
     )
 }
