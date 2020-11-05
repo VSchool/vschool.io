@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 import { Link as ScrollLink } from "react-scroll"
 import { gray, blue, Button } from "@vschool/lotus"
-import { ScholarshipContext } from "../../templates/scholarship"
 import HeroLayout from "../shared/HeroLayout"
 
 const Container = styled.section`
@@ -54,7 +53,7 @@ const StyledButton = styled(Button)`
 export default function Hero(props) {
     const {
         hero_title: { text: title },
-        hero_text: { text: text },
+        hero_text: { text },
         hero_scholarship_amount: { text: amount },
         hero_image: { url: mainImageUrl, alt: mainImageAlt },
         hero_card_image: { url: cardImageUrl, alt: cardImageAlt },

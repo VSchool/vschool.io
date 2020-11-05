@@ -54,7 +54,7 @@ export default function FAQ() {
     const { faq_list: questionsList } = data.prismicScholarshipPage.data
 
     const faqs = questionsList.map(faq => (
-        <Group>
+        <Group key={faq.faq_question.text}>
             <Question>{faq.faq_question.text}</Question>
             <Answer>{faq.faq_answer.text}</Answer>
         </Group>
