@@ -10,9 +10,6 @@ export default function Tiffin() {
         <Layout>
             <SEO title={"Tiffin University"} />
             <TiffinUniversityPage />
-            <br />
-            <hr />
-            <br />
         </Layout>
     )
 }
