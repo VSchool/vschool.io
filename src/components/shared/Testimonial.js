@@ -85,6 +85,7 @@ function Testimonial({
     primaryColor,
     secondaryColor,
     imgSrc,
+    imgAlt,
 }) {
     const mainColor = colors[primaryColor]
     const secondColor = colors[secondaryColor]
@@ -95,11 +96,17 @@ function Testimonial({
                 <Source>{source}</Source>
                 <SourceTitle>{sourceTitle}</SourceTitle>
             </TextContainer>
-            <Image src={imgSrc} color={secondColor} />
+            <Image src={imgSrc} color={secondColor} alt={imgAlt} />
         </Container>
     )
 }
 
-Testimonial.propTypes = {}
+Testimonial.propTypes = {
+    quote: PropTypes.string.isRequired,
+    source: PropTypes.string.isRequired,
+    sourceTitle: PropTypes.string,
+    primaryColor: PropTypes.string.isRequired,
+    secondaryColor: PropTypes.string,
+}
 
 export default Testimonial

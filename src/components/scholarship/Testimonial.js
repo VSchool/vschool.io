@@ -1,8 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { useStaticQuery, graphql } from "gatsby"
 import Testimonial from "../shared/Testimonial"
-import { pink } from "@vschool/lotus"
 
 const Container = styled.section`
     padding-bottom: 160px;
@@ -26,6 +24,7 @@ export default function TestimonialSection(props) {
                 primaryColor={primaryThemeColor}
                 secondaryColor={secondaryThemeColor}
                 imgSrc={imgSrc}
+                imgAlt={imgAlt}
             />
         </Container>
     )
