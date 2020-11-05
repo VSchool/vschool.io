@@ -45,6 +45,7 @@ const StagesContainer = styled.div`
         margin-right: 0;
         flex-direction: row;
         justify-content: center;
+        align-self: center;
     }
 `
 
