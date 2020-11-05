@@ -11,6 +11,7 @@ import HeroImageTwo from "./HeroImageTwo.js"
 import Companies from "./Companies.js"
 import Ratings from "./Ratings.js"
 import Testimonial from "./Testimonial.js"
+import PaymentOptions from '../shared/PaymentOptions'
 export { default as FAQ } from "./FAQ.js"
 
 export default function TiffinUniversityPage() {
@@ -27,6 +28,7 @@ export default function TiffinUniversityPage() {
             <Companies />
             <Ratings />
             <Testimonial />
+            <PaymentOptions />
         </>
     )
 }

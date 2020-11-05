@@ -7,7 +7,7 @@ import {
     FAQ,
 } from "../components/tiffin-university"
 
-import PaymentOptions from "../components/shared/PaymentOptions"
+// import PaymentOptions from "../components/shared/PaymentOptions"
 import MakeALeap from "../components/shared/MakeALeap.js"
 
 import TiffinUniversityPage from "../components/tiffin-university"
@@ -30,7 +30,7 @@ export default function Tiffin({ data }) {
             <br />
             <hr />
             <br />
-            <PaymentOptions />
+            {/* <PaymentOptions /> */}
             <MakeALeap
                 title={makeALeapHeader}
                 sub={makeALeapSub}
