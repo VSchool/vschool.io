@@ -5,15 +5,22 @@ import { gray } from "@vschool/lotus"
 
 const Container = styled.section`
     padding-bottom: 96px;
-    max-width: 1024px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 0;
-    padding-right: 0;
 
     @media (min-width: 800px) {
         flex-direction: row;
         padding-bottom: 160px;
+    }
+`
+
+const GroupsContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 800px) {
+        flex-direction: row;
+        max-width: 1024px;
+        margin-left: auto;
+        margin-right: auto;
     }
 `
 
@@ -22,7 +29,10 @@ const Group = styled.div`
 
     @media (min-width: 800px) {
         margin-bottom: 0;
-        margin-right: 24px;
+
+        &:not(:last-child) {
+            margin-right: 24px;
+        }
     }
 `
 
@@ -65,5 +75,9 @@ export default function FAQ() {
         </Group>
     ))
 
-    return <Container>{faqs}</Container>
+    return (
+        <Container>
+            <GroupsContainer>{faqs}</GroupsContainer>
+        </Container>
+    )
 }
