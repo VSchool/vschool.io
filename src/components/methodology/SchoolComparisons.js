@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import ComparisonsTable from "./ComparisonsTable.js"
 import { gray, black, blue } from "@vschool/lotus"
 
@@ -44,11 +45,52 @@ const SubHeader = styled.h5`
 `
 
 export default function SchoolComparisons(props) {
-    const { header, subheader, comparisons } = props
+    const data = useStaticQuery(graphql`
+    {
+        prismicMethodologyPage {
+            id
+            data {
+            comparison_header {
+                text
+            }
+            comparison_subheader {
+                text
+            }
+            comparisons {
+                experience {
+                text
+                }
+                icon {
+                url
+                }
+                job {
+                text
+                }
+                skills {
+                text
+                }
+                theory {
+                text
+                }
+                type {
+                text
+                }
+            }
+            }
+        }
+        }
+    `)
+
+    const {
+        comparisons,
+        comparison_subheader: { text: comparisonsSubheader },
+        comparison_header: { text: comparisonsHeader }
+    } = data.prismicMethodologyPage.data
+
     return (
         <Container>
-            <Header>{header}</Header>
-            <SubHeader>{subheader}</SubHeader>
+            <Header>{comparisonsHeader}</Header>
+            <SubHeader>{comparisonsSubheader}</SubHeader>
             <ComparisonsTable comparisons={comparisons} />
         </Container>
     )
