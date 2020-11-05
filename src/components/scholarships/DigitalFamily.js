@@ -142,7 +142,6 @@ export default function CourseList() {
         .filter(company => company.digital_family_member)
         .filter((company, i) => i < 15)
         .map(company => company.logo)
-    console.log(companyLogos)
 
     return (
         <Container>
