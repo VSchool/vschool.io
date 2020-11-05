@@ -87,9 +87,19 @@ export default function IndexPage({ data }) {
             />
             {/* TODO: Move this to its own component in the components 
             directory while recfactoring like the bootcamp-primer */}
-            <section>
-                <h3 style={{ textAlign: "center" }}>{whereWeWorkHeader}</h3>
-                <CompanyLogoGrid logos={alumniCompanyLogos} />
+            <section style={{ paddingBottom: 96, paddingTop: 96 }}>
+                <h3
+                    style={{
+                        textAlign: "center",
+                        maxWidth: 616,
+                        marginBottom: 48,
+                    }}
+                >
+                    {whereWeWorkHeader}
+                </h3>
+                <div style={{ maxWidth: 1000, width: "100%" }}>
+                    <CompanyLogoGrid logos={alumniCompanyLogos} />
+                </div>
             </section>
             <Ratings header={ratingsHeader} ratings={ratings} />
             <Differences header={differenceHeader} differences={differences} />
