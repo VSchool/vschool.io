@@ -6,7 +6,6 @@ import ComparesPage from '../components/methodology'
 
 import {
     Testimonial2,
-    Differences,
     SchoolComparisons,
     PathwaysHeader,
     Pathways,
@@ -22,8 +21,6 @@ export default function HowVSCompares({ data }) {
         testimonial2: { text: testimonial2 },
         pathways_subheader: { text: pathwaysSubheader },
         pathways_header: { text: pathwaysHeader },
-        differences,
-        difference_header: { text: differencesHeader },
         cta_subheader: { text: ctaSubHeader },
         cta_link: { url: ctaLink },
         cta_header: { text: ctaHeader },
@@ -41,7 +38,6 @@ export default function HowVSCompares({ data }) {
             <br />
             <hr />
             <br />
-            <Differences header={differencesHeader} differences={differences} />
             <PathwaysHeader
                 header={pathwaysHeader}
                 subheader={pathwaysSubheader}
