@@ -2,18 +2,16 @@ import React from "react"
 import Layout from "../components/layout.js"
 import SEO from "../components/seo.js"
 import {
-    Header,
     HeroImage,
     Positions,
     SubmitAResume,
 } from "../components/careers"
 import { graphql } from "gatsby"
 
+import CareersPage from '../components/careers'
+
 export default function Careers({ data }) {
     const {
-        careers_header: { text: header },
-        careers_sub_header: { text: subHeader },
-        header_invite: { text: invite },
         careers_hero_img_sm: { url: heroImgSm },
         careers_hero_img_lg: { url: heroImgLg },
         btn_text: { text: btnText },
@@ -23,10 +21,14 @@ export default function Careers({ data }) {
         open_positions,
         position,
     } = data.prismicCareers.data
+
     return (
         <Layout>
-            <SEO title={header} />
-            <Header header={header} subHeader={subHeader} invite={invite} />
+            <SEO title={'Careers Page'} />
+            <CareersPage />
+            <br />
+            <hr />
+            <br />
             <HeroImage heroImgLg={heroImgLg} heroImgSm={heroImgSm} />
             <Positions header={open_positions.text} positions={position} />
             <SubmitAResume

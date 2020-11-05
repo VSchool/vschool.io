@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { black, gray } from "@vschool/lotus"
 
 const Container = styled.section`
@@ -66,8 +67,30 @@ const P = styled.p`
     }
 `
 
-export default function Header(props) {
-    const { header, subHeader, invite } = props
+export default function Header() {
+    const data = useStaticQuery(graphql`
+        {
+        prismicCareers {
+            data {
+            careers_header {
+                text
+            }
+            careers_sub_header {
+                text
+            }
+            header_invite {
+                text
+            }
+            }
+        }
+        }
+    `)
+
+    const {
+        careers_header: { text: header },
+        careers_sub_header: { text: subHeader },
+        header_invite: { text: invite }
+    } = data.prismicCareers.data
 
     return (
         <Container>
