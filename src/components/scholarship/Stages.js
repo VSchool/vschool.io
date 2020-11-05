@@ -10,7 +10,7 @@ const Container = styled.section`
 
     @media (min-width: 1000px) {
         padding-top: 160px;
-        margin-bottom: 96px;
+        padding-bottom: 96px;
         margin-top: 0;
     }
 `
@@ -36,14 +36,12 @@ const Text = styled.p`
 const StagesContainer = styled.div`
     display: flex;
     flex-direction: column;
-    margin-bottom: 96px;
     max-width: 500px;
     margin-right: 48px;
     align-self: flex-start;
 
     @media (min-width: 800px) {
         max-width: 1200px;
-        margin-bottom: 160px;
         margin-right: 0;
         flex-direction: row;
         justify-content: center;

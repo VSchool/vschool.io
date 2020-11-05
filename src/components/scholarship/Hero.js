@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { Link as ScrollLink } from "react-scroll"
 import { gray, blue, Button } from "@vschool/lotus"
 import { ScholarshipContext } from "../../templates/scholarship"
 import HeroLayout from "../shared/HeroLayout"
@@ -69,7 +70,13 @@ export default function Hero(props) {
                         <Title>{title}</Title>
                         <Text>{text}</Text>
                         <Amount>{amount}</Amount>
-                        <StyledButton>{buttonText}</StyledButton>
+                        <ScrollLink
+                            to="application-form"
+                            smooth={true}
+                            offset={-100}
+                        >
+                            <StyledButton size="xl">{buttonText}</StyledButton>
+                        </ScrollLink>
                     </>
                 }
                 image={
