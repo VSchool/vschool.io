@@ -6,6 +6,7 @@ import FAQ from "./FAQ"
 import Companies from "./Companies"
 import Rankings from "../shared/Rankings"
 import Testimonial from "./Testimonial"
+import Courses from "./Courses"
 
 export default function Scholarship({ data }) {
     return (
@@ -17,6 +18,7 @@ export default function Scholarship({ data }) {
             <Companies />
             <Rankings />
             <Testimonial {...data} />
+            <Courses {...data} />
         </div>
     )
 }
