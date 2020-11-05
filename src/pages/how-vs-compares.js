@@ -5,7 +5,6 @@ import { graphql } from "gatsby"
 import ComparesPage from '../components/methodology'
 
 import {
-    HeroHeader,
     Testimonial2,
     Differences,
     SchoolComparisons,
@@ -23,12 +22,6 @@ export default function HowVSCompares({ data }) {
         testimonial2: { text: testimonial2 },
         pathways_subheader: { text: pathwaysSubheader },
         pathways_header: { text: pathwaysHeader },
-        page_subheader2: { text: pageSubheader2 },
-        page_subheader1: { text: pageSubheader1 },
-        page_header: { text: pageHeader },
-        hero_image: { url: heroImg },
-        header_btn_link: { url: headerBtnLink },
-        header_btn: { text: headerBtnText },
         differences,
         difference_header: { text: differencesHeader },
         cta_subheader: { text: ctaSubHeader },
@@ -48,14 +41,6 @@ export default function HowVSCompares({ data }) {
             <br />
             <hr />
             <br />
-            <HeroHeader
-                title={pageSubheader1}
-                header={pageHeader}
-                info={pageSubheader2}
-                img={heroImg}
-                link={headerBtnLink}
-                btnText={headerBtnText}
-            />
             <Differences header={differencesHeader} differences={differences} />
             <PathwaysHeader
                 header={pathwaysHeader}
