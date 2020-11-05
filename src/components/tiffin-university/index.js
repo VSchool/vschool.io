@@ -12,7 +12,11 @@ import Companies from "./Companies.js"
 import Ratings from "./Ratings.js"
 import Testimonial from "./Testimonial.js"
 import PaymentOptions from '../shared/PaymentOptions'
-export { default as FAQ } from "./FAQ.js"
+import MakeALeap from '../shared/MakeALeap.js'
+import FAQ from "./FAQ.js"
+
+import { blue } from "@vschool/lotus"
+
 
 export default function TiffinUniversityPage() {
     return (
@@ -29,6 +33,11 @@ export default function TiffinUniversityPage() {
             <Ratings />
             <Testimonial />
             <PaymentOptions />
+            <MakeALeap
+                bgColor={blue.lightest}
+                sessionColor={blue.lighter}
+            />
+            <FAQ />
         </>
     )
 }

@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { black, white, orange, Button } from "@vschool/lotus"
 import Link from "../shared/QueryLink"
 
@@ -146,30 +147,64 @@ const StyledButton = styled(Button)`
 `
 
 export default function CallToAction(props) {
-    const {
-        title,
-        sub,
-        btnText,
-        nextSession,
-        bgColor,
-        sessionColor,
-        startDate,
-        link,
-    } = props
+    const data = useStaticQuery(graphql`
+        {
+            prismicTiffin {
+                data {
+                    make_a_leap_btn {
+                        text
+                    }
+                    make_a_leap_header {
+                        text
+                    }
+                    make_a_leap_link {
+                        url
+                    }
+                    make_a_leap_sub {
+                        text
+                    }
+                    next_session {
+                        text
+                    }
+                    scholarship_details {
+                        detail_title {
+                            text
+                        }
+                        detail_date(formatString: "MMM Do, YYYY")
+                        detail_info {
+                            text
+                        }
+                    }
+                }
+            }
+        }
+    `)
+
+const {
+    make_a_leap_btn: { text: makeALeapBtn },
+    make_a_leap_header: { text: makeALeapHeader },
+    make_a_leap_link: { url: makeALeapLink },
+    make_a_leap_sub: { text: makeALeapSub },
+    scholarship_details,
+    next_session: { text: nextSession },
+} = data.prismicTiffin.data
+
+    const { bgColor, sessionColor } = props
+
     return (
         <Container bgColor={bgColor}>
-            <H1>{title}</H1>
+            <H1>{makeALeapHeader}</H1>
             <SessionContainer sessionColor={sessionColor}>
                 <NextSession>
                     <SessionHeader>{nextSession}:</SessionHeader>
-                    <SessionDate>{startDate}</SessionDate>
+                    <SessionDate>{scholarship_details[1].detail_date}</SessionDate>
                 </NextSession>
             </SessionContainer>
-            <Options>{sub}</Options>
+            <Options>{makeALeapSub}</Options>
             <FlexContainer>
-                <Link to={link}>
+                <Link to={makeALeapLink}>
                     <StyledButton buttonStyle="primary-dark">
-                        {btnText}
+                        {makeALeapBtn}
                     </StyledButton>
                 </Link>
             </FlexContainer>
