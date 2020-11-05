@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { gray, black, Button } from "@vschool/lotus"
 import Link from "../shared/QueryLink"
 
@@ -114,18 +115,45 @@ const FlexContainer = styled.div`
     justify-content: center;
 `
 
-function SubmitAResume(props) {
-    const { header, sub, btnText } = props
+function SubmitAResume() {
+    const data = useStaticQuery(graphql`
+        {
+        prismicCareers {
+            data {
+            btn_text {
+                text
+            }
+            btn_link {
+                url
+            }
+            no_openings {
+                text
+            }
+            no_openings_sub {
+                text
+            }
+            }
+        }
+        }
+    `)
+
+    const {
+        btn_text: { text: btnText },
+        btn_link: { url: link },
+        no_openings: { text: noOpeningsHeader },
+        no_openings_sub,
+    } = data.prismicCareers.data
+
     return (
         <Container>
             <FlexContainer>
-                <H1>{header}</H1>
+                <H1>{noOpeningsHeader}</H1>
             </FlexContainer>
             <FlexContainer>
-                <P>{sub}</P>
+                <P>{no_openings_sub.text}</P>
             </FlexContainer>
             <FlexContainer>
-                <Link to="mailto:info@vschool.io">
+                <Link to={link}>
                     <StyledButton buttonStyle="primary-dark">
                         {btnText}
                     </StyledButton>
