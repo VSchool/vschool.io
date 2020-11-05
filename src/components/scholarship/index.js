@@ -5,6 +5,7 @@ import Form from "./Form"
 import FAQ from "./FAQ"
 import Companies from "./Companies"
 import Rankings from "../shared/Rankings"
+import Testimonial from "./Testimonial"
 
 export default function Scholarship({ data }) {
     return (
@@ -15,6 +16,7 @@ export default function Scholarship({ data }) {
             <FAQ />
             <Companies />
             <Rankings />
+            <Testimonial {...data} />
         </div>
     )
 }
