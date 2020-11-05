@@ -11,9 +11,6 @@ export default function Careers({ data }) {
         <Layout>
             <SEO title={'Careers Page'} />
             <CareersPage />
-            <br />
-            <hr />
-            <br />
         </Layout>
     )
 }
