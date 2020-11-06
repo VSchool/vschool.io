@@ -1,9 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-import { black, green, gray, Button } from "@vschool/lotus"
+import { green, gray, Button } from "@vschool/lotus"
 import Link from "../shared/QueryLink"
-import CoursesNew from "../shared/CoursesNew"
 import CompanyLogoGrid from "../shared/CompanyLogoGrid"
 
 const Container = styled.section`
@@ -143,7 +142,6 @@ export default function CourseList() {
         .filter(company => company.digital_family_member)
         .filter((company, i) => i < 15)
         .map(company => company.logo)
-    console.log(companyLogos)
 
     return (
         <Container>
