@@ -10,12 +10,12 @@ const Container = styled.div`
     margin-right: 16px;
     height: 200px;
 
-    @media(max-width: 360px){
+    @media (max-width: 360px) {
         margin-left: 8px;
         margin-right: 8px;
-    }   
+    }
 
-    @media(max-width: 420px){
+    @media (max-width: 420px) {
         height: 250px;
     }
 
@@ -30,7 +30,7 @@ const Container = styled.div`
 `
 
 const HeaderContainer = styled.div`
-    height: 80px;
+    /* height: 80px; */
 `
 
 const Header = styled.h3`
