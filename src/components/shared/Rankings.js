@@ -38,11 +38,12 @@ const RankingsGrid = styled.div`
     grid-auto-rows: max-content;
     justify-items: center;
     align-items: center;
+    padding-bottom: 48px;
 
     @media (min-width: 800px) {
         gap: 10px;
         grid-template-columns: 1fr 2fr 1fr 2fr 1fr 2fr;
-        padding: 44px 16px;
+        padding: 16px 16px 32px;
         padding-right: 8px;
     }
 `
