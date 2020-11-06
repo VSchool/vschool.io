@@ -1,13 +1,12 @@
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-import { Link, animateScroll as scroll } from "react-scroll"
+import { Link as ScrollLink } from "react-scroll"
 import { gray, blue, Button } from "@vschool/lotus"
 
 const Section = styled.section`
     background-color: ${blue.lightest};
     padding-top: 96px;
-    margin-bottom: -160px;
 
     @media (min-width: 1000px) {
         margin-bottom: 0;
@@ -120,9 +119,9 @@ export default function Hero() {
                 <Title>{title}</Title>
                 <Subtitle>{subtitle}</Subtitle>
                 <List>{goals}</List>
-                <Link to="get-involved-form" smooth={true} offset={-100}>
+                <ScrollLink to="get-involved-form" smooth={true} offset={-100}>
                     <StyledButton size="xl">{buttonText}</StyledButton>
-                </Link>
+                </ScrollLink>
             </TextContainer>
             <ImageContainer>
                 <Image src={imgUrl} alt="image" />

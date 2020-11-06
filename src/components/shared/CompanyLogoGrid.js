@@ -1,27 +1,15 @@
 import React from "react"
 import styled from "styled-components"
 
-const Container = styled.section`
-    padding: 24px;
-
-    @media (max-width: 400px) {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-
-    @media (min-width: 1100px) {
-        padding-top: 64px;
-    }
-`
-
 const LogoListContainer = styled.div`
+    width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     grid-auto-flow: row;
-    grid-gap: 24px;
+    gap: 24px;
 
-    @media (min-width: 800px) {
-        grid-template-columns: repeat(4, 1fr);
+    @media (max-width: 450px) {
+        grid-template-columns: repeat(2, 1fr);
     }
 `
 
@@ -30,7 +18,6 @@ const Logo = styled.img`
     justify-self: center;
     align-self: center;
     width: 100%;
-    max-width: 256px;
 `
 
 function CompanyLogoGrid({ logos }) {
@@ -38,11 +25,7 @@ function CompanyLogoGrid({ logos }) {
         <Logo key={company.url} src={company.url} alt={company.alt} />
     ))
 
-    return (
-        <Container>
-            <LogoListContainer>{companyLogos}</LogoListContainer>
-        </Container>
-    )
+    return <LogoListContainer>{companyLogos}</LogoListContainer>
 }
 
 export default CompanyLogoGrid

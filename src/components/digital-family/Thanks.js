@@ -81,9 +81,6 @@ export default function Thanks() {
                     thanks_button_text {
                         text
                     }
-                    thanks_button_url {
-                        url
-                    }
                 }
             }
         }
@@ -95,7 +92,6 @@ export default function Thanks() {
         thanks_text: { text },
         thanks_image: { url: imageUrl, alt: imageAlt },
         thanks_button_text: { text: buttonText },
-        thanks_button_url: { url: buttonUrl },
     } = data.prismicDigitalFamilyPage.data
     return (
         <Container>
