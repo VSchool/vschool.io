@@ -149,6 +149,17 @@ const StyledButton = styled(Button)`
 export default function CallToAction(props) {
     const data = useStaticQuery(graphql`
         {
+            allPrismicStartDate(
+                sort: { order: ASC, fields: data___start_date }
+            ) {
+                edges {
+                    node {
+                        data {
+                            start_date(formatString: "MMM Do, YYYY")
+                        }
+                    }
+                }
+            }
             prismicTiffin {
                 data {
                     make_a_leap_btn {
@@ -180,14 +191,20 @@ export default function CallToAction(props) {
         }
     `)
 
-const {
-    make_a_leap_btn: { text: makeALeapBtn },
-    make_a_leap_header: { text: makeALeapHeader },
-    make_a_leap_link: { url: makeALeapLink },
-    make_a_leap_sub: { text: makeALeapSub },
-    scholarship_details,
-    next_session: { text: nextSession },
-} = data.prismicTiffin.data
+    const {
+        make_a_leap_btn: { text: makeALeapBtn },
+        make_a_leap_header: { text: makeALeapHeader },
+        make_a_leap_link: { url: makeALeapLink },
+        make_a_leap_sub: { text: makeALeapSub },
+        scholarship_details,
+        next_session: { text: nextSession },
+    } = data.prismicTiffin.data
+
+    const nextStartDate = data.allPrismicStartDate.edges.map(
+        obj => obj.node.data.start_date
+    )[0]
+
+    console.log(nextStartDate)
 
     const { bgColor, sessionColor } = props
 
@@ -197,7 +214,7 @@ const {
             <SessionContainer sessionColor={sessionColor}>
                 <NextSession>
                     <SessionHeader>{nextSession}:</SessionHeader>
-                    <SessionDate>{scholarship_details[1].detail_date}</SessionDate>
+                    <SessionDate>{nextStartDate}</SessionDate>
                 </NextSession>
             </SessionContainer>
             <Options>{makeALeapSub}</Options>
