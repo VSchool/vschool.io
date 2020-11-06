@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { gray, black } from "@vschool/lotus"
 import Position from "./Position.js"
 
@@ -51,13 +52,38 @@ const FlexContainer = styled.div`
 `
 
 export default function Positions(props) {
-    const { header, positions } = props
+    const data = useStaticQuery(graphql`
+        {
+        prismicCareers {
+            data {
+            open_positions {
+                text
+            }
+            position {
+                position_link {
+                url
+                }
+                position_title {
+                text
+                }
+            }
+            }
+        }
+        }
+    `)
+
+    const {
+        open_positions,
+        position
+    } = data.prismicCareers.data
+
+    // const { header, positions } = props
     return (
         <Container>
-            <H3>{header}</H3>
+            <H3>{open_positions.text}</H3>
             <FlexContainer>
-                {positions.length &&
-                    positions.map((p, i, arr) => (
+                {position.length &&
+                    position.map((p, i, arr) => (
                         <Position
                             {...p}
                             key={p.position_title.text + i}

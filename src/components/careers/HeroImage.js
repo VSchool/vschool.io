@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { gray, orange } from "@vschool/lotus"
 
 const Main = styled.div`
@@ -130,8 +131,27 @@ const LargeImg = styled.img`
     }
 `
 
-export default function HeroImage(props) {
-    const { heroImgLg, heroImgSm } = props
+export default function HeroImage() {
+    const data = useStaticQuery(graphql`
+        {
+        prismicCareers {
+            data {
+            careers_hero_img_lg {
+                url
+            }
+            careers_hero_img_sm {
+                url
+            }
+            }
+        }
+        }
+    `)
+
+    const {
+        careers_hero_img_sm: { url: heroImgSm },
+        careers_hero_img_lg: { url: heroImgLg }
+    } = data.prismicCareers.data
+
     return (
         <Main>
             <Container>

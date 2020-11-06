@@ -1,4 +1,5 @@
 import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { gray, black } from "@vschool/lotus"
 
@@ -79,8 +80,32 @@ const H3 = styled.h3`
     }
 `
 
-export default function Details(props) {
-    const { details, header } = props
+export default function Details() {
+    const data = useStaticQuery(graphql`
+        {
+            prismicTiffin {
+                data {
+                    details {
+                        detail_info {
+                            text
+                        }
+                        detail_title {
+                            text
+                        }
+                    }
+                    details_header {
+                        text
+                    }
+                }
+            }
+        }
+    `)
+
+    const {
+        details_header: { text: header },
+        details,
+    } = data.prismicTiffin.data
+
     return (
         <FlexContainer>
             <H3>{header}</H3>

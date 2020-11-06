@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { gray, orange, blue } from "@vschool/lotus"
 
 const Container = styled.section`
@@ -127,7 +128,30 @@ const Cite = styled.h3`
 `
 
 export default function Testimonial(props) {
-    const { testimonial, cite, testimonialImg } = props
+    const data = useStaticQuery(graphql`
+        {
+            prismicTiffin {
+                data {
+                    cite {
+                        text
+                    }
+                    testimonial {
+                        text
+                    }
+                    testimonial_img {
+                        url
+                    }
+                }
+            }
+        }
+    `)
+
+    const {
+        testimonial: { text: testimonial },
+        testimonial_img: { url: testimonialImg },
+        cite: { text: cite }
+    } = data.prismicTiffin.data
+    
     return (
         <>
             <Container>

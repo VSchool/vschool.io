@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useStaticQuery, graphql } from "gatsby"
 import { black, gray, blue } from "@vschool/lotus"
 
 const Container = styled.div`
@@ -62,12 +63,32 @@ const SubHeader = styled.h5`
   }
 `
 
-export default function PathwaysHeader(props){
-  const { header, subheader } = props
+export default function PathwaysHeader(){
+  const data = useStaticQuery(graphql`
+    {
+      prismicMethodologyPage {
+        id
+        data {
+          pathways_header {
+            text
+          }
+          pathways_subheader {
+            text
+          }
+        }
+      }
+    }
+  `)
+
+  const {
+    pathways_subheader: { text: pathwaysSubheader },
+    pathways_header: { text: pathwaysHeader }
+} = data.prismicMethodologyPage.data
+
   return (
     <Container>
-      <Header>{header}</Header>
-      <SubHeader>{subheader}</SubHeader>
+      <Header>{pathwaysHeader}</Header>
+      <SubHeader>{pathwaysSubheader}</SubHeader>
     </Container>
   )
 }
