@@ -12,6 +12,5 @@ exports.onClientEntry = () => {
     if (window.location.href !== href) {
         const query = window.location.search || ""
         sessionStorage.setItem("query", query)
-        // window.location.replace(href)
     }
 }

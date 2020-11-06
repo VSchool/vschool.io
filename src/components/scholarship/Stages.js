@@ -10,7 +10,11 @@ const Container = styled.section`
 
     @media (min-width: 1000px) {
         padding-top: 160px;
+<<<<<<< HEAD
         margin-bottom: 96px;
+=======
+        padding-bottom: 96px;
+>>>>>>> scholarship-pages
         margin-top: 0;
     }
 `
@@ -36,17 +40,16 @@ const Text = styled.p`
 const StagesContainer = styled.div`
     display: flex;
     flex-direction: column;
-    margin-bottom: 96px;
     max-width: 500px;
     margin-right: 48px;
     align-self: flex-start;
 
     @media (min-width: 800px) {
         max-width: 1200px;
-        margin-bottom: 160px;
         margin-right: 0;
         flex-direction: row;
         justify-content: center;
+        align-self: center;
     }
 `
 
@@ -109,7 +112,11 @@ export default function Stages() {
     } = data.prismicScholarshipPageSharedData.data
 
     const stages = stagesList.map(stage => (
+<<<<<<< HEAD
         <Stage>
+=======
+        <Stage key={stage.stage_number.text}>
+>>>>>>> scholarship-pages
             <StageNum>{stage.stage_number.text}</StageNum>
             <StageName>{stage.stage_name.text}</StageName>
             <StageText>{stage.stage_description.text}</StageText>

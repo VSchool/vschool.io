@@ -36,8 +36,13 @@ const Description = styled.p`
     max-width: 674px;
 
     @media (min-width: 1000px) {
-        margin-bottom: 16px;
+        margin-bottom: 96px;
     }
+`
+
+const LogosContainer = styled.div`
+    width: 100%;
+    max-width: 1000px;
 `
 
 export default function Members() {
@@ -91,7 +96,9 @@ export default function Members() {
             <Title>{title}</Title>
             <Callout>{subtitle}</Callout>
             <Description>{description}</Description>
-            <CompanyLogoGrid logos={logos} />
+            <LogosContainer>
+                <CompanyLogoGrid logos={logos} />
+            </LogosContainer>
         </Container>
     )
 }
