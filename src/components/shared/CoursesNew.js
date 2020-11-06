@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-import { CardGroup, Card, black, gray, blue, TextButton } from "@vschool/lotus"
+import { CardGroup, Card, black, gray, TextButton } from "@vschool/lotus"
 import Link from "./QueryLink"
 
 const FlexCard = styled(Card)`

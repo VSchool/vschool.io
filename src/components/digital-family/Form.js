@@ -75,7 +75,6 @@ const StyledButton = styled(Button)`
     }
 `
 
-// TODO: Still needs desktop styling
 export default function GetInvolvedForm() {
     const [formData, setFormData] = useState({
         name: "",
