@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { black, blue } from "@vschool/lotus"
 
 const Container = styled.section`
@@ -131,11 +132,29 @@ const Logo = styled.img`
     }
 `
 
-export default function Companies(props) {
-    const { header, logos } = props
+export default function Companies() {
+    const data = useStaticQuery(graphql`
+        {
+            prismicTiffin {
+                data {
+                    companies_header {
+                        text
+                    }
+                    logos {
+                        logo {
+                            url
+                        }
+                    }
+                }
+            }
+        }
+    `)
+
+    const { companies_header: { text: companiesHeader }, logos } = data.prismicTiffin.data
+
     return (
         <Container>
-            <H3>{header}</H3>
+            <H3>{companiesHeader}</H3>
             <LogoListContainer>
                 <LogoList>
                     {logos.slice(0, 6).map(({ logo }, i) => (

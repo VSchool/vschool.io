@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { gray, black, blue, Button } from "@vschool/lotus"
 import Link from "../shared/QueryLink"
 
@@ -125,19 +126,55 @@ const StyledButton = styled(Button)`
 `
 
 export default function HeroHeader(props) {
-    const { title, header, info, img, link, btnText } = props
+    const data = useStaticQuery(graphql`
+    {
+      prismicMethodologyPage {
+        id
+        data {
+          page_subheader1 {
+            text
+          }
+          page_header {
+            text
+          }
+          page_subheader2 {
+            text
+          }
+          hero_image {
+            url
+          }
+          header_btn_link {
+            url
+          }
+          header_btn {
+            text
+          }
+        }
+      }
+    }
+  `)
+
+  const {
+    page_subheader2: { text: pageSubheader2 },
+    page_subheader1: { text: pageSubheader1 },
+    page_header: { text: pageHeader },
+    hero_image: { url: heroImg },
+    header_btn_link: { url: headerBtnLink },
+    header_btn: { text: headerBtnText }
+} = data.prismicMethodologyPage.data
+
     return (
         <Container>
             <FlexContainer>
                 <TextContainer>
-                    <Header>{header}</Header>
-                    <Title>{title}</Title>
-                    <Info>{info}</Info>
-                    <Link to={link}>
-                        <StyledButton>{btnText}</StyledButton>
+                    <Header>{pageHeader}</Header>
+                    <Title>{pageSubheader1}</Title>
+                    <Info>{pageSubheader2}</Info>
+                    <Link to={headerBtnLink}>
+                        <StyledButton>{headerBtnText}</StyledButton>
                     </Link>
                 </TextContainer>
-                <Img src={img} />
+                <Img src={heroImg} />
             </FlexContainer>
         </Container>
     )

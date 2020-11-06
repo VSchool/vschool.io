@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { gray, black, blue, Button } from "@vschool/lotus"
 import Link from "../shared/QueryLink"
 
@@ -108,22 +109,51 @@ const FlexContainer = styled.div`
     justify-content: center;
 `
 
-export default function PageHeader(props) {
-    const { title, sub, invite, link, btnText } = props
+export default function PageHeader() {
+    const data = useStaticQuery(graphql`
+        {
+            prismicTiffin {
+                data {
+                    header {
+                        text
+                    }
+                    sub_header {
+                        text
+                    }
+                    sub_header2 {
+                        text
+                    }
+                    header_btn {
+                        text
+                    }
+                    header_btn_link {
+                        url
+                    }
+                }
+            }
+        }
+    `)
+    const {
+        header: { text: header },
+        sub_header: { text: subheader },
+        sub_header2: { text: subheader2 },
+        header_btn: { text: headerBtnText },
+        header_btn_link: { url: headerLink },
+    } = data.prismicTiffin.data
 
     return (
         <Container>
             <FlexContainer>
-                <H1>{title}</H1>
+                <H1>{header}</H1>
             </FlexContainer>
             <FlexContainer>
-                <P>{sub}</P>
+                <P>{subheader}</P>
             </FlexContainer>
-            <H6>{invite}</H6>
+            <H6>{subheader2}</H6>
             <FlexContainer>
-                <Link to={link}>
+                <Link to={headerLink}>
                     <StyledButton buttonStyle="primary-dark">
-                        {btnText}
+                        {headerBtnText}
                     </StyledButton>
                 </Link>
             </FlexContainer>

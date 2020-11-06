@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { AccordionGroup, Accordion, gray, black } from "@vschool/lotus"
 
 const Container = styled.div`
@@ -51,7 +52,32 @@ const H3 = styled.h3`
 // `
 
 function FAQ(props) {
-    const { faq } = props
+    const data = useStaticQuery(graphql`
+    {
+        prismicTiffin {
+            data {
+                faq_header {
+                    text
+                }
+                faq {
+                    faq_title {
+                        text
+                    }
+                    faq_info {
+                        text
+                    }
+                }
+            }
+        }
+    }
+`)
+
+const {
+    faq_header: { text: faqHeader },
+    faq,
+} = data.prismicTiffin.data
+
+    // const { faq } = props
     const styles = {
         color: "#456AE2",
         fontFamily: "aktiv-grotesk",
@@ -66,7 +92,9 @@ function FAQ(props) {
     }
     return (
         <Container>
-            <H3>Frequently Asked Questions</H3>
+            {/* <H3>Frequently Asked Questions</H3> */}
+            <H3>{faqHeader}</H3>
+
             <AccordionGroup>
                 {faq.map(faq => {
                     return (

@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { blue, yellow, gray } from "@vschool/lotus"
 
 const Container = styled.div`
@@ -73,8 +74,6 @@ const Testimonial = styled.h2`
     @media (min-width: 320px) and (max-width: 415px) {
         font-size: 20px;
     }
-
-
 `
 
 const Cite = styled.h3`
@@ -140,19 +139,47 @@ const GridContainer = styled.div`
     }
 `
 
-function Testimonial1(props) {
-    const { testimonial, cite, course, testimonialImg } = props
+function Testimonial1() {
+    const data = useStaticQuery(graphql`
+    {
+      prismicMethodologyPage {
+        id
+        data {
+          testimonial1 {
+            text
+          }
+          cite1 {
+            text
+          }
+          testimonial_program1 {
+            text
+          }
+          testimonial_img1 {
+            url
+          }
+        }
+      }
+    }
+  `)
+
+  const {
+    testimonial_program1: { text: testimonialProgram1 },
+    testimonial_img1: { url: testimonialImg1 },
+    testimonial1: { text: testimonial1 },
+    cite1: { text: cite1 },
+} = data.prismicMethodologyPage.data
+
     return (
         <Container>
           <BlueBackground/>
             <GridContainer>
                 <CiteContainer>
-                    <Testimonial>"{testimonial}"</Testimonial>
-                    <Cite>- {cite}</Cite>
-                    <Course>{course}</Course>
+                    <Testimonial>"{testimonial1}"</Testimonial>
+                    <Cite>- {cite1}</Cite>
+                    <Course>{testimonialProgram1}</Course>
                 </CiteContainer>
                 <FlexContainer>
-                    <TestimonialImg src={testimonialImg} />
+                    <TestimonialImg src={testimonialImg1} />
                 </FlexContainer>
             </GridContainer>
         </Container>

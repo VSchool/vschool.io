@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { blue } from "@vschool/lotus"
 
 const Container = styled.div`
@@ -28,15 +29,34 @@ const Logo = styled.img`
     max-width: 209px;
 `
 
-export default function LogoHeader(props) {
-    const { logo1, logo2 } = props
+export default function LogoHeader() {
+    const data = useStaticQuery(graphql`
+        {
+            prismicTiffin {
+                data {
+                    tf_logo {
+                        url
+                    }
+                    vschool_logo {
+                        url
+                    }
+                }
+            }
+        }
+    `)
+
+    const {
+        tf_logo: { url: tfLogo },
+        vschool_logo: { url: vsLogo },
+    } = data.prismicTiffin.data
+
     return (
         <Container>
             <LogoContainer>
-                <Logo src={logo1} />
+                <Logo src={tfLogo} />
             </LogoContainer>
             <LogoContainer>
-                <Logo src={logo2} />
+                <Logo src={vsLogo} />
             </LogoContainer>
         </Container>
     )
