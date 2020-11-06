@@ -10,11 +10,7 @@ const Container = styled.section`
 
     @media (min-width: 1000px) {
         padding-top: 160px;
-<<<<<<< HEAD
-        margin-bottom: 96px;
-=======
         padding-bottom: 96px;
->>>>>>> scholarship-pages
         margin-top: 0;
     }
 `
@@ -112,11 +108,7 @@ export default function Stages() {
     } = data.prismicScholarshipPageSharedData.data
 
     const stages = stagesList.map(stage => (
-<<<<<<< HEAD
-        <Stage>
-=======
         <Stage key={stage.stage_number.text}>
->>>>>>> scholarship-pages
             <StageNum>{stage.stage_number.text}</StageNum>
             <StageName>{stage.stage_name.text}</StageName>
             <StageText>{stage.stage_description.text}</StageText>
