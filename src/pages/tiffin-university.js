@@ -1,7 +1,6 @@
 import React from "react"
 import Layout from "../components/layout.js"
 import SEO from "../components/seo.js"
-import { graphql } from "gatsby"
 import TiffinUniversityPage from "../components/tiffin-university"
 
 export default function Tiffin() {
