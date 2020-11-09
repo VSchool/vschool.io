@@ -199,11 +199,12 @@ export default function CallToAction(props) {
         scholarship_details,
         next_session: { text: nextSession },
     } = data.prismicTiffin.data
-
-    const nextStartDate = data.allPrismicStartDate.edges.map(
+    const startDates = data.allPrismicStartDate.edges.map(
         obj => obj.node.data.start_date
-    )[0]
+    )
+    const nextStartDate = startDates[0]
 
+    console.log(startDates)
     console.log(nextStartDate)
 
     const { bgColor, sessionColor } = props

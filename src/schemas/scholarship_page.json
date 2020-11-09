@@ -73,6 +73,15 @@
         "label": "Public"
       }
     },
+    "full_tuition_scholarship": {
+      "type": "Boolean",
+      "config": {
+        "placeholder_false": "Partial scholarship",
+        "placeholder_true": "Full scholarship",
+        "default_value": false,
+        "label": "Full Tuition Scholarship"
+      }
+    },
     "icon": {
       "type": "Image",
       "config": {
