@@ -54,6 +54,12 @@ const Disclaimer = styled.p`
     text-align: center;
 `
 
+const StyledButton = styled(Button)`
+    @media (max-width: 599px) {
+        width: 100%;
+    }
+`
+
 export default function ApplicationForm() {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
@@ -113,7 +119,7 @@ export default function ApplicationForm() {
                         required
                         validationText="auto-generate"
                     />
-                    <Button size="lg">{buttonText}</Button>
+                    <StyledButton size="lg">{buttonText}</StyledButton>
                 </Form>
                 <Disclaimer>{disclaimer}</Disclaimer>
             </FormContainer>
