@@ -23,16 +23,14 @@ const Layout = ({ children }) => {
     `
 
     return (
-        <>
-            <MainContainer>
-                <ContentContainer>
-                    <Navbar />
+        <MainContainer>
+            <ContentContainer>
+                <Navbar />
 
-                    <main>{children}</main>
-                </ContentContainer>
-                <Footer />
-            </MainContainer>
-        </>
+                <main>{children}</main>
+            </ContentContainer>
+            <Footer />
+        </MainContainer>
     )
 }
 
