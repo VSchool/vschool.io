@@ -122,5 +122,14 @@ module.exports = {
                 pixelId: process.env.FACEBOOK_PIXEL_ID,
             },
         },
+        {
+            resolve: `gatsby-source-formium`,
+            options: {
+                // Get your projectId from https://dashboard.formium.io
+                projectId: process.env.GATSBY_FORMIUM_PROJECTID,
+                // Generate a personal access token by going to https://dashboard.formium.io/account#tokens and put it into a .env file (learn more about Gatsby environment variables here: https://gatsby.dev/env-vars).
+                accessToken: process.env.FORMIUM_ACCESS_TOKEN,
+            },
+        },
     ],
 }

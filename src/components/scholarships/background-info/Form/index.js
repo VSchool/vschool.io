@@ -1,17 +1,19 @@
-import React, { useState } from "react"
-import styled from "styled-components"
+import React, { useState, useEffect } from "react"
+import styled, { css } from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { Formik, Field } from "formik"
 import {
     blue,
     gray,
     Button,
     TextInput,
+    Textarea,
     CheckboxRadioGroup,
     Checkbox,
     Radio,
 } from "@vschool/lotus"
 
-import { initialValues } from "./initialValues"
+import { initialValues } from "../initialValues"
 
 const Form = styled.form`
     background-color: ${blue.lightest};
@@ -25,8 +27,48 @@ const Form = styled.form`
     }
 `
 
+const sharedStyles = css`
+    margin-bottom: 32px;
+`
+
+const StyledTextInput = styled(TextInput)`
+    ${sharedStyles}
+`
+const StyledTextarea = styled(Textarea)`
+    ${sharedStyles}
+`
+const StyledCheckboxRadioGroup = styled(CheckboxRadioGroup)`
+    margin-bottom: 64px;
+`
+
 export default function BackgroundForm() {
-    const [formData, setFormData] = useState(initialValues)
+    const [formData, setFormData] = useState({})
+    const data = useStaticQuery(graphql`
+        {
+            formiumForm(slug: { eq: "scholarship-background-info" }) {
+                name
+                schema
+            }
+        }
+    `)
+
+    // TODO: Look into Formium's React SDK: https://formium.io/docs/react
+    const formiumData = data.formiumForm.schema
+    const formiumPageId = formiumData.pageIds[0]
+    const formiumFields = formiumData.fields
+    const formiumQuestionIds = formiumFields[formiumPageId].items
+    const formiumQuestions = formiumQuestionIds.map(q => formiumFields[q])
+
+    useEffect(() => {
+        const initialData = formiumQuestions.reduce((acc, curr) => {
+            if (Object.keys(acc).length === 0) {
+                return { [curr.slug]: curr.type === "CHECKBOX" ? [] : "" }
+            }
+            return { ...acc, [curr.slug]: curr.type === "CHECKBOX" ? [] : "" }
+        }, {})
+        setFormData(initialData)
+    }, [data])
+
     function handleChange(e) {
         const { name, value, type } = e.target
         setFormData(prevData => ({
@@ -45,9 +87,111 @@ export default function BackgroundForm() {
         console.log(formData)
     }
 
+    const formComponents = formiumQuestions.map(question => {
+        switch (question.type) {
+            case "SHORT_TEXT":
+                return (
+                    <StyledTextInput
+                        key={question.id}
+                        type="text"
+                        label={question.title}
+                        required={question.required}
+                        name={question.slug}
+                        placeholder={question.placeholder}
+                        value={formData[question.slug] || ""}
+                        onChange={handleChange}
+                        validationText={
+                            question.requiredText || "auto-generate"
+                        }
+                    />
+                )
+            case "LONG_TEXT":
+                return (
+                    <StyledTextarea
+                        key={question.id}
+                        label={question.title}
+                        required={question.required}
+                        name={question.slug}
+                        placeholder={question.placeholder}
+                        value={formData[question.slug] || ""}
+                        onChange={handleChange}
+                        validationText={
+                            question.requiredText || "auto-generate"
+                        }
+                    />
+                )
+
+            // Surrounded the case in curlybraces so I could use `const choices...` again
+            case "RADIO": {
+                const choices = question.items
+                    .map(choice => formiumFields[choice])
+                    .map(choice => (
+                        <Radio
+                            key={choice.id}
+                            value={choice.title}
+                            onChange={handleChange}
+                            name={question.slug}
+                            checked={formData[question.slug] === choice.title}
+                        >
+                            {choice.title}
+                        </Radio>
+                    ))
+                return (
+                    <StyledCheckboxRadioGroup
+                        key={question.id}
+                        label={question.title}
+                        required={question.required}
+                        validationText={
+                            question.requiredText || "auto-generate"
+                        }
+                    >
+                        {choices}
+                    </StyledCheckboxRadioGroup>
+                )
+            }
+            // Surrounded the case in curlybraces so I could use `const choices...` again
+            case "CHECKBOX": {
+                const choices = question.items
+                    .map(choice => formiumFields[choice])
+                    .map(choice => (
+                        <Checkbox
+                            key={choice.id}
+                            value={choice.title}
+                            onChange={handleChange}
+                            name={question.slug}
+                            checked={
+                                formData[question.slug]?.includes(
+                                    choice.title
+                                ) || false
+                            }
+                        >
+                            {choice.title}
+                        </Checkbox>
+                    ))
+                return (
+                    <StyledCheckboxRadioGroup
+                        key={question.id}
+                        label={question.title}
+                        required={question.required}
+                        validationText={
+                            question.requiredText || "auto-generate"
+                        }
+                    >
+                        {choices}
+                    </StyledCheckboxRadioGroup>
+                )
+            }
+            default:
+                return (
+                    <p>There's a question type you haven't accounted for yet</p>
+                )
+        }
+    })
+
     return (
         <section>
             <Form onSubmit={handleSubmit}>
+                {formComponents}
                 {/* <CheckboxRadioGroup label="Which scholarship(s) are you applying for?">
                     <Checkbox
                         name="scholarshipChoices"
