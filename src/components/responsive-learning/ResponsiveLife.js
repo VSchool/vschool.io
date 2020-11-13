@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { gray, black, green } from "@vschool/lotus"
 import Bullets from "./Bullets.js"
 
@@ -147,31 +148,62 @@ const Image = styled.img`
     }
 `
 
-export default function ResponsiveLife(props) {
+export default function ResponsiveLife() {
+    const data = useStaticQuery(graphql`
+        {
+            prismicResponsiveLearning {
+                data {
+                    life_header {
+                        text
+                    }
+                    life_info {
+                        text
+                    }
+                    testimonial {
+                        text
+                    }
+                    testimonial_image {
+                        url
+                    }
+                    cite {
+                        text
+                    }
+                    cite_course {
+                        text
+                    }
+                    life_bullets {
+                        bullet
+                    }
+                }
+            }
+        }
+    `)
+
     const {
-        header,
-        description,
-        testimonial,
-        cite,
-        img,
-        course,
-        bullets,
-    } = props
+        cite: { text: cite1 },
+        cite_course: { text: citeCourse1 },
+        life_bullets,
+        life_header: { text: lifeHeader },
+        life_info: { text: lifeInfo },
+        testimonial: { text: testimonial1 },
+        testimonial_image: { url: testimonial1Img }
+    } = data.prismicResponsiveLearning.data
+
     return (
         <Container>
             <TextAndTestimonial>
                 <TextContainer>
-                    <Header>{header}</Header>
-                    <Info>{description}</Info>
+                    <Header>{lifeHeader}</Header>
+                    <Info>{lifeInfo}</Info>
                 </TextContainer>
                 <TestimonialContainer>
-                    <Testimonial>" {testimonial} "</Testimonial>
-                    <Cite>{cite}</Cite>
-                    <Course>- {course}</Course>
-                    <Image src={img} />
+                    <Testimonial>" {testimonial1} "</Testimonial>
+                    <Cite>{cite1}</Cite>
+                    <Course>- {citeCourse1}</Course>
+                    <Image src={testimonial1Img} />
                 </TestimonialContainer>
             </TextAndTestimonial>
-            <Bullets bullets={bullets} />
+            <Bullets bullets={life_bullets} />
         </Container>
     )
 }

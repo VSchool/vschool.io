@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { gray, purple } from "@vschool/lotus"
 
 const Container = styled.section`
@@ -97,17 +98,44 @@ const ImageDesktop = styled.img`
     }
 `
 
-export default function Testimonial(props) {
-    const { testimonial, cite, course, img } = props
+export default function Testimonial() {
+    const data = useStaticQuery(graphql`
+        {
+            prismicResponsiveLearning {
+                data {
+                    testimonial2 {
+                        text
+                    }
+                    testimonial2_cite_course {
+                        text
+                    }
+                    testimonial2_cite {
+                        text
+                    }
+                    testimonial2_image {
+                        url
+                    }
+                }
+            }
+        }
+    `)
+
+    const {
+        testimonial2: { text: testmonial2 },
+        testimonial2_cite_course: { text: testimonial2CiteCourse },
+        testimonial2_cite: { text: testimonial2Cite },
+        testimonial2_image: { url: testimonial2Img }
+    } = data.prismicResponsiveLearning.data
+
     return (
         <Container>
             <TestimonialContainer>
-                <TestimonialText>{testimonial}</TestimonialText>
-                <Cite>{cite}</Cite>
-                <Course>{course}</Course>
-                <Image src={img} />
+                <TestimonialText>{testmonial2}</TestimonialText>
+                <Cite>{testimonial2Cite}</Cite>
+                <Course>{testimonial2CiteCourse}</Course>
+                <Image src={testimonial2Img} />
             </TestimonialContainer>
-            <ImageDesktop src={img} />
+            <ImageDesktop src={testimonial2Img} />
         </Container>
     )
 }

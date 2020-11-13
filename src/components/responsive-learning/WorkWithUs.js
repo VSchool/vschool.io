@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { gray, black, purple, Button } from "@vschool/lotus"
 import QueryLink from "../shared/QueryLink.js"
 
@@ -108,16 +109,51 @@ const StyledLink = styled(QueryLink)`
 `
 
 export default function WorkWithUs(props) {
-    const { header, subHeader, btnText, link, info, invite } = props
+    const data = useStaticQuery(graphql`
+        {
+            prismicResponsiveLearning {
+                data {
+                    work_with_us_btn {
+                        text
+                    }
+                    work_with_us_btn_link {
+                        url
+                    }
+                    work_with_us_header {
+                        text
+                    }
+                    work_with_us_info {
+                        text
+                    }
+                    work_with_us_invite {
+                        text
+                    }
+                    work_with_us_subheader {
+                        text
+                    }
+                }
+            }
+        }
+    `)
+
+    const {
+        work_with_us_btn: { text: workWithUsBtnText },
+        work_with_us_btn_link: { url: workWithUsLink },
+        work_with_us_header: { text: workWithUsHeader },
+        work_with_us_info: { text: workWithUsInfo },
+        work_with_us_invite: { text: workWithUsInvite },
+        work_with_us_subheader: { text: workWithUsSubheader },
+    } = data.prismicResponsiveLearning.data
+    
     return (
         <Container>
             <FixedContainer>
-                <Header>{header}</Header>
-                <SubHeader>{subHeader}</SubHeader>
-                <Info>{info}</Info>
-                <Invite>{invite}</Invite>
-                <StyledLink to={link}>
-                    <StyledButton>{btnText}</StyledButton>
+                <Header>{workWithUsHeader}</Header>
+                <SubHeader>{workWithUsSubheader}</SubHeader>
+                <Info>{workWithUsInfo}</Info>
+                <Invite>{workWithUsInvite}</Invite>
+                <StyledLink to={workWithUsLink}>
+                    <StyledButton>{workWithUsBtnText}</StyledButton>
                 </StyledLink>
             </FixedContainer>
         </Container>
