@@ -1,7 +1,7 @@
 import React from 'react'
 import PageHeader from "./PageHeader.js"
 import MasterBasedLearning from "./MasteryBasedLearning.js"
-export { default as RespondingHeader } from "./RespondingHeader.js"
+import RespondingHeader from "./RespondingHeader.js"
 export { default as ResponsiveIndustry } from "./ResponsiveIndustry.js"
 export { default as Quotes } from "./Quotes.js"
 export { default as ResponsiveAbility } from "./ResponsiveAbility.js"
@@ -15,6 +15,7 @@ export default function ResponsiveLearningPage() {
         <> 
             <PageHeader />
             <MasterBasedLearning />
+            <RespondingHeader />
         </>
     )
 }

@@ -3,7 +3,6 @@ import Layout from "../components/layout.js"
 import SEO from "../components/seo.js"
 import { graphql } from "gatsby"
 import {
-    RespondingHeader,
     ResponsiveIndustry,
     Quotes,
     ResponsiveAbility,
@@ -36,9 +35,6 @@ export default function ResponsiveLearning({ data }) {
         life_bullets,
         life_header: { text: lifeHeader },
         life_info: { text: lifeInfo },
-        responding_description: { text: respondingDescription },
-        responding_header: { text: respondingHeader },
-        responding_subheader: { text: respondingSubheader },
         testimonial: { text: testimonial1 },
         testimonial2: { text: testmonial2 },
         testimonial2_cite_course: { text: testimonial2CiteCourse },
@@ -59,11 +55,6 @@ export default function ResponsiveLearning({ data }) {
             <br />
             <hr />
             <br />
-            <RespondingHeader
-                header={respondingHeader}
-                subHeader={respondingSubheader}
-                description={respondingDescription}
-            />
             <ResponsiveIndustry
                 header={industryHeader}
                 info={industryInfo}
