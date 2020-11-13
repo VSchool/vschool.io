@@ -30,15 +30,27 @@ export function useFormium(data) {
     const [formData, setFormData] = useState({})
     const [formComponents, setFormComponents] = useState()
 
-    useEffect(() => {
-        const formiumPageId = data.formiumForm.schema.pageIds[0]
-        const formiumFields = data.formiumForm.schema.fields
-        const formiumQuestionIds = formiumFields[formiumPageId].items
-        const formiumQuestions = formiumQuestionIds
-            .map(q => formiumFields[q])
-            // Don't display any questions marked as hidden
-            .filter(q => !q.hidden)
+    const formiumPageId = data.formiumForm.schema.pageIds[0]
+    const formiumFields = data.formiumForm.schema.fields
+    const formiumQuestions = formiumFields[formiumPageId].items
+        .map(q => formiumFields[q])
+        // Don't display any questions marked as hidden
+        .filter(q => !q.hidden)
 
+    function handleChange(e) {
+        const { name, value, type } = e.target
+        setFormData(prevData => ({
+            ...prevData,
+            [name]:
+                type === "checkbox"
+                    ? prevData[name].includes(value)
+                        ? prevData[name].filter(val => val !== value)
+                        : [...prevData[name], value]
+                    : value,
+        }))
+    }
+
+    useEffect(() => {
         // Set the initial data from the formium questions
         const initialData = formiumQuestions.reduce((acc, curr) => {
             if (Object.keys(acc).length === 0) {
@@ -50,7 +62,9 @@ export function useFormium(data) {
             }
         }, {})
         setFormData(initialData)
+    }, [data])
 
+    useEffect(() => {
         const components = formiumQuestions.map(question => {
             switch (question.type) {
                 case "SHORT_TEXT":
@@ -157,20 +171,7 @@ export function useFormium(data) {
             }
         })
         setFormComponents(components)
-    }, [data])
+    }, [formData])
 
-    function handleChange(e) {
-        const { name, value, type } = e.target
-        setFormData(prevData => ({
-            ...prevData,
-            [name]:
-                type === "checkbox"
-                    ? prevData[name].includes(value)
-                        ? prevData[name].filter(val => val !== value)
-                        : [...prevData[name], value]
-                    : value,
-        }))
-    }
-
-    return { formComponents, formData, handleChange }
+    return { formComponents, formData }
 }
