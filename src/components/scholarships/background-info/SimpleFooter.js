@@ -32,19 +32,6 @@ const Container = styled.div`
     justify-content: flex-end;
 `
 
-const Text = styled.p`
-    color: ${white};
-    margin-right: 16px;
-    font-size: 14px;
-    line-height: 18px;
-
-    @media (min-width: 800px) {
-        font-size: 20px;
-        line-height: 28px;
-        margin-right: 24px;
-    }
-`
-
 const StyledButton = styled(Button)`
     width: 125px;
     height: 32px !important;
