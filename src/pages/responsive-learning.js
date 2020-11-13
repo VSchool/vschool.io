@@ -3,7 +3,6 @@ import Layout from "../components/layout.js"
 import SEO from "../components/seo.js"
 import { graphql } from "gatsby"
 import {
-    Quotes,
     ResponsiveLife,
     CTA,
     Testimonial,
@@ -16,7 +15,6 @@ export default function ResponsiveLearning({ data }) {
     const {
         cite: { text: cite1 },
         cite_course: { text: citeCourse1 },
-        companies,
         cta_btn: { text: ctaBtnText },
         cta_btn_link: { url: ctaLink },
         cta_courses,
@@ -46,7 +44,6 @@ export default function ResponsiveLearning({ data }) {
             <br />
             <hr />
             <br />
-            <Quotes quotes={companies} />
             <ResponsiveLife
                 header={lifeHeader}
                 description={lifeInfo}
