@@ -3,7 +3,6 @@ import Layout from "../components/layout.js"
 import SEO from "../components/seo.js"
 import { graphql } from "gatsby"
 import {
-    MasterBasedLearning,
     RespondingHeader,
     ResponsiveIndustry,
     Quotes,
@@ -37,10 +36,6 @@ export default function ResponsiveLearning({ data }) {
         life_bullets,
         life_header: { text: lifeHeader },
         life_info: { text: lifeInfo },
-        mastery_description: { text: masteryDescription },
-        mastery_header: { text: masteryHeader },
-        mastery_info,
-        mastery_subheader: { text: masterySubheader },
         responding_description: { text: respondingDescription },
         responding_header: { text: respondingHeader },
         responding_subheader: { text: respondingSubheader },
@@ -64,13 +59,6 @@ export default function ResponsiveLearning({ data }) {
             <br />
             <hr />
             <br />
-
-            <MasterBasedLearning
-                header={masteryHeader}
-                subHeader={masterySubheader}
-                description={masteryDescription}
-                info={mastery_info}
-            />
             <RespondingHeader
                 header={respondingHeader}
                 subHeader={respondingSubheader}
