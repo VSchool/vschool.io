@@ -3,7 +3,6 @@ import Layout from "../components/layout.js"
 import SEO from "../components/seo.js"
 import { graphql } from "gatsby"
 import {
-    ResponsiveIndustry,
     Quotes,
     ResponsiveAbility,
     ResponsiveLife,
@@ -29,9 +28,6 @@ export default function ResponsiveLearning({ data }) {
         cta_courses,
         cta_header: { text: ctaHeader },
         cta_subheader: { text: ctaSubheader },
-        industry_header: { text: industryHeader },
-        industry_image: { url: industryImg },
-        industry_info: { text: industryInfo },
         life_bullets,
         life_header: { text: lifeHeader },
         life_info: { text: lifeInfo },
@@ -48,6 +44,7 @@ export default function ResponsiveLearning({ data }) {
         work_with_us_invite: { text: workWithUsInvite },
         work_with_us_subheader: { text: workWithUsSubheader },
     } = data.prismicResponsiveLearning.data
+    
     return (
         <Layout>
             <SEO title="Responsive Learning" />
@@ -55,11 +52,6 @@ export default function ResponsiveLearning({ data }) {
             <br />
             <hr />
             <br />
-            <ResponsiveIndustry
-                header={industryHeader}
-                info={industryInfo}
-                img={industryImg}
-            />
             <Quotes quotes={companies} />
             <ResponsiveAbility
                 header={abilityHeader}
