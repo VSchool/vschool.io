@@ -2,21 +2,9 @@ import React from "react"
 import Layout from "../components/layout.js"
 import SEO from "../components/seo.js"
 import { graphql } from "gatsby"
-import {
-    WorkWithUs,
-} from "../components/responsive-learning"
-
 import ResponsiveLearningPage from '../components/responsive-learning'
 
 export default function ResponsiveLearning({ data }) {
-    const {
-        work_with_us_btn: { text: workWithUsBtnText },
-        work_with_us_btn_link: { url: workWithUsLink },
-        work_with_us_header: { text: workWithUsHeader },
-        work_with_us_info: { text: workWithUsInfo },
-        work_with_us_invite: { text: workWithUsInvite },
-        work_with_us_subheader: { text: workWithUsSubheader },
-    } = data.prismicResponsiveLearning.data
 
     return (
         <Layout>
@@ -25,14 +13,6 @@ export default function ResponsiveLearning({ data }) {
             <br />
             <hr />
             <br />
-            <WorkWithUs
-                header={workWithUsHeader}
-                subHeader={workWithUsSubheader}
-                btnText={workWithUsBtnText}
-                link={workWithUsLink}
-                info={workWithUsInfo}
-                invite={workWithUsInvite}
-            />
         </Layout>
     )
 }
