@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { gray, green, purple, black } from "@vschool/lotus"
 
 const Container = styled.section`
@@ -178,17 +179,52 @@ const InfoText = styled.p`
 `
 
 export default function MasterBasedLearning(props) {
-    const { header, subHeader, description, info } = props
+    const data = useStaticQuery(graphql`
+            {
+                prismicResponsiveLearning {
+                    data {
+                        mastery_description {
+                            text
+                        }
+                        mastery_header {
+                            text
+                        }
+                        mastery_info {
+                            info {
+                                text
+                            }
+                            header {
+                                text
+                            }
+                            graph {
+                                url
+                            }
+                        }
+                        mastery_subheader {
+                            text
+                        }
+                    }
+                }
+            }
+        `)
+
+        const {
+            mastery_description: { text: masteryDescription },
+            mastery_header: { text: masteryHeader },
+            mastery_info,
+            mastery_subheader: { text: masterySubheader }
+        } = data.prismicResponsiveLearning.data
+
     return (
         <Container>
             <HeaderContainer>
-                <Header>{header}</Header>
+                <Header>{masteryHeader}</Header>
                 <GreenUnderline />
             </HeaderContainer>
-            <SubHeader>{subHeader}</SubHeader>
-            <Description>{description}</Description>
+            <SubHeader>{masterySubheader}</SubHeader>
+            <Description>{masteryDescription}</Description>
             <InfoContainer>
-                {info.map(item => (
+                {mastery_info.map(item => (
                     <Info key={item.header.text}>
                         <InfoHeader>{item.header.text}</InfoHeader>
                         <InfoImg src={item.graph.url} />
