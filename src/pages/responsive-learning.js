@@ -3,7 +3,6 @@ import Layout from "../components/layout.js"
 import SEO from "../components/seo.js"
 import { graphql } from "gatsby"
 import {
-    PageHeader,
     MasterBasedLearning,
     RespondingHeader,
     ResponsiveIndustry,
@@ -14,6 +13,8 @@ import {
     Testimonial,
     WorkWithUs,
 } from "../components/responsive-learning"
+
+import ResponsiveLearningPage from '../components/responsive-learning'
 
 export default function ResponsiveLearning({ data }) {
     const {
@@ -30,7 +31,6 @@ export default function ResponsiveLearning({ data }) {
         cta_courses,
         cta_header: { text: ctaHeader },
         cta_subheader: { text: ctaSubheader },
-        header_img: { url: headerImg },
         industry_header: { text: industryHeader },
         industry_image: { url: industryImg },
         industry_info: { text: industryInfo },
@@ -41,9 +41,6 @@ export default function ResponsiveLearning({ data }) {
         mastery_header: { text: masteryHeader },
         mastery_info,
         mastery_subheader: { text: masterySubheader },
-        page_header: { text: pageHeader },
-        page_subheader: { text: pageSubheader },
-        page_title: { text: pageTitle },
         responding_description: { text: respondingDescription },
         responding_header: { text: respondingHeader },
         responding_subheader: { text: respondingSubheader },
@@ -63,12 +60,11 @@ export default function ResponsiveLearning({ data }) {
     return (
         <Layout>
             <SEO title="Responsive Learning" />
-            <PageHeader
-                title={pageTitle}
-                header={pageHeader}
-                subHeader={pageSubheader}
-                img={headerImg}
-            />
+            <ResponsiveLearningPage />
+            <br />
+            <hr />
+            <br />
+
             <MasterBasedLearning
                 header={masteryHeader}
                 subHeader={masterySubheader}
