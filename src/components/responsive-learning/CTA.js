@@ -182,7 +182,6 @@ export default function CTA(props) {
         cta_subheader: { text: ctaSubheader }
     } = data.prismicResponsiveLearning.data
 
-    // const { header, subHeader, btnText, link, courses } = props
     return (
         <Container>
             <Header>{ctaHeader}</Header>
