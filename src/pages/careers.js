@@ -1,11 +1,9 @@
 import React from "react"
 import Layout from "../components/layout.js"
 import SEO from "../components/seo.js"
-import { graphql } from "gatsby"
-
 import CareersPage from '../components/careers'
 
-export default function Careers({ data }) {
+export default function Careers() {
 
     return (
         <Layout>
