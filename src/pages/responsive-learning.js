@@ -3,7 +3,6 @@ import Layout from "../components/layout.js"
 import SEO from "../components/seo.js"
 import { graphql } from "gatsby"
 import {
-    ResponsiveLife,
     CTA,
     Testimonial,
     WorkWithUs,
@@ -13,22 +12,15 @@ import ResponsiveLearningPage from '../components/responsive-learning'
 
 export default function ResponsiveLearning({ data }) {
     const {
-        cite: { text: cite1 },
-        cite_course: { text: citeCourse1 },
         cta_btn: { text: ctaBtnText },
         cta_btn_link: { url: ctaLink },
         cta_courses,
         cta_header: { text: ctaHeader },
         cta_subheader: { text: ctaSubheader },
-        life_bullets,
-        life_header: { text: lifeHeader },
-        life_info: { text: lifeInfo },
-        testimonial: { text: testimonial1 },
         testimonial2: { text: testmonial2 },
         testimonial2_cite_course: { text: testimonial2CiteCourse },
         testimonial2_cite: { text: testimonial2Cite },
         testimonial2_image: { url: testimonial2Img },
-        testimonial_image: { url: testimonial1Img },
         work_with_us_btn: { text: workWithUsBtnText },
         work_with_us_btn_link: { url: workWithUsLink },
         work_with_us_header: { text: workWithUsHeader },
@@ -44,15 +36,6 @@ export default function ResponsiveLearning({ data }) {
             <br />
             <hr />
             <br />
-            <ResponsiveLife
-                header={lifeHeader}
-                description={lifeInfo}
-                testimonial={testimonial1}
-                img={testimonial1Img}
-                cite={cite1}
-                course={citeCourse1}
-                bullets={life_bullets}
-            />
             <CTA
                 header={ctaHeader}
                 subHeader={ctaSubheader}

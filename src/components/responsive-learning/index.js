@@ -5,7 +5,7 @@ import RespondingHeader from "./RespondingHeader.js"
 import ResponsiveIndustry from "./ResponsiveIndustry.js"
 import ResponsiveAbility from "./ResponsiveAbility.js"
 import Quotes from "./Quotes.js"
-export { default as ResponsiveLife } from "./ResponsiveLife.js"
+import ResponsiveLife from "./ResponsiveLife.js"
 export { default as CTA } from "./CTA.js"
 export { default as Testimonial } from "./Testimonial.js"
 export { default as WorkWithUs } from "./WorkWithUs.js"
@@ -19,6 +19,7 @@ export default function ResponsiveLearningPage() {
             <ResponsiveIndustry />
             <ResponsiveAbility />
             <Quotes />
+            <ResponsiveLife />
         </>
     )
 }
