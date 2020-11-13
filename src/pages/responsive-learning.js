@@ -3,7 +3,6 @@ import Layout from "../components/layout.js"
 import SEO from "../components/seo.js"
 import { graphql } from "gatsby"
 import {
-    Testimonial,
     WorkWithUs,
 } from "../components/responsive-learning"
 
@@ -11,10 +10,6 @@ import ResponsiveLearningPage from '../components/responsive-learning'
 
 export default function ResponsiveLearning({ data }) {
     const {
-        testimonial2: { text: testmonial2 },
-        testimonial2_cite_course: { text: testimonial2CiteCourse },
-        testimonial2_cite: { text: testimonial2Cite },
-        testimonial2_image: { url: testimonial2Img },
         work_with_us_btn: { text: workWithUsBtnText },
         work_with_us_btn_link: { url: workWithUsLink },
         work_with_us_header: { text: workWithUsHeader },
@@ -30,13 +25,6 @@ export default function ResponsiveLearning({ data }) {
             <br />
             <hr />
             <br />
-
-            <Testimonial
-                testimonial={testmonial2}
-                cite={testimonial2Cite}
-                course={testimonial2CiteCourse}
-                img={testimonial2Img}
-            />
             <WorkWithUs
                 header={workWithUsHeader}
                 subHeader={workWithUsSubheader}

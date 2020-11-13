@@ -7,7 +7,7 @@ import ResponsiveAbility from "./ResponsiveAbility.js"
 import Quotes from "./Quotes.js"
 import ResponsiveLife from "./ResponsiveLife.js"
 import CTA from "./CTA.js"
-export { default as Testimonial } from "./Testimonial.js"
+import Testimonial from "./Testimonial.js"
 export { default as WorkWithUs } from "./WorkWithUs.js"
 
 export default function ResponsiveLearningPage() {
@@ -21,6 +21,7 @@ export default function ResponsiveLearningPage() {
             <Quotes />
             <ResponsiveLife />
             <CTA />
+            <Testimonial />
         </>
     )
 }
