@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import QueryLink from "../shared/QueryLink.js"
 import { black, green, purple, white, Button } from "@vschool/lotus"
 
@@ -131,12 +132,62 @@ const StyledLink = styled(QueryLink)`
 `
 
 export default function CTA(props) {
-    const { header, subHeader, btnText, link, courses } = props
+    const data = useStaticQuery(graphql`
+        {
+            prismicResponsiveLearning {
+                data {
+                    cta_btn {
+                        text
+                    }
+                    cta_btn_link {
+                        url
+                    }
+                    cta_courses {
+                        session_date {
+                            document {
+                                ... on PrismicStartDate {
+                                    id
+                                    data {
+                                        course_name {
+                                            text
+                                        }
+                                        start_date(formatString: "MMMM Do, YYYY")
+                                    }
+                                }
+                            }
+                        }
+                        next_session {
+                            text
+                        }
+                        bg_image {
+                            url
+                        }
+                    }
+                    cta_header {
+                        text
+                    }
+                    cta_subheader {
+                        text
+                    }
+                }
+            }
+        }
+    `)
+
+    const {
+        cta_btn: { text: ctaBtnText },
+        cta_btn_link: { url: ctaLink },
+        cta_courses,
+        cta_header: { text: ctaHeader },
+        cta_subheader: { text: ctaSubheader }
+    } = data.prismicResponsiveLearning.data
+
+    // const { header, subHeader, btnText, link, courses } = props
     return (
         <Container>
-            <Header>{header}</Header>
+            <Header>{ctaHeader}</Header>
             <CoursesContainer>
-                {courses.map(({ bg_image, next_session, session_date }) => (
+                {cta_courses.map(({ bg_image, next_session, session_date }) => (
                     <CourseContainer
                         key={next_session.text}
                         bgImg={bg_image.url}
@@ -150,9 +201,9 @@ export default function CTA(props) {
                     </CourseContainer>
                 ))}
             </CoursesContainer>
-            <SubHeader>{subHeader}</SubHeader>
-            <StyledLink to={link}>
-                <StyledButton>{btnText}</StyledButton>
+            <SubHeader>{ctaSubheader}</SubHeader>
+            <StyledLink to={ctaLink}>
+                <StyledButton>{ctaBtnText}</StyledButton>
             </StyledLink>
         </Container>
     )
