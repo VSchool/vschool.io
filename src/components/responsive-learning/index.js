@@ -8,7 +8,7 @@ import Quotes from "./Quotes.js"
 import ResponsiveLife from "./ResponsiveLife.js"
 import CTA from "./CTA.js"
 import Testimonial from "./Testimonial.js"
-export { default as WorkWithUs } from "./WorkWithUs.js"
+import WorkWithUs from "./WorkWithUs.js"
 
 export default function ResponsiveLearningPage() {
     return (
@@ -22,6 +22,7 @@ export default function ResponsiveLearningPage() {
             <ResponsiveLife />
             <CTA />
             <Testimonial />
+            <WorkWithUs />
         </>
     )
 }
