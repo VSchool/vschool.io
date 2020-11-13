@@ -4,7 +4,6 @@ import SEO from "../components/seo.js"
 import { graphql } from "gatsby"
 import {
     Quotes,
-    ResponsiveAbility,
     ResponsiveLife,
     CTA,
     Testimonial,
@@ -15,11 +14,6 @@ import ResponsiveLearningPage from '../components/responsive-learning'
 
 export default function ResponsiveLearning({ data }) {
     const {
-        ability_bullets,
-        ability_description: { text: abilityDescription },
-        ability_header: { text: abilityHeader },
-        ability_image: { url: abilityImg },
-        ability_image_mobile: { url: abilityImgMobile },
         cite: { text: cite1 },
         cite_course: { text: citeCourse1 },
         companies,
@@ -44,7 +38,7 @@ export default function ResponsiveLearning({ data }) {
         work_with_us_invite: { text: workWithUsInvite },
         work_with_us_subheader: { text: workWithUsSubheader },
     } = data.prismicResponsiveLearning.data
-    
+
     return (
         <Layout>
             <SEO title="Responsive Learning" />
@@ -53,13 +47,6 @@ export default function ResponsiveLearning({ data }) {
             <hr />
             <br />
             <Quotes quotes={companies} />
-            <ResponsiveAbility
-                header={abilityHeader}
-                description={abilityDescription}
-                desktopImg={abilityImg}
-                mobileImg={abilityImgMobile}
-                bullets={ability_bullets}
-            />
             <ResponsiveLife
                 header={lifeHeader}
                 description={lifeInfo}
