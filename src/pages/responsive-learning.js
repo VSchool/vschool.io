@@ -3,7 +3,6 @@ import Layout from "../components/layout.js"
 import SEO from "../components/seo.js"
 import { graphql } from "gatsby"
 import {
-    CTA,
     Testimonial,
     WorkWithUs,
 } from "../components/responsive-learning"
@@ -12,11 +11,6 @@ import ResponsiveLearningPage from '../components/responsive-learning'
 
 export default function ResponsiveLearning({ data }) {
     const {
-        cta_btn: { text: ctaBtnText },
-        cta_btn_link: { url: ctaLink },
-        cta_courses,
-        cta_header: { text: ctaHeader },
-        cta_subheader: { text: ctaSubheader },
         testimonial2: { text: testmonial2 },
         testimonial2_cite_course: { text: testimonial2CiteCourse },
         testimonial2_cite: { text: testimonial2Cite },
@@ -36,13 +30,7 @@ export default function ResponsiveLearning({ data }) {
             <br />
             <hr />
             <br />
-            <CTA
-                header={ctaHeader}
-                subHeader={ctaSubheader}
-                btnText={ctaBtnText}
-                link={ctaLink}
-                courses={cta_courses}
-            />
+
             <Testimonial
                 testimonial={testmonial2}
                 cite={testimonial2Cite}
