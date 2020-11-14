@@ -1,10 +1,28 @@
-export { default as PageHeader } from "./PageHeader.js"
-export { default as MasterBasedLearning } from "./MasteryBasedLearning.js"
-export { default as RespondingHeader } from "./RespondingHeader.js"
-export { default as ResponsiveIndustry } from "./ResponsiveIndustry.js"
-export { default as Quotes } from "./Quotes.js"
-export { default as ResponsiveAbility } from "./ResponsiveAbility.js"
-export { default as ResponsiveLife } from "./ResponsiveLife.js"
-export { default as CTA } from "./CTA.js"
-export { default as Testimonial } from "./Testimonial.js"
-export { default as WorkWithUs } from "./WorkWithUs.js"
+import React from 'react'
+import PageHeader from "./PageHeader.js"
+import MasterBasedLearning from "./MasteryBasedLearning.js"
+import RespondingHeader from "./RespondingHeader.js"
+import ResponsiveIndustry from "./ResponsiveIndustry.js"
+import ResponsiveAbility from "./ResponsiveAbility.js"
+import Quotes from "./Quotes.js"
+import ResponsiveLife from "./ResponsiveLife.js"
+import CTA from "./CTA.js"
+import Testimonial from "./Testimonial.js"
+import WorkWithUs from "./WorkWithUs.js"
+
+export default function ResponsiveLearningPage() {
+    return (
+        <> 
+            <PageHeader />
+            <MasterBasedLearning />
+            <RespondingHeader />
+            <ResponsiveIndustry />
+            <ResponsiveAbility />
+            <Quotes />
+            <ResponsiveLife />
+            <CTA />
+            <Testimonial />
+            <WorkWithUs />
+        </>
+    )
+}

@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { gray, purple, black } from "@vschool/lotus"
 
 const Container = styled.section`
@@ -60,13 +61,36 @@ const Description = styled.p`
     }
 `
 
-export default function RespondingHeader(props) {
-    const { header, subHeader, description } = props
+export default function RespondingHeader() {
+    const data = useStaticQuery(graphql`
+        {
+            prismicResponsiveLearning {
+                data {
+                    responding_description {
+                        text
+                    }
+                    responding_header {
+                        text
+                    }
+                    responding_subheader {
+                        text
+                    }
+                }
+            }
+        }
+    `)
+
+    const {
+        responding_description: { text: respondingDescription },
+        responding_header: { text: respondingHeader },
+        responding_subheader: { text: respondingSubheader }
+    } = data.prismicResponsiveLearning.data
+    
     return (
         <Container>
-            <Header>{header}</Header>
-            <SubHeader>{subHeader}</SubHeader>
-            <Description>{description}</Description>
+            <Header>{respondingHeader}</Header>
+            <SubHeader>{respondingSubheader}</SubHeader>
+            <Description>{respondingDescription}</Description>
         </Container>
     )
 }
