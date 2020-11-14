@@ -3,7 +3,6 @@ import styled from "styled-components"
 import { useStaticQuery, graphql, navigate } from "gatsby"
 import { useLocation } from "@reach/router"
 import queryString from "query-string"
-// import { createClient } from "@formium/client"
 import { blue, Button } from "@vschool/lotus"
 
 import { useFormium } from "../../../hooks/useFormium"
