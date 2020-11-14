@@ -14,6 +14,7 @@ const Container = styled.section`
 const Title = styled.h2`
     text-align: center;
     margin-bottom: 24px;
+    text-align: center;
 
     @media (min-width: 800px) {
         margin-bottom: 32px;
