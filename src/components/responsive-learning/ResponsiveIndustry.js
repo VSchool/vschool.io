@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { gray, black } from "@vschool/lotus"
 
 const Container = styled.section`
@@ -72,15 +73,38 @@ const Image = styled.img`
     }
 `
 
-export default function ResponsiveIndustry(props) {
-    const { header, info, img } = props
+export default function ResponsiveIndustry() {
+    const data = useStaticQuery(graphql`
+        {
+            prismicResponsiveLearning {
+                data {
+                    industry_header {
+                        text
+                    }
+                    industry_image {
+                        url
+                    }
+                    industry_info {
+                        text
+                    }
+                }
+            }
+        }
+    `)
+
+    const {
+        industry_header: { text: industryHeader },
+        industry_image: { url: industryImg },
+        industry_info: { text: industryInfo }
+    } = data.prismicResponsiveLearning.data
+
     return (
         <Container>
             <TextContainer>
-                <Header>{header}</Header>
-                <Info>{info}</Info>
+                <Header>{industryHeader}</Header>
+                <Info>{industryInfo}</Info>
             </TextContainer>
-            <Image src={img} />
+            <Image src={industryImg} />
         </Container>
     )
 }
