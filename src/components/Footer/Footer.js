@@ -214,7 +214,7 @@ const Footer = () => {
                     {startDates.map(({ node: { data } }) => (
                         <CourseLink
                             to={
-                                data.course_name.text === "Experience Design"
+                                data.course_name.text === "UX/UI Design"
                                     ? "/experience-design"
                                     : "/development"
                             }
