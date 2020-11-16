@@ -196,16 +196,12 @@ export default function CallToAction(props) {
         make_a_leap_header: { text: makeALeapHeader },
         make_a_leap_link: { url: makeALeapLink },
         make_a_leap_sub: { text: makeALeapSub },
-        scholarship_details,
         next_session: { text: nextSession },
     } = data.prismicTiffin.data
     const startDates = data.allPrismicStartDate.edges.map(
         obj => obj.node.data.start_date
     )
     const nextStartDate = startDates[0]
-
-    console.log(startDates)
-    console.log(nextStartDate)
 
     const { bgColor, sessionColor } = props
 

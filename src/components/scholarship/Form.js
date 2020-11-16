@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, navigate } from "gatsby"
 import { blue, gray, TextInput, Button } from "@vschool/lotus"
 
 const Section = styled.section`
@@ -54,15 +54,37 @@ const Disclaimer = styled.p`
     text-align: center;
 `
 
+const StyledButton = styled(Button)`
+    @media (max-width: 599px) {
+        width: 100%;
+    }
+`
+
 export default function ApplicationForm() {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
 
     // TODO: Submit the data somewhere.
     // Chat with Cody about what happens after that.
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault()
-        console.log({ name, email })
+        /**
+        TODO:
+        (1) Add the person to a customer.io segment
+        (2) Send them an email with the link to the background info form
+        (3) Navigate them to the background info form
+         */
+        const options = {
+            method: "POST",
+            body: JSON.stringify({ name, email }),
+        }
+        await fetch(
+            "https://hooks.zapier.com/hooks/catch/666916/olr9hds/",
+            options
+        )
+        navigate(`/scholarships/background-info-form`, {
+            state: { name, email },
+        })
     }
 
     const data = useStaticQuery(graphql`
@@ -113,7 +135,7 @@ export default function ApplicationForm() {
                         required
                         validationText="auto-generate"
                     />
-                    <Button size="lg">{buttonText}</Button>
+                    <StyledButton size="lg">{buttonText}</StyledButton>
                 </Form>
                 <Disclaimer>{disclaimer}</Disclaimer>
             </FormContainer>

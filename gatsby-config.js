@@ -73,6 +73,7 @@ module.exports = {
                     press: require("./src/schemas/press.json"),
                     rankings_component: require("./src/schemas/rankings_component.json"),
                     responsive_learning: require("./src/schemas/responsive_learning.json"),
+                    scholarships_background_info_form: require("./src/schemas/scholarships_background_info_form.json"),
                     scholarships_intro_page: require("./src/schemas/scholarships_intro_page.json"),
                     scholarship_page: require("./src/schemas/scholarship_page.json"),
                     scholarship_page_shared_data: require("./src/schemas/scholarship_page_shared_data"),
@@ -119,6 +120,15 @@ module.exports = {
             resolve: `gatsby-plugin-facebook-pixel`,
             options: {
                 pixelId: process.env.FACEBOOK_PIXEL_ID,
+            },
+        },
+        {
+            resolve: `gatsby-source-formium`,
+            options: {
+                // Get your projectId from https://dashboard.formium.io
+                projectId: process.env.GATSBY_FORMIUM_PROJECTID,
+                // Generate a personal access token by going to https://dashboard.formium.io/account#tokens and put it into a .env file (learn more about Gatsby environment variables here: https://gatsby.dev/env-vars).
+                accessToken: process.env.FORMIUM_ACCESS_TOKEN,
             },
         },
     ],
