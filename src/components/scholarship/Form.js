@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql, navigate } from "gatsby"
 import { blue, gray, TextInput, Button } from "@vschool/lotus"
+import { createClient } from "@formium/client"
 
 const Section = styled.section`
     padding-bottom: 24px;
@@ -70,18 +71,12 @@ export default function ApplicationForm() {
         e.preventDefault()
         /**
         TODO:
-        (1) Add the person to a customer.io segment
-        (2) Send them an email with the link to the background info form
-        (3) Navigate them to the background info form
+        (1) Add the person to a customer.io (or ConvertKit) segment or tag
+        (2) Send them an email with the link to the background info form (name and email in URL params)
+        (3) Navigate them to the background info form with their name and email remembered
          */
-        const options = {
-            method: "POST",
-            body: JSON.stringify({ name, email }),
-        }
-        await fetch(
-            "https://hooks.zapier.com/hooks/catch/666916/olr9hds/",
-            options
-        )
+        const formium = createClient(process.env.GATSBY_FORMIUM_PROJECTID)
+        await formium.submitForm("scholarship-initial-form", { name, email })
         navigate(`/scholarships/background-info-form`, {
             state: { name, email },
         })
@@ -120,7 +115,7 @@ export default function ApplicationForm() {
                         type="text"
                         label="Name"
                         name="name"
-                        placeholder="First and Last name"
+                        placeholder="First and Last names"
                         value={name}
                         onChange={e => setName(e.target.value)}
                         required
