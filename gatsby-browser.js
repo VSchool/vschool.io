@@ -18,7 +18,7 @@ export const onRouteUpdate = ({ location }) => {
         // Don't save queries when coming to the scholarship background info form.
         // This isn't my favorite solution to this problem, but I can't think of a
         // better one offhand.
-        !location.pathname.includes("background-info-form")
+        !location.pathname.includes("/application")
     ) {
         console.log("initial")
         localStorage.setItem("query", location.search)

@@ -3,10 +3,10 @@ import styled from "styled-components"
 import { useStaticQuery, graphql, navigate } from "gatsby"
 import { useLocation } from "@reach/router"
 import queryString from "query-string"
-// import { createClient } from "@formium/client"
 import { blue, Button } from "@vschool/lotus"
+import { formium } from "../../../../lib/formium"
 
-import { useFormium } from "../../../hooks/useFormium"
+import { useFormium } from "../../../../hooks/useFormium"
 
 const Form = styled.form`
     background-color: ${blue.lightest};
@@ -23,7 +23,6 @@ const Form = styled.form`
 export default function BackgroundForm() {
     const location = useLocation()
     const [queryData, setQueryData] = useState({})
-    // const [formData, setFormData] = useState({})
     const data = useStaticQuery(graphql`
         {
             formiumForm(slug: { eq: "scholarship-background-info" }) {
@@ -33,7 +32,7 @@ export default function BackgroundForm() {
         }
     `)
 
-    const { formComponents, formData } = useFormium(data)
+    const { formComponents, formData } = useFormium(data.formiumForm)
 
     // Save the name/email either from state (from the scholarship page) or from a querystring (from email link)
     useEffect(() => {
@@ -56,16 +55,7 @@ export default function BackgroundForm() {
     async function handleSubmit(e) {
         e.preventDefault()
         const data = { ...queryData, ...formData }
-        const options = {
-            method: "POST",
-            body: JSON.stringify(data),
-        }
-        const res = await fetch(
-            "https://hooks.zapier.com/hooks/catch/666916/ol5gwcd/",
-            options
-        )
-        const response = await res.json()
-        console.log(response)
+        await formium.submitForm("scholarship-background-info", data)
     }
 
     return (

@@ -1,6 +1,6 @@
 import React from "react"
-import SEO from "../../../components/seo"
-import BackgroundInfoFormComponent from "../../../components/scholarships/background-info"
+import SEO from "../../../../components/seo"
+import BackgroundInfoFormComponent from "../../../../components/scholarships/application/background-info"
 
 const BackgroundInfoForm = () => {
     return (
