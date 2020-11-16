@@ -23,7 +23,7 @@ const Title = styled.h2`
 
 const Text = styled.p`
     font-size: 16px;
-    line-height: 24px;
+    /* line-height: 24px; */
     margin-bottom: 24px;
     color: ${gray.darker};
 
