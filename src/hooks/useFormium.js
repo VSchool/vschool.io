@@ -26,12 +26,12 @@ const StyledCheckboxRadioGroup = styled(CheckboxRadioGroup)`
     ${sharedStyles}
 `
 
-export function useFormium(data) {
+export function useFormium(formiumForm) {
     const [formData, setFormData] = useState({})
     const [formComponents, setFormComponents] = useState()
 
-    const formiumPageId = data.formiumForm.schema.pageIds[0]
-    const formiumFields = data.formiumForm.schema.fields
+    const formiumPageId = formiumForm.schema.pageIds[0]
+    const formiumFields = formiumForm.schema.fields
     const formiumQuestions = formiumFields[formiumPageId].items
         .map(q => formiumFields[q])
         // Don't display any questions marked as hidden
@@ -62,7 +62,7 @@ export function useFormium(data) {
             }
         }, {})
         setFormData(initialData)
-    }, [data])
+    }, [formiumForm])
 
     useEffect(() => {
         const components = formiumQuestions.map(question => {

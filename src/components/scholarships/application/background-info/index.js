@@ -3,8 +3,8 @@ import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import { blue, gray } from "@vschool/lotus"
 
-import SimpleNav from "./SimpleNav"
-import SimpleFooter from "./SimpleFooter"
+import SimpleNav from "../SimpleNav"
+import SimpleFooter from "../SimpleFooter"
 import Form from "./Form"
 // These styles make the Footer stick to the bottom of any page, no matter the page height
 const MainContainer = styled.div`
@@ -26,8 +26,10 @@ const TextContainer = styled.section`
     flex-direction: column;
     align-items: center;
     margin-bottom: 64px;
+    padding-top: 64px;
 
     @media (min-width: 800px) {
+        padding-top: 96px;
         margin-bottom: 96px;
     }
 `

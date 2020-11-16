@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql, navigate } from "gatsby"
 import { blue, gray, TextInput, Button } from "@vschool/lotus"
-import { createClient } from "@formium/client"
+import { formium } from "../../lib/formium"
 
 const Section = styled.section`
     padding-bottom: 24px;
@@ -75,9 +75,8 @@ export default function ApplicationForm() {
         (2) Send them an email with the link to the background info form (name and email in URL params)
         (3) Navigate them to the background info form with their name and email remembered
          */
-        const formium = createClient(process.env.GATSBY_FORMIUM_PROJECTID)
         await formium.submitForm("scholarship-initial-form", { name, email })
-        navigate(`/scholarships/background-info-form`, {
+        navigate(`/scholarships/application/background-info`, {
             state: { name, email },
         })
     }
