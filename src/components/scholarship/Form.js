@@ -98,7 +98,7 @@ const StyledButton = styled(Button)`
     }
 `
 
-export default function ApplicationForm() {
+export default function ApplicationForm(props) {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
 
@@ -133,18 +133,6 @@ export default function ApplicationForm() {
                     }
                 }
             }
-            prismicScholarshipPage {
-                data {
-                    winner_announced_text {
-                        text
-                    }
-                    winner_announced_date(formatString: "MMMM Do, YYYY")
-                    deadline_text {
-                        text
-                    }
-                    deadline_date(formatString: "MMMM Do, YYYY")
-                }
-            }
         }
     `)
 
@@ -159,7 +147,7 @@ export default function ApplicationForm() {
         winner_announced_date: winnerDate,
         deadline_text: { text: deadlineText },
         deadline_date: deadlineDate,
-    } = data.prismicScholarshipPage.data
+    } = props
 
     return (
         <Section>

@@ -42,6 +42,10 @@ export const query = graphql`
     query($uid: String!) {
         prismicScholarshipPage(uid: { eq: $uid }) {
             data {
+                deadline_text {
+                    text
+                }
+                deadline_date(formatString: "MMMM Do, YYYY")
                 hero_title {
                     text
                 }
@@ -89,6 +93,10 @@ export const query = graphql`
                 testimonial_status {
                     text
                 }
+                winner_announced_text {
+                    text
+                }
+                winner_announced_date(formatString: "MMMM Do, YYYY")
             }
         }
     }

@@ -13,7 +13,7 @@ export default function Scholarship({ data }) {
         <div>
             <Hero {...data} />
             <Stages />
-            <Form />
+            <Form {...data} />
             <FAQ />
             <Companies />
             <Rankings />
