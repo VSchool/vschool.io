@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { black, gray } from "@vschool/lotus"
 
 const Container = styled.section`
@@ -85,11 +86,35 @@ const Position = styled.p`
     color: ${black};
 `
 
-export default function Quotes(props) {
-    const { quotes } = props
+export default function Quotes() {
+    const data = useStaticQuery(graphql`
+        {
+            prismicResponsiveLearning {
+                data {
+                    companies {
+                        testimonial {
+                            text
+                        }
+                        position {
+                            text
+                        }
+                        logo {
+                            url
+                        }
+                        cite {
+                            text
+                        }
+                    }
+                }
+            }
+        }
+    `)
+
+    const { companies } = data.prismicResponsiveLearning.data
+
     return (
         <Container>
-            {quotes.map(quote => (
+            {companies.map(quote => (
                 <QuoteContainer key={quote.testimonial.text}>
                     <Logo src={quote.logo.url} />
                     <Quote>" {quote.testimonial.text} "</Quote>
