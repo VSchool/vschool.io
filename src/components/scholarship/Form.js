@@ -44,7 +44,7 @@ const DateGroup = styled.div`
     margin-bottom: 24px;
 
     @media (min-width: 800px) {
-        &:first-child {
+        &:not(:last-child) {
             margin-right: 96px;
         }
     }
@@ -143,26 +143,36 @@ export default function ApplicationForm(props) {
     } = data.prismicScholarshipPageSharedData.data
 
     const {
-        winner_announced_text: { text: winnerText },
-        winner_announced_date: winnerDate,
         deadline_text: { text: deadlineText },
         deadline_date: deadlineDate,
+        winner_announced_text: { text: winnerText },
+        winner_announced_date: winnerDate,
     } = props
+
+    // Not all scholarships will have the data for these dates
+    const showDates =
+        (deadlineText && deadlineDate) || (winnerText && winnerDate)
 
     return (
         <Section>
             <FormContainer>
                 <Header>{title}</Header>
-                <DatesContainer>
-                    <DateGroup>
-                        <DateText>{deadlineText}</DateText>
-                        <Date>{deadlineDate}</Date>
-                    </DateGroup>
-                    <DateGroup>
-                        <DateText>{winnerText}</DateText>
-                        <Date>{winnerDate}</Date>
-                    </DateGroup>
-                </DatesContainer>
+                {showDates && (
+                    <DatesContainer>
+                        {deadlineText && deadlineDate && (
+                            <DateGroup>
+                                <DateText>{deadlineText}</DateText>
+                                <Date>{deadlineDate}</Date>
+                            </DateGroup>
+                        )}
+                        {winnerText && winnerDate && (
+                            <DateGroup>
+                                <DateText>{winnerText}</DateText>
+                                <Date>{winnerDate}</Date>
+                            </DateGroup>
+                        )}
+                    </DatesContainer>
+                )}
                 <Form id="application-form" onSubmit={handleSubmit}>
                     <TextInput
                         type="text"

@@ -137,6 +137,34 @@
             }
         }
     },
+    "Dates": {
+        "deadline_text": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Deadline Text"
+            }
+        },
+        "deadline_date": {
+            "type": "Date",
+            "config": {
+                "label": "Deadline Date"
+            }
+        },
+        "winner_announced_text": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Winner Announced Text"
+            }
+        },
+        "winner_announced_date": {
+            "type": "Date",
+            "config": {
+                "label": "Winner Announced Date"
+            }
+        }
+    },
     "Scholarship FAQ": {
         "faq_list": {
             "type": "Group",
@@ -189,34 +217,6 @@
                 "constraint": {},
                 "thumbnails": [],
                 "label": "Testimonial Image"
-            }
-        }
-    },
-    "Dates": {
-        "deadline_text": {
-            "type": "StructuredText",
-            "config": {
-                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-                "label": "Deadline Text"
-            }
-        },
-        "deadline_date": {
-            "type": "Date",
-            "config": {
-                "label": "Deadline Date"
-            }
-        },
-        "winner_announced_text": {
-            "type": "StructuredText",
-            "config": {
-                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-                "label": "Winner Announced Text"
-            }
-        },
-        "winner_announced_date": {
-            "type": "Date",
-            "config": {
-                "label": "Winner Announced Date"
             }
         }
     }
