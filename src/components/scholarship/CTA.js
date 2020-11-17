@@ -21,6 +21,43 @@ const Title = styled.h2`
     }
 `
 
+const DatesContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 24px;
+    @media (min-width: 800px) {
+        flex-direction: row;
+    }
+`
+
+const DateGroup = styled.div`
+    text-align: center;
+    margin-bottom: 24px;
+
+    @media (min-width: 800px) {
+        &:first-child {
+            margin-right: 96px;
+        }
+    }
+`
+
+const DateText = styled.h6`
+    color: ${blue.base};
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 4px;
+
+    @media (min-width: 800px) {
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 8px;
+    }
+`
+const Date = styled.h5`
+    color: ${gray.darker};
+`
+
 const Text = styled.p`
     font-size: 16px;
     /* line-height: 24px; */
@@ -32,7 +69,7 @@ const Text = styled.p`
     }
 `
 
-export default function CTA() {
+export default function CTA(props) {
     const data = useStaticQuery(graphql`
         {
             prismicScholarshipPageSharedData {
@@ -60,9 +97,28 @@ export default function CTA() {
         cta_button_text: { text: buttonText },
         cta_button_link: { url: buttonLink },
     } = data.prismicScholarshipPageSharedData.data
+
+    const {
+        winner_announced_text: { text: winnerText },
+        winner_announced_date: winnerDate,
+        deadline_text: { text: deadlineText },
+        deadline_date: deadlineDate,
+    } = props
+    console.log(props)
+
     return (
         <Container>
             <Title>{title}</Title>
+            <DatesContainer>
+                <DateGroup>
+                    <DateText>{deadlineText}</DateText>
+                    <Date>{deadlineDate}</Date>
+                </DateGroup>
+                <DateGroup>
+                    <DateText>{winnerText}</DateText>
+                    <Date>{winnerDate}</Date>
+                </DateGroup>
+            </DatesContainer>
             <Text>{text}</Text>
             <Link to={buttonLink}>
                 <Button size="lg">{buttonText}</Button>

@@ -16,7 +16,7 @@ export default function Scholarship({ data }) {
             <Stages />
             {/* <Form />
             <FAQ /> */}
-            <CTA />
+            <CTA {...data}/>
             <Companies />
             <Rankings />
             <Testimonial {...data} />
