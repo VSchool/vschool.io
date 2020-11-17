@@ -129,7 +129,7 @@ export default ExperienceDesignPage
 export const query = graphql`
     {
         prismicStartDate(
-            data: { course_name: { text: { eq: "Experience Design" } } }
+            data: { course_name: { text: { eq: "UX/UI Design" } } }
         ) {
             data {
                 start_date(formatString: "MMM Do, YYYY")

@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { gray, black } from "@vschool/lotus"
 import Bullets from "./Bullets.js"
 
@@ -85,19 +86,52 @@ const MobileImage = styled(DesktopImage)`
     }
 `
 
-export default function ResponsiveAbility(props) {
-    const { header, description, desktopImg, mobileImg, bullets } = props
+export default function ResponsiveAbility() {
+    const data = useStaticQuery(graphql`
+        {
+            prismicResponsiveLearning {
+                data {
+                    ability_bullets {
+                        bullet {
+                            text
+                        }
+                    }
+                    ability_description {
+                        text
+                    }
+                    ability_header {
+                        text
+                    }
+                    ability_image {
+                        url
+                    }
+                    ability_image_mobile {
+                        url
+                    }
+                }
+            }
+        }
+    `)
+
+    const {
+        ability_bullets,
+        ability_description: { text: abilityDescription },
+        ability_header: { text: abilityHeader },
+        ability_image: { url: abilityImg },
+        ability_image_mobile: { url: abilityImgMobile }
+    } = data.prismicResponsiveLearning.data
+
     return (
         <Container>
             <InfoContainer>
                 <TextContainer>
-                    <Header>{header}</Header>
-                    <Info>{description}</Info>
+                    <Header>{abilityHeader}</Header>
+                    <Info>{abilityDescription}</Info>
                 </TextContainer>
-                <DesktopImage src={desktopImg} />
-                <MobileImage src={mobileImg} />
+                <DesktopImage src={abilityImg} />
+                <MobileImage src={abilityImgMobile} />
             </InfoContainer>
-            <Bullets bullets={bullets} />
+            <Bullets bullets={ability_bullets} />
         </Container>
     )
 }

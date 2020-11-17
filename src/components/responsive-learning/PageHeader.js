@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { green, purple, black, gray } from "@vschool/lotus"
 
 const Container = styled.section`
@@ -44,7 +45,6 @@ const Title = styled.h4`
     }
 `
 
-
 const Header = styled.h1`
     color: ${black};
     font-weight: 900;
@@ -85,16 +85,43 @@ const Image = styled.img`
     }
 `
 
-export default function PageHeader(props) {
-    const { title, header, subHeader, img } = props
+export default function PageHeader() {
+    const data = useStaticQuery(graphql`
+        {
+            prismicResponsiveLearning {
+                data {
+                    header_img {
+                        url
+                    }
+                    page_header {
+                        text
+                    }
+                    page_subheader {
+                        text
+                    }
+                    page_title {
+                        text
+                    }
+                }
+            }
+        }
+    `)
+
+    const {
+        header_img: { url: headerImg },
+        page_header: { text: pageHeader },
+        page_subheader: { text: pageSubheader },
+        page_title: { text: pageTitle }
+    } = data.prismicResponsiveLearning.data
+
     return (
         <Container>
             <TextContainer>
-                <Header>{title}</Header>
-                <Title>{header}</Title>
-                <SubHeader>{subHeader}</SubHeader>
+                <Header>{pageTitle}</Header>
+                <Title>{pageHeader}</Title>
+                <SubHeader>{pageSubheader}</SubHeader>
             </TextContainer>
-            <Image src={img} />
+            <Image src={headerImg} />
         </Container>
     )
 }
