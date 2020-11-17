@@ -1,195 +1,223 @@
 {
-  "Meta": {
-    "scholarship_name": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "Scholarship Name"
-      }
-    },
-    "uid": {
-      "type": "UID",
-      "config": {
-        "label": "Slug"
-      }
-    },
-    "summary": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label": "Summary",
-        "placeholder": "Info to exist on the scholarship cards"
-      }
-    },
-    "primary_theme_color": {
-      "type": "Select",
-      "config": {
-        "options": [
-          "blue",
-          "pink",
-          "purple",
-          "red",
-          "green",
-          "yellow",
-          "orange",
-          "gray"
-        ],
-        "default_value": "blue",
-        "label": "Primary Theme Color"
-      }
-    },
-    "secondary_theme_color": {
-      "type": "Select",
-      "config": {
-        "options": [
-          "yellow",
-          "blue",
-          "pink",
-          "purple",
-          "red",
-          "green",
-          "orange",
-          "gray"
-        ],
-        "default_value": "yellow",
-        "label": "Secondary Theme Color"
-      }
-    },
-    "active": {
-      "type": "Boolean",
-      "config": {
-        "placeholder_false": "Inactive",
-        "placeholder_true": "Active",
-        "default_value": false,
-        "label": "Active"
-      }
-    },
-    "public": {
-      "type": "Boolean",
-      "config": {
-        "placeholder_false": "Private",
-        "placeholder_true": "Public",
-        "default_value": true,
-        "label": "Public"
-      }
-    },
-    "full_tuition_scholarship": {
-      "type": "Boolean",
-      "config": {
-        "placeholder_false": "Partial scholarship",
-        "placeholder_true": "Full scholarship",
-        "default_value": false,
-        "label": "Full Tuition Scholarship"
-      }
-    },
-    "icon": {
-      "type": "Image",
-      "config": {
-        "constraint": {},
-        "thumbnails": [],
-        "label": "Icon"
-      }
-    }
-  },
-  "Hero": {
-    "hero_title": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "Hero Title"
-      }
-    },
-    "hero_text": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label": "Hero Text"
-      }
-    },
-    "hero_scholarship_amount": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "Hero Scholarship Amount"
-      }
-    },
-    "hero_image": {
-      "type": "Image",
-      "config": {
-        "constraint": {},
-        "thumbnails": [],
-        "label": "Hero Image"
-      }
-    },
-    "hero_card_image": {
-      "type": "Image",
-      "config": {
-        "constraint": {},
-        "thumbnails": [],
-        "label": "Hero Card Image"
-      }
-    },
-    "hero_button_text": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label": "Hero Button Text"
-      }
-    }
-  },
-  "Scholarship FAQ": {
-    "faq_list": {
-      "type": "Group",
-      "config": {
-        "fields": {
-          "faq_question": {
+    "Meta": {
+        "scholarship_name": {
             "type": "StructuredText",
             "config": {
-              "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-              "label": "FAQ Question"
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Scholarship Name"
             }
-          },
-          "faq_answer": {
-            "type": "StructuredText",
-            "config": {
-              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-              "label": "FAQ Answer"
-            }
-          }
         },
-        "label": "FAQ List"
-      }
+        "uid": {
+            "type": "UID",
+            "config": {
+                "label": "Slug"
+            }
+        },
+        "summary": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Summary",
+                "placeholder": "Info to exist on the scholarship cards"
+            }
+        },
+        "primary_theme_color": {
+            "type": "Select",
+            "config": {
+                "options": [
+                    "blue",
+                    "pink",
+                    "purple",
+                    "red",
+                    "green",
+                    "yellow",
+                    "orange",
+                    "gray"
+                ],
+                "default_value": "blue",
+                "label": "Primary Theme Color"
+            }
+        },
+        "secondary_theme_color": {
+            "type": "Select",
+            "config": {
+                "options": [
+                    "yellow",
+                    "blue",
+                    "pink",
+                    "purple",
+                    "red",
+                    "green",
+                    "orange",
+                    "gray"
+                ],
+                "default_value": "yellow",
+                "label": "Secondary Theme Color"
+            }
+        },
+        "active": {
+            "type": "Boolean",
+            "config": {
+                "placeholder_false": "Inactive",
+                "placeholder_true": "Active",
+                "default_value": false,
+                "label": "Active"
+            }
+        },
+        "public": {
+            "type": "Boolean",
+            "config": {
+                "placeholder_false": "Private",
+                "placeholder_true": "Public",
+                "default_value": true,
+                "label": "Public"
+            }
+        },
+        "full_tuition_scholarship": {
+            "type": "Boolean",
+            "config": {
+                "placeholder_false": "Partial scholarship",
+                "placeholder_true": "Full scholarship",
+                "default_value": false,
+                "label": "Full Tuition Scholarship"
+            }
+        },
+        "icon": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Icon"
+            }
+        }
+    },
+    "Hero": {
+        "hero_title": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Hero Title"
+            }
+        },
+        "hero_text": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Hero Text"
+            }
+        },
+        "hero_scholarship_amount": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Hero Scholarship Amount"
+            }
+        },
+        "hero_image": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Hero Image"
+            }
+        },
+        "hero_card_image": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Hero Card Image"
+            }
+        },
+        "hero_button_text": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Hero Button Text"
+            }
+        }
+    },
+    "Scholarship FAQ": {
+        "faq_list": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "faq_question": {
+                        "type": "StructuredText",
+                        "config": {
+                            "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                            "label": "FAQ Question"
+                        }
+                    },
+                    "faq_answer": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                            "label": "FAQ Answer"
+                        }
+                    }
+                },
+                "label": "FAQ List"
+            }
+        }
+    },
+    "Testimonial": {
+        "testimonial_quote": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Testimonial Quote"
+            }
+        },
+        "testimonial_name": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Testimonial Name"
+            }
+        },
+        "testimonial_status": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Testimonial Status"
+            }
+        },
+        "testimonial_image": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Testimonial Image"
+            }
+        }
+    },
+    "Dates": {
+        "deadline_text": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Deadline Text"
+            }
+        },
+        "deadline_date": {
+            "type": "Date",
+            "config": {
+                "label": "Deadline Date"
+            }
+        },
+        "winner_announced_text": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Winner Announced Text"
+            }
+        },
+        "winner_announced_date": {
+            "type": "Date",
+            "config": {
+                "label": "Winner Announced Date"
+            }
+        }
     }
-  },
-  "Testimonial": {
-    "testimonial_quote": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label": "Testimonial Quote"
-      }
-    },
-    "testimonial_name": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label": "Testimonial Name"
-      }
-    },
-    "testimonial_status": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label": "Testimonial Status"
-      }
-    },
-    "testimonial_image": {
-      "type": "Image",
-      "config": {
-        "constraint": {},
-        "thumbnails": [],
-        "label": "Testimonial Image"
-      }
-    }
-  }
 }
