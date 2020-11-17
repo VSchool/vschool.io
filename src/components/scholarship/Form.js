@@ -29,6 +29,43 @@ const Header = styled.h3`
     text-align: center;
 `
 
+const DatesContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 24px;
+    @media (min-width: 800px) {
+        flex-direction: row;
+    }
+`
+
+const DateGroup = styled.div`
+    text-align: center;
+    margin-bottom: 24px;
+
+    @media (min-width: 800px) {
+        &:first-child {
+            margin-right: 96px;
+        }
+    }
+`
+
+const DateText = styled.h6`
+    color: ${blue.base};
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 4px;
+
+    @media (min-width: 800px) {
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 8px;
+    }
+`
+const Date = styled.h5`
+    color: ${gray.darker};
+`
+
 const Form = styled.form`
     display: flex;
     flex-direction: column;
@@ -96,6 +133,18 @@ export default function ApplicationForm() {
                     }
                 }
             }
+            prismicScholarshipPage {
+                data {
+                    winner_announced_text {
+                        text
+                    }
+                    winner_announced_date(formatString: "MMMM Do, YYYY")
+                    deadline_text {
+                        text
+                    }
+                    deadline_date(formatString: "MMMM Do, YYYY")
+                }
+            }
         }
     `)
 
@@ -105,10 +154,27 @@ export default function ApplicationForm() {
         form_button_text: { text: buttonText },
     } = data.prismicScholarshipPageSharedData.data
 
+    const {
+        winner_announced_text: { text: winnerText },
+        winner_announced_date: winnerDate,
+        deadline_text: { text: deadlineText },
+        deadline_date: deadlineDate,
+    } = data.prismicScholarshipPage.data
+
     return (
         <Section>
             <FormContainer>
                 <Header>{title}</Header>
+                <DatesContainer>
+                    <DateGroup>
+                        <DateText>{deadlineText}</DateText>
+                        <Date>{deadlineDate}</Date>
+                    </DateGroup>
+                    <DateGroup>
+                        <DateText>{winnerText}</DateText>
+                        <Date>{winnerDate}</Date>
+                    </DateGroup>
+                </DatesContainer>
                 <Form id="application-form" onSubmit={handleSubmit}>
                     <TextInput
                         type="text"
