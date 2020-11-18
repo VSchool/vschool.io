@@ -84,11 +84,9 @@ export default function BackgroundForm() {
             ) {
                 console.log("Full Tuition only")
                 // navigate to the essay questions page
-                navigate("/scholarships/application/essay-questions")
             } else {
                 console.log("Other options considered")
                 // navigate to the embedded calendly booking page
-                navigate("/scholarships/application/essay-questions")
             }
         } catch (err) {
             setSubmitting(false)
@@ -99,27 +97,28 @@ export default function BackgroundForm() {
     }
 
     return (
-        <section>
-            <Form onSubmit={handleSubmit}>
-                {/* 
-                This error should only display if:
-                    1. The person isn't coming to this form directly from the scholarship page, AND
-                    2. the person didn't use the link from the email to get to this form, AND
-                    3. the person had cleared their localStorage or was browsing privately when they first started their application
-                    OR
-                    Something went wrong when submitting the form to Formium
-                */}
-                {error ? (
-                    <ErrorMessage>{error}</ErrorMessage>
-                ) : (
-                    <>
-                        {formComponents}
-                        <Button disabled={submitting}>
-                            {submitting ? "Sending..." : "Submit"}
-                        </Button>
-                    </>
-                )}
-            </Form>
-        </section>
+        // <section>
+        //     <Form onSubmit={handleSubmit}>
+        //         {/*
+        //         This error should only display if:
+        //             1. The person isn't coming to this form directly from the scholarship page, AND
+        //             2. the person didn't use the link from the email to get to this form, AND
+        //             3. the person had cleared their localStorage or was browsing privately when they first started their application
+        //             OR
+        //             Something went wrong when submitting the form to Formium
+        //         */}
+        //         {error ? (
+        //             <ErrorMessage>{error}</ErrorMessage>
+        //         ) : (
+        //             <>
+        //                 {formComponents}
+        //                 <Button disabled={submitting}>
+        //                     {submitting ? "Sending..." : "Submit"}
+        //                 </Button>
+        //             </>
+        //         )}
+        //     </Form>
+        // </section>
+        <h1>Essay questions will go here</h1>
     )
 }
