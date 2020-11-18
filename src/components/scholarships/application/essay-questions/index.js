@@ -64,15 +64,15 @@ const Text = styled.p`
 export default function BackgroundInfoForm() {
     const data = useStaticQuery(graphql`
         {
-            prismicScholarshipsBackgroundInfoForm {
+            prismicScholarshipApplicationForms {
                 data {
                     form_subtitle {
                         text
                     }
-                    form_title {
+                    essay_form_text {
                         text
                     }
-                    form_text {
+                    essay_form_title {
                         text
                     }
                 }
@@ -82,9 +82,9 @@ export default function BackgroundInfoForm() {
 
     const {
         form_subtitle: { text: subtitle },
-        form_title: { text: title },
-        form_text: { text },
-    } = data.prismicScholarshipsBackgroundInfoForm.data
+        essay_form_text: { text },
+        essay_form_title: { text: title },
+    } = data.prismicScholarshipApplicationForms.data
     return (
         <MainContainer>
             <ContentContainer>

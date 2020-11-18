@@ -44,7 +44,7 @@ export default function BackgroundForm() {
     useEffect(() => {
         let data
         const storageValue = JSON.parse(
-            localStorage.getItem("backgroundInfoForm")
+            localStorage.getItem("scholarshipApplicationInfo")
         )
         if (location.state?.email) {
             data = { email: location.state.email }
@@ -66,7 +66,7 @@ export default function BackgroundForm() {
             data = {}
         }
         setQueryData(data)
-        localStorage.setItem("backgroundInfoForm", JSON.stringify(data))
+        localStorage.setItem("scholarshipApplicationInfo", JSON.stringify(data))
     }, [location.search, location.state])
 
     async function handleSubmit(e) {
@@ -84,11 +84,15 @@ export default function BackgroundForm() {
             ) {
                 console.log("Full Tuition only")
                 // navigate to the essay questions page
-                navigate("/scholarships/application/essay-questions")
+                navigate("/scholarships/application/essay-questions", {
+                    state: { email: queryData.email },
+                })
             } else {
                 console.log("Other options considered")
                 // navigate to the embedded calendly booking page
-                navigate("/scholarships/application/essay-questions")
+                navigate("/scholarships/application/essay-questions", {
+                    state: { email: queryData.email },
+                })
             }
         } catch (err) {
             setSubmitting(false)
