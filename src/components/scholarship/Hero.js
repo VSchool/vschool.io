@@ -72,7 +72,7 @@ export default function Hero(props) {
                         <ScrollLink
                             to="application-form"
                             smooth={true}
-                            offset={-200}
+                            offset={-320}
                         >
                             <StyledButton size="xl">{buttonText}</StyledButton>
                         </ScrollLink>

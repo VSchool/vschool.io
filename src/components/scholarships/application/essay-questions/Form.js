@@ -31,7 +31,7 @@ export default function BackgroundForm() {
     const [submitting, setSubmitting] = useState(false)
     const data = useStaticQuery(graphql`
         {
-            formiumForm(slug: { eq: "scholarship-background-info" }) {
+            formiumForm(slug: { eq: "scholarship-essay-questions" }) {
                 name
                 schema
             }
@@ -44,7 +44,7 @@ export default function BackgroundForm() {
     useEffect(() => {
         let data
         const storageValue = JSON.parse(
-            localStorage.getItem("backgroundInfoForm")
+            localStorage.getItem("scholarshipApplicationInfo")
         )
         if (location.state?.email) {
             data = { email: location.state.email }
@@ -66,7 +66,7 @@ export default function BackgroundForm() {
             data = {}
         }
         setQueryData(data)
-        localStorage.setItem("backgroundInfoForm", JSON.stringify(data))
+        localStorage.setItem("scholarshipApplicationInfo", JSON.stringify(data))
     }, [location.search, location.state])
 
     async function handleSubmit(e) {
@@ -74,7 +74,7 @@ export default function BackgroundForm() {
         setSubmitting(true)
         const data = { ...queryData, ...formData }
         try {
-            await formium.submitForm("scholarship-background-info", data)
+            await formium.submitForm("scholarship-essay-questions", data)
             setSubmitting(false)
             if (
                 formData.financingOptionsConsidered.length === 1 &&
@@ -97,28 +97,27 @@ export default function BackgroundForm() {
     }
 
     return (
-        // <section>
-        //     <Form onSubmit={handleSubmit}>
-        //         {/*
-        //         This error should only display if:
-        //             1. The person isn't coming to this form directly from the scholarship page, AND
-        //             2. the person didn't use the link from the email to get to this form, AND
-        //             3. the person had cleared their localStorage or was browsing privately when they first started their application
-        //             OR
-        //             Something went wrong when submitting the form to Formium
-        //         */}
-        //         {error ? (
-        //             <ErrorMessage>{error}</ErrorMessage>
-        //         ) : (
-        //             <>
-        //                 {formComponents}
-        //                 <Button disabled={submitting}>
-        //                     {submitting ? "Sending..." : "Submit"}
-        //                 </Button>
-        //             </>
-        //         )}
-        //     </Form>
-        // </section>
-        <h1>Essay questions will go here</h1>
+        <section>
+            <Form onSubmit={handleSubmit}>
+                {/*
+                This error should only display if:
+                    1. The person isn't coming to this form directly from the scholarship page, AND
+                    2. the person didn't use the link from the email to get to this form, AND
+                    3. the person had cleared their localStorage or was browsing privately when they first started their application
+                    OR
+                    Something went wrong when submitting the form to Formium
+                */}
+                {error ? (
+                    <ErrorMessage>{error}</ErrorMessage>
+                ) : (
+                    <>
+                        {formComponents}
+                        <Button disabled={submitting}>
+                            {submitting ? "Sending..." : "Submit"}
+                        </Button>
+                    </>
+                )}
+            </Form>
+        </section>
     )
 }

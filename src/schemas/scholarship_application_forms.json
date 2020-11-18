@@ -1,0 +1,51 @@
+{
+  "Meta" : {
+    "prismic_display_name" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "Prismic Display Name",
+        "useAsTitle" : true
+      }
+    },
+    "form_subtitle" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "Form Subtitle"
+      }
+    }
+  },
+  "Background Info" : {
+    "background_info_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "Background Info Title"
+      }
+    },
+    "background_info_form_text" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label" : "Background Info Form Text"
+      }
+    }
+  },
+  "Essay Questions" : {
+    "essay_form_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "Essay Form Title"
+      }
+    },
+    "essay_form_text" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label" : "Essay Form Text"
+      }
+    }
+  }
+}

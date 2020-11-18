@@ -5,7 +5,7 @@ import EssayQuestionsFormComponent from "../../../components/scholarships/applic
 const EssayQuestionsForm = () => {
     return (
         <div>
-            <SEO title={"Background Information"} />
+            <SEO title={"Scholarship Application Essay Questions"} />
             <EssayQuestionsFormComponent />
         </div>
     )
