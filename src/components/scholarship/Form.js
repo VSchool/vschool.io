@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql, navigate } from "gatsby"
+import { useLocation } from "@reach/router"
 import { blue, gray, TextInput, Button } from "@vschool/lotus"
 import { formium } from "../../lib/formium"
 
@@ -101,6 +102,7 @@ const StyledButton = styled(Button)`
 export default function ApplicationForm(props) {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
+    const location = useLocation()
 
     // TODO: Submit the data somewhere.
     // Chat with Cody about what happens after that.
@@ -108,13 +110,22 @@ export default function ApplicationForm(props) {
         e.preventDefault()
         /**
         TODO:
-        (1) Add the person to a customer.io (or ConvertKit) segment or tag
-        (2) Send them an email with the link to the background info form (name and email in URL params)
-        (3) Navigate them to the background info form with their name and email remembered
-         */
-        await formium.submitForm("scholarship-initial-form", { name, email })
+        (1) Add the person to a ConvertKit sequence so they get the email with the URL to the background info form
+        (2) Send them an email with the link to the background info form (email in URL params)
+        (3) Navigate them to the background info form with their email remembered in state
+        */
+
+        /**
+        Submitting the form to Formium triggers a Zapier automation that adds 
+        a new ConvertKit subscriber and adds them to a sequence which sends them 
+        the email with the URL
+        */
+        await formium.submitForm("scholarship-initial-form", {
+            name,
+            email,
+        })
         navigate(`/scholarships/application/background-info`, {
-            state: { name, email },
+            state: { email },
         })
     }
 
