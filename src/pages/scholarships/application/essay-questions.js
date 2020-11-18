@@ -1,13 +1,14 @@
 import React from "react"
+import ScholarshipAppLayout from "../../../components/scholarships/application/ScholarshipApplicationLayout"
 import SEO from "../../../components/seo"
 import EssayQuestionsFormComponent from "../../../components/scholarships/application/essay-questions"
 
 const EssayQuestionsForm = () => {
     return (
-        <div>
+        <ScholarshipAppLayout>
             <SEO title={"Scholarship Application Essay Questions"} />
             <EssayQuestionsFormComponent />
-        </div>
+        </ScholarshipAppLayout>
     )
 }
 

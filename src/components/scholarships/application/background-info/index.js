@@ -2,24 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import { blue, gray } from "@vschool/lotus"
-
-import SimpleNav from "../SimpleNav"
-import SimpleFooter from "../SimpleFooter"
 import Form from "./Form"
-// These styles make the Footer stick to the bottom of any page, no matter the page height
-const MainContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-`
-
-const ContentContainer = styled.div`
-    flex-grow: 1;
-
-    & > main {
-        margin-top: 80px;
-    }
-`
 
 const TextContainer = styled.section`
     display: flex;
@@ -86,17 +69,13 @@ export default function BackgroundInfoForm() {
         background_info_form_text: { text },
     } = data.prismicScholarshipApplicationForms.data
     return (
-        <MainContainer>
-            <ContentContainer>
-                <SimpleNav />
-                <TextContainer>
-                    <Subtitle>{subtitle}</Subtitle>
-                    <Title>{title}</Title>
-                    <Text>{text}</Text>
-                </TextContainer>
-                <Form />
-            </ContentContainer>
-            <SimpleFooter />
-        </MainContainer>
+        <>
+            <TextContainer>
+                <Subtitle>{subtitle}</Subtitle>
+                <Title>{title}</Title>
+                <Text>{text}</Text>
+            </TextContainer>
+            <Form />
+        </>
     )
 }

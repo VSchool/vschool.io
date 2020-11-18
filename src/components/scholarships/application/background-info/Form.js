@@ -14,9 +14,11 @@ const Form = styled.form`
     width: 100%;
     max-width: 674px;
     padding: 56px 24px 88px;
+    margin-bottom: 160px;
 
     @media (min-width: 800px) {
         padding: 64px 88px 88px;
+        margin-bottom: 208px;
     }
 `
 
