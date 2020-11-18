@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react"
-import { useLocation } from "@reach/router"
 import styled, { css } from "styled-components"
 
 import {
-    blue,
-    Button,
     TextInput,
     Textarea,
     CheckboxRadioGroup,
