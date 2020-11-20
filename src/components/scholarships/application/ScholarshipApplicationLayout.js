@@ -3,7 +3,8 @@ import styled from "styled-components"
 
 import SimpleNav from "./SimpleNav"
 import SimpleFooter from "./SimpleFooter"
-
+import "@vschool/lotus/dist/index.css"
+import "../../layout.scss"
 // These styles make the Footer stick to the bottom of any page, no matter the page height
 const MainContainer = styled.div`
     display: flex;
