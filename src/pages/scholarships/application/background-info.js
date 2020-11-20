@@ -6,7 +6,7 @@ import BackgroundInfoFormComponent from "../../../components/scholarships/applic
 const BackgroundInfoForm = () => {
     return (
         <ScholarshipAppLayout>
-            <SEO title={"Scholarship Application Background Information"} />
+            <SEO title="Scholarship Application | Background Information" />
             <BackgroundInfoFormComponent />
         </ScholarshipAppLayout>
     )
