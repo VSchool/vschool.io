@@ -86,7 +86,10 @@ export default function BackgroundForm() {
             body: JSON.stringify(data),
         }
         try {
-            await fetch(process.env.SCHOLARSHIP_APP_ZAPIER_WEBHOOK_URL, options)
+            await fetch(
+                process.env.GATSBY_SCHOLARSHIP_APP_ZAPIER_WEBHOOK_URL,
+                options
+            )
             setSubmitting(false)
             navigate("/scholarships/application/complete")
         } catch (err) {

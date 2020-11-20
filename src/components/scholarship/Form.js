@@ -120,7 +120,7 @@ export default function ApplicationForm(props) {
         a new ConvertKit subscriber and adds them to a sequence which sends them 
         the email with the URL
         */
-        
+
         try {
             const nextStep = "background"
             const options = {
@@ -129,7 +129,7 @@ export default function ApplicationForm(props) {
             }
             console.log()
             await fetch(
-                process.env.SCHOLARSHIP_APP_ZAPIER_WEBHOOK_URL,
+                process.env.GATSBY_SCHOLARSHIP_APP_ZAPIER_WEBHOOK_URL,
                 options
             )
 
