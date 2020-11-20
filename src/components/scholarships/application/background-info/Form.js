@@ -87,6 +87,8 @@ export default function BackgroundForm() {
                         location.search ? location.search : ""
                     }`
                 )
+            } else if (nextStep === "complete") {
+                navigate("/scholarships/application/complete")
             }
         }
     }, [])

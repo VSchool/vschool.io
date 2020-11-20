@@ -68,6 +68,15 @@ export default function BackgroundForm() {
         localStorage.setItem("scholarshipApplicationInfo", JSON.stringify(data))
     }, [location.search, location.state])
 
+    useEffect(() => {
+        const nextStep = localStorage.getItem("scholarshipAppNextStep")
+        if (location.search.includes("email=")) {
+            if (nextStep === "complete") {
+                navigate("/scholarships/application/complete")
+            }
+        }
+    }, [])
+
     async function handleSubmit(e) {
         e.preventDefault()
         setSubmitting(true)
