@@ -124,7 +124,10 @@ export default function Scheduler() {
             body: JSON.stringify(data),
         }
         try {
-            await fetch(process.env.SCHOLARSHIP_APP_ZAPIER_WEBHOOK_URL, options)
+            await fetch(
+                process.env.GATSBY_SCHOLARSHIP_APP_ZAPIER_WEBHOOK_URL,
+                options
+            )
             localStorage.setItem("scholarshipAppNextStep", "essay")
             navigate("/scholarships/application/essay-questions")
         } catch (e) {

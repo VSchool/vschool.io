@@ -40,6 +40,8 @@ export default function BackgroundForm() {
         }
     `)
 
+    console.log(process.env.GATSBY_SCHOLARSHIP_APP_ZAPIER_WEBHOOK_URL)
+
     const { formComponents, formData } = useFormium(data.formiumForm)
 
     // Save the name/email either from state (from the scholarship page) or from a querystring (from email link)
@@ -113,9 +115,13 @@ export default function BackgroundForm() {
             method: "POST",
             body: JSON.stringify(data),
         }
+        console.log(options)
 
         try {
-            await fetch(process.env.SCHOLARSHIP_APP_ZAPIER_WEBHOOK_URL, options)
+            await fetch(
+                process.env.GATSBY_SCHOLARSHIP_APP_ZAPIER_WEBHOOK_URL,
+                options
+            )
 
             setSubmitting(false)
             if (fullTuitionOnlySelected) {
