@@ -73,6 +73,8 @@ export default function Scheduler() {
         scheduler_text: { text },
     } = data.prismicScholarshipApplicationForms.data
 
+    console.log(queryData)
+
     useEffect(() => {
         let data
         const storageValue = JSON.parse(
@@ -112,11 +114,21 @@ export default function Scheduler() {
         }
     }, [])
 
-    function handleEventScheduled(e) {
-        console.log(e)
-        localStorage.setItem("scholarshipAppNextStep", "essay")
-        navigate("/scholarships/application/essay-questions")
+    async function handleEventScheduled(e) {
+        const data = { ...queryData, nextStep: "essay" }
+        const options = {
+            method: "POST",
+            body: JSON.stringify(data),
+        }
+        try {
+            await fetch(process.env.SCHOLARSHIP_APP_ZAPIER_WEBHOOK_URL, options)
+            localStorage.setItem("scholarshipAppNextStep", "essay")
+            navigate("/scholarships/application/essay-questions")
+        } catch (e) {
+            console.error(e.message)
+        }
     }
+
     return (
         <>
             <Container>
