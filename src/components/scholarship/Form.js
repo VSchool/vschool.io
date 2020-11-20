@@ -116,9 +116,10 @@ export default function ApplicationForm(props) {
         */
 
         /**
-        Submitting the form to Formium triggers a Zapier automation that adds 
-        a new ConvertKit subscriber and adds them to a sequence which sends them 
-        the email with the URL
+        Submitting the form to Zapier adds a new ConvertKit subscriber and 
+        adds them to a sequence which sends them the email with the URL. ConvertKit
+        seems to take about 5 minutes to send the email, not including any intentional 
+        delays in the automation
         */
 
         try {
@@ -203,7 +204,7 @@ export default function ApplicationForm(props) {
                         type="text"
                         label="Name"
                         name="name"
-                        placeholder="First and Last names"
+                        placeholder="First and Last name"
                         value={name}
                         onChange={e => setName(e.target.value)}
                         required
@@ -213,6 +214,7 @@ export default function ApplicationForm(props) {
                         type="email"
                         label="Email"
                         name="email"
+                        placeholder="joe@example.com"
                         value={email}
                         onChange={e => setEmail(e.target.value)}
                         required
