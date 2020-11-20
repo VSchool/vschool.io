@@ -49,7 +49,7 @@ export default function BackgroundForm() {
             localStorage.getItem("scholarshipApplicationInfo")
         )
         if (location.state?.email) {
-            data = { email: location.state.email }
+            data = location.state
         } else if (location.search) {
             // change plus sign to "%2B" so when it gets parsed
             // by query-string, it correctly keeps it as a plus
@@ -71,35 +71,69 @@ export default function BackgroundForm() {
         localStorage.setItem("scholarshipApplicationInfo", JSON.stringify(data))
     }, [location.search, location.state])
 
+    useEffect(() => {
+        const nextStep = localStorage.getItem("scholarshipAppNextStep")
+        /**
+        In case someone accidentally clicks an old email's link to a past step in the
+        process, they'll automatically be redirected to their current step in the process
+        */
+        if (location.search.includes("email=")) {
+            if (nextStep === "schedule") {
+                navigate(
+                    `/scholarships/application/schedule${
+                        location.search ? location.search : ""
+                    }`
+                )
+            } else if (nextStep === "essay") {
+                navigate(
+                    `/scholarships/application/essay-questions${
+                        location.search ? location.search : ""
+                    }`
+                )
+            }
+        }
+    }, [])
+
     async function handleSubmit(e) {
         e.preventDefault()
         setSubmitting(true)
+        const nextStep = ""
         const data = { ...queryData, ...formData }
+        const fullTuitionOnlySelected =
+            formData.financingOptionsConsidered.length === 1 &&
+            formData.financingOptionsConsidered[0].includes(
+                "Full Tuition Scholarship"
+            )
+        if (fullTuitionOnlySelected) {
+            data.nextStep = "essay"
+        } else {
+            data.nextStep = "schedule"
+        }
+
+        const options = {
+            method: "POST",
+            body: JSON.stringify(data),
+        }
+
         try {
-            await formium.submitForm("scholarship-background-info", data)
+            await fetch(process.env.SCHOLARSHIP_APP_ZAPIER_WEBHOOK_URL, options)
+
             setSubmitting(false)
-            if (
-                formData.financingOptionsConsidered.length === 1 &&
-                formData.financingOptionsConsidered[0].includes(
-                    "Full Tuition Scholarship"
-                )
-            ) {
-                console.log("Full Tuition only")
-                // navigate to the essay questions page
+            if (fullTuitionOnlySelected) {
+                localStorage.setItem("scholarshipAppNextStep", data.nextStep)
                 navigate("/scholarships/application/essay-questions", {
                     state: { email: queryData.email },
                 })
             } else {
-                console.log("Other options considered")
-                // navigate to the embedded calendly booking page
-                navigate("/scholarships/application/essay-questions", {
+                localStorage.setItem("scholarshipAppNextStep", data.nextStep)
+                navigate("/scholarships/application/schedule", {
                     state: { email: queryData.email },
                 })
             }
         } catch (err) {
             setSubmitting(false)
             setError(
-                "Something went wrong. Please refresh the form and try again."
+                "Something went wrong. Please refresh the page and try again."
             )
         }
     }

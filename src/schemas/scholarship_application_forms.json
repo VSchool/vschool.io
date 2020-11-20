@@ -1,50 +1,96 @@
 {
-  "Meta" : {
-    "prismic_display_name" : {
-      "type" : "StructuredText",
-      "config" : {
-        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label" : "Prismic Display Name",
-        "useAsTitle" : true
+  "Meta": {
+    "prismic_display_name": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Prismic Display Name",
+        "useAsTitle": true
       }
     },
-    "form_subtitle" : {
-      "type" : "StructuredText",
-      "config" : {
-        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label" : "Form Subtitle"
+    "form_subtitle": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Form Subtitle"
       }
     }
   },
-  "Background Info" : {
-    "background_info_title" : {
-      "type" : "StructuredText",
-      "config" : {
-        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label" : "Background Info Title"
+  "Background Info": {
+    "background_info_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Background Info Title"
       }
     },
-    "background_info_form_text" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label" : "Background Info Form Text"
+    "background_info_form_text": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Background Info Form Text"
       }
     }
   },
-  "Essay Questions" : {
-    "essay_form_title" : {
-      "type" : "StructuredText",
-      "config" : {
-        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label" : "Essay Form Title"
+  "Essay Questions": {
+    "essay_form_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Essay Form Title"
       }
     },
-    "essay_form_text" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label" : "Essay Form Text"
+    "essay_form_text": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Essay Form Text"
+      }
+    }
+  },
+  "Calendly Page": {
+    "scheduler_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Scheduler Title"
+      }
+    },
+    "scheduler_text": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Scheduler Text"
+      }
+    }
+  },
+  "Pre-Essay Page": {
+    "pre_essay_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Pre Essay Title"
+      }
+    },
+    "pre_essay_text": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Pre Essay Text"
+      }
+    },
+    "pre_essay_button_text": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Pre Essay Button Text"
+      }
+    },
+    "pre_essay_footnote": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Pre Essay Footnote"
       }
     }
   }
