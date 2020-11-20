@@ -99,18 +99,16 @@ export default function Scheduler() {
 
     useEffect(() => {
         const nextStep = localStorage.getItem("scholarshipAppNextStep")
-        if (nextStep === "background") {
-            navigate(
-                `/scholarships/application/background-info${
-                    location.search ? location.search : ""
-                }`
-            )
-        } else if (nextStep === "essay") {
-            navigate(
-                `/scholarships/application/essay-questions${
-                    location.search ? location.search : ""
-                }`
-            )
+        if (location.search.includes("email=")) {
+            if (nextStep === "essay") {
+                navigate(
+                    `/scholarships/application/essay-questions${
+                        location.search ? location.search : ""
+                    }`
+                )
+            } else if (nextStep === "complete") {
+                navigate("/scholarships/application/complete")
+            }
         }
     }, [])
 
