@@ -59,9 +59,6 @@ export default function BackgroundForm() {
             storageValue.email = decodeURIComponent(storageValue.email)
             data = storageValue
         } else {
-            console.error(
-                "Couldn't find associated email address. Please click the link you received in your email."
-            )
             setError(
                 "Couldn't find an associated email address. Please click the link you received in your email."
             )
@@ -147,7 +144,7 @@ export default function BackgroundForm() {
                     2. the person didn't use the link from the email to get to this form, AND
                     3. the person had cleared their localStorage or was browsing privately when they first started their application
                     OR
-                    Something went wrong when submitting the form to Formium
+                    Something went wrong when submitting the form to Zapier
                 */}
                 {error ? (
                     <ErrorMessage>{error}</ErrorMessage>

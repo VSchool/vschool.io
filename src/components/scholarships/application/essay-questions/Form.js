@@ -59,9 +59,6 @@ export default function BackgroundForm() {
             storageValue.email = decodeURIComponent(storageValue.email)
             data = storageValue
         } else {
-            console.error(
-                "Couldn't find associated email address. Please click the link you received in your email."
-            )
             setError(
                 "Couldn't find an associated email address. Please click the link you received in your email."
             )
@@ -74,22 +71,15 @@ export default function BackgroundForm() {
     async function handleSubmit(e) {
         e.preventDefault()
         setSubmitting(true)
-        const data = { ...queryData, ...formData }
+        const data = { ...queryData, ...formData, nextStep: "complete" }
+        const options = {
+            method: "POST",
+            body: JSON.stringify(data),
+        }
         try {
-            await formium.submitForm("scholarship-essay-questions", data)
+            await fetch(process.env.SCHOLARSHIP_APP_ZAPIER_WEBHOOK_URL, options)
             setSubmitting(false)
-            if (
-                formData.financingOptionsConsidered.length === 1 &&
-                formData.financingOptionsConsidered[0].includes(
-                    "Full Tuition Scholarship"
-                )
-            ) {
-                console.log("Full Tuition only")
-                // navigate to the essay questions page
-            } else {
-                console.log("Other options considered")
-                // navigate to the embedded calendly booking page
-            }
+            navigate("/scholarships/application/complete")
         } catch (err) {
             setSubmitting(false)
             setError(
@@ -101,14 +91,6 @@ export default function BackgroundForm() {
     return (
         <section>
             <Form onSubmit={handleSubmit}>
-                {/*
-                This error should only display if:
-                    1. The person isn't coming to this form directly from the scholarship page, AND
-                    2. the person didn't use the link from the email to get to this form, AND
-                    3. the person had cleared their localStorage or was browsing privately when they first started their application
-                    OR
-                    Something went wrong when submitting the form to Formium
-                */}
                 {error ? (
                     <ErrorMessage>{error}</ErrorMessage>
                 ) : (
