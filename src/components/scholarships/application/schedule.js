@@ -6,7 +6,12 @@ import { useStaticQuery, graphql, navigate } from "gatsby"
 import { InlineWidget, CalendlyEventListener } from "react-calendly"
 import { blue, gray } from "@vschool/lotus"
 
-const Container = styled.section``
+const Container = styled.section`
+    padding-top: 64px;
+    @media (min-width: 800px) {
+        padding-top: 96px;
+    }
+`
 
 const TextContainer = styled.div`
     display: flex;
