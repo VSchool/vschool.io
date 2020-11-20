@@ -91,6 +91,7 @@ export default function BackgroundForm() {
                 options
             )
             setSubmitting(false)
+            localStorage.setItem("scholarshipAppNextStep", "complete")
             navigate("/scholarships/application/complete")
         } catch (err) {
             setSubmitting(false)
