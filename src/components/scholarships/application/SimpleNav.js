@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-import { gray } from "@vschool/lotus"
+import { gray, blue } from "@vschool/lotus"
 import Link from "../../shared/QueryLink"
 
 const Navbar = styled.nav`
@@ -21,8 +21,9 @@ const Navbar = styled.nav`
         padding-right: 88px;
     }
 `
-const BackArrow = styled.p`
+const BackButton = styled(Link)`
     margin-right: auto;
+    color: ${blue.base};
 `
 const Logo = styled.img`
     height: 24px;
@@ -48,12 +49,11 @@ export default function SimpleNav() {
     const logoUrl = data.prismicNavigationBar.data.logo.url
     return (
         <Navbar>
-            {/* TODO: make real back button and send user 
-            back to scholarship page they came from */}
-            <BackArrow>Back</BackArrow>
+            <BackButton to="/">vschool.io</BackButton>
             <StyledLink to="/">
                 {/* TODO: use react-media package to display 
-                the shortened logo on small screens */}
+                the shortened logo (VS instead of V School) 
+                on small screens */}
                 <Logo src={logoUrl} />
             </StyledLink>
         </Navbar>

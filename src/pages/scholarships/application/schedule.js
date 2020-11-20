@@ -1,11 +1,12 @@
 import React from "react"
-import styled from "styled-components"
-import { InlineWidget } from "react-calendly"
+import ScholarshipAppLayout from "../../../components/scholarships/application/ScholarshipApplicationLayout"
+import SEO from "../../../components/seo"
+import Scheduler from "../../../components/scholarships/application/schedule"
 
 export default function CalendlyScheduler() {
     return (
-        <div>
-            <h1>Calendly here</h1>
-        </div>
+        <ScholarshipAppLayout>
+            <Scheduler />
+        </ScholarshipAppLayout>
     )
 }

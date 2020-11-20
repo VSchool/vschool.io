@@ -120,13 +120,27 @@ export default function ApplicationForm(props) {
         a new ConvertKit subscriber and adds them to a sequence which sends them 
         the email with the URL
         */
-        await formium.submitForm("scholarship-initial-form", {
-            name,
-            email,
-        })
-        navigate(`/scholarships/application/background-info`, {
-            state: { email },
-        })
+        
+        try {
+            const nextStep = "background"
+            const options = {
+                method: "POST",
+                body: JSON.stringify({ name, email, nextStep }),
+            }
+            console.log()
+            await fetch(
+                process.env.SCHOLARSHIP_APP_ZAPIER_WEBHOOK_URL,
+                options
+            )
+
+            localStorage.setItem("scholarshipAppNextStep", nextStep)
+
+            navigate(`/scholarships/application/background-info`, {
+                state: { email },
+            })
+        } catch (err) {
+            console.error(err.message)
+        }
     }
 
     const data = useStaticQuery(graphql`

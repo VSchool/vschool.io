@@ -1,9 +1,10 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-import { blue, gray } from "@vschool/lotus"
+import { useLocation } from "@reach/router"
+import querystring from "query-string"
+import { blue, gray, Button } from "@vschool/lotus"
 import Form from "./Form"
-// These styles make the Footer stick to the bottom of any page, no matter the page height
 
 const TextContainer = styled.section`
     display: flex;
@@ -45,7 +46,40 @@ const Text = styled.p`
     color: ${gray.darker};
 `
 
+const StyledButton = styled(Button)`
+    &&& {
+        margin-top: 48px;
+        margin-bottom: 14px;
+        @media (min-width: 800px) {
+            margin-bottom: 24px;
+        }
+    }
+`
+
+const Footnote = styled.p`
+    color: ${gray.darker};
+    font-size: 12px;
+    line-height: 16px;
+
+    @media (min-width: 800px) {
+        font-size: 14px;
+        line-height: 18px;
+    }
+`
+
 export default function BackgroundInfoForm() {
+    const [showPreEssay, setShowPreEssay] = useState()
+    const location = useLocation()
+    useEffect(() => {
+        // fetch(process.env.SCHOLARSHIP_APP_ESSAY_QUESTIONS_ZAPIER_WEBHOOK_URL)
+
+        const query = querystring.parse(location.search)
+        if (query.showpreessay === "false") {
+            setShowPreEssay(false)
+        } else {
+            setShowPreEssay(true)
+        }
+    }, [])
     const data = useStaticQuery(graphql`
         {
             prismicScholarshipApplicationForms {
@@ -59,6 +93,18 @@ export default function BackgroundInfoForm() {
                     essay_form_title {
                         text
                     }
+                    pre_essay_title {
+                        text
+                    }
+                    pre_essay_text {
+                        text
+                    }
+                    pre_essay_button_text {
+                        text
+                    }
+                    pre_essay_footnote {
+                        text
+                    }
                 }
             }
         }
@@ -68,15 +114,30 @@ export default function BackgroundInfoForm() {
         form_subtitle: { text: subtitle },
         essay_form_text: { text },
         essay_form_title: { text: title },
+        pre_essay_title: { text: preEssayTitle },
+        pre_essay_text: { text: preEssayText },
+        pre_essay_button_text: { text: preEssayButtonText },
+        pre_essay_footnote: { text: preEssayFootnote },
     } = data.prismicScholarshipApplicationForms.data
     return (
         <>
             <TextContainer>
                 <Subtitle>{subtitle}</Subtitle>
-                <Title>{title}</Title>
-                <Text>{text}</Text>
+                <Title>{showPreEssay ? preEssayTitle : title}</Title>
+                <Text>{showPreEssay ? preEssayText : text}</Text>
+                {showPreEssay && (
+                    <>
+                        <StyledButton
+                            size="lg"
+                            onClick={() => setShowPreEssay(false)}
+                        >
+                            {preEssayButtonText}
+                        </StyledButton>
+                        <Footnote>{preEssayFootnote}</Footnote>
+                    </>
+                )}
             </TextContainer>
-            <Form />
+            {!showPreEssay && <Form />}
         </>
     )
 }
