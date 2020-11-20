@@ -12,7 +12,7 @@ const Navbar = styled.nav`
     align-items: center;
     background-color: ${gray.lighter};
     box-shadow: 0px 4px 16px rgba(33, 32, 31, 0.1);
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     padding-left: 18px;
     padding-right: 18px;
 

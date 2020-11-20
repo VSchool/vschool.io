@@ -12,6 +12,7 @@ const MainContainer = styled.div`
 `
 
 const ContentContainer = styled.div`
+    background-color: ${props => props.$backgroundColor};
     flex-grow: 1;
 
     & > main {
@@ -19,10 +20,13 @@ const ContentContainer = styled.div`
     }
 `
 
-export default function ScholarshipApplicationLayout({ children }) {
+export default function ScholarshipApplicationLayout({
+    children,
+    backgroundColor,
+}) {
     return (
         <MainContainer>
-            <ContentContainer>
+            <ContentContainer $backgroundColor={backgroundColor}>
                 <SimpleNav />
                 {children}
             </ContentContainer>
