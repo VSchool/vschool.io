@@ -104,7 +104,6 @@ export default function CTA(props) {
         deadline_text: { text: deadlineText },
         deadline_date: deadlineDate,
     } = props
-    console.log(props)
 
     return (
         <Container>

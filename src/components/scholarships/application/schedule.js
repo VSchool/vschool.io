@@ -78,8 +78,6 @@ export default function Scheduler() {
         scheduler_text: { text },
     } = data.prismicScholarshipApplicationForms.data
 
-    console.log(queryData)
-
     useEffect(() => {
         let data
         const storageValue = JSON.parse(

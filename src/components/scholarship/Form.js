@@ -1,9 +1,7 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql, navigate } from "gatsby"
-import { useLocation } from "@reach/router"
 import { blue, gray, TextInput, Button } from "@vschool/lotus"
-import { formium } from "../../lib/formium"
 
 const Section = styled.section`
     padding-bottom: 24px;
@@ -102,7 +100,6 @@ const StyledButton = styled(Button)`
 export default function ApplicationForm(props) {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
-    const location = useLocation()
 
     // TODO: Submit the data somewhere.
     // Chat with Cody about what happens after that.
@@ -128,7 +125,6 @@ export default function ApplicationForm(props) {
                 method: "POST",
                 body: JSON.stringify({ name, email, nextStep }),
             }
-            console.log()
             await fetch(
                 process.env.GATSBY_SCHOLARSHIP_APP_ZAPIER_WEBHOOK_URL,
                 options

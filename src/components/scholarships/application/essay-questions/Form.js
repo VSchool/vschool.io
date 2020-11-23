@@ -4,7 +4,6 @@ import { useStaticQuery, graphql, navigate } from "gatsby"
 import { useLocation } from "@reach/router"
 import queryString from "query-string"
 import { blue, red, Button } from "@vschool/lotus"
-import { formium } from "../../../../lib/formium"
 
 import { useFormium } from "../../../../hooks/useFormium"
 
