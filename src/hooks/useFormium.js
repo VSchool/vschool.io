@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useMemo } from "react"
 import styled, { css } from "styled-components"
 
 import {
@@ -29,10 +29,17 @@ export function useFormium(formiumForm) {
 
     const formiumPageId = formiumForm.schema.pageIds[0]
     const formiumFields = formiumForm.schema.fields
-    const formiumQuestions = formiumFields[formiumPageId].items
-        .map(q => formiumFields[q])
-        // Don't display any questions marked as hidden
-        .filter(q => !q.hidden)
+
+    // Memoize the value so it can be used in the dependencies array of the
+    // useEffect calls without causing infinite loops
+    const formiumQuestions = useMemo(() => {
+        return (
+            formiumFields[formiumPageId].items
+                .map(q => formiumFields[q])
+                // Don't display any questions marked as hidden
+                .filter(q => !q.hidden)
+        )
+    }, [formiumPageId, formiumFields])
 
     function handleChange(e) {
         const { name, value, type } = e.target
@@ -59,7 +66,7 @@ export function useFormium(formiumForm) {
             }
         }, {})
         setFormData(initialData)
-    }, [formiumForm])
+    }, [formiumForm, formiumQuestions])
 
     useEffect(() => {
         const components = formiumQuestions.map(question => {
@@ -168,7 +175,7 @@ export function useFormium(formiumForm) {
             }
         })
         setFormComponents(components)
-    }, [formData])
+    }, [formData, formiumQuestions, formiumFields])
 
     return { formComponents, formData }
 }

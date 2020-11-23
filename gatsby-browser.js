@@ -4,14 +4,11 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-import { navigate } from "gatsby"
-
 // Save the query string in localStorage and remove it from the URL
 // (This way if the URL is copy/pasted to share by someone, it won't
 // pollute the query info in analytics)
 // onRouteUpdate also runs on the first render
 export const onRouteUpdate = ({ location }) => {
-    // console.log(location)
     if (
         location.search !== "" &&
         location.key === "initial" &&
@@ -20,8 +17,6 @@ export const onRouteUpdate = ({ location }) => {
         // better one offhand.
         !location.pathname.includes("/scholarships/application")
     ) {
-        console.log("initial")
         localStorage.setItem("query", location.search)
-        // navigate(location.pathname)
     }
 }

@@ -4,8 +4,6 @@ import { useStaticQuery, graphql, navigate } from "gatsby"
 import { useLocation } from "@reach/router"
 import queryString from "query-string"
 import { blue, red, Button } from "@vschool/lotus"
-import { formium } from "../../../../lib/formium"
-
 import { useFormium } from "../../../../hooks/useFormium"
 
 const Form = styled.form`
@@ -39,8 +37,6 @@ export default function BackgroundForm() {
             }
         }
     `)
-
-    console.log(process.env.GATSBY_SCHOLARSHIP_APP_ZAPIER_WEBHOOK_URL)
 
     const { formComponents, formData } = useFormium(data.formiumForm)
 
@@ -115,7 +111,6 @@ export default function BackgroundForm() {
             method: "POST",
             body: JSON.stringify(data),
         }
-        console.log(options)
 
         try {
             await fetch(
