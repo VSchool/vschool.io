@@ -94,7 +94,7 @@ export default function BackgroundForm() {
     async function handleSubmit(e) {
         e.preventDefault()
         setSubmitting(true)
-        const data = { ...queryData, ...formData }
+        const data = { ...queryData, ...formData, completedStep: "background" }
         const fullTuitionOnlySelected =
             formData.financingOptionsConsidered.length === 1 &&
             formData.financingOptionsConsidered[0].includes(

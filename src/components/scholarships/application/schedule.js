@@ -146,7 +146,7 @@ export default function Scheduler() {
                         onEventScheduled={handleEventScheduled}
                     >
                         <InlineWidget
-                            url="https://calendly.com/bob-vschool/website-test"
+                            url="https://calendly.com/v-school/apply"
                             styles={{ height: 700 }}
                             prefill={{
                                 email: queryData.email || "",
