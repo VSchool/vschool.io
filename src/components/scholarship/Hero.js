@@ -1,8 +1,7 @@
 import React from "react"
 import styled from "styled-components"
-// import { Link as ScrollLink } from "react-scroll"
+import { Link as ScrollLink } from "react-scroll"
 import { gray, blue, Button } from "@vschool/lotus"
-import Link from "../shared/QueryLink"
 import HeroLayout from "../shared/HeroLayout"
 
 const Container = styled.section`
@@ -70,15 +69,13 @@ export default function Hero(props) {
                         <Title>{title}</Title>
                         <Text>{text}</Text>
                         <Amount>{amount}</Amount>
-                        {/* <ScrollLink
+                        <ScrollLink
                             to="application-form"
                             smooth={true}
-                            offset={-100}
-                        > */}
-                        <Link to="https://calendly.com/vschool/apply">
+                            offset={-320}
+                        >
                             <StyledButton size="xl">{buttonText}</StyledButton>
-                        </Link>
-                        {/* </ScrollLink> */}
+                        </ScrollLink>
                     </>
                 }
                 image={

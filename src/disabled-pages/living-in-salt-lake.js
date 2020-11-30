@@ -56,74 +56,74 @@ export default function LivingInSaltLake({ data }) {
     )
 }
 
-export const query = graphql`
-    {
-        prismicStartDate(
-            data: { course_name: { text: { eq: "Web Development" } } }
-        ) {
-            data {
-                start_date(formatString: "MMM Do, YYYY")
-            }
-        }
-        prismicLivingInSaltLake {
-            data {
-                utah_features_header {
-                    text
-                }
-                utah_features {
-                    feature_title {
-                        text
-                    }
-                    feature_image {
-                        url
-                    }
-                    feature_description {
-                        text
-                    }
-                }
-                testimonial_text {
-                    text
-                }
-                testimonial_image {
-                    url
-                }
-                testimonial_cite {
-                    text
-                }
-                sub_header {
-                    text
-                }
-                hero_image {
-                    url
-                }
-                header {
-                    text
-                }
-                check_out_housing_title {
-                    text
-                }
-                check_out_housing_link {
-                    url
-                }
-                check_out_housing_btn {
-                    text
-                }
-                make_a_leap_btn {
-                    text
-                }
-                make_a_leap_header {
-                    text
-                }
-                make_a_leap_sub {
-                    text
-                }
-                next_session {
-                    text
-                }
-                make_a_leap_link {
-                    url
-                }
-            }
-        }
-    }
-`
+// export const query = graphql`
+//     {
+//         prismicStartDate(
+//             data: { course_name: { text: { eq: "Web Development" } } }
+//         ) {
+//             data {
+//                 start_date(formatString: "MMM Do, YYYY")
+//             }
+//         }
+//         prismicLivingInSaltLake {
+//             data {
+//                 utah_features_header {
+//                     text
+//                 }
+//                 utah_features {
+//                     feature_title {
+//                         text
+//                     }
+//                     feature_image {
+//                         url
+//                     }
+//                     feature_description {
+//                         text
+//                     }
+//                 }
+//                 testimonial_text {
+//                     text
+//                 }
+//                 testimonial_image {
+//                     url
+//                 }
+//                 testimonial_cite {
+//                     text
+//                 }
+//                 sub_header {
+//                     text
+//                 }
+//                 hero_image {
+//                     url
+//                 }
+//                 header {
+//                     text
+//                 }
+//                 check_out_housing_title {
+//                     text
+//                 }
+//                 check_out_housing_link {
+//                     url
+//                 }
+//                 check_out_housing_btn {
+//                     text
+//                 }
+//                 make_a_leap_btn {
+//                     text
+//                 }
+//                 make_a_leap_header {
+//                     text
+//                 }
+//                 make_a_leap_sub {
+//                     text
+//                 }
+//                 next_session {
+//                     text
+//                 }
+//                 make_a_leap_link {
+//                     url
+//                 }
+//             }
+//         }
+//     }
+// `

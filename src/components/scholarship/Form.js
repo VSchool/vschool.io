@@ -28,6 +28,43 @@ const Header = styled.h3`
     text-align: center;
 `
 
+const DatesContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 24px;
+    @media (min-width: 800px) {
+        flex-direction: row;
+    }
+`
+
+const DateGroup = styled.div`
+    text-align: center;
+    margin-bottom: 24px;
+
+    @media (min-width: 800px) {
+        &:not(:last-child) {
+            margin-right: 96px;
+        }
+    }
+`
+
+const DateText = styled.h6`
+    color: ${blue.base};
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 4px;
+
+    @media (min-width: 800px) {
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 8px;
+    }
+`
+const Date = styled.h5`
+    color: ${gray.darker};
+`
+
 const Form = styled.form`
     display: flex;
     flex-direction: column;
@@ -60,7 +97,7 @@ const StyledButton = styled(Button)`
     }
 `
 
-export default function ApplicationForm() {
+export default function ApplicationForm(props) {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
 
@@ -70,21 +107,37 @@ export default function ApplicationForm() {
         e.preventDefault()
         /**
         TODO:
-        (1) Add the person to a customer.io segment
-        (2) Send them an email with the link to the background info form
-        (3) Navigate them to the background info form
-         */
-        const options = {
-            method: "POST",
-            body: JSON.stringify({ name, email }),
+        (1) Add the person to a ConvertKit sequence so they get the email with the URL to the background info form
+        (2) Send them an email with the link to the background info form (email in URL params)
+        (3) Navigate them to the background info form with their email remembered in state
+        */
+
+        /**
+        Submitting the form to Zapier adds a new ConvertKit subscriber and 
+        adds them to a sequence which sends them the email with the URL. ConvertKit
+        seems to take about 5 minutes to send the email, not including any intentional 
+        delays in the automation
+        */
+
+        try {
+            const nextStep = "background"
+            const options = {
+                method: "POST",
+                body: JSON.stringify({ name, email, nextStep }),
+            }
+            await fetch(
+                process.env.GATSBY_SCHOLARSHIP_APP_ZAPIER_WEBHOOK_URL,
+                options
+            )
+
+            localStorage.setItem("scholarshipAppNextStep", nextStep)
+
+            navigate(`/scholarships/application/background-info`, {
+                state: { email },
+            })
+        } catch (err) {
+            console.error(err.message)
         }
-        await fetch(
-            "https://hooks.zapier.com/hooks/catch/666916/olr9hds/",
-            options
-        )
-        navigate(`/scholarships/background-info-form`, {
-            state: { name, email },
-        })
     }
 
     const data = useStaticQuery(graphql`
@@ -111,10 +164,37 @@ export default function ApplicationForm() {
         form_button_text: { text: buttonText },
     } = data.prismicScholarshipPageSharedData.data
 
+    const {
+        deadline_text: { text: deadlineText },
+        deadline_date: deadlineDate,
+        winner_announced_text: { text: winnerText },
+        winner_announced_date: winnerDate,
+    } = props
+
+    // Not all scholarships will have the data for these dates
+    const showDates =
+        (deadlineText && deadlineDate) || (winnerText && winnerDate)
+
     return (
         <Section>
             <FormContainer>
                 <Header>{title}</Header>
+                {showDates && (
+                    <DatesContainer>
+                        {deadlineText && deadlineDate && (
+                            <DateGroup>
+                                <DateText>{deadlineText}</DateText>
+                                <Date>{deadlineDate}</Date>
+                            </DateGroup>
+                        )}
+                        {winnerText && winnerDate && (
+                            <DateGroup>
+                                <DateText>{winnerText}</DateText>
+                                <Date>{winnerDate}</Date>
+                            </DateGroup>
+                        )}
+                    </DatesContainer>
+                )}
                 <Form id="application-form" onSubmit={handleSubmit}>
                     <TextInput
                         type="text"
@@ -130,6 +210,7 @@ export default function ApplicationForm() {
                         type="email"
                         label="Email"
                         name="email"
+                        placeholder="joe@example.com"
                         value={email}
                         onChange={e => setEmail(e.target.value)}
                         required
