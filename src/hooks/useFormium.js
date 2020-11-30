@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from "react"
-import { useLocation } from "@reach/router"
+import React, { useState, useEffect, useMemo } from "react"
 import styled, { css } from "styled-components"
 
 import {
-    blue,
-    Button,
     TextInput,
     Textarea,
     CheckboxRadioGroup,
@@ -26,16 +23,23 @@ const StyledCheckboxRadioGroup = styled(CheckboxRadioGroup)`
     ${sharedStyles}
 `
 
-export function useFormium(data) {
+export function useFormium(formiumForm) {
     const [formData, setFormData] = useState({})
     const [formComponents, setFormComponents] = useState()
 
-    const formiumPageId = data.formiumForm.schema.pageIds[0]
-    const formiumFields = data.formiumForm.schema.fields
-    const formiumQuestions = formiumFields[formiumPageId].items
-        .map(q => formiumFields[q])
-        // Don't display any questions marked as hidden
-        .filter(q => !q.hidden)
+    const formiumPageId = formiumForm.schema.pageIds[0]
+    const formiumFields = formiumForm.schema.fields
+
+    // Memoize the value so it can be used in the dependencies array of the
+    // useEffect calls without causing infinite loops
+    const formiumQuestions = useMemo(() => {
+        return (
+            formiumFields[formiumPageId].items
+                .map(q => formiumFields[q])
+                // Don't display any questions marked as hidden
+                .filter(q => !q.hidden)
+        )
+    }, [formiumPageId, formiumFields])
 
     function handleChange(e) {
         const { name, value, type } = e.target
@@ -62,7 +66,7 @@ export function useFormium(data) {
             }
         }, {})
         setFormData(initialData)
-    }, [data])
+    }, [formiumForm, formiumQuestions])
 
     useEffect(() => {
         const components = formiumQuestions.map(question => {
@@ -171,7 +175,7 @@ export function useFormium(data) {
             }
         })
         setFormComponents(components)
-    }, [formData])
+    }, [formData, formiumQuestions, formiumFields])
 
     return { formComponents, formData }
 }

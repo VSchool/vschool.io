@@ -1,9 +1,8 @@
 import React from "react"
 import Hero from "./Hero"
 import Stages from "./Stages"
-// import Form from "./Form"
-// import FAQ from "./FAQ"
-import CTA from "./CTA"
+import Form from "./Form"
+import FAQ from "./FAQ"
 import Companies from "./Companies"
 import Rankings from "../shared/Rankings"
 import Testimonial from "./Testimonial"
@@ -14,9 +13,8 @@ export default function Scholarship({ data }) {
         <div>
             <Hero {...data} />
             <Stages />
-            {/* <Form />
-            <FAQ /> */}
-            <CTA {...data}/>
+            <Form {...data} />
+            <FAQ />
             <Companies />
             <Rankings />
             <Testimonial {...data} />
