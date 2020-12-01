@@ -25,6 +25,10 @@ const CourseInfo = styled.p`
     color: ${gray.darker};
     font-size: 14px;
     line-height: 18px;
+
+    @media (min-width: 800px) {
+        font-size: 16px;
+    }
 `
 
 const StyledLink = styled(Link)`

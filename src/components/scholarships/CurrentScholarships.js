@@ -53,6 +53,11 @@ const Name = styled.h5`
 const Summary = styled.p`
     color: ${gray.darker};
     margin-bottom: 16px;
+    font-size: 14px;
+
+    @media (min-width: 800px) {
+        font-size: 16px;
+    }
 `
 
 const StyledLink = styled(Link)`
