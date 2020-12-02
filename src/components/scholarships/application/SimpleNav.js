@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
+import Media from "react-media"
 import { gray, blue } from "@vschool/lotus"
 import Link from "../../shared/QueryLink"
 
@@ -12,9 +13,9 @@ const Navbar = styled.nav`
     align-items: center;
     background-color: ${gray.lighter};
     box-shadow: 0px 4px 16px rgba(33, 32, 31, 0.1);
-    /* margin-bottom: 20px; */
     padding-left: 18px;
     padding-right: 18px;
+    position: relative;
 
     @media (min-width: 800px) {
         padding-left: 88px;
@@ -22,15 +23,21 @@ const Navbar = styled.nav`
     }
 `
 const BackButton = styled(Link)`
-    margin-right: auto;
+    /* margin-right: auto; */
+    left: 18px;
+    position: absolute;
     color: ${blue.base};
+
+    @media (min-width: 800px) {
+        left: 88px;
+    }
 `
 const Logo = styled.img`
     height: 24px;
 `
 
 const StyledLink = styled(Link)`
-    margin-right: auto;
+    /* margin-right: auto; */
 `
 
 export default function SimpleNav() {
@@ -41,12 +48,18 @@ export default function SimpleNav() {
                     logo {
                         url
                     }
+                    mobile_logo {
+                        url
+                    }
                 }
             }
         }
     `)
 
-    const logoUrl = data.prismicNavigationBar.data.logo.url
+    const {
+        logo: { url: logoUrl },
+        mobile_logo: { url: mobileLogoUrl },
+    } = data.prismicNavigationBar.data
     return (
         <Navbar>
             <BackButton to="/">vschool.io</BackButton>
@@ -54,7 +67,19 @@ export default function SimpleNav() {
                 {/* TODO: use react-media package to display 
                 the shortened logo (VS instead of V School) 
                 on small screens */}
-                <Logo src={logoUrl} />
+                <Media
+                    queries={{
+                        mobile: "(max-width: 799px)",
+                        desktop: "(min-width: 800px)",
+                    }}
+                >
+                    {matches => (
+                        <>
+                            {matches.mobile && <Logo src={mobileLogoUrl} />}
+                            {matches.desktop && <Logo src={logoUrl} />}
+                        </>
+                    )}
+                </Media>
             </StyledLink>
         </Navbar>
     )
