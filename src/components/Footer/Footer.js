@@ -8,12 +8,14 @@ import FooterSubInformation from "./FooterSubInformation.js"
 
 const Container = styled.footer`
     background-color: ${black};
+    padding: 0 24px;
 `
 
 const FooterContainer = styled.div`
     background-color: ${black};
     color: ${gray.base};
-    padding: 0 24px;
+    border-bottom: 2px solid ${gray.darker};
+    padding-bottom: 40px;
 
     @media (min-width: 600px) {
         padding: 32px 0 72px 0;
@@ -139,8 +141,6 @@ const Footer = () => {
                 footer_input_placeholder: { text: placeholder },
                 footer_programs_header: { text: programsHeader },
                 body: footerSections,
-                footer_sub_links: footerSubLinks,
-                vs_logo: { url: logo },
             },
         },
         allPrismicStartDate: { edges: startDates },
@@ -168,14 +168,6 @@ const Footer = () => {
                     }
                     footer_programs_header {
                         text
-                    }
-                    footer_sub_links {
-                        footer_sub_link_text {
-                            text
-                        }
-                    }
-                    vs_logo {
-                        url
                     }
                     body {
                         ... on PrismicFooterBodyFooterSection {
@@ -252,7 +244,7 @@ const Footer = () => {
                     </FooterSection>
                 ))}
             </FooterContainer>
-            <FooterSubInformation logo={logo} footerSubLinks={footerSubLinks} />
+            <FooterSubInformation />
         </Container>
     )
 }
