@@ -23,7 +23,6 @@ const Navbar = styled.nav`
     }
 `
 const BackButton = styled(Link)`
-    /* margin-right: auto; */
     left: 18px;
     position: absolute;
     color: ${blue.base};
@@ -34,10 +33,6 @@ const BackButton = styled(Link)`
 `
 const Logo = styled.img`
     height: 24px;
-`
-
-const StyledLink = styled(Link)`
-    /* margin-right: auto; */
 `
 
 export default function SimpleNav() {
@@ -63,10 +58,7 @@ export default function SimpleNav() {
     return (
         <Navbar>
             <BackButton to="/">vschool.io</BackButton>
-            <StyledLink to="/">
-                {/* TODO: use react-media package to display 
-                the shortened logo (VS instead of V School) 
-                on small screens */}
+            <Link to="/">
                 <Media
                     queries={{
                         mobile: "(max-width: 799px)",
@@ -80,7 +72,7 @@ export default function SimpleNav() {
                         </>
                     )}
                 </Media>
-            </StyledLink>
+            </Link>
         </Navbar>
     )
 }
