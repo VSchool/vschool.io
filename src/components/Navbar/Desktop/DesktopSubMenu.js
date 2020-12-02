@@ -30,7 +30,7 @@ const SubMenuContainer = styled.ul`
         transform: translateY(-6.4px) rotate(45deg);
         border-width: 2px;
         border-style: solid;
-        border-color: ${blue.lightest};
+        border-color: ${gray.light};
         border-bottom: none;
         border-right: none;
     }
