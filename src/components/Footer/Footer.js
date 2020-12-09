@@ -224,10 +224,10 @@ const Footer = () => {
                 {footerSections.map(({ id, primary, items }, i) => (
                     <FooterSection key={id}>
                         <Header>{primary.footer_header.text}</Header>
-                        {items.map((item, j) =>
+                        {items.map((item) =>
                             item.footer_link.url[0] === "h" ? (
                                 <Anchor
-                                    key={item.footer_link.text + j}
+                                    key={item.footer_link.text}
                                     href={item.footer_link.url}
                                 >
                                     {item.footer_link_text.text}
@@ -235,7 +235,7 @@ const Footer = () => {
                             ) : (
                                 <SLink
                                     to={item.footer_link.url}
-                                    key={item.footer_link.url + j}
+                                    key={item.footer_link.url}
                                 >
                                     {item.footer_link_text.text}
                                 </SLink>

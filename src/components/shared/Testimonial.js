@@ -26,8 +26,10 @@ const Container = styled.div`
 `
 
 const TextContainer = styled.div`
-    background-color: ${({ color }) => color.lightest};
-    border: ${({ color }) => `2px solid ${color.base}`};
+    background-color: ${({ theme, color }) =>
+        theme.primary.lightest || color.lightest};
+    border: ${({ theme, color }) =>
+        `2px solid ${theme.primary.base || color.lightest}`};
     padding: 48px 24px 64px;
     max-width: 600px;
     margin-bottom: -32px;
@@ -75,7 +77,7 @@ const SourceTitle = styled.p`
 const Image = styled.img`
     width: 90%;
     max-width: 337px;
-    border-bottom: ${({ color }) => `20px solid ${color.base}`};
+    border-bottom: ${({ theme, color }) => `20px solid ${theme.secondary.base || color.base}`};
 `
 
 function Testimonial({
@@ -96,7 +98,7 @@ function Testimonial({
                 <Source>{source}</Source>
                 <SourceTitle>{sourceTitle}</SourceTitle>
             </TextContainer>
-            <Image src={imgSrc} color={secondColor} alt={imgAlt} />
+            <Image src={imgSrc} alt={imgAlt} color={secondColor} />
         </Container>
     )
 }
@@ -105,7 +107,7 @@ Testimonial.propTypes = {
     quote: PropTypes.string.isRequired,
     source: PropTypes.string.isRequired,
     sourceTitle: PropTypes.string,
-    primaryColor: PropTypes.string.isRequired,
+    primaryColor: PropTypes.string,
     secondaryColor: PropTypes.string,
 }
 
