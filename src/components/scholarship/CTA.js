@@ -8,7 +8,7 @@ import { Link as ScrollLink } from "react-scroll"
 const Container = styled.section`
     padding-top: 96px;
     padding-bottom: 96px;
-    background-color: ${props => props.theme.lightest};
+    background-color: ${props => props.theme.primary.lightest};
 `
 
 const Title = styled.h2`
@@ -61,7 +61,6 @@ export default function CTA(props) {
         primary_theme_color: primaryThemeColor,
         secondary_theme_color: secondaryThemeColor,
     } = props
-    console.log(primaryThemeColor)
 
     return (
         <Container>

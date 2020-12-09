@@ -24,7 +24,6 @@ const SubMenuContainer = styled.ul`
         height: 10px;
         width: 10px;
         background-color: ${gray.lighter};
-        /* background-color: red; */
         top: 0;
         left: 10%;
         transform: translateY(-6.4px) rotate(45deg);

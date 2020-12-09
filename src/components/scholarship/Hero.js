@@ -7,7 +7,7 @@ import HeroLayout from "../shared/HeroLayout"
 const Container = styled.section`
     /* props.theme is coming from the styled-components 
     theme context provided in templates/scholarship.js */
-    background-color: ${props => props.theme.lightest};
+    background-color: ${props => props.theme.primary.lightest};
     padding-top: 74px;
     padding-bottom: 74px;
 

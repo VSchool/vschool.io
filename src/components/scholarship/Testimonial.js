@@ -12,8 +12,6 @@ export default function TestimonialSection(props) {
         testimonial_quote: { text: quote },
         testimonial_name: { text: source },
         testimonial_status: { text: sourceTitle },
-        primary_theme_color: primaryThemeColor,
-        secondary_theme_color: secondaryThemeColor,
     } = props
     return (
         <Container>
@@ -21,8 +19,6 @@ export default function TestimonialSection(props) {
                 quote={quote}
                 source={source}
                 sourceTitle={sourceTitle}
-                primaryColor={primaryThemeColor}
-                secondaryColor={secondaryThemeColor}
                 imgSrc={imgSrc}
                 imgAlt={imgAlt}
             />
