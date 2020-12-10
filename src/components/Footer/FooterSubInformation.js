@@ -20,12 +20,6 @@ const FooterSubLinks = styled.div`
     }
 `
 
-const SubContainer = styled.div`
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-`
-
 const CopyrightNotice = styled.p`
     display: inline-block;
     color: ${gray.dark};
@@ -99,7 +93,11 @@ export default function CopyrightNoticermation(props) {
     } = data.prismicFooter.data
 
     const icons = socialIcons.map(icon => (
-        <SocialIconLink href={icon.social_icon_link.url} target="_blank">
+        <SocialIconLink
+            href={icon.social_icon_link.url}
+            target="_blank"
+            key={icon.social_icon_link.url}
+        >
             <SocialIcon
                 src={icon.social_icon_image.url}
                 alt={icon.social_icon_image.alt}

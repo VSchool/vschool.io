@@ -74,7 +74,7 @@ export default function BackgroundForm() {
                 navigate("/scholarships/application/complete")
             }
         }
-    }, [])
+    }, [location.search])
 
     async function handleSubmit(e) {
         e.preventDefault()
