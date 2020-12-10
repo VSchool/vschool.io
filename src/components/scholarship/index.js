@@ -20,7 +20,7 @@ export default function Scholarship({ data }) {
             <Rankings />
             <Testimonial {...data} />
             <Courses {...data} />
-            <CTA {...data} />
+            <CTA />
         </div>
     )
 }

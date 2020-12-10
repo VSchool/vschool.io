@@ -113,7 +113,7 @@ export default function Scheduler() {
                 navigate("/scholarships/application/complete")
             }
         }
-    }, [])
+    }, [location.search])
 
     async function handleEventScheduled(e) {
         const data = { ...queryData, nextStep: "essay" }

@@ -1,8 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-import { gray, blue, Button } from "@vschool/lotus"
-import Link from "../shared/QueryLink"
+import { gray, Button } from "@vschool/lotus"
 import { Link as ScrollLink } from "react-scroll"
 
 const Container = styled.section`
@@ -56,11 +55,6 @@ export default function CTA(props) {
         cta_text: { text },
         cta_button_text: { text: buttonText },
     } = data.prismicScholarshipPageSharedData.data
-
-    const {
-        primary_theme_color: primaryThemeColor,
-        secondary_theme_color: secondaryThemeColor,
-    } = props
 
     return (
         <Container>

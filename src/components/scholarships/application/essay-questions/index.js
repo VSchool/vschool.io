@@ -79,7 +79,7 @@ export default function BackgroundInfoForm() {
         } else {
             setShowPreEssay(true)
         }
-    }, [])
+    }, [location.search])
     const data = useStaticQuery(graphql`
         {
             prismicScholarshipApplicationForms {
