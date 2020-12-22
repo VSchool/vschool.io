@@ -39,14 +39,13 @@ export default function BackgroundForm() {
     `)
 
     const { formComponents, formData } = useFormium(data.formiumForm)
-
     // Save the name/email either from state (from the scholarship page) or from a querystring (from email link)
     useEffect(() => {
         let data
         const storageValue = JSON.parse(
             localStorage.getItem("scholarshipApplicationInfo")
         )
-        if (location.state?.email) {
+        if (location.state) {
             data = location.state
         } else if (location.search) {
             // change plus sign to "%2B" so when it gets parsed
@@ -62,6 +61,7 @@ export default function BackgroundForm() {
             )
             data = {}
         }
+        console.log(data)
         setQueryData(data)
         localStorage.setItem("scholarshipApplicationInfo", JSON.stringify(data))
     }, [location.search, location.state])
