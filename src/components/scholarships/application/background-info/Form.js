@@ -61,7 +61,6 @@ export default function BackgroundForm() {
             )
             data = {}
         }
-        console.log(data)
         setQueryData(data)
         localStorage.setItem("scholarshipApplicationInfo", JSON.stringify(data))
     }, [location.search, location.state])
