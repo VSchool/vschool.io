@@ -24,7 +24,7 @@ export default function ScholarshipPageTemplate({ pageContext, data }) {
     } = data.prismicScholarshipPage.data
     const primaryThemeColor = colors[primaryThemeColorString]
     const secondaryThemeColor = colors[secondaryThemeColorString]
-    
+
     return (
         <Layout>
             <SEO title={`${pageContext.name}`} />
@@ -88,6 +88,9 @@ export const query = graphql`
                 }
                 primary_theme_color
                 secondary_theme_color
+                scholarship_name {
+                    text
+                }
                 testimonial_image {
                     alt
                     url

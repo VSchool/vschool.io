@@ -121,6 +121,7 @@ export default function ApplicationForm(props) {
 
         try {
             const nextStep = "background"
+            const scholarshipName = props.scholarship_name.text
             const options = {
                 method: "POST",
                 body: JSON.stringify({ name, email, nextStep }),
@@ -131,9 +132,10 @@ export default function ApplicationForm(props) {
             )
 
             localStorage.setItem("scholarshipAppNextStep", nextStep)
+            localStorage.setItem("scholarshipName", scholarshipName)
 
             navigate(`/scholarships/application/background-info`, {
-                state: { email },
+                state: { email, scholarshipName },
             })
         } catch (err) {
             console.error(err.message)
