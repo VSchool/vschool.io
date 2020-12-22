@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, navigate } from "gatsby"
 import { CardGroup, Card, black, gray, TextButton } from "@vschool/lotus"
 import Link from "./QueryLink"
 
@@ -9,6 +9,7 @@ const FlexCard = styled(Card)`
     flex-direction: column;
     align-items: flex-start;
     padding-top: 32px;
+    cursor: pointer;
 `
 
 const Icon = styled.img`
@@ -69,7 +70,10 @@ export default function CoursesNew() {
     `)
 
     const courseCards = data.prismicCourseCards.data.body.map(course => (
-        <FlexCard key={course.id}>
+        <FlexCard
+            key={course.id}
+            onClick={() => navigate(course.primary.button_url.url)}
+        >
             <Icon
                 src={course.primary.course_icon.url}
                 alt={course.primary.course_icon.alt}

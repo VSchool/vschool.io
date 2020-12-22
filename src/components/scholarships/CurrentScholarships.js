@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, navigate } from "gatsby"
 import {
     white,
     green,
@@ -28,6 +28,7 @@ const Section = styled.section`
 const FlexCard = styled(Card)`
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 `
 
 const Title = styled.h1`
@@ -110,10 +111,14 @@ export default function CurrentScholarships() {
         scholarships_title: { text: title },
         scholarships_subtitle: { text: subtitle },
     } = data.prismicScholarshipsIntroPage.data
+
     const currentList = data.allPrismicScholarshipPage.edges
         .map(item => item.node)
         .map(item => (
-            <FlexCard key={item.uid}>
+            <FlexCard
+                key={item.uid}
+                onClick={() => navigate(`/scholarships/${item.uid}`)}
+            >
                 <Icon src={item.data.icon.url} alt={item.data.icon.alt} />
                 <Name>{item.data.scholarship_name.text}</Name>
                 <Summary>{item.data.summary.text}</Summary>
