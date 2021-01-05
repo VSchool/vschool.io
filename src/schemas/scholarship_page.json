@@ -61,7 +61,7 @@
         "placeholder_false": "Inactive",
         "placeholder_true": "Active",
         "default_value": false,
-        "label": "Active"
+        "label": "Active (Should page be live on website?)"
       }
     },
     "public": {
@@ -70,7 +70,7 @@
         "placeholder_false": "Private",
         "placeholder_true": "Public",
         "default_value": true,
-        "label": "Public"
+        "label": "Public (Should scholarship be listed on scholarship list page?)"
       }
     },
     "full_tuition_scholarship": {
