@@ -26,7 +26,7 @@ export default function Scholarship({ data }) {
             <Hero {...data} deadlinePast={deadlinePast} />
             <Stages />
             <Form {...data} deadlinePast={deadlinePast} />
-            <FAQ />
+            {!deadlinePast && <FAQ />}
             <Companies />
             <Rankings />
             <Testimonial {...data} />
