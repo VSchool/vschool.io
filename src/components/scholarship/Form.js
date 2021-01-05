@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import { DateTime } from "luxon"
+
 import { useStaticQuery, graphql, navigate } from "gatsby"
 import { blue, gray, TextInput, Button } from "@vschool/lotus"
 
@@ -33,7 +33,7 @@ const DatesContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-bottom: 24px;
+    margin-bottom: ${props => (props.$deadlinePast ? "0" : "24px")};
     @media (min-width: 800px) {
         flex-direction: row;
     }
@@ -172,19 +172,12 @@ export default function ApplicationForm(props) {
         deadline_date: deadlineDate,
         winner_announced_text: { text: winnerText },
         winner_announced_date: winnerDate,
+        deadlinePast,
     } = props
 
     // Not all scholarships will have the data for these dates
     const showDates =
         (deadlineText && deadlineDate) || (winnerText && winnerDate)
-
-    const dateNum = parseInt(props.deadline_date.split(" ")[1])
-    const updatedDate = props.deadline_date
-        .split(" ")
-        .map((item, index) => (index === 1 ? dateNum : item))
-        .join(" ")
-    const result = DateTime.fromFormat(updatedDate, "MMMM d yyyy")
-    const deadlinePast = result < DateTime.local()
 
     return (
         <Section>
@@ -195,7 +188,7 @@ export default function ApplicationForm(props) {
                     <Header>{title}</Header>
                 )}
                 {showDates && (
-                    <DatesContainer>
+                    <DatesContainer $deadlinePast={deadlinePast}>
                         {deadlineText && deadlineDate && (
                             <DateGroup>
                                 <DateText>{deadlineText}</DateText>

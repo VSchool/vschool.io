@@ -11,19 +11,21 @@ import Courses from "./Courses"
 import CTA from "./CTA"
 
 export default function Scholarship({ data }) {
-    console.log(data)
-    const dateNum = parseInt(data.deadline_date.split(" ")[1])
-    const updatedDate = data.deadline_date
-        .split(" ")
-        .map((item, index) => (index === 1 ? dateNum : item))
-        .join(" ")
-    const result = DateTime.fromFormat(updatedDate, "MMMM d yyyy")
-    const deadlinePast = result < DateTime.local()
+    let deadlinePast = false
+    if (data.deadline_date) {
+        const dateNum = parseInt(data.deadline_date.split(" ")[1])
+        const updatedDate = data.deadline_date
+            .split(" ")
+            .map((item, index) => (index === 1 ? dateNum : item))
+            .join(" ")
+        const result = DateTime.fromFormat(updatedDate, "MMMM d yyyy")
+        deadlinePast = result < DateTime.local()
+    }
     return (
         <div>
-            <Hero {...data} />
+            <Hero {...data} deadlinePast={deadlinePast} />
             <Stages />
-            <Form {...data} />
+            <Form {...data} deadlinePast={deadlinePast} />
             <FAQ />
             <Companies />
             <Rankings />
