@@ -60,6 +60,7 @@ export default function Hero(props) {
         hero_image: { url: mainImageUrl, alt: mainImageAlt },
         hero_card_image: { url: cardImageUrl, alt: cardImageAlt },
         hero_button_text: { text: buttonText },
+        deadlinePast,
     } = props
 
     return (
@@ -75,7 +76,11 @@ export default function Hero(props) {
                             smooth={true}
                             offset={-320}
                         >
-                            <StyledButton size="xl">{buttonText}</StyledButton>
+                            {!deadlinePast && (
+                                <StyledButton size="xl">
+                                    {buttonText}
+                                </StyledButton>
+                            )}
                         </ScrollLink>
                     </>
                 }
