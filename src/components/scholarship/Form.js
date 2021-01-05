@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import styled from "styled-components"
+
 import { useStaticQuery, graphql, navigate } from "gatsby"
 import { blue, gray, TextInput, Button } from "@vschool/lotus"
 
@@ -32,7 +33,7 @@ const DatesContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-bottom: 24px;
+    margin-bottom: ${props => (props.$deadlinePast ? "0" : "24px")};
     @media (min-width: 800px) {
         flex-direction: row;
     }
@@ -171,6 +172,7 @@ export default function ApplicationForm(props) {
         deadline_date: deadlineDate,
         winner_announced_text: { text: winnerText },
         winner_announced_date: winnerDate,
+        deadlinePast,
     } = props
 
     // Not all scholarships will have the data for these dates
@@ -180,9 +182,13 @@ export default function ApplicationForm(props) {
     return (
         <Section>
             <FormContainer>
-                <Header>{title}</Header>
+                {deadlinePast ? (
+                    <Header>Scholarship Application Closed</Header>
+                ) : (
+                    <Header>{title}</Header>
+                )}
                 {showDates && (
-                    <DatesContainer>
+                    <DatesContainer $deadlinePast={deadlinePast}>
                         {deadlineText && deadlineDate && (
                             <DateGroup>
                                 <DateText>{deadlineText}</DateText>
@@ -197,30 +203,34 @@ export default function ApplicationForm(props) {
                         )}
                     </DatesContainer>
                 )}
-                <Form id="application-form" onSubmit={handleSubmit}>
-                    <TextInput
-                        type="text"
-                        label="Name"
-                        name="name"
-                        placeholder="First and Last name"
-                        value={name}
-                        onChange={e => setName(e.target.value)}
-                        required
-                        validationText="auto-generate"
-                    />
-                    <TextInput
-                        type="email"
-                        label="Email"
-                        name="email"
-                        placeholder="joe@example.com"
-                        value={email}
-                        onChange={e => setEmail(e.target.value)}
-                        required
-                        validationText="auto-generate"
-                    />
-                    <StyledButton size="lg">{buttonText}</StyledButton>
-                </Form>
-                <Disclaimer>{disclaimer}</Disclaimer>
+                {!deadlinePast && (
+                    <>
+                        <Form id="application-form" onSubmit={handleSubmit}>
+                            <TextInput
+                                type="text"
+                                label="Name"
+                                name="name"
+                                placeholder="First and Last name"
+                                value={name}
+                                onChange={e => setName(e.target.value)}
+                                required
+                                validationText="auto-generate"
+                            />
+                            <TextInput
+                                type="email"
+                                label="Email"
+                                name="email"
+                                placeholder="joe@example.com"
+                                value={email}
+                                onChange={e => setEmail(e.target.value)}
+                                required
+                                validationText="auto-generate"
+                            />
+                            <StyledButton size="lg">{buttonText}</StyledButton>
+                        </Form>
+                        <Disclaimer>{disclaimer}</Disclaimer>
+                    </>
+                )}
             </FormContainer>
         </Section>
     )
