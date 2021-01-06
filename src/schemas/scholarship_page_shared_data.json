@@ -77,6 +77,43 @@
       }
     }
   },
+  "Scholarship Closed CTA": {
+    "closed_cta_header": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Closed CTA Header"
+      }
+    },
+    "closed_other_scholarships_text": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Closed Other Scholarships Text"
+      }
+    },
+    "closed_other_scholarships_url": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "label": "Closed Other Scholarships URL"
+      }
+    },
+    "closed_reg_app_text": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Closed Reg App Text"
+      }
+    },
+    "closed_reg_app_url": {
+      "type": "Link",
+      "config": {
+        "allowTargetBlank": true,
+        "label": "Closed Reg App URL"
+      }
+    }
+  },
   "Companies": {
     "companies_title": {
       "type": "StructuredText",
