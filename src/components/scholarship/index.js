@@ -3,6 +3,7 @@ import { DateTime } from "luxon"
 import Hero from "./Hero"
 import Stages from "./Stages"
 import Form from "./Form"
+import ClosedAppCTA from "./ClosedAppCTA"
 import FAQ from "./FAQ"
 import Companies from "./Companies"
 import Rankings from "../shared/Rankings"
@@ -26,7 +27,7 @@ export default function Scholarship({ data }) {
             <Hero {...data} deadlinePast={deadlinePast} />
             <Stages />
             <Form {...data} deadlinePast={deadlinePast} />
-            {!deadlinePast && <FAQ />}
+            {deadlinePast ? <ClosedAppCTA /> : <FAQ />}
             <Companies />
             <Rankings />
             <Testimonial {...data} />
