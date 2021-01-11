@@ -1,0 +1,135 @@
+{
+    "Meta" : {
+      "uid" : {
+        "type" : "UID",
+        "config" : {
+          "label" : "Slug"
+        }
+      }
+    },
+    "Hero" : {
+      "hero_title" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+          "label" : "Hero Title"
+        }
+      },
+      "hero_text" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+          "label" : "Hero Text"
+        }
+      },
+      "hero_button_text" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+          "label" : "Hero Button Text"
+        }
+      },
+      "hero_button_url" : {
+        "type" : "Link",
+        "config" : {
+          "allowTargetBlank" : true,
+          "label" : "Hero Button URL"
+        }
+      },
+      "hero_image" : {
+        "type" : "Image",
+        "config" : {
+          "constraint" : { },
+          "thumbnails" : [ ],
+          "label" : "Hero Image"
+        }
+      }
+    },
+    "Outcomes" : {
+      "outcomes_title" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+          "label" : "Outcomes Title"
+        }
+      },
+      "outcomes_stats" : {
+        "type" : "Group",
+        "config" : {
+          "fields" : {
+            "stat_text" : {
+              "type" : "StructuredText",
+              "config" : {
+                "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label" : "Stat Text"
+              }
+            },
+            "stat_number" : {
+              "type" : "StructuredText",
+              "config" : {
+                "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label" : "Stat Number"
+              }
+            }
+          },
+          "label" : "Outcomes Stats"
+        }
+      },
+      "outcomes_stats_caption" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+          "label" : "Outcomes Stats Caption"
+        }
+      },
+      "outcomes_testimonials" : {
+        "type" : "Group",
+        "config" : {
+          "fields" : {
+            "testimonial_image" : {
+              "type" : "Image",
+              "config" : {
+                "constraint" : { },
+                "thumbnails" : [ ],
+                "label" : "Testimonial Image"
+              }
+            },
+            "testimonial_text" : {
+              "type" : "StructuredText",
+              "config" : {
+                "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label" : "Testimonial Text"
+              }
+            },
+            "testimonial_name" : {
+              "type" : "StructuredText",
+              "config" : {
+                "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label" : "Testimonial Name"
+              }
+            },
+            "testimonial_name_info" : {
+              "type" : "StructuredText",
+              "config" : {
+                "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label" : "Testimonial Name Info"
+              }
+            }
+          },
+          "label" : "Outcomes Testimonials"
+        }
+      }
+    },
+    "Student Journey" : {
+      "student_journey_image" : {
+        "type" : "Image",
+        "config" : {
+          "constraint" : { },
+          "thumbnails" : [ ],
+          "label" : "Student Journey Image"
+        }
+      }
+    },
+    "Course Description" : { },
+    "Course Syllabus" : { }
+  }
