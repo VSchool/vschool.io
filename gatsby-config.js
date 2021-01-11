@@ -57,6 +57,8 @@ module.exports = {
                     company_logos: require("./src/schemas/company_logos.json"),
                     course_cards: require("./src/schemas/course_cards.json"),
                     course_info: require("./src/schemas/course_info.json"),
+                    course_page: require("./src/schemas/course_page.json"),
+                    course_page_shared_data: require("./src/schemas/course_page_shared_data.json"),
                     "development-page": require("./src/schemas/development-page.json"),
                     digital_family_page: require("./src/schemas/digital_family_page.json"),
                     education_phases: require("./src/schemas/education_phases.json"),
