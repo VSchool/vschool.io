@@ -31,6 +31,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                     }
                 }
             }
+            allPrismicCoursePage {
+                edges {
+                    node {
+                        uid
+                    }
+                }
+            }
         }
     `)
     // Handle errors
@@ -67,6 +74,22 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             context: {
                 uid: node.uid,
                 name: node.data.scholarship_name.text,
+            },
+        })
+    })
+
+    // Create pages for each course page
+    const courseTemplate = path.resolve(`./src/templates/course.js`)
+    const coursePages = result.data.allPrismicCoursePage.edges
+    coursePages.forEach(({ node }) => {
+        console.log(node)
+        node.url = `/courses/${node.uid}/`
+        actions.createPage({
+            path: node.url,
+            component: scholarshipTemplate,
+            context: {
+                uid: node.uid,
+                name: node.data.course_name.text,
             },
         })
     })
