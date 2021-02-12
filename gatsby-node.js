@@ -121,4 +121,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         isPermanent: true,
         force: true,
     })
+    
+    actions.createRedirect({
+        fromPath: "/mothercoders",
+        toPath: "/tech-moms",
+        isPermanent: true,
+        force: true,
+    })
 }
