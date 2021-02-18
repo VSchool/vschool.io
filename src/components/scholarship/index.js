@@ -1,6 +1,7 @@
 import React from "react"
 import { DateTime } from "luxon"
 import Hero from "./Hero"
+import Details from "./Details"
 import Stages from "./Stages"
 import Form from "./Form"
 import ClosedAppCTA from "./ClosedAppCTA"
@@ -25,6 +26,7 @@ export default function Scholarship({ data }) {
     return (
         <div>
             <Hero {...data} deadlinePast={deadlinePast} />
+            <Details {...data} />
             <Stages />
             <Form {...data} deadlinePast={deadlinePast} />
             {deadlinePast ? <ClosedAppCTA /> : <FAQ />}
