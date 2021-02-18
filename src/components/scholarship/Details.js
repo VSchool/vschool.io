@@ -15,25 +15,42 @@ const Title = styled.h2`
 const Subtitle = styled.p`
     text-align: center;
     margin: 40px auto;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 32px;
-    width: 70%;
     font-weight: 400;
+
+    @media (min-width: 800px) {
+        max-width: 848px;
+        font-size: 20px;
+    }
 `
 
 const Logo = styled.img`
-    width: 30%;
+    width: 100%;
     padding: 20px;
     margin-top: 50px;
+
+    @media (min-width: 800px) {
+        max-width: 450px;
+    }
 `
 
-const PBody = styled.p`
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
-    font-size: 16px;
-    line-height: 24px;
-    font-weight: 400;
+const Body = styled.div`
+    max-width: 1000px;
+
+    & > p {
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: 400;
+        margin-bottom: 16px;
+    }
+
+    @media (min-width: 800px) {
+        column-count: 2;
+        column-gap: 20px;
+        margin-bottom: 24px;
+        font-size: 16px;
+    }
 `
 
 export default function Details() {
@@ -71,13 +88,9 @@ export default function Details() {
             <Logo src={logoUrl} alt={logoAlt} />
             <Title>{title}</Title>
             <Subtitle>{subtitle}</Subtitle>
-            <PBody
+            <Body
                 dangerouslySetInnerHTML={{
-                    __html: textHtml
-                        .split("<p>")
-                        .join(
-                            "<p style='font-size: 16px; line-height: 24px;font-weight: 400;'>"
-                        ),
+                    __html: textHtml,
                 }}
             />
         </Container>
