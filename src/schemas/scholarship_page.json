@@ -60,7 +60,6 @@
       "config": {
         "placeholder_false": "Inactive",
         "placeholder_true": "Active",
-        "default_value": false,
         "label": "Active (Should page be live on website?)"
       }
     },
@@ -217,6 +216,37 @@
         "constraint": {},
         "thumbnails": [],
         "label": "Testimonial Image"
+      }
+    }
+  },
+  "Details": {
+    "details_logo": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Details Logo"
+      }
+    },
+    "details_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Details Title"
+      }
+    },
+    "details_subtitle": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Details Subtitle"
+      }
+    },
+    "details_text": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Details Text"
       }
     }
   }
