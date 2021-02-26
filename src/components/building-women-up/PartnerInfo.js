@@ -2,11 +2,16 @@ import React from "react"
 import styled, { css } from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import YouTube from "react-youtube"
-import { gray, blue } from "@vschool/lotus"
-import Link from "../shared/QueryLink"
+import { gray } from "@vschool/lotus"
 
 const Container = styled.section`
     padding-top: 96px;
+    padding-bottom: 96px;
+
+    @media (min-width: 800px) {
+        padding-top: 160px;
+        padding-bottom: 160px;
+    }
 `
 
 const ContentContainer = styled.div`
