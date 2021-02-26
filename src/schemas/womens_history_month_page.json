@@ -1,5 +1,11 @@
 {
     "Hero": {
+        "uid": {
+            "type": "UID",
+            "config": {
+                "label": "Slug"
+            }
+        },
         "hero_title": {
             "type": "StructuredText",
             "config": {
