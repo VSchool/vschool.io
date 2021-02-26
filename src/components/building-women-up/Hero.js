@@ -59,7 +59,6 @@ export default function Hero() {
             prismicWomensHistoryMonthPage {
                 data {
                     hero_background_image {
-                        alt
                         url
                     }
                     hero_title {
@@ -77,9 +76,9 @@ export default function Hero() {
     `)
 
     const {
-        hero_background_image: { alt: backgroundImgAlt, url: backgroundImgUrl },
+        hero_background_image: { url: backgroundImgUrl },
         hero_title: { text: title },
-        hero_text: { text: text },
+        hero_text: { text },
         hero_learn_more: { text: learnMoreText },
     } = data.prismicWomensHistoryMonthPage.data
     return (

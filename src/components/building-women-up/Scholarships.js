@@ -1,7 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-import { gray, blue } from "@vschool/lotus"
+import { gray, black, blue, Button } from "@vschool/lotus"
+import Link from "../shared/QueryLink"
 
 const Container = styled.section`
     padding-top: 96px;
@@ -34,6 +35,60 @@ const PartnersTitle = styled.p`
 
 const Logo = styled.img`
     width: 276px;
+`
+
+const MainImage = styled.img`
+    width: 100%;
+    height: 280px;
+    max-width: 656px;
+    box-shadow: 16px 16px 0px 0px ${black};
+    margin-right: 16px;
+    margin-top: 86px;
+    object-fit: cover;
+
+    @media (min-width: 425px) {
+        height: 359px;
+    }
+`
+
+const InfoContainer = styled.div`
+    max-width: 672px;
+`
+
+const InfoTitle = styled.h3`
+    margin-top: 64px;
+`
+
+const InfoText = styled.p`
+    color: ${gray.darker};
+    font-weight: normal;
+    margin-top: 16px;
+`
+
+const Deadline = styled.h6`
+    margin-top: 16px;
+    color: ${blue.base};
+    font-size: 10px;
+    line-height: 12px;
+    font-weight: 700;
+    text-align: left;
+    text-transform: none;
+    letter-spacing: 0.5px;
+    width: 100%;
+
+    @media (min-width: 800px) {
+        font-size: 12px;
+        line-height: 16px;
+    }
+`
+
+const StyledButton = styled(Button)`
+    margin-top: 32px;
+    width: 100%;
+
+    @media (min-width: 600px) {
+        width: 293px;
+    }
 `
 
 export default function Scholarships() {
@@ -96,7 +151,7 @@ export default function Scholarships() {
         scholarship_info_text: { text: infoText },
         scholarship_info_deadline_text: { text: deadlineText },
         scholarship_button_text: { text: buttonText },
-        scholarship_button_link: { text: buttonUrl },
+        scholarship_button_link: { url: buttonUrl },
     } = data.prismicWomensHistoryMonthPage.data
 
     return (
@@ -106,6 +161,15 @@ export default function Scholarships() {
             <PartnersTitle>{partnersTitle}</PartnersTitle>
             <Logo src={techMomsImgUrl} alt={techMomsImgAlt} />
             <Logo src={ssImgUrl} alt={ssImgAlt} />
+            <MainImage src={mainImgUrl} alt={mainImgAlt} />
+            <InfoContainer>
+                <InfoTitle>{infoTitle}</InfoTitle>
+                <InfoText>{infoText}</InfoText>
+                <Deadline>{deadlineText}</Deadline>
+                <Link to={`/scholarships${buttonUrl}`}>
+                    <StyledButton size="lg">{buttonText}</StyledButton>
+                </Link>
+            </InfoContainer>
         </Container>
     )
 }
