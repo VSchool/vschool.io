@@ -1,8 +1,8 @@
-import React from "react"
-import styled, { css } from "styled-components"
+import React, { useRef } from "react"
+import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import { useLocation } from "@reach/router"
-import YouTube from "react-youtube"
+import ReactTooltip from "react-tooltip"
 import { gray, Button } from "@vschool/lotus"
 
 const Container = styled.section`
@@ -51,6 +51,7 @@ const StyledButton = styled(Button)`
 
 export default function Share() {
     const location = useLocation()
+    const tooltipRef = useRef(null)
     const data = useStaticQuery(graphql`
         {
             prismicWomensHistoryMonthPage {
@@ -89,18 +90,27 @@ export default function Share() {
             key={icon.social_icon.url}
         />
     ))
-    console.log(shareLinkUrl)
     return (
         <Container>
             <Title>{title}</Title>
             <IconsGroup>{icons}</IconsGroup>
+            <ReactTooltip
+                effect="solid"
+                event="click"
+                globalEventOff="click"
+                ref={tooltipRef}
+            />
             <StyledButton
+                data-tip="Link Copied!"
                 size="lg"
-                onClick={e =>
+                onClick={e => {
                     navigator.clipboard.writeText(
                         `${location.origin}${shareLinkUrl}`
                     )
-                }
+                    setTimeout(() => {
+                        ReactTooltip.hide()
+                    }, 500)
+                }}
             >
                 {buttonText}
             </StyledButton>
