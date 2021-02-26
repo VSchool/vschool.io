@@ -35,6 +35,7 @@ const PartnersTitle = styled.p`
 
 const Logo = styled.img`
     width: 276px;
+    margin-top: 24px;
 `
 
 const MainImage = styled.img`
