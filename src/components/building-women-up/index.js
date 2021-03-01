@@ -3,6 +3,7 @@ import Hero from "./Hero"
 import Scholarships from "./Scholarships"
 import PartnerInfo from "./PartnerInfo"
 import Share from "./Share"
+import ConferenceSeries from "./ConferenceSeries"
 
 export default function BuildingWomenUp() {
     return (
@@ -11,6 +12,7 @@ export default function BuildingWomenUp() {
             <Scholarships />
             <PartnerInfo />
             <Share />
+            <ConferenceSeries />
         </>
     )
 }
