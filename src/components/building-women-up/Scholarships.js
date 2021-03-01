@@ -42,13 +42,17 @@ const MainImage = styled.img`
     width: 100%;
     height: 280px;
     max-width: 656px;
-    box-shadow: 16px 16px 0px 0px ${black};
+    box-shadow: 8px 8px 0px 0px ${black};
     margin-right: 16px;
     margin-top: 86px;
     object-fit: cover;
 
     @media (min-width: 425px) {
         height: 359px;
+    }
+
+    @media (min-width: 600px) {
+        box-shadow: 16px 16px 0px 0px ${black};
     }
 `
 
