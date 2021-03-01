@@ -4,18 +4,15 @@ import { DateTime } from "luxon"
 import { useStaticQuery, graphql } from "gatsby"
 import {
     gray,
-    black,
     blue,
     green,
     orange,
     pink,
     purple,
     yellow,
-    Button,
     CardGroup,
     Card,
 } from "@vschool/lotus"
-import Link from "../shared/QueryLink"
 
 const colors = {
     blue,
