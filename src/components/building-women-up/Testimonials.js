@@ -87,7 +87,7 @@ export default function Testimonials() {
             photo: { alt: photoAlt, url: photoUrl },
             quote: { text: quote },
         } = test
-        console.log(test)
+
         return (
             <StyledTestimonial
                 key={photoUrl}

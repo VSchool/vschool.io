@@ -1,9 +1,9 @@
-import React, { useRef } from "react"
+import React, { useState, useRef } from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import { useLocation } from "@reach/router"
 import ReactTooltip from "react-tooltip"
-import { gray, Button } from "@vschool/lotus"
+import { black, gray, Button } from "@vschool/lotus"
 
 const Container = styled.section`
     background-color: ${gray.light};
@@ -40,6 +40,10 @@ const Icon = styled.img`
     }
 `
 
+const ButtonDiv = styled.div`
+    position: relative;
+`
+
 const StyledButton = styled(Button)`
     margin-top: 39px;
     width: 100%;
@@ -49,9 +53,42 @@ const StyledButton = styled(Button)`
     }
 `
 
+const HiddenInput = styled.input`
+    position: absolute;
+    opacity: 0;
+`
+
+const Tooltip = styled.span`
+    display: ${({ $show }) => ($show ? "inline" : "none")};
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: ${black};
+    color: white;
+    padding: 10px;
+    font-size: 10px;
+    border-radius: 4px;
+
+    &:after {
+        content: "";
+        width: 0;
+        height: 0;
+        position: absolute;
+        border-bottom: 6px solid transparent;
+        border-top: 6px solid ${black};
+        border-right: 6px solid transparent;
+        border-left: 6px solid transparent;
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+`
+
 export default function Share() {
     const location = useLocation()
+    const [showTooltip, setShow] = useState(false)
     const tooltipRef = useRef(null)
+    const hiddenInputRef = useRef(null)
     const data = useStaticQuery(graphql`
         {
             prismicWomensHistoryMonthPage {
@@ -90,30 +127,39 @@ export default function Share() {
             key={icon.social_icon.url}
         />
     ))
+
+    function copyText() {
+        const input = hiddenInputRef.current
+        input.type = "text"
+        input.select()
+        document.execCommand("copy")
+        input.type = "hidden"
+        setShow(true)
+        setTimeout(() => {
+            setShow(false)
+        }, 3000)
+    }
+
     return (
         <Container>
             <Title>{title}</Title>
             <IconsGroup>{icons}</IconsGroup>
-            <ReactTooltip
-                effect="solid"
-                event="click"
-                globalEventOff="click"
-                ref={tooltipRef}
+            <ButtonDiv>
+                <Tooltip $show={showTooltip}>Link Copied!</Tooltip>
+                <StyledButton
+                    data-tip="Link Copied!"
+                    size="lg"
+                    onClick={copyText}
+                >
+                    {buttonText}
+                </StyledButton>
+            </ButtonDiv>
+            <HiddenInput
+                type="hidden"
+                value={`${location.origin}${shareLinkUrl}`}
+                ref={hiddenInputRef}
+                onChange={() => {}}
             />
-            <StyledButton
-                data-tip="Link Copied!"
-                size="lg"
-                onClick={e => {
-                    navigator.clipboard.writeText(
-                        `${location.origin}${shareLinkUrl}`
-                    )
-                    setTimeout(() => {
-                        ReactTooltip.hide()
-                    }, 500)
-                }}
-            >
-                {buttonText}
-            </StyledButton>
         </Container>
     )
 }
