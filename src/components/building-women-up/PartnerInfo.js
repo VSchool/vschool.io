@@ -16,6 +16,7 @@ const Container = styled.section`
 
 const ContentContainer = styled.div`
     width: 100%;
+    max-width: 1200px;
     border: 2px solid ${gray.base};
     padding: 64px 24px;
     display: flex;
