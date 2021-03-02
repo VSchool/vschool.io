@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import ScrollContainer from "react-indiana-drag-scroll"
 import { DateTime } from "luxon"
 import { useStaticQuery, graphql } from "gatsby"
 import {
@@ -38,11 +39,13 @@ const Subtitle = styled.h6`
 const StyledCardGroup = styled(CardGroup)`
     margin-top: 48px;
     // Remove wrapping styles on desktop:
-    grid-template-columns: initial;
-    grid-auto-flow: column;
+    /* grid-template-columns: initial; */
+    /* grid-auto-flow: column;
     overflow: scroll hidden;
-    align-self: flex-start;
-    max-width: 100%;
+    align-self: flex-start; */
+    max-width: 1000px;
+    grid-template-columns: repeat(3, minmax(235px, 1fr));
+    grid-auto-columns: 235px;
 `
 
 const FlexCard = styled(Card)`

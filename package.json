@@ -53,6 +53,7 @@
     "react-dom": "^16.13.1",
     "react-easy-swipe": "0.0.18",
     "react-helmet": "^6.1.0",
+    "react-indiana-drag-scroll": "^1.8.1",
     "react-mailchimp-subscribe": "^2.1.0",
     "react-media": "^1.10.0",
     "react-modal": "^3.11.1",
