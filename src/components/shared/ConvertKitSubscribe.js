@@ -49,51 +49,62 @@ const Disclaimer = styled.p`
     }
 `
 
-export default function ConvertKitSubscribe({ tag, ...props }) {
+const ThanksMessage = styled.h4`
+    margin-left: auto;
+    margin-right: auto;
+`
+
+export default function ConvertKitSubscribe({ webhookUrl, ...props }) {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
+    const [submitted, setSubmitted] = useState(false)
 
     function handleSubmit(e) {
         e.preventDefault()
-        const data = JSON.stringify({ name, email, tag })
+        const data = JSON.stringify({ name, email })
         const options = {
             method: "POST",
             body: data,
         }
 
-        fetch(
-            process.env.GATSBY_CONVERTKIT_SIGNUP_ZAPIER_WEBHOOK_URL,
-            options
-        ).then(res => console.log(res))
+        fetch(webhookUrl, options).then(res => {
+            res.ok && setSubmitted(true)
+        })
     }
 
     return (
         <FormContainer {...props} onSubmit={handleSubmit}>
-            <StyledInput
-                type="text"
-                label="First Name"
-                name="name"
-                placeholder="Your First Name"
-                value={name}
-                onChange={e => setName(e.target.value)}
-                required
-                validationText="Required"
-            />
-            <StyledInput
-                type="email"
-                label="Email"
-                name="email"
-                placeholder="Your Email"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                required
-                validationText="Required"
-            />
-            <StyledButton>Sign Up</StyledButton>
-            <Disclaimer>
-                By submitting your information you are agreeing to receive
-                emails from vschool.io.
-            </Disclaimer>
+            {!submitted ? (
+                <>
+                    <StyledInput
+                        type="text"
+                        label="First Name"
+                        name="name"
+                        placeholder="Your First Name"
+                        value={name}
+                        onChange={e => setName(e.target.value)}
+                        required
+                        validationText="Required"
+                    />
+                    <StyledInput
+                        type="email"
+                        label="Email"
+                        name="email"
+                        placeholder="Your Email"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                        required
+                        validationText="Required"
+                    />
+                    <StyledButton>Sign Up</StyledButton>
+                    <Disclaimer>
+                        By submitting your information you are agreeing to
+                        receive emails from vschool.io.
+                    </Disclaimer>
+                </>
+            ) : (
+                <ThanksMessage>Thanks for subscribing!</ThanksMessage>
+            )}
         </FormContainer>
     )
 }

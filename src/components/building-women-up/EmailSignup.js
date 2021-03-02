@@ -13,6 +13,7 @@ const Container = styled.section`
 const Title = styled.h3`
     text-align: center;
     max-width: 850px;
+    margin-bottom: 64px;
 `
 
 export default function EmailSignup() {
@@ -34,7 +35,11 @@ export default function EmailSignup() {
     return (
         <Container>
             <Title>{emailTitle}</Title>
-            <ConvertKitSubscribe tag="women scholarship" />
+            <ConvertKitSubscribe
+                webhookUrl={
+                    process.env.GATSBY_CONVERTKIT_SIGNUP_ZAPIER_WEBHOOK_URL
+                }
+            />
         </Container>
     )
 }
