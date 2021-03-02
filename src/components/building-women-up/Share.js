@@ -2,7 +2,6 @@ import React, { useState, useRef } from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import { useLocation } from "@reach/router"
-import ReactTooltip from "react-tooltip"
 import { black, gray, Button } from "@vschool/lotus"
 
 const Container = styled.section`
@@ -87,7 +86,6 @@ const Tooltip = styled.span`
 export default function Share() {
     const location = useLocation()
     const [showTooltip, setShow] = useState(false)
-    const tooltipRef = useRef(null)
     const hiddenInputRef = useRef(null)
     const data = useStaticQuery(graphql`
         {
@@ -129,6 +127,9 @@ export default function Share() {
     ))
 
     function copyText() {
+        /** I tried using navigator.clipboard, but it requires permissions from the user
+        with the Permissions API, which isn't supported in all modern browsers. This just
+        imperatively copies the value from a hidden input box. */
         const input = hiddenInputRef.current
         input.type = "text"
         input.select()
