@@ -24,7 +24,7 @@ const colors = {
 }
 
 const Container = styled.section`
-    padding-top: 96px;
+    padding: 96px 8px 0;
 `
 const Title = styled.h2`
     white-space: nowrap;
@@ -43,6 +43,8 @@ const StyledCardGroup = styled(CardGroup)`
     grid-template-columns: initial;
     grid-auto-flow: column;
     overflow: scroll hidden;
+    align-self: flex-start;
+    max-width: 100%;
 `
 
 const FlexCard = styled(Card)`
