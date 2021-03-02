@@ -20,9 +20,17 @@ const Container = styled.div`
     align-items: center;
 
     @media (min-width: 1000px) {
-        flex-direction: row-reverse;
+        flex-direction: row;
         justify-content: center;
     }
+`
+
+const Image = styled.img`
+    width: 90%;
+    z-index: 1; // Sit above the quote box
+    max-width: 337px;
+    border-bottom: ${({ theme, $color }) =>
+        `20px solid ${theme?.secondary?.base || $color.base}`};
 `
 
 const TextContainer = styled.div`
@@ -32,7 +40,7 @@ const TextContainer = styled.div`
         `2px solid ${theme?.primary?.base || $color.base}`};
     padding: 48px 24px 64px;
     max-width: 600px;
-    margin-bottom: -32px;
+    margin-top: -32px;
 
     @media (min-width: 1000px) {
         margin-bottom: 0;
@@ -74,12 +82,6 @@ const SourceTitle = styled.p`
         line-height: 18px;
     }
 `
-const Image = styled.img`
-    width: 90%;
-    max-width: 337px;
-    border-bottom: ${({ theme, $color }) =>
-        `20px solid ${theme?.secondary?.base || $color.base}`};
-`
 /**TODO: Refactor this to use compound components w/ context
 <Testimonial>
     <TestimonialQuote />
@@ -100,12 +102,12 @@ function Testimonial({
     const secondColor = colors[secondaryColor]
     return (
         <Container {...rest}>
+            <Image src={imgSrc} alt={imgAlt} $color={secondColor} />
             <TextContainer $color={mainColor}>
                 <Quote>{quote}</Quote>
                 <Source>{source}</Source>
                 <SourceTitle>{sourceTitle}</SourceTitle>
             </TextContainer>
-            <Image src={imgSrc} alt={imgAlt} $color={secondColor} />
         </Container>
     )
 }
