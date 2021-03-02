@@ -1,10 +1,13 @@
 import React from "react"
 import PropTypes from "prop-types"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
+import Link from "./shared/QueryLink"
+import { useLocation } from "@reach/router"
 import Navbar from "./Navbar"
 import Footer from "./Footer"
 import "@vschool/lotus/dist/index.css"
 import "./layout.scss"
+import { black, gray } from "@vschool/lotus"
 
 // These styles make the Footer stick to the bottom of any page, no matter the page height
 const MainContainer = styled.div`
@@ -17,16 +20,66 @@ const ContentContainer = styled.div`
     flex-grow: 1;
 
     & > main {
-        margin-top: 80px;
+        margin-top: ${({ $showBanner }) => ($showBanner ? `128px` : `80px`)};
+
+        @media (min-width: 600px) {
+            margin-top: ${({ $showBanner }) =>
+                $showBanner ? `114px` : `80px`};
+        }
+    }
+`
+
+/* TO REMOVE THE BANNER:
+1. Comment out the Banner Element and everything inside below
+2. Comment out the Banner styled components below (avoid warnings)
+3. Comment out the `top` CSS property on the Navbar component
+4. Change
+*/
+
+const Banner = styled.div`
+    background-color: ${black};
+    width: 100%;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 9999;
+    padding: 8px 24px;
+    @media (min-width: 600px) {
+        height: 34px;
+    }
+`
+
+const BannerText = styled.p`
+    color: ${gray.lighter};
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+
+    @media (min-width: 600px) {
+        font-size: 14px;
+        line-height: 18px;
     }
 `
 
 const Layout = ({ children }) => {
-
+    const location = useLocation()
+    const showBanner = location.pathname !== "/building-women-up"
     return (
         <MainContainer>
-            <ContentContainer>
-                <Navbar />
+            <ContentContainer $showBanner={showBanner}>
+                {showBanner && (
+                    <Banner>
+                        <BannerText>
+                            Women's Month at V School - Scholarships, Speakers,
+                            and more.{" "}
+                            <Link to="/building-women-up">Learn More</Link>
+                        </BannerText>
+                    </Banner>
+                )}
+                <Navbar bannerAdded={showBanner} />
 
                 <main>{children}</main>
             </ContentContainer>
