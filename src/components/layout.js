@@ -7,7 +7,7 @@ import Navbar from "./Navbar"
 import Footer from "./Footer"
 import "@vschool/lotus/dist/index.css"
 import "./layout.scss"
-import { black, gray } from "@vschool/lotus"
+import { black, gray, blue } from "@vschool/lotus"
 
 // These styles make the Footer stick to the bottom of any page, no matter the page height
 const MainContainer = styled.div`
@@ -64,6 +64,10 @@ const BannerText = styled.p`
     }
 `
 
+const StyledLink = styled(Link)`
+    color: ${blue.lighter};
+`
+
 const Layout = ({ children }) => {
     const location = useLocation()
     const showBanner = location.pathname !== "/building-women-up"
@@ -75,7 +79,9 @@ const Layout = ({ children }) => {
                         <BannerText>
                             Women's Month at V School - Scholarships, Speakers,
                             and more.{" "}
-                            <Link to="/building-women-up">Learn More</Link>
+                            <StyledLink to="/building-women-up">
+                                Learn More
+                            </StyledLink>
                         </BannerText>
                     </Banner>
                 )}
