@@ -1,0 +1,337 @@
+{
+    "Hero": {
+        "uid": {
+            "type": "UID",
+            "config": {
+                "label": "Slug"
+            }
+        },
+        "hero_title": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Hero Title"
+            }
+        },
+        "hero_text": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Hero Text"
+            }
+        },
+        "hero_learn_more": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Hero Learn More"
+            }
+        },
+        "hero_background_image": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Hero Background Image"
+            }
+        }
+    },
+    "Scholarships": {
+        "scholarship_title": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Scholarship Title"
+            }
+        },
+        "scholarship_subtitle": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading2, heading3, heading4, heading5, heading6",
+                "label": "Scholarship Subtitle"
+            }
+        },
+        "scholarship_partners_title": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading4, heading5, heading6",
+                "label": "Scholarship Partners Title"
+            }
+        },
+        "scholarship_tech_moms_logo": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Scholarship Tech Moms Logo"
+            }
+        },
+        "scholarship_silicon_slopes_logo": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Scholarship Silicon Slopes Logo"
+            }
+        },
+        "scholarship_main_image": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Scholarship Main Image"
+            }
+        },
+        "scholarship_info_title": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Scholarship Info Title"
+            }
+        },
+        "scholarship_info_text": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Scholarship Info Text"
+            }
+        },
+        "scholarship_info_deadline_text": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Scholarship Info Deadline Text"
+            }
+        },
+        "scholarship_button_text": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Scholarship Button Text"
+            }
+        },
+        "scholarship_button_link": {
+            "type": "Link",
+            "config": {
+                "label": "Scholarship Button Link"
+            }
+        }
+    },
+    "Partner Highlight": {
+        "highlight_title": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Highlight Title"
+            }
+        },
+        "highlight_text": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Highlight Text"
+            }
+        },
+        "highlight_visit_text": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "allowTargetBlank": true,
+                "label": "Highlight Visit Text"
+            }
+        },
+        "highlight_youtube_video": {
+            "type": "Embed",
+            "config": {
+                "label": "Highlight YouTube Video"
+            }
+        }
+    },
+    "Share": {
+        "share_title": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Share Title"
+            }
+        },
+        "share_social_links": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "social_icon": {
+                        "type": "Image",
+                        "config": {
+                            "constraint": {},
+                            "thumbnails": [],
+                            "label": "Social Icon"
+                        }
+                    },
+                    "social_link": {
+                        "type": "Link",
+                        "config": {
+                            "label": "Social Link"
+                        }
+                    }
+                },
+                "label": "Share Social Links"
+            }
+        },
+        "share_link_button_text": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Share Link Button Text"
+            }
+        },
+        "share_link_url": {
+            "type": "Link",
+            "config": {
+                "label": "Share Link URL"
+            }
+        }
+    },
+    "Speakers": {
+        "speakers_title": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Speakers Title"
+            }
+        },
+        "speakers_subtitle": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading2, heading3, heading4, heading5, heading6",
+                "label": "Speakers Subtitle"
+            }
+        },
+        "speakers_info": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "photo": {
+                        "type": "Image",
+                        "config": {
+                            "constraint": {},
+                            "thumbnails": [],
+                            "label": "Photo"
+                        }
+                    },
+                    "datetime": {
+                        "type": "Timestamp",
+                        "config": {
+                            "label": "Datetime"
+                        }
+                    },
+                    "date": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                            "label": "Date"
+                        }
+                    },
+                    "border_color": {
+                        "type": "Select",
+                        "config": {
+                            "options": [
+                                "blue",
+                                "green",
+                                "pink",
+                                "orange",
+                                "yellow",
+                                "purple"
+                            ],
+                            "default_value": "blue",
+                            "label": "Border Color"
+                        }
+                    },
+                    "speaker_name": {
+                        "type": "StructuredText",
+                        "config": {
+                            "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                            "label": "Speaker Name"
+                        }
+                    },
+                    "talk_title": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                            "label": "Talk Title"
+                        }
+                    },
+                    "rsvp_link": {
+                        "type": "Link",
+                        "config": {
+                            "allowTargetBlank": true,
+                            "label": "RSVP Link"
+                        }
+                    }
+                },
+                "label": "Speakers Info"
+            }
+        }
+    },
+    "Email List": {
+        "email_title": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Email Title"
+            }
+        }
+    },
+    "Testimonials": {
+        "testimonials_title": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Testimonials Title"
+            }
+        },
+        "testimonials_subtitle": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading2, heading3, heading4, heading5, heading6",
+                "label": "Testimonials Subtitle"
+            }
+        },
+        "testimonials": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "photo": {
+                        "type": "Image",
+                        "config": {
+                            "constraint": {},
+                            "thumbnails": [],
+                            "label": "Photo"
+                        }
+                    },
+                    "quote": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                            "label": "Quote"
+                        }
+                    },
+                    "name": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                            "label": "Name"
+                        }
+                    },
+                    "info": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                            "label": "Info"
+                        }
+                    }
+                },
+                "label": "Testimonials"
+            }
+        }
+    }
+}
