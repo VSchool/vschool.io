@@ -43,6 +43,7 @@ const TextContainer = styled.div`
     margin-top: -32px;
 
     @media (min-width: 1000px) {
+        margin-top: 0;
         margin-bottom: 0;
         margin-left: -24px;
         padding: 64px;

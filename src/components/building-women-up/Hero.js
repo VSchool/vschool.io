@@ -8,10 +8,13 @@ const Container = styled.section`
         `linear-gradient(71.41deg, rgba(33, 32, 31, 0.9) 18.15%, rgba(33, 32, 31, 0) 126.08%), url(${props.$backgroundImg})`};
     background-size: cover;
     background-position: center top;
-    padding-top: 160px;
-    height: 704px;
+    padding-top: 80px;
+    height: calc(100vh - 80px);
     align-items: flex-start;
     position: relative;
+    @media (min-width: 800px) {
+        padding-top: 160px;
+    }
 `
 
 const Header = styled.h1`
@@ -30,7 +33,7 @@ const LearnMoreContainer = styled.div`
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 51px;
+    bottom: 24px;
     width: 100%;
     display: flex;
     flex-direction: column;
