@@ -26,10 +26,10 @@ const Container = styled.div`
 `
 
 const TextContainer = styled.div`
-    background-color: ${({ theme, color }) =>
-        theme.primary.lightest || color.lightest};
-    border: ${({ theme, color }) =>
-        `2px solid ${theme.primary.base || color.lightest}`};
+    background-color: ${({ theme, $color }) =>
+        theme?.primary?.lightest || $color.lightest};
+    border: ${({ theme, $color }) =>
+        `2px solid ${theme?.primary?.base || $color.base}`};
     padding: 48px 24px 64px;
     max-width: 600px;
     margin-bottom: -32px;
@@ -77,9 +77,15 @@ const SourceTitle = styled.p`
 const Image = styled.img`
     width: 90%;
     max-width: 337px;
-    border-bottom: ${({ theme, color }) => `20px solid ${theme.secondary.base || color.base}`};
+    border-bottom: ${({ theme, $color }) =>
+        `20px solid ${theme?.secondary?.base || $color.base}`};
 `
-
+/**TODO: Refactor this to use compound components w/ context
+<Testimonial>
+    <TestimonialQuote />
+    <TestimonialImage />
+</Testimonial>
+ */
 function Testimonial({
     quote,
     source,
@@ -88,17 +94,18 @@ function Testimonial({
     secondaryColor,
     imgSrc,
     imgAlt,
+    ...rest
 }) {
     const mainColor = colors[primaryColor]
     const secondColor = colors[secondaryColor]
     return (
-        <Container>
-            <TextContainer color={mainColor}>
+        <Container {...rest}>
+            <TextContainer $color={mainColor}>
                 <Quote>{quote}</Quote>
                 <Source>{source}</Source>
                 <SourceTitle>{sourceTitle}</SourceTitle>
             </TextContainer>
-            <Image src={imgSrc} alt={imgAlt} color={secondColor} />
+            <Image src={imgSrc} alt={imgAlt} $color={secondColor} />
         </Container>
     )
 }
@@ -109,6 +116,8 @@ Testimonial.propTypes = {
     sourceTitle: PropTypes.string,
     primaryColor: PropTypes.string,
     secondaryColor: PropTypes.string,
+    imgSrc: PropTypes.string,
+    imgAlt: PropTypes.string,
 }
 
 export default Testimonial

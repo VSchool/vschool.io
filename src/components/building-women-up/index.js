@@ -5,6 +5,7 @@ import PartnerInfo from "./PartnerInfo"
 import Share from "./Share"
 import ConferenceSeries from "./ConferenceSeries"
 import EmailSignup from "./EmailSignup"
+import Testimonials from "./Testimonials"
 
 export default function BuildingWomenUp() {
     return (
@@ -15,6 +16,7 @@ export default function BuildingWomenUp() {
             <Share />
             <ConferenceSeries />
             <EmailSignup />
+            <Testimonials />
         </>
     )
 }
