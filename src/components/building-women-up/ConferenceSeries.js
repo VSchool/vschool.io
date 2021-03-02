@@ -33,13 +33,11 @@ const Subtitle = styled.h6`
     color: ${blue.base};
     text-align: center;
     margin-top: 24px;
-    /* Didn't feel like making a styled component
-    for the CardGroup just for this bottom spacing...*/
-    margin-bottom: 48px;
 `
 
 const StyledCardGroup = styled(CardGroup)`
-    // Remove wrapping styles on desktop: ;
+    margin-top: 48px;
+    // Remove wrapping styles on desktop:
     grid-template-columns: initial;
     grid-auto-flow: column;
     overflow: scroll hidden;
