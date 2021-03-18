@@ -54,6 +54,7 @@ const WidgetContainer = styled.div`
 export default function Scheduler() {
     const location = useLocation()
     const [queryData, setQueryData] = useState({})
+    const [utmObj, setUtmObj] = useState({})
     const data = useStaticQuery(graphql`
         {
             prismicScholarshipApplicationForms {
@@ -115,6 +116,23 @@ export default function Scheduler() {
         }
     }, [location.search])
 
+    useEffect(() => {
+        const utmString = localStorage.getItem("query")
+        const searchParams = new URLSearchParams(utmString)
+        const obj = {}
+        searchParams.forEach((value, key) => {
+            if (key.startsWith("utm")) {
+                const keyParts = key.split("_")
+                const newKey =
+                    keyParts[0] +
+                    keyParts[1][0].toUpperCase() +
+                    keyParts[1].slice(1)
+                obj[newKey] = value
+            }
+        })
+        setUtmObj(obj)
+    }, [])
+
     async function handleEventScheduled(e) {
         const data = { ...queryData, nextStep: "essay" }
         const options = {
@@ -151,6 +169,7 @@ export default function Scheduler() {
                             prefill={{
                                 email: queryData.email || "",
                             }}
+                            utm={utmObj}
                         />
                     </CalendlyEventListener>
                 </WidgetContainer>
