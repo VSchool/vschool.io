@@ -85,6 +85,7 @@ module.exports = {
                     uofu_primer: require("./src/schemas/uofu_primer.json"),
                     "va-scholarship": require("./src/schemas/va-scholarship.json"),
                     veterans_page: require("./src/schemas/veterans_page.json"),
+                    womens_history_month_page: require("./src/schemas/womens_history_month_page.json"),
                     "xd-page": require("./src/schemas/xd-page.json"),
                     "you-belong": require("./src/schemas/you-belong.json"),
                 },
