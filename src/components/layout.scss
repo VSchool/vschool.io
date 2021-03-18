@@ -27,6 +27,10 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #fbf9f7;
+
+    // Might choose to include this later, but don't want it to mess everything up right now
+    // overflow: hidden;
 
     @media only screen and (min-width: $media-md) {
         padding-left: 32px;
@@ -88,7 +92,7 @@ h1 {
 p {
     font-size: 16px;
     line-height: 24px;
-    
+
     @media only screen and (min-width: $media-lg) {
         font-size: 20px;
         line-height: 32px;
