@@ -3,6 +3,7 @@ import { ThemeProvider } from "styled-components"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Course from "../components/courses"
 import {
     blue,
     pink,
@@ -19,10 +20,9 @@ const colors = { blue, pink, purple, red, orange, yellow, green, gray }
 export default function CoursePageTemplate({ pageContext, data }) {
     const {
         primary_theme_color: primaryThemeColorString,
-        course_name: courseName,
-    } = data.prismicScholarshipPage.data
+        course_name: { text: courseName },
+    } = data.prismicCoursePage.data
     const primaryThemeColor = colors[primaryThemeColorString]
-    const secondaryThemeColor = colors[secondaryThemeColorString]
     return (
         <Layout>
             <SEO title={pageContext.name} />
@@ -31,7 +31,7 @@ export default function CoursePageTemplate({ pageContext, data }) {
                     primary: primaryThemeColor,
                 }}
             >
-                <h1>Course Page Here</h1>
+                <Course data={data.prismicCoursePage.data} />
             </ThemeProvider>
         </Layout>
     )
@@ -47,6 +47,27 @@ export const query = graphql`
     query($uid: String!) {
         prismicCoursePage(uid: { eq: $uid }) {
             data {
+                description_image {
+                    alt
+                    url
+                }
+                description_philosophies {
+                    philosophy_description {
+                        text
+                    }
+                    philosophy_title {
+                        text
+                    }
+                }
+                description_subtitle {
+                    text
+                }
+                description_text {
+                    html
+                }
+                description_title {
+                    text
+                }
                 course_name {
                     text
                 }

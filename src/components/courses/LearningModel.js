@@ -1,0 +1,80 @@
+import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
+import styled from "styled-components"
+import { blue, gray } from "@vschool/lotus"
+
+const Container = styled.section`
+    background-color: ${gray.lighter};
+    padding-top: 0;
+    padding-bottom: 74px;
+
+    @media (min-width: 800px) {
+        padding-top: 0;
+    }
+`
+
+const Title = styled.h1`
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    padding: 70px 0 16px;
+    color: ${gray.darkest};
+`
+
+const ListItem = styled.li`
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    border-bottom: 2px solid ${blue.base};
+    padding: 16px;
+    list-style-type: none;
+    color: ${gray.darker};
+`
+
+const LearningModel = () => {
+    const data = useStaticQuery(graphql`
+        {
+            prismicCoursePageSharedData {
+                data {
+                    body {
+                        ... on PrismicCoursePageSharedDataBodyLearningModelGroup {
+                            id
+                            items {
+                                learning_model_bullet {
+                                    text
+                                }
+                            }
+                            primary {
+                                learning_model_type {
+                                    text
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    `)
+
+    const mappedInfo = data.prismicCoursePageSharedData.data.body.map(
+        ({
+            items,
+            primary: {
+                learning_model_type: { text: LearnTitle },
+            },
+        }) => (
+            <div>
+                <Title>{LearnTitle}</Title>
+                <ul>
+                    {items.map(({ learning_model_bullet: { text: item } }) => (
+                        <ListItem>{item}</ListItem>
+                    ))}
+                </ul>
+            </div>
+        )
+    )
+
+    return <Container>{mappedInfo}</Container>
+}
+
+export default LearningModel
