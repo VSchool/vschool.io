@@ -72,6 +72,9 @@ const StyledLink = styled(Link)`
     &:active{
         color: white;
     }
+    &:visited{
+        color: white;
+    }
 `
 
 const Layout = ({ children }) => {
