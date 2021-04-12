@@ -37,7 +37,7 @@ const ContentContainer = styled.div`
 */
 
 const Banner = styled.div`
-    background-color: ${black};
+    background-color: ${blue.base};
     width: 100%;
     height: 48px;
     display: flex;
@@ -65,21 +65,26 @@ const BannerText = styled.p`
 `
 
 const StyledLink = styled(Link)`
-    color: ${blue.lighter};
+    color: white;
+    &:hover {
+        color: white;
+    }
+    &:active{
+        color: white;
+    }
 `
 
 const Layout = ({ children }) => {
     const location = useLocation()
-    const showBanner = location.pathname !== "/building-women-up"
+    const showBanner = location.pathname !== "/scholarships"
     return (
         <MainContainer>
             <ContentContainer $showBanner={showBanner}>
                 {showBanner && (
                     <Banner>
                         <BannerText>
-                            Women's Month at V School - Scholarships, Speakers,
-                            and more.{" "}
-                            <StyledLink to="/building-women-up">
+                            <span style={{fontWeight: 700}}>Apply for a Scholarship</span> - Full and partial scholarships available.{" "}
+                            <StyledLink to="/scholarships">
                                 Learn More
                             </StyledLink>
                         </BannerText>
