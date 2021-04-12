@@ -35,6 +35,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                 edges {
                     node {
                         uid
+                        data {
+                            course_name {
+                                text
+                            }
+                        }
+                        url
                     }
                 }
             }
@@ -86,7 +92,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         node.url = `/courses/${node.uid}/`
         actions.createPage({
             path: node.url,
-            component: scholarshipTemplate,
+            component: courseTemplate,
             context: {
                 uid: node.uid,
                 name: node.data.course_name.text,

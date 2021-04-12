@@ -54,6 +54,19 @@ export const query = graphql`
                     text
                 }
                 deadline_date(formatString: "MMMM Do, YYYY")
+                details_logo {
+                    alt
+                    url
+                }
+                details_subtitle {
+                    text
+                }
+                details_text {
+                    html
+                }
+                details_title {
+                    text
+                }
                 hero_title {
                     text
                 }
