@@ -31,6 +31,30 @@ const ListItem = styled.li`
     color: ${gray.darker};
 `
 
+const FlexContainer = styled.div`
+    @media (min-width: 800px) {
+        display: flex;
+        gap: 60px;
+    }
+`
+
+const Logo = styled.p`
+    font-size: 32px;
+    line-height: 40px;
+    text-align: center;
+    letter-spacing: 0.25px;
+    color: #514F4B;
+    justify-content: center;
+    margin-top: 60px;
+
+    @media (min-width: 800px){
+        display: flex;
+        align-items: center;
+        justify-content: normal;
+        margin-top: 0;
+    }
+`
+
 const LearningModel = () => {
     const data = useStaticQuery(graphql`
         {
@@ -62,7 +86,19 @@ const LearningModel = () => {
             primary: {
                 learning_model_type: { text: LearnTitle },
             },
-        }) => (
+        }, i) => ( i === 0 ?
+            <>
+                <div>
+                    <Title>{LearnTitle}</Title>
+                    <ul>
+                        {items.map(({ learning_model_bullet: { text: item } }) => (
+                            <ListItem>{item}</ListItem>
+                        ))}
+                    </ul>
+                </div>
+                <Logo>VS</Logo>
+            </>
+            : 
             <div>
                 <Title>{LearnTitle}</Title>
                 <ul>
@@ -74,7 +110,11 @@ const LearningModel = () => {
         )
     )
 
-    return <Container>{mappedInfo}</Container>
+    return <Container>
+        <FlexContainer>
+            {mappedInfo}
+        </FlexContainer>
+    </Container>
 }
 
 export default LearningModel

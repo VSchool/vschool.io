@@ -18,11 +18,31 @@ const Title = styled.h1`
     line-height: 40px;
     text-align: center;
     color: ${gray.darkest};
+
+    @media (min-width: 800px) {
+        font-size: 44px;
+        line-height: 48px;
+    }
 `
 
 const Image = styled.img`
     width: 100%;
     padding-top: 60px;
+
+    @media (min-width: 800px) {
+        width: 50%;
+        padding: 50px 60px;
+    }
+`
+
+const IndustryDetails = styled.div`
+    @media (min-width: 800px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 40px;
+        width: 50%;
+    }
 `
 
 const SubTitle = styled.h4`
@@ -31,6 +51,11 @@ const SubTitle = styled.h4`
     color: ${gray.darkest};
     font-weight: 800;
     padding: 30px 0 20px;
+
+    @media (min-width: 800px) {
+        font-size: 32px;
+        line-height: 40px;
+    }
 `
 
 const Text = styled.p`
@@ -49,6 +74,12 @@ const PhilTitle = styled.h5`
     color: ${gray.darkest};
     font-weight: 800;
     padding-bottom: 18px;
+
+    @media (min-width: 800px) {
+        font-size: 24px;
+        line-height: 32px;
+        padding: 0 20px 18px;
+    }
 `
 
 const PhilText = styled.p`
@@ -56,9 +87,31 @@ const PhilText = styled.p`
     line-height: 24px;
     color: ${gray.darker};
     padding-bottom: 32px;
+
+    @media (min-width: 800px) {
+        font-size: 16px;
+        line-height: 24px;
+        padding: 0 20px 32px;
+    }
+`
+
+const FlexContainer = styled.div`
+    @media (min-width: 800px) {
+        display: flex;
+        flex-direction: row-reverse;
+        padding-top: 64px;
+    }
 `
 
 const Description = props => {
+    const newData = useStaticQuery(graphql`
+    {
+      prismicCoursePageBody1TeamIndividuals {
+        items 
+      }
+    }
+  `)
+  console.log(newData)
     // const data = useStaticQuery(graphql`
     //     {
     //         prismicCoursePage {
@@ -81,24 +134,23 @@ const Description = props => {
     //         }
     //     }
     // `)
-    const data = useStaticQuery(graphql`
-        {
-            prismicCoursePageBodySkillsSection {
-                items {
-                    skill_text {
-                        text
-                    }
-                }
-                primary {
-                    skill_name {
-                        text
-                    }
-                }
-            }
-        }
-    `)
+    // const data = useStaticQuery(graphql`
+    //     {
+    //         prismicCoursePageBodySkillsSection {
+    //             items {
+    //                 skill_text {
+    //                     text
+    //                 }
+    //             }
+    //             primary {
+    //                 skill_name {
+    //                     text
+    //                 }
+    //             }
+    //         }
+    //     }
+    // `)
 
-    console.log(data)
     const {
         description_image: { alt: descAlt, url: descUrl },
         description_philosophies,
@@ -109,20 +161,26 @@ const Description = props => {
     return (
         <Container>
             <Title>{descTitle}</Title>
-            <Image src={descUrl} alt={descAlt} />
-            <SubTitle>{descSub}</SubTitle>
-            <Text dangerouslySetInnerHTML={{ __html: descText }}></Text>
-            {description_philosophies.map(
-                ({
-                    philosophy_description: { text: philDesc },
-                    philosophy_title: { text: philTitle },
-                }) => (
-                    <div>
-                        <PhilTitle>{philTitle}</PhilTitle>
-                        <PhilText>{philDesc}</PhilText>
-                    </div>
-                )
-            )}
+            <FlexContainer>
+                <Image src={descUrl} alt={descAlt} />
+                <IndustryDetails>
+                    <SubTitle>{descSub}</SubTitle>
+                    <Text dangerouslySetInnerHTML={{ __html: descText }}></Text>
+                </IndustryDetails>
+            </FlexContainer>
+            <FlexContainer>
+                {description_philosophies.map(
+                    ({
+                        philosophy_description: { text: philDesc },
+                        philosophy_title: { text: philTitle },
+                    }) => (
+                        <div>
+                            <PhilTitle>{philTitle}</PhilTitle>
+                            <PhilText>{philDesc}</PhilText>
+                        </div>
+                    )
+                )}
+            </FlexContainer>
         </Container>
     )
 }

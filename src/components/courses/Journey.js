@@ -18,6 +18,12 @@ const Header = styled.h1`
     line-height: 40px;
     text-align: center;
     color: ${gray.darkest};
+
+    @media (min-width: 800px) {
+        font-size: 44px;
+        line-height: 48px;
+        margin-bottom: 65px;
+    }
 `
 
 const StudentImgContainer = styled.div`
@@ -25,6 +31,12 @@ const StudentImgContainer = styled.div`
     position: relative;
     margin-top: 65px;
     left: 8px;
+
+    @media (min-width: 800px) {
+        width: 50%;
+        margin-top: 0;
+    }
+
 `
 
 const StudentImg = styled.img`
@@ -32,6 +44,15 @@ const StudentImg = styled.img`
     position: relative;
     right: 10px;
     bottom: 6px;
+`
+
+const PathContainer = styled.div`
+    @media (min-width: 800px) {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 `
 
 const Paragraphs = styled.p`
@@ -46,6 +67,11 @@ const Paragraphs = styled.p`
         color: ${gray.darker};
         text-align: left;
     }
+
+    @media (min-width: 800px) {
+        font-size: 16px;
+        line-height: 24px;
+    }
 `
 
 const MidHeader = styled.h3`
@@ -54,6 +80,13 @@ const MidHeader = styled.h3`
     color: ${gray.darkest};
     padding: 64px 0 22px;
     font-weight: 800;
+
+    @media (min-width: 800px) {
+        padding: 0;
+        font-size: 32px;
+        line-height: 40px;
+        margin-bottom: 30px;
+    }
 `
 
 const SmlHeader = styled.h4`
@@ -63,12 +96,39 @@ const SmlHeader = styled.h4`
     color: ${gray.darkest};
     padding: 64px 0 22px;
     font-weight: 800;
+
+    @media (min-width: 800px) {
+        font-size: 24px;
+        line-height: 32px;
+        margin-top: 90px;
+    }
+`
+
+const MapImageContainer = styled.div`
+    @media (min-width: 800px) {
+       width: 50%
+    }
 `
 
 const MapImage = styled.img`
     width: 42%;
     transform: rotate(270deg);
-    margin: -90px 0 -90px -20px;
+    margin: -90px 0 -90px 90px;
+
+    @media (min-width: 800px) {
+       transform: none;
+       width: 40%;
+       padding: 30px;
+       display: block;
+       margin: auto;
+    }
+`
+
+const StepDiv = styled.div`
+    @media (min-width: 800px) {
+        width: 50%;
+        padding: 50px 0 50px 40px;
+    }
 `
 
 const StepContainer = styled.div`
@@ -83,6 +143,33 @@ const StepContainer = styled.div`
         font-size: 16px;
         line-height: 24px;
         color: ${blue.base};
+    }
+
+    @media (min-width: 800px) {
+       h5 {
+            font-size: 20px;
+            line-height: 24px;  
+       }
+
+       p {
+            font-size: 14px;
+            line-height: 18px;
+       }
+    }
+`
+
+const FlexContainer = styled.div`
+    @media (min-width: 800px) {
+        display: flex;
+        gap: 60px;
+    }
+`
+
+const JourneyContainer = styled.div`
+    @media (min-width: 800px) {
+        display: flex;
+        flex-direction: row-reverse;
+        width: 85%;
     }
 `
 
@@ -152,17 +239,27 @@ const Journey = props => {
     return (
         <Container>
             <Header>{jTitle}</Header>
-            <StudentImgContainer>
-                <StudentImg src={studUrl} alt={studAlt} />
-            </StudentImgContainer>
-            <MidHeader>{jPathTitle}</MidHeader>
-            <Paragraphs
-                dangerouslySetInnerHTML={{ __html: jPathText }}
-            ></Paragraphs>
+            <FlexContainer>
+                <StudentImgContainer>
+                    <StudentImg src={studUrl} alt={studAlt} />
+                </StudentImgContainer>
+                <PathContainer>
+                    <MidHeader>{jPathTitle}</MidHeader>
+                    <Paragraphs
+                        dangerouslySetInnerHTML={{ __html: jPathText }}
+                    ></Paragraphs>
+                </PathContainer>
+            </FlexContainer>
             <SmlHeader>{jMapTitle}</SmlHeader>
             <Paragraphs>{jMapText}</Paragraphs>
-            <MapImage src={jMapImage} alt={jMapAlt} />
-            {mappedSteps}
+            <JourneyContainer>
+                <MapImageContainer>
+                    <MapImage src={jMapImage} alt={jMapAlt} />
+                </MapImageContainer>
+                <StepDiv>
+                    {mappedSteps}
+                </StepDiv>
+            </JourneyContainer>
         </Container>
     )
 }
