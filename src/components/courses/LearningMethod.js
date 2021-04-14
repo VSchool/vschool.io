@@ -18,6 +18,11 @@ const Title = styled.h1`
     line-height: 24px;
     text-align: center;
     color: ${gray.darkest};
+
+    @media (min-width: 800px) {
+        font-size: 24px;
+        line-height: 32px;
+    }
 `
 
 const Image = styled.img`
@@ -30,6 +35,26 @@ const Text = styled.p`
     line-height: 18px;
     padding: 16px 0 64px;
     color: ${gray.darker};
+
+    /* @media (min-width: 800px) {
+        font-size: 24px;
+        line-height: 32px;
+    } */
+`
+
+const TextCard = styled.div`
+    @media (min-width: 800px) {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+    }
+`
+
+const FlexContainer = styled.div`
+    @media (min-width: 800px) {
+        display: flex;
+        gap: 60px;
+    }
 `
 
 const LearningMethod = () => {
@@ -60,15 +85,19 @@ const LearningMethod = () => {
             learning_method_text: { text: LearnText },
             learning_method_type: { text: LearnType },
         }) => (
-            <div>
+            <TextCard>
                 <Title>{LearnType}</Title>
                 <Image src={LearnImg} alt={LearnAlt} />
                 <Text>{LearnText}</Text>
-            </div>
+            </TextCard>
         )
     )
 
-    return <Container>{groups}</Container>
+    return <Container>
+        <FlexContainer>
+            {groups}
+        </FlexContainer>
+    </Container>
 }
 
 export default LearningMethod

@@ -44,9 +44,18 @@ const ImageTextContainer = styled.div`
     bottom: 0;
     width: 100%;
 
+    & > div {
+        position: absolute;
+        bottom: 22px;
+    }
+
     @media (min-width: 800px) {
         position: relative;
         height: 588px;
+
+        & > div {
+            padding: 64px 47px;
+        }
     }
 `
 
@@ -61,7 +70,37 @@ const ImageText = styled.p`
     @media (min-width: 800px) {
         font-size: 24px;
         line-height: 32px;
-        padding: 64px 24px;
+        padding: 64px 0px 64px 47px;
+    }
+`
+
+const ImageName = styled.p`
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    text-transform: uppercase;
+    color: ${gray.lighter};
+    width: 100%;
+    max-width: 400px;
+    padding: 0px;
+
+    @media (min-width: 800px) {
+        font-size: 16px;
+        line-height: 24px;
+    }
+`
+
+const ImageRole = styled.p`
+    font-size: 14px;
+    line-height: 18px;
+    color: ${gray.dark};
+    width: 100%;
+    max-width: 400px;
+    padding: 0;
+
+    @media (min-width: 800px) {
+        font-size: 16px;
+        line-height: 24px;
     }
 `
 
@@ -73,7 +112,8 @@ const Title = styled.h1`
     padding: 20px 0 30px;
 
     @media (min-width: 800px) {
-        
+        font-size: 44px;
+        line-height: 48px;
     }
 `
 
@@ -126,6 +166,8 @@ const StatNum = styled.p`
     }
 `
 
+
+
 const Outcomes = props => {
     const {
         outcomes_title: { text: title },
@@ -177,38 +219,13 @@ const Outcomes = props => {
                                     <Image src={testURL} alt={testAlt} />
                                     <ImageTextContainer>
                                         <ImageText>{testText}</ImageText>
-                                        <div
-                                            style={{
-                                                position: "absolute",
-                                                bottom: "22px",
-                                            }}
-                                        >
-                                            <ImageText
-                                                style={{
-                                                    fontSize: "14px",
-                                                    lineHeight: "20px",
-                                                    letterSpacing: "0.25px",
-                                                    textTransform: "uppercase",
-                                                    color: gray.lighter,
-                                                    paddingTop: 0,
-                                                    paddingBottom: 0,
-
-                                                    
-                                                }}
-                                            >
+                                        <div>
+                                            <ImageName>
                                                 {testName}
-                                            </ImageText>
-                                            <ImageText
-                                                style={{
-                                                    fontSize: "14px",
-                                                    lineHeight: "18px",
-                                                    color: gray.dark,
-                                                    paddingTop: 0,
-                                                    paddingBottom: 0,
-                                                }}
-                                            >
+                                            </ImageName>
+                                            <ImageRole>
                                                 {testInfo}
-                                            </ImageText>
+                                            </ImageRole>
                                         </div>
                                     </ImageTextContainer>
                                 </ImageContainer>

@@ -19,10 +19,19 @@ const Title = styled.h1`
     text-align: center;
     color: ${gray.darkest};
     padding-bottom: 62px;
+
+    @media (min-width: 800px) {
+        font-size: 44px;
+        line-height: 48px;
+    }
 `
 
 const Image = styled.img`
     width: 100%;
+   @media (min-width: 800px) {
+        width: 50%;
+        padding: 50px;
+    }
 `
 
 const Subtitle = styled.h3`
@@ -31,12 +40,34 @@ const Subtitle = styled.h3`
     font-size: 24px;
     line-height: 32px;
     color: ${gray.darkest};
+
+    @media (min-width: 800px) {
+        padding: 0px 0 20px;
+        font-size: 32px;
+        line-height: 40px;
+    }
 `
 
 const Text = styled.p`
     font-size: 16px;
     line-height: 24px;
     color: ${gray.darker};
+`
+
+const TextCard = styled.div`
+    @media (min-width: 800px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 50%;
+    }
+`
+
+const FlexContainer = styled.div`
+    @media (min-width: 800px) {
+        display: flex;
+        gap: 60px;
+    }
 `
 
 const HowWorks = () => {
@@ -72,9 +103,13 @@ const HowWorks = () => {
     return (
         <Container>
             <Title>{howTitle}</Title>
-            <Image src={howImg} alt={howAlt} />
-            <Subtitle>{howSubTitle}</Subtitle>
-            <Text>{howText}</Text>
+            <FlexContainer>
+                <Image src={howImg} alt={howAlt} />
+                <TextCard>
+                    <Subtitle>{howSubTitle}</Subtitle>
+                    <Text>{howText}</Text>
+                </TextCard>
+            </FlexContainer>
         </Container>
     )
 }
