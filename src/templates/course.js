@@ -68,6 +68,10 @@ export const query = graphql`
                 description_title {
                     text
                 }
+                description_logo {
+                    alt
+                    url
+                }
                 course_name {
                     text
                 }
@@ -120,6 +124,12 @@ export const query = graphql`
                 student_journey_image {
                     alt
                     url
+                }
+                team_subtitle {
+                    text
+                }
+                team_title {
+                    text
                 }
             }
         }

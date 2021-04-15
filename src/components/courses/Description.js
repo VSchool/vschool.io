@@ -68,6 +68,12 @@ const Text = styled.p`
     padding-bottom: 50px;
 `
 
+const PhilContainer = styled.div`
+    @media (min-width: 800px) {
+        max-width: 320px;
+    }
+`
+
 const PhilTitle = styled.h5`
     font-size: 20px;
     line-height: 24px;
@@ -103,53 +109,101 @@ const FlexContainer = styled.div`
     }
 `
 
-const Description = props => {
-    const newData = useStaticQuery(graphql`
-    {
-      prismicCoursePageBody1TeamIndividuals {
-        items 
-      }
+const FlexContainer2 = styled.div`
+    @media (min-width: 800px) {
+        display: flex;
+        justify-content: space-evenly;
+        padding-top: 64px;
     }
-  `)
-  console.log(newData)
-    // const data = useStaticQuery(graphql`
-    //     {
-    //         prismicCoursePage {
-    //             data {
-    //                 body {
-    //                     ... on PrismicCoursePageBodySkillsSection {
-    //                         primary {
-    //                             skill_name {
-    //                                 text
-    //                             }
-    //                         }
-    //                         items {
-    //                             skill_text {
-    //                                 text
-    //                             }
-    //                         }
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //     }
-    // `)
-    // const data = useStaticQuery(graphql`
-    //     {
-    //         prismicCoursePageBodySkillsSection {
-    //             items {
-    //                 skill_text {
-    //                     text
-    //                 }
-    //             }
-    //             primary {
-    //                 skill_name {
-    //                     text
-    //                 }
-    //             }
-    //         }
-    //     }
-    // `)
+`
+
+const SkillContainer = styled.div`
+    width: 100%;
+    margin-bottom: 30px;
+
+    @media (min-width: 800px) {
+        max-width: 320px;
+    }
+`
+
+const SkillTitle = styled.h4`
+    font-size: 20px;
+    line-height: 24px;
+    color: #21201f;
+`
+
+const SkillTextContainer = styled.ul`
+    list-style-type: none;
+`
+
+const SkillText = styled.li`
+    font-size: 16px;
+    line-height: 24px;
+    color: #514f4b;
+    text-indent: -5px;
+
+    &:before {
+        content: "—";
+        text-indent: -5px;
+        color: #859eec;
+        margin: 10px;
+    }
+`
+
+const Logo = styled.img`
+    max-width: 80px;
+    display: block;
+    margin: 50px auto;
+    @media (min-width: 800px) {
+        max-width: 320px;
+        padding: 0 90px 80px;
+        margin: 0;
+    }
+`
+
+const Description = props => {
+    const data = useStaticQuery(graphql`
+        {
+            prismicCoursePage(uid: { eq: "design" }) {
+                data {
+                    body {
+                        ... on PrismicCoursePageBodySkillsSection {
+                            items {
+                                skill_text {
+                                    text
+                                }
+                            }
+                            primary {
+                                skill_name {
+                                    text
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    `)
+
+    const mappedSkills = data.prismicCoursePage.data.body.map(
+        ({
+            items,
+            primary: {
+                skill_name: { text: skillName },
+            },
+        }) => {
+            return (
+                <SkillContainer>
+                    <SkillTitle>{skillName}</SkillTitle>
+                    <SkillTextContainer>
+                        {items.map(({ skill_text: { text: skillDesc } }) => (
+                            <SkillText>{skillDesc}</SkillText>
+                        ))}
+                    </SkillTextContainer>
+                </SkillContainer>
+            )
+        }
+    )
 
     const {
         description_image: { alt: descAlt, url: descUrl },
@@ -157,6 +211,7 @@ const Description = props => {
         description_subtitle: { text: descSub },
         description_text: { html: descText },
         description_title: { text: descTitle },
+        description_logo: { alt: logoAlt, url: logoUrl },
     } = props
     return (
         <Container>
@@ -168,19 +223,23 @@ const Description = props => {
                     <Text dangerouslySetInnerHTML={{ __html: descText }}></Text>
                 </IndustryDetails>
             </FlexContainer>
-            <FlexContainer>
+            <FlexContainer2>
                 {description_philosophies.map(
                     ({
                         philosophy_description: { text: philDesc },
                         philosophy_title: { text: philTitle },
                     }) => (
-                        <div>
+                        <PhilContainer>
                             <PhilTitle>{philTitle}</PhilTitle>
                             <PhilText>{philDesc}</PhilText>
-                        </div>
+                        </PhilContainer>
                     )
                 )}
-            </FlexContainer>
+            </FlexContainer2>
+            <FlexContainer2>
+                {mappedSkills}
+                <Logo src={logoUrl} alt={logoAlt} />
+            </FlexContainer2>
         </Container>
     )
 }
