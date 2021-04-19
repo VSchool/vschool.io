@@ -240,7 +240,7 @@ const Description = props => {
                         }) => (
                             <PhilContainer>
                                 <PhilTitle>{philTitle}</PhilTitle>
-                                <PhilText>{philDesc}</PhilText>
+                                <PhilText>{philDesc} </PhilText>
                             </PhilContainer>
                         )
                     )}
