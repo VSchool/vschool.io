@@ -13,6 +13,10 @@ const Container = styled.section`
     }
 `
 
+const WidthContainer = styled.section`
+    max-width: 1200px;
+`
+
 const Header = styled.h1`
     font-size: 32px;
     line-height: 40px;
@@ -36,7 +40,6 @@ const StudentImgContainer = styled.div`
         width: 50%;
         margin-top: 0;
     }
-
 `
 
 const StudentImg = styled.img`
@@ -106,7 +109,7 @@ const SmlHeader = styled.h4`
 
 const MapImageContainer = styled.div`
     @media (min-width: 800px) {
-       width: 50%
+        width: 50%;
     }
 `
 
@@ -116,11 +119,11 @@ const MapImage = styled.img`
     margin: -90px 0 -90px 90px;
 
     @media (min-width: 800px) {
-       transform: none;
-       width: 40%;
-       padding: 30px;
-       display: block;
-       margin: auto;
+        transform: none;
+        width: 40%;
+        padding: 30px;
+        display: block;
+        margin: auto;
     }
 `
 
@@ -146,15 +149,15 @@ const StepContainer = styled.div`
     }
 
     @media (min-width: 800px) {
-       h5 {
+        h5 {
             font-size: 20px;
-            line-height: 24px;  
-       }
+            line-height: 24px;
+        }
 
-       p {
+        p {
             font-size: 14px;
             line-height: 18px;
-       }
+        }
     }
 `
 
@@ -238,28 +241,28 @@ const Journey = props => {
 
     return (
         <Container>
-            <Header>{jTitle}</Header>
-            <FlexContainer>
-                <StudentImgContainer>
-                    <StudentImg src={studUrl} alt={studAlt} />
-                </StudentImgContainer>
-                <PathContainer>
-                    <MidHeader>{jPathTitle}</MidHeader>
-                    <Paragraphs
-                        dangerouslySetInnerHTML={{ __html: jPathText }}
-                    ></Paragraphs>
-                </PathContainer>
-            </FlexContainer>
-            <SmlHeader>{jMapTitle}</SmlHeader>
-            <Paragraphs>{jMapText}</Paragraphs>
-            <JourneyContainer>
-                <MapImageContainer>
-                    <MapImage src={jMapImage} alt={jMapAlt} />
-                </MapImageContainer>
-                <StepDiv>
-                    {mappedSteps}
-                </StepDiv>
-            </JourneyContainer>
+            <WidthContainer>
+                <Header>{jTitle}</Header>
+                <FlexContainer>
+                    <StudentImgContainer>
+                        <StudentImg src={studUrl} alt={studAlt} />
+                    </StudentImgContainer>
+                    <PathContainer>
+                        <MidHeader>{jPathTitle}</MidHeader>
+                        <Paragraphs
+                            dangerouslySetInnerHTML={{ __html: jPathText }}
+                        ></Paragraphs>
+                    </PathContainer>
+                </FlexContainer>
+                <SmlHeader>{jMapTitle}</SmlHeader>
+                <Paragraphs>{jMapText}</Paragraphs>
+                <JourneyContainer>
+                    <MapImageContainer>
+                        <MapImage src={jMapImage} alt={jMapAlt} />
+                    </MapImageContainer>
+                    <StepDiv>{mappedSteps}</StepDiv>
+                </JourneyContainer>
+            </WidthContainer>
         </Container>
     )
 }

@@ -13,6 +13,10 @@ const Container = styled.section`
     }
 `
 
+const WidthContainer = styled.section`
+    max-width: 1200px;
+`
+
 const Title = styled.h1`
     font-size: 28px;
     line-height: 40px;
@@ -28,7 +32,7 @@ const Title = styled.h1`
 
 const Image = styled.img`
     width: 100%;
-   @media (min-width: 800px) {
+    @media (min-width: 800px) {
         width: 50%;
         padding: 50px;
     }
@@ -102,14 +106,16 @@ const HowWorks = () => {
 
     return (
         <Container>
-            <Title>{howTitle}</Title>
-            <FlexContainer>
-                <Image src={howImg} alt={howAlt} />
-                <TextCard>
-                    <Subtitle>{howSubTitle}</Subtitle>
-                    <Text>{howText}</Text>
-                </TextCard>
-            </FlexContainer>
+            <WidthContainer>
+                <Title>{howTitle}</Title>
+                <FlexContainer>
+                    <Image src={howImg} alt={howAlt} />
+                    <TextCard>
+                        <Subtitle>{howSubTitle}</Subtitle>
+                        <Text>{howText}</Text>
+                    </TextCard>
+                </FlexContainer>
+            </WidthContainer>
         </Container>
     )
 }

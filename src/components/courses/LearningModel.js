@@ -13,6 +13,10 @@ const Container = styled.section`
     }
 `
 
+const WidthContainer = styled.section`
+    max-width: 1200px;
+`
+
 const Title = styled.h1`
     font-size: 20px;
     line-height: 24px;
@@ -43,11 +47,11 @@ const Logo = styled.p`
     line-height: 40px;
     text-align: center;
     letter-spacing: 0.25px;
-    color: #514F4B;
+    color: #514f4b;
     justify-content: center;
     margin-top: 60px;
 
-    @media (min-width: 800px){
+    @media (min-width: 800px) {
         display: flex;
         align-items: center;
         justify-content: normal;
@@ -81,40 +85,50 @@ const LearningModel = () => {
     `)
 
     const mappedInfo = data.prismicCoursePageSharedData.data.body.map(
-        ({
-            items,
-            primary: {
-                learning_model_type: { text: LearnTitle },
+        (
+            {
+                items,
+                primary: {
+                    learning_model_type: { text: LearnTitle },
+                },
             },
-        }, i) => ( i === 0 ?
-            <>
+            i
+        ) =>
+            i === 0 ? (
+                <>
+                    <div>
+                        <Title>{LearnTitle}</Title>
+                        <ul>
+                            {items.map(
+                                ({ learning_model_bullet: { text: item } }) => (
+                                    <ListItem>{item}</ListItem>
+                                )
+                            )}
+                        </ul>
+                    </div>
+                    <Logo>VS</Logo>
+                </>
+            ) : (
                 <div>
                     <Title>{LearnTitle}</Title>
                     <ul>
-                        {items.map(({ learning_model_bullet: { text: item } }) => (
-                            <ListItem>{item}</ListItem>
-                        ))}
+                        {items.map(
+                            ({ learning_model_bullet: { text: item } }) => (
+                                <ListItem>{item}</ListItem>
+                            )
+                        )}
                     </ul>
                 </div>
-                <Logo>VS</Logo>
-            </>
-            : 
-            <div>
-                <Title>{LearnTitle}</Title>
-                <ul>
-                    {items.map(({ learning_model_bullet: { text: item } }) => (
-                        <ListItem>{item}</ListItem>
-                    ))}
-                </ul>
-            </div>
-        )
+            )
     )
 
-    return <Container>
-        <FlexContainer>
-            {mappedInfo}
-        </FlexContainer>
-    </Container>
+    return (
+        <Container>
+            <WidthContainer>
+                <FlexContainer>{mappedInfo}</FlexContainer>
+            </WidthContainer>
+        </Container>
+    )
 }
 
 export default LearningModel
