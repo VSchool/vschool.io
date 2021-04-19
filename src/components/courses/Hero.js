@@ -44,30 +44,6 @@ const StyledButton = styled(Button)`
 `
 
 const Hero = props => {
-    // const data = useStaticQuery(graphql`
-    //     {
-    //         prismicCoursePage {
-    //             data {
-    //                 hero_button_text {
-    //                     text
-    //                 }
-    //                 hero_button_url {
-    //                     url
-    //                 }
-    //                 hero_image {
-    //                     alt
-    //                     url
-    //                 }
-    //                 hero_text {
-    //                     text
-    //                 }
-    //                 hero_title {
-    //                     text
-    //                 }
-    //             }
-    //         }
-    //     }
-    // `)
 
     const {
         hero_button_text: { text: buttonText },

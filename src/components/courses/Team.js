@@ -13,6 +13,10 @@ const Container = styled.section`
     }
 `
 
+const WidthContainer = styled.section`
+    max-width: 1200px;
+`
+
 const Title = styled.h1`
     font-size: 20px;
     line-height: 32px;
@@ -104,7 +108,7 @@ const Team = props => {
             }
         }
     `)
-
+    console.log(data)
     const mappedTeams = data.prismicCoursePage.data.body1.map(
         ({
             items,
@@ -149,9 +153,11 @@ const Team = props => {
 
     return (
         <Container>
-            <Title>{teamTitle}</Title>
-            <Description>{teamSub}</Description>
-            {mappedTeams}
+            <WidthContainer>
+                <Title>{teamTitle}</Title>
+                <Description>{teamSub}</Description>
+                {mappedTeams}
+            </WidthContainer>
         </Container>
     )
 }

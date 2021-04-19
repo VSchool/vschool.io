@@ -13,6 +13,10 @@ const Container = styled.section`
     }
 `
 
+const WidthContainer = styled.section`
+    max-width: 1200px;
+`
+
 const Title = styled.h1`
     font-size: 24px;
     line-height: 32px;
@@ -97,16 +101,18 @@ const ComponentName = () => {
     } = data.prismicCoursePageSharedData.data
     return (
         <Container>
-            <Title>{schedTitle}</Title>
-            <Text dangerouslySetInnerHTML={{ __html: schedText }}></Text>
-            <Subtitle>{schedSubTitle}</Subtitle>
-            <SubText>{schedPara}</SubText>
-            {schedule_carousel_images.map(
-                ({ carousel_image: { url: ImgUrl, alt: ImgAlt } }) => (
-                    <Image src={ImgUrl} alt={ImgAlt} />
-                )
-            )}
-            <ImageText>{schedImgCap}</ImageText>
+            <WidthContainer>
+                <Title>{schedTitle}</Title>
+                <Text dangerouslySetInnerHTML={{ __html: schedText }}></Text>
+                <Subtitle>{schedSubTitle}</Subtitle>
+                <SubText>{schedPara}</SubText>
+                {schedule_carousel_images.map(
+                    ({ carousel_image: { url: ImgUrl, alt: ImgAlt } }) => (
+                        <Image src={ImgUrl} alt={ImgAlt} />
+                    )
+                )}
+                <ImageText>{schedImgCap}</ImageText>
+            </WidthContainer>
         </Container>
     )
 }

@@ -13,6 +13,10 @@ const Container = styled.section`
     }
 `
 
+const WidthContainer = styled.section`
+    max-width: 1200px;
+`
+
 const Title = styled.h1`
     font-size: 32px;
     line-height: 40px;
@@ -110,6 +114,8 @@ const FlexContainer = styled.div`
 `
 
 const FlexContainer2 = styled.div`
+    display: block;
+    width: 100%;
     @media (min-width: 800px) {
         display: flex;
         justify-content: space-evenly;
@@ -122,7 +128,7 @@ const SkillContainer = styled.div`
     margin-bottom: 30px;
 
     @media (min-width: 800px) {
-        max-width: 320px;
+        width: 320px;
     }
 `
 
@@ -215,31 +221,35 @@ const Description = props => {
     } = props
     return (
         <Container>
-            <Title>{descTitle}</Title>
-            <FlexContainer>
-                <Image src={descUrl} alt={descAlt} />
-                <IndustryDetails>
-                    <SubTitle>{descSub}</SubTitle>
-                    <Text dangerouslySetInnerHTML={{ __html: descText }}></Text>
-                </IndustryDetails>
-            </FlexContainer>
-            <FlexContainer2>
-                {description_philosophies.map(
-                    ({
-                        philosophy_description: { text: philDesc },
-                        philosophy_title: { text: philTitle },
-                    }) => (
-                        <PhilContainer>
-                            <PhilTitle>{philTitle}</PhilTitle>
-                            <PhilText>{philDesc}</PhilText>
-                        </PhilContainer>
-                    )
-                )}
-            </FlexContainer2>
-            <FlexContainer2>
-                {mappedSkills}
-                <Logo src={logoUrl} alt={logoAlt} />
-            </FlexContainer2>
+            <WidthContainer>
+                <Title>{descTitle}</Title>
+                <FlexContainer>
+                    <Image src={descUrl} alt={descAlt} />
+                    <IndustryDetails>
+                        <SubTitle>{descSub}</SubTitle>
+                        <Text
+                            dangerouslySetInnerHTML={{ __html: descText }}
+                        ></Text>
+                    </IndustryDetails>
+                </FlexContainer>
+                <FlexContainer2>
+                    {description_philosophies.map(
+                        ({
+                            philosophy_description: { text: philDesc },
+                            philosophy_title: { text: philTitle },
+                        }) => (
+                            <PhilContainer>
+                                <PhilTitle>{philTitle}</PhilTitle>
+                                <PhilText>{philDesc}</PhilText>
+                            </PhilContainer>
+                        )
+                    )}
+                </FlexContainer2>
+                <FlexContainer2>
+                    {mappedSkills}
+                    <Logo src={logoUrl} alt={logoAlt} />
+                </FlexContainer2>
+            </WidthContainer>
         </Container>
     )
 }

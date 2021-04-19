@@ -13,6 +13,10 @@ const Container = styled.section`
     }
 `
 
+const WidthContainer = styled.section`
+    max-width: 1200px;
+`
+
 const Title = styled.h1`
     font-size: 20px;
     line-height: 24px;
@@ -93,11 +97,13 @@ const LearningMethod = () => {
         )
     )
 
-    return <Container>
-        <FlexContainer>
-            {groups}
-        </FlexContainer>
-    </Container>
+    return (
+        <Container>
+            <WidthContainer>
+                <FlexContainer>{groups}</FlexContainer>
+            </WidthContainer>
+        </Container>
+    )
 }
 
 export default LearningMethod
