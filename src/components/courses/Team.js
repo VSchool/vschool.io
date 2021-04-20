@@ -32,6 +32,19 @@ const Container = styled.section`
         // margin-bottom: 64px;
         border: 1px dotted orange;
     }
+
+    & > .team-card {
+        margin-bottom: 4px;
+        border: 2px solid pink;
+
+        & > .team-title {
+            font-size: 20px;
+            line-height: 24px;
+            text-align: center;
+            color: ${gray.darkest};    
+            border: 1px dotted orange;
+        }
+    }
 `
 
 const TeamTitle = styled.h1`
@@ -131,8 +144,9 @@ const Team = props => {
             },
         }) => {
             return (
-                <div>
-                    <TeamTitle>{teamType}</TeamTitle>
+                <div className={'team-card'}>
+                    <h1 className={'team-title'}>{teamType}</h1>
+                    {/* <TeamTitle>{teamType}</TeamTitle> */}
                     {items.map(
                         ({
                             team_individual_name: { text: indName },
@@ -144,7 +158,7 @@ const Team = props => {
                             team_individual_title: { text: indTitle },
                         }) => {
                             return (
-                                <TeamCard>
+                                <TeamCard> 
                                     <TeamImage src={imgUrl} alt={imgAlt} />
                                     <TeamName>{indName}</TeamName>
                                     <TeamRole>{indTitle}</TeamRole>
@@ -157,6 +171,7 @@ const Team = props => {
                                         />
                                     )}
                                 </TeamCard>
+
                             )
                         }
                     )}
