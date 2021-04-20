@@ -8,6 +8,9 @@ const Container = styled.section`
     padding-top: 0;
     padding-bottom: 74px;
 
+    border: 2px dotted black;
+
+
     @media (min-width: 800px) {
         padding-top: 0;
     }
@@ -15,12 +18,16 @@ const Container = styled.section`
 
 const WidthContainer = styled.section`
     max-width: 1200px;
+    border: 1px dotted blue;
+
 `
 
 const Title = styled.h1`
     font-size: 20px;
     line-height: 32px;
     color: ${gray.darkest};
+    border: 1px dotted orange;
+
 `
 
 const Description = styled.p`
@@ -28,6 +35,9 @@ const Description = styled.p`
     line-height: 24px;
     color: ${gray.darker};
     margin-bottom: 64px;
+    box-sizing: border-box;
+    border: 1px dotted orange;
+
 `
 
 const TeamTitle = styled.h1`
@@ -35,6 +45,8 @@ const TeamTitle = styled.h1`
     line-height: 24px;
     text-align: center;
     color: ${gray.darkest};
+    border: 1px dotted orange;
+
 `
 
 const TeamCard = styled.div`
@@ -42,10 +54,14 @@ const TeamCard = styled.div`
     width: 48%;
     padding: 20px;
     margin: 45px 0;
+    border: 2px dotted orange;
+
 `
 
 const TeamImage = styled.img`
     width: 100%;
+    border: 1px dotted orange;
+
 `
 
 const TeamLogo = styled.div`
@@ -55,18 +71,21 @@ const TeamLogo = styled.div`
     height: 58px;
     width: 100px;
     margin: auto;
+    border: 1px dotted orange;
 `
 
 const TeamName = styled.h5`
     font-size: 11px;
     text-align: center;
     margin-bottom: -10px;
+    border: 1px dotted orange;
 `
 
 const TeamRole = styled.p`
     font-size: 9px;
     margin: 0;
     text-align: center;
+    border: 1px dotted orange;
 `
 
 const Team = props => {
