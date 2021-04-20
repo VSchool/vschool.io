@@ -5,39 +5,33 @@ import { blue, gray } from "@vschool/lotus"
 
 const Container = styled.section`
     background-color: ${gray.lighter};
-    padding-top: 0;
-    padding-bottom: 74px;
+    // padding: 0px 0px 74px 0px;
+    // padding-top: 0;
+    // padding-bottom: 74px;
+    border: 2px dashed black;
 
-    border: 2px dotted black;
+    // @media (min-width: 800px) {
+    //     padding-top: 0;
+    // }
 
-
-    @media (min-width: 800px) {
-        padding-top: 0;
+    & > .title {
+        margin: 0px;
+        // width: 100%;
+        font-size: 20px;
+        line-height: 32px;
+        color: ${gray.darkest};
+        border: 1px dotted orange;
     }
-`
 
-const WidthContainer = styled.section`
-    max-width: 1200px;
-    border: 1px dotted blue;
-
-`
-
-const Title = styled.h1`
-    font-size: 20px;
-    line-height: 32px;
-    color: ${gray.darkest};
-    border: 1px dotted orange;
-
-`
-
-const Description = styled.p`
-    font-size: 14px;
-    line-height: 24px;
-    color: ${gray.darker};
-    margin-bottom: 64px;
-    box-sizing: border-box;
-    border: 1px dotted orange;
-
+    & > .description {
+        box-sizing: border-box;
+        margin: 0px 0px 64px 0px;
+        font-size: 14px;
+        line-height: 24px;
+        color: ${gray.darker};
+        // margin-bottom: 64px;
+        border: 1px dotted orange;
+    }
 `
 
 const TeamTitle = styled.h1`
@@ -93,6 +87,7 @@ const Team = props => {
         team_subtitle: { text: teamSub },
         team_title: { text: teamTitle },
     } = props
+
     const data = useStaticQuery(graphql`
         {
             prismicCoursePage(uid: { eq: "design" }) {
@@ -172,11 +167,9 @@ const Team = props => {
 
     return (
         <Container>
-            <WidthContainer>
-                <Title>{teamTitle}</Title>
-                <Description>{teamSub}</Description>
-                {mappedTeams}
-            </WidthContainer>
+            <h1 className={'title'}>{teamTitle}</h1>
+            < p className={'description'}>{teamSub}</p>
+            {mappedTeams}
         </Container>
     )
 }
