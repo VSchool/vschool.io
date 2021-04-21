@@ -9,6 +9,10 @@ import { gray } from "@vschool/lotus"
 const Container = styled.section`
     background-color: ${gray.lighter};
 
+    @media (min-width: 800px) {
+        // border: 2px solid black;
+    }
+
     & > .title {
         margin: 0px;
         font-size: 20px;
@@ -17,7 +21,8 @@ const Container = styled.section`
         border: 1px dotted orange;
 
         @media (min-width: 800px) {
-            width: 100%;
+            // width: 100%;
+            width: 1024px;
             font-family: Aktiv Grotesk;
             font-style: normal;
             font-weight: 900;
@@ -36,9 +41,10 @@ const Container = styled.section`
         color: ${gray.darker};
         border: 1px dotted orange;
 
-        @media (min-width: 768px) {
+        @media (min-width: 800px) {
             margin-top: 30px;
-            width: 100%;
+            // width: 100%;
+            width: 1024px;
             font-family: Aktiv Grotesk;
             font-style: normal;
             font-weight: normal;
