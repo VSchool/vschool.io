@@ -4,6 +4,8 @@ import MemberInfo from './MemberInfo'
 import styled from "styled-components"
 import { gray } from "@vschool/lotus"
 
+
+
 const Container = styled.section`
     background-color: ${gray.lighter};
 
@@ -12,7 +14,7 @@ const Container = styled.section`
         font-size: 20px;
         line-height: 32px;
         color: ${gray.darkest};
-        // border: 1px dotted orange;
+        border: 1px dotted orange;
 
         @media (min-width: 800px) {
             width: 100%;
@@ -22,7 +24,7 @@ const Container = styled.section`
             font-size: 32px;
             line-height: 40px;
             color: #21201F;
-            // border: 1px dotted orange;
+            border: 1px dotted orange;
         }
     }
 
@@ -32,7 +34,7 @@ const Container = styled.section`
         font-size: 14px;
         line-height: 24px;
         color: ${gray.darker};
-        // border: 1px dotted orange;
+        border: 1px dotted orange;
 
         @media (min-width: 768px) {
             margin-top: 30px;
@@ -43,7 +45,7 @@ const Container = styled.section`
             font-size: 20px;
             line-height: 28px;
             color: #514F4B;
-            // border: 1px dotted orange;
+            border: 1px dotted orange;
         }
     }
 
