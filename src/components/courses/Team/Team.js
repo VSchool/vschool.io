@@ -6,10 +6,6 @@ import { gray } from "@vschool/lotus"
 
 const Container = styled.section`
     background-color: ${gray.lighter};
-    // padding: 0px 0px 74px 0px;
-    // padding-top: 0;
-    // padding-bottom: 74px;
-    // border: 2px solid black;
 
     // @media (min-width: 800px) {
     //     padding-top: 0;
@@ -17,7 +13,6 @@ const Container = styled.section`
 
     & > .title {
         margin: 0px;
-        // width: 100%;
         font-size: 20px;
         line-height: 32px;
         color: ${gray.darkest};
@@ -30,7 +25,6 @@ const Container = styled.section`
         font-size: 14px;
         line-height: 24px;
         color: ${gray.darker};
-        // margin-bottom: 64px;
         // border: 1px dotted orange;
     }
 
@@ -55,61 +49,10 @@ const Container = styled.section`
             display: grid;
             grid-template-columns: 50% 50%;
             row-gap: 36px;
-            // display: flex;
-            // justify-content: space-between;
-            // flex-wrap: wrap;
             // border: 2px solid red;
         }
     }
 `
-
-const TeamTitle = styled.h1`
-    font-size: 20px;
-    line-height: 24px;
-    text-align: center;
-    color: ${gray.darkest};
-    border: 1px dotted orange;
-
-`
-
-// const TeamCard = styled.div`
-//     display: inline-block;
-//     width: 48%;
-//     padding: 20px;
-//     margin: 45px 0;
-//     border: 2px dotted orange;
-
-// `
-
-const TeamImage = styled.img`
-    width: 100%;
-    border: 1px dotted orange;
-
-`
-
-const TeamLogo = styled.div`
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 58px;
-    width: 100px;
-    margin: auto;
-    border: 1px dotted orange;
-`
-
-// const TeamName = styled.h5`
-//     font-size: 11px;
-//     text-align: center;
-//     margin-bottom: -10px;
-//     border: 1px dotted orange;
-// `
-
-// const TeamRole = styled.p`
-//     font-size: 9px;
-//     margin: 0;
-//     text-align: center;
-//     border: 1px dotted orange;
-// `
 
 const Team = props => {
     const {
@@ -152,8 +95,6 @@ const Team = props => {
         }
     `)
 
-    // console.log(data)
-
     const mappedTeams = data.prismicCoursePage.data.body1.map(
         ({
             items,
@@ -183,20 +124,6 @@ const Team = props => {
                                         teamRole={indTitle}
                                         logo={{url: logoUrl, alt: logoAlt}}
                                     />
-                                    // <TeamCard> 
-                                    //     <TeamImage src={imgUrl} alt={imgAlt} />
-                                    //     <TeamName>{indName}</TeamName>
-                                    //     <TeamRole>{indTitle}</TeamRole>
-                                    //     {logoUrl && (
-                                    //         <TeamLogo
-                                    //             style={{
-                                    //                 backgroundImage: `url(${logoUrl})`,
-                                    //             }}
-                                    //             alt={logoAlt}
-                                    //         />
-                                    //     )}
-                                    // </TeamCard>
-
                                 )
                             }
                         )}

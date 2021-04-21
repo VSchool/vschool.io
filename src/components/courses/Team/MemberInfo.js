@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import { gray } from '@vschool/lotus'
 
 const InfoContainer = styled.div`
-    // width: 180px;
     // border: 1px solid blue;
 
     & > .image-container {
@@ -46,13 +46,13 @@ const InfoContainer = styled.div`
 `
 
 const TeamLogo = styled.div`
+    margin: 16px 0px 0px 0px;
     min-width:100%;
     min-height: 66px;
     background-position: center;
     background-repeat: no-repeat;
     height: 58px;
     width: 100px;
-    margin: 16px 0px 0px 0px;
     // border: 1px dotted orange;
 `
 
@@ -65,7 +65,7 @@ export default function MemberInfo(props) {
         teamImage,
         logo
     } = props
-    console.log(logo)
+    // console.log(logo)
 
     return (
         <InfoContainer>
