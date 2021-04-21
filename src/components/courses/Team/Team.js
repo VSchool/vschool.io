@@ -1,7 +1,8 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import MemberCard from './MemberCard'
 import styled from "styled-components"
-import { blue, gray } from "@vschool/lotus"
+import { gray } from "@vschool/lotus"
 
 const Container = styled.section`
     background-color: ${gray.lighter};
@@ -33,9 +34,9 @@ const Container = styled.section`
         border: 1px dotted orange;
     }
 
-    & > .team-card {
-        margin-bottom: 4px;
-        border: 2px solid pink;
+    & > .testing-class {
+        // background: blue;
+        border: 1px dashed purple;
 
         & > .team-title {
             font-size: 20px;
@@ -45,6 +46,21 @@ const Container = styled.section`
             border: 1px dotted orange;
         }
     }
+    
+    
+
+    // & > .team-card {
+    //     margin-bottom: 4px;
+    //     border: 2px solid pink;
+
+    //     & > .team-title {
+    //         font-size: 20px;
+    //         line-height: 24px;
+    //         text-align: center;
+    //         color: ${gray.darkest};    
+    //         border: 1px dotted orange;
+    //     }
+    // }
 `
 
 const TeamTitle = styled.h1`
@@ -56,14 +72,14 @@ const TeamTitle = styled.h1`
 
 `
 
-const TeamCard = styled.div`
-    display: inline-block;
-    width: 48%;
-    padding: 20px;
-    margin: 45px 0;
-    border: 2px dotted orange;
+// const TeamCard = styled.div`
+//     display: inline-block;
+//     width: 48%;
+//     padding: 20px;
+//     margin: 45px 0;
+//     border: 2px dotted orange;
 
-`
+// `
 
 const TeamImage = styled.img`
     width: 100%;
@@ -144,7 +160,7 @@ const Team = props => {
             },
         }) => {
             return (
-                <div className={'team-card'}>
+                <div className={'testing-class'}>
                     <h1 className={'team-title'}>{teamType}</h1>
                     {/* <TeamTitle>{teamType}</TeamTitle> */}
                     {items.map(
@@ -158,19 +174,26 @@ const Team = props => {
                             team_individual_title: { text: indTitle },
                         }) => {
                             return (
-                                <TeamCard> 
-                                    <TeamImage src={imgUrl} alt={imgAlt} />
-                                    <TeamName>{indName}</TeamName>
-                                    <TeamRole>{indTitle}</TeamRole>
-                                    {logoUrl && (
-                                        <TeamLogo
-                                            style={{
-                                                backgroundImage: `url(${logoUrl})`,
-                                            }}
-                                            alt={logoAlt}
-                                        />
-                                    )}
-                                </TeamCard>
+                                <MemberCard 
+                                    teamImage={{src: imgUrl, alt: imgAlt}}
+                                    teamName={indName}
+                                    teamRole={indTitle}
+                                    logoUrl={logoUrl}
+                                    logoAlt={logoAlt}
+                                />
+                                // <TeamCard> 
+                                //     <TeamImage src={imgUrl} alt={imgAlt} />
+                                //     <TeamName>{indName}</TeamName>
+                                //     <TeamRole>{indTitle}</TeamRole>
+                                //     {logoUrl && (
+                                //         <TeamLogo
+                                //             style={{
+                                //                 backgroundImage: `url(${logoUrl})`,
+                                //             }}
+                                //             alt={logoAlt}
+                                //         />
+                                //     )}
+                                // </TeamCard>
 
                             )
                         }
@@ -184,6 +207,9 @@ const Team = props => {
         <Container>
             <h1 className={'title'}>{teamTitle}</h1>
             < p className={'description'}>{teamSub}</p>
+            {/* <Card 
+                teamImageUrl={imgUrl}
+            /> */}
             {mappedTeams}
         </Container>
     )
