@@ -39,6 +39,7 @@ const StudentImgContainer = styled.div`
     @media (min-width: 800px) {
         width: 50%;
         margin-top: 0;
+        height: 100%;
     }
 `
 
