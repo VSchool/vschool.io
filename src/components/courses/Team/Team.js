@@ -1,6 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import MemberCard from './MemberCard'
+import MemberInfo from './MemberInfo'
 import styled from "styled-components"
 import { gray } from "@vschool/lotus"
 
@@ -9,7 +9,7 @@ const Container = styled.section`
     // padding: 0px 0px 74px 0px;
     // padding-top: 0;
     // padding-bottom: 74px;
-    border: 2px dashed black;
+    // border: 2px solid black;
 
     // @media (min-width: 800px) {
     //     padding-top: 0;
@@ -21,7 +21,7 @@ const Container = styled.section`
         font-size: 20px;
         line-height: 32px;
         color: ${gray.darkest};
-        border: 1px dotted orange;
+        // border: 1px dotted orange;
     }
 
     & > .description {
@@ -31,36 +31,36 @@ const Container = styled.section`
         line-height: 24px;
         color: ${gray.darker};
         // margin-bottom: 64px;
-        border: 1px dotted orange;
+        // border: 1px dotted orange;
     }
 
-    & > .testing-class {
-        // background: blue;
-        border: 1px dashed purple;
+    & > .team-card {
+        margin: 0px 0px 64px 0px;
+        width: 100%;
+        // border: 1px solid black;
 
         & > .team-title {
+            font-family: Aktiv Grotesk;
+            font-style: normal;
+            font-weight: 800;
             font-size: 20px;
             line-height: 24px;
             text-align: center;
             color: ${gray.darkest};    
-            border: 1px dotted orange;
+            // border: 1px dotted orange;
+        }
+
+        & > .wrapper {
+            margin: 66px 0px 0px 0px;
+            display: grid;
+            grid-template-columns: 50% 50%;
+            row-gap: 36px;
+            // display: flex;
+            // justify-content: space-between;
+            // flex-wrap: wrap;
+            // border: 2px solid red;
         }
     }
-    
-    
-
-    // & > .team-card {
-    //     margin-bottom: 4px;
-    //     border: 2px solid pink;
-
-    //     & > .team-title {
-    //         font-size: 20px;
-    //         line-height: 24px;
-    //         text-align: center;
-    //         color: ${gray.darkest};    
-    //         border: 1px dotted orange;
-    //     }
-    // }
 `
 
 const TeamTitle = styled.h1`
@@ -97,19 +97,19 @@ const TeamLogo = styled.div`
     border: 1px dotted orange;
 `
 
-const TeamName = styled.h5`
-    font-size: 11px;
-    text-align: center;
-    margin-bottom: -10px;
-    border: 1px dotted orange;
-`
+// const TeamName = styled.h5`
+//     font-size: 11px;
+//     text-align: center;
+//     margin-bottom: -10px;
+//     border: 1px dotted orange;
+// `
 
-const TeamRole = styled.p`
-    font-size: 9px;
-    margin: 0;
-    text-align: center;
-    border: 1px dotted orange;
-`
+// const TeamRole = styled.p`
+//     font-size: 9px;
+//     margin: 0;
+//     text-align: center;
+//     border: 1px dotted orange;
+// `
 
 const Team = props => {
     const {
@@ -151,7 +151,9 @@ const Team = props => {
             }
         }
     `)
-    console.log(data)
+
+    // console.log(data)
+
     const mappedTeams = data.prismicCoursePage.data.body1.map(
         ({
             items,
@@ -160,44 +162,45 @@ const Team = props => {
             },
         }) => {
             return (
-                <div className={'testing-class'}>
+                <div className={'team-card'}>
                     <h1 className={'team-title'}>{teamType}</h1>
-                    {/* <TeamTitle>{teamType}</TeamTitle> */}
-                    {items.map(
-                        ({
-                            team_individual_name: { text: indName },
-                            team_individual_image: { alt: imgAlt, url: imgUrl },
-                            team_individual_logo: {
-                                alt: logoAlt,
-                                url: logoUrl,
-                            },
-                            team_individual_title: { text: indTitle },
-                        }) => {
-                            return (
-                                <MemberCard 
-                                    teamImage={{src: imgUrl, alt: imgAlt}}
-                                    teamName={indName}
-                                    teamRole={indTitle}
-                                    logoUrl={logoUrl}
-                                    logoAlt={logoAlt}
-                                />
-                                // <TeamCard> 
-                                //     <TeamImage src={imgUrl} alt={imgAlt} />
-                                //     <TeamName>{indName}</TeamName>
-                                //     <TeamRole>{indTitle}</TeamRole>
-                                //     {logoUrl && (
-                                //         <TeamLogo
-                                //             style={{
-                                //                 backgroundImage: `url(${logoUrl})`,
-                                //             }}
-                                //             alt={logoAlt}
-                                //         />
-                                //     )}
-                                // </TeamCard>
+                    <div className={'wrapper'}>
+                        {items.map(
+                            ({
+                                team_individual_name: { text: indName },
+                                team_individual_image: { alt: imgAlt, url: imgUrl },
+                                team_individual_logo: {
+                                    alt: logoAlt,
+                                    url: logoUrl,
+                                },
+                                team_individual_title: { text: indTitle },
+                            },) => {
 
-                            )
-                        }
-                    )}
+                                return (
+                                    <MemberInfo 
+                                        teamImage={{src: imgUrl, alt: imgAlt}}
+                                        teamName={indName}
+                                        teamRole={indTitle}
+                                        logo={{url: logoUrl, alt: logoAlt}}
+                                    />
+                                    // <TeamCard> 
+                                    //     <TeamImage src={imgUrl} alt={imgAlt} />
+                                    //     <TeamName>{indName}</TeamName>
+                                    //     <TeamRole>{indTitle}</TeamRole>
+                                    //     {logoUrl && (
+                                    //         <TeamLogo
+                                    //             style={{
+                                    //                 backgroundImage: `url(${logoUrl})`,
+                                    //             }}
+                                    //             alt={logoAlt}
+                                    //         />
+                                    //     )}
+                                    // </TeamCard>
+
+                                )
+                            }
+                        )}
+                    </div> 
                 </div>
             )
         }
@@ -206,10 +209,7 @@ const Team = props => {
     return (
         <Container>
             <h1 className={'title'}>{teamTitle}</h1>
-            < p className={'description'}>{teamSub}</p>
-            {/* <Card 
-                teamImageUrl={imgUrl}
-            /> */}
+            <p className={'description'}>{teamSub}</p>
             {mappedTeams}
         </Container>
     )
