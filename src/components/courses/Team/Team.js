@@ -7,16 +7,23 @@ import { gray } from "@vschool/lotus"
 const Container = styled.section`
     background-color: ${gray.lighter};
 
-    // @media (min-width: 800px) {
-    //     padding-top: 0;
-    // }
-
     & > .title {
         margin: 0px;
         font-size: 20px;
         line-height: 32px;
         color: ${gray.darkest};
         // border: 1px dotted orange;
+
+        @media (min-width: 800px) {
+            width: 100%;
+            font-family: Aktiv Grotesk;
+            font-style: normal;
+            font-weight: 900;
+            font-size: 32px;
+            line-height: 40px;
+            color: #21201F;
+            // border: 1px dotted orange;
+        }
     }
 
     & > .description {
@@ -26,6 +33,18 @@ const Container = styled.section`
         line-height: 24px;
         color: ${gray.darker};
         // border: 1px dotted orange;
+
+        @media (min-width: 768px) {
+            margin-top: 30px;
+            width: 100%;
+            font-family: Aktiv Grotesk;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 20px;
+            line-height: 28px;
+            color: #514F4B;
+            // border: 1px dotted orange;
+        }
     }
 
     & > .team-card {
@@ -42,6 +61,16 @@ const Container = styled.section`
             text-align: center;
             color: ${gray.darkest};    
             // border: 1px dotted orange;
+
+            @media (min-width: 800px) {
+                font-family: Aktiv Grotesk;
+                font-style: normal;
+                font-weight: 800;
+                font-size: 24px;
+                line-height: 32px;
+                text-align: center;
+                color: #21201F;
+            }
         }
 
         & > .wrapper {
@@ -50,6 +79,12 @@ const Container = styled.section`
             grid-template-columns: 50% 50%;
             row-gap: 36px;
             // border: 2px solid red;
+
+            @media (min-width: 800px) {
+                margin: 62px 0px 0px 0px;
+                display: flex;
+                justify-content: center;
+            }
         }
     }
 `

@@ -1,9 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import { gray } from '@vschool/lotus'
 
 const InfoContainer = styled.div`
     // border: 1px solid blue;
+
+    @media (min-width: 800px) {
+        width: 232px;
+        // border: 1px solid green;
+    }
 
     & > .image-container {
         margin: 0px 0px 32px 0px;
@@ -15,6 +19,11 @@ const InfoContainer = styled.div`
         & > img {
             width: 128px;
             height: 128px;
+
+            @media (min-width: 800px) {
+                width: 128px;
+                height: 132px;
+            }
         }
     }
 
@@ -28,6 +37,17 @@ const InfoContainer = styled.div`
         text-align: center;
         color: #000000;
         // border: 1px dotted orange;
+
+        @media (min-width: 800px) {
+            // margin: 0px 16px 0px 16px;
+            font-family: Aktiv Grotesk;
+            font-style: normal;
+            font-weight: 800;
+            font-size: 20px;
+            line-height: 24px;
+            text-align: center;
+            color: #000000;
+        }
     }
 
     & > .team-role {
@@ -47,16 +67,12 @@ const InfoContainer = styled.div`
 
 const TeamLogo = styled.div`
     margin: 16px 0px 0px 0px;
-    min-width:100%;
     min-height: 66px;
     background-position: center;
     background-repeat: no-repeat;
     height: 58px;
-    width: 100px;
     // border: 1px dotted orange;
-`
-
-        
+`        
 
 export default function MemberInfo(props) {
     const { 
@@ -65,7 +81,6 @@ export default function MemberInfo(props) {
         teamImage,
         logo
     } = props
-    // console.log(logo)
 
     return (
         <InfoContainer>
