@@ -4,94 +4,74 @@ import MemberInfo from './MemberInfo'
 import styled from "styled-components"
 import { gray } from "@vschool/lotus"
 
-
-
 const Container = styled.section`
     background-color: ${gray.lighter};
 
     & > .title {
         margin: 0px;
+        color: ${gray.darkest};
         font-size: 20px;
         line-height: 32px;
-        color: ${gray.darkest};
 
         @media (min-width: 800px) {
             width: 1024px;
-            font-family: Aktiv Grotesk;
-            font-style: normal;
-            font-weight: 900;
             font-size: 32px;
             line-height: 40px;
-            color: ${gray.darkets};
         }
     }
 
     & > .description {
         box-sizing: border-box;
-        margin: 0px 0px 64px 0px;
+        margin-top: 20px;
+        margin-bottom: 64px;
+        color: ${gray.darker};
         font-size: 14px;
         line-height: 24px;
-        color: ${gray.darker};
-        // border: 1px dotted orange;
 
         @media (min-width: 800px) {
-            margin-top: 30px;
-            // width: 100%;
             width: 1024px;
-            font-family: Aktiv Grotesk;
-            font-style: normal;
-            font-weight: normal;
+            margin-top: 30px;
             font-size: 20px;
             line-height: 28px;
-            color: ${gray.darker};
-            // border: 1px dotted orange;
         }
     }
 
     & > .team-card {
-        margin: 0px 0px 64px 0px;
         width: 100%;
-        // border: 1px solid black;
+        margin-bottom: 64px;
+
+        @media (min-width: 800px) {
+            width: 1024px;
+        }
 
         & > .team-title {
-            font-family: Aktiv Grotesk;
-            font-style: normal;
-            font-weight: 800;
+            color: ${gray.darkest};    
             font-size: 20px;
             line-height: 24px;
             text-align: center;
-            color: ${gray.darkest};    
-            // border: 1px dotted orange;
 
             @media (min-width: 800px) {
-                font-family: Aktiv Grotesk;
-                font-style: normal;
-                font-weight: 800;
                 font-size: 24px;
                 line-height: 32px;
-                text-align: center;
-                color: #21201F;
             }
         }
 
         & > .wrapper {
-            margin: 66px 0px 0px 0px;
             display: grid;
             grid-template-columns: 50% 50%;
             row-gap: 36px;
-            // border: 2px solid red;
+            margin-top: 66px;
 
             @media (min-width: 800px) {
-                margin: 62px 0px 0px 0px;
                 display: flex;
                 justify-content: center;
+                margin-top: 62px;
             }
         }
     }
 `
 
 const Team = props => {
-    console.log(gray)
 
     const {
         team_subtitle: { text: teamSub },
