@@ -9,8 +9,8 @@ const FormContainer = styled.div`
     justify-content: space-between;
     flex-wrap: wrap;
     width: 500px;
-    margin-top: 32px;
-    // border: 2px dashed white;
+    // margin-top: 32px;
+    border: 2px dashed white;
 
     & > p {
         margin-bottom: 24px;
@@ -29,7 +29,6 @@ const FormContainer = styled.div`
 
 export default function Form(props) {
     const { heading, buttonText } = props
-    console.log(buttonText)
 
     return (
         <FormContainer>
@@ -38,14 +37,14 @@ export default function Form(props) {
                 label={'First name'}
                 placeholder={''}
                 width={'240px'}
-                required={false}
+                required={true}
             />
 
             <FormInput 
                 label={'First name'}
                 placeholder={''}
                 width={'240px'}
-                required={false}
+                required={true}
             />
 
             <FormInput 

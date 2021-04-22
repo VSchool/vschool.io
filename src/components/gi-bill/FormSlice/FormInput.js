@@ -24,7 +24,7 @@ const InputContainer = styled.div`
         }
 
         & > span {
-            display: none;
+            // display: none;
             width: 6px;
             height: 16px;
             margin-right: 4px;
@@ -54,6 +54,7 @@ const InputContainer = styled.div`
 export default function FormInput(props) {
     const { 
         label,
+        required,
         placeholder,
         width
     } = props
@@ -62,7 +63,7 @@ export default function FormInput(props) {
         <InputContainer width={width}>
             <div className={'label-container'}>
                 <span>{'*'}</span>
-                <p className={'input-label'}>{label}</p>
+                <p>{label}</p>
             </div>
             <input placeholder={placeholder} />
         </InputContainer>
