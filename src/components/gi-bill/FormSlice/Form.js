@@ -28,10 +28,14 @@ const FormContainer = styled.div`
 `
 
 export default function Form(props) {
-    const { heading, buttonText } = props
+    const { 
+        heading,
+        buttonText,
+        className
+    } = props
 
     return (
-        <FormContainer>
+        <FormContainer className={className}>
             <p>{heading}</p>
             <FormInput 
                 label={'First name'}
