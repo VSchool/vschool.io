@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { gray } from '@vschool/lotus'
 
 const InfoContainer = styled.div`
     // border: 1px solid blue;
@@ -35,7 +36,7 @@ const InfoContainer = styled.div`
         font-size: 16px;
         line-height: 24px;
         text-align: center;
-        color: #000000;
+        color: ${gray.darkest};
         // border: 1px dotted orange;
 
         @media (min-width: 800px) {
@@ -46,7 +47,7 @@ const InfoContainer = styled.div`
             font-size: 20px;
             line-height: 24px;
             text-align: center;
-            color: #000000;
+            color: ${gray.darkest};
         }
     }
 
@@ -60,7 +61,7 @@ const InfoContainer = styled.div`
         line-height: 16px;
         text-align: center;
         letter-spacing: 0.5px;
-        color: #000000;
+        color: ${gray.darkest};
         // border: 1px dotted orange;
     }
 `
