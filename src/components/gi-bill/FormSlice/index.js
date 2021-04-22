@@ -34,8 +34,9 @@ const SliceContainer = styled.div`
     }  
 
     & > .content-wrapper {
-        display: flex;
-        justify-content: space-between;
+        // display: flex;
+        // justify-content: space-between;
+        display: grid;
         margin-top: 32px;
         border: 2px solid lightcoral;
 
@@ -43,7 +44,7 @@ const SliceContainer = styled.div`
             position: relative;
             top: -16px;
             right: -16px;
-            // width: 500px;
+            width: 400px;
             background: ${blue.dark};
 
             & > img {
@@ -73,7 +74,10 @@ export default function index(props) {
                 <p className={'heading'}>{sliceHeader.heading}</p>
             </div>
             <div className={'content-wrapper'}>
-                <Form heading={formHeading} buttonText={buttonText} />
+                <Form 
+                    heading={formHeading}
+                    buttonText={buttonText} 
+                />
                 <div className={'image-container'}>
                     <img 
                         src={image.url} 
