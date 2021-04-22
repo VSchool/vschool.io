@@ -7,7 +7,6 @@ import LearningMethod from "./LearningMethod"
 import LearningModel from "./LearningModel"
 import Schedule from "./Schedule"
 import Description from "./Description"
-// import Team from "./Team"
 import { Team } from './Team/'
 
 export default function index({ data }) {
