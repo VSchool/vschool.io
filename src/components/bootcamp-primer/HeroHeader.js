@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import { black } from "@vschool/lotus"
-import MailchimpSubscribeForm from "../shared/MailchimpSubscribeForm"
+import ConvertKitSubscribe from "../shared/ConvertKitSubscribe"
 
 const Header = styled.section`
     background-color: #e3e8fa;
@@ -110,6 +110,10 @@ function HeroHeader() {
                     invitation_text {
                         text
                     }
+                    email_confirmation_message {
+                        text
+                    }
+                    convertkit_tag
                 }
             }
         }
@@ -119,6 +123,8 @@ function HeroHeader() {
         main_page_title: { text: title },
         subtitle: { text: subTitle },
         invitation_text: { text: invite },
+        email_confirmation_message: { text: confirmationMessage },
+        convertkit_tag: convertKitTag,
     } = data.prismicBootcampPrimer.data
 
     return (
@@ -126,7 +132,10 @@ function HeroHeader() {
             <H1>{title}</H1>
             <P>{subTitle}</P>
             <H5>{invite}</H5>
-            <MailchimpSubscribeForm formUrl="//vschool.us16.list-manage.com/subscribe/post?u=f5ba48f36061bdea6c3b83712&amp;id=75906113f1" />
+            <ConvertKitSubscribe
+                convertKitTag={convertKitTag}
+                confirmationMessage={confirmationMessage}
+            />
         </Header>
     )
 }
