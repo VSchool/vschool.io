@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import { black, gray } from "@vschool/lotus"
 import MailchimpSubscribeForm from "../shared/MailchimpSubscribeForm"
+import ConvertKitSubscribe from "../shared/ConvertKitSubscribe"
 
 const HeroContainer = styled.section`
     background-color: #daf2fb;
@@ -71,6 +72,10 @@ export default function Hero() {
                         text
                         html
                     }
+                    email_subscribe_confirmation_message {
+                        text
+                    }
+                    convertkit_tag_name
                 }
             }
         }
@@ -81,6 +86,8 @@ export default function Hero() {
         title: { text: titleText },
         subtitle: { text: subtitleText },
         header_info: { html: headerInfoHtml },
+        email_subscribe_confirmation_message: { text: confirmationMessage },
+        convertkit_tag_name: convertKitTag,
     } = data.prismicMotherCoders.data
 
     return (
@@ -90,9 +97,13 @@ export default function Hero() {
             <HeroSubtitle>{subtitleText}</HeroSubtitle>
             {/* This uses innerHTML because Prismic has multiple paragraphs in one element */}
             <Paragraphs dangerouslySetInnerHTML={{ __html: headerInfoHtml }} />
-            <MailchimpSubscribeForm
-                style={{ backgroundColor: "#48BFE9", borderColor: "#3286a3" }}
+            {/* <MailchimpSubscribeForm
                 formUrl="//vschool.us16.list-manage.com/subscribe/post?u=f5ba48f36061bdea6c3b83712&amp;id=b5b314c19b"
+            /> */}
+            <ConvertKitSubscribe
+                convertKitTag={convertKitTag}
+                confirmationMessage={confirmationMessage}
+                style={{ backgroundColor: "#48BFE9", borderColor: "#3286a3" }}
             />
         </HeroContainer>
     )
