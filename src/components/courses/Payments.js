@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components"
-import { blue, gray } from "@vschool/lotus"
+import { gray } from "@vschool/lotus"
 
 const Container = styled.section`
     background-color: ${gray.lighter};
