@@ -24,6 +24,7 @@ export default function EmailSignup() {
                     email_title {
                         text
                     }
+                    convertkit_tag
                 }
             }
         }
@@ -31,15 +32,12 @@ export default function EmailSignup() {
 
     const {
         email_title: { text: emailTitle },
+        convertkit_tag: convertKitTag,
     } = data.prismicWomensHistoryMonthPage.data
     return (
         <Container>
             <Title>{emailTitle}</Title>
-            <ConvertKitSubscribe
-                webhookUrl={
-                    process.env.GATSBY_CONVERTKIT_SIGNUP_ZAPIER_WEBHOOK_URL
-                }
-            />
+            <ConvertKitSubscribe convertKitTag={convertKitTag} />
         </Container>
     )
 }
