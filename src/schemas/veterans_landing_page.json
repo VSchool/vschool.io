@@ -1,0 +1,63 @@
+{
+    "Main": {},
+    "Hero": {
+      "hero_subtitle": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading4",
+          "label": "Hero Subtitle"
+        }
+      },
+      "hero_title": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1",
+          "label": "Hero Title"
+        }
+      },
+      "hero_description": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+          "label": "Hero Description"
+        }
+      },
+      "hero_form": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "hero_form_label": {
+              "type": "StructuredText",
+              "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Hero Form Label"
+              }
+            },
+            "hero_form_placeholder": {
+              "type": "StructuredText",
+              "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Hero Form Placeholder"
+              }
+            }
+          },
+          "label": "Hero Form"
+        }
+      },
+      "hero_form_button": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+          "label": "Hero Form Button"
+        }
+      },
+      "hero_image": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "Hero Image"
+        }
+      }
+    }
+  }
