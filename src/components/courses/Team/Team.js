@@ -14,7 +14,7 @@ const Container = styled.section`
         line-height: 32px;
 
         @media (min-width: 800px) {
-            width: 1024px;
+            max-width: 1024px;
             font-size: 32px;
             line-height: 40px;
         }
@@ -29,7 +29,7 @@ const Container = styled.section`
         line-height: 24px;
 
         @media (min-width: 800px) {
-            width: 1024px;
+            max-width: 1024px;
             margin-top: 30px;
             font-size: 20px;
             line-height: 28px;
