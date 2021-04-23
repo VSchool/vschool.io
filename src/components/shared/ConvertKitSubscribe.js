@@ -54,14 +54,15 @@ const ThanksMessage = styled.h4`
     margin-right: auto;
 `
 
-export default function ConvertKitSubscribe({ webhookUrl, ...props }) {
+export default function ConvertKitSubscribe({ convertKitTag, confirmationMessage, ...props }) {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [submitted, setSubmitted] = useState(false)
+    const webhookUrl = process.env.GATSBY_CONVERTKIT_SIGNUP_ZAPIER_WEBHOOK_URL
 
     function handleSubmit(e) {
         e.preventDefault()
-        const data = JSON.stringify({ name, email })
+        const data = JSON.stringify({ name, email, convertKitTag })
         const options = {
             method: "POST",
             body: data,
@@ -103,7 +104,7 @@ export default function ConvertKitSubscribe({ webhookUrl, ...props }) {
                     </Disclaimer>
                 </>
             ) : (
-                <ThanksMessage>Thanks for subscribing!</ThanksMessage>
+                <ThanksMessage>{confirmationMessage || "Thanks for subscribing!"}</ThanksMessage>
             )}
         </FormContainer>
     )
