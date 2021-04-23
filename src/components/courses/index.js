@@ -8,6 +8,7 @@ import LearningModel from "./LearningModel"
 import Schedule from "./Schedule"
 import Description from "./Description"
 import { Team } from './Team/'
+import Payments from './Payments'
 
 export default function index({ data }) {
     return (
@@ -21,6 +22,7 @@ export default function index({ data }) {
             <LearningModel />
             <Schedule />
             <Team {...data} />
+            <Payments {...data} />
         </>
     )
 }
