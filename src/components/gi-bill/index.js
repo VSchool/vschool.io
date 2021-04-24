@@ -1,15 +1,144 @@
 import React from 'react'
-import FormSlice from './FormSlice'
+import Hero from './Hero'
+import { useStaticQuery, graphql } from "gatsby"
 
 export default function GiBillPage() {
+  const data = useStaticQuery(graphql`
+    {
+      prismicVeteransLandingPage {
+        data {
+          hero_title {
+            text
+          }
+          hero_subtitle {
+            text
+          }
+          hero_description {
+            text
+          }
+          hero_form {
+            hero_form_label {
+              text
+            }
+            hero_form_placeholder {
+              text
+            }
+          }
+          hero_form_button {
+            text
+          }
+          hero_image {
+            url
+            alt
+          }
+          courses_card {
+            courses_card_button_text {
+              text
+            }
+            courses_card_description {
+              text
+            }
+            courses_card_title {
+              text
+            }
+          }
+          courses_description {
+            text
+          }
+          courses_subtitle {
+            text
+          }
+          courses_title {
+            text
+          }
+          footer_button_text {
+            text
+          }
+          footer_description {
+            text
+          }
+          footer_form {
+            footer_form_label {
+              text
+            }
+            footer_form_placeholder {
+              text
+            }
+          }
+          footer_title {
+            text
+          }
+          outcomes_description {
+            text
+          }
+          outcomes_image {
+            alt
+            url
+          }
+          outcomes_statistics {
+            outcomes_stat_description {
+              text
+            }
+            outcomes_stat_title {
+              text
+            }
+          }
+          outcomes_subdescription {
+            text
+          }
+          outcomes_subtitle {
+            text
+          }
+          outcomes_title {
+            text
+          }
+          resources_callout {
+            resources_callout_button_text {
+              text
+            }
+            resources_callout_description {
+              text
+            }
+            resources_callout_title {
+              text
+            }
+          }
+          resources_title {
+            text
+          }
+          success_description {
+            text
+          }
+          success_testimonial_author {
+            text
+          }
+          success_testimonial_body {
+            text
+          }
+          success_testimonial_image {
+            url
+          }
+          success_title {
+            text
+          }
+        }
+      }
+    }
+  `)
+
+  const prismicData = {...data.prismicVeteransLandingPage.data}
+
     return (
         <>
-            <FormSlice 
-                sliceHeader={{heading: 'Online Coding Bootcamp for Veterans', subHeading: 'VA Approved'}}
-                formHeading={'Use your G.I Bill benefits to learn to code and land a job in tech. Fill out the form to learn more!'}
-                buttonText={'Request Information'}
-                image={{url: 'https://images.unsplash.com/photo-1602640557390-88800eee460f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80', alt:'alt text here'}}
-            />
+            <Hero prismicData={prismicData} />
         </> 
     )
 }
+
+
+
+
+
+
+  
+
