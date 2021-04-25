@@ -22,8 +22,8 @@ const OutcomesContainer = styled.div`
 
     & > .description {
         margin-bottom: 48px;
-        grid-column-start: col3-start;
-        grid-column-end: span col10-end;
+        grid-column-start: col2-start;
+        grid-column-end: span col11-end;
         grid-row-start: 2;
         font-weight: normal;
         text-align: center;
