@@ -84,6 +84,7 @@ export default function Success(props) {
 
     let successTitle = prismicData.success_title[0].text
     let successDescription = prismicData.success_description[0].text
+    let successTestimonialBody = prismicData.success_testimonial_body[0].text
     let successTestimonialAuthor = prismicData.success_testimonial_author[0].text
     let successTestimonialImage = prismicData.success_testimonial_image
 
@@ -93,7 +94,7 @@ export default function Success(props) {
             <p className={'description'}>{successDescription}</p>
             <div className={'wrapper'}>
                 <div className={'testimonial-block'}>
-                    <p className={'testimonial-body'}>{`"I recommend other vets to V School because of the culture. We were all on equal ground. They showed me how to take the reigns and shape my own future and be who I wanted to be.`}</p>
+                    <p className={'testimonial-body'}>{successTestimonialBody}</p>
                     <p className={'testimonial-author'}>{successTestimonialAuthor}</p>
                     <img className={'testimonial-image'} src={successTestimonialImage.url} alt={'alt'} />
                 </div>
