@@ -1,6 +1,7 @@
 import React from 'react'
 import Hero from './Hero'
 import { Outcomes } from './Outcomes/'
+import Success from './Success'
 import { useStaticQuery, graphql } from "gatsby"
 
 export default function GiBillPage() {
@@ -133,6 +134,7 @@ export default function GiBillPage() {
         <>
             <Hero prismicData={prismicData} />
             <Outcomes prismicData={prismicData} />
+            <Success prismicData={prismicData} />
         </> 
     )
 }
