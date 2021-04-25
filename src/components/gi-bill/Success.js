@@ -81,14 +81,11 @@ const SuccessContainer = styled.div`
 
 export default function Success(props) {
     const { prismicData } = props
-    console.log(2222, blue, gray)
 
     let successTitle = prismicData.success_title[0].text
     let successDescription = prismicData.success_description[0].text
     let successTestimonialAuthor = prismicData.success_testimonial_author[0].text
     let successTestimonialImage = prismicData.success_testimonial_image
-
-    // console.log(4444, successTestimonialImage)
 
     return (
         <SuccessContainer>
