@@ -9,24 +9,15 @@ const BarContainer = styled.div`
     border-top: 2px solid blue;
     border-bottom: 2px solid blue;
 
-    & > .stat-one {
-        // background: black;
-    }
-
     & > .stat-two {
         margin-left: 24px;
         margin-right: 24px;
-        // background: black;
-    }
-
-    & > .stat-three {
         // background: black;
     }
 `
 
 const StatContainer = styled.div`
     width: 232px;
-    // height: 112px;
     // border: 1px dashed orange;
 
     & > p {
@@ -73,9 +64,9 @@ export default function StatsBar(props) {
 
     return (
         <BarContainer className={className}>
-            <Stat className={'stat-one'} title={statOneTitle} description={statOneDescription} />
+            <Stat title={statOneTitle} description={statOneDescription} />
             <Stat className={'stat-two'} title={statTwoTitle} description={statTwoDescription} />
-            <Stat className={'stat-three'} title={statThreeTitle} description={statThreeDescription}/>
+            <Stat title={statThreeTitle} description={statThreeDescription}/>
         </BarContainer>
     )
 }
