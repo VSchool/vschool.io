@@ -81,23 +81,18 @@ export default function Hero(props) {
     let heroTitle = prismicData.hero_title[0].text
     let heroSubtitle = prismicData.hero_subtitle[0].text
     let heroDescription = prismicData.hero_description[0].text
-    // let heroButtonText = prismicData.hero_button_text[0].text
-    let formData = {
-        button: {
-            text: prismicData.hero_form_button
-        },
-        inputs: {
-            form: [...prismicData.hero_form]
-        }
-    }
-
+   
     return (
         <HeroContainer>
             <p className={'tagline'}>{heroSubtitle}</p>
             <h3 className={'title'}>{heroTitle}</h3>
             <div className={'wrapper'}>
                 <p className={'description'}>{heroDescription}</p>
-                <Form className={'hero-form'} formData={formData} />
+                <Form 
+                    className={'hero-form'} 
+                    buttonText={'heroButtonText'}
+                    formData={'formData'} 
+                />
             </div>
         </HeroContainer>
     )

@@ -4,6 +4,7 @@ import { Outcomes } from './Outcomes/'
 import { Courses } from './Courses'
 import { AdditionalResources } from './AdditionalResources'
 import Success from './Success'
+import Footer from './Footer'
 import { useStaticQuery, graphql } from "gatsby"
 
 export default function GiBillPage() {
@@ -139,6 +140,7 @@ export default function GiBillPage() {
             <Success prismicData={prismicData} />
             <Courses prismicData={prismicData} />
             <AdditionalResources prismicData={prismicData} />
+            <Footer prismicData={prismicData} />
         </> 
     )
 }
