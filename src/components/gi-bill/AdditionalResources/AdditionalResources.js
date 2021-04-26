@@ -11,7 +11,6 @@ const ResourcesContainer = styled.div`
     // border: 2px dashed black;
 
     & > .title {
-        // margin-bottom: 32px;
         grid-column-start: col3-start;
         grid-column-end: span col10-end;
         grid-row-start: 1;
@@ -27,7 +26,6 @@ const ResourcesContainer = styled.div`
         display: flex;
         flex-direction: column;
         row-gap: 40px;
-        // justify-content: center;
         column-gap: 24px;
         // border: 2px solid green;
     }
@@ -35,7 +33,6 @@ const ResourcesContainer = styled.div`
 
 export default function AdditionalResources(props) {
     const { prismicData } = props
-    // console.log(prismicData)
 
     let resourcesTitle = prismicData.resources_title[0].text
 
