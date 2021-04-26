@@ -4,12 +4,14 @@ import Form from './Form'
 import { gray, red, blue } from '@vschool/lotus'
 
 const HeroContainer = styled.div`
-    margin-top: 112px;
+    padding-top: 112px;
+    padding-bottom: 112px;
     display: grid;
     grid-template-columns: [left-margin] 64px [left-margin-end col1-start] 1fr [col1-end col2-start] 1fr [col2-end col3-start] 1fr [col3-end col4-start] 1fr [col4-end col5-start] 1fr [col5-end col6-start] 1fr [col6-end col7-start] 1fr [col7-end col8-start] 1fr [col8-end col9-start] 1fr [col9-end col10-start] 1fr [col10-end col11-start] 1fr [col11-end col2-start] 1fr [col12-end right-margin-start] 64px [right-margin];
     grid-column-gap: 24px;
     grid-template-rows: auto;
-    border: 2px dashed black;
+    background: ${blue.lightest};
+    // border: 2px dashed black;
 
     & > .title {
         grid-column-start: col1-start;
@@ -21,7 +23,7 @@ const HeroContainer = styled.div`
         font-size: 56px;
         line-height: 56px;
         color: ${gray.darkest};
-        border: 2px solid orange;
+        // border: 2px solid orange;
     }
 
     & > .tagline {
@@ -36,7 +38,7 @@ const HeroContainer = styled.div`
         letter-spacing: 0.25px;
         text-transform: uppercase;
         color: ${red.dark};        
-        border: 2px dotted orange;
+        // border: 2px dotted orange;
     }
 
     & > .wrapper {
@@ -48,9 +50,10 @@ const HeroContainer = styled.div`
         grid-template-columns: [margin-left] 64px [margin-left-end c1-start] 1fr [c1-end c2-start] 1fr [c2-end c3-start] 1fr [c3-end c4-start] 1fr [c4-end c5-start] 1fr [c5-end c6-start] 1fr [c6-end c7-start] 1fr [c7-end c8-start] 1fr [c8-end c9-start] 1fr [c9-end c10-start] 1fr [c10-end c11-start] 1fr [c11-end c12-start] 1fr [c12-end margin-right-start] 64px [margin-right];
         grid-column-gap: 24px;
         grid-template-rows: auto;
-        border: 2px dotted blue;
+        // border: 2px dotted blue;
 
         & > .description {
+            margin-bottom: 24px;
             grid-column-start: c1-start;
             grid-column-end: span c6-end;
             grid-row-start: 1;
@@ -60,7 +63,7 @@ const HeroContainer = styled.div`
             font-size: 20px;
             line-height: 32px;
             color: ${gray.darker};
-            border: 2px dotted orange;
+            // border: 2px dotted orange;
         }
 
         & > .hero-form {
@@ -73,13 +76,20 @@ const HeroContainer = styled.div`
 
 export default function Hero(props) {
     const { prismicData } = props
-    console.log(red)
+    // console.log(prismicData)
     
     let heroTitle = prismicData.hero_title[0].text
     let heroSubtitle = prismicData.hero_subtitle[0].text
     let heroDescription = prismicData.hero_description[0].text
-    // let heroImageUrl = prismicData.hero_image.url
-    // let heroImageAlt = prismicData.hero_image.alt
+    // let heroButtonText = prismicData.hero_button_text[0].text
+    let formData = {
+        button: {
+            text: prismicData.hero_form_button
+        },
+        inputs: {
+            form: [...prismicData.hero_form]
+        }
+    }
 
     return (
         <HeroContainer>
@@ -87,9 +97,8 @@ export default function Hero(props) {
             <h3 className={'title'}>{heroTitle}</h3>
             <div className={'wrapper'}>
                 <p className={'description'}>{heroDescription}</p>
-                <Form className={'hero-form'} />
+                <Form className={'hero-form'} formData={formData} />
             </div>
-
         </HeroContainer>
     )
 }
