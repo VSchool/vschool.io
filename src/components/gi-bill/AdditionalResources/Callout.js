@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Button from './Button'
 import { gray } from '@vschool/lotus'
 
 const CalloutContainer = styled.div`
@@ -10,13 +11,10 @@ const CalloutContainer = styled.div`
 
     & > .title {
         margin-bottom: 16px;
-        // font-family: Aktiv Grotesk;
         font-style: normal;
         font-weight: 900;
         font-size: 32px;
         line-height: 40px;
-        // display: flex;
-        // align-items: center;
         color: ${gray.darkest};
         // border: 1px dashed orange;
     }
@@ -32,16 +30,9 @@ const CalloutContainer = styled.div`
         color: ${gray.darkest};
         // border: 1px dashed orange;
     }
-
-    & > .fake-button {
-        width: 200px;
-        height: 56px;
-        background: ${gray.dark};
-    }
 `
 
 export default function Callout(props) {
-    console.log(gray)
     const { 
         className,
         calloutTitle,
@@ -53,7 +44,7 @@ export default function Callout(props) {
         <CalloutContainer className={className}>
             <h3 className={'title'}>{calloutTitle}</h3>
             <p className={'description'}>{calloutDescription}</p>
-            <div className={'fake-button'}></div>
+            <Button buttonText={calloutButtonText} />
         </CalloutContainer>
     )
 }
