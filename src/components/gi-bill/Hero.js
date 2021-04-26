@@ -81,7 +81,32 @@ export default function Hero(props) {
     let heroTitle = prismicData.hero_title[0].text
     let heroSubtitle = prismicData.hero_subtitle[0].text
     let heroDescription = prismicData.hero_description[0].text
-   
+    let buttonText = prismicData.hero_form_button[0].text
+    // console.log(5555, buttonText)
+
+
+    let input1Label = prismicData.hero_form[0].hero_form_label[0].text
+    let input1Placeholder = prismicData.hero_form[0].hero_form_placeholder[0].text
+    const input1 = { label: input1Label, placeholder: input1Placeholder}
+
+    let input2Label = prismicData.hero_form[1].hero_form_label[0].text
+    let input2Placeholder = prismicData.hero_form[1].hero_form_placeholder[0].text
+    const input2 = { label: input2Label, placeholder: input2Placeholder}
+
+    let input3Label = prismicData.hero_form[2].hero_form_label[0].text
+    let input3Placeholder = prismicData.hero_form[2].hero_form_placeholder[0].text
+    const input3 = { label: input3Label, placeholder: input3Placeholder}
+
+    let input4Label = prismicData.hero_form[3].hero_form_label[0].text
+    let input4Placeholder = prismicData.hero_form[3].hero_form_placeholder[0].text
+    const input4 = { label: input4Label, placeholder: input4Placeholder}
+
+    const inputArr = [input1, input2, input3, input4]
+    // console.log(input1, input2, input3, input4)
+
+
+
+
     return (
         <HeroContainer>
             <p className={'tagline'}>{heroSubtitle}</p>
@@ -90,9 +115,12 @@ export default function Hero(props) {
                 <p className={'description'}>{heroDescription}</p>
                 <Form 
                     className={'hero-form'} 
-                    buttonText={'heroButtonText'}
-                    formData={'formData'} 
-                />
+                    buttonText={buttonText}
+                    input1={input1}
+                    input2={input2}
+                    input3={input3}
+                    input4={input4}
+            />
             </div>
         </HeroContainer>
     )

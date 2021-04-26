@@ -9,7 +9,7 @@ const StyledForm = styled.form`
     grid-column-gap: 24px;
     grid-row-gap: 16px;
     grid-template-rows: repeat(4, auto);
-    border: 2px solid black;
+    // border: 2px solid black;
 
     & > .first-name {
         grid-column: line1 / line4;
@@ -48,60 +48,52 @@ const StyledForm = styled.form`
 `
 
 export default function Form(props) {
-    const { className, formData, buttonText } = props
-    // console.log(formData[0].hero_form_label[0].text)
-    // console.log(formData)
+    const { 
+        className, 
+        buttonText,
+        input1,
+        input2,
+        input3,
+        input4
+    } = props
 
-    // const inputsArr = [...formData.inputs.form]
-    // console.log(formData)
-
+    // console.log(input1, input2, input3, input4, buttonText)
     
-    // let input1Placeholder = inputsArr[0].hero_form_placeholder[0].text
-
-    // let input2Label = inputsArr[1].hero_form_label[0].text
-    // let input2Placeholder = inputsArr[1].hero_form_placeholder[0].text
-
-    // let input3Label = inputsArr[2].hero_form_label[0].text
-    // let input3Placeholder = inputsArr[2].hero_form_placeholder[0].text
-
-    // let input4Label = inputsArr[3].hero_form_label[0].text
-    // let input4Placeholder = inputsArr[3].hero_form_placeholder[0].text
-
-    // let buttonText = formData.button.text[0].text
 
     return (
         <StyledForm className={className}>
             <FormInput 
                 className={'first-name'}
                 name={'firstName'}
-                label={'input1Label'}
-                placeholder={'input1Placeholder'}
+                label={input1.label}
+                placeholder={input1.placeholder}
                 required={true}
             />
 
             <FormInput 
                 className={'last-name'}
                 name={'lastName'}
-                label={'input2Label'}
-                placeholder={'input2Placeholder'}
+                label={input2.label}
+                placeholder={input2.placeholder}
                 required={true}
             />
 
             <FormInput 
                 className={'email'}
                 name={'email'}
-                label={'input3Label'}
-                placeholder={'input3Placeholder'}
+                label={input3.label}
+                placeholder={input3.placeholder}
                 required={true}
             />
 
             <FormInput 
                 className={'phone'}
                 name={'phone'}
-                label={'input4Label'}
-                placeholder={'input4Placeholder'}
+                label={input4.label}
+                placeholder={input4.placeholder}
                 required={true}
             />
+
             <div className={'button-wrapper'}>
                 <Button buttonText={buttonText} className={'form-button'} />
             </div>
