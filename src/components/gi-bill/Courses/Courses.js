@@ -53,6 +53,7 @@ const CoursesContainer = styled.div`
         display: flex;
         justify-content: center;
         column-gap: 24px;
+    }
 `
 
 export default function Courses(props) {
