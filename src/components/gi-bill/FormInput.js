@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { red, gray } from '@vschool/lotus'
 
 const FormInputContainer = styled.div`
-    // background: lightblue;
     // border: 2px solid orange;
     
     & > .label-container {
@@ -48,7 +47,7 @@ const FormInputContainer = styled.div`
         font-weight: normal;
         font-size: 16px;
         line-height: 24px;
-        color: #514F4B;
+        color: ${gray.darker};
     }
 `
 

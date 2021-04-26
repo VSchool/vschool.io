@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import Callout from './Callout'
 
 const ResourcesContainer = styled.div`
-    // margin-top: 112px;
     padding-top: 112px;
     padding-bottom: 112px;
     display: grid;

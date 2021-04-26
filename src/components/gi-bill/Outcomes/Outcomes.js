@@ -4,7 +4,6 @@ import StatsBar from './StatsBar'
 import { gray, blue } from '@vschool/lotus'
 
 const OutcomesContainer = styled.div`
-    // margin-top: 112px;
     padding-top: 112px;
     padding-bottom: 112px;
     display: grid;
