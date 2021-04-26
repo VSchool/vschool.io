@@ -14,32 +14,27 @@ const StyledForm = styled.form`
     & > .first-name {
         grid-column: line1 / line4;
         grid-row: 1 / 2;
-        // background: red;
     }
 
     & > .last-name {
         grid-column: line4 / end;
         grid-row: 1 / 2;
-        // background: blue;
     }
 
     & > .email {
         grid-column: line1 / end;
         grid-row: 2 / 2;
-        // background: green;
     }
 
     & > .phone {
         grid-column: line1 / end;
         grid-row: 3 / 3;
-        // background: gray;
     }
 
     & > .button-wrapper {
         margin-top: 8px;
         grid-column: line1 / end;
         grid-row: 4 / 4;
-        // background: lightgray;
 
         & > .form-button {
 
@@ -56,9 +51,6 @@ export default function Form(props) {
         input3,
         input4
     } = props
-
-    // console.log(input1, input2, input3, input4, buttonText)
-    
 
     return (
         <StyledForm className={className}>

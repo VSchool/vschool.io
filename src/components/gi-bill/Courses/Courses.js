@@ -4,7 +4,6 @@ import Card from './Card'
 import { blue } from '@vschool/lotus'
 
 const CoursesContainer = styled.div`
-    // margin-top: 112px;
     padding-top: 112px;
     padding-bottom: 112px;
     display: grid;

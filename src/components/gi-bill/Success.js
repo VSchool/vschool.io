@@ -1,10 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-
 import { blue, gray } from '@vschool/lotus'
 
 const SuccessContainer = styled.div`
-    // margin-top: 112px;
     padding-top: 112px;
     padding-bottom: 112px;
     display: grid;
@@ -23,7 +21,6 @@ const SuccessContainer = styled.div`
     }
 
     & > .description {
-        // margin-bottom: 48px;
         grid-column-start: col2-start;
         grid-column-end: span col11-end;
         grid-row-start: 2;
@@ -54,9 +51,7 @@ const SuccessContainer = styled.div`
             & > .testimonial-author {
                 margin-top: 32px;
                 font-family: Aktiv Grotesk Ex;
-                font-style: normal;
                 font-weight: 800;
-                font-size: 20px;
                 line-height: 24px;
                 color: ${blue.darkest};
             }
