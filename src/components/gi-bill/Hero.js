@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Form from './Form'
 import { gray, red, blue } from '@vschool/lotus'
 
 const HeroContainer = styled.div`
@@ -61,6 +62,12 @@ const HeroContainer = styled.div`
             color: ${gray.darker};
             border: 2px dotted orange;
         }
+
+        & > .hero-form {
+            grid-column-start: c1-start;
+            grid-column-end: span c6-end;
+            grid-row-start: 2;
+        }
     }
 `
 
@@ -80,6 +87,7 @@ export default function Hero(props) {
             <h3 className={'title'}>{heroTitle}</h3>
             <div className={'wrapper'}>
                 <p className={'description'}>{heroDescription}</p>
+                <Form className={'hero-form'} />
             </div>
 
         </HeroContainer>
