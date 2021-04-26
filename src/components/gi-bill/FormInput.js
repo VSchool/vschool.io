@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { red, gray } from '@vschool/lotus'
 
 const FormInputContainer = styled.div`
-    background: lightblue;
+    // background: lightblue;
     
     & > .label-container {
         display: flex;
@@ -51,15 +51,21 @@ const FormInputContainer = styled.div`
 `
 
 export default function FormInput(props) {
-    const {className, label } = props
-    console.log(gray)
+    const {
+        className, 
+        name,
+        label,
+        placeholder,
+        required
+    } = props
+
     return (
         <FormInputContainer className={className}>
             <div className={'label-container'}>
                 <p className={'asterisks'}>{'*'}</p>
                 <label>{label}</label>
             </div>
-            <input />
+            <input name={name} placeholder={placeholder} />
         </FormInputContainer>
     )
 }

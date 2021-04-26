@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { gray, blue } from '@vschool/lotus'
 
 const StyledButton = styled.button`
+    // width: 280px;
     display: flex;
     align-items: center;
     padding: ${props => props.padding};
