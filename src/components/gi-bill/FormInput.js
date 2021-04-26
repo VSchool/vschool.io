@@ -4,6 +4,7 @@ import { red, gray } from '@vschool/lotus'
 
 const FormInputContainer = styled.div`
     // background: lightblue;
+    // border: 2px solid orange;
     
     & > .label-container {
         display: flex;
@@ -23,6 +24,7 @@ const FormInputContainer = styled.div`
         }
 
         & > label {
+            margin-bottom: 8px;
             font-family: Aktiv Grotesk Ex;
             font-style: normal;
             font-weight: bold;
