@@ -15,7 +15,7 @@ const PageContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: ${gray.lightest};
+    background-color: ${gray.lighter};
 
     @media (min-width: 1200px) {
         padding: 0 264px;
@@ -28,7 +28,7 @@ const PostBodyContainer = styled.section`
     padding: 0;
     padding-bottom: 64px;
     font-family: "aktiv-grotesk";
-    background-color: ${gray.lightest};
+    background-color: ${gray.lighter};
 
     h2,
     h3,
