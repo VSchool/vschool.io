@@ -28,6 +28,7 @@ const PostBodyContainer = styled.section`
     padding: 0;
     padding-bottom: 64px;
     font-family: "aktiv-grotesk";
+    background-color: ${gray.lightest};
 
     h2,
     h3,
@@ -73,6 +74,21 @@ const PostBodyContainer = styled.section`
         align-items: center;
         background-color: ${gray.lightest};
         padding: 24px;
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        padding-top: 56.25%; /* 16:9 Aspect Ratio */
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
 
         @media (min-width: 1000px) {
             margin: 16px 0;
@@ -105,6 +121,7 @@ const PostBodyContainer = styled.section`
         color: ${blue.base};
         text-decoration: none;
     }
+
 `
 
 const DetailsContainer = styled.div`
