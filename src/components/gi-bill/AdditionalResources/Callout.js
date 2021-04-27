@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Button from './Button'
+import ButtonV2 from '../ButtonV2'
 import { gray } from '@vschool/lotus'
 
 const CalloutContainer = styled.div`
@@ -30,9 +30,21 @@ const CalloutContainer = styled.div`
         color: ${gray.darkest};
         // border: 1px dashed orange;
     }
+
+    & > .callout-button {
+        
+        &:hover {
+            box-shadow: none;
+        }
+
+        &:active {
+            border: 2px solid ${gray.dark};
+        }
+    }
 `
 
 export default function Callout(props) {
+    // console.log(gray)
     const { 
         className,
         calloutTitle,
@@ -44,7 +56,12 @@ export default function Callout(props) {
         <CalloutContainer className={className}>
             <h3 className={'title'}>{calloutTitle}</h3>
             <p className={'description'}>{calloutDescription}</p>
-            <Button buttonText={calloutButtonText} />
+            <ButtonV2
+                buttonText={calloutButtonText} 
+                className={'callout-button'} 
+                buttonType={'primary'}
+                onClick={() => console.log('Button fired')}
+            />
         </CalloutContainer>
     )
 }
