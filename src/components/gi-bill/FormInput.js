@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { red, gray } from '@vschool/lotus'
+import { red, blue, gray } from '@vschool/lotus'
 
 const FormInputContainer = styled.div`
     // border: 2px solid orange;
@@ -10,8 +10,9 @@ const FormInputContainer = styled.div`
         column-gap: 4px;
         // border: 1px solid orange;
 
-        & > .asterisks {
+        & > p {
             // display: none;
+            // display: ${props => props.display};
             font-family: Aktiv Grotesk Ex;
             font-style: normal;
             font-weight: bold;
@@ -40,7 +41,7 @@ const FormInputContainer = styled.div`
         padding: 10px 16px 10px 16px;
         width: 100%;
         background: ${gray.lightest};
-        border: 2px solid ${gray.base};
+        border: 2px solid #514F4B;
         box-sizing: border-box;
         font-family: Aktiv Grotesk;
         font-style: normal;
@@ -48,6 +49,27 @@ const FormInputContainer = styled.div`
         font-size: 16px;
         line-height: 24px;
         color: ${gray.darker};
+
+        &::placeholder {
+            font-family: Aktiv Grotesk;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 24px;
+            color: ${gray.dark};
+        }
+
+        &:empty {
+            border: 2px solid ${gray.base};
+        }
+
+        &:hover {
+            border: 2px solid ${blue.light};
+        }
+
+        &:active {
+            border: 2px solid ${blue.dark};
+        }
     }
 `
 
@@ -60,10 +82,20 @@ export default function FormInput(props) {
         required
     } = props
 
+    function setAsterisksDisplay(status) {
+        if (status === true) {
+            return 'inline'
+        } else if (status === false) {
+            return 'none'
+        }
+    }
+
+    let asterisksDisplay = setAsterisksDisplay(required)
+
     return (
         <FormInputContainer className={className}>
             <div className={'label-container'}>
-                <p className={'asterisks'}>{'*'}</p>
+                <p display={asterisksDisplay}>{'*'}</p>
                 <label>{label}</label>
             </div>
             <input name={name} placeholder={placeholder} />
