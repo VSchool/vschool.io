@@ -93,12 +93,15 @@ const OutcomesContainer = styled.div`
 
 export default function Outcomes(props) {
     const { prismicData } = props
+    console.log(prismicData.outcomes_subdescription)
 
     let outcomesTitle = prismicData.outcomes_title[0].text
     let outcomesDescription = prismicData.outcomes_description[0].text
     let outcomesStatistics = prismicData.outcomes_statistics
     let outcomesSubTitle = prismicData.outcomes_subtitle[0].text
-    let outcomesSubDescription = prismicData.outcomes_subdescription[0].text
+    let outcomesSubDescription = prismicData.outcomes_subdescription.map(({text}, i) => 
+    <p className={'sub-description'}>{text}</p>
+    )
     let outcomesImage = prismicData.outcomes_image
 
     return (
@@ -109,7 +112,7 @@ export default function Outcomes(props) {
             <div className={'content-wrapper'}>
                 <div className={'sub-wrapper'}>
                     <h3 className={'sub-title'}>{outcomesSubTitle}</h3>
-                    <p className={'sub-description'}>{outcomesSubDescription}</p>
+                    {outcomesSubDescription}
                     <img className={'section-image'} src={outcomesImage.url} alt={outcomesImage.alt} />
                 </div>
             </div>
