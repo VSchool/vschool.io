@@ -1,109 +1,122 @@
 {
-    "Main" : {
-      "prismic_display_name" : {
-        "type" : "StructuredText",
-        "config" : {
-          "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
-          "label" : "Prismic Display Name",
-          "useAsTitle" : true
+    "Main": {
+        "prismic_display_name": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Prismic Display Name",
+                "useAsTitle": true
+            }
+        },
+        "logo": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Logo"
+            }
+        },
+        "title": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Title"
+            }
+        },
+        "subtitle": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Subtitle"
+            }
+        },
+        "header_info": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Header Info"
+            }
+        },
+        "convertkit_tag_name": {
+            "type": "Text",
+            "config": {
+                "label": "ConvertKit Tag Name"
+            }
+        },
+        "contact_button_text": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Contact Button Text"
+            }
+        },
+        "email_subscribe_confirmation_message": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Email Subscribe Confirmation Message"
+            }
         }
-      },
-      "logo" : {
-        "type" : "Image",
-        "config" : {
-          "constraint" : { },
-          "thumbnails" : [ ],
-          "label" : "Logo"
-        }
-      },
-      "title" : {
-        "type" : "StructuredText",
-        "config" : {
-          "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
-          "label" : "Title"
-        }
-      },
-      "subtitle" : {
-        "type" : "StructuredText",
-        "config" : {
-          "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
-          "label" : "Subtitle"
-        }
-      },
-      "header_info" : {
-        "type" : "StructuredText",
-        "config" : {
-          "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-          "label" : "Header Info"
-        }
-      },
-      "contact_button_text" : {
-        "type" : "StructuredText",
-        "config" : {
-          "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-          "label" : "Contact Button Text"
-        }
-      }
     },
-    "Info" : {
-      "image" : {
-        "type" : "Image",
-        "config" : {
-          "constraint" : { },
-          "thumbnails" : [ ],
-          "label" : "Image"
+    "Info": {
+        "image": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Image"
+            }
+        },
+        "info_title": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Info Title"
+            }
+        },
+        "info_paragraph": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Info Paragraph"
+            }
         }
-      },
-      "info_title" : {
-        "type" : "StructuredText",
-        "config" : {
-          "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
-          "label" : "Info Title"
-        }
-      },
-      "info_paragraph" : {
-        "type" : "StructuredText",
-        "config" : {
-          "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-          "label" : "Info Paragraph"
-        }
-      }
     },
-    "Footer" : {
-      "v_school_logo" : {
-        "type" : "Image",
-        "config" : {
-          "constraint" : { },
-          "thumbnails" : [ ],
-          "label" : "V School Logo"
+    "Footer": {
+        "v_school_logo": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "V School Logo"
+            }
+        },
+        "cta_title": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "CTA Title"
+            }
+        },
+        "cta_paragraph": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "CTA Paragraph"
+            }
+        },
+        "cta_button_text": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "CTA Button Text"
+            }
+        },
+        "cta_button_url": {
+            "type": "Link",
+            "config": {
+                "label": "CTA Button URL"
+            }
         }
-      },
-      "cta_title" : {
-        "type" : "StructuredText",
-        "config" : {
-          "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
-          "label" : "CTA Title"
-        }
-      },
-      "cta_paragraph" : {
-        "type" : "StructuredText",
-        "config" : {
-          "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-          "label" : "CTA Paragraph"
-        }
-      },
-      "cta_button_text" : {
-        "type" : "StructuredText",
-        "config" : {
-          "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-          "label" : "CTA Button Text"
-        }
-      },
-      "cta_button_url" : {
-        "type" : "Link",
-        "config" : {
-          "label" : "CTA Button URL"
-        }
-      }
     }
-  }
+}
