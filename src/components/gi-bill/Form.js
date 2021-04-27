@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import FormInput from './FormInput'
-import Button from './AdditionalResources/Button'
+import ButtonV2 from './ButtonV2'
+import { gray } from '@vschool/lotus'
 
 const StyledForm = styled.form`
     display: grid;
@@ -38,6 +39,13 @@ const StyledForm = styled.form`
 
         & > .form-button {
 
+            &:hover {
+                box-shadow: none;
+            }
+    
+            &:active {
+                border: 2px solid ${gray.dark};
+            }
         }
     }
 `
@@ -51,6 +59,11 @@ export default function Form(props) {
         input3,
         input4
     } = props
+
+    function handleSubmit() {
+        // e.preventDefault()
+        console.log('Fired')
+    }
 
     return (
         <StyledForm className={className}>
@@ -87,7 +100,12 @@ export default function Form(props) {
             />
 
             <div className={'button-wrapper'}>
-                <Button buttonText={buttonText} className={'form-button'} />
+                <ButtonV2 
+                    buttonText={buttonText} 
+                    className={'form-button'} 
+                    buttonType={'primary'}
+                    onClick={() => handleSubmit()}
+                />
             </div>
         </StyledForm>
     )

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import ButtonV2 from '../ButtonV2'
 import devIcon from  '../../../images/icons/card-dev-icon.png'
 import designIcon from  '../../../images/icons/card-design-icon.png'
 import { gray, blue } from '@vschool/lotus'
@@ -40,7 +41,19 @@ const CardContainer = styled.div`
         line-height: 16px;
         letter-spacing: 1px;
         text-transform: capitalize;
-        color: ${blue.base};
+        // color: ${blue.base};
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        &:active {
+            color: ${blue.dark};
+        }
+
+        &:visited {
+            color: #C767D9;
+        }
     }
 `
 
@@ -58,7 +71,12 @@ export default function Card(props) {
             {cardType === 'dev' ? <img src={devIcon} alt={'alt'} /> : <img src={designIcon} alt={'alt'} />}
             <h4 className={'title'}>{title}</h4>
             <p className={'description'}>{description}</p>
-            <p className={'link-text'}>{buttonText}</p>
+            <ButtonV2
+                buttonText={buttonText}
+                className={'link-text'}
+                buttonType={'text'}
+                onClick={() => console.log('Button fired')}
+            />
         </CardContainer>
     )
 }
