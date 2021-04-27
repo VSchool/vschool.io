@@ -72,7 +72,7 @@ export default function Form(props) {
                 name={'firstName'}
                 label={input1.label}
                 placeholder={input1.placeholder}
-                required={true}
+                required={false}
             />
 
             <FormInput 
@@ -80,7 +80,7 @@ export default function Form(props) {
                 name={'lastName'}
                 label={input2.label}
                 placeholder={input2.placeholder}
-                required={true}
+                required={false}
             />
 
             <FormInput 

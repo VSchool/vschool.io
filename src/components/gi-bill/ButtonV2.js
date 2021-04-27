@@ -22,7 +22,6 @@ const StyledButton = styled.button`
 `
 
 export default function ButtonV2(props) {
-
     const { 
         buttonText, 
         buttonType,
@@ -60,8 +59,6 @@ export default function ButtonV2(props) {
             }
         }
     }
-
-    // console.log(setButtonType(buttonType).color)
 
     return  <StyledButton
                 className={className}

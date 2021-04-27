@@ -44,7 +44,6 @@ const CalloutContainer = styled.div`
 `
 
 export default function Callout(props) {
-    // console.log(gray)
     const { 
         className,
         calloutTitle,

@@ -9,13 +9,13 @@ const HeroContainer = styled.div`
     display: grid;
     grid-template-columns: [left-margin] 64px [left-margin-end col1-start] 1fr [col1-end col2-start] 1fr [col2-end col3-start] 1fr [col3-end col4-start] 1fr [col4-end col5-start] 1fr [col5-end col6-start] 1fr [col6-end col7-start] 1fr [col7-end col8-start] 1fr [col8-end col9-start] 1fr [col9-end col10-start] 1fr [col10-end col11-start] 1fr [col11-end col2-start] 1fr [col12-end right-margin-start] 64px [right-margin];
     grid-column-gap: 24px;
-    grid-template-rows: auto;
+    grid-template-rows: auto auto;
     background: ${blue.lightest};
     // border: 2px dashed black;
 
     & > .title {
         grid-column-start: col1-start;
-        grid-column-end: span col9-end;
+        grid-column-end: span col7-end;
         grid-row-start: 2;
         font-family: Aktiv Grotesk;
         font-style: normal;
@@ -70,12 +70,43 @@ const HeroContainer = styled.div`
             grid-column-start: c1-start;
             grid-column-end: span c6-end;
             grid-row-start: 2;
+            // border: 2px dotted orange;
+        }
+
+        & > .content-image {
+            grid-column: c8-start / c12-end;
+            grid-row-start: 1;
+            grid-row-end: 3;
+            // background: dodgerblue;
+
+            & > .image-background {
+                position: relative;
+                top: -8px;
+                left: 8px;
+                width: 413px;
+                height: 528px;
+                background: ${blue.base};
+
+                & > img {
+                    position: absolute;
+                    top: 8px;
+                    left: -8px;
+                    height: 100%;
+
+                    // height: 100%;
+                }
+            }
         }
     }
 `
 
 export default function Hero(props) {
     const { prismicData } = props
+    // console.log(prismicData.hero_image)
+
+    let heroImageUrl = prismicData.hero_image.url
+    let heroImageAlt = prismicData.hero_image.alt
+    console.log(heroImageUrl, heroImageAlt)
     
     let heroTitle = prismicData.hero_title[0].text
     let heroSubtitle = prismicData.hero_subtitle[0].text
@@ -111,7 +142,12 @@ export default function Hero(props) {
                     input2={input2}
                     input3={input3}
                     input4={input4}
-            />
+                />
+                <div className={'content-image'}>
+                    <div className={'image-background'}>
+                    <img src={heroImageUrl} alt={heroImageAlt} />
+                    </div>
+                </div>
             </div>
         </HeroContainer>
     )
