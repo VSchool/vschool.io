@@ -1,12 +1,5 @@
 {
-  "Meta": {
-    "convertkit_tag": {
-      "type": "Text",
-      "config": {
-        "label": "ConvertKit Tag"
-      }
-    }
-  },
+  "Meta": {},
   "Hero": {
     "hero_subtitle": {
       "type": "StructuredText",
