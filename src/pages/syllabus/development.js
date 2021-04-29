@@ -8,7 +8,7 @@ export default function Development() {
     return (
         <Layout>
             <SEO title={"Development Syllabus"} />
-            <Syllabus image={developmentImage} convertKitTag="" />
+            <Syllabus image={developmentImage} convertKitTag="syllabus dl - web dev" />
         </Layout>
     )
 }

@@ -60,9 +60,9 @@ export default function Form(props) {
         input4
     } = props
 
-    function handleSubmit() {
-        // e.preventDefault()
-        console.log('Fired')
+    function handleSubmit(e) {
+        e.preventDefault()
+        
     }
 
     return (
