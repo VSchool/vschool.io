@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-import { blue, gray } from '@vschool/lotus'
+import React from "react"
+import styled from "styled-components"
+import { blue, gray } from "@vschool/lotus"
 
 const SuccessContainer = styled.div`
     padding-top: 112px;
@@ -47,7 +47,6 @@ const SuccessContainer = styled.div`
             background: ${blue.lightest};
             border: 2px solid ${blue.base};
 
-
             & > .testimonial-author {
                 margin-top: 32px;
                 font-family: Aktiv Grotesk Ex;
@@ -67,7 +66,7 @@ const SuccessContainer = styled.div`
 
             & > .testimonial-image {
                 position: absolute;
-                top: calc(50% - 244px/2);
+                top: calc(50% - 244px / 2);
                 left: -192px;
                 height: 244px;
                 // border: 2px dashed darkblue;
@@ -79,21 +78,29 @@ const SuccessContainer = styled.div`
 export default function Success(props) {
     const { prismicData } = props
 
-    let successTitle = prismicData.success_title[0].text
-    let successDescription = prismicData.success_description[0].text
-    let successTestimonialBody = prismicData.success_testimonial_body[0].text
-    let successTestimonialAuthor = prismicData.success_testimonial_author[0].text
+    let successTitle = prismicData.success_title.text
+    let successDescription = prismicData.success_description.text
+    let successTestimonialBody = prismicData.success_testimonial_body.text
+    let successTestimonialAuthor = prismicData.success_testimonial_author.text
     let successTestimonialImage = prismicData.success_testimonial_image
 
     return (
         <SuccessContainer>
-            <h2 className={'title'}>{successTitle}</h2>
-            <p className={'description'}>{successDescription}</p>
-            <div className={'wrapper'}>
-                <div className={'testimonial-block'}>
-                    <p className={'testimonial-body'}>{successTestimonialBody}</p>
-                    <p className={'testimonial-author'}>{successTestimonialAuthor}</p>
-                    <img className={'testimonial-image'} src={successTestimonialImage.url} alt={'alt'} />
+            <h2 className={"title"}>{successTitle}</h2>
+            <p className={"description"}>{successDescription}</p>
+            <div className={"wrapper"}>
+                <div className={"testimonial-block"}>
+                    <p className={"testimonial-body"}>
+                        {successTestimonialBody}
+                    </p>
+                    <p className={"testimonial-author"}>
+                        {successTestimonialAuthor}
+                    </p>
+                    <img
+                        className={"testimonial-image"}
+                        src={successTestimonialImage.url}
+                        alt={"alt"}
+                    />
                 </div>
             </div>
         </SuccessContainer>

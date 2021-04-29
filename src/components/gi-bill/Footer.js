@@ -41,25 +41,25 @@ const FooterContainer = styled.div`
 export default function Footer(props) {
     const { prismicData } = props
 
-    let footerTitle = prismicData.footer_title[0].text
-    let footerDescription = prismicData.footer_description[0].text
-    let buttonText = prismicData.footer_button_text[0].text
+    let footerTitle = prismicData.footer_title.text
+    let footerDescription = prismicData.footer_description.text
+    let buttonText = prismicData.footer_button_text.text
 
-    let input1Label = prismicData.footer_form[0].footer_form_label[0].text
-    let input1Placeholder = prismicData.footer_form[0].footer_form_placeholder[0].text
+    let input1Label = prismicData.footer_form[0].footer_form_label.text
+    let input1Placeholder = prismicData.footer_form[0].footer_form_placeholder.text
     const input1 = { label: input1Label, placeholder: input1Placeholder}
 
-    let input2Label = prismicData.footer_form[1].footer_form_label[0].text
-    let input2Placeholder = prismicData.footer_form[1].footer_form_placeholder[0].text
+    let input2Label = prismicData.footer_form[1].footer_form_label.text
+    let input2Placeholder = prismicData.footer_form[1].footer_form_placeholder.text
     const input2 = { label: input2Label, placeholder: input2Placeholder}
 
 
-    let input3Label = prismicData.footer_form[2].footer_form_label[0].text
-    let input3Placeholder = prismicData.footer_form[2].footer_form_placeholder[0].text
+    let input3Label = prismicData.footer_form[2].footer_form_label.text
+    let input3Placeholder = prismicData.footer_form[2].footer_form_placeholder.text
     const input3 = { label: input3Label, placeholder: input3Placeholder}
 
-    let input4Label = prismicData.footer_form[3].footer_form_label[0].text
-    let input4Placeholder = prismicData.footer_form[3].footer_form_placeholder[0].text
+    let input4Label = prismicData.footer_form[3].footer_form_label.text
+    let input4Placeholder = prismicData.footer_form[3].footer_form_placeholder.text
     const input4 = { label: input4Label, placeholder: input4Placeholder}
 
     return (

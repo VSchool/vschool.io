@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-import { blue, gray } from '@vschool/lotus'
+import React from "react"
+import styled from "styled-components"
+import { blue, gray } from "@vschool/lotus"
 
 const BarContainer = styled.div`
     padding: 24px 44px 24px 44px;
@@ -55,18 +55,22 @@ function Stat(props) {
 
 export default function StatsBar(props) {
     const { stats, className } = props
-    let statOneTitle = stats[0].outcomes_stat_title[0].text
-    let statOneDescription = stats[0].outcomes_stat_description[0].text
-    let statTwoTitle = stats[1].outcomes_stat_title[0].text
-    let statTwoDescription = stats[1].outcomes_stat_description[0].text
-    let statThreeTitle = stats[2].outcomes_stat_title[0].text
-    let statThreeDescription = stats[2].outcomes_stat_description[0].text
+    let statOneTitle = stats[0].outcomes_stat_title.text
+    let statOneDescription = stats[0].outcomes_stat_description.text
+    let statTwoTitle = stats[1].outcomes_stat_title.text
+    let statTwoDescription = stats[1].outcomes_stat_description.text
+    let statThreeTitle = stats[2].outcomes_stat_title.text
+    let statThreeDescription = stats[2].outcomes_stat_description.text
 
     return (
         <BarContainer className={className}>
             <Stat title={statOneTitle} description={statOneDescription} />
-            <Stat className={'stat-two'} title={statTwoTitle} description={statTwoDescription} />
-            <Stat title={statThreeTitle} description={statThreeDescription}/>
+            <Stat
+                className={"stat-two"}
+                title={statTwoTitle}
+                description={statTwoDescription}
+            />
+            <Stat title={statThreeTitle} description={statThreeDescription} />
         </BarContainer>
     )
 }
