@@ -26,7 +26,19 @@ const OutcomesContainer = styled.div`
                 padding: 87px 87px 0;
             }
 
-            & > .sub-description {
+            & > .section-image {
+                position: absolute;
+                top: 150px;
+                left: 89%;
+                width: 100%;
+                max-width: 400px;          
+            }
+        }
+    }
+`
+
+const SubDescription = styled.div`
+    & > p {
                 padding: 0 87px;
                 max-width: 675px;
                 font-size: 16px;
@@ -34,24 +46,8 @@ const OutcomesContainer = styled.div`
                 margin-bottom: 24px;
                 color: ${gray.base};
             }
-
-            & > .section-image {
-                position: absolute;
-<<<<<<< Updated upstream
-                top: calc(50% - 320px / 2);
-                right: -276px;
-                height: 320px;
-                // border: 2px solid red;
-=======
-                top: 150px;
-                left: 89%;
-                width: 100%;
-                max-width: 400px;          
->>>>>>> Stashed changes
-            }
-        }
-    }
 `
+
 const NumbersDiv = styled.div`
     max-width: 80%;
     margin: auto;
@@ -85,29 +81,11 @@ export default function Outcomes(props) {
     let outcomesDescription = prismicData.outcomes_description.text
     let outcomesStatistics = prismicData.outcomes_statistics
     let outcomesSubTitle = prismicData.outcomes_subtitle.text
-    // let outcomesSubDescription = prismicData.outcomes_subdescription.map(
-    //     ({ text }, i) => <p className={"sub-description"}>{text}</p>
-    // )
+    let outcomesSubDescription = prismicData.outcomes_subdescription.html
     let outcomesImage = prismicData.outcomes_image
 
     return (
         <OutcomesContainer>
-<<<<<<< Updated upstream
-            <h2 className={"title"}>{outcomesTitle}</h2>
-            <p className={"description"}>{outcomesDescription}</p>
-            <StatsBar className={"stats-bar"} stats={outcomesStatistics} />
-            <div className={"content-wrapper"}>
-                <div className={"sub-wrapper"}>
-                    <h3 className={"sub-title"}>{outcomesSubTitle}</h3>
-                    <p className={"sub-description"}>
-                        {prismicData.outcomes_subdescription.text}
-                    </p>
-                    <img
-                        className={"section-image"}
-                        src={outcomesImage.url}
-                        alt={outcomesImage.alt}
-                    />
-=======
             <NumbersDiv>
                 <h2 className={'title'}>{outcomesTitle}</h2>
                 <p className={'description'}>{outcomesDescription}</p>
@@ -116,9 +94,8 @@ export default function Outcomes(props) {
             <div className={'content-wrapper'}>
                 <div className={'sub-wrapper'}>
                     <h3 className={'sub-title'}>{outcomesSubTitle}</h3>
-                    {outcomesSubDescription}
+                    <SubDescription dangerouslySetInnerHTML={{ __html: outcomesSubDescription }} />
                     <img className={'section-image'} src={outcomesImage.url} alt={outcomesImage.alt} />
->>>>>>> Stashed changes
                 </div>
             </div>
         </OutcomesContainer>

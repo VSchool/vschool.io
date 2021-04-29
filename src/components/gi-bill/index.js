@@ -95,7 +95,7 @@ export default function GiBillPage() {
             }
           }
           outcomes_subdescription {
-            text
+            html
           }
           outcomes_subtitle {
             text
