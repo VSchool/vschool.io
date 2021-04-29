@@ -80,7 +80,7 @@ export default function Courses(props) {
             <div className={'wrapper'}>
                 <Card 
                     className={'dev-card'}
-                    cardType={'development'}
+                    cardType={'dev'}
                     title={card1Title}
                     description={card1Description}
                     buttonText={card1ButtonText}
@@ -88,7 +88,7 @@ export default function Courses(props) {
 
                 <Card 
                     className={'design-card'}
-                    cardType={'dev'}
+                    cardType={'design'}
                     title={card2Title}
                     description={card2Description}
                     buttonText={card2ButtonText}
