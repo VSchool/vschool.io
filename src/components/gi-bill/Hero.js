@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
-import HeroLayout from '../shared/HeroLayout';
-import Form from './Form'
-import { gray, red, blue } from '@vschool/lotus'
+import React from "react"
+import styled from "styled-components"
+import HeroLayout from "../shared/HeroLayout"
+import Form from "./Form"
+import { gray, red, blue } from "@vschool/lotus"
 
 const HeroContainer = styled.div`
     padding-top: 112px;
@@ -35,10 +35,9 @@ const ContentContainer = styled.div`
             line-height: 24px;
             letter-spacing: 0.25px;
             text-transform: uppercase;
-            color: ${red.dark};      
+            color: ${red.dark};
         }
     }
-
 
     & > .wrapper {
         margin-top: 48px;
@@ -89,48 +88,48 @@ const HeroDescription = styled.p`
 `
 
 export default function Hero(props) {
-
-
-    const { prismicData } = props;
+    const { prismicData } = props
 
     let heroImageUrl = prismicData.hero_image.url
     let heroImageAlt = prismicData.hero_image.alt
-    
-    let heroTitle = prismicData.hero_title[0].text
-    let heroSubtitle = prismicData.hero_subtitle[0].text
-    let heroDescription = prismicData.hero_description[0].text
-    let buttonText = prismicData.hero_form_button[0].text
 
-    let input1Label = prismicData.hero_form[0].hero_form_label[0].text
-    let input1Placeholder = prismicData.hero_form[0].hero_form_placeholder[0].text
-    const input1 = { label: input1Label, placeholder: input1Placeholder}
+    let heroTitle = prismicData.hero_title.text
+    let heroSubtitle = prismicData.hero_subtitle.text
+    let heroDescription = prismicData.hero_description.text
+    let buttonText = prismicData.hero_form_button.text
 
-    let input2Label = prismicData.hero_form[1].hero_form_label[0].text
-    let input2Placeholder = prismicData.hero_form[1].hero_form_placeholder[0].text
-    const input2 = { label: input2Label, placeholder: input2Placeholder}
+    let input1Label = prismicData.hero_form[0].hero_form_label.text
+    let input1Placeholder = prismicData.hero_form[0].hero_form_placeholder.text
+    const input1 = { label: input1Label, placeholder: input1Placeholder }
 
-    let input3Label = prismicData.hero_form[2].hero_form_label[0].text
-    let input3Placeholder = prismicData.hero_form[2].hero_form_placeholder[0].text
-    const input3 = { label: input3Label, placeholder: input3Placeholder}
+    let input2Label = prismicData.hero_form[1].hero_form_label.text
+    let input2Placeholder = prismicData.hero_form[1].hero_form_placeholder.text
+    const input2 = { label: input2Label, placeholder: input2Placeholder }
 
-    let input4Label = prismicData.hero_form[3].hero_form_label[0].text
-    let input4Placeholder = prismicData.hero_form[3].hero_form_placeholder[0].text
-    const input4 = { label: input4Label, placeholder: input4Placeholder}
+    let input3Label = prismicData.hero_form[2].hero_form_label.text
+    let input3Placeholder = prismicData.hero_form[2].hero_form_placeholder.text
+    const input3 = { label: input3Label, placeholder: input3Placeholder }
+
+    let input4Label = prismicData.hero_form[3].hero_form_label.text
+    let input4Placeholder = prismicData.hero_form[3].hero_form_placeholder.text
+    const input4 = { label: input4Label, placeholder: input4Placeholder }
 
     return (
         <HeroContainer>
             <ContentContainer>
                 <div className="title">
-                    <p >{heroSubtitle}</p>
-                    <h3 >{heroTitle}</h3>
+                    <p>{heroSubtitle}</p>
+                    <h3>{heroTitle}</h3>
                 </div>
-                <div className={'wrapper'}>
-                    <HeroLayout 
+                <div className={"wrapper"}>
+                    <HeroLayout
                         text={
                             <>
-                                <HeroDescription>{heroDescription}</HeroDescription>
-                                <Form 
-                                    className={'hero-form'} 
+                                <HeroDescription>
+                                    {heroDescription}
+                                </HeroDescription>
+                                <Form
+                                    className={"hero-form"}
                                     buttonText={buttonText}
                                     input1={input1}
                                     input2={input2}
@@ -138,14 +137,18 @@ export default function Hero(props) {
                                     input4={input4}
                                 />
                             </>
-                        } 
+                        }
                         image={
-                            <div className={'content-image'}>
-                                <div className={'image-background'}>
-                                <img src={heroImageUrl} alt={heroImageAlt} />
+                            <div className={"content-image"}>
+                                <div className={"image-background"}>
+                                    <img
+                                        src={heroImageUrl}
+                                        alt={heroImageAlt}
+                                    />
                                 </div>
                             </div>
-                        } />
+                        }
+                    />
                 </div>
             </ContentContainer>
         </HeroContainer>

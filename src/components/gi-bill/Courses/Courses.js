@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
-import Card from './Card'
-import { blue } from '@vschool/lotus'
+import React from "react"
+import styled from "styled-components"
+import Card from "./Card"
+import { blue } from "@vschool/lotus"
 
 const CoursesContainer = styled.div`
     padding-top: 112px;
@@ -60,35 +60,39 @@ const CoursesContainer = styled.div`
 export default function Courses(props) {
     const { prismicData } = props
 
-    let coursesTitle = prismicData.courses_title[0].text
-    let coursesSubtitle = prismicData.courses_subtitle[0].text
-    let coursesDescription = prismicData.courses_description[0].text
+    let coursesTitle = prismicData.courses_title.text
+    let coursesSubtitle = prismicData.courses_subtitle.text
+    let coursesDescription = prismicData.courses_description.text
 
-    let card1Title = prismicData.courses_card[0].courses_card_title[0].text
-    let card1Description = prismicData.courses_card[0].courses_card_description[0].text
-    let card1ButtonText = prismicData.courses_card[0].courses_card_button_text[0].text
+    let card1Title = prismicData.courses_card[0].courses_card_title.text
+    let card1Description =
+        prismicData.courses_card[0].courses_card_description.text
+    let card1ButtonText =
+        prismicData.courses_card[0].courses_card_button_text.text
 
-    let card2Title = prismicData.courses_card[1].courses_card_title[0].text
-    let card2Description = prismicData.courses_card[1].courses_card_description[0].text
-    let card2ButtonText = prismicData.courses_card[1].courses_card_button_text[0].text
+    let card2Title = prismicData.courses_card[1].courses_card_title.text
+    let card2Description =
+        prismicData.courses_card[1].courses_card_description.text
+    let card2ButtonText =
+        prismicData.courses_card[1].courses_card_button_text.text
 
     return (
         <CoursesContainer>
-            <h2 className={'title'}>{coursesTitle}</h2>
-            <p className={'subtitle'}>{coursesSubtitle}</p>
-            <p className={'description'}>{coursesDescription}</p>
-            <div className={'wrapper'}>
-                <Card 
-                    className={'dev-card'}
-                    cardType={'dev'}
+            <h2 className={"title"}>{coursesTitle}</h2>
+            <p className={"subtitle"}>{coursesSubtitle}</p>
+            <p className={"description"}>{coursesDescription}</p>
+            <div className={"wrapper"}>
+                <Card
+                    className={"dev-card"}
+                    cardType={"dev"}
                     title={card1Title}
                     description={card1Description}
                     buttonText={card1ButtonText}
                 />
 
-                <Card 
-                    className={'design-card'}
-                    cardType={'design'}
+                <Card
+                    className={"design-card"}
+                    cardType={"design"}
                     title={card2Title}
                     description={card2Description}
                     buttonText={card2ButtonText}

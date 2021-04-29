@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
-import StatsBar from './StatsBar'
-import { gray, blue } from '@vschool/lotus'
+import React from "react"
+import styled from "styled-components"
+import StatsBar from "./StatsBar"
+import { gray, blue } from "@vschool/lotus"
 
 const OutcomesContainer = styled.div`
     padding-top: 112px;
@@ -43,16 +43,14 @@ const OutcomesContainer = styled.div`
         grid-column-end: right-margin-end;
         grid-row-start: 4;
         display: grid;
-        grid-template-columns: 
-            [start] 88px [c1-start] 1fr [c2-start] 1fr [c3-start] 1fr [c4-start] 1fr [c5-start] 1fr [c6-start] 1fr [c7-start] 1fr [c8-start] 1fr [c9-start] 1fr [c10-start] 1fr [c11-start] 1fr [c12-start] 1fr 88px [end];
-        grid-column-gap: 24px;  
+        grid-template-columns: [start] 88px [c1-start] 1fr [c2-start] 1fr [c3-start] 1fr [c4-start] 1fr [c5-start] 1fr [c6-start] 1fr [c7-start] 1fr [c8-start] 1fr [c9-start] 1fr [c10-start] 1fr [c11-start] 1fr [c12-start] 1fr 88px [end];
+        grid-column-gap: 24px;
 
         & > .sub-wrapper {
             grid-column-start: start;
             grid-column-end: c10-start;
             display: grid;
-            grid-template-columns: 
-                [start] 88px [one] 1fr [two] 1fr [three] 1fr [four] 1fr [five] 1fr [six] 1fr [seven] 1fr [eight] 1fr [nine] 1fr  [ten] 1fr  [eleven] 1fr  [twelve] 1fr 88px [end];
+            grid-template-columns: [start] 88px [one] 1fr [two] 1fr [three] 1fr [four] 1fr [five] 1fr [six] 1fr [seven] 1fr [eight] 1fr [nine] 1fr [ten] 1fr [eleven] 1fr [twelve] 1fr 88px [end];
             grid-column-gap: 24px;
             grid-template-rows: auto;
             position: relative;
@@ -82,10 +80,10 @@ const OutcomesContainer = styled.div`
 
             & > .section-image {
                 position: absolute;
-                top: calc(50% - 320px/2);
+                top: calc(50% - 320px / 2);
                 right: -276px;
-                height: 320px;  
-                // border: 2px solid red;              
+                height: 320px;
+                // border: 2px solid red;
             }
         }
     }
@@ -95,25 +93,31 @@ export default function Outcomes(props) {
     const { prismicData } = props
     console.log(prismicData.outcomes_subdescription)
 
-    let outcomesTitle = prismicData.outcomes_title[0].text
-    let outcomesDescription = prismicData.outcomes_description[0].text
+    let outcomesTitle = prismicData.outcomes_title.text
+    let outcomesDescription = prismicData.outcomes_description.text
     let outcomesStatistics = prismicData.outcomes_statistics
-    let outcomesSubTitle = prismicData.outcomes_subtitle[0].text
-    let outcomesSubDescription = prismicData.outcomes_subdescription.map(({text}, i) => 
-    <p className={'sub-description'}>{text}</p>
-    )
+    let outcomesSubTitle = prismicData.outcomes_subtitle.text
+    // let outcomesSubDescription = prismicData.outcomes_subdescription.map(
+    //     ({ text }, i) => <p className={"sub-description"}>{text}</p>
+    // )
     let outcomesImage = prismicData.outcomes_image
 
     return (
         <OutcomesContainer>
-            <h2 className={'title'}>{outcomesTitle}</h2>
-            <p className={'description'}>{outcomesDescription}</p>
-            <StatsBar className={'stats-bar'} stats={outcomesStatistics} />
-            <div className={'content-wrapper'}>
-                <div className={'sub-wrapper'}>
-                    <h3 className={'sub-title'}>{outcomesSubTitle}</h3>
-                    {outcomesSubDescription}
-                    <img className={'section-image'} src={outcomesImage.url} alt={outcomesImage.alt} />
+            <h2 className={"title"}>{outcomesTitle}</h2>
+            <p className={"description"}>{outcomesDescription}</p>
+            <StatsBar className={"stats-bar"} stats={outcomesStatistics} />
+            <div className={"content-wrapper"}>
+                <div className={"sub-wrapper"}>
+                    <h3 className={"sub-title"}>{outcomesSubTitle}</h3>
+                    <p className={"sub-description"}>
+                        {prismicData.outcomes_subdescription.text}
+                    </p>
+                    <img
+                        className={"section-image"}
+                        src={outcomesImage.url}
+                        alt={outcomesImage.alt}
+                    />
                 </div>
             </div>
         </OutcomesContainer>

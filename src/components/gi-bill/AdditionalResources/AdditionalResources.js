@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-import Callout from './Callout'
+import React from "react"
+import styled from "styled-components"
+import Callout from "./Callout"
 
 const ResourcesContainer = styled.div`
     padding-top: 112px;
@@ -35,29 +35,35 @@ const ResourcesContainer = styled.div`
 export default function AdditionalResources(props) {
     const { prismicData } = props
 
-    let resourcesTitle = prismicData.resources_title[0].text
+    let resourcesTitle = prismicData.resources_title.text
 
-    let callout1Title = prismicData.resources_callout[0].resources_callout_title[0].text
-    let callout1Description = prismicData.resources_callout[0].resources_callout_description[0].text
-    let callout1ButtonText = prismicData.resources_callout[0].resources_callout_button_text[0].text
+    let callout1Title =
+        prismicData.resources_callout[0].resources_callout_title.text
+    let callout1Description =
+        prismicData.resources_callout[0].resources_callout_description.text
+    let callout1ButtonText =
+        prismicData.resources_callout[0].resources_callout_button_text.text
 
-    let callout2Title = prismicData.resources_callout[1].resources_callout_title[0].text
-    let callout2Description = prismicData.resources_callout[1].resources_callout_description[0].text
-    let callout2ButtonText = prismicData.resources_callout[1].resources_callout_button_text[0].text
+    let callout2Title =
+        prismicData.resources_callout[1].resources_callout_title.text
+    let callout2Description =
+        prismicData.resources_callout[1].resources_callout_description.text
+    let callout2ButtonText =
+        prismicData.resources_callout[1].resources_callout_button_text.text
 
     return (
         <ResourcesContainer>
-            <h2 className={'title'}>{resourcesTitle}</h2>
-            <div className={'wrapper'}>
-                <Callout 
-                    className={'card-one'}
+            <h2 className={"title"}>{resourcesTitle}</h2>
+            <div className={"wrapper"}>
+                <Callout
+                    className={"card-one"}
                     calloutTitle={callout1Title}
                     calloutDescription={callout1Description}
                     calloutButtonText={callout1ButtonText}
                 />
 
-                <Callout 
-                    className={'card-two'}
+                <Callout
+                    className={"card-two"}
                     calloutTitle={callout2Title}
                     calloutDescription={callout2Description}
                     calloutButtonText={callout2ButtonText}
