@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import Hero from './Hero'
 import { Outcomes } from './Outcomes/'
 import { Courses } from './Courses'
@@ -6,6 +7,11 @@ import { AdditionalResources } from './AdditionalResources'
 import Success from './Success'
 import Footer from './Footer'
 import { useStaticQuery, graphql } from "gatsby"
+import { gray } from '@vschool/lotus'
+
+const PageContainer = styled.div`
+  background: ${gray.lighter};
+`
 
 export default function GiBillPage() {
   const data = useStaticQuery(graphql`
@@ -134,13 +140,13 @@ export default function GiBillPage() {
   const prismicData = {...data.prismicVeteransLandingPage.data}
 
     return (
-        <>
+        <PageContainer>
             <Hero prismicData={prismicData} />
             <Outcomes prismicData={prismicData} />
             <Success prismicData={prismicData} />
             <Courses prismicData={prismicData} />
             <AdditionalResources prismicData={prismicData} />
             <Footer prismicData={prismicData} />
-        </> 
+        </PageContainer>
     )
 }
