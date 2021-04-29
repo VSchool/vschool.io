@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import ButtonV2 from '../ButtonV2'
-import devIcon from  '../../../images/icons/card-dev-icon.png'
-import designIcon from  '../../../images/icons/card-design-icon.png'
+import devIcon from  '../../../images/icons/card-dev-icon2.png'
+import designIcon from  '../../../images/icons/card-design-icon2.png'
 import { gray, blue } from '@vschool/lotus'
 
 const CardContainer = styled.div`
