@@ -4,88 +4,76 @@ import StatsBar from "./StatsBar"
 import { gray, blue } from "@vschool/lotus"
 
 const OutcomesContainer = styled.div`
-    padding-top: 112px;
-    padding-bottom: 112px;
-    display: grid;
-    grid-template-columns: [left-margin-start] 64px [left-margin-end col1-start] 1fr [col1-end col2-start] 1fr [col2-end col3-start] 1fr [col3-end col4-start] 1fr [col4-end col5-start] 1fr [col5-end col6-start] 1fr [col6-end col7-start] 1fr [col7-end col8-start] 1fr [col8-end col9-start] 1fr [col9-end col10-start] 1fr [col10-end col11-start] 1fr [col11-end col2-start] 1fr [col12-end right-margin-start] 64px [right-margin-end];
-    grid-column-gap: 24px;
-    grid-template-rows: auto;
-    // border: 2px dashed black;
-
-    & > .title {
-        margin-bottom: 16px;
-        grid-column-start: col3-start;
-        grid-column-end: span col10-end;
-        grid-row-start: 1;
-        text-align: center;
-        // background: lightblue;
-    }
-
-    & > .description {
-        margin-bottom: 48px;
-        grid-column-start: col2-start;
-        grid-column-end: span col11-end;
-        grid-row-start: 2;
-        font-weight: normal;
-        text-align: center;
-        // background: lightgreen;
-    }
-
-    & > .stats-bar {
-        margin-bottom: 104px;
-        grid-column-start: col2-start;
-        grid-column-end: col11-end;
-        grid-row-start: 3;
-    }
+    padding: 112px 90px;
 
     & > .content-wrapper {
-        grid-column-start: left-margin-start;
-        grid-column-end: right-margin-end;
-        grid-row-start: 4;
-        display: grid;
-        grid-template-columns: [start] 88px [c1-start] 1fr [c2-start] 1fr [c3-start] 1fr [c4-start] 1fr [c5-start] 1fr [c6-start] 1fr [c7-start] 1fr [c8-start] 1fr [c9-start] 1fr [c10-start] 1fr [c11-start] 1fr [c12-start] 1fr 88px [end];
-        grid-column-gap: 24px;
 
         & > .sub-wrapper {
-            grid-column-start: start;
-            grid-column-end: c10-start;
-            display: grid;
-            grid-template-columns: [start] 88px [one] 1fr [two] 1fr [three] 1fr [four] 1fr [five] 1fr [six] 1fr [seven] 1fr [eight] 1fr [nine] 1fr [ten] 1fr [eleven] 1fr [twelve] 1fr 88px [end];
-            grid-column-gap: 24px;
-            grid-template-rows: auto;
-            position: relative;
             background: ${blue.darkest};
+            position: relative;
+            padding-bottom: 87px;
+            margin-left: -90px;
+            width: 70%;
+            max-height: 700px;
 
             & > .sub-title {
+                font-weight: 900;
+                font-size: 32px;
+                line-height: 40px;
                 margin-top: 56px;
-                grid-column-start: one;
-                grid-column-end: twelve;
-                grid-row-start: 1;
                 margin-bottom: 40px;
-                color: ${gray.light};
-                // border: 2px dotted orange;
+                color: ${gray.lighter};
+                padding: 87px 87px 0;
             }
 
             & > .sub-description {
-                margin-bottom: 56px;
-                grid-column-start: one;
-                grid-column-end: twelve;
-                grid-row-start: 2;
-                font-weight: normal;
+                padding: 0 87px;
+                max-width: 675px;
                 font-size: 16px;
                 line-height: 24px;
-                color: ${gray.light};
-                // border: 2px dotted orange;
+                margin-bottom: 24px;
+                color: ${gray.base};
             }
 
             & > .section-image {
                 position: absolute;
+<<<<<<< Updated upstream
                 top: calc(50% - 320px / 2);
                 right: -276px;
                 height: 320px;
                 // border: 2px solid red;
+=======
+                top: 150px;
+                left: 89%;
+                width: 100%;
+                max-width: 400px;          
+>>>>>>> Stashed changes
             }
         }
+    }
+`
+const NumbersDiv = styled.div`
+    max-width: 80%;
+    margin: auto;
+
+    & > .title {
+        max-width: 670px;
+        margin: 16px auto;
+        text-align: center;
+    }
+
+    & > .description {
+        font-size: 20px;
+        line-height: 32px;
+        text-align: center;
+        color: ${gray.darker};
+        margin: 0 auto 48px;
+        max-width: 795px;
+        text-align: center;
+    }
+
+    & > .stats-bar {
+        margin-bottom: 104px;
     }
 `
 
@@ -104,6 +92,7 @@ export default function Outcomes(props) {
 
     return (
         <OutcomesContainer>
+<<<<<<< Updated upstream
             <h2 className={"title"}>{outcomesTitle}</h2>
             <p className={"description"}>{outcomesDescription}</p>
             <StatsBar className={"stats-bar"} stats={outcomesStatistics} />
@@ -118,6 +107,18 @@ export default function Outcomes(props) {
                         src={outcomesImage.url}
                         alt={outcomesImage.alt}
                     />
+=======
+            <NumbersDiv>
+                <h2 className={'title'}>{outcomesTitle}</h2>
+                <p className={'description'}>{outcomesDescription}</p>
+                <StatsBar className={'stats-bar'} stats={outcomesStatistics} />
+            </NumbersDiv>
+            <div className={'content-wrapper'}>
+                <div className={'sub-wrapper'}>
+                    <h3 className={'sub-title'}>{outcomesSubTitle}</h3>
+                    {outcomesSubDescription}
+                    <img className={'section-image'} src={outcomesImage.url} alt={outcomesImage.alt} />
+>>>>>>> Stashed changes
                 </div>
             </div>
         </OutcomesContainer>

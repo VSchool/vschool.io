@@ -3,34 +3,29 @@ import styled from "styled-components"
 import { blue, gray } from "@vschool/lotus"
 
 const BarContainer = styled.div`
-    padding: 24px 44px 24px 44px;
+    padding: 24px 44px;
     display: flex;
     justify-content: center;
     border-top: 2px solid blue;
     border-bottom: 2px solid blue;
 
     & > .stat-two {
-        margin-left: 24px;
-        margin-right: 24px;
-        // background: black;
+        margin: 0 40px;
     }
 `
 
 const StatContainer = styled.div`
-    width: 232px;
-    // border: 1px dashed orange;
 
     & > p {
         margin-bottom: 8px;
-        height: 48px;
+        height: 38px;
         color: ${gray.darker};
-        font-weight: 800;
-        font-size: 16px;
+        font-weight: 500;
+        font-size: 14px;
         line-height: 24px;
         text-align: center;
         letter-spacing: 0.25px;
         text-transform: uppercase;
-        // background: lightblue;
     }
 
     & > h1 {
