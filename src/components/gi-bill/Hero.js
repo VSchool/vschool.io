@@ -13,6 +13,11 @@ const HeroContainer = styled.div`
     background: ${blue.lightest};
     // border: 2px dashed black;
 
+    // @media (max-width: 800px) {
+    //     grid-template-columns: 18px [col1-start] 1fr [col1-end col2-start] 1fr [col2-end col3-start] 1fr [col3-end col4-start] 1fr 18px
+    //     background: red;
+    // }
+
     & > .title {
         grid-column-start: col1-start;
         grid-column-end: span col7-end;
