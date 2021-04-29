@@ -98,7 +98,7 @@ export default function FormInput(props) {
                 <p display={asterisksDisplay}>{'*'}</p>
                 <label>{label}</label>
             </div>
-            <input name={name} placeholder={placeholder} />
+            <input name={name} placeholder={placeholder}  />
         </FormInputContainer>
     )
 }

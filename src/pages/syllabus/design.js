@@ -9,7 +9,7 @@ export default function Design() {
     return (
         <Layout>
             <SEO title={"Design Syllabus"} />
-            <Syllabus image={designImage} convertKitTag="" />
+            <Syllabus image={designImage} convertKitTag="syllabus dl - ux/ui design" />
         </Layout>
     )
 }
