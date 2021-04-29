@@ -19,6 +19,7 @@ const HeroContainer = styled.div`
 const ContentContainer = styled.div`
     max-width: 1200px;
     margin: auto;
+    padding: 90px;
     & > .title {
         width: fit-content;
         h3 {
@@ -46,18 +47,9 @@ const ContentContainer = styled.div`
             justify-content: normal;
         }
 
-        & > .hero-form {
-            grid-column-start: c1-start;
-            grid-column-end: span c6-end;
-            grid-row-start: 2;
-            // border: 2px dotted orange;
-        }
+        
 
         & > .content-image {
-            grid-column: c8-start / c12-end;
-            grid-row-start: 1;
-            grid-row-end: 3;
-            // background: dodgerblue;
 
             & > .image-background {
                 position: relative;
@@ -73,7 +65,6 @@ const ContentContainer = styled.div`
                     left: -8px;
                     height: 100%;
 
-                    // height: 100%;
                 }
             }
         }
