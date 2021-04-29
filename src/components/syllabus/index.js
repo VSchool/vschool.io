@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import HeroLayout from '../shared/HeroLayout';
 import styled from 'styled-components'
 import { TextInput, Button } from '@vschool/lotus'
@@ -17,6 +17,7 @@ const Container = styled.section`
 const StyledForm = styled.form`
     display: flex;
     flex-direction: column;
+    // height: auto;
     // border: 2px dashed blue;
 
     & > .wrapper {
@@ -52,10 +53,20 @@ const StyledForm = styled.form`
 `
 
 const StyledInput = styled(TextInput)`
+
     margin: 0px;
 `
 
-export default function index(props) {
+const StyledPhoneInput = styled(TextInput)`
+    margin-bottom: 10px;
+`
+
+export default function Index(props) {
+    const [fName, setFName] = useState('')
+    const [lName, setLName] = useState('')
+    const [email, setEmail] = useState('')
+    const [phone, setPhone] = useState('')
+
     return (
         <Container>
             <HeroLayout
@@ -67,9 +78,9 @@ export default function index(props) {
                                 label="First Name"
                                 name="fName"
                                 placeholder="Your First Name"
-                                value={'fName'}
-                                // onChange={e => setName(e.target.value)}
-                                required
+                                value={fName}
+                                onChange={e => setFName(e.target.value)}
+                                required={true}
                                 validationText="Required"
                                 className={'first-name'}
                             />
@@ -78,8 +89,8 @@ export default function index(props) {
                                 label="Last Name"
                                 name="lName"
                                 placeholder="Your Last Name"
-                                value={'lName'}
-                                // onChange={e => setName(e.target.value)}
+                                value={lName}
+                                onChange={e => setLName(e.target.value)}
                                 required
                                 validationText="Required"
                                 className={'last-name'}
@@ -90,21 +101,21 @@ export default function index(props) {
                                 label="Email"
                                 name="email"
                                 placeholder="john@email.com"
-                                value={'email'}
-                                // onChange={e => setName(e.target.value)}
-                                required
+                                value={email}
+                                onChange={e => setEmail(e.target.value)}
+                                required={true}
                                 validationText="Required"
                                 className={'email'}
                             />
 
-                            <StyledInput
+                            <StyledPhoneInput
                                 type="text"
                                 label="Phone"
                                 name="phone"
-                                placeholder="555-555-5555"
-                                value={'phone'}
-                                // onChange={e => setName(e.target.value)}
-                                required
+                                // placeholder="555-555-5555"
+                                value={phone}
+                                onChange={e => setPhone(e.target.value)}
+                                required={false}
                                 validationText="Required"
                                 className={'phone'}
                             />
