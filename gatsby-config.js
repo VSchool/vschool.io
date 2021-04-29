@@ -84,6 +84,7 @@ module.exports = {
                     tiffin: require("./src/schemas/tiffin.json"),
                     uofu_primer: require("./src/schemas/uofu_primer.json"),
                     "va-scholarship": require("./src/schemas/va-scholarship.json"),
+                    veterans_landing_page: require("./src/schemas/veterans_landing_page.json"),
                     veterans_page: require("./src/schemas/veterans_page.json"),
                     womens_history_month_page: require("./src/schemas/womens_history_month_page.json"),
                     "xd-page": require("./src/schemas/xd-page.json"),
