@@ -71,7 +71,7 @@ export default function BackgroundInfoForm() {
     const [showPreEssay, setShowPreEssay] = useState()
     const location = useLocation()
     useEffect(() => {
-        // fetch(process.env.SCHOLARSHIP_APP_ESSAY_QUESTIONS_ZAPIER_WEBHOOK_URL)
+        fetch(process.env.SCHOLARSHIP_APP_ESSAY_QUESTIONS_ZAPIER_WEBHOOK_URL)
 
         const query = querystring.parse(location.search)
         if (query.showpreessay === "false") {
@@ -136,8 +136,8 @@ export default function BackgroundInfoForm() {
                         <Footnote>{preEssayFootnote}</Footnote>
                     </>
                 )}
+                {!showPreEssay && <Form />}
             </TextContainer>
-            {!showPreEssay && <Form />}
         </>
     )
 }
