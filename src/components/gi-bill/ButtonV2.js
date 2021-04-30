@@ -11,7 +11,6 @@ const StyledButton = styled.button`
     box-shadow: ${props => props.boxShadow};
     color: ${props => props.color};
     background: ${props => props.backgroundColor};
-    font-family: Aktiv Grotesk Ex;
     font-style: normal;
     font-weight: 800;
     font-size: 14px;
@@ -68,5 +67,6 @@ export default function ButtonV2(props) {
                 textDecoration={textDecoration}
                 color={color}
                 boxShadow={boxShadow}
+                onClick={onClick}
             >{buttonText}</StyledButton>
 }

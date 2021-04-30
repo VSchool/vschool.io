@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import ButtonV2 from '../ButtonV2'
 import devIcon from  '../../../images/icons/card-dev-icon2.png'
 import designIcon from  '../../../images/icons/card-design-icon2.png'
+import {navigate} from 'gatsby'
 import { gray, blue } from '@vschool/lotus'
 
 const CardContainer = styled.div`
@@ -34,7 +35,6 @@ const CardContainer = styled.div`
     }
 
     & > .link-text {
-        font-family: Aktiv Grotesk Ex;
         font-style: normal;
         font-weight: 800;
         font-size: 14px;
@@ -75,7 +75,7 @@ export default function Card(props) {
                 buttonText={buttonText}
                 className={'link-text'}
                 buttonType={'text'}
-                onClick={() => console.log('Button fired')}
+                onClick={() => navigate(props.to)}
             />
         </CardContainer>
     )

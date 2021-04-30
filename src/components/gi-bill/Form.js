@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
 import FormInput from './FormInput'
 import ButtonV2 from './ButtonV2'
 import { gray } from '@vschool/lotus'
+import {navigate} from 'gatsby'
 
 const StyledForm = styled.form`
     display: grid;
@@ -60,43 +61,77 @@ export default function Form(props) {
         input4
     } = props
 
-    function handleSubmit(e) {
+    const [inputs, setInputs] = useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: ''
+    })
+
+    function handleChange({target: {name, value}}) {
+        setInputs(prev => ({...prev, [name]: value}))
+    }
+
+    async function handleSubmit(e) {
         e.preventDefault()
-        
+        let {firstName, lastName, email, phone} = inputs
+        const formData = {
+            firstName,
+            lastName,
+            email,
+            phone,
+            convertKitTag: 'vet landing page lead'
+        }
+
+        const options = {
+            method: "POST",
+            body: JSON.stringify(formData)
+        }
+
+        await fetch(process.env.GATSBY_VET_LANDING_PAGE_ZAPIER_WEBHOOK_URL, options)
+        navigate("/gi-bill/success")
     }
 
     return (
-        <StyledForm className={className}>
+        <StyledForm className={className} onSubmit={handleSubmit}>
             <FormInput 
                 className={'first-name'}
                 name={'firstName'}
                 label={input1.label}
+                value={inputs.firstName}
                 placeholder={input1.placeholder}
                 required={false}
+                handleChange={handleChange}
             />
 
             <FormInput 
                 className={'last-name'}
                 name={'lastName'}
                 label={input2.label}
+                value={inputs.lastName}
                 placeholder={input2.placeholder}
                 required={false}
+                handleChange={handleChange}
             />
 
             <FormInput 
                 className={'email'}
                 name={'email'}
                 label={input3.label}
+                value={inputs.label}
                 placeholder={input3.placeholder}
                 required={true}
+                handleChange={handleChange}
             />
 
             <FormInput 
                 className={'phone'}
                 name={'phone'}
                 label={input4.label}
+                value={inputs.phone}
                 placeholder={input4.placeholder}
                 required={true}
+                handleChange={handleChange}
             />
 
             <div className={'button-wrapper'}>
@@ -104,7 +139,6 @@ export default function Form(props) {
                     buttonText={buttonText} 
                     className={'form-button'} 
                     buttonType={'primary'}
-                    onClick={() => handleSubmit()}
                 />
             </div>
         </StyledForm>
