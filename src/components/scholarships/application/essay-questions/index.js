@@ -136,8 +136,8 @@ export default function BackgroundInfoForm() {
                         <Footnote>{preEssayFootnote}</Footnote>
                     </>
                 )}
+                {!showPreEssay && <Form />}
             </TextContainer>
-            {!showPreEssay && <Form />}
         </>
     )
 }
