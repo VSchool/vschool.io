@@ -52,35 +52,13 @@ const Body = styled.div`
     }
 `
 
-export default function Details() {
-    const data = useStaticQuery(graphql`
-        {
-            prismicScholarshipPage {
-                data {
-                    details_logo {
-                        alt
-                        url
-                    }
-                    details_subtitle {
-                        text
-                    }
-                    details_text {
-                        html
-                    }
-                    details_title {
-                        text
-                    }
-                }
-            }
-        }
-    `)
-
+export default function Details(props) {
     const {
         details_logo: { url: logoUrl, alt: logoAlt },
         details_subtitle: { text: subtitle },
         details_text: { html: textHtml },
         details_title: { text: title },
-    } = data.prismicScholarshipPage.data
+    } = props
 
     return (
         <Container>

@@ -1,0 +1,1 @@
+export { default as Outcomes } from './Outcomes'

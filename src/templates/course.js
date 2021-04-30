@@ -3,7 +3,7 @@ import { ThemeProvider } from "styled-components"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import ScholarshipPage from "../components/scholarship"
+import Course from "../components/courses"
 import {
     blue,
     pink,
@@ -17,24 +17,21 @@ import {
 
 const colors = { blue, pink, purple, red, orange, yellow, green, gray }
 
-export default function ScholarshipPageTemplate({ pageContext, data }) {
+export default function CoursePageTemplate({ pageContext, data }) {
     const {
         primary_theme_color: primaryThemeColorString,
-        secondary_theme_color: secondaryThemeColorString,
-    } = data.prismicScholarshipPage.data
+        course_name: { text: courseName },
+    } = data.prismicCoursePage.data
     const primaryThemeColor = colors[primaryThemeColorString]
-    const secondaryThemeColor = colors[secondaryThemeColorString]
-
     return (
         <Layout>
-            <SEO title={`${pageContext.name}`} />
+            <SEO title={pageContext.name} />
             <ThemeProvider
                 theme={{
                     primary: primaryThemeColor,
-                    secondary: secondaryThemeColor,
                 }}
             >
-                <ScholarshipPage data={data.prismicScholarshipPage.data} />
+                <Course data={data.prismicCoursePage.data} />
             </ThemeProvider>
         </Layout>
     )
@@ -48,23 +45,34 @@ data from Prismic
  */
 export const query = graphql`
     query($uid: String!) {
-        prismicScholarshipPage(uid: { eq: $uid }) {
+        prismicCoursePage(uid: { eq: $uid }) {
             data {
-                deadline_text {
-                    text
-                }
-                deadline_date(formatString: "MMMM Do, YYYY")
-                details_logo {
+                description_image {
                     alt
                     url
                 }
-                details_subtitle {
+                description_philosophies {
+                    philosophy_description {
+                        text
+                    }
+                    philosophy_title {
+                        text
+                    }
+                }
+                description_subtitle {
                     text
                 }
-                details_text {
+                description_text {
                     html
                 }
-                details_title {
+                description_title {
+                    text
+                }
+                description_logo {
+                    alt
+                    url
+                }
+                course_name {
                     text
                 }
                 hero_title {
@@ -73,54 +81,56 @@ export const query = graphql`
                 hero_text {
                     text
                 }
-                hero_scholarship_amount {
-                    text
-                }
                 hero_image {
-                    alt
-                    url
-                }
-                hero_card_image {
                     alt
                     url
                 }
                 hero_button_text {
                     text
                 }
-                faq_list {
-                    faq_answer {
+                hero_button_url {
+                    url
+                }
+                outcomes_title {
+                    text
+                }
+                outcomes_stats {
+                    stat_text {
                         text
                     }
-                    faq_question {
+                    stat_number {
                         text
                     }
                 }
-                icon {
-                    alt
-                    url
+                outcomes_stats_caption {
+                    text
+                }
+                outcomes_testimonials {
+                    testimonial_image {
+                        alt
+                        url
+                    }
+                    testimonial_text {
+                        text
+                    }
+                    testimonial_name {
+                        text
+                    }
+                    testimonial_name_info {
+                        text
+                    }
                 }
                 primary_theme_color
-                secondary_theme_color
-                scholarship_name {
-                    text
-                }
-                testimonial_image {
+                student_journey_image {
                     alt
                     url
                 }
-                testimonial_name {
+                team_subtitle {
                     text
                 }
-                testimonial_quote {
+                team_title {
                     text
                 }
-                testimonial_status {
-                    text
-                }
-                winner_announced_text {
-                    text
-                }
-                winner_announced_date(formatString: "MMMM Do, YYYY")
             }
         }
     }

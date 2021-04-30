@@ -115,6 +115,7 @@ export default function ScholarshipDetails() {
         scholarship_details: scholarshipDetails,
     } = data.prismicTiffin.data
 
+
     return (
         <Container>
             <FixedContainer>
