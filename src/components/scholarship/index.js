@@ -23,10 +23,11 @@ export default function Scholarship({ data }) {
         const result = DateTime.fromFormat(updatedDate, "MMMM d yyyy")
         deadlinePast = result < DateTime.local()
     }
+    const detailsExist = data.details_title.text
     return (
         <div>
             <Hero {...data} deadlinePast={deadlinePast} />
-            <Details {...data} />
+            {detailsExist && <Details {...data} />}
             <Stages />
             <Form {...data} deadlinePast={deadlinePast} />
             {deadlinePast ? <ClosedAppCTA /> : <FAQ />}
