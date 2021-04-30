@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Form from './Form'
+import { useStaticQuery, graphql } from "gatsby"
 import { blue, gray } from '@vschool/lotus'
 
 const FooterContainer = styled.div`
@@ -39,41 +40,46 @@ const FooterContainer = styled.div`
 `
 
 export default function Footer(props) {
-    const { prismicData } = props
+    const data = useStaticQuery(graphql`
+    {
+      prismicVeteransLandingPage {
+        data {
+            footer_button_text {
+                text
+            }
+            footer_description {
+                text
+            }
+            footer_form {
+                footer_form_label {
+                    text
+                }
+                footer_form_placeholder {
+                    text
+                }
+            }
+            footer_title {
+                text
+            }
+        }
+      }
+    }
+  `)
 
-    let footerTitle = prismicData.footer_title.text
-    let footerDescription = prismicData.footer_description.text
-    let buttonText = prismicData.footer_button_text.text
+  const {
+    footer_button_text: {text: buttonText},
+    footer_description: {text: footerDescription},
+    footer_form,
+    footer_title: {text: footerTitle},
+  } = {...data.prismicVeteransLandingPage.data}
 
-    let input1Label = prismicData.footer_form[0].footer_form_label.text
-    let input1Placeholder = prismicData.footer_form[0].footer_form_placeholder.text
-    const input1 = { label: input1Label, placeholder: input1Placeholder}
-
-    let input2Label = prismicData.footer_form[1].footer_form_label.text
-    let input2Placeholder = prismicData.footer_form[1].footer_form_placeholder.text
-    const input2 = { label: input2Label, placeholder: input2Placeholder}
-
-
-    let input3Label = prismicData.footer_form[2].footer_form_label.text
-    let input3Placeholder = prismicData.footer_form[2].footer_form_placeholder.text
-    const input3 = { label: input3Label, placeholder: input3Placeholder}
-
-    let input4Label = prismicData.footer_form[3].footer_form_label.text
-    let input4Placeholder = prismicData.footer_form[3].footer_form_placeholder.text
-    const input4 = { label: input4Label, placeholder: input4Placeholder}
 
     return (
         <FooterContainer className={'footer-form'}>
             <h2 className={'title'}>{footerTitle}</h2>
             <p className={'description'}>{footerDescription}</p>
-            <Form 
-                className={'footer-form'} 
-                buttonText={buttonText}
-                input1={input1}
-                input2={input2}
-                input3={input3}
-                input4={input4}
-            />
+
+            <Form formInfo={footer_form} buttonText={buttonText} type='footer' />
         </FooterContainer>
     )
 }
