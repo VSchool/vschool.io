@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import Card from "./Card"
+import CourseCards from '../../shared/CoursesNew'
 import { blue } from "@vschool/lotus"
 
 const CoursesContainer = styled.div`
@@ -35,7 +36,6 @@ const CoursesContainer = styled.div`
         grid-column-start: col3-start;
         grid-column-end: span col10-end;
         grid-row-start: 2;
-        font-family: Aktiv Grotesk Ex;
         font-weight: 800;
         font-size: 16px;
         line-height: 24px;
@@ -88,6 +88,7 @@ export default function Courses(props) {
                     title={card1Title}
                     description={card1Description}
                     buttonText={card1ButtonText}
+                    to="/syllabus/development"
                 />
 
                 <Card
@@ -96,6 +97,7 @@ export default function Courses(props) {
                     title={card2Title}
                     description={card2Description}
                     buttonText={card2ButtonText}
+                    to="/syllabus/design"
                 />
             </div>
         </CoursesContainer>

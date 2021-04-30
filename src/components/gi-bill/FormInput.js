@@ -13,7 +13,6 @@ const FormInputContainer = styled.div`
         & > p {
             // display: none;
             // display: ${props => props.display};
-            font-family: Aktiv Grotesk Ex;
             font-style: normal;
             font-weight: bold;
             font-size: 12px;
@@ -25,7 +24,6 @@ const FormInputContainer = styled.div`
 
         & > label {
             margin-bottom: 8px;
-            font-family: Aktiv Grotesk Ex;
             font-style: normal;
             font-weight: bold;
             font-size: 12px;
@@ -43,7 +41,6 @@ const FormInputContainer = styled.div`
         background: ${gray.lightest};
         border: 2px solid #514F4B;
         box-sizing: border-box;
-        font-family: Aktiv Grotesk;
         font-style: normal;
         font-weight: normal;
         font-size: 16px;
@@ -51,8 +48,7 @@ const FormInputContainer = styled.div`
         color: ${gray.darker};
 
         &::placeholder {
-            font-family: Aktiv Grotesk;
-            font-style: normal;
+                font-style: normal;
             font-weight: normal;
             font-size: 16px;
             line-height: 24px;
@@ -79,7 +75,9 @@ export default function FormInput(props) {
         name,
         label,
         placeholder,
-        required
+        required,
+        value,
+        handleChange
     } = props
 
     function setAsterisksDisplay(status) {
@@ -98,7 +96,7 @@ export default function FormInput(props) {
                 <p display={asterisksDisplay}>{'*'}</p>
                 <label>{label}</label>
             </div>
-            <input name={name} placeholder={placeholder}  />
+            <input name={name} placeholder={placeholder} value={value} onChange={handleChange}/>
         </FormInputContainer>
     )
 }

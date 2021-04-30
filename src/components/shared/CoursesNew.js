@@ -36,7 +36,7 @@ const StyledLink = styled(Link)`
     margin-top: auto;
 `
 
-export default function CoursesNew() {
+export default function CoursesNew(props) {
     const data = useStaticQuery(graphql`
         {
             prismicCourseCards {

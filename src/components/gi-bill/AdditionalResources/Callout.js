@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import ButtonV2 from '../ButtonV2'
 import { gray } from '@vschool/lotus'
+import { navigate } from '@reach/router'
 
 const CalloutContainer = styled.div`
     width: 100%;
@@ -21,7 +22,6 @@ const CalloutContainer = styled.div`
 
     & > .description {
         margin-bottom: 32px;
-        font-family: Aktiv Grotesk;
         font-weight: normal;
         font-size: 20px;
         line-height: 32px;
@@ -59,7 +59,7 @@ export default function Callout(props) {
                 buttonText={calloutButtonText} 
                 className={'callout-button'} 
                 buttonType={'primary'}
-                onClick={() => console.log('Button fired')}
+                onClick={() => navigate(props.to)}
             />
         </CalloutContainer>
     )

@@ -45,14 +45,12 @@ const SuccessContainer = styled.section`
 
             & > .testimonial-author {
                 margin-top: 32px;
-                font-family: Aktiv Grotesk Ex;
                 font-weight: 800;
                 line-height: 24px;
                 color: ${blue.darkest};
             }
 
             & > .testimonial-body {
-                font-family: Aktiv Grotesk Ex;
                 font-style: normal;
                 font-weight: bold;
                 font-size: 24px;

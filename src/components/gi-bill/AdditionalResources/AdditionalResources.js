@@ -60,6 +60,7 @@ export default function AdditionalResources(props) {
                     calloutTitle={callout1Title}
                     calloutDescription={callout1Description}
                     calloutButtonText={callout1ButtonText}
+                    to={'/scholarships/veterans-in-tech'}
                 />
 
                 <Callout
@@ -67,6 +68,7 @@ export default function AdditionalResources(props) {
                     calloutTitle={callout2Title}
                     calloutDescription={callout2Description}
                     calloutButtonText={callout2ButtonText}
+                    to={'/bootcamp-primer'}
                 />
             </div>
         </ResourcesContainer>

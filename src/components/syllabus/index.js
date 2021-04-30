@@ -99,9 +99,19 @@ export default function Index(props) {
 
         await fetch(process.env.GATSBY_CONVERTKIT_SIGNUP_ZAPIER_WEBHOOK_URL, options)
 
-        
+        var link = document.createElement("a");
+        link.href = props.convertKitTag === "syllabus dl - ux/ui design" ? "https://drive.google.com/file/d/1lF1qMnhwLn1gaqefjSqS2AWxV_qXjHRQ/view?usp=sharing" : "https://drive.google.com/file/d/1TkmbmHhJXIyvH8rRr2UeIe7KhD14d1nz/view"
+        link.target = "_blank";
+        link.download = "V School Syllabus";
+    
+        document.body.appendChild(link);
+    
+        link.click();
+        setTimeout(function () {
+        window.URL.revokeObjectURL(link);
+        }, 200);
+         
 
-        console.log('worked')
     }
 
     return (
@@ -160,7 +170,6 @@ export default function Index(props) {
                                 />
                             <div className='button-wrapper'>
                                 <StyledButton buttonStyle={'primary-dark'} size={'xl'}>{'Download Syllabus'}</StyledButton>
-                                <a href="https://drive.google.com/file/d/1TkmbmHhJXIyvH8rRr2UeIe7KhD14d1nz/view" download>Download it</a>
                             </div>
                         </StyledForm>
                 
