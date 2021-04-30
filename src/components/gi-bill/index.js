@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Hero from './Hero'
-import { Outcomes } from './Outcomes/'
+import Outcomes from './Outcomes'
 import { Courses } from './Courses'
 import { AdditionalResources } from './AdditionalResources'
 import Success from './Success'
@@ -141,8 +141,8 @@ export default function GiBillPage() {
 
     return (
         <PageContainer>
-            <Hero prismicData={prismicData} />
-            <Outcomes prismicData={prismicData} />
+            <Hero />
+            <Outcomes  />
             <Success prismicData={prismicData} />
             <Courses prismicData={prismicData} />
             <AdditionalResources prismicData={prismicData} />
