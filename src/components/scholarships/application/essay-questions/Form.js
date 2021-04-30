@@ -31,20 +31,16 @@ export default function BackgroundForm() {
     const [error, setError] = useState()
     const [submitting, setSubmitting] = useState(false)
 
-    // Problem starts on line 38 with the below query
-    // Error refers to the 'slug"
-    // Anything touching this downstream breaks
-    // Had to comment out everything it touched
-    // const data = useStaticQuery(graphql`
-    //     {
-    //         formiumForm(slug: { eq: "scholarship-essay-questions" }) {
-    //             name
-    //             schema
-    //         }
-    //     }
-    // `)
+    const data = useStaticQuery(graphql`
+        {
+            formiumForm(slug: { eq: "scholarship-essay-questions" }) {
+                name
+                schema
+            }
+        }
+    `)
 
-    // const { formComponents, formData } = useFormium(data.formiumForm)
+    const { formComponents, formData } = useFormium(data.formiumForm)
 
     // Save the name/email either from state (from the scholarship page) or from a querystring (from email link)
     useEffect(() => {
@@ -108,7 +104,7 @@ export default function BackgroundForm() {
 
     return (
         <section>
-            {/* <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit}>
                 {error ? (
                     <ErrorMessage>{error}</ErrorMessage>
                 ) : (
@@ -119,7 +115,7 @@ export default function BackgroundForm() {
                         </Button>
                     </>
                 )}
-            </Form> */}
+            </Form>
         </section>
     )
 }
