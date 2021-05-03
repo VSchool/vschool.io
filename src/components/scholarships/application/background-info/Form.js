@@ -34,16 +34,16 @@ export default function BackgroundForm() {
     // Error refers to the 'slug"
     // Anything touching this downstream breaks
     // Had to comment out everything it touched
-    // const data = useStaticQuery(graphql`
-    //     {
-    //         formiumForm(slug: { eq: "scholarship-background-info" }) {
-    //             name
-    //             schema
-    //         }
-    //     }
-    // `)
+    const data = useStaticQuery(graphql`
+        {
+            formiumForm(slug: { eq: "scholarship-background-info" }) {
+                name
+                schema
+            }
+        }
+    `)
 
-    // const { formComponents, formData } = useFormium(data.formiumForm)
+    const { formComponents, formData } = useFormium(data.formiumForm)
     // Save the name/email either from state (from the scholarship page) or from a querystring (from email link)
     useEffect(() => {
         let data
@@ -100,61 +100,62 @@ export default function BackgroundForm() {
         setSubmitting(true)
         // replace a "...formData" below after "...queryData"
         const data = { ...queryData, completedStep: "background" }
-        // const fullTuitionOnlySelected =
-        //     formData.financingOptionsConsidered.length === 1 &&
-        //     formData.financingOptionsConsidered[0].includes(
-        //         "Full Tuition Scholarship"
-        //     )
-        // if (fullTuitionOnlySelected) {
-        //     data.nextStep = "essay"
-        // } else {
-        //     data.nextStep = "schedule"
-        // }
+        const fullTuitionOnlySelected =
+            formData.financingOptionsConsidered.length === 1 &&
+            formData.financingOptionsConsidered[0].includes(
+                "Full Tuition Scholarship"
+            )
+        if (fullTuitionOnlySelected) {
+            data.nextStep = "essay"
+        } else {
+            data.nextStep = "schedule"
+        }
 
         const options = {
             method: "POST",
             body: JSON.stringify(data),
         }
 
-        // try {
-        //     await fetch(
-        //         process.env.GATSBY_SCHOLARSHIP_APP_ZAPIER_WEBHOOK_URL,
-        //         options
-        //     )
+        try {
+            await fetch(
+                process.env.GATSBY_SCHOLARSHIP_APP_ZAPIER_WEBHOOK_URL,
+                options
+            )
 
-        //     setSubmitting(false)
-        //     if (fullTuitionOnlySelected) {
-        //         localStorage.setItem("scholarshipAppNextStep", data.nextStep)
-        //         navigate("/scholarships/application/essay-questions", {
-        //             state: { email: queryData.email },
-        //         })
-        //     } else {
-        //         localStorage.setItem("scholarshipAppNextStep", data.nextStep)
-        //         navigate("/scholarships/application/schedule", {
-        //             state: { email: queryData.email },
-        //         })
-        //     }
-        // } catch (err) {
-        //     setSubmitting(false)
-        //     setError(
-        //         "Something went wrong. Please refresh the page and try again."
-        //     )
-        // }
+            setSubmitting(false)
+            if (fullTuitionOnlySelected) {
+                localStorage.setItem("scholarshipAppNextStep", data.nextStep)
+                navigate("/scholarships/application/essay-questions", {
+                    state: { email: queryData.email },
+                })
+            } else {
+                localStorage.setItem("scholarshipAppNextStep", data.nextStep)
+                navigate("/scholarships/application/schedule", {
+                    state: { email: queryData.email },
+                })
+            }
+        } catch (err) {
+            setSubmitting(false)
+            setError(
+                "Something went wrong. Please refresh the page and try again."
+            )
+        }
     }
 
-    {/* 
+    {
+        /* 
         This error should only display if:
         1. The person isn't coming to this form directly from the scholarship page, AND
         2. the person didn't use the link from the email to get to this form, AND
         3. the person had cleared their localStorage or was browsing privately when they first started their application
         OR
         Something went wrong when submitting the form to Zapier
-    */}
+    */
+    }
 
     return (
         <section>
-            {/* <Form onSubmit={handleSubmit}>
-                
+            <Form onSubmit={handleSubmit}>
                 {error ? (
                     <ErrorMessage>{error}</ErrorMessage>
                 ) : (
@@ -165,7 +166,7 @@ export default function BackgroundForm() {
                         </Button>
                     </>
                 )}
-            </Form> */}
+            </Form>
         </section>
     )
 }
