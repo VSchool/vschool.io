@@ -5,10 +5,14 @@ import { blue, gray } from "@vschool/lotus"
 
 const SuccessContainer = styled.section`
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto 300px;
 
     & > div {
         margin-top: 48px;
+    }
+
+    @media (min-width: 800px){
+        margin-bottom: 0;
     }
 `
 
@@ -83,13 +87,16 @@ const TestimonialAuthor = styled.p`
 
 const TestimonialImage = styled.img`
     position: absolute;
-    top: 310px;
-    width: 337px;
+    top: 89%;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 300px;
 
     @media (min-width: 800px){
-        top: 50px;
-        left: -195px;
-        width: 232px;
+        top: 30px;
+        left: -18%;
+        width: 40%;
     }
 `
 
