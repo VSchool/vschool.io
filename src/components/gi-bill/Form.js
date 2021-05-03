@@ -9,8 +9,12 @@ const StyledForm = styled.form`
 `
 
 const InputsDiv = styled.div`
-    display: flex;
+    display: block;
     gap: 24px;
+
+    @media (min-width: 800px){
+        display: flex;
+    }
 `
 
 const StyledTextInput = styled(TextInput)`
