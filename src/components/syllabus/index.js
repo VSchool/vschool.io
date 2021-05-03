@@ -2,24 +2,38 @@ import React, { useState } from 'react'
 import HeroLayout from '../shared/HeroLayout';
 import styled from 'styled-components'
 import { TextInput, Button } from '@vschool/lotus'
-import { red, blue, gray } from '@vschool/lotus'
+import {  gray } from '@vschool/lotus'
 
 const Container = styled.section`
     background-color: ${gray.lighter};
     padding-top: 65px;
-    padding-bottom: 357px;
+    padding-bottom: 157px;
+
+    & > div {
+        flex-direction: column-reverse;
+
+        @media (min-width: 800px){
+            flex-direction: row;
+        }
+    }
 
     @media (min-width: 1024px) {
         padding-top: 100px;
+        padding-bottom: 357px;
     }
 `
 
 const Title = styled.h1`
     font-weight: 900;
-    font-size: 56px;
-    line-height: 56px;
     color: ${gray.darkest};
     margin-bottom: 32px;
+    font-size: 44px;
+    line-height: 48px;
+
+    @media (min-width: 1024px) {
+        font-size: 56px;
+        line-height: 56px;
+    }
 `
 
 const StyledForm = styled.form`
@@ -29,7 +43,8 @@ const StyledForm = styled.form`
     // border: 2px dashed blue;
 
     & > .wrapper {
-        display: flex;
+        display: block;
+
         // border: 1px solid black;
 
         & > .first-name {
@@ -38,14 +53,21 @@ const StyledForm = styled.form`
         }
     
         & > .last-name {
-            margin-left: 12px;
+            margin-left: 0px;
+        }
+
+        @media (min-width: 800px){
+            display: flex;
+            
+            & > .last-name {
+                margin-left: 12px;
+            }
         }
     }
 
     & > .button-wrapper {
         margin-top: 8px;
-        grid-column: line1 / end;
-        grid-row: 4 / 4;
+        
 
         & > .form-button {
 
@@ -73,6 +95,14 @@ const StyledButton = styled(Button)`
     @media (max-width: 800px){
         margin: 40px auto 80px;
         width: 100%;
+    }
+`
+
+const Image = styled.img`
+    margin-bottom: 40px;
+
+    @media(min-width: 800px){
+        margin-bottom: 0;
     }
 `
 
@@ -177,7 +207,7 @@ export default function Index(props) {
                 }
                 image={
                     <>
-                        <img src={props.image} alt=""/>
+                        <Image src={props.image} alt=""/>
                     </>
                 }>       
             </HeroLayout>
