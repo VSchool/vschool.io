@@ -31,6 +31,7 @@ const CardImage = styled.img`
 
 const Title = styled.h1`
     margin-bottom: 16px;
+    font-size: 45px;
 `
 
 const Text = styled.p`

@@ -45,10 +45,13 @@ const Body = styled.div`
     }
 
     @media (min-width: 800px) {
-        column-count: 2;
+        /* column-count: 2;
         column-gap: 20px;
         margin-bottom: 24px;
         font-size: 16px;
+        margin-bottom: 24px; */
+        font-size: 16px;
+        max-width: 800px;
     }
 `
 
