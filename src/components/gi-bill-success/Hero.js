@@ -55,6 +55,11 @@ const Description = styled.p`
     }
 `
 
+const Image = styled.img`
+    width: 100%;
+    max-width: 675px;
+`
+
 const Hero = () => {
     
     return (
@@ -62,7 +67,7 @@ const Hero = () => {
             <Subtitle>VETERANS AT VSCHOOL</Subtitle>
             <Title>Information Submitted!</Title>
             <Description>Thanks for you interest in V School. We'll reach out to you to discuss opportunities and your pathway into tech. You'll be receiving your next steps email shortly.</Description>
-            <img src={heroImg} alt="Man Smiling and Code"/>
+            <Image src={heroImg} alt="Man Smiling and Code"/>
         </HeroContainer>
     );
 };
