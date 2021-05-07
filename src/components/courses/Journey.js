@@ -115,16 +115,25 @@ const MapImageContainer = styled.div`
 `
 
 const MapImage = styled.img`
-    width: 42%;
+    max-width: 200px;
+    width: 40%;
+    margin: 0px 0px 0px 27%;
+
+    /* width: 42%; */
     transform: rotate(270deg);
-    margin: -90px 0 -90px 90px;
+    /* margin: -90px 0 -90px 90px; */
 
     @media (min-width: 800px) {
         transform: none;
-        width: 40%;
         padding: 30px;
         display: block;
-        margin: auto;
+        width: 100%;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+
+    @media (min-width: 1100px){
+        max-width: 220px;
     }
 `
 
