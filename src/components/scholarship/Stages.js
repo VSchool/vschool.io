@@ -4,7 +4,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import { white, gray, blue } from "@vschool/lotus"
 
 const Container = styled.section`
-    background-color: ${white};
     padding-top: 320px;
     margin-top: -320px;
 
