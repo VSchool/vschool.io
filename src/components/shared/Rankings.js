@@ -27,7 +27,7 @@ const Title = styled.h4`
     transform: translateY(-50%);
     width: 80%;
     text-align: center;
-    background-color: white;
+    background-color: #fbf9f6;
     padding-left: 16px;
     padding-right: 16px;
 `
