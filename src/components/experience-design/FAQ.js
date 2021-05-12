@@ -50,8 +50,17 @@ const H3 = styled.h3`
 //     padding-right: 24px;
 // `
 
+const StyledAccordion = styled(Accordion)`
+    & > div {
+
+        & > h5 {
+            color: ${props => props.style.color || gray.darker};
+        }
+    }
+`
+
 function FAQ(props) {
-    const styles = {
+    const styles = props.styles || {
         color: "#456AE2",
         fontFamily: "aktiv-grotesk",
         fontSize: 20,
@@ -70,13 +79,13 @@ function FAQ(props) {
             <AccordionGroup>
                 {faq.map(faq => {
                     return (
-                        <Accordion
+                        <StyledAccordion
                             key={faq.faq_title.text}
                             style={styles}
                             title={faq.faq_title.text}
                         >
                             <P>{faq.faq_info.text}</P>
-                        </Accordion>
+                        </StyledAccordion>
                     )
                 })}
             </AccordionGroup>
