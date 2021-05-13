@@ -1,171 +1,171 @@
 {
-  "Meta": {
-    "prismic_display_name": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "Prismic Display Name"
+  "Meta" : {
+    "prismic_display_name" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "Prismic Display Name"
       }
     }
   },
-  "Student Journey": {
-    "journey_title": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "Journey Title"
+  "Student Journey" : {
+    "journey_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "Journey Title"
       }
     },
-    "journey_pathway_title": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading2, heading3, heading4, heading5, heading6",
-        "label": "Journey Pathway Title"
+    "journey_pathway_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading2, heading3, heading4, heading5, heading6",
+        "label" : "Journey Pathway Title"
       }
     },
-    "journey_pathway_text": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, strong, em, hyperlink",
-        "label": "Journey Pathway Text"
+    "journey_pathway_text" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, strong, em, hyperlink",
+        "label" : "Journey Pathway Text"
       }
     },
-    "journey_map_title": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "Journey Map Title"
+    "journey_map_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "Journey Map Title"
       }
     },
-    "journey_map_text": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label": "Journey Map Text"
+    "journey_map_text" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label" : "Journey Map Text"
       }
     },
-    "journey_map_image": {
-      "type": "Image",
-      "config": {
-        "constraint": {},
-        "thumbnails": [],
-        "label": "Journey Map Image"
+    "journey_map_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Journey Map Image"
       }
     },
-    "journey_map_steps": {
-      "type": "Group",
-      "config": {
-        "fields": {
-          "journey_map_step_title": {
-            "type": "StructuredText",
-            "config": {
-              "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-              "label": "Journey Map Step Title"
+    "journey_map_steps" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "journey_map_step_title" : {
+            "type" : "StructuredText",
+            "config" : {
+              "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+              "label" : "Journey Map Step Title"
             }
           },
-          "journey_map_step_text": {
-            "type": "StructuredText",
-            "config": {
-              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-              "label": "Journey Map Step Text"
+          "journey_map_step_text" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+              "label" : "Journey Map Step Text"
             }
           }
         },
-        "label": "Journey Map Steps"
+        "label" : "Journey Map Steps"
       }
     }
   },
-  "How Course Works": {
-    "how_works_title": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "How Works Title"
+  "How Course Works" : {
+    "how_works_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "How Works Title"
       }
     },
-    "how_works_image": {
-      "type": "Image",
-      "config": {
-        "constraint": {},
-        "thumbnails": [],
-        "label": "How Works Image"
+    "how_works_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "How Works Image"
       }
     },
-    "how_works_subtitle": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "How Works Subtitle"
+    "how_works_subtitle" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "How Works Subtitle"
       }
     },
-    "how_works_text": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label": "How Works Text"
+    "how_works_text" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label" : "How Works Text"
       }
     }
   },
-  "Comparisons": {
-    "learning_method_group": {
-      "type": "Group",
-      "config": {
-        "fields": {
-          "learning_method_type": {
-            "type": "StructuredText",
-            "config": {
-              "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-              "label": "Learning Method Type"
+  "Comparisons" : {
+    "learning_method_group" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "learning_method_type" : {
+            "type" : "StructuredText",
+            "config" : {
+              "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+              "label" : "Learning Method Type"
             }
           },
-          "learning_method_chart": {
-            "type": "Image",
-            "config": {
-              "constraint": {},
-              "thumbnails": [],
-              "label": "Learning Method Chart"
+          "learning_method_chart" : {
+            "type" : "Image",
+            "config" : {
+              "constraint" : { },
+              "thumbnails" : [ ],
+              "label" : "Learning Method Chart"
             }
           },
-          "learning_method_text": {
-            "type": "StructuredText",
-            "config": {
-              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-              "label": "Learning Method Text"
+          "learning_method_text" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+              "label" : "Learning Method Text"
             }
           }
         },
-        "label": "Learning Method Group"
+        "label" : "Learning Method Group"
       }
     },
-    "body": {
-      "type": "Slices",
-      "fieldset": "Slice zone",
-      "config": {
-        "labels": {
-          "learning_model_group": []
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "labels" : {
+          "learning_model_group" : [ ]
         },
-        "choices": {
-          "learning_model_group": {
-            "type": "Slice",
-            "fieldset": "Learning Model Group",
-            "description": "A type of learning model and its main points",
-            "icon": "face",
-            "display": "list",
-            "non-repeat": {
-              "learning_model_type": {
-                "type": "StructuredText",
-                "config": {
-                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-                  "label": "Learning Model Type"
+        "choices" : {
+          "learning_model_group" : {
+            "type" : "Slice",
+            "fieldset" : "Learning Model Group",
+            "description" : "A type of learning model and its main points",
+            "icon" : "face",
+            "display" : "list",
+            "non-repeat" : {
+              "learning_model_type" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "Learning Model Type"
                 }
               }
             },
-            "repeat": {
-              "learning_model_bullet": {
-                "type": "StructuredText",
-                "config": {
-                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-                  "label": "Learning Model Bullet"
+            "repeat" : {
+              "learning_model_bullet" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label" : "Learning Model Bullet"
                 }
               }
             }
@@ -174,169 +174,233 @@
       }
     }
   },
-  "Schedule": {
-    "schedule_title": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "Schedule Title"
+  "Schedule" : {
+    "schedule_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "Schedule Title"
       }
     },
-    "schedule_text": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label": "Schedule Text"
+    "schedule_text" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label" : "Schedule Text"
       }
     },
-    "schedule_subtitle": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "Schedule Subtitle"
+    "schedule_subtitle" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "Schedule Subtitle"
       }
     },
-    "schedule_subtitle_paragraph": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label": "Schedule Subtitle Paragraph"
+    "schedule_subtitle_paragraph" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label" : "Schedule Subtitle Paragraph"
       }
     },
-    "schedule_carousel_images": {
-      "type": "Group",
-      "config": {
-        "fields": {
-          "carousel_image": {
-            "type": "Image",
-            "config": {
-              "constraint": {},
-              "thumbnails": [],
-              "label": "Carousel Image"
+    "schedule_carousel_images" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "carousel_image" : {
+            "type" : "Image",
+            "config" : {
+              "constraint" : { },
+              "thumbnails" : [ ],
+              "label" : "Carousel Image"
             }
           }
         },
-        "label": "Schedule Carousel Images"
+        "label" : "Schedule Carousel Images"
       }
     },
-    "schedule_images_caption": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label": "Schedule Images Caption"
+    "schedule_images_caption" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label" : "Schedule Images Caption"
       }
     }
   },
-  "Payment Options": {
-    "payment_title": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "Payment Title"
+  "Payment Options" : {
+    "payment_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "Payment Title"
       }
     },
-    "payment_text": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label": "Payment Text"
+    "payment_text" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label" : "Payment Text"
       }
     },
-    "payment_types": {
-      "type": "Group",
-      "config": {
-        "fields": {
-          "type": {
-            "type": "StructuredText",
-            "config": {
-              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-              "label": "Type"
+    "payment_types" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "type" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+              "label" : "Type"
             }
           }
         },
-        "label": "Payment Types"
+        "label" : "Payment Types"
       }
     }
   },
-  "CTA": {
-    "cta_title": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "CTA Title"
+  "CTA" : {
+    "cta_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "CTA Title"
       }
     },
-    "cta_next_session_text": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label": "CTA Next Session Text"
+    "cta_next_session_text" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label" : "CTA Next Session Text"
       }
     },
-    "cta_next_session_background": {
-      "type": "Image",
-      "config": {
-        "constraint": {},
-        "thumbnails": [],
-        "label": "CTA Next Session Background"
+    "cta_next_session_background" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "CTA Next Session Background"
       }
     },
-    "cta_benefits": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label": "CTA Benefits"
+    "cta_benefits" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label" : "CTA Benefits"
       }
     }
   },
-  "How to Apply": {
-    "apply_title": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "Apply Title"
+  "How to Apply" : {
+    "apply_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "Apply Title"
       }
     },
-    "apply_steps": {
-      "type": "Group",
-      "config": {
-        "fields": {
-          "step_number": {
-            "type": "StructuredText",
-            "config": {
-              "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-              "label": "Step Number"
+    "apply_date_background" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Apply Date Background"
+      }
+    },
+    "apply_date_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label" : "Apply Date Title"
+      }
+    },
+    "apply_date_text" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label" : "Apply Date Text"
+      }
+    },
+    "apply_benefits" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label" : "Apply Benefits"
+      }
+    },
+    "apply_how_background" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Apply How Background"
+      }
+    },
+    "apply_how_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "Apply How Title"
+      }
+    },
+    "apply_steps" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "step_number" : {
+            "type" : "StructuredText",
+            "config" : {
+              "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+              "label" : "Step Number"
             }
           },
-          "step_text": {
-            "type": "StructuredText",
-            "config": {
-              "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-              "label": "Step Text"
+          "step_text" : {
+            "type" : "StructuredText",
+            "config" : {
+              "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+              "label" : "Step Text"
             }
           },
-          "step_info": {
-            "type": "StructuredText",
-            "config": {
-              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-              "label": "Step Info"
+          "step_info" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+              "label" : "Step Info"
             }
           }
         },
-        "label": "Apply Steps"
+        "label" : "Apply Steps"
       }
     },
-    "cta_button_text": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label": "CTA Button Text"
+    "apply_how_button" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label" : "Apply How Button"
       }
     },
-    "cta_button_link": {
-      "type": "Link",
-      "config": {
-        "label": "CTA Button Link"
+    "apply_how_link" : {
+      "type" : "Link",
+      "config" : {
+        "label" : "Apply How Link"
+      }
+    },
+    "apply_dev" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "Apply Dev"
+      }
+    },
+    "apply_dev_button" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label" : "Apply Dev Button"
+      }
+    },
+    "apply_dev_link" : {
+      "type" : "Link",
+      "config" : {
+        "label" : "Apply Dev Link"
       }
     }
   }
