@@ -1,328 +1,420 @@
 {
-    "Meta": {
-        "prismic_display_name": {
-            "type": "StructuredText",
-            "config": {
-                "useAsTitle": true,
-                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-                "label": "Prismic Display Name"
-            }
-        },
-        "course_name": {
-            "type": "StructuredText",
-            "config": {
-                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-                "label": "Course Name"
-            }
-        },
-        "uid": {
-            "type": "UID",
-            "config": {
-                "label": "Slug"
-            }
-        },
-        "primary_theme_color": {
-            "type": "Select",
-            "config": {
-                "options": ["blue", "green"],
-                "label": "Primary Theme Color"
-            }
-        }
+  "Meta" : {
+    "prismic_display_name" : {
+      "type" : "StructuredText",
+      "config" : {
+        "useAsTitle" : true,
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "Prismic Display Name"
+      }
     },
-    "Hero": {
-        "hero_title": {
-            "type": "StructuredText",
-            "config": {
-                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-                "label": "Hero Title"
-            }
-        },
-        "hero_text": {
-            "type": "StructuredText",
-            "config": {
-                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-                "label": "Hero Text"
-            }
-        },
-        "hero_button_text": {
-            "type": "StructuredText",
-            "config": {
-                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-                "label": "Hero Button Text"
-            }
-        },
-        "hero_button_url": {
-            "type": "Link",
-            "config": {
-                "allowTargetBlank": true,
-                "label": "Hero Button URL"
-            }
-        },
-        "hero_image": {
-            "type": "Image",
-            "config": {
-                "constraint": {},
-                "thumbnails": [],
-                "label": "Hero Image"
-            }
-        }
+    "course_name" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "Course Name"
+      }
     },
-    "Outcomes": {
-        "outcomes_title": {
-            "type": "StructuredText",
-            "config": {
-                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-                "label": "Outcomes Title"
-            }
-        },
-        "outcomes_stats": {
-            "type": "Group",
-            "config": {
-                "fields": {
-                    "stat_text": {
-                        "type": "StructuredText",
-                        "config": {
-                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-                            "label": "Stat Text"
-                        }
-                    },
-                    "stat_number": {
-                        "type": "StructuredText",
-                        "config": {
-                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-                            "label": "Stat Number"
-                        }
-                    }
-                },
-                "label": "Outcomes Stats"
-            }
-        },
-        "outcomes_stats_caption": {
-            "type": "StructuredText",
-            "config": {
-                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-                "label": "Outcomes Stats Caption"
-            }
-        },
-        "outcomes_testimonials": {
-            "type": "Group",
-            "config": {
-                "fields": {
-                    "testimonial_image": {
-                        "type": "Image",
-                        "config": {
-                            "constraint": {},
-                            "thumbnails": [],
-                            "label": "Testimonial Image"
-                        }
-                    },
-                    "testimonial_text": {
-                        "type": "StructuredText",
-                        "config": {
-                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-                            "label": "Testimonial Text"
-                        }
-                    },
-                    "testimonial_name": {
-                        "type": "StructuredText",
-                        "config": {
-                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-                            "label": "Testimonial Name"
-                        }
-                    },
-                    "testimonial_name_info": {
-                        "type": "StructuredText",
-                        "config": {
-                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-                            "label": "Testimonial Name Info"
-                        }
-                    }
-                },
-                "label": "Outcomes Testimonials"
-            }
-        }
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "Slug"
+      }
     },
-    "Student Journey": {
-        "student_journey_image": {
-            "type": "Image",
-            "config": {
-                "constraint": {},
-                "thumbnails": [],
-                "label": "Student Journey Image"
-            }
-        }
-    },
-    "Course Description": {
-        "description_title": {
-            "type": "StructuredText",
-            "config": {
-                "single": "heading1",
-                "label": "Description Title"
-            }
-        },
-        "description_image": {
-            "type": "Image",
-            "config": {
-                "constraint": {},
-                "thumbnails": [],
-                "label": "Description Image"
-            }
-        },
-        "description_subtitle": {
-            "type": "StructuredText",
-            "config": {
-                "single": "heading3",
-                "label": "Description Subtitle"
-            }
-        },
-        "description_text": {
-            "type": "StructuredText",
-            "config": {
-                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-                "label": "Description Text"
-            }
-        },
-        "description_philosophies": {
-            "type": "Group",
-            "config": {
-                "fields": {
-                    "philosophy_title": {
-                        "type": "StructuredText",
-                        "config": {
-                            "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-                            "label": "Philosophy Title"
-                        }
-                    },
-                    "philosophy_description": {
-                        "type": "StructuredText",
-                        "config": {
-                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-                            "label": "Philosophy Description"
-                        }
-                    }
-                },
-                "label": "Description Philosophies"
-            }
-        },
-        "description_logo": {
-            "type": "Image",
-            "config": {
-                "constraint": {},
-                "thumbnails": [],
-                "label": "Description Logo"
-            }
-        },
-        "body": {
-            "type": "Slices",
-            "fieldset": "Slice zone",
-            "config": {
-                "labels": {
-                    "skills_section": []
-                },
-                "choices": {
-                    "skills_section": {
-                        "type": "Slice",
-                        "fieldset": "Skills Section",
-                        "description": "A place to list skill types students gain from V School",
-                        "icon": "face",
-                        "display": "list",
-                        "non-repeat": {
-                            "skill_name": {
-                                "type": "StructuredText",
-                                "config": {
-                                    "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-                                    "label": "Skill Name"
-                                }
-                            }
-                        },
-                        "repeat": {
-                            "skill_text": {
-                                "type": "StructuredText",
-                                "config": {
-                                    "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-                                    "label": "Skill Text"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    },
-    "Course Syllabus": {},
-    "Team": {
-        "team_title": {
-            "type": "StructuredText",
-            "config": {
-                "single": "heading1",
-                "label": "Team Title"
-            }
-        },
-        "team_subtitle": {
-            "type": "StructuredText",
-            "config": {
-                "single": "heading3",
-                "label": "Team Subtitle"
-            }
-        },
-        "body1": {
-            "type": "Slices",
-            "fieldset": "Slice zone",
-            "config": {
-                "labels": {
-                    "team_individuals": []
-                },
-                "choices": {
-                    "team_individuals": {
-                        "type": "Slice",
-                        "fieldset": "Team Individuals",
-                        "description": "A place to list members of the team and partners",
-                        "icon": "face",
-                        "display": "list",
-                        "non-repeat": {
-                            "team_individual_type": {
-                                "type": "StructuredText",
-                                "config": {
-                                    "single": "heading3",
-                                    "label": "Team Individual Type"
-                                }
-                            }
-                        },
-                        "repeat": {
-                            "team_individual_image": {
-                                "type": "Image",
-                                "config": {
-                                    "constraint": {},
-                                    "thumbnails": [],
-                                    "label": "Team Individual Image"
-                                }
-                            },
-                            "team_individual_logo": {
-                                "type": "Image",
-                                "config": {
-                                    "constraint": {},
-                                    "thumbnails": [],
-                                    "label": "Team Individual Logo"
-                                }
-                            },
-                            "team_individual_name": {
-                                "type": "StructuredText",
-                                "config": {
-                                    "single": "heading4",
-                                    "label": "Team Individual Name"
-                                }
-                            },
-                            "team_individual_title": {
-                                "type": "StructuredText",
-                                "config": {
-                                    "multi": "paragraph",
-                                    "label": "Team Individual Title"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+    "primary_theme_color" : {
+      "type" : "Select",
+      "config" : {
+        "options" : [ "blue", "green" ],
+        "label" : "Primary Theme Color"
+      }
     }
+  },
+  "Hero" : {
+    "hero_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "Hero Title"
+      }
+    },
+    "hero_text" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label" : "Hero Text"
+      }
+    },
+    "hero_button_text" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label" : "Hero Button Text"
+      }
+    },
+    "hero_button_url" : {
+      "type" : "Link",
+      "config" : {
+        "allowTargetBlank" : true,
+        "label" : "Hero Button URL"
+      }
+    },
+    "hero_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Hero Image"
+      }
+    }
+  },
+  "Outcomes" : {
+    "outcomes_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "Outcomes Title"
+      }
+    },
+    "outcomes_stats" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "stat_text" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+              "label" : "Stat Text"
+            }
+          },
+          "stat_number" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+              "label" : "Stat Number"
+            }
+          }
+        },
+        "label" : "Outcomes Stats"
+      }
+    },
+    "outcomes_stats_caption" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label" : "Outcomes Stats Caption"
+      }
+    },
+    "outcomes_testimonials" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "testimonial_image" : {
+            "type" : "Image",
+            "config" : {
+              "constraint" : { },
+              "thumbnails" : [ ],
+              "label" : "Testimonial Image"
+            }
+          },
+          "testimonial_text" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+              "label" : "Testimonial Text"
+            }
+          },
+          "testimonial_name" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+              "label" : "Testimonial Name"
+            }
+          },
+          "testimonial_name_info" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+              "label" : "Testimonial Name Info"
+            }
+          }
+        },
+        "label" : "Outcomes Testimonials"
+      }
+    }
+  },
+  "Student Journey" : {
+    "student_journey_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Student Journey Image"
+      }
+    }
+  },
+  "Course Description" : {
+    "description_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "Description Title"
+      }
+    },
+    "description_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Description Image"
+      }
+    },
+    "description_subtitle" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading3",
+        "label" : "Description Subtitle"
+      }
+    },
+    "description_text" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label" : "Description Text"
+      }
+    },
+    "description_philosophies" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "philosophy_title" : {
+            "type" : "StructuredText",
+            "config" : {
+              "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+              "label" : "Philosophy Title"
+            }
+          },
+          "philosophy_description" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+              "label" : "Philosophy Description"
+            }
+          }
+        },
+        "label" : "Description Philosophies"
+      }
+    },
+    "description_logo" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Description Logo"
+      }
+    },
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "labels" : {
+          "skills_section" : [ ]
+        },
+        "choices" : {
+          "skills_section" : {
+            "type" : "Slice",
+            "fieldset" : "Skills Section",
+            "description" : "A place to list skill types students gain from V School",
+            "icon" : "face",
+            "display" : "list",
+            "non-repeat" : {
+              "skill_name" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "Skill Name"
+                }
+              }
+            },
+            "repeat" : {
+              "skill_text" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label" : "Skill Text"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Course Syllabus" : { },
+  "Team" : {
+    "team_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "Team Title"
+      }
+    },
+    "team_subtitle" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading3",
+        "label" : "Team Subtitle"
+      }
+    },
+    "body1" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "labels" : {
+          "team_individuals" : [ ]
+        },
+        "choices" : {
+          "team_individuals" : {
+            "type" : "Slice",
+            "fieldset" : "Team Individuals",
+            "description" : "A place to list members of the team and partners",
+            "icon" : "face",
+            "display" : "list",
+            "non-repeat" : {
+              "team_individual_type" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading3",
+                  "label" : "Team Individual Type"
+                }
+              }
+            },
+            "repeat" : {
+              "team_individual_image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : { },
+                  "thumbnails" : [ ],
+                  "label" : "Team Individual Image"
+                }
+              },
+              "team_individual_logo" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : { },
+                  "thumbnails" : [ ],
+                  "label" : "Team Individual Logo"
+                }
+              },
+              "team_individual_name" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading4",
+                  "label" : "Team Individual Name"
+                }
+              },
+              "team_individual_title" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph",
+                  "label" : "Team Individual Title"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Payments" : {
+    "payments_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "Payments Title"
+      }
+    },
+    "payments_subtitle" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label" : "Payments Subtitle"
+      }
+    },
+    "payments_options" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "payment_type" : {
+            "type" : "StructuredText",
+            "config" : {
+              "single" : "heading3",
+              "label" : "Payment Type"
+            }
+          }
+        },
+        "label" : "Payments Options"
+      }
+    },
+    "payments_checkmark" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Payments Checkmark"
+      }
+    }
+  },
+  "Form" : {
+    "form_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Form Image"
+      }
+    },
+    "form_subtitle" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading3",
+        "label" : "Form Subtitle"
+      }
+    },
+    "form_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "Form Title"
+      }
+    },
+    "form_inputs" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "form_label" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+              "label" : "Form Label"
+            }
+          },
+          "form_placeholder" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+              "label" : "Form placeholder"
+            }
+          }
+        },
+        "label" : "Form inputs"
+      }
+    },
+    "form_button" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label" : "Form Button"
+      }
+    }
+  }
 }

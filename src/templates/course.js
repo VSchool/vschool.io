@@ -131,6 +131,21 @@ export const query = graphql`
                 team_title {
                     text
                 }
+                payments_checkmark {
+                    alt
+                    url
+                }
+                payments_options {
+                    payment_type {
+                    text
+                    }
+                }
+                payments_subtitle {
+                    text
+                }
+                payments_title {
+                    text
+                }
             }
         }
     }

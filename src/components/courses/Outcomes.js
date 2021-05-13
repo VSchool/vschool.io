@@ -47,6 +47,7 @@ const ImageTextContainer = styled.div`
     & > div {
         position: absolute;
         bottom: 22px;
+        margin: 24px;
     }
 
     @media (min-width: 800px) {
