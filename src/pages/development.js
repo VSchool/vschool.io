@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from "../components/layout.js"
 import SEO from "../components/seo.js"
-import { blue } from "@vschool/lotus"
+import { blue, gray } from "@vschool/lotus"
 import { graphql } from "gatsby"
 import {
     HeroHeader,
@@ -78,7 +78,7 @@ export default function Development({ data }) {
             <Modules modules={modules} />
             <CourseBullets bullets={course_bullets} />
 
-            <section style={{ marginTop: 96 }}>
+            <section style={{ paddingTop: 96 }}>
                 <h3>{companiesHeader}</h3>
                 <CompanyLogoGrid logos={alumniCompanyLogos} />
             </section>
