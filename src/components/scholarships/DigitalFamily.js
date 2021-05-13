@@ -7,7 +7,7 @@ import CompanyLogoGrid from "../shared/CompanyLogoGrid"
 
 const Container = styled.section`
     align-items: center;
-    margin-bottom: 160px;
+    padding-bottom: 160px;
 `
 
 const Title = styled.h2`

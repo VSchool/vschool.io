@@ -6,7 +6,7 @@ import CoursesNew from "../shared/CoursesNew"
 
 const Container = styled.section`
     align-items: initial;
-    margin-bottom: 162px;
+    padding-bottom: 162px;
 `
 
 const Title = styled.h2`
