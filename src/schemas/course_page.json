@@ -419,5 +419,92 @@
         "label": "Form Button"
       }
     }
+  },
+  "Apply": {
+    "apply_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Apply Title"
+      }
+    },
+    "apply_date_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading3",
+        "label": "Apply Date Title"
+      }
+    },
+    "apply_date_text": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Apply Date Text"
+      }
+    },
+    "apply_benefits": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Apply Benefits"
+      }
+    },
+    "apply_how_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading2",
+        "label": "Apply How Title"
+      }
+    },
+    "apply_steps": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "apply_step_number": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+              "label": "Apply Step Number"
+            }
+          },
+          "apply_step_title": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading3",
+              "label": "Apply Step Title"
+            }
+          },
+          "apply_step_text": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+              "label": "Apply Step Text"
+            }
+          }
+        },
+        "label": "Apply Steps"
+      }
+    },
+    "apply_how_button": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Apply How Button"
+      }
+    },
+    "apply_dev": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading4",
+        "label": "Apply Dev"
+      }
+    },
+    "apply_dev_button": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Apply Dev Button"
+      }
+    }
   }
 }
