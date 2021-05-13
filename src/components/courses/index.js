@@ -10,6 +10,7 @@ import Description from "./Description"
 import { Team } from './Team/'
 import Payments from './Payments'
 import Form from './Form'
+import Apply from './Apply'
 import FAQ from '../../components/experience-design/FAQ'
 import { useStaticQuery, graphql } from "gatsby"
 import { blue, gray } from "@vschool/lotus"
@@ -57,6 +58,7 @@ export default function Index({ data }) {
             <Schedule />
             <Team {...data} />
             <Payments {...data} />
+            <Apply />
             <FAQ styles={faqStyles} {...faqData.prismicXdPage.data} />
         </>
     )
