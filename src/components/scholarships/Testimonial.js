@@ -6,11 +6,11 @@ import Modal from "react-modal"
 import PlayTriangle from "../shared/PlayTriangle"
 
 const Section = styled.section`
-    margin-bottom: 96px;
+    padding-bottom: 96px;
     @media (min-width: 1000px) {
         flex-direction: row-reverse;
         justify-content: center;
-        margin-bottom: 160px;
+        padding-bottom: 160px;
     }
 `
 
