@@ -13,15 +13,14 @@ import {
 import Link from "../shared/QueryLink"
 
 const Section = styled.section`
-    background-color: ${white};
     margin-top: -257px;
     padding-top: 257px;
-    margin-bottom: 98px;
+    padding-bottom: 98px;
 
     @media (min-width: 1000px) {
         margin-top: 0;
         padding-top: 160px;
-        margin-bottom: 160px;
+        padding-bottom: 160px;
     }
 `
 

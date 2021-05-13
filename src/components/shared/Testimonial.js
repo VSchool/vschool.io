@@ -16,7 +16,7 @@ const colors = { red, orange, yellow, green, blue, pink, purple }
 
 const Container = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
 
     @media (min-width: 1000px) {
@@ -31,6 +31,12 @@ const Image = styled.img`
     max-width: 337px;
     border-bottom: ${({ theme, $color }) =>
         `20px solid ${theme?.secondary?.base || $color.base}`};
+    position: relative;
+    top: -40px;
+
+    @media (min-width: 1000px) {
+        top: 0;
+    }
 `
 
 const TextContainer = styled.div`
@@ -41,6 +47,11 @@ const TextContainer = styled.div`
     padding: 48px 24px 64px;
     max-width: 600px;
     margin-top: -32px;
+
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     @media (min-width: 1000px) {
         margin-top: 0;
