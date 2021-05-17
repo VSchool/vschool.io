@@ -29,11 +29,6 @@ export default function BackgroundForm() {
     const [queryData, setQueryData] = useState({})
     const [error, setError] = useState()
     const [submitting, setSubmitting] = useState(false)
-
-    // Problem starts on line 34 with the below query
-    // Error refers to the 'slug"
-    // Anything touching this downstream breaks
-    // Had to comment out everything it touched
     const data = useStaticQuery(graphql`
         {
             formiumForm(slug: { eq: "scholarship-background-info" }) {
@@ -99,7 +94,7 @@ export default function BackgroundForm() {
         e.preventDefault()
         setSubmitting(true)
         // replace a "...formData" below after "...queryData"
-        const data = { ...queryData, completedStep: "background" }
+        const data = { ...queryData, ...formData, completedStep: "background" }
         const fullTuitionOnlySelected =
             formData.financingOptionsConsidered.length === 1 &&
             formData.financingOptionsConsidered[0].includes(
