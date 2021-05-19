@@ -146,6 +146,32 @@ export const query = graphql`
                 payments_title {
                     text
                 }
+                body1 {
+                    ... on PrismicCoursePageBody1TeamIndividuals {
+                        id
+                        items {
+                            team_individual_name {
+                                text
+                            }
+                            team_individual_image {
+                                alt
+                                url
+                            }
+                            team_individual_logo {
+                                alt
+                                url
+                            }
+                            team_individual_title {
+                                text
+                            }
+                        }
+                        primary {
+                            team_individual_type {
+                                text
+                            }
+                        }
+                    }
+                }
             }
         }
     }
