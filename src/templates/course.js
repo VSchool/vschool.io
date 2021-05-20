@@ -47,6 +47,9 @@ export const query = graphql`
     query($uid: String!) {
         prismicCoursePage(uid: { eq: $uid }) {
             data {
+                course_name {
+                    text
+                }
                 description_image {
                     alt
                     url
@@ -72,7 +75,26 @@ export const query = graphql`
                     alt
                     url
                 }
-                course_name {
+                form_button {
+                    text
+                }
+                form_convertkit_tag
+                form_image {
+                    alt
+                    url
+                }
+                form_inputs {
+                    form_label {
+                        text
+                    }
+                    form_placeholder {
+                        text
+                    }
+                }
+                form_subtitle {
+                    text
+                }
+                form_title {
                     text
                 }
                 hero_title {
@@ -137,7 +159,7 @@ export const query = graphql`
                 }
                 payments_options {
                     payment_type {
-                    text
+                        text
                     }
                 }
                 payments_subtitle {

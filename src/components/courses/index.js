@@ -7,33 +7,31 @@ import LearningMethod from "./LearningMethod"
 import LearningModel from "./LearningModel"
 import Schedule from "./Schedule"
 import Description from "./Description"
-import { Team } from './Team/'
-import Payments from './Payments'
-import Form from './Form'
-import Apply from './Apply'
-import FAQ from '../../components/experience-design/FAQ'
+import { Team } from "./Team/"
+import Payments from "./Payments"
+import Form from "./Form"
+import Apply from "./Apply"
+import FAQ from "../../components/experience-design/FAQ"
 import { useStaticQuery, graphql } from "gatsby"
 import { blue, gray } from "@vschool/lotus"
 
-
-
 export default function Index({ data }) {
     const faqData = useStaticQuery(graphql`
-    {
-      prismicXdPage {
-        data {
-          faq {
-            faq_info {
-              text
+        {
+            prismicXdPage {
+                data {
+                    faq {
+                        faq_info {
+                            text
+                        }
+                        faq_title {
+                            text
+                        }
+                    }
+                }
             }
-            faq_title {
-              text
-            }
-          }
         }
-      }
-    }
-  `)
+    `)
     const faqStyles = {
         color: blue.base,
         fontSize: 20,
@@ -51,7 +49,7 @@ export default function Index({ data }) {
             <Outcomes {...data} />
             <Journey {...data} />
             <Description {...data} />
-            <Form convertKitTag={'syllabus dl - ux/ui design'} />
+            <Form {...data} />
             <HowWorks />
             <LearningMethod />
             <LearningModel />
