@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import { black, gray } from "@vschool/lotus"
-import MailchimpSubscribeForm from "../shared/MailchimpSubscribeForm"
 import ConvertKitSubscribe from "../shared/ConvertKitSubscribe"
 
 const HeroContainer = styled.section`

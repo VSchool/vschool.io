@@ -7,7 +7,7 @@
 const path = require(`path`)
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
-    // Query Ghost data
+    // Query all page data
     const result = await graphql(`
         {
             allGhostPost(sort: { order: ASC, fields: published_at }) {
@@ -38,6 +38,150 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                         data {
                             course_name {
                                 text
+                            }
+                            description_image {
+                                alt
+                                url
+                            }
+                            description_philosophies {
+                                philosophy_description {
+                                    text
+                                }
+                                philosophy_title {
+                                    text
+                                }
+                            }
+                            description_subtitle {
+                                text
+                            }
+                            description_text {
+                                html
+                            }
+                            description_title {
+                                text
+                            }
+                            description_logo {
+                                alt
+                                url
+                            }
+                            form_button {
+                                text
+                            }
+                            form_convertkit_tag
+                            form_image {
+                                alt
+                                url
+                            }
+                            form_inputs {
+                                form_label {
+                                    text
+                                }
+                                form_placeholder {
+                                    text
+                                }
+                            }
+                            form_subtitle {
+                                text
+                            }
+                            form_title {
+                                text
+                            }
+                            hero_title {
+                                text
+                            }
+                            hero_text {
+                                text
+                            }
+                            hero_image {
+                                alt
+                                url
+                            }
+                            hero_button_text {
+                                text
+                            }
+                            hero_button_url {
+                                url
+                            }
+                            outcomes_title {
+                                text
+                            }
+                            outcomes_stats {
+                                stat_text {
+                                    text
+                                }
+                                stat_number {
+                                    text
+                                }
+                            }
+                            outcomes_stats_caption {
+                                text
+                            }
+                            outcomes_testimonials {
+                                testimonial_image {
+                                    alt
+                                    url
+                                }
+                                testimonial_text {
+                                    text
+                                }
+                                testimonial_name {
+                                    text
+                                }
+                                testimonial_name_info {
+                                    text
+                                }
+                            }
+                            primary_theme_color
+                            student_journey_image {
+                                alt
+                                url
+                            }
+                            team_subtitle {
+                                text
+                            }
+                            team_title {
+                                text
+                            }
+                            payments_checkmark {
+                                alt
+                                url
+                            }
+                            payments_options {
+                                payment_type {
+                                    text
+                                }
+                            }
+                            payments_subtitle {
+                                text
+                            }
+                            payments_title {
+                                text
+                            }
+                            body1 {
+                                ... on PrismicCoursePageBody1TeamIndividuals {
+                                    id
+                                    items {
+                                        team_individual_name {
+                                            text
+                                        }
+                                        team_individual_image {
+                                            alt
+                                            url
+                                        }
+                                        team_individual_logo {
+                                            alt
+                                            url
+                                        }
+                                        team_individual_title {
+                                            text
+                                        }
+                                    }
+                                    primary {
+                                        team_individual_type {
+                                            text
+                                        }
+                                    }
+                                }
                             }
                         }
                         url
@@ -95,7 +239,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             component: courseTemplate,
             context: {
                 uid: node.uid,
-                name: node.data.course_name.text,
+                data: node.data,
             },
         })
     })
@@ -150,7 +294,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         isPermanent: true,
         force: true,
     })
-    
+
     actions.createRedirect({
         fromPath: "/mothercoders",
         toPath: "/tech-moms",
