@@ -1,8 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { useStaticQuery, graphql } from "gatsby"
 import { blue, gray } from "@vschool/lotus"
-
 
 const Container = styled.section`
     padding-bottom: 96px;
@@ -15,7 +13,7 @@ const Title = styled.h2`
     font-weight: 900;
     font-size: 44px;
     line-height: 48px;
-    color: #21201F;
+    color: #21201f;
     margin-bottom: 32px;
 `
 

@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import { useStaticQuery, graphql, navigate } from "gatsby"
 import { blue, gray, TextInput, Button } from "@vschool/lotus"
 
 const Section = styled.section`
@@ -137,7 +136,7 @@ export default function ApplicationForm(props) {
                 placeholder={placeholder}
                 value={i === 0 ? name : email}
                 onChange={
-                    i == 0
+                    i === 0
                         ? e => setName(e.target.value)
                         : e => setEmail(e.target.value)
                 }
