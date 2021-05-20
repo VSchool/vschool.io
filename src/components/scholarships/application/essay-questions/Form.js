@@ -80,8 +80,7 @@ export default function BackgroundForm() {
     async function handleSubmit(e) {
         e.preventDefault()
         setSubmitting(true)
-        // replace a "...formData" below after "...queryData"
-        const data = { ...queryData, nextStep: "complete" }
+        const data = { ...queryData, ...formData, nextStep: "complete" }
         const options = {
             method: "POST",
             body: JSON.stringify(data),
