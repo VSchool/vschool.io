@@ -137,8 +137,7 @@ export default function BackgroundForm() {
         }
     }
 
-    {
-        /* 
+    /* 
         This error should only display if:
         1. The person isn't coming to this form directly from the scholarship page, AND
         2. the person didn't use the link from the email to get to this form, AND
@@ -146,7 +145,6 @@ export default function BackgroundForm() {
         OR
         Something went wrong when submitting the form to Zapier
     */
-    }
 
     return (
         <section>

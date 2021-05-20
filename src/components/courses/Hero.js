@@ -1,5 +1,4 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 import HeroLayout from "../shared/HeroLayout"
 import styled from "styled-components"
 import Link from "../shared/QueryLink"
@@ -44,7 +43,6 @@ const StyledButton = styled(Button)`
 `
 
 const Hero = props => {
-
     const {
         hero_button_text: { text: buttonText },
         hero_button_url: { url: btnURL },
