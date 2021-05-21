@@ -76,7 +76,7 @@ export default function BlogList(props) {
     const currentPosts = posts.filter(post => {
         return blogFilter === "all"
             ? true
-            : post.primary_tag.slug === blogFilter
+            : post.primary_tag?.slug === blogFilter
     })
     const featured =
         blogFilter === "all"

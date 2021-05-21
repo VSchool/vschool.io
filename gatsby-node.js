@@ -13,7 +13,25 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             allGhostPost(sort: { order: ASC, fields: published_at }) {
                 edges {
                     node {
+                        title
                         slug
+                        feature_image
+                        html
+                        reading_time
+                        title
+                        url
+                        updated_at
+                        published_at(formatString: "MMMM DD, YYYY")
+                        page
+                        primary_tag {
+                            name
+                        }
+                        authors {
+                            slug
+                            name
+                            profile_image
+                            cover_image
+                        }
                     }
                 }
             }
@@ -277,6 +295,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             component: postTemplate,
             context: {
                 slug: node.slug,
+                data: node,
             },
         })
     })
