@@ -121,7 +121,6 @@ const PostBodyContainer = styled.section`
         color: ${blue.base};
         text-decoration: none;
     }
-
 `
 
 const DetailsContainer = styled.div`
@@ -223,13 +222,13 @@ const Name = styled.p`
     color: ${black};
 `
 
-function Post({ data }) {
+function Post({ pageContext }) {
     useEffect(() => {
         // call the highlightAll() function to style our code blocks
         Prism.highlightAll()
     })
 
-    const post = data.ghostPost
+    const post = pageContext.data
     const {
         title,
         published_at,
@@ -284,28 +283,3 @@ function Post({ data }) {
 }
 
 export default Post
-export const postQuery = graphql`
-    query($slug: String!) {
-        ghostPost(slug: { eq: $slug }) {
-            title
-            slug
-            feature_image
-            html
-            reading_time
-            title
-            url
-            updated_at
-            published_at(formatString: "MMMM DD, YYYY")
-            page
-            primary_tag {
-                name
-            }
-            authors {
-                slug
-                name
-                profile_image
-                cover_image
-            }
-        }
-    }
-`
