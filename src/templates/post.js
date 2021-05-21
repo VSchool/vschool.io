@@ -1,6 +1,5 @@
 import React, { useEffect } from "react"
 import Prism from "prismjs"
-import { graphql } from "gatsby"
 import styled from "styled-components"
 import BlogLayout from "../components/blog/blogLayout"
 import BackButton from "../components/blog/blogPage/BackButton.js"
