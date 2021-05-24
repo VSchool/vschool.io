@@ -260,7 +260,7 @@ const Journey = props => {
                     <PathContainer>
                         <MidHeader>{jPathTitle}</MidHeader>
                         <Paragraphs
-                            dangerouslySetInnerHTML={{ __html: jPathText }}
+                            dangerouslySetInnerHTML={{ __html: `<div> ${jPathText} </div>` }}
                         ></Paragraphs>
                     </PathContainer>
                 </FlexContainer>
