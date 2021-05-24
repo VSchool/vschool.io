@@ -76,6 +76,7 @@ const PostBodyContainer = styled.section`
         position: relative;
         width: 100%;
         overflow: hidden;
+        height: 380px;
         /* padding-top: 56.25%; 16:9 Aspect Ratio */
 
         iframe {
