@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from "../components/layout.js"
 import SEO from "../components/seo.js"
-import { blue, gray } from "@vschool/lotus"
+import { blue } from "@vschool/lotus"
 import { graphql } from "gatsby"
 import {
     HeroHeader,

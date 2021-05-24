@@ -55,12 +55,14 @@ const ImageTextContainer = styled.div`
         height: 588px;
 
         & > div {
-            padding: 64px 47px;
+            padding: 64px 0 64px 27px;
         }
     }
 `
 
 const ImageText = styled.p`
+    font-family: "aktiv-grotesk-extended";
+    font-weight: bold;
     font-size: 18px;
     line-height: 24px;
     color: ${gray.base};

@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import { useStaticQuery, graphql, navigate } from "gatsby"
 import { blue, gray, TextInput, Button } from "@vschool/lotus"
 
 const Section = styled.section`
@@ -25,7 +24,6 @@ const FormSubtitle = styled.h3`
     letter-spacing: 0.25px;
     text-transform: uppercase;
     color: ${gray.darkest};
-
 `
 
 const FormTitle = styled.h2`
@@ -59,13 +57,12 @@ const Form = styled.form`
     }
 `
 
-
 const StyledButton = styled(Button)`
     font-size: 14px;
     line-height: 16px;
     text-align: center;
     letter-spacing: 1px;
-    color: #FFFFFF;
+    color: #ffffff;
     margin-top: 43px;
     margin-bottom: 64px;
     @media (max-width: 599px) {
@@ -82,102 +79,89 @@ export default function ApplicationForm(props) {
     async function handleSubmit(e) {
         e.preventDefault()
 
-       const formData = {
+        const formData = {
             name,
             email,
-            convertKitTag: props.convertKitTag
+            convertKitTag: props.form_convertkit_tag,
         }
 
         const options = {
             method: "POST",
-            body: JSON.stringify(formData)
+            body: JSON.stringify(formData),
         }
 
-        await fetch(process.env.GATSBY_CONVERTKIT_SIGNUP_ZAPIER_WEBHOOK_URL, options)
+        await fetch(
+            process.env.GATSBY_CONVERTKIT_SIGNUP_ZAPIER_WEBHOOK_URL,
+            options
+        )
 
-        var link = document.createElement("a");
-        link.href = props.convertKitTag === "syllabus dl - ux/ui design" ? "https://drive.google.com/file/d/1lF1qMnhwLn1gaqefjSqS2AWxV_qXjHRQ/view?usp=sharing" : "https://drive.google.com/file/d/1TkmbmHhJXIyvH8rRr2UeIe7KhD14d1nz/view"
-        link.target = "_blank";
-        link.download = "V School Syllabus";
+        var link = document.createElement("a")
+        link.href =
+            props.convertKitTag === "syllabus dl - ux/ui design"
+                ? "https://drive.google.com/file/d/1lF1qMnhwLn1gaqefjSqS2AWxV_qXjHRQ/view?usp=sharing"
+                : "https://drive.google.com/file/d/1TkmbmHhJXIyvH8rRr2UeIe7KhD14d1nz/view"
+        link.target = "_blank"
+        link.download = "V School Syllabus"
 
-        document.body.appendChild(link);
+        document.body.appendChild(link)
 
-        link.click();
-        setTimeout(function () {
-        window.URL.revokeObjectURL(link);
-        }, 200);
+        link.click()
+        setTimeout(function() {
+            window.URL.revokeObjectURL(link)
+        }, 200)
 
         setDownloaded(true)
     }
 
-    const data = useStaticQuery(graphql`
-        {
-        prismicCoursePage {
-            data {
-                form_button {
-                    text
-                }
-                form_image {
-                    url
-                    alt
-                }
-                form_inputs {
-                    form_label {
-                        text
-                    }
-                    form_placeholder {
-                        text
-                    }
-                }
-                form_subtitle {
-                    text
-                }
-                form_title {
-                    text
-                }
-            }
-        }
-        }
-    `)
-
     const {
-        form_button: { text: formBtn},
+        form_button: { text: formBtn },
         form_image: { alt: formAlt, url: formUrl },
         form_inputs,
-        form_subtitle: { text: formSubtitle},
-        form_title: { text: formTitle},
-    } = data.prismicCoursePage.data
+        form_subtitle: { text: formSubtitle },
+        form_title: { text: formTitle },
+    } = props
 
     const mappedInputs = form_inputs.map(
-        ({
-        form_label: { text: label},
-        form_placeholder: { text: placeholder},
-        }, i) => 
-        <TextInput
-            type="text"
-            label={label}
-            name={i === 0 ? 'name' : 'email'}
-            placeholder={placeholder}
-            value={i === 0 ? name : email}
-            onChange={i == 0 ? e => setName(e.target.value) : e => setEmail(e.target.value)}
-            required
-        />)
+        (
+            {
+                form_label: { text: label },
+                form_placeholder: { text: placeholder },
+            },
+            i
+        ) => (
+            <TextInput
+                type="text"
+                label={label}
+                name={i === 0 ? "name" : "email"}
+                placeholder={placeholder}
+                value={i === 0 ? name : email}
+                onChange={
+                    i === 0
+                        ? e => setName(e.target.value)
+                        : e => setEmail(e.target.value)
+                }
+                required
+            />
+        )
+    )
     return (
         <Section>
             <FormContainer>
-            {downloaded ?
-                <h1 style={{fontSize: 15}}>Successfully Downloaded Syllabus</h1>
-                : 
-                <>
-                    <Image src={formUrl} alt={formAlt}/>
-                    <FormSubtitle>{formSubtitle}</FormSubtitle>
-                    <FormTitle>{formTitle}</FormTitle>
-                    <Form onSubmit={handleSubmit}>
-                        {mappedInputs}
-                        <StyledButton size="lg">{formBtn}</StyledButton>
-                    </Form>
-                </>
-            }
+                {downloaded ? (
+                    <h1 style={{ fontSize: 15 }}>
+                        Successfully Downloaded Syllabus
+                    </h1>
+                ) : (
+                    <>
+                        <Image src={formUrl} alt={formAlt} />
+                        <FormSubtitle>{formSubtitle}</FormSubtitle>
+                        <FormTitle>{formTitle}</FormTitle>
+                        <Form onSubmit={handleSubmit}>
+                            {mappedInputs}
+                            <StyledButton size="lg">{formBtn}</StyledButton>
+                        </Form>
+                    </>
+                )}
             </FormContainer>
         </Section>
     )

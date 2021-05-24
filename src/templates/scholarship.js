@@ -1,6 +1,5 @@
 import React from "react"
 import { ThemeProvider } from "styled-components"
-import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ScholarshipPage from "../components/scholarship"
@@ -17,111 +16,26 @@ import {
 
 const colors = { blue, pink, purple, red, orange, yellow, green, gray }
 
-export default function ScholarshipPageTemplate({ pageContext, data }) {
+export default function ScholarshipPageTemplate({ pageContext }) {
     const {
         primary_theme_color: primaryThemeColorString,
         secondary_theme_color: secondaryThemeColorString,
-    } = data.prismicScholarshipPage.data
+        scholarship_name: { text: scholarshipName },
+    } = pageContext.data
     const primaryThemeColor = colors[primaryThemeColorString]
     const secondaryThemeColor = colors[secondaryThemeColorString]
 
     return (
         <Layout>
-            <SEO title={`${pageContext.name}`} />
+            <SEO title={`${scholarshipName}`} />
             <ThemeProvider
                 theme={{
                     primary: primaryThemeColor,
                     secondary: secondaryThemeColor,
                 }}
             >
-                <ScholarshipPage data={data.prismicScholarshipPage.data} />
+                <ScholarshipPage data={pageContext.data} />
             </ThemeProvider>
         </Layout>
     )
 }
-
-/**
-This uses a page query because Gatsby doesn't 
-support GraphQL variable usage with static queries, 
-and this needs the `uid` in order to get the correct
-data from Prismic
- */
-export const query = graphql`
-    query($uid: String!) {
-        prismicScholarshipPage(uid: { eq: $uid }) {
-            data {
-                deadline_text {
-                    text
-                }
-                deadline_date(formatString: "MMMM Do, YYYY")
-                details_logo {
-                    alt
-                    url
-                }
-                details_subtitle {
-                    text
-                }
-                details_text {
-                    html
-                }
-                details_title {
-                    text
-                }
-                hero_title {
-                    text
-                }
-                hero_text {
-                    text
-                }
-                hero_scholarship_amount {
-                    text
-                }
-                hero_image {
-                    alt
-                    url
-                }
-                hero_card_image {
-                    alt
-                    url
-                }
-                hero_button_text {
-                    text
-                }
-                faq_list {
-                    faq_answer {
-                        text
-                    }
-                    faq_question {
-                        text
-                    }
-                }
-                icon {
-                    alt
-                    url
-                }
-                primary_theme_color
-                secondary_theme_color
-                scholarship_name {
-                    text
-                }
-                testimonial_image {
-                    alt
-                    url
-                }
-                testimonial_name {
-                    text
-                }
-                testimonial_quote {
-                    text
-                }
-                testimonial_status {
-                    text
-                }
-                winner_announced_text {
-                    text
-                }
-                winner_announced_date(formatString: "MMMM Do, YYYY")
-            }
-        }
-    }
-`
