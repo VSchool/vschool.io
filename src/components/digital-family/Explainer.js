@@ -6,7 +6,6 @@ import { white, gray, blue } from "@vschool/lotus"
 const Container = styled.section`
     margin-top: -160px;
     padding-top: 256px;
-    background-color: ${white};
     @media (min-width: 1000px) {
         margin-top: 0;
         padding-top: 160px;
