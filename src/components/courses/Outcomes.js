@@ -13,6 +13,15 @@ const Container = styled.section`
 `
 
 const ImageContainer = styled.div`
+    /* display: grid;
+    gap: 24px;
+    width: 100%;
+    max-width: 848px;
+    overflow: scroll hidden;
+    grid-template-rows: repeat(auto-fit, minmax(325px, max-content));
+    grid-auto-flow: column;
+    grid-auto-columns: 325px; */
+
     position: relative;
     width: 100%;
     max-width: 400px;
