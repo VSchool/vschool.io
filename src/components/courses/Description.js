@@ -13,8 +13,9 @@ const Container = styled.section`
     }
 `
 
-const WidthContainer = styled.section`
+const WidthContainer = styled.div`
     max-width: 1200px;
+    width: 100%;
 `
 
 const Title = styled.h1`
@@ -35,6 +36,9 @@ const Image = styled.img`
 
     @media (min-width: 800px) {
         width: 50%;
+    }
+
+    @media (min-width: 1000px){
         padding: 50px 60px;
     }
 `
@@ -62,7 +66,7 @@ const SubTitle = styled.h4`
     }
 `
 
-const Text = styled.p`
+const Text = styled.div`
     & > p {
         font-size: 16px;
         line-height: 24px;

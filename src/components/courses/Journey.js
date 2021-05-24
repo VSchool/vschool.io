@@ -59,7 +59,7 @@ const PathContainer = styled.div`
     }
 `
 
-const Paragraphs = styled.p`
+const Paragraphs = styled.div`
     font-size: 12px;
     line-height: 18px;
     text-align: center;
@@ -260,7 +260,7 @@ const Journey = props => {
                     <PathContainer>
                         <MidHeader>{jPathTitle}</MidHeader>
                         <Paragraphs
-                            dangerouslySetInnerHTML={{ __html: `<div> ${jPathText} </div>` }}
+                            dangerouslySetInnerHTML={{ __html: `${jPathText}` }}
                         ></Paragraphs>
                     </PathContainer>
                 </FlexContainer>

@@ -12,16 +12,21 @@ const Container = styled.section`
     }
 `
 
-const ImageContainer = styled.div`
-    /* display: grid;
+const TestimonialContainer = styled.div`
+    display: grid;
     gap: 24px;
-    width: 100%;
-    max-width: 848px;
-    overflow: scroll hidden;
-    grid-template-rows: repeat(auto-fit, minmax(325px, max-content));
-    grid-auto-flow: column;
-    grid-auto-columns: 325px; */
+    grid-template-columns: 350px 350px;
+    width: 390px;
+    overflow-x: scroll;
 
+    @media (min-width: 800px){
+        grid-template-columns: 848px 848px;
+        max-width: 1000px;
+        width: 100%;
+    }
+`
+
+const ImageContainer = styled.div`
     position: relative;
     width: 100%;
     max-width: 400px;
@@ -218,33 +223,36 @@ const Outcomes = props => {
                 </div>
                 <Text>{caption}</Text>
 
-                {outcomes_testimonials.map(
-                    ({
-                        testimonial_image: { url: testURL, alt: testAlt },
-                        testimonial_text: { text: testText },
-                        testimonial_name: { text: testName },
-                        testimonial_name_info: { text: testInfo },
-                    }) => {
-                        return (
-                            <>
-                                <ImageContainer>
-                                    <Image src={testURL} alt={testAlt} />
-                                    <ImageTextContainer>
-                                        <ImageText>{testText}</ImageText>
-                                        <div>
-                                            <ImageName>
-                                                {testName}
-                                            </ImageName>
-                                            <ImageRole>
-                                                {testInfo}
-                                            </ImageRole>
-                                        </div>
-                                    </ImageTextContainer>
-                                </ImageContainer>
-                            </>
-                        )
-                    }
-                )}
+                <TestimonialContainer>
+                    {outcomes_testimonials.map(
+                        ({
+                            testimonial_image: { url: testURL, alt: testAlt },
+                            testimonial_text: { text: testText },
+                            testimonial_name: { text: testName },
+                            testimonial_name_info: { text: testInfo },
+                        }) => {
+                            return (
+                                <>
+                                    <ImageContainer>
+                                        <Image src={testURL} alt={testAlt} />
+                                        <ImageTextContainer>
+                                            <ImageText>{testText}</ImageText>
+                                            <div>
+                                                <ImageName>
+                                                    {testName}
+                                                </ImageName>
+                                                <ImageRole>
+                                                    {testInfo}
+                                                </ImageRole>
+                                            </div>
+                                        </ImageTextContainer>
+                                    </ImageContainer>
+                                </>
+                            )
+                        }
+                    )}
+                </TestimonialContainer>
+
             </>
         </Container>
     )
