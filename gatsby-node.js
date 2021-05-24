@@ -13,7 +13,25 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             allGhostPost(sort: { order: ASC, fields: published_at }) {
                 edges {
                     node {
+                        title
                         slug
+                        feature_image
+                        html
+                        reading_time
+                        title
+                        url
+                        updated_at
+                        published_at(formatString: "MMMM DD, YYYY")
+                        page
+                        primary_tag {
+                            name
+                        }
+                        authors {
+                            slug
+                            name
+                            profile_image
+                            cover_image
+                        }
                     }
                 }
             }
@@ -24,9 +42,77 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                     node {
                         uid
                         data {
+                            deadline_text {
+                                text
+                            }
+                            deadline_date(formatString: "MMMM Do, YYYY")
+                            details_logo {
+                                alt
+                                url
+                            }
+                            details_subtitle {
+                                text
+                            }
+                            details_text {
+                                html
+                            }
+                            details_title {
+                                text
+                            }
+                            hero_title {
+                                text
+                            }
+                            hero_text {
+                                text
+                            }
+                            hero_scholarship_amount {
+                                text
+                            }
+                            hero_image {
+                                alt
+                                url
+                            }
+                            hero_card_image {
+                                alt
+                                url
+                            }
+                            hero_button_text {
+                                text
+                            }
+                            faq_list {
+                                faq_answer {
+                                    text
+                                }
+                                faq_question {
+                                    text
+                                }
+                            }
+                            icon {
+                                alt
+                                url
+                            }
+                            primary_theme_color
+                            secondary_theme_color
                             scholarship_name {
                                 text
                             }
+                            testimonial_image {
+                                alt
+                                url
+                            }
+                            testimonial_name {
+                                text
+                            }
+                            testimonial_quote {
+                                text
+                            }
+                            testimonial_status {
+                                text
+                            }
+                            winner_announced_text {
+                                text
+                            }
+                            winner_announced_date(formatString: "MMMM Do, YYYY")
                         }
                     }
                 }
@@ -209,6 +295,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             component: postTemplate,
             context: {
                 slug: node.slug,
+                data: node,
             },
         })
     })
@@ -223,7 +310,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             component: scholarshipTemplate,
             context: {
                 uid: node.uid,
-                name: node.data.scholarship_name.text,
+                data: node.data,
             },
         })
     })
