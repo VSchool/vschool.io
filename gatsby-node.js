@@ -7,13 +7,31 @@
 const path = require(`path`)
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
-    // Query Ghost data
+    // Query all page data
     const result = await graphql(`
         {
             allGhostPost(sort: { order: ASC, fields: published_at }) {
                 edges {
                     node {
+                        title
                         slug
+                        feature_image
+                        html
+                        reading_time
+                        title
+                        url
+                        updated_at
+                        published_at(formatString: "MMMM DD, YYYY")
+                        page
+                        primary_tag {
+                            name
+                        }
+                        authors {
+                            slug
+                            name
+                            profile_image
+                            cover_image
+                        }
                     }
                 }
             }
@@ -24,9 +42,77 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                     node {
                         uid
                         data {
+                            deadline_text {
+                                text
+                            }
+                            deadline_date(formatString: "MMMM Do, YYYY")
+                            details_logo {
+                                alt
+                                url
+                            }
+                            details_subtitle {
+                                text
+                            }
+                            details_text {
+                                html
+                            }
+                            details_title {
+                                text
+                            }
+                            hero_title {
+                                text
+                            }
+                            hero_text {
+                                text
+                            }
+                            hero_scholarship_amount {
+                                text
+                            }
+                            hero_image {
+                                alt
+                                url
+                            }
+                            hero_card_image {
+                                alt
+                                url
+                            }
+                            hero_button_text {
+                                text
+                            }
+                            faq_list {
+                                faq_answer {
+                                    text
+                                }
+                                faq_question {
+                                    text
+                                }
+                            }
+                            icon {
+                                alt
+                                url
+                            }
+                            primary_theme_color
+                            secondary_theme_color
                             scholarship_name {
                                 text
                             }
+                            testimonial_image {
+                                alt
+                                url
+                            }
+                            testimonial_name {
+                                text
+                            }
+                            testimonial_quote {
+                                text
+                            }
+                            testimonial_status {
+                                text
+                            }
+                            winner_announced_text {
+                                text
+                            }
+                            winner_announced_date(formatString: "MMMM Do, YYYY")
                         }
                     }
                 }
@@ -38,6 +124,150 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                         data {
                             course_name {
                                 text
+                            }
+                            description_image {
+                                alt
+                                url
+                            }
+                            description_philosophies {
+                                philosophy_description {
+                                    text
+                                }
+                                philosophy_title {
+                                    text
+                                }
+                            }
+                            description_subtitle {
+                                text
+                            }
+                            description_text {
+                                html
+                            }
+                            description_title {
+                                text
+                            }
+                            description_logo {
+                                alt
+                                url
+                            }
+                            form_button {
+                                text
+                            }
+                            form_convertkit_tag
+                            form_image {
+                                alt
+                                url
+                            }
+                            form_inputs {
+                                form_label {
+                                    text
+                                }
+                                form_placeholder {
+                                    text
+                                }
+                            }
+                            form_subtitle {
+                                text
+                            }
+                            form_title {
+                                text
+                            }
+                            hero_title {
+                                text
+                            }
+                            hero_text {
+                                text
+                            }
+                            hero_image {
+                                alt
+                                url
+                            }
+                            hero_button_text {
+                                text
+                            }
+                            hero_button_url {
+                                url
+                            }
+                            outcomes_title {
+                                text
+                            }
+                            outcomes_stats {
+                                stat_text {
+                                    text
+                                }
+                                stat_number {
+                                    text
+                                }
+                            }
+                            outcomes_stats_caption {
+                                text
+                            }
+                            outcomes_testimonials {
+                                testimonial_image {
+                                    alt
+                                    url
+                                }
+                                testimonial_text {
+                                    text
+                                }
+                                testimonial_name {
+                                    text
+                                }
+                                testimonial_name_info {
+                                    text
+                                }
+                            }
+                            primary_theme_color
+                            student_journey_image {
+                                alt
+                                url
+                            }
+                            team_subtitle {
+                                text
+                            }
+                            team_title {
+                                text
+                            }
+                            payments_checkmark {
+                                alt
+                                url
+                            }
+                            payments_options {
+                                payment_type {
+                                    text
+                                }
+                            }
+                            payments_subtitle {
+                                text
+                            }
+                            payments_title {
+                                text
+                            }
+                            body1 {
+                                ... on PrismicCoursePageBody1TeamIndividuals {
+                                    id
+                                    items {
+                                        team_individual_name {
+                                            text
+                                        }
+                                        team_individual_image {
+                                            alt
+                                            url
+                                        }
+                                        team_individual_logo {
+                                            alt
+                                            url
+                                        }
+                                        team_individual_title {
+                                            text
+                                        }
+                                    }
+                                    primary {
+                                        team_individual_type {
+                                            text
+                                        }
+                                    }
+                                }
                             }
                         }
                         url
@@ -65,6 +295,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             component: postTemplate,
             context: {
                 slug: node.slug,
+                data: node,
             },
         })
     })
@@ -79,7 +310,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             component: scholarshipTemplate,
             context: {
                 uid: node.uid,
-                name: node.data.scholarship_name.text,
+                data: node.data,
             },
         })
     })
@@ -95,7 +326,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             component: courseTemplate,
             context: {
                 uid: node.uid,
-                name: node.data.course_name.text,
+                data: node.data,
             },
         })
     })
@@ -150,7 +381,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         isPermanent: true,
         force: true,
     })
-    
+
     actions.createRedirect({
         fromPath: "/mothercoders",
         toPath: "/tech-moms",

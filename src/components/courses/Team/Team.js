@@ -72,7 +72,6 @@ const Container = styled.section`
 `
 
 const Team = props => {
-    console.log(props, 'team')
     const {
         team_subtitle: { text: teamSub },
         team_title: { text: teamTitle },

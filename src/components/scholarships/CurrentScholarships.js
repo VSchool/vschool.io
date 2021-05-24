@@ -1,15 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql, navigate } from "gatsby"
-import {
-    white,
-    green,
-    gray,
-    blue,
-    CardGroup,
-    Card,
-    TextButton,
-} from "@vschool/lotus"
+import { green, gray, blue, CardGroup, Card, TextButton } from "@vschool/lotus"
 import Link from "../shared/QueryLink"
 
 const Section = styled.section`
