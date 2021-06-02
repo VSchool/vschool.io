@@ -97,7 +97,7 @@ export default function ApplicationForm(props) {
 
         var link = document.createElement("a")
         link.href =
-            props.convertKitTag === "syllabus dl - ux/ui design"
+            props.form_convertkit_tag === "syllabus dl - ux/ui design"
                 ? "https://drive.google.com/file/d/1lF1qMnhwLn1gaqefjSqS2AWxV_qXjHRQ/view?usp=sharing"
                 : "https://drive.google.com/file/d/1TkmbmHhJXIyvH8rRr2UeIe7KhD14d1nz/view"
         link.target = "_blank"
