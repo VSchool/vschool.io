@@ -123,10 +123,17 @@ export default function ApplicationForm(props) {
         try {
             const nextStep = "background"
             const scholarshipName = props.scholarship_name.text
+            const convertKitTag = props.convertkit_tag
             const options = {
                 method: "POST",
-                body: JSON.stringify({ name, email, nextStep }),
+                body: JSON.stringify({ name, email, nextStep, convertKitTag }),
             }
+            // Subscribe them to ConvertKit with specific tag
+            convertKitTag && await fetch(
+                process.env.GATSBY_CONVERTKIT_SIGNUP_ZAPIER_WEBHOOK_URL,
+                options
+            )
+            // Progress applicant to next step.
             await fetch(
                 process.env.GATSBY_SCHOLARSHIP_APP_ZAPIER_WEBHOOK_URL,
                 options

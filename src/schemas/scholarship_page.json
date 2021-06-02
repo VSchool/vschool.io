@@ -88,6 +88,12 @@
         "thumbnails": [],
         "label": "Icon"
       }
+    },
+    "convertkit_tag": {
+      "type": "Text",
+      "config": {
+        "label": "ConvertKit Tag"
+      }
     }
   },
   "Hero": {
