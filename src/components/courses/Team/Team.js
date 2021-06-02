@@ -77,42 +77,7 @@ const Team = props => {
         team_title: { text: teamTitle },
     } = props
 
-    const data = useStaticQuery(graphql`
-        {
-            prismicCoursePage(uid: { eq: "design" }) {
-                data {
-                    body1 {
-                        ... on PrismicCoursePageBody1TeamIndividuals {
-                            id
-                            items {
-                                team_individual_name {
-                                    text
-                                }
-                                team_individual_image {
-                                    alt
-                                    url
-                                }
-                                team_individual_logo {
-                                    alt
-                                    url
-                                }
-                                team_individual_title {
-                                    text
-                                }
-                            }
-                            primary {
-                                team_individual_type {
-                                    text
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    `)
-
-    const mappedTeams = data.prismicCoursePage.data.body1.map(
+    const mappedTeams = props.body1.map(
         ({
             items,
             primary: {
