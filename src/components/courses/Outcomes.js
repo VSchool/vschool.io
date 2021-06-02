@@ -18,11 +18,13 @@ const TestimonialContainer = styled.div`
     grid-template-columns: 350px 350px;
     width: 390px;
     overflow-x: scroll;
+    
 
     @media (min-width: 800px){
         grid-template-columns: 848px 848px;
-        max-width: 1000px;
-        width: 100%;
+        width: 110%;
+        position: relative;
+        padding-left: 14%;
     }
 `
 
