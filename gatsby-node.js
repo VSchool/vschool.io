@@ -42,6 +42,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                     node {
                         uid
                         data {
+                            convertkit_tag
                             deadline_text {
                                 text
                             }
