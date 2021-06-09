@@ -151,6 +151,17 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                                 alt
                                 url
                             }
+                            faq_title {
+                                text
+                            }
+                            faq_questions {
+                                faq_answer {
+                                    text
+                                }
+                                faq_question {
+                                    text
+                                }
+                            }
                             form_button {
                                 text
                             }

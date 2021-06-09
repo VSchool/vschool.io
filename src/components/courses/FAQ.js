@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { AccordionGroup, Accordion, gray, black } from "@vschool/lotus"
+import { AccordionGroup, Accordion, gray, black, blue } from "@vschool/lotus"
 
 const Container = styled.div`
     background-color: ${gray.lighter};
@@ -54,15 +54,14 @@ const StyledAccordion = styled(Accordion)`
     & > div {
 
         & > h5 {
-            color: ${props => props.style.color || gray.darker};
+            color: ${blue.base};
         }
     }
 `
 
 function FAQ(props) {
-    const styles = props.styles || {
-        color: "#456AE2",
-        fontFamily: "aktiv-grotesk",
+    const styles = {
+        color: blue.base,
         fontSize: 20,
         fontWeight: 400,
         lineHeight: 28,
@@ -72,20 +71,33 @@ function FAQ(props) {
         width: "100%",
         maxWidth: 672,
     }
-    const { faq } = props
+
+    const {
+        faq_title: {
+            text: title
+        },
+        faq_questions
+    } = props
     console.log(props)
     return (
         <Container>
-            <H3>Frequently Asked Questions</H3>
+            <H3>{title}</H3>
             <AccordionGroup>
-                {faq.map(faq => {
+                {faq_questions.map(({
+                   faq_answer: {
+                        text: answer
+                    },
+                    faq_question: {
+                        text: question
+                    }
+                }, i) => {
                     return (
                         <StyledAccordion
-                            key={faq.faq_title.text}
+                            key={answer + i}
                             style={styles}
-                            title={faq.faq_title.text}
+                            title={question}
                         >
-                            <P>{faq.faq_info.text}</P>
+                            <P>{answer}</P>
                         </StyledAccordion>
                     )
                 })}
