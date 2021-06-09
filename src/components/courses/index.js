@@ -11,38 +11,11 @@ import { Team } from "./Team/"
 import Payments from "./Payments"
 import Form from "./Form"
 import Apply from "./Apply"
-import FAQ from "../../components/experience-design/FAQ"
+import FAQ from "./FAQ"
 import { useStaticQuery, graphql } from "gatsby"
 import { blue, gray } from "@vschool/lotus"
 
 export default function Index({ data }) {
-    const faqData = useStaticQuery(graphql`
-        {
-            prismicXdPage {
-                data {
-                    faq {
-                        faq_info {
-                            text
-                        }
-                        faq_title {
-                            text
-                        }
-                    }
-                }
-            }
-        }
-    `)
-    const faqStyles = {
-        color: blue.base,
-        fontSize: 20,
-        fontWeight: 400,
-        lineHeight: 28,
-        paddingRight: 24,
-        whiteSpace: "pre-wrap",
-        backgroundColor: gray.lighter,
-        width: "100%",
-        maxWidth: 672,
-    }
     return (
         <>
             <Hero {...data} />
@@ -57,7 +30,7 @@ export default function Index({ data }) {
             <Team {...data} />
             <Payments {...data} />
             <Apply />
-            <FAQ styles={faqStyles} {...faqData.prismicXdPage.data} />
+            <FAQ {...data} />
         </>
     )
 }
