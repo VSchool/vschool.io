@@ -36,6 +36,10 @@ export default function Footer(props) {
     {
       prismicVeteransLandingPage {
         data {
+            hero_form_icon {
+                alt
+                url
+            }
             footer_button_text {
                 text
             }
@@ -62,16 +66,19 @@ export default function Footer(props) {
     footer_button_text: {text: buttonText},
     footer_description: {text: footerDescription},
     footer_form,
+    hero_form_icon:{
+        alt: iconAlt,
+        url: iconUrl
+    },
     footer_title: {text: footerTitle},
   } = {...data.prismicVeteransLandingPage.data}
-
 
     return (
         <FooterContainer className={'footer-form'}>
             <FooterDiv>
                 <FooterTitle>{footerTitle}</FooterTitle>
                 <FooterDescription>{footerDescription}</FooterDescription>
-                <Form formInfo={footer_form} buttonText={buttonText} type='footer' />
+                <Form formInfo={footer_form} buttonText={buttonText} type='footer' icon={{iconAlt, iconUrl}} />
             </FooterDiv>
         </FooterContainer>
     )
