@@ -31,7 +31,6 @@ const Header = styled.h1`
 `
 
 const StudentImgContainer = styled.div`
-    background-color: ${blue.base};
     position: relative;
     margin-top: 65px;
     left: 8px;

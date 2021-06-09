@@ -22,7 +22,7 @@ const TestimonialContainer = styled.div`
 
     @media (min-width: 800px){
         grid-template-columns: 848px 848px;
-        width: 110%;
+        width: 100vw;
         position: relative;
         padding-left: 14%;
     }
