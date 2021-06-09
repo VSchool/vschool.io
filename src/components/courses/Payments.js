@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { gray } from "@vschool/lotus"
 
 const Container = styled.section`
@@ -67,22 +68,46 @@ const OptionContainer = styled.li`
 `
 
 const Payments = (props) => {
+    const data = useStaticQuery(graphql`
+    {
+      prismicCoursePageSharedData {
+        data {
+          payment_text {
+            text
+          }
+          payment_title {
+            text
+          }
+          payment_types {
+            type {
+              text
+            }
+          }
+          payment_checkmark {
+              alt
+              url
+          }
+        }
+      }
+    }
+  `)
     const {
-        payments_checkmark: {
+        payment_checkmark: {
             alt: checkAlt,
             url: checkUrl
         },
-        payments_options,
-        payments_subtitle: {
+        payment_types,
+        payment_text: {
             text: paySub
         },
-        payments_title: {
+        payment_title: {
             text: payTitle
         }
-    } = props;
+    } = data.prismicCoursePageSharedData.data;
+    console.log(data)
 
-    const mappedOptions = payments_options.map(
-        ({payment_type: {text}}) => 
+    const mappedOptions = payment_types.map(
+        ({type: {text}}) => 
         <OptionContainer>
             <img src={checkUrl} alt={checkAlt} />{text}
         </OptionContainer>)

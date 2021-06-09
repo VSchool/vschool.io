@@ -256,6 +256,14 @@
         },
         "label" : "Payment Types"
       }
+    },
+    "payment_checkmark" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "payment_checkmark"
+      }
     }
   },
   "CTA" : {

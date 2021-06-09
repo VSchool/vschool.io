@@ -86,6 +86,10 @@ const data = useStaticQuery(graphql`
           hero_form_button {
             text
           }
+          hero_form_icon {
+            alt
+            url
+          }
           hero_image {
             url
             alt
@@ -101,6 +105,10 @@ const data = useStaticQuery(graphql`
     hero_description: { text: heroDescription},
     hero_form,
     hero_form_button: { text: buttonText},
+    hero_form_icon: {
+      alt: iconAlt,
+      url: iconUrl
+    },
     hero_image: { url: heroImageUrl, alt: heroImageAlt},
   } = {...data.prismicVeteransLandingPage.data}
 
@@ -118,7 +126,7 @@ const data = useStaticQuery(graphql`
                                 <HeroDescription>
                                     {heroDescription}
                                 </HeroDescription>
-                                <Form formInfo={hero_form} buttonText={buttonText} type='hero' />
+                                <Form formInfo={hero_form} buttonText={buttonText} type='hero' icon={{iconAlt, iconUrl}} />
                             </>
                         }
                         image={

@@ -1,6 +1,7 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import { TextInput, Button } from "@vschool/lotus"
+import Link from '../shared/QueryLink'
 import { navigate } from "gatsby"
 
 const StyledForm = styled.form`
@@ -34,6 +35,16 @@ const StyledButton = styled(Button)`
     }
 `
 
+const StyledLink = styled(Link)`
+    display: block;
+    margin: 20px 0;
+`
+
+const StyledIcon = styled.img`
+    position: relative;
+    top: 5px;
+`
+
 export default function Form(props) {
     const [inputs, setInputs] = useState({
         firstName: "",
@@ -46,7 +57,7 @@ export default function Form(props) {
         setInputs(prev => ({ ...prev, [name]: value }))
     }
 
-    async function handleSubmit(e) {
+    async function handleSubmit(e, type) {
         e.preventDefault()
         let { firstName, lastName, email, phone } = inputs
         // Get the UTM parameters if they exist to add to the POST URL below
@@ -70,6 +81,7 @@ export default function Form(props) {
         )
         navigate("/gi-bill/success")
     }
+
 
     const stringifyInputs = input => {
         return (
@@ -137,6 +149,7 @@ export default function Form(props) {
             {mappedInputs}
             <div>
                 <StyledButton size="lg">{props.buttonText}</StyledButton>
+                <StyledLink to="https://calendly.com/v-school/apply"><StyledIcon src={props.icon.iconUrl} alt={props.icon.iconAlt} /> or schedule a time to talk</StyledLink>
             </div>
         </StyledForm>
     )
