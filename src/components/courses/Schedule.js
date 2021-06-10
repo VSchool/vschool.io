@@ -7,6 +7,7 @@ const Container = styled.section`
     background-color: ${gray.lighter};
     padding-top: 0;
     padding-bottom: 74px;
+    border:2px solid lightcoral;
 
     @media (min-width: 800px) {
         padding-top: 0;
