@@ -45,6 +45,7 @@ const Image = styled.img`
     position: absolute;
     width: 100%;
     max-width: 400px;
+    object-fit: cover;
 
     @media (min-width: 800px) {
         position: relative;
