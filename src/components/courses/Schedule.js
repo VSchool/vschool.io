@@ -6,7 +6,6 @@ import indicatorActive from '../../images/slider-indicator-active.svg'
 import indicatorInactive from '../../images/slider-indicator-inactive.svg'
 import previousInactiveMobile from '../../images/slider-previous-inactive-mobile.svg'
 import nextInactiveMobile from '../../images/slider-next-inactive-mobile.svg'
-
 import tempCalendarImg1 from '../../images/slider-schedule-mobile-1.svg'
 import tempCalendarImg2 from '../../images/slider-schedule-mobile-2.svg'
 import tempCalendarImg3 from '../../images/slider-schedule-mobile-3.svg'
@@ -51,7 +50,6 @@ const StyledSection = styled.section`
     padding-bottom: 72px;
     position: relative;
     background-color: ${gray.lighter};
-    // border:2px solid lightcoral;
 
     @media (min-width: 800px) {
         padding: 0px 136px 42px 136px;
@@ -71,7 +69,6 @@ const Title = styled.h4`
     text-align: center;
     font-style: normal;
     font-weight: 800;
-    // border: 1px dashed dodgerblue;
 
     @media (min-width: 800px) {
         margin-bottom: 22px;
@@ -87,7 +84,6 @@ const Body = styled.p`
     line-height: 18px;
     text-align: center;
     height: 92px;
-    // border: 1px dashed dodgerblue;
 
     @media (min-width: 800px) {
         margin-bottom: 75px;
@@ -102,7 +98,6 @@ const Image = styled.img`
     margin-bottom: 88px;
     width: 100%;
     filter: drop-shadow(0px 0.818966px 1.63793px rgba(0, 0, 0, 0.14)) drop-shadow(0px 1.22845px 1.63793px rgba(0, 0, 0, 0.12)) drop-shadow(0px 0.409483px 2.04741px rgba(0, 0, 0, 0.2));
-    // border: 1px dashed dodgerblue;
 
     @media (min-width: 800px) {
         width: 848px;
@@ -116,7 +111,6 @@ const SubText = styled.p`
     font-size: 12px;
     line-height: 16px;
     text-align: center;
-    // border: 1px dashed dodgerblue;
 
     @media (min-width: 800px) {
         width: 848px;
@@ -132,7 +126,6 @@ const IndicatorWrapper = styled.div`
     display: flex;
     gap: 16px;
     height: 20px;
-    // border: 1px solid green;
 
     @media (min-width: 800px) {
         top: 688px;
@@ -142,7 +135,6 @@ const IndicatorWrapper = styled.div`
 const SliderIndicator = styled.img`
     width: 20px;
     height: 20px;
-    // border: 1px dashed dodgerblue;
 `
 
 const PreviousButton = styled.img`
@@ -152,7 +144,6 @@ const PreviousButton = styled.img`
     width: 48px;
     height: 48px;
     filter: drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.14)) drop-shadow(0px 3px 14px rgba(0, 0, 0, 0.12)) drop-shadow(0px 4px 5px rgba(0, 0, 0, 0.2));
-    // border: 1px dashed blue;
 
     @media (min-width: 800px) {
         width: 72px;
@@ -169,7 +160,6 @@ const NextButton = styled.img`
     width: 48px;
     height: 48px;
     filter: drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.14)) drop-shadow(0px 3px 14px rgba(0, 0, 0, 0.12)) drop-shadow(0px 4px 5px rgba(0, 0, 0, 0.2));
-    // border: 1px dashed dodgerblue;
 
     @media (min-width: 800px) {
         width: 72px;
