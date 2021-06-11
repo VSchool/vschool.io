@@ -2,63 +2,24 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { gray } from "@vschool/lotus"
+import tempCalendarImg from '../../images/slider-schedule-mobile-1.svg'
 
-const Container = styled.section`
+const StyledSection = styled.section`
     background-color: ${gray.lighter};
-    padding-top: 0;
-    padding-bottom: 74px;
     border:2px solid lightcoral;
-
-    @media (min-width: 800px) {
-        padding-top: 0;
-    }
+`
+const Title = styled.h3`
+    border: 1px dashed dodgerblue;
 `
 
-const WidthContainer = styled.section`
-    max-width: 1200px;
+const Body = styled.p`
+    border: 1px dashed dodgerblue;
 `
 
-const Title = styled.h1`
-    font-size: 24px;
-    line-height: 32px;
-    color: ${gray.darkest};
-`
-
-const Text = styled.p`
-    & > p {
-        font-size: 16px;
-        line-height: 24px;
-        color: ${gray.darker};
-        padding: 20px 0 60px;
-    }
-`
-
-const Subtitle = styled.h3`
-    font-size: 17px;
-    line-height: 24px;
-    text-align: center;
-    font-weight: 800;
-    color: ${gray.darkest};
-`
-
-const SubText = styled.p`
-    font-size: 14px;
-    line-height: 18px;
-    text-align: center;
-    color: ${gray.darker};
-    padding: 18px 0 48px;
-`
-
-const Image = styled.img`
+const Image = styled.div`
     width: 100%;
-`
-
-const ImageText = styled.p`
-    font-size: 12px;
-    line-height: 16px;
-    text-align: center;
-    color: ${gray.darker};
-    padding-top: 30px;
+    height: 212px;
+    border: 1px dashed dodgerblue;
 `
 
 const ComponentName = () => {
@@ -100,21 +61,22 @@ const ComponentName = () => {
         schedule_text: { html: schedText },
         schedule_title: { text: schedTitle },
     } = data.prismicCoursePageSharedData.data
+
+    const tempObj = {
+        title: 'Title',
+        body: 'Body',
+        image: 'Image',
+        caption: 'Captions'
+    }
+
+    console.log(555, tempCalendarImg)
+
     return (
-        <Container>
-            <WidthContainer>
-                <Title>{schedTitle}</Title>
-                <Text dangerouslySetInnerHTML={{ __html: schedText }}></Text>
-                <Subtitle>{schedSubTitle}</Subtitle>
-                <SubText>{schedPara}</SubText>
-                {schedule_carousel_images.map(
-                    ({ carousel_image: { url: ImgUrl, alt: ImgAlt } }) => (
-                        <Image src={ImgUrl} alt={ImgAlt} />
-                    )
-                )}
-                <ImageText>{schedImgCap}</ImageText>
-            </WidthContainer>
-        </Container>
+        <StyledSection>
+            <Title>{tempObj.title}</Title>
+            <Body>{tempObj.body}</Body>
+            <Image />
+        </StyledSection>
     )
 }
 
