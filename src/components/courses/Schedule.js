@@ -50,6 +50,7 @@ const StyledSection = styled.section`
     padding-bottom: 72px;
     position: relative;
     background-color: ${gray.lighter};
+    border: 2px solid lightcoral;
 
     @media (min-width: 800px) {
         padding: 0px 136px 42px 136px;
