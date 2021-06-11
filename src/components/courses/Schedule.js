@@ -155,7 +155,9 @@ const PreviousButton = styled.img`
     // border: 1px dashed blue;
 
     @media (min-width: 800px) {
-        top: 392px;
+        width: 72px;
+        height: 72px;
+        top: 354px;
         left: 268px;
     }
 `
@@ -170,7 +172,9 @@ const NextButton = styled.img`
     // border: 1px dashed dodgerblue;
 
     @media (min-width: 800px) {
-        top: 392px;
+        width: 72px;
+        height: 72px;
+        top: 354px;
         right: 268px;
     }
 `
