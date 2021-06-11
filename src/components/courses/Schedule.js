@@ -51,12 +51,19 @@ const StyledSection = styled.section`
     padding-bottom: 72px;
     position: relative;
     background-color: ${gray.lighter};
-    border:2px solid lightcoral;
+    // border:2px solid lightcoral;
 
     @media (min-width: 800px) {
-        padding: 0px 136px 0px 136px;
+        padding: 0px 136px 42px 136px;
     }
 `
+const WidthWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+`
+
 const Title = styled.h4`
     margin-bottom: 18px;     
     width: 100%;
@@ -64,7 +71,13 @@ const Title = styled.h4`
     text-align: center;
     font-style: normal;
     font-weight: 800;
-    border: 1px dashed dodgerblue;
+    // border: 1px dashed dodgerblue;
+
+    @media (min-width: 800px) {
+        margin-bottom: 22px;
+        width: 848px;
+        height: 32px;
+    }
 `
 
 const Body = styled.p`
@@ -74,7 +87,15 @@ const Body = styled.p`
     line-height: 18px;
     text-align: center;
     height: 92px;
-    border: 1px dashed dodgerblue;
+    // border: 1px dashed dodgerblue;
+
+    @media (min-width: 800px) {
+        margin-bottom: 75px;
+        width: 848px;
+        height: auto;
+        font-size: 16px;
+        line-height: 24px;
+    }
 `
 
 const Image = styled.img`
@@ -82,6 +103,11 @@ const Image = styled.img`
     width: 100%;
     filter: drop-shadow(0px 0.818966px 1.63793px rgba(0, 0, 0, 0.14)) drop-shadow(0px 1.22845px 1.63793px rgba(0, 0, 0, 0.12)) drop-shadow(0px 0.409483px 2.04741px rgba(0, 0, 0, 0.2));
     // border: 1px dashed dodgerblue;
+
+    @media (min-width: 800px) {
+        width: 848px;
+        margin-bottom: 84px;
+    }
 `
 
 const SubText = styled.p`
@@ -90,7 +116,14 @@ const SubText = styled.p`
     font-size: 12px;
     line-height: 16px;
     text-align: center;
-    border: 1px dashed dodgerblue;
+    // border: 1px dashed dodgerblue;
+
+    @media (min-width: 800px) {
+        width: 848px;
+        height: auto;
+        font-size: 14px;
+        line-height: 18px;
+    }
 `
 
 const IndicatorWrapper = styled.div`
@@ -100,6 +133,10 @@ const IndicatorWrapper = styled.div`
     gap: 16px;
     height: 20px;
     // border: 1px solid green;
+
+    @media (min-width: 800px) {
+        top: 688px;
+    }
 `
 
 const SliderIndicator = styled.img`
@@ -118,7 +155,8 @@ const PreviousButton = styled.img`
     // border: 1px dashed blue;
 
     @media (min-width: 800px) {
-        left: 112px;
+        top: 392px;
+        left: 268px;
     }
 `
 
@@ -132,7 +170,8 @@ const NextButton = styled.img`
     // border: 1px dashed dodgerblue;
 
     @media (min-width: 800px) {
-        right: 112px;
+        top: 392px;
+        right: 268px;
     }
 `
 
@@ -201,31 +240,33 @@ const ComponentName = () => {
 
     return (
         <StyledSection>
-            <Title>{title}</Title>
-            <Body>{body}</Body>
-            <Image src={image} alt={'some text'} />
-            <SubText>{'** Each students schedule will vary depending on their availability and time commitment.'}</SubText>
-            <IndicatorWrapper>
-                {
-                    tempArr.map((obj, idx) => {
-                        if (idx === displayNumber) {
-                            return <SliderIndicator key={idx} src={indicatorActive} alt={'active icon'} />
-                        } else {
-                            return <SliderIndicator key={idx} src={indicatorInactive} alt={'inactive icon'} />
-                        }
-                    })
-                }
-            </IndicatorWrapper>
-            <PreviousButton 
-                src={previousInactiveMobile} 
-                alt={' previous image'} 
-                onClick={() => handlePreviousClick(displayNumber, setDisplayNumber)}
-            />
-            <NextButton 
-                src={nextInactiveMobile} 
-                alt={'next image'} 
-                onClick={() => handleNextClick(displayNumber, setDisplayNumber)}
-            />
+            <WidthWrapper>
+                <Title>{title}</Title>
+                <Body>{body}</Body>
+                <Image src={image} alt={'some text'} />
+                <SubText>{'** Each students schedule will vary depending on their availability and time commitment.'}</SubText>
+                <IndicatorWrapper>
+                    {
+                        tempArr.map((obj, idx) => {
+                            if (idx === displayNumber) {
+                                return <SliderIndicator key={idx} src={indicatorActive} alt={'active icon'} />
+                            } else {
+                                return <SliderIndicator key={idx} src={indicatorInactive} alt={'inactive icon'} />
+                            }
+                        })
+                    }
+                </IndicatorWrapper>
+                <PreviousButton 
+                    src={previousInactiveMobile} 
+                    alt={' previous image'} 
+                    onClick={() => handlePreviousClick(displayNumber, setDisplayNumber)}
+                />
+                <NextButton 
+                    src={nextInactiveMobile} 
+                    alt={'next image'} 
+                    onClick={() => handleNextClick(displayNumber, setDisplayNumber)}
+                />
+            </WidthWrapper>
         </StyledSection>
     )
 }
