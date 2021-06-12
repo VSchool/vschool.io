@@ -50,7 +50,7 @@ const StyledSection = styled.section`
     padding-bottom: 72px;
     position: relative;
     background-color: ${gray.lighter};
-    border: 2px solid lightcoral;
+    // border: 2px solid lightcoral;
 
     @media (min-width: 800px) {
         padding: 0px 136px 42px 136px;
@@ -64,20 +64,33 @@ const WidthWrapper = styled.div`
 `
 
 const SectionTitle = styled.h2`
+    margin-bottom: 20px;
     width: 100%;
     font-style: normal;
     font-weight: 800;
     font-size: 24px;
     line-height: 32px;
-    border: 1px dashed dodgerblue;
+
+    @media (min-width: 800px) {
+        margin-bottom: 30px;
+        font-weight: 900;
+        font-size: 32px;
+        line-height: 40px;
+    }
 `
 
 const SectionSubtitle = styled.p`
+    margin-bottom: 64px;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
     line-height: 24px;
-    border: 1px dashed dodgerblue;
+
+    @media (min-width: 800px) {
+        margin-bottom: 76px;
+        font-size: 20px;
+        line-height: 32px;
+    }
 `
 
 const Title = styled.h4`
@@ -104,7 +117,7 @@ const Body = styled.p`
     height: 92px;
 
     @media (min-width: 800px) {
-        margin-bottom: 75px;
+        margin-bottom: 76px;
         width: 848px;
         height: auto;
         font-size: 16px;
@@ -112,14 +125,18 @@ const Body = styled.p`
     }
 `
 
+const ImageWrapper = styled.div`
+    margin-bottom: 32px;
+    position: relative;
+    width: 100%;
+`
+
 const Image = styled.img`
-    margin-bottom: 88px;
     width: 100%;
     filter: drop-shadow(0px 0.818966px 1.63793px rgba(0, 0, 0, 0.14)) drop-shadow(0px 1.22845px 1.63793px rgba(0, 0, 0, 0.12)) drop-shadow(0px 0.409483px 2.04741px rgba(0, 0, 0, 0.2));
 
     @media (min-width: 800px) {
-        width: 848px;
-        margin-bottom: 84px;
+        width: 100%;
     }
 `
 
@@ -139,14 +156,13 @@ const SubText = styled.p`
 `
 
 const IndicatorWrapper = styled.div`
-    position: absolute;
-    top: 408px;
+    margin-bottom: 32px;
     display: flex;
     gap: 16px;
     height: 20px;
 
     @media (min-width: 800px) {
-        top: 688px;
+        // top: 688px;
     }
 `
 
@@ -157,8 +173,8 @@ const SliderIndicator = styled.img`
 
 const PreviousButton = styled.img`
     position: absolute;
-    top: 260px;
-    left: 8px;
+    top: 66px;
+    left: -8px;
     width: 48px;
     height: 48px;
     filter: drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.14)) drop-shadow(0px 3px 14px rgba(0, 0, 0, 0.12)) drop-shadow(0px 4px 5px rgba(0, 0, 0, 0.2));
@@ -166,15 +182,16 @@ const PreviousButton = styled.img`
     @media (min-width: 800px) {
         width: 72px;
         height: 72px;
-        top: 354px;
-        left: 268px;
+        top: 288px;
+        left: -40px;
     }
 `
 
 const NextButton = styled.img`
     position: absolute;
-    top: 260px;
-    right: 8px;
+    top: 0px;
+    right: -8px;
+    top: 66px;
     width: 48px;
     height: 48px;
     filter: drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.14)) drop-shadow(0px 3px 14px rgba(0, 0, 0, 0.12)) drop-shadow(0px 4px 5px rgba(0, 0, 0, 0.2));
@@ -182,8 +199,9 @@ const NextButton = styled.img`
     @media (min-width: 800px) {
         width: 72px;
         height: 72px;
-        top: 354px;
-        right: 268px;
+        top: 288px;
+        right: -40px;
+        // right: 268px;
     }
 `
 
@@ -253,14 +271,29 @@ const ComponentName = () => {
     return (
         <StyledSection>
             <WidthWrapper>
-                <SectionTitle>{'Customize Your Course Schedule'}</SectionTitle>
+                <SectionTitle>{schedTitle}</SectionTitle>
                 <SectionSubtitle>
-                    {'Hello'}<br />{'world'}
+                    {'It’s not always realistic to drop everything to go back to school and we understand that. We also don’t think that a busy schedule should delay you from the career you want.'}
+                    <br />
+                    <br />
+                    {'We will work with you to customize your class schedule so you move at a pace that is beneficial and realistic to your current situation.'}
                 </SectionSubtitle>
                 <Title>{title}</Title>
                 <Body>{body}</Body>
-                <Image src={image} alt={'some text'} />
-                <SubText>{'** Each students schedule will vary depending on their availability and time commitment.'}</SubText>
+                <ImageWrapper>
+                    <Image src={image} alt={'some text'} />
+                    <NextButton 
+                        src={nextInactiveMobile} 
+                        alt={'next image'} 
+                        onClick={() => handleNextClick(displayNumber, setDisplayNumber)}
+                    />
+
+                    <PreviousButton 
+                        src={previousInactiveMobile} 
+                        alt={' previous image'} 
+                        onClick={() => handlePreviousClick(displayNumber, setDisplayNumber)}
+                    />
+                </ImageWrapper>
                 <IndicatorWrapper>
                     {
                         tempArr.map((obj, idx) => {
@@ -272,16 +305,7 @@ const ComponentName = () => {
                         })
                     }
                 </IndicatorWrapper>
-                <PreviousButton 
-                    src={previousInactiveMobile} 
-                    alt={' previous image'} 
-                    onClick={() => handlePreviousClick(displayNumber, setDisplayNumber)}
-                />
-                <NextButton 
-                    src={nextInactiveMobile} 
-                    alt={'next image'} 
-                    onClick={() => handleNextClick(displayNumber, setDisplayNumber)}
-                />
+                <SubText>{'** Each students schedule will vary depending on their availability and time commitment.'}</SubText>
             </WidthWrapper>
         </StyledSection>
     )
