@@ -63,6 +63,23 @@ const WidthWrapper = styled.div`
     max-width: 1200px;
 `
 
+const SectionTitle = styled.h2`
+    width: 100%;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 32px;
+    border: 1px dashed dodgerblue;
+`
+
+const SectionSubtitle = styled.p`
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    border: 1px dashed dodgerblue;
+`
+
 const Title = styled.h4`
     margin-bottom: 18px;     
     width: 100%;
@@ -236,6 +253,10 @@ const ComponentName = () => {
     return (
         <StyledSection>
             <WidthWrapper>
+                <SectionTitle>{'Customize Your Course Schedule'}</SectionTitle>
+                <SectionSubtitle>
+                    {'Hello'}<br />{'world'}
+                </SectionSubtitle>
                 <Title>{title}</Title>
                 <Body>{body}</Body>
                 <Image src={image} alt={'some text'} />
