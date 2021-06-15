@@ -118,12 +118,18 @@ const FlexContainer = styled.div`
 `
 
 const FlexContainer2 = styled.div`
-    display: block;
-    width: 100%;
-    @media (min-width: 800px) {
-        display: flex;
-        justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    max-width: 1100px;
+    margin: auto;
+    grid-gap: 30px;
+   
+    @media (min-width: 400px) {
+        grid-template-columns: repeat(2, 1fr);
         padding-top: 64px;
+    }
+    @media (min-width: 800px) {
+        grid-template-columns: repeat(3, 1fr);
     }
 `
 
@@ -140,6 +146,7 @@ const SkillTitle = styled.h4`
     font-size: 20px;
     line-height: 24px;
     color: #21201f;
+    margin-bottom: 20px;
 `
 
 const SkillTextContainer = styled.ul`
@@ -160,16 +167,8 @@ const SkillText = styled.li`
     }
 `
 
-const Logo = styled.img`
-    max-width: 80px;
-    display: block;
-    margin: 50px auto;
-    @media (min-width: 800px) {
-        max-width: 320px;
-        padding: 0 90px 80px;
-        margin: 0;
-    }
-`
+
+
 
 const Description = props => {
     // const data = useStaticQuery(graphql`
@@ -195,38 +194,37 @@ const Description = props => {
     //     }
     // `)
 
-    // const mappedSkills = data.prismicCoursePage.data.body.map(
-    //     ({
-    //         items,
-    //         primary: {
-    //             skill_name: { text: skillName },
-    //         },
-    //     }) => {
-    //         return (
-    //             <SkillContainer>
-    //                 <SkillTitle>{skillName}</SkillTitle>
-    //                 <SkillTextContainer>
-    //                     {items.map(({ skill_text: { text: skillDesc } }) => (
-    //                         <SkillText>{skillDesc}</SkillText>
-    //                     ))}
-    //                 </SkillTextContainer>
-    //             </SkillContainer>
-    //         )
-    //     }
-    // )
+    const mappedSkills = props.body.map(
+        ({
+            items,
+            primary: {
+                skill_name: { text: skillName },
+            },
+        }) => {
+            return (
+                <SkillContainer>
+                    <SkillTitle>{skillName}</SkillTitle>
+                    <SkillTextContainer>
+                        {items.map(({ skill_text: { text: skillDesc } }) => (
+                            <SkillText>{skillDesc}</SkillText>
+                        ))}
+                    </SkillTextContainer>
+                </SkillContainer>
+            )
+        }
+    )
 
-    // const {
-    //     description_image: { alt: descAlt, url: descUrl },
-    //     description_subtitle: { text: descSub },
-    //     description_text: { html: descText },
-    //     description_title: { text: descTitle },
-    // } = props
+    const {
+        description_image: { alt: descAlt, url: descUrl },
+        description_subtitle: { text: descSub },
+        description_text: { html: descText },
+        description_title: { text: descTitle },
+    } = props
 
-    console.log(props)
     return (
         <Container>
             <WidthContainer>
-                {/* <Title>{descTitle}</Title>
+                <Title>{descTitle}</Title>
                 <FlexContainer>
                     <Image src={descUrl} alt={descAlt} />
                     <IndustryDetails>
@@ -235,7 +233,7 @@ const Description = props => {
                             dangerouslySetInnerHTML={{ __html: descText }}
                         ></Text>
                     </IndustryDetails>
-                </FlexContainer> */}
+                </FlexContainer>
                 {/* <FlexContainer2>
                     {description_philosophies.map(
                         ({
@@ -250,7 +248,7 @@ const Description = props => {
                     )}
                 </FlexContainer2> */}
                 <FlexContainer2>
-                    {/* {mappedSkills} */}
+                    {mappedSkills}
                     {/* <Logo src={logoUrl} alt={logoAlt} /> */}
                 </FlexContainer2>
             </WidthContainer>
