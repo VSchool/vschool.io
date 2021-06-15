@@ -48,25 +48,9 @@ const Answer = styled.p`
     color: ${gray.darker};
 `
 
-export default function FAQ() {
-    const data = useStaticQuery(graphql`
-        {
-            prismicScholarshipPage {
-                data {
-                    faq_list {
-                        faq_question {
-                            text
-                        }
-                        faq_answer {
-                            text
-                        }
-                    }
-                }
-            }
-        }
-    `)
+export default function FAQ(props) {
 
-    const { faq_list: questionsList } = data.prismicScholarshipPage.data
+    const questionsList = props.faq_list
 
     const faqs = questionsList.map(faq => (
         <Group key={faq.faq_question.text}>

@@ -60,7 +60,7 @@ const ImageText = styled.p`
     padding-top: 30px;
 `
 
-const ComponentName = () => {
+const Schedule = () => {
     const data = useStaticQuery(graphql`
         {
             prismicCoursePageSharedData {
@@ -117,4 +117,4 @@ const ComponentName = () => {
     )
 }
 
-export default ComponentName
+export default Schedule

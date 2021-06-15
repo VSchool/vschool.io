@@ -30,7 +30,7 @@ export default function Scholarship({ data }) {
             {detailsExist && <Details {...data} />}
             <Stages />
             <Form {...data} deadlinePast={deadlinePast} />
-            {deadlinePast ? <ClosedAppCTA /> : <FAQ />}
+            {deadlinePast ? <ClosedAppCTA /> : <FAQ {...data} />}
             <Companies />
             <Rankings />
             <Testimonial {...data} />
