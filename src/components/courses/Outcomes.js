@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { blue, gray } from "@vschool/lotus"
+import { blue, gray, green } from "@vschool/lotus"
 
 const Container = styled.section`
     background-color: ${gray.lighter};
@@ -53,8 +53,8 @@ const Image = styled.img`
 `
 
 const ImageTextContainer = styled.div`
-    background: ${blue.darker};
-    border: 2px solid ${blue.base};
+    background: ${props => props.color.bgColor};
+    border: 2px solid ${props => props.color.border};
     box-sizing: border-box;
     position: absolute;
     height: 316px;
@@ -140,8 +140,8 @@ const Title = styled.h1`
 const StatBox = styled.div`
     margin: 20px 0px;
     padding: 0 20px;
-    border-top: 2px ${blue.base} solid;
-    border-bottom: 2px ${blue.base} solid;
+    border-top: 2px ${props => props.color} solid;
+    border-bottom: 2px ${props => props.color} solid;
 
     @media (min-width: 800px) {
         margin: 10px 0px;
@@ -177,7 +177,7 @@ const StatNum = styled.p`
     font-weight: 900;
     line-height: 48px;
     text-align: center;
-    color: ${blue.darker};
+    color: ${props => props.color};
     padding: 0px 10px 10px 10px;
 
     @media (min-width: 800px) {
@@ -196,6 +196,7 @@ const Outcomes = props => {
         outcomes_testimonials,
     } = props
 
+    
     return (
         <Container>
             <>
@@ -208,19 +209,20 @@ const Outcomes = props => {
                     }}
                 >
                     {outcomes_stats.map(({ stat_text, stat_number }, i) => (
-                        <StatBox
+                        <StatBox 
+                            color={props.course_name.text === "UX/UI Design" ? blue.base : green.base}
                             style={
                                 i === 0
                                     ? {
-                                          borderRight: `.5px solid ${blue.base}`,
+                                          borderRight: `.5px solid ${props.course_name.text === "UX/UI Design" ? blue.base : green.base}`,
                                       }
                                     : {
-                                          borderLeft: `.5px solid ${blue.base}`,
+                                          borderLeft: `.5px solid ${props.course_name.text === "UX/UI Design" ? blue.base : green.base}`,
                                       }
                             }
                         >
                             <StatText>{stat_text.text}</StatText>
-                            <StatNum>{stat_number.text}</StatNum>
+                            <StatNum color={props.course_name.text === "UX/UI Design" ? blue.darker : green.darker}>{stat_number.text}</StatNum>
                         </StatBox>
                     ))}
                 </div>
@@ -238,7 +240,7 @@ const Outcomes = props => {
                                 <>
                                     <ImageContainer>
                                         <Image src={testURL} alt={testAlt} />
-                                        <ImageTextContainer>
+                                        <ImageTextContainer color={props.course_name.text === "UX/UI Design" ? {border: blue.base, bgColor: blue.darker} : {border: green.base, bgColor: green.darker}}>
                                             <ImageText>{testText}</ImageText>
                                             <div>
                                                 <ImageName>
