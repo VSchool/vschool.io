@@ -2,6 +2,8 @@ import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { gray } from "@vschool/lotus"
+
+// All this will come from prismic
 import indicatorActive from '../../images/slider-indicator-active.svg'
 import indicatorInactive from '../../images/slider-indicator-inactive.svg'
 import previousInactiveMobile from '../../images/slider-previous-inactive-mobile.svg'
@@ -13,6 +15,7 @@ import tempCalendarImg4 from '../../images/slider-schedule-mobile-4.svg'
 import tempCalendarImg5 from '../../images/slider-schedule-mobile-5.svg'
 import tempCalendarImg6 from '../../images/slider-schedule-mobile-6.svg'
 
+// This will also come from prismic
 const tempArr = [
     {
         title: 'Learning That Fits With Your Schedule',
@@ -46,6 +49,8 @@ const tempArr = [
     }
 ]
 
+
+// This is your code
 const StyledSection = styled.section`
     padding-bottom: 72px;
     position: relative;
@@ -56,20 +61,39 @@ const StyledSection = styled.section`
         padding: 0px 136px 42px 136px;
     }
 `
+// This is the code I had before --- it's not a big deal but what is your reasoning behind changing the name and some of the code? 
+// was it not working with some of the newer code you had? (to be clear, this is not me being passive aggressive, just genuinely curious haha)
+
+// const Container = styled.section`
+//     background-color: ${gray.lighter};
+//     padding-top: 0;
+//     padding-bottom: 74px;
+
+//     @media (min-width: 800px) {
+//         padding-top: 0;
+//     }
+// `
+
+
+// Same question here about the name change
 const WidthWrapper = styled.div`
-    display: flex;
+    /* A good rule of thumb here is to add the CSS Styles and then comment go to the browser and comment these things in and out to see if they are doing what you expect */
+    /* If you go and comment out display: flex; you will see that nothing changes on the browser, if that is ever the case, then it typically means you don't need to be using that code */
+
+    /* display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; */
     max-width: 1200px;
 `
 
 const SectionTitle = styled.h2`
     margin-bottom: 20px;
-    width: 100%;
-    font-style: normal;
+    /* width: 100%; Does nothing when commented out */
+    /* font-style: normal; Does nothing when commented out */
     font-weight: 800;
     font-size: 24px;
     line-height: 32px;
+    color: ${gray.darkest};
 
     @media (min-width: 800px) {
         margin-bottom: 30px;
@@ -78,6 +102,12 @@ const SectionTitle = styled.h2`
         line-height: 40px;
     }
 `
+
+// const Title = styled.h1`
+    // font-size: 24px;
+    // line-height: 32px;
+    // color: ${gray.darkest};
+// `
 
 const SectionSubtitle = styled.p`
     margin-bottom: 64px;
@@ -312,3 +342,133 @@ const ComponentName = () => {
 }
 
 export default ComponentName
+
+
+
+
+
+
+
+
+
+
+// import React from "react"
+// import { useStaticQuery, graphql } from "gatsby"
+// import styled from "styled-components"
+// import { gray } from "@vschool/lotus"
+
+// const Container = styled.section`
+//     background-color: ${gray.lighter};
+//     padding-top: 0;
+//     padding-bottom: 74px;
+
+//     @media (min-width: 800px) {
+//         padding-top: 0;
+//     }
+// `
+
+// const WidthContainer = styled.section`
+//     max-width: 1200px;
+// `
+
+// const Title = styled.h1`
+//     font-size: 24px;
+//     line-height: 32px;
+//     color: ${gray.darkest};
+// `
+
+// const Text = styled.p`
+//     & > p {
+//         font-size: 16px;
+//         line-height: 24px;
+//         color: ${gray.darker};
+//         padding: 20px 0 60px;
+//     }
+// `
+
+// const Subtitle = styled.h3`
+//     font-size: 17px;
+//     line-height: 24px;
+//     text-align: center;
+//     font-weight: 800;
+//     color: ${gray.darkest};
+// `
+
+// const SubText = styled.p`
+//     font-size: 14px;
+//     line-height: 18px;
+//     text-align: center;
+//     color: ${gray.darker};
+//     padding: 18px 0 48px;
+// `
+
+// const Image = styled.img`
+//     width: 100%;
+// `
+
+// const ImageText = styled.p`
+//     font-size: 12px;
+//     line-height: 16px;
+//     text-align: center;
+//     color: ${gray.darker};
+//     padding-top: 30px;
+// `
+
+// const Schedule = () => {
+//     const data = useStaticQuery(graphql`
+//         {
+//             prismicCoursePageSharedData {
+//                 data {
+//                     schedule_carousel_images {
+//                         carousel_image {
+//                             url
+//                             alt
+//                         }
+//                     }
+//                     schedule_images_caption {
+//                         text
+//                     }
+//                     schedule_subtitle {
+//                         text
+//                     }
+//                     schedule_subtitle_paragraph {
+//                         text
+//                     }
+//                     schedule_text {
+//                         html
+//                     }
+//                     schedule_title {
+//                         text
+//                     }
+//                 }
+//             }
+//         }
+//     `)
+
+//     const {
+//         schedule_carousel_images,
+//         schedule_images_caption: { text: schedImgCap },
+//         schedule_subtitle: { text: schedSubTitle },
+//         schedule_subtitle_paragraph: { text: schedPara },
+//         schedule_text: { html: schedText },
+//         schedule_title: { text: schedTitle },
+//     } = data.prismicCoursePageSharedData.data
+//     return (
+//         <Container>
+//             <WidthContainer>
+//                 <Title>{schedTitle}</Title>
+//                 <Text dangerouslySetInnerHTML={{ __html: schedText }}></Text>
+//                 <Subtitle>{schedSubTitle}</Subtitle>
+//                 <SubText>{schedPara}</SubText>
+//                 {schedule_carousel_images.map(
+//                     ({ carousel_image: { url: ImgUrl, alt: ImgAlt } }) => (
+//                         <Image src={ImgUrl} alt={ImgAlt} />
+//                     )
+//                 )}
+//                 <ImageText>{schedImgCap}</ImageText>
+//             </WidthContainer>
+//         </Container>
+//     )
+// }
+
+// export default Schedule
