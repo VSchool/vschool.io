@@ -255,6 +255,20 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                             payments_title {
                                 text
                             }
+                            body {
+                                ... on PrismicCoursePageBodySkillsSection {
+                                    items {
+                                        skill_text {
+                                            text
+                                        }
+                                    }
+                                    primary {
+                                        skill_name {
+                                            text
+                                        }
+                                    }
+                                }
+                            }
                             body1 {
                                 ... on PrismicCoursePageBody1TeamIndividuals {
                                     id
