@@ -130,14 +130,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                                 alt
                                 url
                             }
-                            description_philosophies {
-                                philosophy_description {
-                                    text
-                                }
-                                philosophy_title {
-                                    text
-                                }
-                            }
                             description_subtitle {
                                 text
                             }
@@ -146,10 +138,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                             }
                             description_title {
                                 text
-                            }
-                            description_logo {
-                                alt
-                                url
                             }
                             faq_title {
                                 text
@@ -254,6 +242,20 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                             }
                             payments_title {
                                 text
+                            }
+                            body {
+                                ... on PrismicCoursePageBodySkillsSection {
+                                    items {
+                                        skill_text {
+                                            text
+                                        }
+                                    }
+                                    primary {
+                                        skill_name {
+                                            text
+                                        }
+                                    }
+                                }
                             }
                             body1 {
                                 ... on PrismicCoursePageBody1TeamIndividuals {
