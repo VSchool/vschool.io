@@ -99,7 +99,7 @@ const Schedule = () => {
         schedule_text: { html: schedText },
         schedule_title: { text: schedTitle },
     } = data.prismicCoursePageSharedData.data
-    console.log(schedule_carousel_images)
+    console.log(schedText)
     return (
         <Container>
             <WidthContainer>
