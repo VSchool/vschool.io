@@ -50,7 +50,6 @@ const tempArr = [
 ]
 
 
-// This is your code
 const StyledSection = styled.section`
     padding-bottom: 72px;
     position: relative;
@@ -61,35 +60,19 @@ const StyledSection = styled.section`
         padding: 0px 136px 42px 136px;
     }
 `
-// This is the code I had before --- it's not a big deal but what is your reasoning behind changing the name and some of the code? 
-// was it not working with some of the newer code you had? (to be clear, this is not me being passive aggressive, just genuinely curious haha)
-
-// const Container = styled.section`
-//     background-color: ${gray.lighter};
-//     padding-top: 0;
-//     padding-bottom: 74px;
-
-//     @media (min-width: 800px) {
-//         padding-top: 0;
-//     }
-// `
 
 
-// Same question here about the name change
 const WidthWrapper = styled.div`
-    /* A good rule of thumb here is to add the CSS Styles and then comment go to the browser and comment these things in and out to see if they are doing what you expect */
-    /* If you go and comment out display: flex; you will see that nothing changes on the browser, if that is ever the case, then it typically means you don't need to be using that code */
-
-    /* display: flex;
+    display: flex;
     flex-direction: column;
-    align-items: center; */
+    align-items: center;
     max-width: 1200px;
 `
 
 const SectionTitle = styled.h2`
     margin-bottom: 20px;
-    /* width: 100%; Does nothing when commented out */
-    /* font-style: normal; Does nothing when commented out */
+    width: 100%; 
+    font-style: normal; 
     font-weight: 800;
     font-size: 24px;
     line-height: 32px;
@@ -103,15 +86,8 @@ const SectionTitle = styled.h2`
     }
 `
 
-// const Title = styled.h1`
-    // font-size: 24px;
-    // line-height: 32px;
-    // color: ${gray.darkest};
-// `
 
 const SectionSubtitle = styled.p`
-    /* margin-bottom: 64px; padding is a better option than margin when possible
-    font-style: normal; not changing anything */
     font-weight: normal;
     font-size: 16px;
     line-height: 24px;
@@ -120,47 +96,21 @@ const SectionSubtitle = styled.p`
     padding: 20px 0 60px;
 
     @media (min-width: 800px) {
-        /* margin-bottom: 76px; */
         font-size: 20px;
         line-height: 32px;
     }
 `
-// const Text = styled.p`
-//     & > p {
-        // font-size: 16px;
-        // line-height: 24px;
-        // color: ${gray.darker};
-        // padding: 20px 0 60px;
-//     }
-// `
+
 
 
 const Title = styled.h4`
-    /* margin-bottom: 18px; 
-    width: 100%;
-    height: 50px;
-    font-style: normal; */
     text-align: center;
     font-weight: 800;
     
     font-size: 17px;
     line-height: 24px;
     color: ${gray.darkest};
-
-    /* @media (min-width: 800px) {
-        margin-bottom: 22px;
-        width: 848px;
-        height: 32px;
-    } */
 `
-
-// const Subtitle = styled.h3`
-    // font-size: 17px;
-    // line-height: 24px;
-    // text-align: center;
-    // font-weight: 800;
-    // color: ${gray.darkest};
-// `
 
 const Body = styled.p`
     margin-bottom: 48px;
@@ -273,12 +223,12 @@ const ComponentName = () => {
                     schedule_images_caption {
                         text
                     }
-                    schedule_subtitle {
-                        text
-                    }
-                    schedule_subtitle_paragraph {
-                        text
-                    }
+                    # schedule_subtitle {
+                    #     text
+                    # }
+                    # schedule_subtitle_paragraph {
+                    #     text
+                    # }
                     schedule_text {
                         html
                     }
@@ -293,8 +243,8 @@ const ComponentName = () => {
     const {
         schedule_carousel_images,
         schedule_images_caption: { text: schedImgCap },
-        schedule_subtitle: { text: schedSubTitle },
-        schedule_subtitle_paragraph: { text: schedPara },
+        // schedule_subtitle: { text: schedSubTitle },
+        // schedule_subtitle_paragraph: { text: schedPara },
         schedule_text: { html: schedText },
         schedule_title: { text: schedTitle },
     } = data.prismicCoursePageSharedData.data
