@@ -171,7 +171,7 @@ const SkillText = styled.li`
 
 
 const Description = props => {
-
+    console.log(props, 'description')
     const mappedSkills = props.body.map(
         ({
             items,

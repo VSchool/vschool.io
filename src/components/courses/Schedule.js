@@ -66,18 +66,18 @@ const Schedule = () => {
             prismicCoursePageSharedData {
                 data {
                     schedule_carousel_images {
+                        carousel_paragraph {
+                            text
+                        }
+                        carousel_title {
+                            text
+                        }
                         carousel_image {
-                            url
                             alt
+                            url
                         }
                     }
                     schedule_images_caption {
-                        text
-                    }
-                    schedule_subtitle {
-                        text
-                    }
-                    schedule_subtitle_paragraph {
                         text
                     }
                     schedule_text {
@@ -94,21 +94,30 @@ const Schedule = () => {
     const {
         schedule_carousel_images,
         schedule_images_caption: { text: schedImgCap },
-        schedule_subtitle: { text: schedSubTitle },
-        schedule_subtitle_paragraph: { text: schedPara },
+        // schedule_subtitle: { text: schedSubTitle },
+        // schedule_subtitle_paragraph: { text: schedPara },
         schedule_text: { html: schedText },
         schedule_title: { text: schedTitle },
     } = data.prismicCoursePageSharedData.data
+    console.log(schedule_carousel_images)
     return (
         <Container>
             <WidthContainer>
                 <Title>{schedTitle}</Title>
                 <Text dangerouslySetInnerHTML={{ __html: schedText }}></Text>
-                <Subtitle>{schedSubTitle}</Subtitle>
-                <SubText>{schedPara}</SubText>
+                {/* <Subtitle>{schedSubTitle}</Subtitle>
+                <SubText>{schedPara}</SubText> */}
                 {schedule_carousel_images.map(
-                    ({ carousel_image: { url: ImgUrl, alt: ImgAlt } }) => (
-                        <Image src={ImgUrl} alt={ImgAlt} />
+                    ({ 
+                        carousel_image: { url: ImgUrl, alt: ImgAlt },
+                        carousel_title: {text: schedSubTitle },
+                        carousel_paragraph: {text: schedPara }
+                         }) => (
+                        <>
+                            <Subtitle>{schedSubTitle}</Subtitle>
+                            <SubText>{schedPara}</SubText>
+                            <Image src={ImgUrl} alt={ImgAlt} />
+                        </>
                     )
                 )}
                 <ImageText>{schedImgCap}</ImageText>
