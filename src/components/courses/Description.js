@@ -171,28 +171,6 @@ const SkillText = styled.li`
 
 
 const Description = props => {
-    // const data = useStaticQuery(graphql`
-    //     {
-    //         prismicCoursePage(uid: { eq: "design" }) {
-    //             data {
-    //                 body {
-    //                     ... on PrismicCoursePageBodySkillsSection {
-    //                         items {
-    //                             skill_text {
-    //                                 text
-    //                             }
-    //                         }
-    //                         primary {
-    //                             skill_name {
-    //                                 text
-    //                             }
-    //                         }
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //     }
-    // `)
 
     const mappedSkills = props.body.map(
         ({
@@ -234,22 +212,8 @@ const Description = props => {
                         ></Text>
                     </IndustryDetails>
                 </FlexContainer>
-                {/* <FlexContainer2>
-                    {description_philosophies.map(
-                        ({
-                            philosophy_description: { text: philDesc },
-                            philosophy_title: { text: philTitle },
-                        }) => (
-                            <PhilContainer>
-                                <PhilTitle>{philTitle}</PhilTitle>
-                                <PhilText>{philDesc} </PhilText>
-                            </PhilContainer>
-                        )
-                    )}
-                </FlexContainer2> */}
                 <FlexContainer2>
                     {mappedSkills}
-                    {/* <Logo src={logoUrl} alt={logoAlt} /> */}
                 </FlexContainer2>
             </WidthContainer>
         </Container>
