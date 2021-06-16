@@ -105,8 +105,6 @@ const Schedule = () => {
             <WidthContainer>
                 <Title>{schedTitle}</Title>
                 <Text dangerouslySetInnerHTML={{ __html: schedText }}></Text>
-                {/* <Subtitle>{schedSubTitle}</Subtitle>
-                <SubText>{schedPara}</SubText> */}
                 {schedule_carousel_images.map(
                     ({ 
                         carousel_image: { url: ImgUrl, alt: ImgAlt },
