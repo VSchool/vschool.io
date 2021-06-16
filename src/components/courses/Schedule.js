@@ -110,33 +110,57 @@ const SectionTitle = styled.h2`
 // `
 
 const SectionSubtitle = styled.p`
-    margin-bottom: 64px;
-    font-style: normal;
+    /* margin-bottom: 64px; padding is a better option than margin when possible
+    font-style: normal; not changing anything */
     font-weight: normal;
     font-size: 16px;
     line-height: 24px;
 
+    color: ${gray.darker};
+    padding: 20px 0 60px;
+
     @media (min-width: 800px) {
-        margin-bottom: 76px;
+        /* margin-bottom: 76px; */
         font-size: 20px;
         line-height: 32px;
     }
 `
+// const Text = styled.p`
+//     & > p {
+        // font-size: 16px;
+        // line-height: 24px;
+        // color: ${gray.darker};
+        // padding: 20px 0 60px;
+//     }
+// `
+
 
 const Title = styled.h4`
-    margin-bottom: 18px;     
+    /* margin-bottom: 18px; 
     width: 100%;
     height: 50px;
+    font-style: normal; */
     text-align: center;
-    font-style: normal;
     font-weight: 800;
+    
+    font-size: 17px;
+    line-height: 24px;
+    color: ${gray.darkest};
 
-    @media (min-width: 800px) {
+    /* @media (min-width: 800px) {
         margin-bottom: 22px;
         width: 848px;
         height: 32px;
-    }
+    } */
 `
+
+// const Subtitle = styled.h3`
+    // font-size: 17px;
+    // line-height: 24px;
+    // text-align: center;
+    // font-weight: 800;
+    // color: ${gray.darkest};
+// `
 
 const Body = styled.p`
     margin-bottom: 48px;

@@ -217,11 +217,11 @@ const Description = props => {
 
     const {
         description_image: { alt: descAlt, url: descUrl },
-        description_philosophies,
+        // description_philosophies,
         description_subtitle: { text: descSub },
         description_text: { html: descText },
         description_title: { text: descTitle },
-        description_logo: { alt: logoAlt, url: logoUrl },
+        // description_logo: { alt: logoAlt, url: logoUrl },
     } = props
     return (
         <Container>
@@ -236,7 +236,7 @@ const Description = props => {
                         ></Text>
                     </IndustryDetails>
                 </FlexContainer>
-                <FlexContainer2>
+                {/* <FlexContainer2>
                     {description_philosophies.map(
                         ({
                             philosophy_description: { text: philDesc },
@@ -248,10 +248,10 @@ const Description = props => {
                             </PhilContainer>
                         )
                     )}
-                </FlexContainer2>
+                </FlexContainer2> */}
                 <FlexContainer2>
                     {mappedSkills}
-                    <Logo src={logoUrl} alt={logoAlt} />
+                    {/* <Logo src={logoUrl} alt={logoAlt} /> */}
                 </FlexContainer2>
             </WidthContainer>
         </Container>
