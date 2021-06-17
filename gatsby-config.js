@@ -1,6 +1,7 @@
 require("dotenv").config({
     path: `.env.${process.env.NODE_ENV}`,
 })
+const linkResolver = require("./src/utils/linkResolver")
 
 module.exports = {
     siteMetadata: {
@@ -90,7 +91,7 @@ module.exports = {
                     "xd-page": require("./src/schemas/xd-page.json"),
                     "you-belong": require("./src/schemas/you-belong.json"),
                 },
-                linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
+                linkResolver: () => doc => linkResolver(doc),
             },
         },
         {
