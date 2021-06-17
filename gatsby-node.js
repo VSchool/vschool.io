@@ -418,7 +418,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
 
     actions.createRedirect({
-        fromPath: "/design",
+        fromPath: "/experience-design",
         toPath: "/courses/design",
         isPermanent: true,
         force: true,
