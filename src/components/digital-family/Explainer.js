@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-import { white, gray, blue } from "@vschool/lotus"
+import { gray, blue } from "@vschool/lotus"
 
 const Container = styled.section`
     margin-top: -160px;
