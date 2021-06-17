@@ -333,7 +333,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     const courseTemplate = path.resolve(`./src/templates/course.js`)
     const coursePages = result.data.allPrismicCoursePage.edges
     coursePages.forEach(({ node }) => {
-        console.log(node)
         node.url = `/courses/${node.uid}/`
         actions.createPage({
             path: node.url,
@@ -418,7 +417,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
 
     actions.createRedirect({
-        fromPath: "/design",
+        fromPath: "/experience-design",
         toPath: "/courses/design",
         isPermanent: true,
         force: true,
