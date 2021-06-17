@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { TextInput, Button } from "@vschool/lotus"
-import Link from '../shared/QueryLink'
+import Link from "../shared/QueryLink"
 import { navigate } from "gatsby"
 
 const StyledForm = styled.form`
@@ -82,7 +82,6 @@ export default function Form(props) {
         navigate("/gi-bill/success")
     }
 
-
     const stringifyInputs = input => {
         return (
             input[0].toLowerCase() +
@@ -149,7 +148,13 @@ export default function Form(props) {
             {mappedInputs}
             <div>
                 <StyledButton size="lg">{props.buttonText}</StyledButton>
-                <StyledLink to="https://calendly.com/v-school/apply"><StyledIcon src={props.icon.iconUrl} alt={props.icon.iconAlt} /> or schedule a time to talk</StyledLink>
+                <StyledLink to="https://calendly.com/v-school/apply">
+                    <StyledIcon
+                        src={props.icon.iconUrl}
+                        alt={props.icon.iconAlt}
+                    />{" "}
+                    or schedule a time to talk
+                </StyledLink>
             </div>
         </StyledForm>
     )
