@@ -23,7 +23,7 @@ const Title = styled.h1`
     color: ${gray.darkest};
 `
 
-const Text = styled.p`
+const Text = styled.div`
     & > p {
         font-size: 16px;
         line-height: 24px;
@@ -94,23 +94,20 @@ const Schedule = () => {
     const {
         schedule_carousel_images,
         schedule_images_caption: { text: schedImgCap },
-        // schedule_subtitle: { text: schedSubTitle },
-        // schedule_subtitle_paragraph: { text: schedPara },
         schedule_text: { html: schedText },
         schedule_title: { text: schedTitle },
     } = data.prismicCoursePageSharedData.data
-    console.log(schedText)
     return (
         <Container>
             <WidthContainer>
                 <Title>{schedTitle}</Title>
                 <Text dangerouslySetInnerHTML={{ __html: schedText }}></Text>
                 {schedule_carousel_images.map(
-                    ({ 
+                    ({
                         carousel_image: { url: ImgUrl, alt: ImgAlt },
-                        carousel_title: {text: schedSubTitle },
-                        carousel_paragraph: {text: schedPara }
-                         }) => (
+                        carousel_title: { text: schedSubTitle },
+                        carousel_paragraph: { text: schedPara },
+                    }) => (
                         <>
                             <Subtitle>{schedSubTitle}</Subtitle>
                             <SubText>{schedPara}</SubText>

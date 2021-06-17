@@ -38,7 +38,7 @@ const Image = styled.img`
         width: 50%;
     }
 
-    @media (min-width: 1000px){
+    @media (min-width: 1000px) {
         padding: 50px 60px;
     }
 `
@@ -123,7 +123,7 @@ const FlexContainer2 = styled.div`
     max-width: 1100px;
     margin: auto;
     grid-gap: 30px;
-   
+
     @media (min-width: 400px) {
         grid-template-columns: repeat(2, 1fr);
         padding-top: 64px;
@@ -167,11 +167,7 @@ const SkillText = styled.li`
     }
 `
 
-
-
-
 const Description = props => {
-    console.log(props, 'description')
     const mappedSkills = props.body.map(
         ({
             items,
@@ -212,9 +208,7 @@ const Description = props => {
                         ></Text>
                     </IndustryDetails>
                 </FlexContainer>
-                <FlexContainer2>
-                    {mappedSkills}
-                </FlexContainer2>
+                <FlexContainer2>{mappedSkills}</FlexContainer2>
             </WidthContainer>
         </Container>
     )
