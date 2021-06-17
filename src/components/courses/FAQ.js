@@ -78,7 +78,7 @@ function FAQ(props) {
         },
         faq_questions
     } = props
-    console.log(props)
+    
     return (
         <Container>
             <H3>{title}</H3>

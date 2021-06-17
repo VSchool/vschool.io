@@ -73,7 +73,6 @@ function FAQ(props) {
         maxWidth: 672,
     }
     const { faq } = props
-    console.log(props)
     return (
         <Container>
             <H3>Frequently Asked Questions</H3>
