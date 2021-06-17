@@ -104,7 +104,6 @@ const Payments = (props) => {
             text: payTitle
         }
     } = data.prismicCoursePageSharedData.data;
-    console.log(data)
 
     const mappedOptions = payment_types.map(
         ({type: {text}}) => 
