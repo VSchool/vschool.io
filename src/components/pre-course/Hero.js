@@ -103,22 +103,22 @@ const Hero = () => {
     }
 `)
     const {
-        hero_button: [{ 
+        hero_button: { 
             text: heroBtn
-        }],
+        },
         hero_image: {
             alt: imgAlt,
             url: imgUrl
         },
-        hero_subtitle: [{
+        hero_subtitle: {
             text: heroSub
-        }],
-        hero_tag: [{
+        },
+        hero_tag: {
             text: heroTag
-        }],
-        hero_title: [{
+        },
+        hero_title: {
             text: heroTitle
-        }],
+        },
     } = data.prismicPrecourseCommunitiesPage.data
 
     return (
