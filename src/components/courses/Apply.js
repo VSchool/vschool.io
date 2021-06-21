@@ -2,6 +2,8 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { blue, gray, Button } from "@vschool/lotus"
+import { navigate } from "@reach/router"
+import QueryLink from "../shared/QueryLink.js"
 
 const Container = styled.section`
     background-color: ${gray.lighter};
@@ -214,7 +216,7 @@ const ApplyButton = styled(Button)`
     width: 160px;
 `
 
-const Apply = () => {
+const Apply = (props) => {
   const data = useStaticQuery(graphql`
     {
       prismicCoursePageSharedData {
@@ -278,12 +280,8 @@ const Apply = () => {
     apply_date_background:{ url: dateUrl, alt: dateAlt},
     apply_date_text:{ text: dateText},
     apply_date_title:{ text: dateTitle},
-    apply_dev:{ text: appDev},
-    apply_dev_button:{ text: appDevBtn},
-    apply_dev_link:{ text: appDevLink},
     apply_how_background:{ url: howUrl, alt: howAlt},
     apply_how_button:{ text: howBtn },
-    apply_how_link:{ text: howLink },
     apply_how_title:{ text: howTitle },
     apply_steps,
     apply_title:{ text: appTitle},
@@ -299,7 +297,13 @@ const Apply = () => {
             <StepText>{stepText}</StepText>
             <StepInfo>{stepInfo}</StepInfo>
         </Step>)
-
+    
+  const {
+      apply_other: { text: other },
+      apply_other_button: { text: otherBtn },
+      apply_other_link: { url: otherUrl }
+  } = props
+    
   return (
       <>
         <Container>
@@ -319,14 +323,16 @@ const Apply = () => {
                     <StepContainer>
                         {steps}
                     </StepContainer>
-                    <StyledButton>{howBtn}</StyledButton>
+                    <QueryLink to="https://calendly.com/v-school/apply">
+                        <StyledButton>{howBtn}</StyledButton>
+                    </QueryLink>
                 </HowContainer>
             </div>
         </BlueContainer>
         <BottomContainer>
             <DevContainer>
-                <ApplyDev>{appDev}</ApplyDev>
-                <ApplyButton>{appDevBtn}</ApplyButton>
+                <ApplyDev>{other}</ApplyDev>
+                <ApplyButton onClick={() => navigate(otherUrl)}>{otherBtn}</ApplyButton>
             </DevContainer>
         </BottomContainer>
       </>
