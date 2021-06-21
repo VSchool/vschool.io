@@ -1,6 +1,7 @@
 import React from 'react'
 import Hero from './Hero'
 import Info from './Info'
+import Career from './Career'
 import styled from 'styled-components'
 import { gray } from '@vschool/lotus'
 
@@ -13,6 +14,7 @@ export default function PreCourse() {
         <PageContainer>
            <Hero />
            <Info />
+           <Career />
         </PageContainer>
     )
 }
