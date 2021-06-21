@@ -12,8 +12,6 @@ import Payments from "./Payments"
 import Form from "./Form"
 import Apply from "./Apply"
 import FAQ from "./FAQ"
-import { useStaticQuery, graphql } from "gatsby"
-import { blue, gray } from "@vschool/lotus"
 
 export default function Index({ data }) {
     return (
@@ -29,7 +27,7 @@ export default function Index({ data }) {
             <Schedule />
             <Team {...data} />
             <Payments {...data} />
-            <Apply />
+            <Apply {...data} />
             <FAQ {...data} />
         </>
     )
