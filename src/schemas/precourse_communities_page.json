@@ -191,6 +191,78 @@
         },
         "label": "Career Box"
       }
+    },
+    "career_up_arrow": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Career Up Arrow"
+      }
+    },
+    "career_down_arrow": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Career Down Arrow"
+      }
+    }
+  },
+  "Start": {
+    "start_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Start Title"
+      }
+    },
+    "start_button_text": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Start Button Text"
+      }
+    },
+    "start_right_arrow": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Start Right Arrow"
+      }
+    }
+  },
+  "Partnership": {
+    "partnership_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Partnership Title"
+      }
+    },
+    "partnership_info": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "partnership_logo": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Partnership Logo"
+            }
+          },
+          "partnership_description": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+              "label": "Partnership Description"
+            }
+          }
+        },
+        "label": "Partnership Info"
+      }
     }
   }
 }
