@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 const Container = styled.section`
     background-color: ${gray.lighter};
-    padding: 250px 40px;
+    padding: 250px 40px 80px;
 
     @media (min-width: 800px){
         padding: 96px 80px;

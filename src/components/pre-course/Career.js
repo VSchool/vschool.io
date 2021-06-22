@@ -1,14 +1,14 @@
-import React from "react"
+import React, {useState} from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
-import { gray, blue } from "@vschool/lotus"
+import { gray, Button } from "@vschool/lotus"
 
 const Container = styled.section`
     background-color: ${gray.lighter};
     padding: 20px 40px;
 
     @media (min-width: 800px){
-        padding: 96px 80px;
+        padding: 0px 80px 96px;
     }
 `
 
@@ -18,18 +18,16 @@ const Title = styled.h1`
     line-height: 32px;
     text-align: center;
     color: ${gray.darkest};
+    padding-bottom: 48px;
 
     @media (min-width: 800px){
         font-size: 32px;
         line-height: 40px;
+        padding-bottom: 64px;
     }
 `
 
 const BoxContainer = styled.div`
-
-    @media (min-width: 800px){
-     
-    }
 
 `
 
@@ -37,9 +35,11 @@ const BoxInnerContainer = styled.div`
     display: flex;
     border: 1px solid black;
     gap: 20px;
-    margin: 10px;
-    max-width: 1200px;
+    margin: 10px 10px 0;
+    min-width: 400px;
+    max-width: 900px;
     align-items: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 1px 5px rgba(0, 0, 0, 0.2);
 
     @media (min-width: 800px){
      
@@ -71,19 +71,92 @@ const BoxSubtitle = styled.p`
     }
 `
 
-const BoxLogo = styled.img`
-   
-`
-
-const InfoContainer = styled.div`
+const BoxMainContainer = styled.div`
+    padding-right: 0px;
 
     @media (min-width: 800px){
-     
+        padding-right: 70px;
+    }
+`
+
+const Arrow = styled.img`
+    margin: 0 20px 0 0px;
+    margin-left: auto;
+
+    @media (min-width: 800px){
+        margin: 0 80px;
     }
 
 `
-const Paragraph = styled.p`
 
+const BoxDropContainer = styled.div`
+    max-width: 900px;
+    margin: 0 10px 10px;
+    border: 1px solid black;
+    display: block;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 1px 5px rgba(0, 0, 0, 0.2);
+
+    @media (min-width: 800px){
+        display: flex;
+    }
+`
+
+const ContentGrid = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 48px;
+    grid-gap: 40px;
+`
+
+const GridTop = styled.div`
+    grid-column: 1/-1;
+`
+
+const GridBottomLeft = styled.div`
+    grid-column: 1/2;
+    grid-row: 2/4;
+`
+
+const GridRightTop = styled.div`
+    grid-column: 2/-1;
+    grid-row: 2/3;
+`
+
+const GridRightBottom = styled.div`
+    grid-column: 2/-1;
+    grid-row: 3/4;
+`
+
+
+const GridTitle = styled.p`
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+    color: ${gray.darkest};
+`
+
+const GridDescription = styled.div`
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    color: ${gray.darker};
+
+    & > p {
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 18px;
+        color: ${gray.darker};
+    }
+`
+
+const ImageContainer = styled.div`
+    padding: 48px;
+
+    & > button {
+        width: 300px;
+        margin-top: 20px;
+    }
 
     @media (min-width: 800px){
        
@@ -94,7 +167,9 @@ const Paragraph = styled.p`
 
 
 
-const ComponentName = () => {
+const Career = () => {
+    const [open, setOpen] = useState(false);
+
   const data = useStaticQuery(graphql`
     {
       prismicPrecourseCommunitiesPage {
@@ -145,14 +220,31 @@ const ComponentName = () => {
               text
             }
           }
+          career_down_arrow {
+            alt
+            url
+          }
+          career_up_arrow {
+            alt
+            url
+          }
         }
       }
     }
   `)
 
+
   const {
     career_title: { text: careerTitle },
-    career_box
+    career_box,
+    career_down_arrow: {
+        alt: downAlt,
+        url: downUrl
+    },
+    career_up_arrow: {
+        alt: upAlt,
+        url: upUrl
+    }
   } = data.prismicPrecourseCommunitiesPage.data
 
   const mappedBoxes = career_box.map(({
@@ -169,13 +261,40 @@ const ComponentName = () => {
     career_box_desc_title: { text: BoxDescTitle },
     career_box_desc_sub: { text: BoxDescSub },
     career_box_button_text: { text: BoxButtonText }
-  }) => <BoxInnerContainer>
-            <BoxLogo src={logoUrl} alt={logoAlt} />
-            <div>
-                <BoxMainTitle>{BoxTitle}</BoxMainTitle>
-                <BoxSubtitle>{BoxSub}</BoxSubtitle>
-            </div>
-        </BoxInnerContainer>
+  }) => <>
+    <BoxInnerContainer onClick={() => setOpen(prev => prev === BoxTitle ? false : BoxTitle)} style={{marginBottom: open === BoxTitle ? 0 : 24, boxShadow: open === BoxTitle && 'none'}}>
+        <img src={logoUrl} alt={logoAlt} />
+        <BoxMainContainer>
+            <BoxMainTitle>{BoxTitle}</BoxMainTitle>
+            <BoxSubtitle>{BoxSub}</BoxSubtitle>
+        </BoxMainContainer>
+        <Arrow src={open === BoxTitle ? upUrl : downUrl} alt={open === BoxTitle ? upAlt : downAlt} />
+    </BoxInnerContainer>
+    <BoxDropContainer style={{display: open !== BoxTitle && 'none', marginBottom: open === BoxTitle ? 24 : 0}}>
+        <ContentGrid>
+            <GridTop>
+                <GridTitle>{BoxDescTitle}</GridTitle>
+                <GridDescription>{BoxDescSub}</GridDescription>
+            </GridTop>
+            <GridBottomLeft>
+                <GridTitle>{BoxTopicsTitle}</GridTitle>
+                <GridDescription dangerouslySetInnerHTML={{ __html: BoxTopics }}></GridDescription>
+            </GridBottomLeft>
+            <GridRightTop>
+                <GridTitle>{BoxLenTitle}</GridTitle>
+                <GridDescription>{BoxLenSub}</GridDescription>
+            </GridRightTop>
+            <GridRightBottom>
+                <GridTitle>{BoxDiffTitle}</GridTitle>
+                <GridDescription>{BoxDiffSub}</GridDescription>
+            </GridRightBottom>
+        </ContentGrid>
+        <ImageContainer>
+            <img src={imgUrl} alt={imgAlt} />
+            <Button>{BoxButtonText}</Button>
+        </ImageContainer>
+    </BoxDropContainer>
+    </>
   )
   return (
       <Container>
@@ -187,4 +306,4 @@ const ComponentName = () => {
   )
 }
 
-export default ComponentName
+export default Career
