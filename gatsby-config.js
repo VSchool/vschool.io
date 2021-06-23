@@ -73,6 +73,8 @@ module.exports = {
                     "my-base-scholarship": require("./src/schemas/my-base-scholarship.json"),
                     navigation_bar: require("./src/schemas/navigation_bar.json"),
                     payment_options: require("./src/schemas/payment_options.json"),
+                    precourse_communities_page: require("./src/schemas/precourse_communities_page.json"),
+                    pre_course_community_form: require("./src/schemas/pre_course_community_form.json"),
                     press: require("./src/schemas/press.json"),
                     rankings_component: require("./src/schemas/rankings_component.json"),
                     responsive_learning: require("./src/schemas/responsive_learning.json"),
