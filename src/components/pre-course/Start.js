@@ -6,9 +6,14 @@ import { gray, Button, blue } from "@vschool/lotus"
 const Container = styled.section`
     background-color: ${blue.lightest};
     padding: 96px 40px;
+    background-image: url(${props => props.bgImage});
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
     @media (min-width: 800px){
         padding: 172px 80px 140px;
+        background-size: auto;
     }
 `
 
@@ -46,6 +51,10 @@ const Start = () => {
     {
       prismicPrecourseCommunitiesPage {
         data {
+            start_background_image {
+                alt
+                url
+            }
             start_button_text {
                 text
             }
@@ -63,6 +72,7 @@ const Start = () => {
 
 
   const {
+    start_background_image: { alt: circleAlt, url: circleUrl },
     start_button_text: { text: StartBtn},
     start_right_arrow: { alt: arrowAlt, url: arrowUrl},
     start_title: { text: StartTitle},
@@ -70,7 +80,7 @@ const Start = () => {
 
   
   return (
-      <Container>
+      <Container bgImage={circleUrl}>
           <Title>{StartTitle}</Title>
           <StyledButton>{StartBtn} <img src={arrowUrl} alt={arrowAlt} /></StyledButton>
       </Container>
