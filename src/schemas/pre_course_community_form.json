@@ -1,0 +1,137 @@
+{
+  "Hero": {
+    "hero_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1,heading2,heading3,heading4,heading5,heading6",
+        "label": "Hero Title"
+      }
+    },
+    "hero_subtitle": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+        "label": "Hero Subtitle"
+      }
+    },
+    "hero_description": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+        "label": "Hero Description"
+      }
+    }
+  },
+  "Form": {
+    "form_first_name": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+        "label": "Form First Name"
+      }
+    },
+    "form_last_name": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+        "label": "Form Last Name"
+      }
+    },
+    "form_email": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+        "label": "Form Email"
+      }
+    },
+    "form_phone": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+        "label": "Form Phone"
+      }
+    },
+    "form_select_course": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+        "label": "Form Select Course"
+      }
+    },
+    "form_select_items": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "form_select_logo": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Form Select Logo"
+            }
+          },
+          "form_select_title": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+              "label": "Form Select Title"
+            }
+          }
+        },
+        "label": "Form Select Items"
+      }
+    },
+    "form_checkmark": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Form Checkmark"
+      }
+    },
+    "form_goals_title": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+        "label": "Form Goals Title"
+      }
+    },
+    "form_goals_items": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "form_goals_item": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+              "label": "Form Goals Item"
+            }
+          }
+        },
+        "label": "Form Goals Items"
+      }
+    },
+    "form_why": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+        "label": "Form Why"
+      }
+    },
+    "form_button_text": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+        "label": "Form Button Text"
+      }
+    },
+    "form_required": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Form Required"
+      }
+    }
+  }
+}
