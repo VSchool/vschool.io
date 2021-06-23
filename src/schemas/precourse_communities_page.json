@@ -231,6 +231,14 @@
         "thumbnails": [],
         "label": "Start Right Arrow"
       }
+    },
+    "start_background_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Start Background Image"
+      }
     }
   },
   "Partnership": {
