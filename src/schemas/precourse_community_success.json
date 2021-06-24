@@ -1,0 +1,110 @@
+{
+    "Hero": {
+        "success_title": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Success Title"
+            }
+        },
+        "success_subtitle": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Success Subtitle"
+            }
+        },
+        "success_description": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Success Description"
+            }
+        },
+        "success_image": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Success Image"
+            }
+        }
+    },
+    "What's Next": {
+        "next_title": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Next Title"
+            }
+        },
+        "next_subtitle": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Next Subtitle"
+            }
+        },
+        "next_sections": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "section_number": {
+                        "type": "Image",
+                        "config": {
+                            "constraint": {},
+                            "thumbnails": [],
+                            "label": "Section Number"
+                        }
+                    },
+                    "section_logo": {
+                        "type": "Image",
+                        "config": {
+                            "constraint": {},
+                            "thumbnails": [],
+                            "label": "Section Logo"
+                        }
+                    },
+                    "section_title": {
+                        "type": "StructuredText",
+                        "config": {
+                            "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                            "label": "Section Title"
+                        }
+                    },
+                    "section_subtitle": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                            "label": "Section Subtitle"
+                        }
+                    }
+                },
+                "label": "Next Sections"
+            }
+        }
+    },
+    "Courses": {
+        "courses_title": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Courses Title"
+            }
+        },
+        "courses_subtitle": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Courses Subtitle"
+            }
+        },
+        "courses_description": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Courses Description"
+            }
+        }
+    }
+}
