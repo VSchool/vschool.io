@@ -2,15 +2,14 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { gray, blue } from "@vschool/lotus"
+import CoursesNew from "../shared/CoursesNew"
 
 const Container = styled.section`
-    background-color: ${blue.lightest};
+    background-color: ${gray.lighter};
     padding: 64px 40px;
 
     @media (min-width: 800px) {
         padding: 96px 80px;
-        height: 570px;
-        margin-bottom: 310px;
     }
 `
 
@@ -61,30 +60,23 @@ const Description = styled.p`
     }
 `
 
-const Image = styled.img`
-    width: 100%;
-
-    @media (min-width: 800px) {
-        max-width: 620px;
-    }
+const CardsContainer = styled.div`
+    display: flex;
+    justify-content: center;
 `
 
-const Hero = () => {
+const Courses = () => {
     const data = useStaticQuery(graphql`
         {
             prismicPrecourseCommunitySuccess {
                 data {
-                    success_description {
+                    courses_description {
                         text
                     }
-                    success_image {
-                        alt
-                        url
-                    }
-                    success_subtitle {
+                    courses_subtitle {
                         text
                     }
-                    success_title {
+                    courses_title {
                         text
                     }
                 }
@@ -93,10 +85,9 @@ const Hero = () => {
     `)
 
     const {
-        success_description: { text: description },
-        success_image: { alt, url },
-        success_subtitle: { text: subtitle },
-        success_title: { text: title },
+        courses_description: { text: description },
+        courses_subtitle: { text: subtitle },
+        courses_title: { text: title },
     } = data.prismicPrecourseCommunitySuccess.data
 
     return (
@@ -104,9 +95,11 @@ const Hero = () => {
             <Subtitle>{subtitle}</Subtitle>
             <Title>{title}</Title>
             <Description>{description}</Description>
-            <Image src={url} alt={alt} />
+            <CardsContainer>
+                <CoursesNew />
+            </CardsContainer>
         </Container>
     )
 }
 
-export default Hero
+export default Courses
