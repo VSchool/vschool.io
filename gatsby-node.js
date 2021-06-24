@@ -123,6 +123,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                     node {
                         uid
                         data {
+                            apply_other {
+                                text
+                            }
+                            apply_other_button {
+                                text
+                            }
+                            apply_other_link {
+                                url
+                            }
                             course_name {
                                 text
                             }
