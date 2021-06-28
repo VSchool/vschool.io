@@ -30,6 +30,7 @@ const Title = styled.h1`
 `
 
 const Subtitle = styled.p`
+    font-family: "aktiv-grotesk-extended";
     font-weight: 800;
     font-size: 14px;
     line-height: 20px;
