@@ -165,7 +165,7 @@ const ImageContainer = styled.div`
     }
 `
 
-const Career = () => {
+const Career = props => {
     const [open, setOpen] = useState(false)
 
     const data = useStaticQuery(graphql`
@@ -303,7 +303,7 @@ const Career = () => {
                     </ContentGrid>
                     <ImageContainer>
                         <img src={imgUrl} alt={imgAlt} />
-                        <Button>{BoxButtonText}</Button>
+                        <Button onClick={props.submit}>{BoxButtonText}</Button>
                     </ImageContainer>
                 </BoxDropContainer>
             </>
