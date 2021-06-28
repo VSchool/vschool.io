@@ -16,7 +16,7 @@ const Container = styled.section`
     padding: 0px 40px 64px;
 
     @media (min-width: 800px) {
-        padding: 0px 80px 96px;
+        padding: 0px 80px 160px;
     }
 `
 
@@ -99,7 +99,13 @@ const StyledTextarea = styled(Textarea)`
     }
 `
 
-const StyledButton = styled(Button)``
+const StyledButton = styled(Button)`
+    @media (min-width: 800px) {
+        width: 268px;
+        height: 56px;
+        font-size: 14px;
+    }
+`
 
 const Block = styled.div`
     display: flex;
