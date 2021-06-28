@@ -7,7 +7,7 @@ const Container = styled.section`
     background-color: ${gray.lighter};
     padding: 250px 40px 80px;
 
-    @media (min-width: 800px){
+    @media (min-width: 800px) {
         padding: 96px 80px;
     }
 `
@@ -20,7 +20,7 @@ const InfoTitle = styled.h1`
     color: ${gray.darkest};
     padding-bottom: 16px;
 
-    @media (min-width: 800px){
+    @media (min-width: 800px) {
         font-size: 44px;
         line-height: 48px;
         padding-bottom: 24px;
@@ -28,6 +28,7 @@ const InfoTitle = styled.h1`
 `
 
 const InfoSub = styled.p`
+    font-family: "aktiv-grotesk-extended";
     font-weight: 800;
     font-size: 14px;
     line-height: 20px;
@@ -37,7 +38,7 @@ const InfoSub = styled.p`
     color: ${blue.base};
     padding-bottom: 64px;
 
-    @media (min-width: 800px){
+    @media (min-width: 800px) {
         font-size: 16px;
         line-height: 24px;
         padding-bottom: 96px;
@@ -45,13 +46,11 @@ const InfoSub = styled.p`
 `
 
 const InfoContainer = styled.div`
-
-    @media (min-width: 800px){
+    @media (min-width: 800px) {
         display: flex;
         gap: 20px;
         max-width: 1200px;
     }
-
 `
 const Paragraph = styled.p`
     font-weight: normal;
@@ -61,12 +60,11 @@ const Paragraph = styled.p`
     color: ${gray.darker};
     padding-bottom: 64px;
 
-    @media (min-width: 800px){
+    @media (min-width: 800px) {
         font-size: 16px;
         line-height: 24px;
         padding-bottom: 80px;
     }
-
 `
 const Title = styled.p`
     font-weight: 800;
@@ -76,15 +74,14 @@ const Title = styled.p`
     color: ${gray.darkest};
     padding-bottom: 8px;
 
-
-    @media (min-width: 800px){
+    @media (min-width: 800px) {
         font-size: 20px;
         line-height: 24px;
         padding-bottom: 12px;
         min-height: 60px;
     }
 
-    @media (min-width: 1200px){
+    @media (min-width: 1200px) {
         min-height: 0;
     }
 `
@@ -98,59 +95,57 @@ const Logo = styled.img`
 
 const Info = () => {
     const data = useStaticQuery(graphql`
-    {
-        prismicPrecourseCommunitiesPage {
-            data {
-                info_box {
-                    box_logo {
-                        alt
-                        url
+        {
+            prismicPrecourseCommunitiesPage {
+                data {
+                    info_box {
+                        box_logo {
+                            alt
+                            url
+                        }
+                        box_paragraph {
+                            text
+                        }
+                        box_title {
+                            text
+                        }
                     }
-                    box_paragraph {
+                    info_subtitle {
                         text
                     }
-                    box_title {
+                    info_title {
                         text
                     }
-                }
-                info_subtitle {
-                    text
-                }
-                info_title {
-                    text
                 }
             }
         }
-    }
-`)
+    `)
     const {
         info_box,
-        info_title: { 
-            text: infoTitle
-        },
-        info_subtitle: {
-            text: infoSub
-        },
-    } = data.prismicPrecourseCommunitiesPage.data;
+        info_title: { text: infoTitle },
+        info_subtitle: { text: infoSub },
+    } = data.prismicPrecourseCommunitiesPage.data
 
-    const mappedBoxes = info_box.map(({
-        box_logo: { alt: logoAlt, url: logoUrl },
-        box_paragraph: { text: boxPara },
-        box_title: { text: boxTitle }
-    }) => <div>
-              <Logo src={logoUrl} alt={logoAlt} />
-              <Title>{boxTitle}</Title>
-              <Paragraph>{boxPara}</Paragraph>
-          </div>)
+    const mappedBoxes = info_box.map(
+        ({
+            box_logo: { alt: logoAlt, url: logoUrl },
+            box_paragraph: { text: boxPara },
+            box_title: { text: boxTitle },
+        }) => (
+            <div>
+                <Logo src={logoUrl} alt={logoAlt} />
+                <Title>{boxTitle}</Title>
+                <Paragraph>{boxPara}</Paragraph>
+            </div>
+        )
+    )
     return (
         <Container>
             <InfoTitle>{infoTitle}</InfoTitle>
             <InfoSub>{infoSub}</InfoSub>
-            <InfoContainer>
-                {mappedBoxes}
-            </InfoContainer>
+            <InfoContainer>{mappedBoxes}</InfoContainer>
         </Container>
-    );
-};
+    )
+}
 
-export default Info;
+export default Info
