@@ -76,7 +76,7 @@ const StyledButton = styled(Button)`
     }
 `
 
-const Hero = () => {
+const Hero = props => {
     const data = useStaticQuery(graphql`
         {
             prismicPrecourseCommunitiesPage {
@@ -123,7 +123,7 @@ const Hero = () => {
                         <HeroTitle>{heroTitle}</HeroTitle>
                         <HeroParagraph>{heroSub}</HeroParagraph>
                         <BlueSubtext>{heroTag}</BlueSubtext>
-                        <StyledButton>
+                        <StyledButton onClick={props.submit}>
                             {heroBtn} <img src={arrowUrl} alt={arrowAlt} />
                         </StyledButton>
                     </div>
