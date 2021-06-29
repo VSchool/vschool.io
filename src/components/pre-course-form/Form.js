@@ -39,6 +39,10 @@ const FormInputs1 = styled.div`
 
 const StyledTextInput = styled(TextInput)`
     margin-bottom: 20px;
+
+    & > label {
+        display: none;
+    }
 `
 
 const StyledLabel = styled.label`
@@ -95,7 +99,8 @@ const StyledCheckbox = styled(Checkbox)`
 const StyledTextarea = styled(Textarea)`
     margin: 10px 0 30px;
 
-    @media (min-width: 800px) {
+    & > label {
+        display: none;
     }
 `
 
@@ -282,6 +287,7 @@ const Form = () => {
                             name="firstName"
                             placeholder="John"
                             onChange={handleChange}
+                            required
                         />
                     </div>
 
@@ -293,6 +299,7 @@ const Form = () => {
                             name="lastName"
                             placeholder="Doe"
                             onChange={handleChange}
+                            required
                         />
                     </div>
 
@@ -304,6 +311,7 @@ const Form = () => {
                             name="email"
                             placeholder="johndoe@email.com"
                             onChange={handleChange}
+                            required
                         />
                     </div>
 
@@ -390,6 +398,7 @@ const Form = () => {
                     value={inputs.why}
                     name="why"
                     onChange={handleChange}
+                    required
                 ></StyledTextarea>
                 <StyledButton>{fBtnText}</StyledButton>
             </FormContainer>
