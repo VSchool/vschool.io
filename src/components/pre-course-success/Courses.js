@@ -9,7 +9,7 @@ const Container = styled.section`
     padding: 64px 40px;
 
     @media (min-width: 800px) {
-        padding: 96px 80px;
+        padding: 96px 80px 160px;
     }
 `
 
