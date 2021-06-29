@@ -165,6 +165,11 @@ const ImageContainer = styled.div`
     }
 `
 
+const StyledButton = styled(Button)`
+    filter: ${props => props.type === "UX / UI Design" && "brightness(1.8)"};
+    font-size: 14px;
+`
+
 const Career = props => {
     const [open, setOpen] = useState(false)
 
@@ -303,7 +308,15 @@ const Career = props => {
                     </ContentGrid>
                     <ImageContainer>
                         <img src={imgUrl} alt={imgAlt} />
-                        <Button onClick={props.submit}>{BoxButtonText}</Button>
+                        <StyledButton
+                            onClick={props.submit}
+                            type={BoxTitle}
+                            disabled={BoxTitle === "UX / UI Design"}
+                        >
+                            {BoxTitle === "UX / UI Design"
+                                ? "Coming Soon"
+                                : BoxButtonText}
+                        </StyledButton>
                     </ImageContainer>
                 </BoxDropContainer>
             </>
