@@ -7,6 +7,7 @@ import {
     blue,
     TextInput,
     Checkbox,
+    CheckboxRadioGroup,
     Textarea,
     Button,
 } from "@vschool/lotus"
@@ -92,8 +93,9 @@ const CheckContainer = styled.div`
 `
 
 const StyledCheckbox = styled(Checkbox)`
-    margin: 0;
-    padding: 0;
+    /* & > label {
+        font-size: 10px;
+    } */
 `
 
 const StyledTextarea = styled(Textarea)`
@@ -382,12 +384,15 @@ const Form = () => {
                     {form_goals_items.map(
                         ({ form_goals_item: { text: item } }) => (
                             <CheckContainer>
-                                <StyledCheckbox
-                                    value={item}
-                                    name="goals"
-                                    onChange={handleChange}
-                                />
-                                <StyledLabel font={"thin"}>{item}</StyledLabel>
+                                <CheckboxRadioGroup style={{ height: 20 }}>
+                                    <Checkbox
+                                        value={item}
+                                        name="goals"
+                                        onChange={handleChange}
+                                    >
+                                        {item}
+                                    </Checkbox>
+                                </CheckboxRadioGroup>
                             </CheckContainer>
                         )
                     )}
