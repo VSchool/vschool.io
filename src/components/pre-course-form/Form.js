@@ -93,9 +93,9 @@ const CheckContainer = styled.div`
 `
 
 const StyledCheckbox = styled(Checkbox)`
-    /* & > label {
-        font-size: 10px;
-    } */
+    & label {
+        font-size: 0.9em;
+    }
 `
 
 const StyledTextarea = styled(Textarea)`
@@ -290,6 +290,7 @@ const Form = () => {
                             placeholder="John"
                             onChange={handleChange}
                             required
+                            validationText="auto-generate"
                         />
                     </div>
 
@@ -302,29 +303,32 @@ const Form = () => {
                             placeholder="Doe"
                             onChange={handleChange}
                             required
+                            validationText="auto-generate"
                         />
                     </div>
 
                     <div>
                         <StyledLabel required={reqUrl}>{fEmail}</StyledLabel>
                         <StyledTextInput
-                            type="text"
+                            type="email"
                             value={inputs.email}
                             name="email"
                             placeholder="johndoe@email.com"
                             onChange={handleChange}
                             required
+                            validationText="auto-generate"
                         />
                     </div>
 
                     <div>
                         <StyledLabel>{fPhone}</StyledLabel>
                         <StyledTextInput
-                            type="text"
+                            type="phone"
                             value={inputs.phone}
                             name="phone"
                             placeholder="801-555-1234"
                             onChange={handleChange}
+                            validationText="auto-generate"
                         />
                     </div>
                 </FormInputs1>
@@ -385,13 +389,13 @@ const Form = () => {
                         ({ form_goals_item: { text: item } }) => (
                             <CheckContainer>
                                 <CheckboxRadioGroup style={{ height: 20 }}>
-                                    <Checkbox
+                                    <StyledCheckbox
                                         value={item}
                                         name="goals"
                                         onChange={handleChange}
                                     >
                                         {item}
-                                    </Checkbox>
+                                    </StyledCheckbox>
                                 </CheckboxRadioGroup>
                             </CheckContainer>
                         )
