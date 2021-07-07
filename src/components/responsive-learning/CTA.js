@@ -148,10 +148,9 @@ export default function CTA(props) {
                                 ... on PrismicStartDate {
                                     id
                                     data {
-                                        course_name {
-                                            text
-                                        }
-                                        start_date(formatString: "MMMM Do, YYYY")
+                                        start_date(
+                                            formatString: "MMMM Do, YYYY"
+                                        )
                                     }
                                 }
                             }
@@ -179,7 +178,7 @@ export default function CTA(props) {
         cta_btn_link: { url: ctaLink },
         cta_courses,
         cta_header: { text: ctaHeader },
-        cta_subheader: { text: ctaSubheader }
+        cta_subheader: { text: ctaSubheader },
     } = data.prismicResponsiveLearning.data
 
     return (

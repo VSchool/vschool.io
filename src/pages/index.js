@@ -124,9 +124,7 @@ export default function IndexPage({ data }) {
 
 export const query = graphql`
     {
-        prismicStartDate(
-            data: { course_name: { text: { eq: "Web Development" } } }
-        ) {
+        prismicStartDate {
             data {
                 start_date(formatString: "MMM Do, YYYY")
             }
@@ -221,9 +219,6 @@ export const query = graphql`
                             ... on PrismicStartDate {
                                 id
                                 data {
-                                    course_name {
-                                        text
-                                    }
                                     start_date(formatString: "MMMM Do, YYYY")
                                 }
                             }
