@@ -21,7 +21,6 @@ export default function MyBaseScholarship({ data }) {
         testimonial_img: { url: testimonialImg },
         testimonial2: { text: testimonial2 },
         testimonial: { text: testimonial },
-        start_date,
         ratings_header: { text: ratingsHeader },
         ratings,
         bootcamp_rankings_link: { url: bootcampRankingsLink },
@@ -49,6 +48,7 @@ export default function MyBaseScholarship({ data }) {
 
     const { phases } = data.prismicEducationPhases.data
 
+    const { start_date } = data.prismicStartDate.data
     return (
         <Layout>
             <SEO title="My Base Scholarship" />
@@ -100,13 +100,8 @@ export default function MyBaseScholarship({ data }) {
 
 export const query = graphql`
     {
-        prismicStartDate(
-            data: { course_name: { text: { eq: "Web Development" } } }
-        ) {
+        prismicStartDate {
             data {
-                course_name {
-                    text
-                }
                 start_date(formatString: "MMMM Do, YYYY")
             }
         }

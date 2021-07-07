@@ -389,6 +389,7 @@ const Form = () => {
                                         value={item}
                                         name="goals"
                                         onChange={handleChange}
+                                        className="pre-course-checkbox"
                                     >
                                         {item}
                                     </Checkbox>

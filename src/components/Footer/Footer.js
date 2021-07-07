@@ -150,9 +150,6 @@ const Footer = () => {
                 edges {
                     node {
                         data {
-                            course_name {
-                                text
-                            }
                             start_date(formatString: "MMM Do, YYYY")
                         }
                     }
@@ -191,7 +188,7 @@ const Footer = () => {
             }
         }
     `)
-
+    const startDate = startDates[0].node.data.start_date
     return (
         <Container>
             <FooterContainer>
@@ -203,23 +200,24 @@ const Footer = () => {
                 </FormContainer>
                 <FooterSection>
                     <Header>{programsHeader}</Header>
-                    {startDates.map(({ node: { data } }) => (
-                        <CourseLink
-                            to={
-                                data.course_name.text === "UX/UI Design"
-                                    ? "/experience-design"
-                                    : "/development"
-                            }
-                            key={data.course_name.text}
-                        >
-                            <CourseContainer>
-                                <CourseTitle>
-                                    {data.course_name.text}
-                                </CourseTitle>
-                                <StartDate>Starts {data.start_date}</StartDate>
-                            </CourseContainer>
-                        </CourseLink>
-                    ))}
+                    <CourseLink
+                        to={"/courses/design"}
+                        key={"/experience-design"}
+                    >
+                        <CourseContainer>
+                            <CourseTitle>UX / UI Design</CourseTitle>
+                            <StartDate>Starts {startDate}</StartDate>
+                        </CourseContainer>
+                    </CourseLink>
+                    <CourseLink
+                        to={"/courses/development"}
+                        key={"/development"}
+                    >
+                        <CourseContainer>
+                            <CourseTitle>Web Development</CourseTitle>
+                            <StartDate>Starts {startDate}</StartDate>
+                        </CourseContainer>
+                    </CourseLink>
                 </FooterSection>
                 {footerSections.map(({ id, primary, items }, i) => (
                     <FooterSection key={id}>

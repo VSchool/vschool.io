@@ -131,15 +131,14 @@ export default function CTA(props) {
         btnText,
         nextSession,
     } = props
+    console.log(startDate)
     return (
         <Container>
             <Header>{header}</Header>
             <InfoContainer bgImg={bgImg}>
                 <WhiteBackground>
                     <NextSession>{nextSession}</NextSession>
-                    <StartDate>
-                        {startDate?.document?.data.start_date}
-                    </StartDate>
+                    <StartDate>{startDate}</StartDate>
                 </WhiteBackground>
             </InfoContainer>
             <SubHeader>{subHeader}</SubHeader>
