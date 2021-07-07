@@ -112,9 +112,7 @@ export default function YouBelong({ data }) {
 
 export const query = graphql`
     {
-        prismicStartDate(
-            data: { course_name: { text: { eq: "Web Development" } } }
-        ) {
+        prismicStartDate {
             data {
                 start_date(formatString: "MMM Do, YYYY")
             }
