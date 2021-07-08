@@ -12,7 +12,7 @@ const PageContainer = styled.div`
     background: ${gray.lighter};
 `
 
-export default function PreCourse() {
+export default function PreCourse({data}) {
     const submitButton = () => {
         navigate("/pre-course-communities/registration-form")
     }

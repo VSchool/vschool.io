@@ -1,0 +1,253 @@
+{
+    "Hero": {
+        "hero_title": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1,heading2,heading3,heading4,heading5,heading6",
+                "label": "Hero Title"
+            }
+        },
+        "hero_tag": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                "label": "Hero Tag"
+            }
+        },
+        "hero_button": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                "label": "Hero Button"
+            }
+        }
+    },
+    "Info": {
+        "info_title": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1,heading2,heading3,heading4,heading5,heading6",
+                "label": "Info Title"
+            }
+        },
+        "info_subtitle": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                "label": "Info Subtitle"
+            }
+        },
+        "info_box": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "box_logo": {
+                        "type": "Image",
+                        "config": {
+                            "constraint": {},
+                            "thumbnails": [],
+                            "label": "Box Logo"
+                        }
+                    },
+                    "box_title": {
+                        "type": "StructuredText",
+                        "config": {
+                            "single": "heading1,heading2,heading3,heading4,heading5,heading6",
+                            "label": "Box Title"
+                        }
+                    },
+                    "box_paragraph": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                            "label": "Box Paragraph"
+                        }
+                    }
+                },
+                "label": "Info Box"
+            }
+        }
+    },
+    "Career": {
+        "career_title": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1,heading2,heading3,heading4,heading5,heading6",
+                "label": "Career Title"
+            }
+        },
+        "career_box": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "career_box_logo": {
+                        "type": "Image",
+                        "config": {
+                            "constraint": {},
+                            "thumbnails": [],
+                            "label": "Career Box Logo"
+                        }
+                    },
+                    "career_box_image": {
+                        "type": "Image",
+                        "config": {
+                            "constraint": {},
+                            "thumbnails": [],
+                            "label": "Career Box Image"
+                        }
+                    },
+                    "career_box_title": {
+                        "type": "StructuredText",
+                        "config": {
+                            "single": "heading1,heading2,heading3,heading4,heading5,heading6",
+                            "label": "Career Box Title"
+                        }
+                    },
+                    "career_box_subtitle": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                            "label": "Career Box Subtitle"
+                        }
+                    },
+                    "career_box_desc_title": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                            "label": "Career Box Desc Title"
+                        }
+                    },
+                    "career_box_desc_sub": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                            "label": "Career Box Desc Sub"
+                        }
+                    },
+                    "career_box_len_title": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                            "label": "Career Box Len Title"
+                        }
+                    },
+                    "career_box_len_sub": {
+                        "type": "StructuredText",
+                        "config": {
+                            "single": "heading1,heading2,heading3,heading4,heading5,heading6",
+                            "label": "Career Box Len Sub"
+                        }
+                    },
+                    "career_box_diff_title": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                            "label": "Career Box Diff Title"
+                        }
+                    },
+                    "career_box_diff_sub": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                            "label": "Career Box Diff Sub"
+                        }
+                    },
+                    "career_box_topics_title": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                            "label": "Career Box Topics Title"
+                        }
+                    },
+                    "career_box_topics": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                            "label": "Career Box Topics"
+                        }
+                    },
+                    "career_box_button_text": {
+                        "type": "StructuredText",
+                        "config": {
+                            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                            "label": "Career Box Button Text"
+                        }
+                    }
+                },
+                "label": "Career Box"
+            }
+        },
+        "career_up_arrow": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Career Up Arrow"
+            }
+        },
+        "career_down_arrow": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Career Down Arrow"
+            }
+        }
+    },
+    "Start": {
+        "start_title": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1,heading2,heading3,heading4,heading5,heading6",
+                "label": "Start Title"
+            }
+        },
+        "start_button_text": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                "label": "Start Button Text"
+            }
+        },
+        "start_right_arrow": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Start Right Arrow"
+            }
+        },
+        "start_background_image": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Start Background Image"
+            }
+        }
+    },
+    "Partnership": {
+        "partnership_title": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "label": "Partnership Title"
+            }
+        },
+        "partnership_vschool_logo": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Partnership V School Logo"
+            }
+        },
+        "partnership_vschool_text": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Partnership V School Text"
+            }
+        }
+    }
+}
