@@ -45,6 +45,10 @@ const Description = styled.p`
     padding: 20px 0 32px;
 `
 
+const VSchoolLogo = styled.img`
+    height: 48px;
+`
+
 function Partners(props) {
     const data = useStaticQuery(graphql`
         {
@@ -85,7 +89,7 @@ function Partners(props) {
                     <Description>{partnerDesc}</Description>
                 </div>
                 <div>
-                    <img src={vschoolLogoUrl} alt={vschoolLogoAlt} />
+                    <VSchoolLogo src={vschoolLogoUrl} alt={vschoolLogoAlt} />
                     <Description>{vSchoolText}</Description>
                 </div>
             </InfoContainer>
