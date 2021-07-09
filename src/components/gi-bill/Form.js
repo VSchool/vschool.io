@@ -139,6 +139,8 @@ export default function Form(props) {
                         onChange={handleChange}
                     />
                 )
+            } else {
+                return null
             }
         }
     )

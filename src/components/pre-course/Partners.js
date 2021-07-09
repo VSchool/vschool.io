@@ -45,21 +45,19 @@ const Description = styled.p`
     padding: 20px 0 32px;
 `
 
-const Partners = () => {
+function Partners(props) {
     const data = useStaticQuery(graphql`
         {
-            prismicPrecourseCommunitiesPage {
+            prismicPrecourseCommunitiesPageSharedData {
                 data {
-                    partnership_info {
-                        partnership_description {
-                            text
-                        }
-                        partnership_logo {
-                            alt
-                            url
-                        }
-                    }
                     partnership_title {
+                        text
+                    }
+                    partnership_vschool_logo {
+                        alt
+                        url
+                    }
+                    partnership_vschool_text {
                         text
                     }
                 }
@@ -68,26 +66,29 @@ const Partners = () => {
     `)
 
     const {
-        partnership_info,
         partnership_title: { text: PartnerTitle },
-    } = data.prismicPrecourseCommunitiesPage.data
+        partnership_vschool_logo: { alt: vschoolLogoAlt, url: vschoolLogoUrl },
+        partnership_vschool_text: { text: vSchoolText },
+    } = data.prismicPrecourseCommunitiesPageSharedData.data
 
-    const mappedInfo = partnership_info.map(
-        ({
-            partnership_description: { text: partnerDesc },
-            partnership_logo: { alt: logoAlt, url: logoUrl },
-        }) => (
-            <div>
-                <img src={logoUrl} alt={logoAlt} />
-                <Description>{partnerDesc}</Description>
-            </div>
-        )
-    )
+    const {
+        partnership_partner_logo: { url: partnerLogoUrl, alt: partnerLogoAlt },
+        partnership_partner_text: { text: partnerDesc },
+    } = props
 
     return (
         <Container>
             <Title>{PartnerTitle}</Title>
-            <InfoContainer>{mappedInfo}</InfoContainer>
+            <InfoContainer>
+                <div>
+                    <img src={partnerLogoUrl} alt={partnerLogoAlt} />
+                    <Description>{partnerDesc}</Description>
+                </div>
+                <div>
+                    <img src={vschoolLogoUrl} alt={vschoolLogoAlt} />
+                    <Description>{vSchoolText}</Description>
+                </div>
+            </InfoContainer>
         </Container>
     )
 }
