@@ -6,7 +6,7 @@ const Svg = styled.svg`
     width: 20px;
 `
 
-export default ({ className }) => {
+export default ({ className, fill }) => {
     return (
         <Svg
             className={className}
@@ -16,7 +16,7 @@ export default ({ className }) => {
             height="24"
         >
             <path fill="none" d="M0 0h24v24H0z" />
-            <path d="M12 16l-6-6h12z" />
+            <path fill={fill} d="M12 16l-6-6h12z" />
         </Svg>
     )
 }

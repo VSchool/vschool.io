@@ -297,6 +297,36 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                     }
                 }
             }
+            allPrismicPrecourseCommunitiesPage {
+                edges {
+                    node {
+                        uid
+                        data {
+                            meta_partner_name {
+                                text
+                            }
+                            hero_image {
+                                alt
+                                url
+                            }
+                            hero_text {
+                                text
+                            }
+                            hero_background_color
+                            partnership_partner_logo {
+                                alt
+                                url
+                            }
+                            partnership_partner_text {
+                                text
+                            }
+                            partnership_title {
+                                text
+                            }
+                        }
+                    }
+                }
+            }
         }
     `)
     // Handle errors
@@ -346,6 +376,23 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         actions.createPage({
             path: node.url,
             component: courseTemplate,
+            context: {
+                uid: node.uid,
+                data: node.data,
+            },
+        })
+    })
+
+    // Create pages for each pre-course communities page
+    const precourseTemplate = path.resolve(
+        `./src/templates/precourse-community.js`
+    )
+    const precoursePages = result.data.allPrismicPrecourseCommunitiesPage.edges
+    precoursePages.forEach(({ node }) => {
+        node.url = `/${node.uid}/`
+        actions.createPage({
+            path: node.url,
+            component: precourseTemplate,
             context: {
                 uid: node.uid,
                 data: node.data,
@@ -431,5 +478,4 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         isPermanent: true,
         force: true,
     })
-    
 }

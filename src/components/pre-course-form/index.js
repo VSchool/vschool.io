@@ -8,11 +8,11 @@ const PageContainer = styled.div`
     background: ${gray.lighter};
 `
 
-export default function PreCourseForm() {
+export default function PreCourseForm(props) {
     return (
         <PageContainer>
             <Hero />
-            <Form />
+            <Form {...props} />
         </PageContainer>
     )
 }
