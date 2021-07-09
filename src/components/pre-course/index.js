@@ -12,17 +12,21 @@ const PageContainer = styled.div`
     background: ${gray.lighter};
 `
 
-export default function PreCourse() {
+export default function PreCourse({ data, uid }) {
     const submitButton = () => {
-        navigate("/pre-course-communities/registration-form")
+        /* Pass the UID via state to the registration form so we can
+        pass that along to Zapier when submitting the form */
+        navigate("/pre-course-communities/registration-form", {
+            state: { uid },
+        })
     }
     return (
         <PageContainer>
-            <Hero submit={submitButton} />
+            <Hero submit={submitButton} {...data} />
             <Info />
             <Career submit={submitButton} />
             <Start submit={submitButton} />
-            <Partners />
+            <Partners {...data} />
         </PageContainer>
     )
 }

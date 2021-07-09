@@ -129,7 +129,7 @@ const Block = styled.div`
     font-size: 20px;
 `
 
-const Form = () => {
+const Form = ({ location }) => {
     const data = useStaticQuery(graphql`
         {
             prismicPreCourseCommunityForm {
@@ -170,14 +170,12 @@ const Form = () => {
                         text
                     }
                     form_checkmark {
-                        alt
                         url
                     }
                     form_button_text {
                         text
                     }
                     form_required {
-                        alt
                         url
                     }
                 }
@@ -195,9 +193,9 @@ const Form = () => {
         form_goals_items,
         form_first_name: { text: fFName },
         form_email: { text: fEmail },
-        form_checkmark: { alt: checkAlt, url: checkUrl },
+        form_checkmark: { url: checkUrl },
         form_button_text: { text: fBtnText },
-        form_required: { alt: reqAlt, url: reqUrl },
+        form_required: { url: reqUrl },
     } = data.prismicPreCourseCommunityForm.data
 
     const [inputs, setInputs] = useState({
@@ -224,7 +222,6 @@ const Form = () => {
             const checkedArr = []
             for (let i = 0; i < checkedItems.length; i++) {
                 checkedArr.push(checkedItems[i].value)
-                // checkedItems[i].parentElement.childNodes[1].style.border = "red"
             }
             setInputs(prev => {
                 return {
@@ -253,6 +250,7 @@ const Form = () => {
             goals,
             why,
             convertKitTag: "Test Tag For Convert Kit",
+            fromLandingPage: location.state.uid,
         }
 
         const options = {
@@ -260,22 +258,24 @@ const Form = () => {
             body: JSON.stringify(formData),
         }
 
+        const query = localStorage.getItem("query") || ""
+
         await fetch(
-            process.env.GATSBY_CONVERTKIT_SIGNUP_ZAPIER_WEBHOOK_URL,
+            `${process.env.GATSBY_CONVERTKIT_SIGNUP_ZAPIER_WEBHOOK_URL}${query}`,
             options
         )
         navigate("/pre-course-communities/success")
     }
 
-    const stringifyInputs = input => {
-        return (
-            input[0].toLowerCase() +
-            input
-                .slice(1)
-                .split(" ")
-                .join("")
-        )
-    }
+    // const stringifyInputs = input => {
+    //     return (
+    //         input[0].toLowerCase() +
+    //         input
+    //             .slice(1)
+    //             .split(" ")
+    //             .join("")
+    //     )
+    // }
 
     return (
         <Container>
@@ -349,7 +349,10 @@ const Form = () => {
                                 border: `2px solid ${gray.darkest}`,
                             }
                             return (
-                                <div style={{ position: "relative" }}>
+                                <div
+                                    style={{ position: "relative" }}
+                                    key={selectTitle}
+                                >
                                     <SelectBox
                                         type="button"
                                         style={
@@ -409,6 +412,7 @@ const Form = () => {
                     name="why"
                     onChange={handleChange}
                     required
+                    validationText="auto-generate"
                 ></StyledTextarea>
                 <StyledButton>{fBtnText}</StyledButton>
             </FormContainer>

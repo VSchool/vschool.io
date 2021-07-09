@@ -1,5 +1,4 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 import MemberInfo from './MemberInfo'
 import styled from "styled-components"
 import { gray } from "@vschool/lotus"

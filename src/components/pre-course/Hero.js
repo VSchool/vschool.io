@@ -1,11 +1,23 @@
 import React from "react"
 import HeroLayout from "../shared/HeroLayout"
 import styled from "styled-components"
-import { gray, Button, blue } from "@vschool/lotus"
+import {
+    blue,
+    pink,
+    purple,
+    red,
+    orange,
+    yellow,
+    green,
+    gray,
+    Button,
+} from "@vschool/lotus"
 import { useStaticQuery, graphql } from "gatsby"
 
+const colors = { blue, pink, purple, red, orange, yellow, green, gray }
+
 const Container = styled.section`
-    background-color: ${blue.lightest};
+    background-color: ${({ $bgColor }) => $bgColor};
     padding: 20px 40px;
     margin-bottom: -200px;
 
@@ -76,25 +88,18 @@ const StyledButton = styled(Button)`
     }
 `
 
-const Hero = props => {
+function Hero(props) {
     const data = useStaticQuery(graphql`
         {
-            prismicPrecourseCommunitiesPage {
+            prismicPrecourseCommunitiesPageSharedData {
                 data {
-                    hero_button {
-                        text
-                    }
-                    hero_image {
-                        alt
-                        url
-                    }
-                    hero_subtitle {
-                        text
-                    }
-                    hero_tag {
-                        text
-                    }
                     hero_title {
+                        text
+                    }
+                    hero_courses {
+                        text
+                    }
+                    hero_button_text {
                         text
                     }
                     start_right_arrow {
@@ -107,22 +112,28 @@ const Hero = props => {
     `)
 
     const {
-        hero_button: { text: heroBtn },
-        hero_image: { alt: imgAlt, url: imgUrl },
-        hero_subtitle: { text: heroSub },
-        hero_tag: { text: heroTag },
+        hero_button_text: { text: heroBtn },
+        hero_courses: { text: heroCourses },
         hero_title: { text: heroTitle },
         start_right_arrow: { alt: arrowAlt, url: arrowUrl },
-    } = data.prismicPrecourseCommunitiesPage.data
+    } = data.prismicPrecourseCommunitiesPageSharedData.data
+
+    const {
+        hero_image: { alt: imgAlt, url: imgUrl },
+        hero_text: { text: heroText },
+        hero_background_color: heroBgColor,
+    } = props
+
+    const backgroundColor = colors[heroBgColor].lightest
 
     return (
-        <Container>
+        <Container $bgColor={backgroundColor}>
             <HeroLayout
                 text={
                     <div>
                         <HeroTitle>{heroTitle}</HeroTitle>
-                        <HeroParagraph>{heroSub}</HeroParagraph>
-                        <BlueSubtext>{heroTag}</BlueSubtext>
+                        <HeroParagraph>{heroText}</HeroParagraph>
+                        <BlueSubtext>{heroCourses}</BlueSubtext>
                         <StyledButton onClick={props.submit}>
                             {heroBtn} <img src={arrowUrl} alt={arrowAlt} />
                         </StyledButton>

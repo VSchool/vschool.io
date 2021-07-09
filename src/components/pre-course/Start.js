@@ -6,7 +6,7 @@ import { gray, Button, blue } from "@vschool/lotus"
 const Container = styled.section`
     background-color: ${blue.lightest};
     padding: 96px 40px;
-    background-image: url(${props => props.bgImage});
+    background-image: url(${props => props.$bgImage});
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -45,24 +45,23 @@ const StyledButton = styled(Button)`
     }
 `
 
-const Start = props => {
+function Start(props) {
     const data = useStaticQuery(graphql`
         {
-            prismicPrecourseCommunitiesPage {
+            prismicPrecourseCommunitiesPageSharedData {
                 data {
+                    start_title {
+                        text
+                    }
                     start_background_image {
-                        alt
                         url
                     }
                     start_button_text {
                         text
                     }
                     start_right_arrow {
-                        alt
                         url
-                    }
-                    start_title {
-                        text
+                        alt
                     }
                 }
             }
@@ -70,14 +69,14 @@ const Start = props => {
     `)
 
     const {
-        start_background_image: { alt: circleAlt, url: circleUrl },
+        start_background_image: { url: circleUrl },
         start_button_text: { text: StartBtn },
         start_right_arrow: { alt: arrowAlt, url: arrowUrl },
         start_title: { text: StartTitle },
-    } = data.prismicPrecourseCommunitiesPage.data
+    } = data.prismicPrecourseCommunitiesPageSharedData.data
 
     return (
-        <Container bgImage={circleUrl}>
+        <Container $bgImage={circleUrl}>
             <Title>{StartTitle}</Title>
             <StyledButton onClick={props.submit}>
                 {StartBtn} <img src={arrowUrl} alt={arrowAlt} />
