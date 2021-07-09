@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { gray, Button } from "@vschool/lotus"
+import Arrow from "../Navbar/Arrow"
 
 const Container = styled.section`
     background-color: ${gray.lighter};
@@ -49,6 +50,10 @@ const BoxInnerContainer = styled.div`
             filter: brightness(0.7);
         }
     }
+
+    & > img {
+        max-width: 111px;
+    }
 `
 
 const BoxMainTitle = styled.h1`
@@ -83,17 +88,23 @@ const BoxMainContainer = styled.div`
     }
 `
 
-const Arrow = styled.img`
+// const Arrow = styled.img`
+//     margin: 0 20px 0 0px;
+//     margin-left: auto;
+
+//     @media (min-width: 800px) {
+//         margin: 0 80px;
+//     }
+// `
+
+const StyledArrow = styled(Arrow)`
     margin: 0 20px 0 0px;
     margin-left: auto;
-
-    @media (min-width: 800px) {
-        margin: 0 80px;
-    }
+    transform: ${({ $open }) => $open && "rotate(180deg)"};
 `
 
 const BoxDropContainer = styled.div`
-    max-width: 900px;
+    max-width: 835px;
     margin: 0 10px 10px;
     border: 1px solid black;
     display: block;
@@ -151,14 +162,22 @@ const GridDescription = styled.div`
         line-height: 18px;
         color: ${gray.darker};
     }
+
+    & > ul {
+        margin-left: 1px;
+    }
 `
 
 const ImageContainer = styled.div`
-    padding: 48px;
+    margin: 48px;
 
     & > button {
         width: 300px;
         margin-top: 20px;
+    }
+
+    & > img {
+        max-width: 100%;
     }
 
     @media (min-width: 800px) {
@@ -217,7 +236,7 @@ const Career = props => {
                             text
                         }
                         career_box_topics {
-                            text
+                            html
                         }
                         career_box_topics_title {
                             text
@@ -242,7 +261,6 @@ const Career = props => {
         career_down_arrow: { alt: downAlt, url: downUrl },
         career_up_arrow: { alt: upAlt, url: upUrl },
     } = data.prismicPrecourseCommunitiesPageSharedData.data
-
     const mappedBoxes = career_box.map(
         ({
             career_box_topics_title: { text: BoxTopicsTitle },
@@ -274,10 +292,9 @@ const Career = props => {
                         <BoxMainTitle>{BoxTitle}</BoxMainTitle>
                         <BoxSubtitle>{BoxSub}</BoxSubtitle>
                     </BoxMainContainer>
-                    <Arrow
-                        className="arrow"
-                        src={open === BoxTitle ? upUrl : downUrl}
-                        alt={open === BoxTitle ? upAlt : downAlt}
+                    <StyledArrow
+                        $open={open}
+                        fill={open ? gray.darker : gray.base}
                     />
                 </BoxInnerContainer>
                 <BoxDropContainer
