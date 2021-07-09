@@ -242,14 +242,6 @@ const Career = props => {
                             text
                         }
                     }
-                    career_down_arrow {
-                        alt
-                        url
-                    }
-                    career_up_arrow {
-                        alt
-                        url
-                    }
                 }
             }
         }
@@ -258,8 +250,6 @@ const Career = props => {
     const {
         career_title: { text: careerTitle },
         career_box,
-        career_down_arrow: { alt: downAlt, url: downUrl },
-        career_up_arrow: { alt: upAlt, url: upUrl },
     } = data.prismicPrecourseCommunitiesPageSharedData.data
     const mappedBoxes = career_box.map(
         ({
@@ -325,11 +315,9 @@ const Career = props => {
                     </ContentGrid>
                     <ImageContainer>
                         <img src={imgUrl} alt={imgAlt} />
-                        <StyledButton
-                            onClick={props.submit}
+                        <StyledButton onClick={props.submit}>
                             type={BoxTitle}
-                            disabled={BoxTitle === "UX / UI Design"}
-                        >
+                            disabled={BoxTitle === "UX / UI Design"}>
                             {BoxTitle === "UX / UI Design"
                                 ? "Coming Soon"
                                 : BoxButtonText}

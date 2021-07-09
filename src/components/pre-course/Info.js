@@ -132,7 +132,7 @@ const Info = () => {
             box_paragraph: { text: boxPara },
             box_title: { text: boxTitle },
         }) => (
-            <div>
+            <div key={boxTitle}>
                 <Logo src={logoUrl} alt={logoAlt} />
                 <Title>{boxTitle}</Title>
                 <Paragraph>{boxPara}</Paragraph>

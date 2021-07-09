@@ -1,11 +1,23 @@
 import React from "react"
 import HeroLayout from "../shared/HeroLayout"
 import styled from "styled-components"
-import { gray, Button, blue } from "@vschool/lotus"
+import {
+    blue,
+    pink,
+    purple,
+    red,
+    orange,
+    yellow,
+    green,
+    gray,
+    Button,
+} from "@vschool/lotus"
 import { useStaticQuery, graphql } from "gatsby"
 
+const colors = { blue, pink, purple, red, orange, yellow, green, gray }
+
 const Container = styled.section`
-    background-color: ${blue.lightest};
+    background-color: ${({ $bgColor }) => $bgColor};
     padding: 20px 40px;
     margin-bottom: -200px;
 
@@ -109,10 +121,13 @@ function Hero(props) {
     const {
         hero_image: { alt: imgAlt, url: imgUrl },
         hero_text: { text: heroText },
+        hero_background_color: heroBgColor,
     } = props
 
+    const backgroundColor = colors[heroBgColor].lightest
+
     return (
-        <Container>
+        <Container $bgColor={backgroundColor}>
             <HeroLayout
                 text={
                     <div>
