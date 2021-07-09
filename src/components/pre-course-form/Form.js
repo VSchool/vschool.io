@@ -129,7 +129,7 @@ const Block = styled.div`
     font-size: 20px;
 `
 
-const Form = () => {
+const Form = ({ location }) => {
     const data = useStaticQuery(graphql`
         {
             prismicPreCourseCommunityForm {
@@ -250,6 +250,7 @@ const Form = () => {
             goals,
             why,
             convertKitTag: "Test Tag For Convert Kit",
+            fromLandingPage: location.state.uid,
         }
 
         const options = {
@@ -257,8 +258,10 @@ const Form = () => {
             body: JSON.stringify(formData),
         }
 
+        const query = localStorage.getItem("query") || ""
+
         await fetch(
-            process.env.GATSBY_CONVERTKIT_SIGNUP_ZAPIER_WEBHOOK_URL,
+            `${process.env.GATSBY_CONVERTKIT_SIGNUP_ZAPIER_WEBHOOK_URL}${query}`,
             options
         )
         navigate("/pre-course-communities/success")
@@ -346,7 +349,10 @@ const Form = () => {
                                 border: `2px solid ${gray.darkest}`,
                             }
                             return (
-                                <div style={{ position: "relative" }}>
+                                <div
+                                    style={{ position: "relative" }}
+                                    key={selectTitle}
+                                >
                                     <SelectBox
                                         type="button"
                                         style={
@@ -406,6 +412,7 @@ const Form = () => {
                     name="why"
                     onChange={handleChange}
                     required
+                    validationText="auto-generate"
                 ></StyledTextarea>
                 <StyledButton>{fBtnText}</StyledButton>
             </FormContainer>

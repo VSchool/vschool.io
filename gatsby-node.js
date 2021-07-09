@@ -302,6 +302,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                     node {
                         uid
                         data {
+                            meta_partner_name {
+                                text
+                            }
                             hero_image {
                                 alt
                                 url

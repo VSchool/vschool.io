@@ -6,8 +6,8 @@ import PrecourseCommunity from "../components/pre-course"
 export default function PreCourseCommunityTemplate({ pageContext }) {
     return (
         <Layout>
-            <SEO title={"Test"} />
-            <PrecourseCommunity data={pageContext.data} />
+            <SEO title={pageContext.data.meta_partner_name.text} />
+            <PrecourseCommunity data={pageContext.data} uid={pageContext.uid} />
         </Layout>
     )
 }
