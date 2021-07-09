@@ -305,6 +305,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                             meta_partner_name {
                                 text
                             }
+                            convertkit_subscribe_tag
                             hero_image {
                                 alt
                                 url
