@@ -7,18 +7,18 @@
                 "label": "Hero Title"
             }
         },
-        "hero_tag": {
+        "hero_courses": {
             "type": "StructuredText",
             "config": {
-                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
-                "label": "Hero Tag"
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Hero Courses"
             }
         },
-        "hero_button": {
+        "hero_button_text": {
             "type": "StructuredText",
             "config": {
-                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
-                "label": "Hero Button"
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Hero Button Text"
             }
         }
     },
@@ -230,7 +230,7 @@
         "partnership_title": {
             "type": "StructuredText",
             "config": {
-                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "single": "heading1,heading2,heading3,heading4,heading5,heading6",
                 "label": "Partnership Title"
             }
         },
@@ -245,7 +245,7 @@
         "partnership_vschool_text": {
             "type": "StructuredText",
             "config": {
-                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
                 "label": "Partnership V School Text"
             }
         }

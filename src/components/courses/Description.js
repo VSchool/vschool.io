@@ -1,5 +1,4 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { gray } from "@vschool/lotus"
 
@@ -76,38 +75,38 @@ const Text = styled.div`
     padding-bottom: 50px;
 `
 
-const PhilContainer = styled.div`
-    @media (min-width: 800px) {
-        max-width: 320px;
-    }
-`
+// const PhilContainer = styled.div`
+//     @media (min-width: 800px) {
+//         max-width: 320px;
+//     }
+// `
 
-const PhilTitle = styled.h5`
-    font-size: 20px;
-    line-height: 24px;
-    color: ${gray.darkest};
-    font-weight: 800;
-    padding-bottom: 18px;
+// const PhilTitle = styled.h5`
+//     font-size: 20px;
+//     line-height: 24px;
+//     color: ${gray.darkest};
+//     font-weight: 800;
+//     padding-bottom: 18px;
 
-    @media (min-width: 800px) {
-        font-size: 24px;
-        line-height: 32px;
-        padding: 0 20px 18px;
-    }
-`
+//     @media (min-width: 800px) {
+//         font-size: 24px;
+//         line-height: 32px;
+//         padding: 0 20px 18px;
+//     }
+// `
 
-const PhilText = styled.p`
-    font-size: 16px;
-    line-height: 24px;
-    color: ${gray.darker};
-    padding-bottom: 32px;
+// const PhilText = styled.p`
+//     font-size: 16px;
+//     line-height: 24px;
+//     color: ${gray.darker};
+//     padding-bottom: 32px;
 
-    @media (min-width: 800px) {
-        font-size: 16px;
-        line-height: 24px;
-        padding: 0 20px 32px;
-    }
-`
+//     @media (min-width: 800px) {
+//         font-size: 16px;
+//         line-height: 24px;
+//         padding: 0 20px 32px;
+//     }
+// `
 
 const FlexContainer = styled.div`
     @media (min-width: 800px) {

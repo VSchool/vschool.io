@@ -175,51 +175,51 @@ const Career = props => {
 
     const data = useStaticQuery(graphql`
         {
-            prismicPrecourseCommunitiesPage {
+            prismicPrecourseCommunitiesPageSharedData {
                 data {
                     career_title {
                         text
                     }
                     career_box {
-                        career_box_topics_title {
-                            text
-                        }
-                        career_box_topics {
-                            html
-                        }
-                        career_box_title {
-                            text
-                        }
-                        career_box_subtitle {
-                            text
-                        }
-                        career_box_logo {
-                            alt
-                            url
-                        }
-                        career_box_len_title {
-                            text
-                        }
-                        career_box_len_sub {
-                            text
-                        }
-                        career_box_image {
-                            url
-                            alt
-                        }
-                        career_box_diff_title {
-                            text
-                        }
-                        career_box_diff_sub {
-                            text
-                        }
-                        career_box_desc_title {
+                        career_box_button_text {
                             text
                         }
                         career_box_desc_sub {
                             text
                         }
-                        career_box_button_text {
+                        career_box_desc_title {
+                            text
+                        }
+                        career_box_diff_sub {
+                            text
+                        }
+                        career_box_diff_title {
+                            text
+                        }
+                        career_box_image {
+                            alt
+                            url
+                        }
+                        career_box_len_sub {
+                            text
+                        }
+                        career_box_len_title {
+                            text
+                        }
+                        career_box_logo {
+                            url
+                            alt
+                        }
+                        career_box_subtitle {
+                            text
+                        }
+                        career_box_title {
+                            text
+                        }
+                        career_box_topics {
+                            text
+                        }
+                        career_box_topics_title {
                             text
                         }
                     }
@@ -241,7 +241,7 @@ const Career = props => {
         career_box,
         career_down_arrow: { alt: downAlt, url: downUrl },
         career_up_arrow: { alt: upAlt, url: upUrl },
-    } = data.prismicPrecourseCommunitiesPage.data
+    } = data.prismicPrecourseCommunitiesPageSharedData.data
 
     const mappedBoxes = career_box.map(
         ({
@@ -259,7 +259,7 @@ const Career = props => {
             career_box_desc_sub: { text: BoxDescSub },
             career_box_button_text: { text: BoxButtonText },
         }) => (
-            <>
+            <div key={BoxTitle}>
                 <BoxInnerContainer
                     onClick={() =>
                         setOpen(prev => (prev === BoxTitle ? false : BoxTitle))
@@ -319,7 +319,7 @@ const Career = props => {
                         </StyledButton>
                     </ImageContainer>
                 </BoxDropContainer>
-            </>
+            </div>
         )
     )
 

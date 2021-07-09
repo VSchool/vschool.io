@@ -131,7 +131,6 @@ export default function CTA(props) {
         btnText,
         nextSession,
     } = props
-    console.log(startDate)
     return (
         <Container>
             <Header>{header}</Header>

@@ -14,7 +14,7 @@ const Container = styled.section`
         width: 97%;
         margin: 30px;
 
-        @media (min-width: 800px){
+        @media (min-width: 800px) {
             max-width: 645px;
         }
     }
@@ -30,7 +30,7 @@ const Title = styled.h1`
     text-align: center;
     color: ${gray.darkest};
 
-    @media (min-width: 800px){
+    @media (min-width: 800px) {
         font-size: 56px;
         line-height: 56px;
     }
@@ -41,7 +41,7 @@ const DateContainer = styled.div`
     padding: 20px;
     margin: 20px;
 
-    @media (min-width: 800px){
+    @media (min-width: 800px) {
         text-align: center;
     }
 `
@@ -53,7 +53,7 @@ const DateTitle = styled.h4`
     text-align: center;
     color: ${gray.darkest};
 
-    @media (min-width: 800px){
+    @media (min-width: 800px) {
         display: inline-block;
     }
 `
@@ -65,7 +65,7 @@ const DateText = styled.p`
     text-align: center;
     color: ${blue.base};
 
-    @media (min-width: 800px){
+    @media (min-width: 800px) {
         display: inline-block;
         margin-left: 10px;
     }
@@ -80,7 +80,7 @@ const BlueContainer = styled.section`
         width: 97%;
         margin: 30px;
 
-        @media (min-width: 800px){
+        @media (min-width: 800px) {
             max-width: 1024px;
         }
     }
@@ -91,7 +91,7 @@ const HowContainer = styled.div`
     padding: 20px;
     margin: 20px;
 
-    @media (min-width: 800px){
+    @media (min-width: 800px) {
         text-align: center;
         padding: 40px;
     }
@@ -112,7 +112,7 @@ const HowTitle = styled.h3`
     padding: 15px 0;
     color: ${gray.darkest};
 
-    @media (min-width: 800px){
+    @media (min-width: 800px) {
         font-size: 44px;
         line-height: 48px;
         text-align: left;
@@ -120,19 +120,17 @@ const HowTitle = styled.h3`
 `
 
 const StepContainer = styled.div`
-
-    @media (min-width: 800px){
+    @media (min-width: 800px) {
         display: flex;
         text-align: left;
         margin: 20px 0;
-        
     }
 `
 
 const Step = styled.div`
     padding: 20px 0;
 
-    @media (min-width: 800px){
+    @media (min-width: 800px) {
         padding: 20px;
     }
 `
@@ -171,7 +169,7 @@ const StyledButton = styled(Button)`
     width: 100%;
     display: block;
 
-    @media (min-width: 800px){
+    @media (min-width: 800px) {
         margin: 0;
         margin-left: auto;
     }
@@ -185,7 +183,7 @@ const BottomContainer = styled.section`
 const DevContainer = styled.div`
     text-align: center;
 
-    @media (min-width: 800px){
+    @media (min-width: 800px) {
         text-align: initial;
     }
 `
@@ -200,7 +198,7 @@ const ApplyDev = styled.span`
     margin-bottom: 10px;
     display: inline-block;
 
-    @media (min-width: 800px){
+    @media (min-width: 800px) {
         margin-bottom: 0;
         display: inline;
     }
@@ -216,127 +214,134 @@ const ApplyButton = styled(Button)`
     width: 160px;
 `
 
-const Apply = (props) => {
-  const data = useStaticQuery(graphql`
-    {
-      prismicCoursePageSharedData {
-        data {
-          apply_benefits {
-            text
-          }
-          apply_date_background {
-            alt
-            url
-          }
-          apply_date_text {
-            text
-          }
-          apply_date_title {
-            text
-          }
-          apply_dev {
-            text
-          }
-          apply_dev_button {
-            text
-          }
-          apply_dev_link {
-            url
-          }
-          apply_how_background {
-            url
-            alt
-          }
-          apply_how_button {
-            text
-          }
-          apply_how_link {
-            url
-          }
-          apply_how_title {
-            text
-          }
-          apply_steps {
-            step_info {
-              text
+const Apply = props => {
+    const data = useStaticQuery(graphql`
+        {
+            prismicCoursePageSharedData {
+                data {
+                    apply_benefits {
+                        text
+                    }
+                    apply_date_background {
+                        url
+                    }
+                    apply_date_text {
+                        text
+                    }
+                    apply_date_title {
+                        text
+                    }
+                    apply_dev {
+                        text
+                    }
+                    apply_dev_button {
+                        text
+                    }
+                    apply_dev_link {
+                        url
+                    }
+                    apply_how_background {
+                        url
+                    }
+                    apply_how_button {
+                        text
+                    }
+                    apply_how_link {
+                        url
+                    }
+                    apply_how_title {
+                        text
+                    }
+                    apply_steps {
+                        step_info {
+                            text
+                        }
+                        step_number {
+                            text
+                        }
+                        step_text {
+                            text
+                        }
+                    }
+                    apply_title {
+                        text
+                    }
+                }
             }
-            step_number {
-              text
-            }
-            step_text {
-              text
-            }
-          }
-          apply_title {
-            text
-          }
         }
-      }
-    }
-  `)
+    `)
 
-  const {
-    apply_benefits:{ text: appBenefits},
-    apply_date_background:{ url: dateUrl, alt: dateAlt},
-    apply_date_text:{ text: dateText},
-    apply_date_title:{ text: dateTitle},
-    apply_how_background:{ url: howUrl, alt: howAlt},
-    apply_how_button:{ text: howBtn },
-    apply_how_title:{ text: howTitle },
-    apply_steps,
-    apply_title:{ text: appTitle},
-  } = data.prismicCoursePageSharedData.data
+    const {
+        apply_benefits: { text: appBenefits },
+        apply_date_background: { url: dateUrl },
+        apply_date_text: { text: dateText },
+        apply_date_title: { text: dateTitle },
+        apply_how_background: { url: howUrl },
+        apply_how_button: { text: howBtn },
+        apply_how_title: { text: howTitle },
+        apply_steps,
+        apply_title: { text: appTitle },
+    } = data.prismicCoursePageSharedData.data
 
-  const steps = apply_steps.map(({
-        step_info: { text: stepInfo },
-        step_number: { text: stepNum },
-        step_text: { text: stepText },
-    }) => 
-        <Step>
-            <StepNum>{stepNum}</StepNum>
-            <StepText>{stepText}</StepText>
-            <StepInfo>{stepInfo}</StepInfo>
-        </Step>)
-    
-  const {
-      apply_other: { text: other },
-      apply_other_button: { text: otherBtn },
-      apply_other_link: { url: otherUrl }
-  } = props
-    
-  return (
-      <>
-        <Container>
-            <Title >{appTitle}</Title>
-            <div style={{backgroundImage: `url(${dateUrl})`}} className="date-box">
-                <DateContainer>
-                    <DateTitle>{dateTitle}</DateTitle>
-                    <DateText>{dateText}</DateText>
-                </DateContainer>
-            </div>
-        </Container>
-        <BlueContainer>
-            <Benefits>{appBenefits}</Benefits>
-            <div style={{backgroundImage: `url(${howUrl})`}} className="how-box">
-                <HowContainer>
-                    <HowTitle>{howTitle}</HowTitle>
-                    <StepContainer>
-                        {steps}
-                    </StepContainer>
-                    <QueryLink to="https://calendly.com/v-school/apply">
-                        <StyledButton>{howBtn}</StyledButton>
-                    </QueryLink>
-                </HowContainer>
-            </div>
-        </BlueContainer>
-        <BottomContainer>
-            <DevContainer>
-                <ApplyDev>{other}</ApplyDev>
-                <ApplyButton onClick={() => navigate(otherUrl)}>{otherBtn}</ApplyButton>
-            </DevContainer>
-        </BottomContainer>
-      </>
-  )
+    const steps = apply_steps.map(
+        ({
+            step_info: { text: stepInfo },
+            step_number: { text: stepNum },
+            step_text: { text: stepText },
+        }) => (
+            <Step>
+                <StepNum>{stepNum}</StepNum>
+                <StepText>{stepText}</StepText>
+                <StepInfo>{stepInfo}</StepInfo>
+            </Step>
+        )
+    )
+
+    const {
+        apply_other: { text: other },
+        apply_other_button: { text: otherBtn },
+        apply_other_link: { url: otherUrl },
+    } = props
+
+    return (
+        <>
+            <Container>
+                <Title>{appTitle}</Title>
+                <div
+                    style={{ backgroundImage: `url(${dateUrl})` }}
+                    className="date-box"
+                >
+                    <DateContainer>
+                        <DateTitle>{dateTitle}</DateTitle>
+                        <DateText>{dateText}</DateText>
+                    </DateContainer>
+                </div>
+            </Container>
+            <BlueContainer>
+                <Benefits>{appBenefits}</Benefits>
+                <div
+                    style={{ backgroundImage: `url(${howUrl})` }}
+                    className="how-box"
+                >
+                    <HowContainer>
+                        <HowTitle>{howTitle}</HowTitle>
+                        <StepContainer>{steps}</StepContainer>
+                        <QueryLink to="https://calendly.com/v-school/apply">
+                            <StyledButton>{howBtn}</StyledButton>
+                        </QueryLink>
+                    </HowContainer>
+                </div>
+            </BlueContainer>
+            <BottomContainer>
+                <DevContainer>
+                    <ApplyDev>{other}</ApplyDev>
+                    <ApplyButton onClick={() => navigate(otherUrl)}>
+                        {otherBtn}
+                    </ApplyButton>
+                </DevContainer>
+            </BottomContainer>
+        </>
+    )
 }
 
 export default Apply

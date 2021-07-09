@@ -96,25 +96,25 @@ const Logo = styled.img`
 const Info = () => {
     const data = useStaticQuery(graphql`
         {
-            prismicPrecourseCommunitiesPage {
+            prismicPrecourseCommunitiesPageSharedData {
                 data {
-                    info_box {
-                        box_logo {
-                            alt
-                            url
-                        }
-                        box_paragraph {
-                            text
-                        }
-                        box_title {
-                            text
-                        }
+                    info_title {
+                        text
                     }
                     info_subtitle {
                         text
                     }
-                    info_title {
-                        text
+                    info_box {
+                        box_title {
+                            text
+                        }
+                        box_paragraph {
+                            text
+                        }
+                        box_logo {
+                            alt
+                            url
+                        }
                     }
                 }
             }
@@ -124,7 +124,7 @@ const Info = () => {
         info_box,
         info_title: { text: infoTitle },
         info_subtitle: { text: infoSub },
-    } = data.prismicPrecourseCommunitiesPage.data
+    } = data.prismicPrecourseCommunitiesPageSharedData.data
 
     const mappedBoxes = info_box.map(
         ({

@@ -12,17 +12,17 @@ const PageContainer = styled.div`
     background: ${gray.lighter};
 `
 
-export default function PreCourse({data}) {
+export default function PreCourse({ data }) {
     const submitButton = () => {
         navigate("/pre-course-communities/registration-form")
     }
     return (
         <PageContainer>
-            <Hero submit={submitButton} />
+            <Hero submit={submitButton} {...data} />
             <Info />
             <Career submit={submitButton} />
             <Start submit={submitButton} />
-            <Partners />
+            <Partners {...data} />
         </PageContainer>
     )
 }

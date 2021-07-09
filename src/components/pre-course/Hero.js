@@ -76,25 +76,18 @@ const StyledButton = styled(Button)`
     }
 `
 
-const Hero = props => {
+function Hero(props) {
     const data = useStaticQuery(graphql`
         {
-            prismicPrecourseCommunitiesPage {
+            prismicPrecourseCommunitiesPageSharedData {
                 data {
-                    hero_button {
-                        text
-                    }
-                    hero_image {
-                        alt
-                        url
-                    }
-                    hero_subtitle {
-                        text
-                    }
-                    hero_tag {
-                        text
-                    }
                     hero_title {
+                        text
+                    }
+                    hero_courses {
+                        text
+                    }
+                    hero_button_text {
                         text
                     }
                     start_right_arrow {
@@ -107,13 +100,16 @@ const Hero = props => {
     `)
 
     const {
-        hero_button: { text: heroBtn },
-        hero_image: { alt: imgAlt, url: imgUrl },
-        hero_subtitle: { text: heroSub },
-        hero_tag: { text: heroTag },
+        hero_button_text: { text: heroBtn },
+        hero_courses: { text: heroCourses },
         hero_title: { text: heroTitle },
         start_right_arrow: { alt: arrowAlt, url: arrowUrl },
-    } = data.prismicPrecourseCommunitiesPage.data
+    } = data.prismicPrecourseCommunitiesPageSharedData.data
+
+    const {
+        hero_image: { alt: imgAlt, url: imgUrl },
+        hero_text: { text: heroText },
+    } = props
 
     return (
         <Container>
@@ -121,8 +117,8 @@ const Hero = props => {
                 text={
                     <div>
                         <HeroTitle>{heroTitle}</HeroTitle>
-                        <HeroParagraph>{heroSub}</HeroParagraph>
-                        <BlueSubtext>{heroTag}</BlueSubtext>
+                        <HeroParagraph>{heroText}</HeroParagraph>
+                        <BlueSubtext>{heroCourses}</BlueSubtext>
                         <StyledButton onClick={props.submit}>
                             {heroBtn} <img src={arrowUrl} alt={arrowAlt} />
                         </StyledButton>

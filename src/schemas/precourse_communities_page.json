@@ -8,11 +8,11 @@
         }
     },
     "Hero": {
-        "hero_subtitle": {
+        "hero_text": {
             "type": "StructuredText",
             "config": {
-                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
-                "label": "Hero Subtitle"
+                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                "label": "Hero Text"
             }
         },
         "hero_image": {
@@ -24,9 +24,20 @@
             }
         },
         "hero_background_color": {
-            "type": "Color",
+            "type": "Select",
             "config": {
-                "label": "Hero Background Color"
+                "options": [
+                    "blue",
+                    "pink",
+                    "purple",
+                    "red",
+                    "green",
+                    "yellow",
+                    "orange",
+                    "gray"
+                ],
+                "default_value": "blue",
+                "label": "Primary Theme Color"
             }
         }
     },
