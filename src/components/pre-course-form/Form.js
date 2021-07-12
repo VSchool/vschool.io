@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { navigate } from "gatsby"
@@ -130,6 +130,18 @@ const Block = styled.div`
 `
 
 const Form = ({ location }) => {
+    useEffect(() => {
+        if (location?.state?.convertKitTag) {
+            localStorage.setItem(
+                "convertKitTag",
+                location?.state?.convertKitTag
+            )
+        }
+        if (location?.state?.uid) {
+            localStorage.setItem("fromLandingPage", location?.state?.uid)
+        }
+    }, [location?.state?.convertKitTag, location?.state?.uid])
+
     const data = useStaticQuery(graphql`
         {
             prismicPreCourseCommunityForm {
@@ -249,8 +261,8 @@ const Form = ({ location }) => {
             course,
             goals,
             why,
-            convertKitTag: "Test Tag For Convert Kit",
-            fromLandingPage: location.state.uid,
+            convertKitTag: localStorage.getItem("convertKitTag"),
+            fromLandingPage: localStorage.getItem("fromLandingPage"),
         }
 
         const options = {
@@ -259,23 +271,17 @@ const Form = ({ location }) => {
         }
 
         const query = localStorage.getItem("query") || ""
-
-        await fetch(
-            `${process.env.GATSBY_CONVERTKIT_SIGNUP_ZAPIER_WEBHOOK_URL}${query}`,
-            options
-        )
-        navigate("/pre-course-communities/success")
+        try {
+            await fetch(
+                `${process.env.GATSBY_PRE_COURSE_COMMUNITIES_ZAPIER_WEBHOOK_URL}${query}`,
+                options
+            )
+            console.log("Send the request")
+            navigate("/pre-course-communities/success")
+        } catch (e) {
+            console.error(e)
+        }
     }
-
-    // const stringifyInputs = input => {
-    //     return (
-    //         input[0].toLowerCase() +
-    //         input
-    //             .slice(1)
-    //             .split(" ")
-    //             .join("")
-    //     )
-    // }
 
     return (
         <Container>
