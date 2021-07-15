@@ -1,4 +1,5 @@
 import React from "react"
+import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 import QueryLink from "../shared/QueryLink.js"
 import { gray, black, Button } from "@vschool/lotus"
@@ -36,7 +37,28 @@ const StyledLink = styled(QueryLink)`
 `
 
 export default function GoogleForm(props) {
-    const { link, btnText, info } = props
+    const data = useStaticQuery(graphql`
+        {
+            prismicUofuPrimer {
+                data {
+                    google_form_btn {
+                        text
+                    }
+                    google_form_info {
+                        text
+                    }
+                    google_form_link {
+                        url
+                    }
+                }
+            }
+        }
+    `)
+    const {
+        google_form_link: { url: link },
+        google_form_btn: { text: btnText },
+        google_form_info: { text: info },
+    } = data.prismicUofuPrimer.data
     return (
         <Container>
             <Header>{info}</Header>

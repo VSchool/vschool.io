@@ -1,9 +1,15 @@
 {
-    "Main": {
+    "Meta": {
+        "convertkit_tag": {
+            "type": "Text",
+            "config": {
+                "label": "ConvertKit Tag"
+            }
+        },
         "prismic_display_name": {
             "type": "StructuredText",
             "config": {
-                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "single": "heading1,heading2,heading3,heading4,heading5,heading6",
                 "label": "Prismic Display Name",
                 "useAsTitle": true
             }
@@ -13,7 +19,9 @@
             "config": {
                 "label": "utah-health"
             }
-        },
+        }
+    },
+    "Main": {
         "ulogo": {
             "type": "Image",
             "config": {
@@ -25,35 +33,35 @@
         "page_header": {
             "type": "StructuredText",
             "config": {
-                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "single": "heading1,heading2,heading3,heading4,heading5,heading6",
                 "label": "page header"
             }
         },
         "page_subheader": {
             "type": "StructuredText",
             "config": {
-                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item",
                 "label": "page subheader"
             }
         },
         "page_info1": {
             "type": "StructuredText",
             "config": {
-                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item",
                 "label": "page info1"
             }
         },
         "page_info2": {
             "type": "StructuredText",
             "config": {
-                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item",
                 "label": "page info2"
             }
         },
         "invite_btn": {
             "type": "StructuredText",
             "config": {
-                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item",
                 "label": "invite btn"
             }
         },
@@ -76,21 +84,21 @@
         "about_primer_header": {
             "type": "StructuredText",
             "config": {
-                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "single": "heading1,heading2,heading3,heading4,heading5,heading6",
                 "label": "about primer header"
             }
         },
         "about_primer1": {
             "type": "StructuredText",
             "config": {
-                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item",
                 "label": "about primer1"
             }
         },
         "about_primer2": {
             "type": "StructuredText",
             "config": {
-                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item",
                 "label": "about primer2"
             }
         },
@@ -105,48 +113,50 @@
         "learn_header": {
             "type": "StructuredText",
             "config": {
-                "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                "single": "heading1,heading2,heading3,heading4,heading5,heading6",
                 "label": "learn header"
             }
         },
         "learn_subheader": {
             "type": "StructuredText",
             "config": {
-                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item",
                 "label": "learn subheader"
             }
         },
         "learn_btn": {
             "type": "StructuredText",
             "config": {
-                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item",
                 "label": "learn btn"
             }
         },
         "learn_link": {
             "type": "Link",
             "config": {
-                "label": "learn link"
+                "label": "learn link",
+                "select": null
             }
         },
         "google_form_info": {
             "type": "StructuredText",
             "config": {
-                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item",
                 "label": "google form info"
             }
         },
         "google_form_btn": {
             "type": "StructuredText",
             "config": {
-                "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item",
                 "label": "google form btn"
             }
         },
         "google_form_link": {
             "type": "Link",
             "config": {
-                "label": "google form link"
+                "label": "google form link",
+                "select": null
             }
         }
     }

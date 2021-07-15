@@ -1,4 +1,5 @@
 import React from "react"
+import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 import { gray, black, Button } from "@vschool/lotus"
 import QueryLink from "../shared/QueryLink.js"
@@ -56,7 +57,37 @@ const StyledLink = styled(QueryLink)`
 `
 
 export default function NeverLearnAlone(props) {
-    const { header, subheader, btnText, logo, link } = props
+    const data = useStaticQuery(graphql`
+        {
+            prismicUofuPrimer {
+                data {
+                    vslogo {
+                        url
+                    }
+                    learn_subheader {
+                        text
+                    }
+                    learn_link {
+                        url
+                    }
+                    learn_header {
+                        text
+                    }
+                    learn_btn {
+                        text
+                    }
+                }
+            }
+        }
+    `)
+    const {
+        vslogo: { url: logo },
+        learn_subheader: { text: subheader },
+        learn_link: { url: link },
+        learn_header: { text: header },
+        learn_btn: { text: btnText },
+    } = data.prismicUofuPrimer.data
+
     return (
         <Container>
             <Logo src={logo} />

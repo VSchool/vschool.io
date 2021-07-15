@@ -1,6 +1,20 @@
-export { default as PageHeader } from "./PageHeader.js"
-export { default as BeginCourseForm } from "./BeginCourseForm.js"
-export { default as HeroImage } from "./HeroImage.js"
-export { default as GoogleForm } from "./GoogleForm.js"
-export { default as AboutPrimer } from "./AboutPrimer.js"
-export { default as NeverLearnAlone } from "./NeverLearnAlone.js"
+import React from "react"
+import PageHeader from "./PageHeader.js"
+import BeginCourseForm from "./BeginCourseForm.js"
+import HeroImage from "./HeroImage.js"
+import GoogleForm from "./GoogleForm.js"
+import AboutPrimer from "./AboutPrimer.js"
+import NeverLearnAlone from "./NeverLearnAlone.js"
+
+export default function UtahHealth() {
+    return (
+        <>
+            <PageHeader />
+            <BeginCourseForm />
+            <HeroImage />
+            <AboutPrimer />
+            <GoogleForm />
+            <NeverLearnAlone />
+        </>
+    )
+}
