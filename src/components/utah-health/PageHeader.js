@@ -1,4 +1,5 @@
 import React from "react"
+import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 import { black, gray } from "@vschool/lotus"
 
@@ -75,8 +76,39 @@ const Info = styled.p`
     }
 `
 
-export default function PageHeader(props) {
-    const { logo, header, subheader, info1, info2 } = props
+export default function PageHeader() {
+    const data = useStaticQuery(graphql`
+        {
+            prismicUofuPrimer {
+                data {
+                    page_header {
+                        text
+                    }
+                    page_info1 {
+                        text
+                    }
+                    page_info2 {
+                        text
+                    }
+                    page_subheader {
+                        text
+                    }
+                    ulogo {
+                        url
+                    }
+                }
+            }
+        }
+    `)
+
+    const {
+        page_header: { text: header },
+        page_info1: { text: info1 },
+        page_info2: { text: info2 },
+        page_subheader: { text: subheader },
+        ulogo: { url: logo },
+    } = data.prismicUofuPrimer.data
+
     return (
         <Container>
             <Logo src={logo} />
