@@ -54,11 +54,19 @@ const ThanksMessage = styled.h4`
     margin-right: auto;
 `
 
-export default function ConvertKitSubscribe({ convertKitTag, confirmationMessage, ...props }) {
+export default function ConvertKitSubscribe({
+    convertKitTag,
+    confirmationMessage,
+    ...props
+}) {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [submitted, setSubmitted] = useState(false)
     const webhookUrl = process.env.GATSBY_CONVERTKIT_SIGNUP_ZAPIER_WEBHOOK_URL
+    
+    function redirectTo(url) {
+        window.location.href = url
+    }
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -70,6 +78,7 @@ export default function ConvertKitSubscribe({ convertKitTag, confirmationMessage
 
         fetch(webhookUrl, options).then(res => {
             res.ok && setSubmitted(true)
+            redirectTo("https://scrimba.com/learn/bootcampprimer")
         })
     }
 
@@ -104,7 +113,9 @@ export default function ConvertKitSubscribe({ convertKitTag, confirmationMessage
                     </Disclaimer>
                 </>
             ) : (
-                <ThanksMessage>{confirmationMessage || "Thanks for subscribing!"}</ThanksMessage>
+                <ThanksMessage>
+                    {confirmationMessage || "Thanks for subscribing!"}
+                </ThanksMessage>
             )}
         </FormContainer>
     )

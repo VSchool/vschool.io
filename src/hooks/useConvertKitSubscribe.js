@@ -1,1 +1,5 @@
-// Put logic from ConvertKitSubscribe component in here
+import React from "react"
+
+function useConvertKitSubscribe() {
+
+}
