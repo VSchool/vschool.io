@@ -1,7 +1,9 @@
 import React, { useState } from "react"
+import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 import { blue, white, gray, black, Button } from "@vschool/lotus"
 import MailchimpSubscribe from "react-mailchimp-subscribe"
+import ConvertKitSubscribe from "../shared/ConvertKitSubscribe"
 
 const FormContainer = styled.div`
     position: relative;
@@ -12,27 +14,39 @@ const FormContainer = styled.div`
     padding-top: 96px;
 `
 
-const Form = styled.form`
-    height: 304px;
-    max-width: 360px;
-    width: 100%;
+const Form = styled(ConvertKitSubscribe)`
     background-color: #ac162c;
-    padding: 32px 24px;
     border: 2px solid #fa0037;
+    color: ${white};
 
-    @media (max-width: 360px) {
-        width: 286px;
-    }
-
-    @media (min-width: 1200px) {
-        width: 100%;
-        max-width: 1024px;
-        height: 152px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    & label,
+    & label::before,
+    & p {
+        color: white;
     }
 `
+
+// const Form = styled.form`
+//     height: 304px;
+//     max-width: 360px;
+//     width: 100%;
+//     background-color: #ac162c;
+//     padding: 32px 24px;
+//     border: 2px solid #fa0037;
+
+//     @media (max-width: 360px) {
+//         width: 286px;
+//     }
+
+//     @media (min-width: 1200px) {
+//         width: 100%;
+//         max-width: 1024px;
+//         height: 152px;
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//     }
+// `
 
 const Label = styled.label`
     color: ${white};
@@ -89,7 +103,7 @@ const StyledButton = styled(Button)`
     background-color: ${gray.darker};
     font-family: "aktiv-grotesk-extended";
 
-    @media(min-width: 1200px){
+    @media (min-width: 1200px) {
         width: 255px;
         margin-top: 0;
     }
@@ -103,6 +117,16 @@ const ErrorMsg = styled.div`
 `
 
 function MailchimpSubscribeForm() {
+    const data = useStaticQuery(graphql`
+        {
+            prismicUofuPrimer {
+                data {
+                    convertkit_tag
+                }
+            }
+        }
+    `)
+    const { convertkit_tag: convertKitTag } = data.prismicUofuPrimer.data
     const initInputs = { NAME: "", EMAIL: "" }
     const [inputs, setInputs] = useState(initInputs)
 
@@ -121,60 +145,64 @@ function MailchimpSubscribeForm() {
     const url =
         "//vschool.us16.list-manage.com/subscribe/post?u=f5ba48f36061bdea6c3b83712&amp;id=75906113f1"
     return (
-        <MailchimpSubscribe
-            url={url}
-            render={({ subscribe, status, message }) => {
-                let msg
-                if (status === "sending") {
-                    msg = "Loading..."
-                } else if (status === "success") {
-                    msg = "Redirecting..."
-                } else {
-                    msg = "Begin Free Course"
-                }
+        <FormContainer>
+            <Form convertKitTag={convertKitTag} />
+        </FormContainer>
 
-                return (
-                    <FormContainer>
-                        {status === "error" && (
-                            <ErrorMsg>
-                                <div style={{ color: "#BF6B1C" }}>
-                                    There seems to have been a problem. Please
-                                    try a different email address.
-                                </div>
-                            </ErrorMsg>
-                        )}
-                        {status === "success" &&
-                            redirectTo("https://scrimba.com/g/gbootcampprimer")}
-                        <Form
-                            onSubmit={e => {
-                                e.preventDefault()
-                                subscribe(inputs)
-                            }}
-                        >
-                            <Label htmlfor="NAME">
-                                Name
-                                <Input
-                                    placeholder="Name"
-                                    onChange={handleChange}
-                                    name="NAME"
-                                    value={inputs.NAME}
-                                />
-                            </Label>
-                            <Label htmlfor="EMAIL">
-                                Email
-                                <Input
-                                    placeholder="Email"
-                                    onChange={handleChange}
-                                    name="EMAIL"
-                                    value={inputs.EMAIL}
-                                />
-                            </Label>
-                            <StyledButton>{msg}</StyledButton>
-                        </Form>
-                    </FormContainer>
-                )
-            }}
-        />
+        // <MailchimpSubscribe
+        //     url={url}
+        //     render={({ subscribe, status, message }) => {
+        //         let msg
+        //         if (status === "sending") {
+        //             msg = "Loading..."
+        //         } else if (status === "success") {
+        //             msg = "Redirecting..."
+        //         } else {
+        //             msg = "Begin Free Course"
+        //         }
+
+        //         return (
+        //             <FormContainer>
+        //                 {status === "error" && (
+        //                     <ErrorMsg>
+        //                         <div style={{ color: "#BF6B1C" }}>
+        //                             There seems to have been a problem. Please
+        //                             try a different email address.
+        //                         </div>
+        //                     </ErrorMsg>
+        //                 )}
+        //                 {status === "success" &&
+        //                     redirectTo("https://scrimba.com/g/gbootcampprimer")}
+        //                 <Form
+        //                     onSubmit={e => {
+        //                         e.preventDefault()
+        //                         subscribe(inputs)
+        //                     }}
+        //                 >
+        //                     <Label htmlfor="NAME">
+        //                         Name
+        //                         <Input
+        //                             placeholder="Name"
+        //                             onChange={handleChange}
+        //                             name="NAME"
+        //                             value={inputs.NAME}
+        //                         />
+        //                     </Label>
+        //                     <Label htmlfor="EMAIL">
+        //                         Email
+        //                         <Input
+        //                             placeholder="Email"
+        //                             onChange={handleChange}
+        //                             name="EMAIL"
+        //                             value={inputs.EMAIL}
+        //                         />
+        //                     </Label>
+        //                     <StyledButton>{msg}</StyledButton>
+        //                 </Form>
+        //             </FormContainer>
+        //         )
+        //     }}
+        // />
     )
 }
 

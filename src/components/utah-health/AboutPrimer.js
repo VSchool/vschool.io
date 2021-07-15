@@ -1,4 +1,5 @@
 import React from "react"
+import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 import { gray, black } from "@vschool/lotus"
 
@@ -59,7 +60,29 @@ const Info = styled.p`
 `
 
 export default function AboutPrimer(props) {
-    const { header, info1, info2 } = props
+    const data = useStaticQuery(graphql`
+        {
+            prismicUofuPrimer {
+                data {
+                    about_primer_header {
+                        text
+                    }
+                    about_primer2 {
+                        text
+                    }
+                    about_primer1 {
+                        text
+                    }
+                }
+            }
+        }
+    `)
+    const {
+        about_primer_header: { text: header },
+        about_primer1: { text: info1 },
+        about_primer2: { text: info2 },
+    } = data.prismicUofuPrimer.data
+
     return (
         <Container>
             <Header>{header}</Header>
