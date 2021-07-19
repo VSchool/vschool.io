@@ -268,8 +268,15 @@ const Apply = props => {
                     }
                 }
             }
+            prismicStartDate {
+                data {
+                    start_date(formatString: "MMM Do, YYYY")
+                }
+            }
         }
     `)
+    
+    const { start_date } = data.prismicStartDate.data
 
     const {
         apply_benefits: { text: appBenefits },
@@ -296,6 +303,7 @@ const Apply = props => {
             </Step>
         )
     )
+    console.log(dateText, dateTitle)
 
     const {
         apply_other: { text: other },
@@ -313,7 +321,7 @@ const Apply = props => {
                 >
                     <DateContainer>
                         <DateTitle>{dateTitle}</DateTitle>
-                        <DateText>{dateText}</DateText>
+                        <DateText>{start_date}</DateText>
                     </DateContainer>
                 </div>
             </Container>
