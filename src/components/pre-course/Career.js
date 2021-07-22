@@ -98,9 +98,13 @@ const BoxMainContainer = styled.div`
 // `
 
 const StyledArrow = styled(Arrow)`
-    margin: 0 20px 0 0px;
+    margin: 0 0px 0 0px;
     margin-left: auto;
     transform: ${({ $open }) => $open && "rotate(180deg)"};
+    height: 15px;
+    width: 40px;
+    position: relative;
+    right: 20px;
 `
 
 const BoxDropContainer = styled.div`
@@ -285,6 +289,7 @@ const Career = props => {
                     <StyledArrow
                         $open={open}
                         fill={open ? gray.darker : gray.base}
+                        location="precourse"
                     />
                 </BoxInnerContainer>
                 <BoxDropContainer
@@ -315,7 +320,7 @@ const Career = props => {
                     </ContentGrid>
                     <ImageContainer>
                         <img src={imgUrl} alt={imgAlt} />
-                        <StyledButton onClick={props.submit}>
+                        <StyledButton onClick={props.submit}
                             type={BoxTitle}
                             disabled={BoxTitle === "UX / UI Design"}>
                             {BoxTitle === "UX / UI Design"
