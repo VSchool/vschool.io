@@ -46,6 +46,7 @@
     "gatsby-source-prismic": "^3.2.1",
     "gatsby-transformer-sharp": "^3.10.0",
     "luxon": "^1.25.0",
+    "node-sass": "^6.0.1",
     "prismjs": "^1.24.1",
     "prop-types": "^15.7.2",
     "query-string": "^6.13.7",
