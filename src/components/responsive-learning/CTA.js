@@ -131,7 +131,7 @@ const StyledLink = styled(QueryLink)`
     }
 `
 
-export default function CTA(props) {
+export default function Cta(props) {
     const data = useStaticQuery(graphql`
         {
             prismicResponsiveLearning {

@@ -52,14 +52,13 @@ const H3 = styled.h3`
 
 const StyledAccordion = styled(Accordion)`
     & > div {
-
         & > h5 {
             color: ${props => props.style.color || gray.darker};
         }
     }
 `
 
-function FAQ(props) {
+function Faq(props) {
     const styles = props.styles || {
         color: "#456AE2",
         fontFamily: "aktiv-grotesk",
@@ -93,4 +92,4 @@ function FAQ(props) {
     )
 }
 
-export default FAQ
+export default Faq

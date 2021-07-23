@@ -40,7 +40,7 @@ const H3 = styled.h3`
 //     padding-right: 24px;
 // `
 
-function FAQ(props) {
+function Faq(props) {
     const { faq } = props
     const styles = {
         color: "#456AE2",
@@ -52,7 +52,7 @@ function FAQ(props) {
         whiteSpace: "pre-wrap",
         backgroundColor: gray.lighter,
         width: "100%",
-        maxWidth: 672
+        maxWidth: 672,
     }
     return (
         <Container>
@@ -74,4 +74,4 @@ function FAQ(props) {
     )
 }
 
-export default FAQ
+export default Faq

@@ -11,6 +11,6 @@ const CaretIcon = styled.i`
     transform: translateX(4px) rotate(135deg);
 `
 
-export default props => {
+export default function Caret(props) {
     return <CaretIcon {...props}></CaretIcon>
 }

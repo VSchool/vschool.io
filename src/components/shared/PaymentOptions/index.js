@@ -1,10 +1,10 @@
-import React from 'react'
-import ISA from "./ISA"
+import React from "react"
+import Isa from "./ISA"
 import OtherOptions from "./OtherOptions"
 export default function PaymentOptions() {
     return (
         <>
-            <ISA />
+            <Isa />
             <OtherOptions />
         </>
     )
