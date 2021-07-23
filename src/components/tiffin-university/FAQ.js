@@ -51,31 +51,31 @@ const H3 = styled.h3`
 //     padding-right: 24px;
 // `
 
-function FAQ(props) {
+function Faq(props) {
     const data = useStaticQuery(graphql`
-    {
-        prismicTiffin {
-            data {
-                faq_header {
-                    text
-                }
-                faq {
-                    faq_title {
+        {
+            prismicTiffin {
+                data {
+                    faq_header {
                         text
                     }
-                    faq_info {
-                        text
+                    faq {
+                        faq_title {
+                            text
+                        }
+                        faq_info {
+                            text
+                        }
                     }
                 }
             }
         }
-    }
-`)
+    `)
 
-const {
-    faq_header: { text: faqHeader },
-    faq,
-} = data.prismicTiffin.data
+    const {
+        faq_header: { text: faqHeader },
+        faq,
+    } = data.prismicTiffin.data
 
     // const { faq } = props
     const styles = {
@@ -112,4 +112,4 @@ const {
     )
 }
 
-export default FAQ
+export default Faq

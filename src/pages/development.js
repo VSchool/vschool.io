@@ -12,7 +12,7 @@ import {
     // Companies,
     Ratings,
     Testimonial,
-    FAQ,
+    Faq,
     LearnDesign,
 } from "../components/development"
 import {
@@ -105,7 +105,7 @@ export default function Development({ data }) {
                 link={learnDesignLink}
                 btnText={learnDesignBtn}
             />
-            <FAQ faq={faq} />
+            <Faq faq={faq} />
         </Layout>
     )
 }

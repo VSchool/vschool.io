@@ -1,13 +1,13 @@
-import React from 'react'
+import React from "react"
 import HeroHeader from "./HeroHeader.js"
 import Testimonial1 from "./Testimonial1.js"
 import Differences from "./Differences.js"
 import PathwaysHeader from "./PathwaysHeader.js"
 import Pathways from "./pathways"
 import SchoolComparisons from "./SchoolComparisons.js"
-import Courses from '../shared/Courses'
+import Courses from "../shared/Courses"
 import Testimonial2 from "./Testimonial2.js"
-import CTA from "./CTA.js"
+import Cta from "./Cta.js"
 
 export default function ComparesPage() {
     return (
@@ -20,7 +20,7 @@ export default function ComparesPage() {
             <SchoolComparisons />
             <Courses />
             <Testimonial2 />
-            <CTA />
-       </>
+            <Cta />
+        </>
     )
 }

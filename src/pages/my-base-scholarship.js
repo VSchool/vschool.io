@@ -11,7 +11,7 @@ import {
     Companies,
     Ratings,
     Testimonial2,
-    CTA,
+    Cta,
 } from "../components/my-base-scholarship"
 
 export default function MyBaseScholarship({ data }) {
@@ -85,7 +85,7 @@ export default function MyBaseScholarship({ data }) {
                 cite={cite2}
                 testimonialImg={testimonialImg2}
             />
-            <CTA
+            <Cta
                 header={ctaHeader}
                 bgImg={ctaBgImg}
                 startDate={start_date}

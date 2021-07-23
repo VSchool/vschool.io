@@ -10,9 +10,9 @@ import HeroImageTwo from "./HeroImageTwo.js"
 import Companies from "./Companies.js"
 import Ratings from "./Ratings.js"
 import Testimonial from "./Testimonial.js"
-import PaymentOptions from '../shared/PaymentOptions'
-import MakeALeap from '../shared/MakeALeap.js'
-import FAQ from "./FAQ.js"
+import PaymentOptions from "../shared/PaymentOptions"
+import MakeALeap from "../shared/MakeALeap.js"
+import Faq from "./Faq.js"
 import { blue } from "@vschool/lotus"
 
 export default function TiffinUniversityPage() {
@@ -30,11 +30,8 @@ export default function TiffinUniversityPage() {
             <Ratings />
             <Testimonial />
             <PaymentOptions />
-            <MakeALeap
-                bgColor={blue.lightest}
-                sessionColor={blue.lighter}
-            />
-            <FAQ />
+            <MakeALeap bgColor={blue.lightest} sessionColor={blue.lighter} />
+            <Faq />
         </>
     )
 }

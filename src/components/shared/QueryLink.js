@@ -14,7 +14,7 @@ const StyledAnchor = styled.a`
 // the querystring from localStorage
 // This makes it so we can track the UTM parameters on sites outside of our own
 // like on links to Calendly.
-export default function({ to, children, ...rest }) {
+export default function QueryLink({ to, children, ...rest }) {
     // Had to put query in state and useEffect because Gatsby didn't have reference to
     // `window` or `localStorage` at build time. Inside useEffect, it'll only run after mount
     // See https://www.gatsbyjs.org/docs/debugging-html-builds/ for more details

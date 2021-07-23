@@ -1,2 +1,6 @@
-[[plugins]]
-package = "@netlify/plugin-gatsby"
+[build]
+    functions = "functions"
+[[redirects]]
+    from = "/api/*"
+    to = "/.netlify/functions/:splat"
+    status = 200

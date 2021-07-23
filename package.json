@@ -67,7 +67,6 @@
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
-    "@netlify/plugin-gatsby": "^1.0.3",
     "dotenv": "^8.2.0",
     "prettier": "^1.19.1"
   },
@@ -79,7 +78,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop -o",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "ENABLE_GATSBY_REFRESH_ENDPOINT=TRUE npm run develop",
+    "start": "ENABLE_GATSBY_REFRESH_ENDPOINT=TRUE netlify dev",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
