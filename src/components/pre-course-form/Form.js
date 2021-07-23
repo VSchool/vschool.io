@@ -276,7 +276,6 @@ const Form = ({ location }) => {
                 `${process.env.GATSBY_PRE_COURSE_COMMUNITIES_ZAPIER_WEBHOOK_URL}${query}`,
                 options
             )
-            console.log("Send the request")
             navigate("/pre-course-communities/success")
         } catch (e) {
             console.error(e)
