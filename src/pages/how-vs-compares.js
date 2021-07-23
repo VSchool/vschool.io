@@ -1,12 +1,12 @@
 import React from "react"
 import Layout from "../components/layout.js"
-import SEO from "../components/seo.js"
+import Seo from "../components/seo.js"
 import ComparesPage from "../components/methodology"
 
 export default function HowVSCompares({ data }) {
     return (
         <Layout>
-            <SEO title="How VS Compares" />
+            <Seo title="How VS Compares" />
             <ComparesPage />
         </Layout>
     )

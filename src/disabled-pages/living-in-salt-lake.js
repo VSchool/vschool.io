@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../components/layout.js"
-import SEO from "../components/seo.js"
+import Seo from "../components/seo.js"
 import {
     Header,
     HeroImage,
@@ -31,7 +31,7 @@ export default function LivingInSaltLake({ data }) {
     const { start_date: startDate } = data.prismicStartDate.data
     return (
         <Layout>
-            <SEO title={header} />
+            <Seo title={header} />
             <Header header={header} subHeader={sub} />
             <HeroImage heroImg={heroImg} />
             <StateFeatures features={utah_features} header={featuresHeader} />

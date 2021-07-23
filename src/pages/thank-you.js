@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../components/layout.js"
-import SEO from "../components/seo.js"
+import Seo from "../components/seo.js"
 import { graphql } from "gatsby"
 import { Header, HeroImage } from "../components/thank-you"
 
@@ -19,7 +19,7 @@ export default function ThankYou({ data }) {
     } = data.prismicThankYouPage.data
     return (
         <Layout>
-            <SEO title={header} />
+            <Seo title={header} />
             <Header
                 title={title}
                 header={header}

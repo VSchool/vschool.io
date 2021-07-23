@@ -1,6 +1,6 @@
 import React from "react"
 import BlogLayout from "../../components/blog/blogLayout"
-import SEO from "../../components/seo"
+import Seo from "../../components/seo"
 import { BlogNav, BlogList } from "../../components/blog"
 import { graphql } from "gatsby"
 
@@ -21,7 +21,7 @@ export default function Blog({ data }) {
 
     return (
         <BlogLayout>
-            <SEO title="Blog" />
+            <Seo title="Blog" />
             <BlogNav />
             <BlogList
                 posts={edges}
