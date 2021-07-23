@@ -77,29 +77,29 @@ const StyledButton = styled(Button)`
     }
 `
 
-export default function CTA() {
-        const data = useStaticQuery(graphql`
-          {
+export default function Cta() {
+    const data = useStaticQuery(graphql`
+        {
             prismicMethodologyPage {
-              id
-              data {
-                cta_header {
-                  text
+                id
+                data {
+                    cta_header {
+                        text
+                    }
+                    cta_link {
+                        url
+                    }
+                    cta_subheader {
+                        text
+                    }
+                    cta_btn {
+                        text
+                    }
                 }
-                cta_link {
-                  url
-                }
-                cta_subheader {
-                  text
-                }
-                cta_btn {
-                  text
-                }
-              }
             }
-          }
-        `)
-        
+        }
+    `)
+
     const {
         cta_subheader: { text: ctaSubHeader },
         cta_link: { url: ctaLink },

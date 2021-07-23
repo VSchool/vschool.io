@@ -121,7 +121,7 @@ const StyledButton = styled(Button)`
     }
 `
 
-export default function CTA(props) {
+export default function Cta(props) {
     const {
         header,
         bgImg,

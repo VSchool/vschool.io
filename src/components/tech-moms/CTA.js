@@ -39,7 +39,7 @@ const Arrow = styled.span`
     margin-left: 12px;
 `
 
-export default function CTA() {
+export default function Cta() {
     const data = useStaticQuery(graphql`
         {
             prismicMotherCoders {

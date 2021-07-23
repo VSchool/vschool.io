@@ -5,12 +5,12 @@ import Details from "./Details"
 import Stages from "./Stages"
 import Form from "./Form"
 import ClosedAppCTA from "./ClosedAppCTA"
-import FAQ from "./FAQ"
+import Faq from "./Faq"
 import Companies from "./Companies"
 import Rankings from "../shared/Rankings"
 import Testimonial from "./Testimonial"
 import Courses from "./Courses"
-import CTA from "./CTA"
+import Cta from "./Cta"
 
 export default function Scholarship({ data }) {
     let deadlinePast = false
@@ -30,12 +30,12 @@ export default function Scholarship({ data }) {
             {detailsExist && <Details {...data} />}
             <Stages />
             <Form {...data} deadlinePast={deadlinePast} />
-            {deadlinePast ? <ClosedAppCTA /> : <FAQ {...data} />}
+            {deadlinePast ? <ClosedAppCTA /> : <Faq {...data} />}
             <Companies />
             <Rankings />
             <Testimonial {...data} />
             <Courses {...data} />
-            <CTA />
+            <Cta />
         </div>
     )
 }
