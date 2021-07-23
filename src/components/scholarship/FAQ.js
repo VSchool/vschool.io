@@ -47,8 +47,7 @@ const Answer = styled.p`
     color: ${gray.darker};
 `
 
-export default function FAQ(props) {
-
+export default function Faq(props) {
     const questionsList = props.faq_list
 
     const faqs = questionsList.map(faq => (

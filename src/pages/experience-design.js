@@ -5,7 +5,7 @@ import {
     AboutCourse,
     AsRealAsItGets,
     CourseBullets,
-    FAQ,
+    Faq,
     HeroHeader,
     HeroImage,
     LearnToCode,
@@ -119,7 +119,7 @@ const ExperienceDesignPage = ({ data }) => {
                 btnText={learnToCodeBtnText}
                 link={learnToCodeLink}
             />
-            <FAQ faq={faq} />
+            <Faq faq={faq} />
         </Layout>
     )
 }

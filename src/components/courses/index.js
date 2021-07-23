@@ -11,7 +11,7 @@ import { Team } from "./Team/"
 import Payments from "./Payments"
 import Form from "./Form"
 import Apply from "./Apply"
-import FAQ from "./FAQ"
+import Faq from "./FAQ"
 
 export default function Index({ data }) {
     return (
@@ -28,7 +28,7 @@ export default function Index({ data }) {
             <Team {...data} />
             <Payments {...data} />
             <Apply {...data} />
-            <FAQ {...data} />
+            <Faq {...data} />
         </>
     )
 }

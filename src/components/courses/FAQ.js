@@ -52,14 +52,13 @@ const H3 = styled.h3`
 
 const StyledAccordion = styled(Accordion)`
     & > div {
-
         & > h5 {
             color: ${blue.base};
         }
     }
 `
 
-function FAQ(props) {
+function Faq(props) {
     const styles = {
         color: blue.base,
         fontSize: 20,
@@ -73,37 +72,36 @@ function FAQ(props) {
     }
 
     const {
-        faq_title: {
-            text: title
-        },
-        faq_questions
+        faq_title: { text: title },
+        faq_questions,
     } = props
-    
+
     return (
         <Container>
             <H3>{title}</H3>
             <AccordionGroup>
-                {faq_questions.map(({
-                   faq_answer: {
-                        text: answer
-                    },
-                    faq_question: {
-                        text: question
+                {faq_questions.map(
+                    (
+                        {
+                            faq_answer: { text: answer },
+                            faq_question: { text: question },
+                        },
+                        i
+                    ) => {
+                        return (
+                            <StyledAccordion
+                                key={answer + i}
+                                style={styles}
+                                title={question}
+                            >
+                                <P>{answer}</P>
+                            </StyledAccordion>
+                        )
                     }
-                }, i) => {
-                    return (
-                        <StyledAccordion
-                            key={answer + i}
-                            style={styles}
-                            title={question}
-                        >
-                            <P>{answer}</P>
-                        </StyledAccordion>
-                    )
-                })}
+                )}
             </AccordionGroup>
         </Container>
     )
 }
 
-export default FAQ
+export default Faq
