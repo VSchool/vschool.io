@@ -1,12 +1,12 @@
 import React from "react"
 import Layout from "../../components/layout"
-import SEO from "../../components/seo"
+import Seo from "../../components/seo"
 import Thanks from "../../components/digital-family/Thanks"
 
 export default function DigitalFamilyPage() {
     return (
         <Layout>
-            <SEO title={"Thanks!"} />
+            <Seo title={"Thanks!"} />
             <Thanks />
         </Layout>
     )

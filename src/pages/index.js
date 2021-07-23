@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import Layout from "../components/layout"
 import { graphql } from "gatsby"
 import { gray, green } from "@vschool/lotus"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import { Helmet } from "react-helmet"
 import {
     HeroHeader,
@@ -56,7 +56,7 @@ export default function IndexPage({ data }) {
     const { start_date: startDate } = data.prismicStartDate.data
     return (
         <Layout>
-            <SEO title="Home" />
+            <Seo title="Home" />
 
             {/* Insert Pinterest claim code into head of index page */}
             <Helmet>

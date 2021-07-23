@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../components/layout.js"
-import SEO from "../components/seo.js"
+import Seo from "../components/seo.js"
 import { graphql } from "gatsby"
 
 import {
@@ -50,7 +50,7 @@ export default function CommunityRelief({ data }) {
     const { start_date: startDate } = data.prismicStartDate.data
     return (
         <Layout>
-            <SEO title="Community Relief" />
+            <Seo title="Community Relief" />
             <AboutScholarship
                 header={header}
                 info={subheader}

@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout.js"
-import SEO from "../components/seo.js"
+import Seo from "../components/seo.js"
 
 import {
     HeroHeader,
@@ -51,7 +51,7 @@ export default function MyBaseScholarship({ data }) {
     const { start_date } = data.prismicStartDate.data
     return (
         <Layout>
-            <SEO title="My Base Scholarship" />
+            <Seo title="My Base Scholarship" />
             <HeroHeader
                 header={pageHeader}
                 logo={myBaseLogo}

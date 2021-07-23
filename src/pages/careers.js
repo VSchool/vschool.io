@@ -1,13 +1,13 @@
 import React from "react"
 import Layout from "../components/layout.js"
-import SEO from "../components/seo.js"
+import Seo from "../components/seo.js"
 
 import CareersPage from "../components/careers"
 
 export default function Careers({ data }) {
     return (
         <Layout>
-            <SEO title={"Careers Page"} />
+            <Seo title={"Careers Page"} />
             <CareersPage />
         </Layout>
     )

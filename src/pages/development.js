@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../components/layout.js"
-import SEO from "../components/seo.js"
+import Seo from "../components/seo.js"
 import { blue } from "@vschool/lotus"
 import { graphql } from "gatsby"
 import {
@@ -60,7 +60,7 @@ export default function Development({ data }) {
         .map(company => company.logo)
     return (
         <Layout>
-            <SEO title={header} />
+            <Seo title={header} />
             <HeroHeader
                 title={title}
                 header={header}
