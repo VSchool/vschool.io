@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../components/layout.js"
-import SEO from "../components/seo.js"
+import Seo from "../components/seo.js"
 import { graphql } from "gatsby"
 import { pink } from "@vschool/lotus"
 
@@ -59,7 +59,7 @@ export default function YouBelong({ data }) {
     const { phases } = data.prismicEducationPhases.data
     return (
         <Layout>
-            <SEO title={header} />
+            <Seo title={header} />
             <Header
                 header={header}
                 sub={headerInfo}

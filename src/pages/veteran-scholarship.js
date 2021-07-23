@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../components/layout.js"
-import SEO from "../components/seo.js"
+import Seo from "../components/seo.js"
 import { graphql } from "gatsby"
 import { gray, yellow } from "@vschool/lotus"
 import {
@@ -52,7 +52,7 @@ export default function VaScholarship({ data }) {
     const { start_date: startDate } = data.prismicStartDate.data
     return (
         <Layout>
-            <SEO title={header} />
+            <Seo title={header} />
             <Header
                 title={title}
                 header={header}

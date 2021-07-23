@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../components/layout.js"
-import SEO from "../components/seo.js"
+import Seo from "../components/seo.js"
 import {
     Header,
     ShortDescription,
@@ -24,7 +24,7 @@ export default function Press({ data }) {
     } = data.prismicPress.data
     return (
         <Layout>
-            <SEO title="Press" />
+            <Seo title="Press" />
             <Header header={header} />
             <ShortDescription title={shortTitle} text={shortText} />
             <LongDescription

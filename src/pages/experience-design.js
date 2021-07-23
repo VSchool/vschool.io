@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../components/layout.js"
-import SEO from "../components/seo.js"
+import Seo from "../components/seo.js"
 import {
     AboutCourse,
     AsRealAsItGets,
@@ -60,7 +60,7 @@ const ExperienceDesignPage = ({ data }) => {
     const { start_date: startDate } = data.prismicStartDate.data
     return (
         <Layout>
-            <SEO title={mainTitle} />
+            <Seo title={mainTitle} />
             <HeroHeader
                 title={pageTitle}
                 header={mainTitle}
