@@ -11,7 +11,7 @@ import { Team } from "./Team/"
 import Payments from "./Payments"
 import Form from "./Form"
 import Apply from "./Apply"
-import Faq from "./Faq"
+import Faq from "./FAQ"
 
 export default function Index({ data }) {
     return (

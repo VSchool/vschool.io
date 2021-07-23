@@ -5,12 +5,12 @@ import Details from "./Details"
 import Stages from "./Stages"
 import Form from "./Form"
 import ClosedAppCTA from "./ClosedAppCTA"
-import Faq from "./Faq"
+import Faq from "./FAQ"
 import Companies from "./Companies"
 import Rankings from "../shared/Rankings"
 import Testimonial from "./Testimonial"
 import Courses from "./Courses"
-import Cta from "./Cta"
+import Cta from "./CTA"
 
 export default function Scholarship({ data }) {
     let deadlinePast = false

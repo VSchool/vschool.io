@@ -6,7 +6,7 @@ import ResponsiveIndustry from "./ResponsiveIndustry.js"
 import ResponsiveAbility from "./ResponsiveAbility.js"
 import Quotes from "./Quotes.js"
 import ResponsiveLife from "./ResponsiveLife.js"
-import Cta from "./Cta.js"
+import Cta from "./CTA.js"
 import Testimonial from "./Testimonial.js"
 import WorkWithUs from "./WorkWithUs.js"
 
