@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../components/layout.js"
-import SEO from "../components/seo.js"
+import Seo from "../components/seo.js"
 import { Header, Cards, ContactUs } from "../components/get-involved"
 import { graphql } from "gatsby"
 
@@ -15,7 +15,7 @@ export default function GetInvolved({ data }) {
     } = data.prismicGetInvolved.data
     return (
         <Layout>
-            <SEO title={"Get Involved"} />
+            <Seo title={"Get Involved"} />
             <Header header={header} subHeader={subHeader} />
             <Cards cards={cards} />
             <ContactUs title={title} link={link} btnText={btnText} />

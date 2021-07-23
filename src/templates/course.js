@@ -1,7 +1,7 @@
 import React from "react"
 import { ThemeProvider } from "styled-components"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import Course from "../components/courses"
 import {
     blue,
@@ -24,7 +24,7 @@ export default function CoursePageTemplate({ pageContext }) {
     const primaryThemeColor = colors[primaryThemeColorString]
     return (
         <Layout>
-            <SEO title={courseName} />
+            <Seo title={courseName} />
             <ThemeProvider
                 theme={{
                     primary: primaryThemeColor,

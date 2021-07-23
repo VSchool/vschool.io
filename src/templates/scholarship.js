@@ -1,7 +1,7 @@
 import React from "react"
 import { ThemeProvider } from "styled-components"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import ScholarshipPage from "../components/scholarship"
 import {
     blue,
@@ -27,7 +27,7 @@ export default function ScholarshipPageTemplate({ pageContext }) {
 
     return (
         <Layout>
-            <SEO title={`${scholarshipName}`} />
+            <Seo title={`${scholarshipName}`} />
             <ThemeProvider
                 theme={{
                     primary: primaryThemeColor,

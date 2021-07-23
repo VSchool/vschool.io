@@ -15,10 +15,11 @@ const FooterContainer = styled.div`
     background-color: ${black};
     color: ${gray.base};
     border-bottom: 2px solid ${gray.darker};
-    padding-bottom: 40px;
+    padding-bottom: 110px;
+    position: relative;
 
     @media (min-width: 600px) {
-        padding: 32px 0 72px 0;
+        padding: 32px 0 110px 0;
         display: grid;
         grid-template-columns: 1fr 1fr;
         width: 620px;
@@ -26,7 +27,7 @@ const FooterContainer = styled.div`
     }
 
     @media (min-width: 840px) {
-        padding: 40px 0 72px 0;
+        padding: 40px 0 110px 0;
     }
 
     @media (min-width: 1200px) {
@@ -35,6 +36,7 @@ const FooterContainer = styled.div`
         justify-content: space-between;
         width: 1114px;
         margin: 0 auto;
+        padding-bottom: 110px;
     }
 `
 
@@ -133,6 +135,46 @@ const CourseLink = styled(Link)`
     text-decoration: none;
 `
 
+const GiBill = styled.p`
+    padding-top: 8px;
+    width: 456px;
+    color: ${gray.dark};
+    font-family: "aktiv-grotesk";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    text-decoration: none;
+    position: absolute;
+    bottom: 15px;
+    left: 0px;
+
+    @media (min-width: 600px) {
+        left: 80px;
+    }
+
+    @media (min-width: 1200px) {
+        left: 0px;
+    }
+`
+
+const GiLink = styled(Link)`
+    padding-top: 8px;
+    width: 156px;
+    font-family: "aktiv-grotesk";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    text-decoration: none;
+
+    :active {
+        text-decoration: none;
+        color: ${gray.base};
+    }
+    :visited {
+        text-decoration: none;
+    }
+`
+
 const Footer = () => {
     const {
         prismicFooter: {
@@ -140,6 +182,8 @@ const Footer = () => {
                 footer_form_header: { text: formHeader },
                 footer_input_placeholder: { text: placeholder },
                 footer_programs_header: { text: programsHeader },
+                footer_gi_bill: { text: giBill },
+                footer_gi_link: { text: giLink },
                 body: footerSections,
             },
         },
@@ -164,6 +208,12 @@ const Footer = () => {
                         text
                     }
                     footer_programs_header {
+                        text
+                    }
+                    footer_gi_bill {
+                        text
+                    }
+                    footer_gi_link {
                         text
                     }
                     body {
@@ -241,6 +291,7 @@ const Footer = () => {
                         )}
                     </FooterSection>
                 ))}
+            <GiBill>{giBill}<GiLink to={giLink}> {giLink}</GiLink></GiBill>
             </FooterContainer>
             <FooterSubInformation />
         </Container>
