@@ -22,6 +22,7 @@
     "@formium/react": "^0.1.2",
     "@reach/router": "^1.3.4",
     "@vschool/lotus": "^2.3.1",
+    "axios": "^0.21.1",
     "babel-plugin-prismjs": "^2.0.1",
     "babel-plugin-styled-components": "^1.10.7",
     "babel-preset-gatsby": "^0.5.5",
@@ -78,7 +79,8 @@
     "build": "gatsby build",
     "develop": "gatsby develop -o",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "ENABLE_GATSBY_REFRESH_ENDPOINT=TRUE netlify dev",
+    "start": "ENABLE_GATSBY_REFRESH_ENDPOINT=TRUE npm run develop",
+    "functions": "ENABLE_GATSBY_REFRESH_ENDPOINT=TRUE netlify dev",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
