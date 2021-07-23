@@ -2,7 +2,7 @@
   "name": "vschool.io",
   "private": true,
   "description": "V School's home page, built with Gatsby and Prismic",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "contributors": [
     {
       "name": "Nate Jensen"
@@ -12,6 +12,9 @@
     },
     {
       "name": "Michael Stedman"
+    },
+    {
+      "name": "Marcus Peterson"
     }
   ],
   "dependencies": {
