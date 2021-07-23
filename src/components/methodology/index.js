@@ -7,7 +7,7 @@ import Pathways from "./pathways"
 import SchoolComparisons from "./SchoolComparisons.js"
 import Courses from "../shared/Courses"
 import Testimonial2 from "./Testimonial2.js"
-import Cta from "./Cta.js"
+import Cta from "./CTA.js"
 
 export default function ComparesPage() {
     return (
