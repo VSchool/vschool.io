@@ -137,7 +137,7 @@ const CourseLink = styled(Link)`
 
 const GiBill = styled.p`
     padding-top: 8px;
-    width: 456px;
+    max-width: 456px;
     color: ${gray.dark};
     font-family: "aktiv-grotesk";
     font-size: 14px;
