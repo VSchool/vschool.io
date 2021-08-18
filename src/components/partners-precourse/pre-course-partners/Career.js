@@ -1,15 +1,16 @@
-import React, { useState } from "react"
+import React, {useState} from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
-import { gray, Button } from "@vschool/lotus"
-import Arrow from "../Navbar/Arrow"
+import { gray, Button, blue } from "@vschool/lotus"
+import Arrow from "../../Navbar/Arrow"
+
 
 const Container = styled.section`
     background-color: ${gray.lighter};
-    padding: 20px 40px;
+    padding: 96px 40px;
 
     @media (min-width: 800px) {
-        padding: 0px 80px 96px;
+        padding: 160px 80px;
     }
 `
 
@@ -19,11 +20,29 @@ const Title = styled.h1`
     line-height: 32px;
     text-align: center;
     color: ${gray.darkest};
-    padding-bottom: 48px;
+    padding-bottom: 16px;
 
     @media (min-width: 800px) {
         font-size: 32px;
         line-height: 40px;
+        padding-bottom: 24px;
+    }
+`
+
+const BlueSubtext = styled.p`
+    font-family: "aktiv-grotesk-extended";
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    text-transform: uppercase;
+    color: ${blue.base};
+    padding-bottom: 48px;
+    text-align: center;
+
+    @media (min-width: 800px) {
+        font-size: 16px;
+        line-height: 24px;
         padding-bottom: 64px;
     }
 `
@@ -40,6 +59,7 @@ const BoxInnerContainer = styled.div`
     align-items: center;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 3px 4px rgba(0, 0, 0, 0.12),
         0px 1px 5px rgba(0, 0, 0, 0.2);
+    padding: ${props => props.ind === 0 ? 40 : 30 }px;
 
     @media (min-width: 800px) {
     }
@@ -65,6 +85,7 @@ const BoxMainTitle = styled.h1`
     @media (min-width: 800px) {
         font-size: 20px;
         line-height: 24px;
+        padding-right: 299px;
     }
 `
 
@@ -88,14 +109,6 @@ const BoxMainContainer = styled.div`
     }
 `
 
-// const Arrow = styled.img`
-//     margin: 0 20px 0 0px;
-//     margin-left: auto;
-
-//     @media (min-width: 800px) {
-//         margin: 0 80px;
-//     }
-// `
 
 const StyledArrow = styled(Arrow)`
     margin: 0 0px 0 0px;
@@ -193,74 +206,85 @@ const StyledButton = styled(Button)`
     font-size: 14px;
 `
 
-const Career = props => {
-    const [open, setOpen] = useState(false)
 
-    const data = useStaticQuery(graphql`
-        {
-            prismicPrecourseCommunitiesPageSharedData {
-                data {
-                    career_title {
-                        text
-                    }
-                    career_box {
-                        career_box_button_text {
-                            text
-                        }
-                        career_box_desc_sub {
-                            text
-                        }
-                        career_box_desc_title {
-                            text
-                        }
-                        career_box_diff_sub {
-                            text
-                        }
-                        career_box_diff_title {
-                            text
-                        }
-                        career_box_image {
-                            alt
-                            url
-                        }
-                        career_box_len_sub {
-                            text
-                        }
-                        career_box_len_title {
-                            text
-                        }
-                        career_box_logo {
-                            url
-                            alt
-                        }
-                        career_box_subtitle {
-                            text
-                        }
-                        career_box_title {
-                            text
-                        }
-                        career_box_topics {
-                            html
-                        }
-                        career_box_topics_title {
-                            text
-                        }
-                    }
-                }
+
+const Career = ({submit}) => {
+  const [open, setOpen] = useState(false)
+
+  const data = useStaticQuery(graphql`
+    {
+      prismicPrecoursePartners {
+        data {
+          career_box {
+            career_box_button_text {
+              text
             }
+            career_box_desc_sub {
+              text
+            }
+            career_box_desc_title {
+              text
+            }
+            career_box_diff_sub {
+              text
+            }
+            career_box_diff_title {
+              text
+            }
+            career_box_image {
+              alt
+              url
+            }
+            career_box_len_sub {
+              text
+            }
+            career_box_len_title {
+              text
+            }
+            career_box_logo {
+              alt
+              url
+            }
+            career_box_title {
+              text
+            }
+            career_box_topics {
+              html
+            }
+            career_box_topics_title {
+              text
+            }
+          }
+          career_down_arrow {
+            alt
+            url
+          }
+          career_subtitle {
+            text
+          }
+          career_title {
+            text
+          }
+          career_up_arrow {
+            alt
+            url
+          }
         }
-    `)
+      }
+    }
+  `)
 
     const {
-        career_title: { text: careerTitle },
-        career_box,
-    } = data.prismicPrecourseCommunitiesPageSharedData.data
+      career_box,
+      career_subtitle: { text: careerSub},
+      career_title: { text: careerTitle},
+    } = data.prismicPrecoursePartners.data
+
     const mappedBoxes = career_box.map(
         ({
             career_box_topics_title: { text: BoxTopicsTitle },
             career_box_topics: { html: BoxTopics },
             career_box_title: { text: BoxTitle },
-            career_box_subtitle: { text: BoxSub },
             career_box_logo: { alt: logoAlt, url: logoUrl },
             career_box_len_title: { text: BoxLenTitle },
             career_box_len_sub: { text: BoxLenSub },
@@ -270,9 +294,10 @@ const Career = props => {
             career_box_desc_title: { text: BoxDescTitle },
             career_box_desc_sub: { text: BoxDescSub },
             career_box_button_text: { text: BoxButtonText },
-        }) => (
+        }, i) => (
             <div key={BoxTitle}>
                 <BoxInnerContainer
+                    ind={i}
                     onClick={() =>
                         setOpen(prev => (prev === BoxTitle ? false : BoxTitle))
                     }
@@ -284,7 +309,6 @@ const Career = props => {
                     <img src={logoUrl} alt={logoAlt} />
                     <BoxMainContainer>
                         <BoxMainTitle>{BoxTitle}</BoxMainTitle>
-                        <BoxSubtitle>{BoxSub}</BoxSubtitle>
                     </BoxMainContainer>
                     <StyledArrow
                         $open={open === BoxTitle}
@@ -292,7 +316,7 @@ const Career = props => {
                         location="precourse"
                     />
                 </BoxInnerContainer>
-                <BoxDropContainer
+                <BoxDropContainer 
                     style={{
                         display: open !== BoxTitle && "none",
                         marginBottom: open === BoxTitle ? 24 : 0,
@@ -320,7 +344,7 @@ const Career = props => {
                     </ContentGrid>
                     <ImageContainer>
                         <img src={imgUrl} alt={imgAlt} />
-                        <StyledButton onClick={props.submit}
+                        <StyledButton onClick={submit}
                             type={BoxTitle}
                             disabled={BoxTitle === "UX / UI Design"}>
                             {BoxTitle === "UX / UI Design"
@@ -331,14 +355,16 @@ const Career = props => {
                 </BoxDropContainer>
             </div>
         )
-    )
+        )
 
-    return (
-        <Container>
-            <Title>{careerTitle}</Title>
-            <BoxContainer>{mappedBoxes}</BoxContainer>
-        </Container>
+  return (
+    <Container>
+        <Title>{careerTitle}</Title>
+        <BlueSubtext>{careerSub}</BlueSubtext>
+        <BoxContainer>{mappedBoxes}</BoxContainer>
+    </Container>
     )
 }
 
 export default Career
+
