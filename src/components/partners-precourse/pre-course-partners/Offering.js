@@ -2,6 +2,8 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { gray, Button, blue } from "@vschool/lotus"
+import { navigate } from "@reach/router"
+
 
 const Container = styled.section`
     background-color: ${blue.lightest};
@@ -99,8 +101,8 @@ const Offering = ({submit}) => {
               {StartBtn} <img src={arrowUrl} alt={arrowAlt} />
           </StyledButton>
           <DownloadDiv>
-            <DownloadImg src={logoUrl} alt={logoAlt} />
-            <a>{downloadInfo}</a>
+            <DownloadImg src={logoUrl} alt={logoAlt} onClick={() => navigate("/pre-course-partners/download")} />
+            <a href='/pre-course-partners/download'>{downloadInfo}</a>
           </DownloadDiv>
       </Container>
   )
