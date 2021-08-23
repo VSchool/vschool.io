@@ -53,7 +53,7 @@ const Carousel = styled.div`
     display: inline-block;
     display: ${props => props.ind === props.page ? 'inline-block' : 'none'};
     /* transform: translateX(-${props => props.page}00%); */
-    background-color: ${gray.lightest};
+    background-color: ${gray.lighter};
     padding: 40px;
     position: relative;
 `
@@ -64,7 +64,7 @@ const Title = styled.h1`
     font-weight: 900;
     color: ${gray.darkest};
     padding: 48px 0 16px;
-    text-align: center;
+    /* text-align: center; */
 
     @media (min-width: 800px) {
         font-size: 44px;
@@ -78,7 +78,7 @@ const Paragraph = styled.p`
     font-size: 16px;
     line-height: 24px;
     color: ${gray.darker};
-    text-align: center;
+    /* text-align: center; */
 
     @media (min-width: 800px) {
         font-size: 20px;
@@ -186,42 +186,63 @@ const Partners = () => {
     partner_title: { text: partnerTitle },
   } = data.prismicPrecoursePartners.data
 
-//   const infoStation = [
-//       {
-//         infoDesc: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga iste temporibus cumque magnam laboriosam rerum repudiandae. Nobis eaque incidunt placeat nam quidem qui. Dolore quod repellendus minus iusto error. Adipisci Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos fugiat veritatis at magnam tenetur eum facilis qui omnis, laboriosam fugit suscipit voluptatibus iure aspernatur est ipsam amet exercitationem non? Dicta',
-//         infoAlt: 'infoAlt',
-//         infoUrl: 'https://images.prismic.io/vschool/bb2f4cdf-0c49-4db9-929b-670722d26768_Ellipse+20.png?auto=format%2Ccompress&fit=max&q=50',
-//         logoAlt: 'logoAlt',
-//         logoUrl: 'https://images.prismic.io/vschool/cf6a6346-4436-40ae-9e16-e1c22ba431bb_TECH-MOMS+LOGO+1.png?auto=format%2Ccompress&fit=max&q=50',
-//         infoName: "Joe NONO",
-//         infoTitle: "CEO"
-//       },
-//       {
-//         infoDesc: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga iste temporibus cumque magnam laboriosam rerum repudiandae. Nobis eaque incidunt placeat nam quidem qui. Dolore quod repellendus minus iusto error. Adipisci Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos fugiat veritatis at magnam tenetur eum facilis qui omnis, laboriosam fugit suscipit voluptatibus iure aspernatur est ipsam amet exercitationem non? Dicta',
-//         infoAlt: 'infoAlt',
-//         infoUrl: 'https://images.prismic.io/vschool/bb2f4cdf-0c49-4db9-929b-670722d26768_Ellipse+20.png?auto=format%2Ccompress&fit=max&q=50',
-//         logoAlt: 'logoAlt',
-//         logoUrl: 'https://images.prismic.io/vschool/cf6a6346-4436-40ae-9e16-e1c22ba431bb_TECH-MOMS+LOGO+1.png?auto=format%2Ccompress&fit=max&q=50',
-//         infoName: "Joe Schmo",
-//         infoTitle: "CEO"
-//       }
-//   ]
+  // const infoStation = [
+  //     {
+  //       infoDesc: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga iste temporibus cumque magnam laboriosam rerum repudiandae. Nobis eaque incidunt placeat nam quidem qui. Dolore quod repellendus minus iusto error. Adipisci Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos fugiat veritatis at magnam tenetur eum facilis qui omnis, laboriosam fugit suscipit voluptatibus iure aspernatur est ipsam amet exercitationem non? Dicta',
+  //       infoAlt: 'infoAlt',
+  //       infoUrl: 'https://images.prismic.io/vschool/bb2f4cdf-0c49-4db9-929b-670722d26768_Ellipse+20.png?auto=format%2Ccompress&fit=max&q=50',
+  //       logoAlt: 'logoAlt',
+  //       logoUrl: 'https://images.prismic.io/vschool/cf6a6346-4436-40ae-9e16-e1c22ba431bb_TECH-MOMS+LOGO+1.png?auto=format%2Ccompress&fit=max&q=50',
+  //       infoName: "Joe NONO",
+  //       infoTitle: "CEO"
+  //     },
+  //     {
+  //       infoDesc: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga iste temporibus cumque magnam laboriosam rerum repudiandae. Nobis eaque incidunt placeat nam quidem qui. Dolore quod repellendus minus iusto error. Adipisci Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos fugiat veritatis at magnam tenetur eum facilis qui omnis, laboriosam fugit suscipit voluptatibus iure aspernatur est ipsam amet exercitationem non? Dicta',
+  //       infoAlt: 'infoAlt',
+  //       infoUrl: 'https://images.prismic.io/vschool/bb2f4cdf-0c49-4db9-929b-670722d26768_Ellipse+20.png?auto=format%2Ccompress&fit=max&q=50',
+  //       logoAlt: 'logoAlt',
+  //       logoUrl: 'https://images.prismic.io/vschool/cf6a6346-4436-40ae-9e16-e1c22ba431bb_TECH-MOMS+LOGO+1.png?auto=format%2Ccompress&fit=max&q=50',
+  //       infoName: "Joe Schmo",
+  //       infoTitle: "CEO"
+  //     }
+  // ]
 
-//   .map(({
-//     info_partner_description: { text: infoDesc },
-//     info_partner_image: { alt: infoAlt, url: infoUrl },
-//     info_partner_logo: { alt: logoAlt, url: logoUrl },
-//     info_partner_name: { text: infoName },
-//     info_partner_title: { text: infoTitle }
-//   })
+  // .map(({
+  //   info_partner_description: { text: infoDesc },
+  //   info_partner_image: { alt: infoAlt, url: infoUrl },
+  //   info_partner_logo: { alt: logoAlt, url: logoUrl },
+  //   info_partner_name: { text: infoName },
+  //   info_partner_title: { text: infoTitle }
+  // })
 
+  // const mappedInfo = partner_info.map(({
+  //       info_partner_description: { text: infoDesc },
+  //       info_partner_image: { alt: infoAlt, url: infoUrl },
+  //       info_partner_logo: { alt: logoAlt, url: logoUrl },
+  //       info_partner_name: { text: infoName },
+  //       info_partner_title: { text: infoTitle }
+  //     }
+
+  // console.log(page)
+  // const mappedInfo = infoStation.map(({
+  //   infoDesc,
+  //   infoAlt,
+  //   infoUrl,
+  //   logoAlt,
+  //   logoUrl,
+  //   infoName,
+  //   infoTitle
+  // },
+  
   const mappedInfo = partner_info.map(({
-        info_partner_description: { text: infoDesc },
-        info_partner_image: { alt: infoAlt, url: infoUrl },
-        info_partner_logo: { alt: logoAlt, url: logoUrl },
-        info_partner_name: { text: infoName },
-        info_partner_title: { text: infoTitle }
-      }, i) => <Carousel ind={i} page={page}>
+    info_partner_description: { text: infoDesc },
+    info_partner_image: { alt: infoAlt, url: infoUrl },
+    info_partner_logo: { alt: logoAlt, url: logoUrl },
+    info_partner_name: { text: infoName },
+    info_partner_title: { text: infoTitle }
+  },i) => {
+        // console.log(i, page)
+        return <Carousel ind={i} page={page}>
             <Quotes src={quotesUrl} alt={quotesAlt} />
             <PartnerCard>
                 <PartnerPic src={infoUrl} alt={infoAlt} />
@@ -234,13 +255,14 @@ const Partners = () => {
             <img src={logoUrl} alt={logoAlt} />
             <ArrowContainer>
                 <ArrowBtn>
-                    <Arrow src={arrowUrl} alt={arrowAlt} degree={-90} onClick={() => setPage(prev => partner_info[i - 1] ? prev - 1 : prev)} />
+                    <Arrow src={arrowUrl} alt={arrowAlt} degree={-90} onClick={() => setPage(prev => partner_info[i - 1] ? prev - 1: prev )} />
                 </ArrowBtn>
                 <ArrowBtn>
-                    <Arrow src={arrowUrl} alt={arrowAlt} degree={90} onClick={() => setPage(prev => partner_info[i + 1] ? prev + 1: prev )} />
+                    <Arrow src={arrowUrl} alt={arrowAlt} degree={90} onClick={() => setPage(prev => partner_info[i + 1] ? prev + 1 : prev)} />
                 </ArrowBtn>
             </ArrowContainer>
-        </Carousel>)
+        </Carousel>
+  })
 
   return (
     <Container>

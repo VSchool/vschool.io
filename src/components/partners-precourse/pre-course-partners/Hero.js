@@ -39,10 +39,11 @@ const HeroParagraph = styled.p`
     font-weight: normal;
     font-size: 16px;
     line-height: 24px;
+    letter-spacing: 0;
     color: ${gray.darker};
 
     @media (min-width: 800px) {
-        font-size: 20px;
+        font-size: 24px;
         line-height: 32px;
     }
 `
@@ -54,7 +55,7 @@ const BlueSubtext = styled.p`
     line-height: 20px;
     letter-spacing: 0.25px;
     text-transform: uppercase;
-    color: ${blue.base};
+    color: ${purple.base};
     padding: 24px 0;
 
     @media (min-width: 800px) {
