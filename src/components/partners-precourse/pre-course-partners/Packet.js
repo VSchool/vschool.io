@@ -1,11 +1,11 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
-import { gray, Button, blue } from "@vschool/lotus"
+import { gray, Button, purple } from "@vschool/lotus"
 import { navigate } from "@reach/router"
 
 const Container = styled.section`
-    background-color: ${blue.lightest};
+    background-color: ${purple.lightest};
     padding: 96px 40px;
     background-image: url(${props => props.$bgImage});
     background-position: center center;
