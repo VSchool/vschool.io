@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
-import { gray, Button, blue } from "@vschool/lotus"
+import { gray, Button, purple } from "@vschool/lotus"
 import Arrow from "../../Navbar/Arrow"
 
 
@@ -36,7 +36,7 @@ const BlueSubtext = styled.p`
     line-height: 20px;
     letter-spacing: 0.25px;
     text-transform: uppercase;
-    color: ${blue.base};
+    color: ${purple.base};
     padding-bottom: 48px;
     text-align: center;
 
@@ -57,8 +57,8 @@ const BoxInnerContainer = styled.div`
     min-width: 400px;
     max-width: 900px;
     align-items: center;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 3px 4px rgba(0, 0, 0, 0.12),
-        0px 1px 5px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 3px 4px rgba(0, 0, 0, 0.12),
+        0px 1px 5px rgba(0, 0, 0, 0.2); */
     padding: ${props => props.ind === 0 ? 40 : 30 }px;
 
     @media (min-width: 800px) {
@@ -112,7 +112,7 @@ const BoxMainContainer = styled.div`
 
 const StyledArrow = styled(Arrow)`
     margin: 0 0px 0 0px;
-    margin-left: auto;
+    left: ${({ ind }) => ind === 1 && '23px'};
     transform: ${({ $open }) => $open && "rotate(180deg)"};
     height: 15px;
     width: 40px;
@@ -125,8 +125,8 @@ const BoxDropContainer = styled.div`
     margin: 0 10px 10px;
     border: 1px solid black;
     display: block;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 3px 4px rgba(0, 0, 0, 0.12),
-        0px 1px 5px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 3px 4px rgba(0, 0, 0, 0.12), */
+        /* 0px 1px 5px rgba(0, 0, 0, 0.2); */
 
     @media (min-width: 800px) {
         display: flex;
@@ -165,18 +165,19 @@ const GridTitle = styled.p`
     line-height: 16px;
     letter-spacing: 0.5px;
     color: ${gray.darkest};
+    padding-bottom: 8px;
 `
 
 const GridDescription = styled.div`
     font-weight: normal;
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 16px;
+    line-height: 24px;
     color: ${gray.darker};
 
     & > p {
         font-weight: normal;
-        font-size: 14px;
-        line-height: 18px;
+        font-size: 16px;
+        line-height: 24px;
         color: ${gray.darker};
     }
 
@@ -314,6 +315,7 @@ const Career = ({submit}) => {
                         $open={open === BoxTitle}
                         fill={open === BoxTitle ? gray.darker : gray.base}
                         location="precourse"
+                        ind={i}
                     />
                 </BoxInnerContainer>
                 <BoxDropContainer 

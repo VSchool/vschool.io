@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
-import { gray, Button, blue } from "@vschool/lotus"
+import { gray, Button, purple } from "@vschool/lotus"
 
 const Container = styled.section`
     padding: 96px 40px;
@@ -29,12 +29,21 @@ const Title = styled.h1`
 `
 
 const Subtitle = styled.p`
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 24px;
+    font-family: "aktiv-grotesk-extended";
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    text-transform: uppercase;
+    color: ${purple.base};
+    padding-bottom: 48px;
     text-align: center;
-    color: ${gray.darker};
 
+    @media (min-width: 800px) {
+        font-size: 16px;
+        line-height: 24px;
+        padding-bottom: 64px;
+    }
 `
 
 const StepContainer = styled.div`
@@ -78,21 +87,29 @@ const LeftStep = styled.div`
 	/* min-width: 300px; */
 
 	@media (min-width: 1000px) {
-		padding: ${props => props.direction === 'left' ? '0 0 0 50px' : '0 50px 0 0'};
+    width: 50%;
+		padding: ${props => props.direction === 'left' ? '0 0 0 0px' : '0 0px 0 0'};
 	}
 
 	@media (min-width: 1300px) {
-		padding: ${props => props.direction === 'left' ? '0 0 0 180px' : '0 180px 0 0'};
+		padding: ${props => props.direction === 'left' ? '0 0 0 30px' : '0 30px 0 0'};
 	}
 `
 
 const Logo = styled.img`
 	max-width: 200px;
-    max-height: 275px;
-    padding-bottom: 50px;
+  max-height: 275px;
+  padding-bottom: 50px;
 
 	@media (min-width: 1000px){
+    width: 50%;
+    margin: auto;
 		max-width: 320px;
+		padding: ${props => props.direction === 'left' ? '0 30px 0 0px' : '0 0px 0 30px'};
+	}
+
+	@media (min-width: 1300px) {
+		padding: 0;
 	}
 
 `
@@ -147,7 +164,7 @@ const Course = () => {
               <StepTitle>{stepTitle}</StepTitle>
               <StepDesc>{stepDesc}</StepDesc>
             </LeftStep>
-            <Logo src={imageUrl} alt={imageAlt} />
+            <Logo src={imageUrl} alt={imageAlt} direction={i === 1 ? 'left' : 'right' } />
           </StepContainer>
       )
 
