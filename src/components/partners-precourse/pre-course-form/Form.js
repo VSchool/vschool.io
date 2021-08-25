@@ -200,18 +200,18 @@ const Block = styled.div`
     font-size: 20px;
 `
 
-const Form = ({ location, submit }) => {
+const Form = (props) => {
     useEffect(() => {
-        if (location?.state?.convertKitTag) {
+        if (props.location?.state?.convertKitTag) {
             localStorage.setItem(
                 "convertKitTag",
-                location?.state?.convertKitTag
+                props.location?.state?.convertKitTag
             )
         }
-        if (location?.state?.uid) {
-            localStorage.setItem("fromLandingPage", location?.state?.uid)
+        if (props.location?.state?.uid) {
+            localStorage.setItem("fromLandingPage", props.location?.state?.uid)
         }
-    }, [location?.state?.convertKitTag, location?.state?.uid])
+    }, [props.location?.state?.convertKitTag, props.location?.state?.uid])
 
     const data = useStaticQuery(graphql`
         {
@@ -286,8 +286,7 @@ const Form = ({ location, submit }) => {
         firstName: "",
         lastName: "",
         email: "",
-        phone: "",
-        course: "Web Development",
+        company: "",
         goals: [],
         why: "",
     })
@@ -323,8 +322,7 @@ const Form = ({ location, submit }) => {
 
     async function handleSubmit(e, type) {
         e.preventDefault()
-
-        submit(1)
+        props.submit(1)
         // let { firstName, lastName, email, phone, course, goals, why } = inputs
         // // Get the UTM parameters if they exist to add to the POST URL below
         // const formData = {
@@ -405,18 +403,19 @@ const Form = ({ location, submit }) => {
                 </div>
 
                 <div>
-                        <StyledLabel>{fCompany}</StyledLabel>
+                        <StyledLabel required={reqUrl}>{fCompany}</StyledLabel>
                         <StyledTextInput
-                            type="phone"
-                            value={inputs.phone}
-                            name="phone"
-                            placeholder="801-555-1234"
+                            type="text"
+                            value={inputs.company}
+                            name="company"
+                            required
+                            placeholder="John Doe Network"
                             onChange={handleChange}
                             validationText="auto-generate"
                         />
                 </div>
                 
-                <StyledLabel>{fCompanyNums}</StyledLabel>
+                <StyledLabel required={reqUrl}>{fCompanyNums}</StyledLabel>
                 <div style={{ margin: "10px 0 30px" }}>
                     {form_numbers.map(
                         ({ form_number: { text: item } }) => (
@@ -435,7 +434,7 @@ const Form = ({ location, submit }) => {
                         )
                     )}
                 </div>
-                <StyledLabel>{why}</StyledLabel>
+                <StyledLabel required={reqUrl}>{why}</StyledLabel>
                 <StyledTextarea
                     placeholder="Please write your messages here"
                     value={inputs.why}

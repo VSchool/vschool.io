@@ -10,7 +10,7 @@ import {
 
 const Container = styled.section`
     background-color: ${gray.lighter};
-    max-width: 700px;
+    max-width: 1200px;
     margin: auto;
     padding: 0px 40px 64px;
 
@@ -41,8 +41,10 @@ const Paragraph = styled.p`
     line-height: 24px;
     color: ${gray.darker};
     padding-bottom: 24px;
+    width: 100%;
 
     @media (min-width: 800px) {
+        width: 80%;
         font-size: 20px;
         line-height: 32px;
         padding-bottom: 32px;
@@ -73,6 +75,10 @@ const Step = styled.p`
     font-weight: 300;
     text-align: left;
     width: 100%;
+
+    @media (min-width: 800px) {
+        width: 80%;
+    }
 `
 
 const ProgressBar = styled.div`
@@ -80,6 +86,10 @@ const ProgressBar = styled.div`
     width: 100%;
     background-color: ${blue.lighter};
     margin: 5px 20px 20px;
+    
+    @media (min-width: 800px) {
+        width: 80%;
+    }
 `
 
 const Progress = styled.div`

@@ -5,10 +5,10 @@ import { gray } from "@vschool/lotus"
 
 const Container = styled.section`
     background-color: ${gray.lighter};
-    padding: 350px 80px 96px;
+    padding: 350px 24px 96px;
 
     @media (min-width: 800px) {
-        /* padding: 96px 80px; */
+      padding: 350px 80px 96px;
     }
 `
 
@@ -43,11 +43,13 @@ const Subtitle = styled.p`
 `
 
 const SectionContainer = styled.div`
-    max-width: 1000px;
+    @media (min-width: 1000px){
+      max-width: 1264px;
+    }
 `
 
 const Section = styled.div`
-    display: block;
+  display: block;
 	padding: 40px 0;
 
     @media (min-width: 800px) {
@@ -57,16 +59,16 @@ const Section = styled.div`
 `
 
 const TextSection = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 64px;
 	width: 100%;
 	/* text-align: center; */
 
     @media (min-width: 800px) {
-        padding-bottom: 0;
-		width: 50%;
+      padding-bottom: 0;
+		  width: 50%;
 		/* text-align: left; */
     }
 `
@@ -98,19 +100,19 @@ const SectionImage = styled.img`
 
 const ImageContainer = styled.div`
 	width: 100%;
-    margin: auto;
-    text-align: center;
+  margin: auto;
+  text-align: center;
 	padding-bottom: 40px;
 
 	@media (min-width: 800px) {
-        width: 50%;
+    width: 50%;
 		padding-bottom: 0;
-    }
+  }
 `
 
 const Image = styled.img`
-    max-width: 307px;
-    max-height: 205px;
+  max-width: 307px;
+  max-height: 205px;
 	width: 100%;
 `
 

@@ -8,12 +8,12 @@ const TextContainer = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 64px;
+    padding-bottom: 64px;
     padding-top: 64px;
 
     @media (min-width: 800px) {
         padding-top: 96px;
-        margin-bottom: 96px;
+        padding-bottom: 96px;
     }
 `
 
