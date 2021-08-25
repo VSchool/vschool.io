@@ -5,7 +5,7 @@ import {
     gray,
     blue,
 } from "@vschool/lotus"
-import CoursesNew from "../../../shared/CoursesNew"
+import CoursesNew from "../../shared/CoursesNew"
 
 
 const Container = styled.section`

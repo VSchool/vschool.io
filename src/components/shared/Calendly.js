@@ -146,8 +146,7 @@ export default function Calendly(props) {
         //         options
         //     )
         //     localStorage.setItem("scholarshipAppNextStep", "essay")
-        navigate("/pre-course-partners/form")
-        props.submit(2)
+        navigate("/pre-course-partners/success")
         // } catch (e) {
         //     console.error(e.message)
         // }
