@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
-import { gray } from "@vschool/lotus"
+import { gray, blue } from "@vschool/lotus"
 
 const Container = styled.section`
     background-color: ${gray.lighter};
@@ -27,20 +27,38 @@ const Title = styled.h1`
     }
 `
 
-const Subtitle = styled.p`
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 24px;
+const BlueSubtext = styled.p`
+    font-family: "aktiv-grotesk-extended";
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    text-transform: uppercase;
     text-align: center;
-    color: ${gray.darker};
+    color: ${blue.base};
     padding-bottom: 64px;
-    max-width: 850px;
 
     @media (min-width: 800px) {
-        font-size: 20px;
-        line-height: 32px;
+        padding-bottom: 162px;
+        font-size: 16px;
+        line-height: 24px;
     }
 `
+
+// const Subtitle = styled.p`
+//     font-weight: normal;
+//     font-size: 16px;
+//     line-height: 24px;
+//     text-align: center;
+//     color: ${gray.darker};
+//     padding-bottom: 64px;
+//     max-width: 850px;
+
+//     @media (min-width: 800px) {
+//         font-size: 20px;
+//         line-height: 32px;
+//     }
+// `
 
 const SectionContainer = styled.div`
     @media (min-width: 1000px){
@@ -180,7 +198,7 @@ const Steps = () => {
     return (
         <Container>
             <Title>{title}</Title>
-            <Subtitle>{subtitle}</Subtitle>
+            <BlueSubtext>{subtitle}</BlueSubtext>
             <SectionContainer>{mappedSections}</SectionContainer>
         </Container>
     )
