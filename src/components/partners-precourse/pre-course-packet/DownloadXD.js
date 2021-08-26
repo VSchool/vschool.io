@@ -3,7 +3,7 @@ import HeroLayout from '../../shared/HeroLayout';
 import styled from 'styled-components'
 import { TextInput, Button } from '@vschool/lotus'
 import { useStaticQuery, graphql } from "gatsby"
-import {  gray } from '@vschool/lotus'
+import {  gray, blue } from '@vschool/lotus'
 
 const Container = styled.section`
     background-color: ${gray.lighter};
@@ -21,6 +21,21 @@ const Container = styled.section`
     @media (min-width: 1024px) {
         padding-top: 100px;
         padding-bottom: 357px;
+    }
+`
+
+const BlueSubtext = styled.p`
+    font-family: "aktiv-grotesk-extended";
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    text-transform: uppercase;
+    color: ${blue.base};
+
+    @media (min-width: 800px) {
+        font-size: 16px;
+        line-height: 24px;
     }
 `
 
@@ -107,12 +122,32 @@ const Image = styled.img`
     }
 `
 
+const SuccessTitle = styled.p`
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    color: ${gray.darker};
+`
+
+const SuccessCheck = styled.img`
+    padding-right: 10px;
+`
+
+const SuccessDescription = styled.p`
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: 200;
+    color: ${gray.darker};
+`
+
 export default function Index(props) {
     const [fName, setFName] = useState('')
     const [lName, setLName] = useState('')
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
     const [company, setCompany] = useState('')
+    const [submitted, setSubmitted] = useState(false)
 
     const data = useStaticQuery(graphql`
     {
@@ -147,6 +182,16 @@ export default function Index(props) {
           download_title {
             text
           }
+          download_success_checkmark {
+            alt
+            url
+          }
+          download_success_description {
+            text
+          }
+          download_success_title {
+            text
+          }
         }
       }
     }
@@ -161,6 +206,9 @@ export default function Index(props) {
         download_last_name: { text: lastName },
         download_phone: { text: dPhone },
         download_title: { text: title },
+        download_success_checkmark: { alt: checkAlt, url: checkUrl },
+        download_success_description: { text: successDescription },
+        download_success_title: { text: successTitle }
     } = data.prismicPrecoursePartners.data
 
     const handleSubmit = async e => {
@@ -182,7 +230,7 @@ export default function Index(props) {
         await fetch(process.env.GATSBY_CONVERTKIT_SIGNUP_ZAPIER_WEBHOOK_URL, options)
 
         var link = document.createElement("a");
-        link.href = props.convertKitTag === "intro to tech info packet" ? "https://drive.google.com/file/d/1lF1qMnhwLn1gaqefjSqS2AWxV_qXjHRQ/view?usp=sharing" : "https://drive.google.com/file/d/1TkmbmHhJXIyvH8rRr2UeIe7KhD14d1nz/view"
+        link.href = "https://drive.google.com/file/d/1lS26DvVnNZtr8zdnJvspITOu1MzJZ82W/view?usp=sharing"
         link.target = "_blank";
         link.download = "Intro to Tech Partner Packet";
     
@@ -192,89 +240,110 @@ export default function Index(props) {
         setTimeout(function () {
         window.URL.revokeObjectURL(link);
         }, 200);
-         
-
+        
+        setSubmitted(true)
     }
 
     return (
         <Container>
-            <HeroLayout
-                text={
-                    <>
-                        <Title>{title}</Title>
-                        <StyledForm className='hero-form' onSubmit={handleSubmit}>
-                            <div className={'wrapper'} >
-                                <StyledInput
-                                    type="text"
-                                    label={firstName}
-                                    name="fName"
-                                    placeholder="John"
-                                    value={fName}
-                                    onChange={e => setFName(e.target.value)}
-                                    required={true}
-                                    validationText="Required"
-                                    className={'first-name'}
-                                />
-                                <StyledInput
-                                    type="text"
-                                    label="Last Name"
-                                    name={lastName}
-                                    placeholder="Doe"
-                                    value={lName}
-                                    onChange={e => setLName(e.target.value)}
-                                    required
-                                    validationText="Required"
-                                    className={'last-name'}
-                                />
-                            </div>
-                                <StyledInput
-                                    type="text"
-                                    label={dEmail}
-                                    name="email"
-                                    placeholder="john@email.com"
-                                    value={email}
-                                    onChange={e => setEmail(e.target.value)}
-                                    required={true}
-                                    validationText="Required"
-                                    className={'email'}
-                                />
+                <HeroLayout
+                    text={
+                        <>
+                            <BlueSubtext>File Download</BlueSubtext>
+                            <Title>{title}</Title>
+                            { !submitted ? 
+                                <div>
+                                    <SuccessTitle><SuccessCheck src={checkUrl} alt={checkAlt} />{successTitle}</SuccessTitle>
+                                    <SuccessDescription>{successDescription}</SuccessDescription>
+                                </div>
+                                :
+                                <StyledForm className='hero-form' onSubmit={handleSubmit}>
+                                    
+                                    <div className={'wrapper'} >
+                                        <StyledInput
+                                            type="text"
+                                            label={firstName}
+                                            name="fName"
+                                            placeholder="John"
+                                            value={fName}
+                                            onChange={e => setFName(e.target.value)}
+                                            required={true}
+                                            validationText="Required"
+                                            className={'first-name'}
+                                        />
+                                        <StyledInput
+                                            type="text"
+                                            label="Last Name"
+                                            name={lastName}
+                                            placeholder="Doe"
+                                            value={lName}
+                                            onChange={e => setLName(e.target.value)}
+                                            required
+                                            validationText="Required"
+                                            className={'last-name'}
+                                        />
+                                    </div>
+                                    <StyledInput
+                                        type="text"
+                                        label={dEmail}
+                                        name="email"
+                                        placeholder="john@email.com"
+                                        value={email}
+                                        onChange={e => setEmail(e.target.value)}
+                                        required={true}
+                                        validationText="Required"
+                                        className={'email'}
+                                    />
 
-                                <StyledInput
-                                    type="text"
-                                    label={dCompany}
-                                    name="company"
-                                    placeholder="john@email.com"
-                                    value={company}
-                                    onChange={e => setCompany(e.target.value)}
-                                    required={true}
-                                    validationText="Required"
-                                    className={'company'}
-                                />
+                                    <StyledInput
+                                        type="text"
+                                        label={dCompany}
+                                        name="company"
+                                        placeholder="John Doe Company"
+                                        value={company}
+                                        onChange={e => setCompany(e.target.value)}
+                                        required={true}
+                                        validationText="Required"
+                                        className={'company'}
+                                    />
 
-                                <StyledPhoneInput
-                                    type="text"
-                                    label={dPhone}
-                                    name="phone"
-                                    placeholder="555-555-5555"
-                                    value={phone}
-                                    onChange={e => setPhone(e.target.value)}
-                                    required={false}
-                                    validationText="Required"
-                                    className={'phone'}
-                                />
-                            <div className='button-wrapper'>
-                                <StyledButton buttonStyle={'primary-dark'} size={'xl'}>{btn}</StyledButton>
-                            </div>
-                        </StyledForm>
-                
-                    </>
-                }
-                image={
-                    <>
-                        <Image src={url} alt={alt} />
-                    </>
-                }>       
-            </HeroLayout>
+                                    <StyledPhoneInput
+                                        type="text"
+                                        label={dPhone}
+                                        name="phone"
+                                        placeholder="555-555-5555"
+                                        value={phone}
+                                        onChange={e => setPhone(e.target.value)}
+                                        required={false}
+                                        validationText="Required"
+                                        className={'phone'}
+                                    />
+                                    <div className='button-wrapper'>
+                                        <StyledButton buttonStyle={'primary-dark'} size={'xl'}>{btn}</StyledButton>
+                                    </div>
+                                </StyledForm>
+                    
+                            }
+                            
+                        </>
+                    }
+                    image={
+                        <>
+                            <Image src={url} alt={alt} />
+                        </>
+                    }
+                    textStyles={
+                        {
+                            marginRight: '90px',
+                            width: '90%'
+                        }
+                    }
+                    imgStyles={
+                        {
+                            width: '500px'
+                        }
+                    }>       
+                </HeroLayout>
         </Container>
     )
 }
