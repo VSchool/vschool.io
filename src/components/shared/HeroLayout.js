@@ -18,6 +18,8 @@ const TextContainer = styled.div`
     @media (min-width: 1000px) {
         padding-right: 30px;
         max-width: 50%;
+        width: ${props => props?.txt?.width || 'initial'};
+        margin-right: ${props => props?.txt?.marginRight || 'inherit'};
     }
 `
 
@@ -29,6 +31,7 @@ const ImageContainer = styled.div`
     @media (min-width: 1000px) {
         flex-basis: 50%;
         margin-top: 0;
+        width: ${props => props?.img?.width || 'initial'};
     }
 
     & img {
@@ -36,11 +39,12 @@ const ImageContainer = styled.div`
     }
 `
 
-export default function HeroLayout({ text, image }) {
+export default function HeroLayout({ text, image, textStyles, imgStyles }) {
+    console.log(textStyles, imgStyles)
     return (
         <Container>
-            <TextContainer>{text}</TextContainer>
-            <ImageContainer>{image}</ImageContainer>
+            <TextContainer txt={textStyles}>{text}</TextContainer>
+            <ImageContainer img={imgStyles}>{image}</ImageContainer>
         </Container>
     )
 }
