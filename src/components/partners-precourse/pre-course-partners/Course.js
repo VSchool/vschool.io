@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
-import { gray, Button, purple } from "@vschool/lotus"
+import { gray, Button, blue } from "@vschool/lotus"
 
 const Container = styled.section`
     padding: 96px 40px;
@@ -35,7 +35,7 @@ const Subtitle = styled.p`
     line-height: 20px;
     letter-spacing: 0.25px;
     text-transform: uppercase;
-    color: ${purple.base};
+    color: ${blue.base};
     padding-bottom: 48px;
     text-align: center;
 

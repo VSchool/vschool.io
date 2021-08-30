@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { gray, purple } from "@vschool/lotus"
+import { gray, blue } from "@vschool/lotus"
 import { useStaticQuery, graphql } from "gatsby"
 
 const Container = styled.section`
@@ -35,7 +35,7 @@ const InfoSub = styled.p`
     text-align: center;
     letter-spacing: 0.25px;
     text-transform: uppercase;
-    color: ${purple.base};
+    color: ${blue.base};
     padding-bottom: 64px;
 
     @media (min-width: 800px) {
