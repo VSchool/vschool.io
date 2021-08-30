@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
-import { gray, Button, purple } from "@vschool/lotus"
+import { gray, Button, blue } from "@vschool/lotus"
 import Arrow from "../../Navbar/Arrow"
 
 
@@ -36,7 +36,7 @@ const BlueSubtext = styled.p`
     line-height: 20px;
     letter-spacing: 0.25px;
     text-transform: uppercase;
-    color: ${purple.base};
+    color: ${blue.base};
     padding-bottom: 48px;
     text-align: center;
 
@@ -52,7 +52,6 @@ const BoxContainer = styled.div``
 const BoxInnerContainer = styled.div`
     display: flex;
     border: 1px solid ${gray.dark};
-    gap: 20px;
     margin: 10px 10px 0;
     min-width: 400px;
     max-width: 900px;
@@ -73,6 +72,7 @@ const BoxInnerContainer = styled.div`
 
     & > img {
         max-width: 111px;
+        margin-right: 20px;
     }
 `
 
@@ -112,12 +112,20 @@ const BoxMainContainer = styled.div`
 
 const StyledArrow = styled(Arrow)`
     margin: 0 0px 0 0px;
-    left: ${({ ind }) => ind === 1 && '23px'};
+    left: ${({ ind, $open }) => {
+        if(ind === 1) {
+            return $open ? 'inherit' : '10px'
+        }else {
+            return '20px'
+        }
+    }};
+    right: ${({ ind, $open }) => ind === 1 && $open ? '15px' : 'inherit' };
     transform: ${({ $open }) => $open && "rotate(180deg)"};
+    top: ${({ $open }) => !$open && "5px"};
     height: 15px;
     width: 40px;
     position: relative;
-    right: 20px;
+    margin-left: ${({ ind }) => ind === 1 ? 'auto' : '0'};
 `
 
 const BoxDropContainer = styled.div`
@@ -316,6 +324,7 @@ const Career = ({submit}) => {
                         fill={open === BoxTitle ? gray.darker : gray.base}
                         location="precourse"
                         ind={i}
+                        className="arrow"
                     />
                 </BoxInnerContainer>
                 <BoxDropContainer 

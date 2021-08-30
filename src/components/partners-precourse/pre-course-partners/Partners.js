@@ -128,7 +128,7 @@ const Arrow = styled.img`
 
 const ArrowBtn = styled.button`
     border: none;
-    background-color: white;
+    background-color: inherit;
 `
 
 
