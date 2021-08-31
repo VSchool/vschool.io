@@ -56,6 +56,7 @@ const Carousel = styled.div`
     background-color: ${gray.lighter};
     padding: 40px;
     position: relative;
+    height: 580px;
 `
 
 const Title = styled.h1`
@@ -120,6 +121,9 @@ const PartnerParagraph = styled.p`
 const ArrowContainer = styled.div`
     margin: 40px 0 0;
     text-align: right;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
 `
 
 const Arrow = styled.img`
