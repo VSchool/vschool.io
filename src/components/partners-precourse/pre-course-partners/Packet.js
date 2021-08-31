@@ -6,7 +6,7 @@ import { navigate } from "@reach/router"
 
 const Container = styled.section`
     background-color: ${purple.lightest};
-    padding: 96px 40px;
+    padding: 96px 16px;
     background-image: url(${props => props.$bgImage});
     background-position: center center;
     background-repeat: no-repeat;
