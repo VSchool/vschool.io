@@ -47,7 +47,9 @@ const BlueSubtext = styled.p`
     }
 `
 
-const BoxContainer = styled.div``
+const BoxContainer = styled.div`
+    max-width: 836px;
+`
 
 const BoxInnerContainer = styled.div`
     display: flex;
@@ -85,7 +87,7 @@ const BoxMainTitle = styled.h1`
     @media (min-width: 800px) {
         font-size: 20px;
         line-height: 24px;
-        padding-right: 299px;
+        padding-right: 298px;
     }
 `
 
@@ -116,10 +118,10 @@ const StyledArrow = styled(Arrow)`
         if(ind === 1) {
             return $open ? 'inherit' : '10px'
         }else {
-            return '20px'
+            return $open ? '15px' : '20px'
         }
     }};
-    right: ${({ ind, $open }) => ind === 1 && $open ? '15px' : 'inherit' };
+    /* right: ${({ ind, $open }) => ind === 1 && $open ? '15px' : 'inherit' }; */
     transform: ${({ $open }) => $open && "rotate(180deg)"};
     top: ${({ $open }) => !$open && "5px"};
     height: 15px;
@@ -304,7 +306,7 @@ const Career = ({submit}) => {
             career_box_desc_sub: { text: BoxDescSub },
             career_box_button_text: { text: BoxButtonText },
         }, i) => (
-            <div key={BoxTitle}>
+            <BoxContainer key={BoxTitle}>
                 <BoxInnerContainer
                     ind={i}
                     onClick={() =>
@@ -364,7 +366,7 @@ const Career = ({submit}) => {
                         </StyledButton>
                     </ImageContainer>
                 </BoxDropContainer>
-            </div>
+            </BoxContainer>
         )
         )
 
@@ -372,7 +374,7 @@ const Career = ({submit}) => {
     <Container>
         <Title>{careerTitle}</Title>
         <BlueSubtext>{careerSub}</BlueSubtext>
-        <BoxContainer>{mappedBoxes}</BoxContainer>
+        <div>{mappedBoxes}</div>
     </Container>
     )
 }

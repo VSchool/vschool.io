@@ -8,6 +8,7 @@ import Career from './Career'
 import Packet from './Packet'
 import Course from './Course'
 import Offering from './Offering'
+import Opportunities from './Opportunities'
 import { navigate } from "gatsby"
 
 
@@ -25,8 +26,9 @@ export default function PreCoursePartners() {
         <PageContainer>
            <Hero submit={submitFunction} />
            <Info />
-           <Partners />
            <Career submit={submitFunction} />
+           <Partners />
+           <Opportunities />
            <Packet submit={submitFunction} />
            <Course />
            <Offering submit={submitFunction} />
