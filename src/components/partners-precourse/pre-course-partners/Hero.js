@@ -12,7 +12,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 const Container = styled.section`
     background-color: ${purple.lightest};
-    padding: 20px 40px;
+    padding: 20px 16px;
     margin-bottom: -200px;
 
     @media (min-width: 800px) {

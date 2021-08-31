@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { gray, Button, blue } from "@vschool/lotus"
 
 const Container = styled.section`
-    padding: 96px 40px;
+    padding: 96px 16px;
 
     @media (min-width: 800px) {
         padding: 172px 80px 140px;
@@ -50,7 +50,7 @@ const StepContainer = styled.div`
   display: flex;
 	flex-direction: column-reverse;
   align-items: center;
-  padding: 100px 20px 20px;
+  padding: 100px 0px 20px;
 
 	@media ( min-width: 1000px){
 	  padding: 100px;

@@ -7,7 +7,7 @@ import { navigate } from "@reach/router"
 
 const Container = styled.section`
     background-color: ${blue.lightest};
-    padding: 64px 40px;
+    padding: 64px 16px;
 
     @media (min-width: 800px) {
         padding: 96px 80px ;
