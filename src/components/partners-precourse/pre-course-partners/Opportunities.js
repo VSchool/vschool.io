@@ -7,7 +7,7 @@ import Arrow from "../../Navbar/Arrow"
 
 const Container = styled.section`
     background-color: ${gray.lighter};
-    padding: 96px 40px;
+    padding: 96px 16px;
     max-width: 1400px;
     margin: auto;
 
