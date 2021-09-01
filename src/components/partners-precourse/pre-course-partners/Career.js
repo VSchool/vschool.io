@@ -55,7 +55,7 @@ const BoxInnerContainer = styled.div`
     display: flex;
     border: 1px solid ${gray.dark};
     margin: 10px 10px 0;
-    min-width: 400px;
+    /* min-width: 400px; */
     max-width: 900px;
     align-items: center;
     /* box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 3px 4px rgba(0, 0, 0, 0.12),
