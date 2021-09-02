@@ -7,7 +7,7 @@ import Arrow from "../../Navbar/Arrow"
 
 const Container = styled.section`
     background-color: ${gray.lighter};
-    padding: 96px 40px;
+    padding: 96px 16px;
 
     @media (min-width: 800px) {
         padding: 160px 80px;
@@ -54,7 +54,7 @@ const BoxContainer = styled.div`
 const BoxInnerContainer = styled.div`
     display: flex;
     border: 1px solid ${gray.dark};
-    margin: 10px 10px 0;
+    margin: 10px 0px 0;
     /* min-width: 400px; */
     max-width: 900px;
     align-items: center;
