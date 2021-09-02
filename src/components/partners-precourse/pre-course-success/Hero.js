@@ -150,10 +150,10 @@ const Hero = () => {
         <BlueSubtext>{subtitle}</BlueSubtext>
         <Title>{title}</Title>
         <Paragraph>{description}</Paragraph>
-        <StepNum>
+        {/* <StepNum>
             <Step><b>Step 2 of 2</b> - {step}</Step>
             <ProgressBar><Progress></Progress></ProgressBar>
-        </StepNum>
+        </StepNum> */}
         <Image src={url} alt={alt} />
       </HeroContainer>
     </Container>

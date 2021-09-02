@@ -54,15 +54,16 @@ const BoxContainer = styled.div`
 const BoxInnerContainer = styled.div`
     display: flex;
     border: 1px solid ${gray.dark};
-    margin: 10px 0px 0;
     /* min-width: 400px; */
     max-width: 900px;
     align-items: center;
     /* box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 3px 4px rgba(0, 0, 0, 0.12),
-        0px 1px 5px rgba(0, 0, 0, 0.2); */
+    0px 1px 5px rgba(0, 0, 0, 0.2); */
     padding: ${props => props.ind === 0 ? 40 : 30 }px;
+    margin: 10px 0px 0;
 
-    @media (min-width: 800px) {
+    @media (max-width: 450px) {
+        margin: 10px 10px 0;
     }
 
     &:hover {
@@ -127,16 +128,20 @@ const StyledArrow = styled(Arrow)`
     height: 15px;
     width: 40px;
     position: relative;
-    margin-left: ${({ ind }) => ind === 1 ? 'auto' : '0'};
+    margin-left: auto;
 `
 
 const BoxDropContainer = styled.div`
     max-width: 835px;
-    margin: 0 10px 10px;
+    margin: 0 0px 10px;
     border: 1px solid black;
     display: block;
     /* box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 3px 4px rgba(0, 0, 0, 0.12), */
         /* 0px 1px 5px rgba(0, 0, 0, 0.2); */
+
+    @media (max-width: 450px) {
+        margin: 0px 10px 0px;
+    }
 
     @media (min-width: 800px) {
         display: flex;
@@ -208,13 +213,21 @@ const ImageContainer = styled.div`
         max-width: 100%;
     }
 
-    @media (min-width: 800px) {
+    @media (max-width: 600px) {
+        display:none;
     }
 `
 
 const StyledButton = styled(Button)`
     filter: ${props => props.type === "UX / UI Design" && "brightness(1.8)"};
     font-size: 14px;
+
+    
+    @media (max-width: 600px) {
+        display: none;
+    }
+   
+    
 `
 
 

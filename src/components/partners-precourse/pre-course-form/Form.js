@@ -324,7 +324,8 @@ const Form = (props) => {
 
     async function handleSubmit(e, type) {
         e.preventDefault()
-        props.submit(1)
+        navigate("/pre-course-partners/success")
+        // props.submit(1)
         // let { firstName, lastName, email, phone, course, goals, why } = inputs
         // // Get the UTM parameters if they exist to add to the POST URL below
         // const formData = {
@@ -361,8 +362,8 @@ const Form = (props) => {
             <BlueSubtext>{fSub}</BlueSubtext>
             <Title>{fTitle}</Title>
             <Paragraph>{fDesc}</Paragraph>
-            <Step><b>Step 1 of 2</b> - {fStep}</Step>
-            <ProgressBar><Progress></Progress></ProgressBar>
+            {/* <Step><b>Step 1 of 2</b> - {fStep}</Step>
+            <ProgressBar><Progress></Progress></ProgressBar> */}
             <FormContainer onSubmit={handleSubmit}>
             
                 <div>

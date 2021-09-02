@@ -30,19 +30,7 @@ export default function PreCoursePartners() {
     
     return (
         <PageContainer>
-            {/* <BackArrow src="https://cdn.iconscout.com/icon/free/png-512/back-arrow-1767515-1502579.png" alt="back arrow" onClick={() => setPageNum(prev => {
-                if (prev !== 0){
-                    return prev - 1
-                }else {
-                    navigate("/pre-course-partners")
-                    return prev
-                }
-            })} /> */}
-            {
-                pageNum === 0 ? <Form submit={submitStep} /> :
-                pageNum === 1 && <Schedule submit={submitStep} /> 
-            }
-            
+            <Form submit={submitStep} /> 
         </PageContainer>
     )
 }
