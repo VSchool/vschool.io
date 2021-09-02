@@ -54,9 +54,18 @@ const Carousel = styled.div`
     display: ${props => props.ind === props.page ? 'inline-block' : 'none'};
     /* transform: translateX(-${props => props.page}00%); */
     background-color: ${gray.lighter};
-    padding: 40px;
     position: relative;
     height: 580px;
+    padding: 40px;
+    margin-bottom: 40px;
+
+    @media (max-width: 400px){
+      padding: 20px 10px;
+    }
+
+    @media (min-width: 800px){
+      margin-bottom: 0;
+    }
 `
 
 const Title = styled.h1`

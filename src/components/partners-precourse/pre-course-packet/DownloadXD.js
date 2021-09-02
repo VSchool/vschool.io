@@ -24,6 +24,18 @@ const Container = styled.section`
     }
 `
 
+const TextContainer = styled.div`
+    @media (min-width: 1000px){
+        padding-left: 40px;
+    }
+`
+
+const ImgContainer = styled.div`
+    @media (min-width: 1000px){
+        padding-right: 40px;
+    }
+`
+
 const BlueSubtext = styled.p`
     font-family: "aktiv-grotesk-extended";
     font-weight: 800;
@@ -251,7 +263,7 @@ export default function Index(props) {
                         <>
                             <BlueSubtext>File Download</BlueSubtext>
                             <Title>{title}</Title>
-                            { !submitted ? 
+                            { submitted ? 
                                 <div>
                                     <SuccessTitle><SuccessCheck src={checkUrl} alt={checkAlt} />{successTitle}</SuccessTitle>
                                     <SuccessDescription>{successDescription}</SuccessDescription>
