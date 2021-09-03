@@ -201,19 +201,19 @@ const Block = styled.div`
 `
 
 const Form = (props) => {
-    useEffect(() => {
-        if (props.location?.state?.convertKitTag) {
-            localStorage.setItem(
-                "convertKitTag",
-                props.location?.state?.convertKitTag
-            )
-        }
-        if (props.location?.state?.uid) {
-            localStorage.setItem("fromLandingPage", props.location?.state?.uid)
-        }
+    // useEffect(() => {
+        // if (props.location?.state?.convertKitTag) {
+        //     localStorage.setItem(
+        //         "convertKitTag",
+        //         props.location?.state?.convertKitTag
+        //     )
+        // }
+        // if (props.location?.state?.uid) {
+        //     localStorage.setItem("fromLandingPage", props.location?.state?.uid)
+        // }
 
-        console.log()
-    }, [props.location?.state?.convertKitTag, props.location?.state?.uid])
+        // console.log()
+    // }, [props.location?.state?.convertKitTag, props.location?.state?.uid])
 
     const data = useStaticQuery(graphql`
         {
@@ -282,14 +282,13 @@ const Form = (props) => {
         form_description: { text: fDesc },
     } = data.prismicPrecoursePartners.data
 
-    console.log(form_numbers)
 
     const [inputs, setInputs] = useState({
         firstName: "",
         lastName: "",
         email: "",
         company: "",
-        goals: [],
+        companySize: [],
         why: "",
     })
 
@@ -302,7 +301,7 @@ const Form = (props) => {
             }))
         } else if (type === "checkbox") {
             const checkedItems = document.querySelectorAll(
-                "input[name=goals]:checked"
+                "input[name=companySize]:checked"
             )
             const checkedArr = []
             for (let i = 0; i < checkedItems.length; i++) {
@@ -311,7 +310,7 @@ const Form = (props) => {
             setInputs(prev => {
                 return {
                     ...prev,
-                    goals: checkedArr,
+                    companySize: checkedArr,
                 }
             })
         } else {
@@ -324,39 +323,37 @@ const Form = (props) => {
 
     async function handleSubmit(e, type) {
         e.preventDefault()
-        navigate("/pre-course-partners/success")
-        // props.submit(1)
-        // let { firstName, lastName, email, phone, course, goals, why } = inputs
+        let { firstName, lastName, email, company, companySize, why } = inputs
         // // Get the UTM parameters if they exist to add to the POST URL below
-        // const formData = {
-        //     firstName,
-        //     lastName,
-        //     email,
-        //     phone,
-        //     course,
-        //     goals,
-        //     why,
-        //     convertKitTag: localStorage.getItem("convertKitTag"),
-        //     fromLandingPage: localStorage.getItem("fromLandingPage"),
-        // }
+        const formData = {
+            firstName,
+            lastName,
+            email,
+            company,
+            companySize,
+            why,
+            convertKitTag: 'intro to tech partner sign up',
+            fromLandingPage: localStorage.getItem("fromLandingPage"),
+        }
+        
+        const options = {
+                method: "POST",
+                body: JSON.stringify(formData),
+        }
+            
+        const query = localStorage.getItem("query") || ""
 
-        // const options = {
-        //     method: "POST",
-        //     body: JSON.stringify(formData),
-        // }
-
-        // const query = localStorage.getItem("query") || ""
-        // try {
-        //     await fetch(
-        //         `${process.env.GATSBY_PRE_COURSE_COMMUNITIES_ZAPIER_WEBHOOK_URL}${query}`,
-        //         options
-        //     )
-        //     navigate("/pre-course-communities/success")
-        // } catch (e) {
-        //     console.error(e)
-        // }
+        try {
+            await fetch(
+            `${process.env.GATSBY_PRE_COURSE_COMMUNITIES_ZAPIER_WEBHOOK_URL}${query}`,
+            options
+        )
+        } catch (e) {
+            console.error(e)
+        }
+        navigate("/pre-course-partners/success")
     }
-
+                        
     return (
         <Container>
             <BlueSubtext>{fSub}</BlueSubtext>
@@ -426,7 +423,7 @@ const Form = (props) => {
                                 <CheckboxRadioGroup style={{ height: 20 }}>
                                     <StyledCheckbox
                                         value={item}
-                                        name="goals"
+                                        name="companySize"
                                         onChange={handleChange}
                                         className="pre-course-checkbox"
                                     >
