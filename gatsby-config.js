@@ -86,6 +86,7 @@ module.exports = {
                     scholarship_page: require("./src/schemas/scholarship_page.json"),
                     scholarship_page_shared_data: require("./src/schemas/scholarship_page_shared_data"),
                     start_date: require("./src/schemas/start_date.json"),
+                    syllabus_download: require("./src/schemas/syllabus_download.json"),
                     "thank-you-page": require("./src/schemas/thank-you-page.json"),
                     tiffin: require("./src/schemas/tiffin.json"),
                     uofu_primer: require("./src/schemas/uofu_primer.json"),

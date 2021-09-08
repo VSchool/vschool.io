@@ -55,66 +55,7 @@ export default function Calendly(props) {
     const location = useLocation()
     const [queryData, setQueryData] = useState({})
     const [utmObj, setUtmObj] = useState({})
-    // const data = useStaticQuery(graphql`
-    //     {
-    //         prismicScholarshipApplicationForms {
-    //             data {
-    //                 form_subtitle {
-    //                     text
-    //                 }
-    //                 scheduler_title {
-    //                     text
-    //                 }
-    //                 scheduler_text {
-    //                     text
-    //                 }
-    //             }
-    //         }
-    //     }
-    // `)
 
-    // const {
-    //     form_subtitle: { text: subtitle },
-    //     scheduler_title: { text: title },
-    //     scheduler_text: { text },
-    // } = data.prismicScholarshipApplicationForms.data
-
-    // useEffect(() => {
-    //     let data
-    //     const storageValue = JSON.parse(
-    //         localStorage.getItem("scholarshipApplicationInfo")
-    //     )
-    //     if (location.state?.email) {
-    //         data = { email: location.state.email }
-    //     } else if (location.search) {
-    //         // change plus sign to "%2B" so when it gets parsed
-    //         // by query-string, it correctly keeps it as a plus
-    //         const query = location.search.replace(/\+/gi, "%2B")
-    //         data = queryString.parse(query) // {email: bob@example.com}
-    //     } else if (storageValue && Object.keys(storageValue).length >= 1) {
-    //         storageValue.email = decodeURIComponent(storageValue.email)
-    //         data = storageValue
-    //     } else {
-    //         data = {}
-    //     }
-    //     setQueryData(data)
-    //     localStorage.setItem("scholarshipApplicationInfo", JSON.stringify(data))
-    // }, [location.search, location.state])
-
-    // useEffect(() => {
-    //     const nextStep = localStorage.getItem("scholarshipAppNextStep")
-    //     if (location.search.includes("email=")) {
-    //         if (nextStep === "essay") {
-    //             navigate(
-    //                 `/scholarships/application/essay-questions${
-    //                     location.search ? location.search : ""
-    //                 }`
-    //             )
-    //         } else if (nextStep === "complete") {
-    //             navigate("/scholarships/application/complete")
-    //         }
-    //     }
-    // }, [location.search])
 
     useEffect(() => {
         const utmString = localStorage.getItem("query")
@@ -134,19 +75,20 @@ export default function Calendly(props) {
     }, [])
     
     async function handleEventScheduled(e) {
-        const data = { ...queryData }
-        const options = {
-            method: "POST",
-            body: JSON.stringify(data),
-        }
-        console.log(options)
+        // const data = { ...queryData }
+        // const options = {
+        //     method: "POST",
+        //     body: JSON.stringify(data),
+        // }
+        // console.log(options)
         // try {
         //     await fetch(
         //         process.env.GATSBY_SCHOLARSHIP_APP_ZAPIER_WEBHOOK_URL,
         //         options
         //     )
         //     localStorage.setItem("scholarshipAppNextStep", "essay")
-        navigate("/pre-course-partners/success")
+        props.submit && props.submit()
+        navigate(props.link)
         // } catch (e) {
         //     console.error(e.message)
         // }
