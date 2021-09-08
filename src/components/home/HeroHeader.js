@@ -122,7 +122,7 @@ function HeroHeader(props) {
             </FlexContainer>
             <H6>{invite}</H6>
             <FlexContainer>
-                <Link to={"/syllabus/download"}>
+                <Link to={link}>
                     <StyledButton buttonStyle="primary-dark">
                         {btnText}
                     </StyledButton>
