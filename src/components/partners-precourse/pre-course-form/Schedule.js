@@ -99,7 +99,7 @@ const Progress = styled.div`
 `
 
 
-const Schedule = ({submit}) => {
+const Schedule = () => {
   const data = useStaticQuery(graphql`
     {
       prismicPrecoursePartners {
@@ -135,7 +135,7 @@ const Schedule = ({submit}) => {
         <Paragraph>{sDesc}</Paragraph>
         <Step><b>Step 2 of 2</b> - {sStep}</Step>
         <ProgressBar><Progress></Progress></ProgressBar>
-        <Calendly submit={submit} />
+        <Calendly link={"/pre-course-partners/success"} />
       </Container>
     )
 }
