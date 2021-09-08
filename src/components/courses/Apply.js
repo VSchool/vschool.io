@@ -334,7 +334,7 @@ const Apply = props => {
                     <HowContainer>
                         <HowTitle>{howTitle}</HowTitle>
                         <StepContainer>{steps}</StepContainer>
-                        <QueryLink to="https://calendly.com/v-school/apply">
+                        <QueryLink to="/syllabus/apply">
                             <StyledButton>{howBtn}</StyledButton>
                         </QueryLink>
                     </HowContainer>
