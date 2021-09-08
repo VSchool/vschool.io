@@ -1,14 +1,17 @@
 import React from "react"
-import ScholarshipAppLayout from "../../../components/scholarships/application/ScholarshipApplicationLayout"
+import Layout from "../../../components/layout.js"
 import Seo from "../../../components/seo"
+import SyllabusDownload from '../../../components/shared/SyllabusDownload'
 import ApplicationComplete from "../../../components/scholarships/application/complete"
 import { blue } from "@vschool/lotus"
+
 const ApplicationCompletePage = () => {
     return (
-        <ScholarshipAppLayout backgroundColor={blue.lightest}>
+        <Layout backgroundColor={blue.lightest}>
             <Seo title="Scholarship Application | Application Submitted" />
             <ApplicationComplete />
-        </ScholarshipAppLayout>
+            <SyllabusDownload />
+        </Layout>
     )
 }
 

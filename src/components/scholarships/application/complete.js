@@ -3,6 +3,8 @@ import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import Link from "../../shared/QueryLink"
 import { blue, gray, Button } from "@vschool/lotus"
+import CoursesNew from "../../shared/CoursesNew"
+
 
 const Container = styled.section`
     padding-top: 64px;
@@ -24,7 +26,9 @@ const Subtitle = styled.h6`
 
 const Title = styled.h1`
     max-width: 674px;
+    margin: auto;
     margin-bottom: 24px;
+
     @media (min-width: 800px) {
         margin-bottom: 32px;
     }
@@ -32,12 +36,14 @@ const Title = styled.h1`
 const Text = styled.p`
     color: ${gray.darker};
     max-width: 674px;
-    font-size: 16px;
-    line-height: 24px;
     margin-bottom: 48px;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+
     @media (min-width: 800px) {
         margin-bottom: 64px;
-        font-size: 20px;
+        font-size: 24px;
         line-height: 32px;
     }
 `
@@ -49,17 +55,23 @@ const Image = styled.img`
         margin-bottom: 64px;
     }
 `
-const StyledLink = styled(Link)`
-    width: 100%;
-    @media (min-width: 600px) {
-        max-width: 319px;
+
+const Courses = styled.div`
+    padding-top: 40px;
+`
+
+const CourseSubtitle = styled.h6`
+    color: ${blue.dark};
+    padding-bottom: 48px;
+    padding-top: 8px;
+
+    @media (min-width: 800px) {
+        padding-bottom: 64px;
     }
 `
 
-const StyledButton = styled(Button)`
-    && {
-        width: 100%;
-    }
+const CourseTitle = styled.h1`
+    margin: auto;
 `
 
 export default function Complete() {
@@ -92,17 +104,19 @@ export default function Complete() {
         completed_title: { text: title },
         completed_text: { text },
         completed_image: { url: imageUrl, alt: imageAlt },
-        completed_button_text: { text: buttonText },
     } = data.prismicScholarshipApplicationForms.data
+
     return (
         <Container>
             <Subtitle>{subtitle}</Subtitle>
             <Title>{title}</Title>
             <Text>{text}</Text>
             <Image src={imageUrl} alt={imageAlt} />
-            <StyledLink to="/">
-                <StyledButton size="lg">{buttonText}</StyledButton>
-            </StyledLink>
+            <Courses>
+                <CourseTitle>V School Courses</CourseTitle>
+                <CourseSubtitle>Choose your future career</CourseSubtitle>
+                <CoursesNew />
+            </Courses>
         </Container>
     )
 }
