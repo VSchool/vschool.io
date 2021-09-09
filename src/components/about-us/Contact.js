@@ -77,7 +77,7 @@ export default function Contact() {
             <ContactItem>{cityAndState}</ContactItem>
             <ContactItem>{email}</ContactItem>
             <ContactItem>{phone}</ContactItem>
-            <Link to={"https://calendly.com/v-school/apply"}>
+            <Link to={"/syllabus/download"}>
                 <StyledButton buttonStyle="primary-light">
                     Get In Touch
                 </StyledButton>
