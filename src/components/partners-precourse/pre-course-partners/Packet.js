@@ -34,37 +34,37 @@ const Title = styled.h1`
     }
 `
 
+
+const ButtonContainer = styled.div`
+    display: block;
+
+    @media (min-width: 800px){
+      display: flex;
+    }
+`
+
+
 const StyledButton = styled(Button)`
     font-size: 14px;
     line-height: 16px;
     padding: 25px 45px;
     display: flex;
     align-items: center;
+    width: 100%;
+    justify-content: center;
+    background-color: ${props => props.type === 'packet' ? purple.lightest : gray.darker};
+    margin-top: ${props => props.type === 'packet' ? '16px' : 0};
+    color: ${props => props.type === 'packet' ? gray.darker : gray.lightest};
 
     & > img {
         margin: 0 10px;
     }
-`
-
-const DownloadDiv = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding-top: 40px;
-    max-width: 260px;
 
     @media (min-width: 800px) {
-      max-width: initial;
+        margin: ${props => props.type === 'packet' ? '0 0 0 12px' : '0 12px 0 0'};
+        width: ${props => props.type === 'packet' ? '290px' : '310px'};
     }
 `
-
-const DownloadImg = styled.img`
-    width: 40px;
-`
-
-// const DownloadLink = styled.a`
-
-// `
 
 const Packet = ({submit}) => {
   const data = useStaticQuery(graphql`
@@ -110,13 +110,14 @@ const Packet = ({submit}) => {
   return (
     <Container $bgImage={circleUrl}>
         <Title>{StartTitle}</Title>
-        <StyledButton onClick={submit}>
-            {StartBtn} <img src={arrowUrl} alt={arrowAlt} />
-        </StyledButton>
-        <DownloadDiv>
-          <DownloadImg src={logoUrl} alt={logoAlt} onClick={() => navigate("/pre-course-partners/download")} />
-          <a href='/pre-course-partners/download' >{downloadInfo}</a>
-        </DownloadDiv>
+        <ButtonContainer>
+          <StyledButton onClick={submit} type="main">
+              {StartBtn} <img src={arrowUrl} alt={arrowAlt} />
+          </StyledButton>
+          <StyledButton onClick={() => navigate("/pre-course-partners/download")} type="packet" >
+              Get Info Packet <img src={logoUrl} alt={logoAlt} />
+          </StyledButton>
+        </ButtonContainer>
     </Container>
   )
 }
