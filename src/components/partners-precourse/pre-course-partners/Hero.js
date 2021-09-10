@@ -2,12 +2,12 @@ import React from "react"
 import HeroLayout from "../../shared/HeroLayout"
 import styled from "styled-components"
 import {
-    blue,
     purple,
     gray,
     Button,
 } from "@vschool/lotus"
 import { useStaticQuery, graphql } from "gatsby"
+import { navigate } from "@reach/router"
 
 
 const Container = styled.section`
@@ -73,6 +73,9 @@ const StyledButton = styled(Button)`
     align-items: center;
     width: 100%;
     justify-content: center;
+    background-color: ${props => props.type === 'packet' ? purple.lightest : gray.darker};
+    margin-top: ${props => props.type === 'packet' ? '16px' : 0};
+    color: ${props => props.type === 'packet' ? gray.darker : gray.lightest};
 
     & > img {
         margin: 0 10px;
@@ -80,6 +83,7 @@ const StyledButton = styled(Button)`
 
     @media (min-width: 800px) {
         max-width: 290px;
+        margin-top: ${props => props.type === 'packet' ? '24px' : 0};
     }
 `
 
@@ -114,6 +118,10 @@ function Hero({submit}) {
                 hero_title {
                     text
                 }
+                packet_download_logo {
+                    alt
+                    url
+                }
             }
         }
     }
@@ -125,7 +133,8 @@ function Hero({submit}) {
         hero_description: { text: heroDescription},
         hero_image: { alt: heroAlt, url: heroImg },
         hero_subtitle: { text: heroSubtitle },
-        hero_title: { text: heroTitle }
+        hero_title: { text: heroTitle },
+        packet_download_logo: { alt: logoAlt, url: logoUrl },
     } = data.prismicPrecoursePartners.data;
 
     return (
@@ -136,8 +145,11 @@ function Hero({submit}) {
                         <HeroTitle>{heroTitle}</HeroTitle>
                         <HeroParagraph>{heroDescription}</HeroParagraph>
                         <BlueSubtext>{heroSubtitle}</BlueSubtext>
-                        <StyledButton onClick={submit}>
+                        <StyledButton onClick={submit} type="main" >
                             {heroBtn} <img src={arrowImg} alt={arrowAlt} />
+                        </StyledButton>
+                        <StyledButton onClick={() => navigate("/pre-course-partners/download")} type="packet" >
+                            Get Info Packet <img src={logoUrl} alt={logoAlt} />
                         </StyledButton>
                     </div>
                 }
