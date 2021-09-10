@@ -48,7 +48,7 @@ const BlueSubtext = styled.p`
 `
 
 const BoxContainer = styled.div`
-    max-width: 815px;
+    max-width: 814px;
 `
 
 const BoxInnerContainer = styled.div`
@@ -88,7 +88,7 @@ const BoxMainTitle = styled.h1`
     @media (min-width: 800px) {
         font-size: 20px;
         line-height: 24px;
-        padding-right: 298px;
+        padding-right: 297px;
     }
 `
 
@@ -108,7 +108,7 @@ const BoxMainContainer = styled.div`
     padding-right: 0px;
 
     @media (min-width: 800px) {
-        padding-right: 70px;
+        padding-right: 69px;
     }
 `
 
