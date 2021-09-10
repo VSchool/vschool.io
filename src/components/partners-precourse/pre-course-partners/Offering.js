@@ -1,12 +1,12 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
-import { gray, Button, blue } from "@vschool/lotus"
+import { gray, Button, purple } from "@vschool/lotus"
 import { navigate } from "@reach/router"
 
 
 const Container = styled.section`
-    background-color: ${blue.lightest};
+    background-color: ${purple.lightest};
     padding: 64px 16px;
 
     @media (min-width: 800px) {
@@ -46,7 +46,7 @@ const StyledButton = styled(Button)`
     align-items: center;
     width: 100%;
     justify-content: center;
-    background-color: ${props => props.type === 'packet' ? blue.lightest : gray.darker};
+    background-color: ${props => props.type === 'packet' ? purple.lightest : gray.darker};
     margin-top: ${props => props.type === 'packet' ? '16px' : 0};
     color: ${props => props.type === 'packet' ? gray.darker : gray.lightest};
 

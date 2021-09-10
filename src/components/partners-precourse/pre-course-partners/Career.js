@@ -48,7 +48,7 @@ const BlueSubtext = styled.p`
 `
 
 const BoxContainer = styled.div`
-    max-width: 836px;
+    max-width: 815px;
 `
 
 const BoxInnerContainer = styled.div`
@@ -368,7 +368,7 @@ const Career = ({submit}) => {
                             <GridDescription>{BoxDiffSub}</GridDescription>
                         </GridRightBottom>
                     </ContentGrid>
-                    <ImageContainer>
+                    {/* <ImageContainer>
                         <img src={imgUrl} alt={imgAlt} />
                         <StyledButton onClick={submit}
                             type={BoxTitle}
@@ -377,7 +377,7 @@ const Career = ({submit}) => {
                                 ? "Coming Soon"
                                 : BoxButtonText}
                         </StyledButton>
-                    </ImageContainer>
+                    </ImageContainer> */}
                 </BoxDropContainer>
             </BoxContainer>
         )
