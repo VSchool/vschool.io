@@ -130,6 +130,7 @@ const Block = styled.div`
 `
 
 const Form = ({ location }) => {
+    console.log(location)
     useEffect(() => {
         if (location?.state?.convertKitTag) {
             localStorage.setItem(
