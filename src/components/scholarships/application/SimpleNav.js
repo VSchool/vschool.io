@@ -35,6 +35,12 @@ const Logo = styled.img`
     height: 24px;
 `
 
+const BackArrow = styled.img`
+    margin: 0px 10px;
+    position: relative;
+    top: 3px;
+`
+
 export default function SimpleNav() {
     const data = useStaticQuery(graphql`
         {
@@ -46,6 +52,9 @@ export default function SimpleNav() {
                     mobile_logo {
                         url
                     }
+                    back_arrow {
+                        url
+                    }
                 }
             }
         }
@@ -54,10 +63,11 @@ export default function SimpleNav() {
     const {
         logo: { url: logoUrl },
         mobile_logo: { url: mobileLogoUrl },
+        back_arrow: { url: backArrow }
     } = data.prismicNavigationBar.data
     return (
         <Navbar>
-            <BackButton to="/">vschool.io</BackButton>
+            <BackButton to="/"><BackArrow src={backArrow} /> vschool.io</BackButton>
             <Link to="/">
                 <Media
                     queries={{
