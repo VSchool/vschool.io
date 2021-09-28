@@ -49,6 +49,7 @@ const Text = styled.p`
 
 const WidgetContainer = styled.div`
     width: 100%;
+    background-color: ${gray.lighter};
 `
 
 export default function Calendly(props) {
