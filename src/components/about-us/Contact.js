@@ -77,7 +77,7 @@ export default function Contact() {
             <ContactItem>{cityAndState}</ContactItem>
             <ContactItem>{email}</ContactItem>
             <ContactItem>{phone}</ContactItem>
-            <Link to={"/syllabus/download"}>
+            <Link to={"/apply"}>
                 <StyledButton buttonStyle="primary-light">
                     Get In Touch
                 </StyledButton>
