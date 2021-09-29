@@ -88,6 +88,14 @@ const StyledButton = styled(Button)`
     }
 `
 
+const ImageContainer = styled.div`
+    margin-top: 64px;
+
+    @media (min-width: 800px){
+        margin-top: 0;
+    }
+`
+
 function Hero(props) {
     const data = useStaticQuery(graphql`
         {
@@ -140,9 +148,9 @@ function Hero(props) {
                     </div>
                 }
                 image={
-                    <div>
+                    <ImageContainer>
                         <img src={imgUrl} alt={imgAlt} />
-                    </div>
+                    </ImageContainer>
                 }
             />
         </Container>
