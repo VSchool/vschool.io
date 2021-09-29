@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, navigate } from "gatsby"
 import { blue, gray, Button } from "@vschool/lotus"
 import DownloadSyllabus from "../../pages/syllabus/download"
 
@@ -110,19 +110,7 @@ export default function Rankings() {
     } = data.prismicSyllabusDownload.data
 
     const download = async type => {
-    
-        var link = document.createElement("a");
-        link.href = type === "xd" ? "https://drive.google.com/file/d/1lF1qMnhwLn1gaqefjSqS2AWxV_qXjHRQ/view?usp=sharing" : "https://drive.google.com/file/d/1TkmbmHhJXIyvH8rRr2UeIe7KhD14d1nz/view"
-        link.target = "_blank";
-        link.download = "V School Syllabus";
-    
-        document.body.appendChild(link);
-    
-        link.click();
-        setTimeout(function () {
-        window.URL.revokeObjectURL(link);
-        }, 200);
-            
+        navigate(`/syllabus/${type}`)
     }
 
     return (
@@ -131,8 +119,8 @@ export default function Rankings() {
                 <Title>{title}</Title>
                 <BlueSubtext>{subtitle}</BlueSubtext>
                 <ButtonDiv>
-                    <StyledButton onClick={() => download('web')}><img src={url} alt={alt} /> <ButtonSpan>{web}</ButtonSpan></StyledButton>
-                    <StyledButton onClick={() => download('xd')}><img src={url} alt={alt} /> <ButtonSpan>{xd}</ButtonSpan></StyledButton>
+                    <StyledButton onClick={() => download('development')}><img src={url} alt={alt} /> <ButtonSpan>{web}</ButtonSpan></StyledButton>
+                    <StyledButton onClick={() => download('design')}><img src={url} alt={alt} /> <ButtonSpan>{xd}</ButtonSpan></StyledButton>
                 </ButtonDiv>
             </Container>
         </Section>
