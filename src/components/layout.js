@@ -1,13 +1,14 @@
-import React from "react"
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types"
-import styled from "styled-components"
+import styled, {css} from "styled-components"
 import Link from "./shared/QueryLink"
 import { useLocation } from "@reach/router"
 import Navbar from "./Navbar"
 import Footer from "./Footer"
 import "@vschool/lotus/dist/index.css"
 import "./layout.scss"
-import { gray, blue } from "@vschool/lotus"
+import { gray, green, blue } from "@vschool/lotus"
+import useScroll from '../components/shared/UseScroll'
 
 // These styles make the Footer stick to the bottom of any page, no matter the page height
 const MainContainer = styled.div`
@@ -20,10 +21,12 @@ const ContentContainer = styled.div`
     flex-grow: 1;
 
     & > main {
-        margin-top: ${({ $showBanner }) => ($showBanner ? `128px` : `80px`)};
+        background-color: ${green.lightest};
+        padding-top: ${({ $showBanner }) => ($showBanner ? `128px` : `80px`)};
 
         @media (min-width: 600px) {
-            margin-top: ${({ $showBanner }) =>
+            background-color: ${green.lightest};
+            padding-top: ${({ $showBanner }) =>
                 $showBanner ? `114px` : `80px`};
         }
     }
@@ -77,26 +80,48 @@ const StyledLink = styled(Link)`
     }
 `
 
+const NavToggle = styled.div`
+  /* visibility: ${props => props.status ? 'visible' : 'hidden'}; */
+  /* opacity: ${props => props.status ? 1 : 0}; */
+  position: absolute;
+  top: ${props => props.status ? 0 : '-200px'};
+  transition: all .5s linear .1s;
+
+  & > nav {
+      top: ${props => props.status ? '34px' : '-200px'};
+      transition: all .5s linear .1s;
+  }
+`
+
 const Layout = ({ children }) => {
+    const {scrollDirection} = useScroll()
+    const [showing, setShowing] = useState(true)
     const location = useLocation()
     const showBanner = location.pathname !== "/scholarships"
+
+    useEffect(()=> {
+        scrollDirection === 'down' ? setShowing(false) : setShowing(true)
+    }, [scrollDirection])
+
     return (
         <MainContainer>
             <ContentContainer $showBanner={showBanner}>
-                {showBanner && (
-                    <Banner>
-                        <BannerText>
-                            <span style={{ fontWeight: 700 }}>
-                                Apply for a Scholarship
-                            </span>{" "}
-                            - Full and partial scholarships available.{" "}
-                            <StyledLink to="/scholarships">
-                                Learn More
-                            </StyledLink>
-                        </BannerText>
-                    </Banner>
-                )}
-                <Navbar bannerAdded={showBanner} />
+                <NavToggle status={showing}>
+                    {showBanner && (
+                        <Banner>
+                            <BannerText>
+                                <span style={{ fontWeight: 700 }}>
+                                    Apply for a Scholarship
+                                </span>{" "}
+                                - Full and partial scholarships available.{" "}
+                                <StyledLink to="/scholarships">
+                                    Learn More
+                                </StyledLink>
+                            </BannerText>
+                        </Banner>
+                    )}
+                    <Navbar bannerAdded={showBanner} />
+                </NavToggle>
 
                 <main>{children}</main>
             </ContentContainer>
@@ -110,3 +135,4 @@ Layout.propTypes = {
 }
 
 export default Layout
+
