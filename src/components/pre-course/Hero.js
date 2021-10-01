@@ -32,12 +32,12 @@ const HeroTitle = styled.h1`
     line-height: 48px;
     font-weight: 900;
     color: ${gray.darkest};
-    padding: 48px 0 16px;
+    padding: 10px 0 16px;
 
     @media (min-width: 800px) {
         font-size: 56px;
         line-height: 56px;
-        padding: 48px 0 24px;
+        padding: 10px 0 24px;
     }
 `
 
@@ -96,6 +96,7 @@ const ImageContainer = styled.div`
     }
 `
 
+
 function Hero(props) {
     const data = useStaticQuery(graphql`
         {
@@ -111,6 +112,10 @@ function Hero(props) {
                         text
                     }
                     start_right_arrow {
+                        alt
+                        url
+                    }
+                    partnership_vschool_logo {
                         alt
                         url
                     }
@@ -130,6 +135,7 @@ function Hero(props) {
         hero_image: { alt: imgAlt, url: imgUrl },
         hero_text: { text: heroText },
         hero_background_color: heroBgColor,
+        partnership_partner_logo: { url: partnerLogoUrl, alt: partnerLogoAlt },
     } = props
 
     const backgroundColor = colors[heroBgColor].lightest
@@ -139,6 +145,7 @@ function Hero(props) {
             <HeroLayout
                 text={
                     <div>
+                        <img style={{width: '150px'}} src={partnerLogoUrl} alt={partnerLogoAlt} />
                         <HeroTitle>{heroTitle}</HeroTitle>
                         <HeroParagraph>{heroText}</HeroParagraph>
                         <BlueSubtext>{heroCourses}</BlueSubtext>
