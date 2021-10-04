@@ -85,11 +85,11 @@ const NavToggle = styled.div`
   /* opacity: ${props => props.status ? 1 : 0}; */
   position: absolute;
   top: ${props => props.status ? 0 : '-200px'};
-  transition: all .5s linear .1s;
+  transition: all .5s linear;
 
   & > nav {
       top: ${props => props.status ? '34px' : '-200px'};
-      transition: all .5s linear .1s;
+      transition: all .5s linear;
   }
 `
 
