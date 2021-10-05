@@ -7,6 +7,7 @@ import Partners from "./Partners"
 import styled from "styled-components"
 import { gray } from "@vschool/lotus"
 import { navigate } from "gatsby"
+import { Helmet } from "react-helmet"
 
 const PageContainer = styled.div`
     background: ${gray.lighter};
@@ -27,6 +28,20 @@ export default function PreCourse({ data, uid }) {
             <Career submit={submitButton} />
             <Start submit={submitButton} />
             <Partners {...data} />
+            { 
+            uid === 'apartment-housing-rentals-foundation' &&
+                <Helmet>  
+                    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-197348191-1">
+                    </script>
+                    <script>
+                    {`window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+
+                    gtag('config', 'UA-197348191-1');`}
+                    </script>
+                </Helmet>
+            }
         </PageContainer>
     )
 }
