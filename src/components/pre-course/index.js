@@ -27,7 +27,10 @@ export default function PreCourse({ data, uid }) {
             <Info />
             <Career submit={submitButton} />
             <Start submit={submitButton} />
-            <Partners {...data} />
+            {
+                uid !== 'intro-to-tech-course' &&
+                <Partners {...data} />
+            }
             { 
             uid === 'apartment-housing-rentals-foundation' &&
                 <Helmet>  

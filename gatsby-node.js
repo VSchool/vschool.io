@@ -447,7 +447,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
     actions.createRedirect({
         fromPath: "/free-course-react",
-        toPath: "/bootcamp-primer",
+        toPath: "/intro-to-tech-course",
+        isPermanent: true,
+        force: true,
+    })
+
+    actions.createRedirect({
+        fromPath: "/bootcamp-primer",
+        toPath: "/intro-to-tech-course",
         isPermanent: true,
         force: true,
     })
