@@ -88,8 +88,15 @@ const NavToggle = styled.div`
   transition: all .5s linear;
 
   & > nav {
+      top: ${props => props.status ? '48px' : '-200px'};
+      transition: all .5s linear;
+  }
+
+  @media(min-width: 800px){
+    & > nav {
       top: ${props => props.status ? '34px' : '-200px'};
       transition: all .5s linear;
+    }
   }
 `
 
