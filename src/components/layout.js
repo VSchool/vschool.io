@@ -7,7 +7,7 @@ import Navbar from "./Navbar"
 import Footer from "./Footer"
 import "@vschool/lotus/dist/index.css"
 import "./layout.scss"
-import { gray, green, blue } from "@vschool/lotus"
+import { gray, blue } from "@vschool/lotus"
 import useScroll from '../components/shared/UseScroll'
 
 // These styles make the Footer stick to the bottom of any page, no matter the page height
@@ -21,11 +21,11 @@ const ContentContainer = styled.div`
     flex-grow: 1;
 
     & > main {
-        background-color: ${green.lightest};
+        background-color: ${gray.lighter};
         padding-top: ${({ $showBanner }) => ($showBanner ? `128px` : `80px`)};
 
         @media (min-width: 600px) {
-            background-color: ${green.lightest};
+            background-color: ${gray.lighter};
             padding-top: ${({ $showBanner }) =>
                 $showBanner ? `114px` : `80px`};
         }
