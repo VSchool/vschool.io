@@ -70,13 +70,13 @@ export default function IndexPage({ data }) {
                 <meta name="description" content="At V School you'll find a tech family that will serve you for life. A network of smart, kind, movers, shakers, and change-makers that will help you plug into ..." />
 
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://metatags.io/" />
+                <meta property="og:url" content="https://vschool.io/" />
                 <meta property="og:title" content="V School — Guiding You to a Future Career in Tech" />
                 <meta property="og:description" content="At V School you'll find a tech family that will serve you for life. A network of smart, kind, movers, shakers, and change-makers that will help you plug into ..." />
                 <meta property="og:image" content={heroMetaImg} />
 
                 <meta property="twitter:card" content="summary_large_image" />
-                <meta property="twitter:url" content="https://metatags.io/" />
+                <meta property="twitter:url" content="https://vschool.io/" />
                 <meta property="twitter:title" content="V School — Guiding You to a Future Career in Tech" />
                 <meta property="twitter:description" content="At V School you'll find a tech family that will serve you for life. A network of smart, kind, movers, shakers, and change-makers that will help you plug into ..." />
                 <meta property="twitter:image" content={heroMetaImg} />
