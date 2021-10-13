@@ -9,6 +9,7 @@ import FooterSubInformation from "./FooterSubInformation.js"
 const Container = styled.footer`
     background-color: ${black};
     padding: 0 24px;
+    padding-top: 40px;
 `
 
 const FooterContainer = styled.div`
