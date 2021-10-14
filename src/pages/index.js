@@ -30,6 +30,7 @@ export default function IndexPage({ data }) {
         hero_img_large: { url: heroImgLg },
         hero_green_circle: { url: greenCircle },
         hero_overlay_img: { url: overlayImg },
+        hero_meta_image: {url: heroMetaImg },
         upcoming_programs_header: { text: coursesHeader },
         ratings_header: { text: ratingsHeader },
         what_makes_us_different_header: { text: differenceHeader },
@@ -64,6 +65,21 @@ export default function IndexPage({ data }) {
                     name="p:domain_verify"
                     content="e7ec9d78e5ee9bcdffca6388ba0cdfa8"
                 />
+                <title>V School — Guiding You to a Future Career in Tech</title>
+                <meta name="title" content="V School — Guiding You to a Future Career in Tech" />
+                <meta name="description" content="At V School you'll find a tech family that will serve you for life. A network of smart, kind, movers, shakers, and change-makers that will help you plug into ..." />
+
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://vschool.io/" />
+                <meta property="og:title" content="V School — Guiding You to a Future Career in Tech" />
+                <meta property="og:description" content="At V School you'll find a tech family that will serve you for life. A network of smart, kind, movers, shakers, and change-makers that will help you plug into ..." />
+                <meta property="og:image" content={heroMetaImg} />
+
+                <meta property="twitter:card" content="summary_large_image" />
+                <meta property="twitter:url" content="https://vschool.io/" />
+                <meta property="twitter:title" content="V School — Guiding You to a Future Career in Tech" />
+                <meta property="twitter:description" content="At V School you'll find a tech family that will serve you for life. A network of smart, kind, movers, shakers, and change-makers that will help you plug into ..." />
+                <meta property="twitter:image" content={heroMetaImg} />
             </Helmet>
             <HeroHeader
                 title={title}
@@ -161,6 +177,9 @@ export const query = graphql`
                     url
                 }
                 hero_img_large {
+                    url
+                }
+                hero_meta_image {
                     url
                 }
                 hero_header_sub2 {
