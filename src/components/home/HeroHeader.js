@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { gray, black, green, Button } from "@vschool/lotus"
 import Link from "../shared/QueryLink"
+import { Helmet } from "react-helmet"
 
 const Container = styled.section`
     background-color: ${green.lightest};
@@ -113,22 +114,22 @@ function HeroHeader(props) {
     const { title, sub, invite, link, btnText } = props
 
     return (
-        <Container>
-            <FlexContainer>
-                <H1>{title}</H1>
-            </FlexContainer>
-            <FlexContainer>
-                <P>{sub}</P>
-            </FlexContainer>
-            <H6>{invite}</H6>
-            <FlexContainer>
-                <Link to={link}>
-                    <StyledButton buttonStyle="primary-dark">
-                        {btnText}
-                    </StyledButton>
-                </Link>
-            </FlexContainer>
-        </Container>
+            <Container>
+                <FlexContainer>
+                    <H1>{title}</H1>
+                </FlexContainer>
+                <FlexContainer>
+                    <P>{sub}</P>
+                </FlexContainer>
+                <H6>{invite}</H6>
+                <FlexContainer>
+                    <Link to={link}>
+                        <StyledButton buttonStyle="primary-dark">
+                            {btnText}
+                        </StyledButton>
+                    </Link>
+                </FlexContainer>
+            </Container>
     )
 }
 
