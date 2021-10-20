@@ -122,7 +122,7 @@ const InputDescription = styled.p`
 `
 
 const Form = ({ location, submit }) => {
-    const base = new Airtable({apiKey: 'keyQ9dpM505rbX5Fx'}).base('appRCE5sPrn56fpvC');
+    const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base('appRCE5sPrn56fpvC');
     const [search, setSearch] = useState('')
     const [students, setStudents] = useState([])
     const [filteredStudents, setFilteredStudents] = useState([])

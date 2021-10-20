@@ -142,7 +142,7 @@ const InputDescription = styled.p`
 `
 
 const Step2 = ({ location, submit }) => {
-    var base = new Airtable({apiKey: 'keyQ9dpM505rbX5Fx'}).base('apphohiHhj5EHUY7u');
+    var base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base('apphohiHhj5EHUY7u');
     const [search, setSearch] = useState('')
     const [employers, setEmployers] = useState([])
     const [filteredEmployers, setFilteredEmployers] = useState([])
