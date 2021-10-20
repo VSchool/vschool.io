@@ -81,7 +81,7 @@ const ProgressTitle = styled.p`
 
 const ProgressBarCompleted = styled.div`
     height: 8px;
-    width: 17%;
+    width: ${props => props.step == 1 ? '17%' : props.step == 2 ? '50%' : '100%'};
     background-color: ${blue.base};
     position: relative;
     top: 8px;
@@ -138,24 +138,26 @@ const Form = () => {
     } = data.prismicCompletionForm.data
 
     const mappedSteps = step1_steps.map(({title: { stepTitle }},i) => <ProgressStep>
-                                                    <ProgressNum color={i + 1 <= 1 ? blue.base : blue.light}>{i + 1}</ProgressNum>
+                                                    <ProgressNum color={i + 1 <= step ? blue.base : blue.light}>{i + 1}</ProgressNum>
                                                     <ProgressTitle>{stepTitle}</ProgressTitle>
                                                 </ProgressStep>)
-
+    console.log(step)
     return (
         <Container>
             <Paragraph>{desc}</Paragraph>
             <ProgressContainer>
-                <ProgressBarCompleted />
+                <ProgressBarCompleted step={step} />
                 <ProgressBarContainer>
                     {mappedSteps}
                 </ProgressBarContainer>
             </ProgressContainer>
-            {step === 1 ?
+            {step == 1 ?
                 <Step1 submit={submit} />
-            : step === 2 ?
+            : step == 2 ?
                 <Step2 submit={submit} />
-            : <Step3 submit={submit} />
+            : step == 3 ?
+              <Step3 submit={submit} />
+            : <h1>Step 4</h1>
             }
         </Container>
     );
