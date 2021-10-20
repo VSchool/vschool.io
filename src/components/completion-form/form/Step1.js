@@ -35,9 +35,12 @@ const FormContainer = styled.form`
 
 const StyledTextInput = styled(TextInput)`
     margin-bottom: 0px;
+    position: relative;
 
     & > label {
-        display: none;
+        position: absolute;
+        left: -5px;
+        top: -20px;
     }
 `
 
@@ -49,6 +52,8 @@ const StyledLabel = styled.label`
     font-weight: 500;
     font-size: 10px;
     line-height: 12px;
+    margin-left: ${props => props.required ? '10px' : 0};
+
 
     @media (min-width: 800px){
         font-size: 12px;
@@ -59,8 +64,12 @@ const StyledLabel = styled.label`
 const StyledTextarea = styled(Textarea)`
     margin: 10px 0 30px;
     height: 140px;
+    position: relative;
+
     & > label {
-        display: none;
+        position: absolute;
+        left: 0px;
+        top: -24px;
     }
 `
 
@@ -154,7 +163,11 @@ const Form = ({ location, submit }) => {
             view: "Near Jobbing Out",
             filterByFormula: `{Student Name} = '${name}'`
         }).eachPage(function page(records) {
-            setSelectedRecords(records)
+            if (selectedRecords[0]?.fields['Student Name'].includes(name.slice(0,name.indexOf(' '))) && selectedRecords[0]?.fields['Student Name'] !== name){
+                setSelectedRecords(prev => [...prev, ...records])
+            }else {
+                setSelectedRecords(records)
+            }
             setFilteredStudents([])
             setSearch('')
         })
@@ -250,7 +263,7 @@ const Form = ({ location, submit }) => {
 
     const mappedInputs = step1_inputs.map(({title: {text}},i) => {
     return <>
-        <StyledLabel>{text}</StyledLabel>
+        <StyledLabel required={true}>{text}</StyledLabel>
         <StyledTextarea
             placeholder="Enter Response"
             value={inputs[`question${i+1}`]}
@@ -262,29 +275,28 @@ const Form = ({ location, submit }) => {
     </>
     }
     )
-    console.log(allData)
     const nameList = filteredStudents.map(name => <NameList onClick={() => getStudent(name)}>{name}</NameList>)
+    console.log(selectedRecords)
     return (
         <Container>
             <FormContainer onSubmit={handleSubmit}>
                 <div>
-                    <StyledLabel>{first}</StyledLabel>
+                    <StyledLabel required={false}>{first}</StyledLabel>
                     <StyledTextInput
                         type="text"
                         value={search}
                         name="search"
                         placeholder="Search and Select"
                         onChange={(e) => setSearch(e.target.value)}
-                        validationText="auto-generate"
                     />
                     <InputDescription>{firstDesc}</InputDescription>
                 </div>
                 <div>
                     {search !== '' && nameList}
                 </div>
-                <StyledLabel>{second}</StyledLabel>
+                <StyledLabel required={false}>{second}</StyledLabel>
                 <NameListContainer>
-                {selectedRecords.length !== 0 && <NameList>{selectedRecords[0]?.fields['Student Name']}</NameList>}
+                {selectedRecords.length !== 0 && selectedRecords.map(({fields: { ['Student Name']: text }}) => <NameList>{text}</NameList>)}
                 </NameListContainer>
                 {mappedInputs}
                 <StyledButton>{btn}</StyledButton>
