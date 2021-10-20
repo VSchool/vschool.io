@@ -1,0 +1,236 @@
+import React from "react"
+import styled from "styled-components"
+import { gray, blue, Button } from "@vschool/lotus"
+import { useStaticQuery, graphql } from "gatsby"
+import Form from '../form'
+import { FormContext } from "../formContext"
+
+const Container = styled.section`
+    background-color: ${gray.lighter};
+`
+
+const Title = styled.h1`
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 40px;
+    text-align: center;
+    color: ${gray.darkest};
+    padding-bottom: 16px;
+
+    @media (min-width: 800px) {
+        font-size: 44px;
+        line-height: 48px;
+        padding-bottom: 24px;
+    }
+`
+
+const BlueSubtext = styled.p`
+    font-family: "aktiv-grotesk-extended";
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.25px;
+    text-transform: uppercase;
+    color: ${blue.base};
+    padding-top: 64px;
+    padding-bottom: 8px;
+
+    @media (min-width: 800px) {
+        font-size: 16px;
+        line-height: 24px;
+        padding-top: 96px;
+        padding-bottom: 16px;
+    }
+`
+
+const Paragraph = styled.p`
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: ${gray.darker};
+    padding-bottom: 48px;
+    max-width: 630px;
+
+    @media (min-width: 800px) {
+        font-size: 20px;
+        line-height: 32px;
+        padding-bottom: 64px;
+    }
+`
+
+const Subtitle = styled.p`
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    color: ${gray.darkest};
+    padding-bottom: 16px;
+
+    
+    @media (min-width: 800px){
+        font-size: 24px;
+        line-height: 32px;
+        padding-bottom: 24px;
+    }
+`
+
+const Image = styled.img`
+    max-width: 300px;
+
+    @media (min-width: 800px){
+        max-width: 550px;
+    }
+`
+
+const StyledButton = styled(Button)`
+    width: 300px;
+    margin-top: 16px;
+    margin-bottom: 96px;
+
+    @media (min-width: 800px){
+        width: 330px;
+        margin-top: 24px;
+        margin-bottom: 160px;
+    }
+`
+
+const ProgressContainer = styled.div`
+    width: 60%;
+    max-width: 620px;
+`
+
+const ProgressBarContainer = styled.div`
+    height: 8px;
+    width: 100%;
+    background-color: ${blue.light};
+    margin-bottom: 80px;
+    display: flex;
+    justify-content: space-around;
+
+
+    @media (min-width: 800px){
+        margin-bottom: 96px;
+    }
+`
+
+const ProgressStep = styled.div`
+    position: relative;
+    bottom: 7px;
+`
+
+const ProgressNum = styled.div`
+    height: 24px;
+    width: 24px;
+    border-radius: 30px;
+    text-align: center;
+    margin: auto;
+    color: white;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: ${props => props.color ? props.color : blue.light};
+`
+
+const ProgressTitle = styled.p`
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: ${gray.darker};
+    padding-top: 20px;
+
+    @media (min-width: 800px){
+        font-size: 16px;
+        line-height: 24px;
+    }
+`
+
+const ProgressBarCompleted = styled.div`
+    height: 8px;
+    width: 17%;
+    background-color: ${blue.dark};
+    position: relative;
+    top: 8px;
+    margin-right: auto;
+
+    @media (min-width: 800px){
+    }
+`
+
+
+
+const Hero = ({page, setter}) => {
+    const data = useStaticQuery(graphql`
+    {
+      prismicCompletionForm {
+        data {
+          intro_blue_subtext {
+            text
+          }
+          intro_button_arrow {
+            alt
+            url
+          }
+          intro_button_text {
+            text
+          }
+          intro_description {
+            text
+          }
+          intro_sub_description {
+            text
+          }
+          intro_swag_pic {
+            url
+          }
+          intro_title {
+            text
+          }
+        }
+      }
+    }
+  `)
+
+    const {
+        intro_blue_subtext: { text: blueSub },
+        intro_button_arrow: { url: arrowUrl },
+        intro_button_text: { text: btnText },
+        intro_description: { text: desc },
+        intro_sub_description: { text: subDesc },
+        intro_swag_pic: { url: swagUrl },
+        intro_title: { text: title },
+    } = data.prismicCompletionForm.data
+
+    const submit = num => {
+        setter(num)
+        localStorage.setItem('pageNum', num)
+    }
+    return (
+        <Container>
+            <BlueSubtext>{blueSub}</BlueSubtext>
+            <Title>{title}</Title>
+           {
+               page == 0 ?
+               <>
+                    <Paragraph>{desc}</Paragraph>
+                    <Subtitle>{subDesc}</Subtitle>
+                    <Image src={swagUrl} />
+                    <StyledButton onClick={() => submit(1)}>{btnText}</StyledButton>
+               </>
+               :
+               page == 1 && 
+               <>
+                    <FormContext>
+                        <Form />
+                    </FormContext>
+               </>
+
+           }
+        </Container>
+    )
+}
+
+export default Hero
