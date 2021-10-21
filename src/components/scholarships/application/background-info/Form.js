@@ -90,11 +90,23 @@ export default function BackgroundForm() {
         }
     }, [location.search])
 
+    useEffect(() => {
+        if (location?.state?.convertKitTag) {
+            localStorage.setItem(
+                "convertKitTag",
+                location?.state?.convertKitTag
+            )
+        }
+        if (location?.state?.uid) {
+            localStorage.setItem("fromLandingPage", location?.state?.uid)
+        }
+    }, [location?.state?.convertKitTag, location?.state?.uid])
+
     async function handleSubmit(e) {
         e.preventDefault()
         setSubmitting(true)
         // replace a "...formData" below after "...queryData"
-        const data = { ...queryData, ...formData, completedStep: "background" }
+        const data = { ...queryData, ...formData, completedStep: "background", convertKitTag: localStorage.getItem("convertKitTag"), fromLandingPage: localStorage.getItem("fromLandingPage"), }
         const fullTuitionOnlySelected =
             formData.financingOptionsConsidered.length === 1 &&
             formData.financingOptionsConsidered[0].includes(
