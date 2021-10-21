@@ -77,10 +77,23 @@ export default function BackgroundForm() {
         }
     }, [location.search])
 
+    useEffect(() => {
+        if (location?.state?.convertKitTag) {
+            localStorage.setItem(
+                "convertKitTag",
+                location?.state?.convertKitTag
+            )
+        }
+        if (location?.state?.uid) {
+            localStorage.setItem("fromLandingPage", location?.state?.uid)
+        }
+    }, [location?.state?.convertKitTag, location?.state?.uid])
+
     async function handleSubmit(e) {
         e.preventDefault()
         setSubmitting(true)
-        const data = { ...queryData, ...formData, nextStep: "complete" }
+        const data = { ...queryData, ...formData, nextStep: "complete", convertKitTag: localStorage.getItem("convertKitTag"), fromLandingPage: localStorage.getItem("fromLandingPage"), }
+        
         const options = {
             method: "POST",
             body: JSON.stringify(data),
