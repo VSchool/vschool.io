@@ -1,0 +1,363 @@
+{
+    "Intro" : {
+      "intro_blue_subtext" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label" : "Intro Blue Subtext"
+        }
+      },
+      "intro_title" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
+          "label" : "Intro Title"
+        }
+      },
+      "intro_description" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label" : "Intro Description"
+        }
+      },
+      "intro_sub_description" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label" : "Intro Sub Description"
+        }
+      },
+      "intro_swag_pic" : {
+        "type" : "Image",
+        "config" : {
+          "constraint" : { },
+          "thumbnails" : [ ],
+          "label" : "Intro Swag Pic"
+        }
+      },
+      "intro_button_arrow" : {
+        "type" : "Image",
+        "config" : {
+          "constraint" : { },
+          "thumbnails" : [ ],
+          "label" : "Intro Button Arrow"
+        }
+      },
+      "intro_button_text" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label" : "Intro Button Text"
+        }
+      }
+    },
+    "Step1" : {
+      "step1_description" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label" : "Step1 Description"
+        }
+      },
+      "step1_steps" : {
+        "type" : "Group",
+        "config" : {
+          "fields" : {
+            "title" : {
+              "type" : "StructuredText",
+              "config" : {
+                "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                "label" : "Title"
+              }
+            }
+          },
+          "label" : "Step1 Steps"
+        }
+      },
+      "step1_first" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label" : "Step1 First"
+        }
+      },
+      "step1_first_description" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label" : "Step1 First Description"
+        }
+      },
+      "step1_second" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label" : "Step1 Second"
+        }
+      },
+      "step1_inputs" : {
+        "type" : "Group",
+        "config" : {
+          "fields" : {
+            "title" : {
+              "type" : "StructuredText",
+              "config" : {
+                "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                "label" : "Title"
+              }
+            }
+          },
+          "label" : "Step1 Inputs"
+        }
+      },
+      "step1_button" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label" : "Step1 Button"
+        }
+      }
+    },
+    "Step2" : {
+      "step2_description" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label" : "Step2 Description"
+        }
+      },
+      "step2_first" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label" : "Step2 First"
+        }
+      },
+      "step2_first_description" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label" : "Step2 First Description"
+        }
+      },
+      "step2_second" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label" : "Step2 Second"
+        }
+      },
+      "step2_third" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label" : "Step2 Third"
+        }
+      },
+      "step2_dates" : {
+        "type" : "Group",
+        "config" : {
+          "fields" : {
+            "title" : {
+              "type" : "StructuredText",
+              "config" : {
+                "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                "label" : "Title"
+              }
+            },
+            "description" : {
+              "type" : "StructuredText",
+              "config" : {
+                "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                "label" : "Description"
+              }
+            }
+          },
+          "label" : "Step2 Dates"
+        }
+      },
+      "step2_fourth" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label" : "Step2 Fourth"
+        }
+      },
+      "step2_fourth_description" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label" : "Step2 Fourth Description"
+        }
+      },
+      "step2_button" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label" : "Step2 Button"
+        }
+      },
+      "body" : {
+        "type" : "Slices",
+        "fieldset" : "Slice zone",
+        "config" : {
+          "labels" : null,
+          "choices" : {
+            "dropdown_options" : {
+              "type" : "Slice",
+              "fieldset" : "Dropdown Options",
+              "description" : "Option",
+              "icon" : "dehaze",
+              "display" : "list",
+              "non-repeat" : {
+                "step2_dropdown_title" : {
+                  "type" : "StructuredText",
+                  "config" : {
+                    "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                    "label" : "Step2 Dropdown Title"
+                  }
+                },
+                "step2_dropdown_description" : {
+                  "type" : "StructuredText",
+                  "config" : {
+                    "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                    "label" : "Step2 Dropdown Description"
+                  }
+                }
+              },
+              "repeat" : {
+                "option" : {
+                  "type" : "StructuredText",
+                  "config" : {
+                    "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                    "label" : "Option"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Step3" : {
+      "step3_description" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label" : "Step3 Description"
+        }
+      },
+      "step3_textareas" : {
+        "type" : "Group",
+        "config" : {
+          "fields" : {
+            "title" : {
+              "type" : "StructuredText",
+              "config" : {
+                "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                "label" : "Title"
+              }
+            },
+            "description" : {
+              "type" : "StructuredText",
+              "config" : {
+                "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                "label" : "Description"
+              }
+            }
+          },
+          "label" : "Step3 Textareas"
+        }
+      },
+      "step3_radio_question" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label" : "Step3 Radio Question"
+        }
+      },
+      "step3_radio_options" : {
+        "type" : "Group",
+        "config" : {
+          "fields" : {
+            "option" : {
+              "type" : "StructuredText",
+              "config" : {
+                "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                "label" : "Option"
+              }
+            }
+          },
+          "label" : "Step3 Radio Options"
+        }
+      },
+      "step3_social" : {
+        "type" : "Group",
+        "config" : {
+          "fields" : {
+            "title" : {
+              "type" : "StructuredText",
+              "config" : {
+                "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                "label" : "Title"
+              }
+            },
+            "description" : {
+              "type" : "StructuredText",
+              "config" : {
+                "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                "label" : "Description"
+              }
+            }
+          },
+          "label" : "Step3 Social"
+        }
+      },
+      "step3_photo_title" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label" : "Step3 Photo Title"
+        }
+      },
+      "step3_photo_description" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label" : "Step3 Photo Description"
+        }
+      },
+      "step3_button" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label" : "Step3 Button"
+        }
+      }
+    },
+    "Thank You" : {
+      "thank_title" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
+          "label" : "Thank Title"
+        }
+      },
+      "thank_description" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label" : "Thank Description"
+        }
+      },
+      "thank_image" : {
+        "type" : "Image",
+        "config" : {
+          "constraint" : { },
+          "thumbnails" : [ ],
+          "label" : "Thank Image"
+        }
+      }
+    }
+  }
