@@ -28,6 +28,7 @@ const ErrorMessage = styled.h5`
 export default function BackgroundForm() {
     const location = useLocation()
     const [queryData, setQueryData] = useState({})
+    const [utmObj, setUtmObj] = useState({})
     const [error, setError] = useState()
     const [submitting, setSubmitting] = useState(false)
 
@@ -78,21 +79,27 @@ export default function BackgroundForm() {
     }, [location.search])
 
     useEffect(() => {
-        if (location?.state?.convertKitTag) {
-            localStorage.setItem(
-                "convertKitTag",
-                location?.state?.convertKitTag
-            )
-        }
-        if (location?.state?.uid) {
-            localStorage.setItem("fromLandingPage", location?.state?.uid)
-        }
-    }, [location?.state?.convertKitTag, location?.state?.uid])
+        const utmString = localStorage.getItem("query")
+        const searchParams = new URLSearchParams(utmString)
+        const obj = {}
+        searchParams.forEach((value, key) => {
+            if (key.startsWith("utm")) {
+                const keyParts = key.split("_")
+                const newKey =
+                    keyParts[0] +
+                    keyParts[1][0].toUpperCase() +
+                    keyParts[1].slice(1)
+                obj[newKey] = value
+            }
+        })
+        setUtmObj(obj)
+    }, [])
+
 
     async function handleSubmit(e) {
         e.preventDefault()
         setSubmitting(true)
-        const data = { ...queryData, ...formData, nextStep: "complete", convertKitTag: localStorage.getItem("convertKitTag"), fromLandingPage: localStorage.getItem("fromLandingPage"), }
+        const data = { ...queryData, ...formData, nextStep: "complete", utm: utmObj }
         
         const options = {
             method: "POST",
