@@ -33,9 +33,13 @@ const FormContainer = styled.form`
 
 const FormInputs1 = styled.div`
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     grid-gap: 20px;
     margin-bottom: 60px;
+    
+    @media (min-width: 800px){
+        grid-template-columns: repeat(2, 1fr);
+    }
 `
 
 const StyledTextInput = styled(TextInput)`
@@ -56,9 +60,13 @@ const StyledLabel = styled.label`
 `
 
 const FormInputs2 = styled.div`
-    display: flex;
+    display: block;
     gap: 20px;
     margin: 10px 0 30px;
+
+    @media (min-width: 800px){
+        display: flex;
+    }
 `
 
 const SelectBox = styled.button`
@@ -71,7 +79,7 @@ const SelectBox = styled.button`
     width: 160px;
     height: 130px;
     border: 1px solid ${gray.dark};
-
+    margin-bottom: 10px;
     /* &:focus {
         background-image: url(${props => props.bgImage}),
             url(${props => props.bgImage2});
@@ -117,8 +125,8 @@ const StyledButton = styled(Button)`
 const Block = styled.div`
     display: flex;
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 160px;
+    height: 130px;
     top: 0;
     text-align: center;
     justify-content: center;
@@ -127,6 +135,7 @@ const Block = styled.div`
     color: ${gray.lightest};
     font-weight: 400;
     font-size: 20px;
+
 `
 
 const Form = ({ location }) => {
