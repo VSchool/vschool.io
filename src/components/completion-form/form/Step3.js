@@ -145,6 +145,7 @@ const RadioContainer = styled.div`
 
 const Step3 = ({ location, submit }) => {
     const {addStepData, allData} = useContext(Context)
+    const [file, setFile] = useState('')
     
     useEffect(() => {
         if (location?.state?.convertKitTag) {
@@ -244,6 +245,45 @@ const Step3 = ({ location, submit }) => {
         submit(3)
     }
 
+    const onChange = e => {
+      // const files = Array.from(e.target.files)
+      // console.log()
+      // const formData = new FormData()
+  
+      // files.forEach((file, i) => {
+      //   formData.append(i, file)
+      // })
+      // URL.createObjectURL(e.target.files[0]).replace('blob:', '')
+      setFile(e.target.files[0])
+    }
+
+    async function uploadPhoto (e){
+      var fileData = {
+        file: {
+          modified: file.lastModifiedDate,
+          name: file.name,
+          size: file.size,
+          type: file.type
+        }
+      }
+      
+      const options = {
+        method: "POST",
+        body: JSON.stringify(fileData),
+      }
+
+      console.log(options)
+      try {
+        await fetch(
+            `https://hooks.zapier.com/hooks/catch/666916/bhre1v5/`
+        )
+        console.log('sent webhook')
+        // navigate("/pre-course-communities/success")
+      } catch (e) {
+          console.error(e)
+      }
+    }
+
     const mappedTextareas = step3_textareas.map(({title: {text}, description: {text: textDesc}},i) => {
       return <InputDiv>
           <StyledLabel required={true}>{text}</StyledLabel>
@@ -289,7 +329,14 @@ const Step3 = ({ location, submit }) => {
                 </RadioContainer>
 
                 {mappedSocials}
-
+                
+                <div className='button'>
+                  <label htmlFor='single'>
+                      BUTTONS FIRST
+                  </label>
+                  <input type='file' id='single' onChange={onChange} /> 
+                </div>
+                <button type="button" onClick={uploadPhoto}>Send Upload</button>
                 <StyledButton>{btn}</StyledButton>
             </FormContainer>
         </Container>
