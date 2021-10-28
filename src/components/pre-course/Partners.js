@@ -34,6 +34,10 @@ const InfoContainer = styled.div`
         display: flex;
         max-width: 1200px;
         gap: 40px;
+
+        & > div {
+            width: 50%;
+        }
     }
 `
 
