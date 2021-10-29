@@ -3,6 +3,7 @@ import { Context } from "../FormContext"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import Airtable from 'airtable'
+import Compressor from "compressorjs"
 import {
     gray,
     blue,
@@ -142,7 +143,7 @@ const RadioContainer = styled.div`
 `
 
 const Step3 = ({ location, submit }) => {
-    // const {addStepData, allData} = useContext(Context)
+    const {addStepData, allData} = useContext(Context)
     const [file, setFile] = useState('')
     
     useEffect(() => {
@@ -235,11 +236,11 @@ const Step3 = ({ location, submit }) => {
 
     async function handleSubmit(e) {
         e.preventDefault()
-        const step2Data = {
+        const step3Data = {
             ...inputs
         }
 
-        // addStepData(step2Data, 'step2Data')
+        addStepData(step3Data, 'step3Data')
         submit(3)
     }
 
@@ -252,34 +253,45 @@ const Step3 = ({ location, submit }) => {
       //   formData.append(i, file)
       // })
       // URL.createObjectURL(e.target.files[0]).replace('blob:', '')
-      setFile(e.target.files[0])
+      const image = e.target.files[0];
+      console.log(image.size)
+      new Compressor(image, {
+        quality: 0.6, // 0.6 can also be used, but its not recommended to go below.
+        success: (res) => {
+          // compressedResult has the compressed file.
+          // Use the compressed file to upload the images to your server.   
+          console.log(res,'res')     
+          setFile(res)
+        },
+      });
     }
 
     async function uploadPhoto (e){
-      var fileData = {
-        file: {
-          modified: file.lastModifiedDate,
-          name: file.name,
-          size: file.size,
-          type: file.type
-        }
-      }
+      console.log(file.size)
+      // var fileData = {
+      //   file: {
+      //     modified: file.lastModifiedDate,
+      //     name: file.name,
+      //     size: file.size,
+      //     type: file.type
+      //   }
+      // }
       
-      const options = {
-        method: "POST",
-        body: JSON.stringify(fileData),
-      }
+      // const options = {
+      //   method: "POST",
+      //   body: JSON.stringify(fileData),
+      // }
 
-      console.log(options)
-      try {
-        await fetch(
-            `${process.env.GATSBY_PHOTO_UPLOAD_ZAPIER_WEBHOOK_URL}`
-        )
-        console.log('sent webhook')
-        // navigate("/pre-course-communities/success")
-      } catch (e) {
-          console.error(e)
-      }
+      // console.log(options)
+      // try {
+      //   await fetch(
+      //       `${process.env.GATSBY_PHOTO_UPLOAD_ZAPIER_WEBHOOK_URL}`
+      //   )
+      //   console.log('sent webhook')
+      //   // navigate("/pre-course-communities/success")
+      // } catch (e) {
+      //     console.error(e)
+      // }
     }
 
     const mappedTextareas = step3_textareas.map(({title: {text}, description: {text: textDesc}},i) => {
@@ -332,7 +344,13 @@ const Step3 = ({ location, submit }) => {
                   <label htmlFor='single'>
                       BUTTONS FIRST
                   </label>
-                  <input type='file' id='single' onChange={onChange} /> 
+                  {/* <input type='file' id='single' onChange={onChange} />  */}
+                  <input
+                    accept="image/*,capture=camera"
+                    capture="”camera"
+                    type="file"
+                    onChange={onChange}
+                  />
                 </div>
                 <button type="button" onClick={uploadPhoto}>Send Upload</button>
                 <StyledButton>{btn}</StyledButton>
