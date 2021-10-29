@@ -127,8 +127,8 @@ const Form = ({ location, submit }) => {
     const [students, setStudents] = useState([])
     const [filteredStudents, setFilteredStudents] = useState([])
     const [selectedRecords, setSelectedRecords] = useState([])
-
-    const {addStepData, allData} = useContext(Context)
+    const context = useContext(Context)
+    console.log(Context)
     
     useEffect(() => {
         if (location?.state?.convertKitTag) {
@@ -239,8 +239,8 @@ const Form = ({ location, submit }) => {
             fromLandingPage: localStorage.getItem("fromLandingPage"),
         }
 
-        addStepData(formData, 'formData')
-        addStepData(step1Data, 'step1Data')
+        // addStepData(formData, 'formData')
+        // addStepData(step1Data, 'step1Data')
         submit(2)
         // navigate("/pre-course-communities/success")
 

@@ -142,7 +142,7 @@ const RadioContainer = styled.div`
 `
 
 const Step3 = ({ location, submit }) => {
-    const {addStepData, allData} = useContext(Context)
+    // const {addStepData, allData} = useContext(Context)
     const [file, setFile] = useState('')
     
     useEffect(() => {
@@ -239,7 +239,7 @@ const Step3 = ({ location, submit }) => {
             ...inputs
         }
 
-        addStepData(step2Data, 'step2Data')
+        // addStepData(step2Data, 'step2Data')
         submit(3)
     }
 

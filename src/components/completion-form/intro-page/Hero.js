@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { gray, blue, Button } from "@vschool/lotus"
 import { useStaticQuery, graphql } from "gatsby"
 import Form from '../form'
-import { FormContext } from "../formContext"
+import { FormContext } from "../FormContext"
 
 const Container = styled.section`
     background-color: ${gray.lighter};
