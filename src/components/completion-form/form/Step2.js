@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react"
-import { Context } from "../formContext"
+import { Context } from "../FormContext"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import Airtable from 'airtable'

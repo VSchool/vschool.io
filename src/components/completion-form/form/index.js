@@ -141,7 +141,6 @@ const Form = () => {
                                                     <ProgressNum color={i + 1 <= step ? blue.base : blue.light}>{i + 1}</ProgressNum>
                                                     <ProgressTitle>{stepTitle}</ProgressTitle>
                                                 </ProgressStep>)
-    console.log(step)
     return (
         <Container>
             <Paragraph>{desc}</Paragraph>
