@@ -28,6 +28,7 @@ const ErrorMessage = styled.h5`
 export default function BackgroundForm() {
     const location = useLocation()
     const [queryData, setQueryData] = useState({})
+    const [utmObj, setUtmObj] = useState({})
     const [error, setError] = useState()
     const [submitting, setSubmitting] = useState(false)
 
@@ -77,10 +78,29 @@ export default function BackgroundForm() {
         }
     }, [location.search])
 
+    useEffect(() => {
+        const utmString = localStorage.getItem("query")
+        const searchParams = new URLSearchParams(utmString)
+        const obj = {}
+        searchParams.forEach((value, key) => {
+            if (key.startsWith("utm")) {
+                const keyParts = key.split("_")
+                const newKey =
+                    keyParts[0] +
+                    keyParts[1][0].toUpperCase() +
+                    keyParts[1].slice(1)
+                obj[newKey] = value
+            }
+        })
+        setUtmObj(obj)
+    }, [])
+
+
     async function handleSubmit(e) {
         e.preventDefault()
         setSubmitting(true)
-        const data = { ...queryData, ...formData, nextStep: "complete" }
+        const data = { ...queryData, ...formData, nextStep: "complete", utm: utmObj }
+        
         const options = {
             method: "POST",
             body: JSON.stringify(data),

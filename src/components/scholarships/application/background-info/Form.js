@@ -27,6 +27,7 @@ const ErrorMessage = styled.h5`
 export default function BackgroundForm() {
     const location = useLocation()
     const [queryData, setQueryData] = useState({})
+    const [utmObj, setUtmObj] = useState({})
     const [error, setError] = useState()
     const [submitting, setSubmitting] = useState(false)
     const data = useStaticQuery(graphql`
@@ -90,11 +91,29 @@ export default function BackgroundForm() {
         }
     }, [location.search])
 
+    useEffect(() => {
+        const utmString = localStorage.getItem("query")
+        const searchParams = new URLSearchParams(utmString)
+        const obj = {}
+        searchParams.forEach((value, key) => {
+            if (key.startsWith("utm")) {
+                const keyParts = key.split("_")
+                const newKey =
+                    keyParts[0] +
+                    keyParts[1][0].toUpperCase() +
+                    keyParts[1].slice(1)
+                obj[newKey] = value
+            }
+        })
+        setUtmObj(obj)
+    }, [])
+
+
     async function handleSubmit(e) {
         e.preventDefault()
         setSubmitting(true)
         // replace a "...formData" below after "...queryData"
-        const data = { ...queryData, ...formData, completedStep: "background" }
+        const data = { ...queryData, ...formData, completedStep: "background", utm: utmObj}
         const fullTuitionOnlySelected =
             formData.financingOptionsConsidered.length === 1 &&
             formData.financingOptionsConsidered[0].includes(
