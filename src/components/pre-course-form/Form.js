@@ -26,7 +26,7 @@ const FormContainer = styled.form`
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 3px 4px rgba(0, 0, 0, 0.12),
         0px 1px 5px rgba(0, 0, 0, 0.2);
     border: 1px solid ${blue.light};
-    padding: 64px;
+    padding: 64px 48px;
     width: 100%;
     max-width: 900px;
 `
@@ -43,7 +43,7 @@ const FormInputs1 = styled.div`
 `
 
 const StyledTextInput = styled(TextInput)`
-    margin-bottom: 20px;
+    margin-bottom: 0px;
 
     & > label {
         display: none;
