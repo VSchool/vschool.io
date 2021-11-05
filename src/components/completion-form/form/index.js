@@ -2,6 +2,7 @@ import React from 'react';
 import Step1 from './Step1';
 import Step2 from './Step2';
 import Step3 from './Step3';
+import Step4 from './Step4';
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { gray, blue } from "@vschool/lotus"
@@ -81,7 +82,7 @@ const ProgressTitle = styled.p`
 
 const ProgressBarCompleted = styled.div`
     height: 8px;
-    width: ${props => props.step == 1 ? '17%' : props.step == 2 ? '50%' : '100%'};
+    width: ${props => props.step == 1 ? '13%' : props.step == 2 ? '38%' : props.step == 3 ? '63%' : '87%'};
     background-color: ${blue.base};
     position: relative;
     top: 8px;
@@ -156,7 +157,7 @@ const Form = () => {
                 <Step2 submit={submit} />
             : step == 3 ?
               <Step3 submit={submit} />
-            : <h1>Step 4</h1>
+            : <Step4 />
             }
         </Container>
     );

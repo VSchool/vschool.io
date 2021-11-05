@@ -2,8 +2,6 @@ import React, { useState, useEffect, useContext } from "react"
 import { Context } from "../FormContext"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
-import Airtable from 'airtable'
-import Compressor from "compressorjs"
 import {
     gray,
     blue,
@@ -27,18 +25,20 @@ const FormContainer = styled.form`
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 3px 4px rgba(0, 0, 0, 0.12),
         0px 1px 5px rgba(0, 0, 0, 0.2);
     border: 1px solid ${blue.light};
-    padding: 64px;
+    padding: 30px;
     width: 100%;
     max-width: 900px;
+
+    @media (min-width: 800px){
+      padding: 64px;
+    }
 `
 
 const StyledLabel = styled.label`
-    /* background-image: url(${props => props.required}); */
     padding: 0 10px 0 0;
-    /* background-repeat: no-repeat; */
     font-family: "aktiv-grotesk-extended";
     font-weight: 500;
-    font-size: 10px;
+    font-size: 8px;
     line-height: 12px;
     margin-left: ${props => props.required ? '10px' : 0};
 
@@ -89,10 +89,8 @@ const InputDescription = styled.p`
     font-size: 10px;
     line-height: 16px;
     color: ${gray.darker};
-    /* padding-bottom: 16px; */
     
     @media (min-width: 800px){
-        /* padding-bottom: 32px; */
     }
 `
 
@@ -142,22 +140,41 @@ const RadioContainer = styled.div`
   }
 `
 
-const Step3 = ({ location, submit }) => {
-    const {addStepData, allData} = useContext(Context)
-    const [file, setFile] = useState('')
-    
-    useEffect(() => {
-        if (location?.state?.convertKitTag) {
-            localStorage.setItem(
-                "convertKitTag",
-                location?.state?.convertKitTag
-            )
-        }
-        if (location?.state?.uid) {
-            localStorage.setItem("fromLandingPage", location?.state?.uid)
-        }
-    }, [location?.state?.convertKitTag, location?.state?.uid])
+const UploadPhoto = styled.div`
+  position: relative;
 
+  & > .custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+    background-color: ${gray.base};
+
+    & > img {
+      width: 20px;
+      position: relative;
+      top: 2px;
+      right: 3px;
+    }
+
+    & > span {
+      position: relative;
+      bottom: 3px;
+    }
+  }
+
+  & > input {
+    position: absolute;
+    left: 25px;
+    top: 5px;
+  }
+`
+
+const Step3 = ({ submit }) => {
+    const {addStepData, allData} = useContext(Context)
+    
     const data = useStaticQuery(graphql`
       {
         prismicCompletionForm {
@@ -241,58 +258,19 @@ const Step3 = ({ location, submit }) => {
         }
 
         addStepData(step3Data, 'step3Data')
-        submit(3)
+        submit(4)
     }
 
     const onChange = e => {
-      // const files = Array.from(e.target.files)
-      // console.log()
-      // const formData = new FormData()
-  
-      // files.forEach((file, i) => {
-      //   formData.append(i, file)
-      // })
-      // URL.createObjectURL(e.target.files[0]).replace('blob:', '')
       const image = e.target.files[0];
-      console.log(image.size)
-      new Compressor(image, {
-        quality: 0.6, // 0.6 can also be used, but its not recommended to go below.
-        success: (res) => {
-          // compressedResult has the compressed file.
-          // Use the compressed file to upload the images to your server.   
-          console.log(res,'res')     
-          setFile(res)
-        },
-      });
+     
+      setInputs(prev => ({
+        ...prev,
+        question9: URL.createObjectURL(image)
+      }))
+  
     }
 
-    async function uploadPhoto (e){
-      console.log(file.size)
-      // var fileData = {
-      //   file: {
-      //     modified: file.lastModifiedDate,
-      //     name: file.name,
-      //     size: file.size,
-      //     type: file.type
-      //   }
-      // }
-      
-      // const options = {
-      //   method: "POST",
-      //   body: JSON.stringify(fileData),
-      // }
-
-      // console.log(options)
-      // try {
-      //   await fetch(
-      //       `${process.env.GATSBY_PHOTO_UPLOAD_ZAPIER_WEBHOOK_URL}`
-      //   )
-      //   console.log('sent webhook')
-      //   // navigate("/pre-course-communities/success")
-      // } catch (e) {
-      //     console.error(e)
-      // }
-    }
 
     const mappedTextareas = step3_textareas.map(({title: {text}, description: {text: textDesc}},i) => {
       return <InputDiv>
@@ -313,8 +291,8 @@ const Step3 = ({ location, submit }) => {
           <StyledLabel required={true}>{social}</StyledLabel>
           <StyledTextInput
               placeholder="Enter Response"
-              value={inputs[`question${i+1}`]}
-              name={`question${i+1}`}
+              value={inputs[`question${i+6}`]}
+              name={`question${i+6}`}
               onChange={handleChange}
               required={true}
           ></StyledTextInput>
@@ -323,36 +301,35 @@ const Step3 = ({ location, submit }) => {
     })
 
     const mappedRadios = step3_radio_options.map(({option: {text}},i) => <div class="radio">
-      <input id={`radio-${i+1}`} name="radio" type="radio" value={text} checked />
+      <input id={`radio-${i+1}`} name={`question5`} type="radio" value={text} onChange={handleChange} />
       <label for={`radio-${i+1}`} class="radio-label">{text}</label>
     </div>)
-
+    
     return (
         <Container>
             <FormContainer onSubmit={handleSubmit}>
                 
                 {mappedTextareas}
-
                 <RadioContainer>
                   <StyledLabel>{radioQuestion}</StyledLabel>
                   {mappedRadios}
                 </RadioContainer>
-
                 {mappedSocials}
-                
-                <div className='button'>
-                  <label htmlFor='single'>
-                      BUTTONS FIRST
+                <StyledLabel>{photoTitle}</StyledLabel>
+                <UploadPhoto>
+                  <label for="file-upload" class="custom-file-upload">
+                    <img src="https://icon-library.com/images/aa537dfc9c.svg.svg" /> <span>Attach File</span>
                   </label>
-                  {/* <input type='file' id='single' onChange={onChange} />  */}
                   <input
-                    accept="image/*,capture=camera"
-                    capture="”camera"
-                    type="file"
-                    onChange={onChange}
-                  />
-                </div>
-                <button type="button" onClick={uploadPhoto}>Send Upload</button>
+                      id="file-upload"
+                      accept="image/*,capture=camera"
+                      capture="”camera"
+                      type="file"
+                      onChange={onChange}
+                    />
+                </UploadPhoto>
+                <InputDescription style={{marginBottom: 32}}>{photoDesc}</InputDescription>
+
                 <StyledButton>{btn}</StyledButton>
             </FormContainer>
         </Container>
