@@ -40,6 +40,7 @@ export default function BackgroundForm() {
     `)
 
     const { formComponents, formData } = useFormium(data.formiumForm)
+    
     // Save the name/email either from state (from the scholarship page) or from a querystring (from email link)
     useEffect(() => {
         let data
@@ -108,52 +109,57 @@ export default function BackgroundForm() {
         setUtmObj(obj)
     }, [])
 
-
+    console.log(formComponents)
     async function handleSubmit(e) {
         e.preventDefault()
-        setSubmitting(true)
-        // replace a "...formData" below after "...queryData"
-        const data = { ...queryData, ...formData, completedStep: "background", utm: utmObj}
-        const fullTuitionOnlySelected =
-            formData.financingOptionsConsidered.length === 1 &&
-            formData.financingOptionsConsidered[0].includes(
-                "Full Tuition Scholarship"
-            )
-        if (fullTuitionOnlySelected) {
-            data.nextStep = "essay"
-        } else {
-            data.nextStep = "schedule"
-        }
 
-        const options = {
-            method: "POST",
-            body: JSON.stringify(data),
-        }
-
-        try {
-            await fetch(
-                process.env.GATSBY_SCHOLARSHIP_APP_ZAPIER_WEBHOOK_URL,
-                options
-            )
-
-            setSubmitting(false)
+        // if(!formComponents[6].props.children[1].props.checked){
+            setSubmitting(true)
+            // replace a "...formData" below after "...queryData"
+            const data = { ...queryData, ...formData, completedStep: "background", utm: utmObj}
+            const fullTuitionOnlySelected =
+                formData.financingOptionsConsidered.length === 1 &&
+                formData.financingOptionsConsidered[0].includes(
+                    "Full Tuition Scholarship"
+                )
             if (fullTuitionOnlySelected) {
-                localStorage.setItem("scholarshipAppNextStep", data.nextStep)
-                navigate("/scholarships/application/essay-questions", {
-                    state: { email: queryData.email },
-                })
+                data.nextStep = "essay"
             } else {
-                localStorage.setItem("scholarshipAppNextStep", data.nextStep)
-                navigate("/scholarships/application/schedule", {
-                    state: { email: queryData.email },
-                })
+                data.nextStep = "schedule"
             }
-        } catch (err) {
-            setSubmitting(false)
-            setError(
-                "Something went wrong. Please refresh the page and try again."
-            )
-        }
+    
+            const options = {
+                method: "POST",
+                body: JSON.stringify(data),
+            }
+    
+            try {
+                await fetch(
+                    process.env.GATSBY_SCHOLARSHIP_APP_ZAPIER_WEBHOOK_URL,
+                    options
+                )
+    
+                setSubmitting(false)
+                if (fullTuitionOnlySelected) {
+                    localStorage.setItem("scholarshipAppNextStep", data.nextStep)
+                    navigate("/scholarships/application/essay-questions", {
+                        state: { email: queryData.email },
+                    })
+                } else {
+                    localStorage.setItem("scholarshipAppNextStep", data.nextStep)
+                    navigate("/scholarships/application/schedule", {
+                        state: { email: queryData.email },
+                    })
+                }
+            } catch (err) {
+                setSubmitting(false)
+                setError(
+                    "Something went wrong. Please refresh the page and try again."
+                )
+            }
+        // }else {
+        //     alert('Sorry VSchool is currently not accepting international students')
+        // }
     }
 
     /* 
