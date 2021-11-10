@@ -85,7 +85,7 @@ function Partners(props) {
             <Title>{PartnerTitle}</Title>
             <InfoContainer>
                 <div>
-                    <img src={partnerLogoUrl} alt={partnerLogoAlt} />
+                    <img style={{height: 48}} src={partnerLogoUrl} alt={partnerLogoAlt} />
                     <Description>{partnerDesc}</Description>
                 </div>
                 <div>
