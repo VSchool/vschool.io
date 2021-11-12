@@ -113,7 +113,7 @@ export default function BackgroundForm() {
     async function handleSubmit(e) {
         e.preventDefault()
 
-        // if(!formComponents[6].props.children[1].props.checked){
+        if(!formComponents[0].props.children[1].props.checked){
             setSubmitting(true)
             // replace a "...formData" below after "...queryData"
             const data = { ...queryData, ...formData, completedStep: "background", utm: utmObj}
@@ -157,9 +157,9 @@ export default function BackgroundForm() {
                     "Something went wrong. Please refresh the page and try again."
                 )
             }
-        // }else {
-        //     alert('Sorry VSchool is currently not accepting international students')
-        // }
+        }else {
+            navigate('/scholarships/application/unavailable')
+        }
     }
 
     /* 
