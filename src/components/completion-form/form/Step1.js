@@ -4,6 +4,8 @@ import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { navigate } from "gatsby"
 import Airtable from 'airtable'
+import ReactStars from 'react-rating-stars-component'
+import 'font-awesome/css/font-awesome.min.css';
 import {
     gray,
     blue,
@@ -11,6 +13,7 @@ import {
     Textarea,
     Button,
     green,
+    red,
 } from "@vschool/lotus"
 
 
@@ -39,9 +42,10 @@ const StyledTextInput = styled(TextInput)`
 
     & > label {
         position: absolute;
-        left: -5px;
+        left: ${props => props.className ? '0px' : '-5px'};
         top: -20px;
     }
+
 `
 
 const StyledLabel = styled.label`
@@ -53,6 +57,8 @@ const StyledLabel = styled.label`
     font-size: 10px;
     line-height: 12px;
     margin-left: ${props => props.required ? '10px' : 0};
+    position: relative;
+    bottom: ${props => props.className && '5px'};
 
 
     @media (min-width: 800px){
@@ -119,6 +125,13 @@ const InputDescription = styled.p`
     @media (min-width: 800px){
         padding-bottom: 32px;
     }
+`
+
+const RequiredStar = styled.span`
+    font-size: 14px;
+    position: relative;
+    top: 2px;
+    color: ${red.base};
 `
 
 const Form = ({ location, submit }) => {
@@ -215,8 +228,9 @@ const Form = ({ location, submit }) => {
         question2: "",
         question3: "",
         question4: "",
-        question5: "",
     })
+
+    const [rating, setRating] = useState({})
 
     const handleChange = (e) => {
         let { name, value } = e.target
@@ -231,7 +245,8 @@ const Form = ({ location, submit }) => {
         // Get the UTM parameters if they exist to add to the POST URL below
         const step1Data = {
             selectedRecords,
-            ...inputs
+            ...inputs,
+            ratings: rating
         }
         const formData = {
             convertKitTag: localStorage.getItem("convertKitTag"),
@@ -241,41 +256,46 @@ const Form = ({ location, submit }) => {
         addStepData(formData, 'formData')
         addStepData(step1Data, 'step1Data')
         submit(2)
-        // navigate("/pre-course-communities/success")
+       
+    }
 
-        // const options = {
-        //     method: "POST",
-        //     body: JSON.stringify(formData),
-        // }
-
-        // const query = localStorage.getItem("query") || ""
-        // try {
-        //     await fetch(
-        //         `${process.env.GATSBY_PRE_COURSE_COMMUNITIES_ZAPIER_WEBHOOK_URL}${query}`,
-        //         options
-        //     )
-        //     navigate("/pre-course-communities/success")
-        // } catch (e) {
-        //     console.error(e)
-        // }
+    const changeRating = (newRating, name) => {
+        setRating(prev => {
+            return {
+                ...prev,
+                [name]: newRating
+            }
+        })
     }
 
     const mappedInputs = step1_inputs.map(({title: {text}},i) => {
     return <>
-        <StyledLabel required={true}>{text}</StyledLabel>
-        <StyledTextarea
-            placeholder="Enter Response"
-            value={inputs[`question${i+1}`]}
-            name={`question${i+1}`}
-            onChange={handleChange}
-            required={true}
-            validationText="auto-generate"
-        ></StyledTextarea>
+        <StyledLabel required={true} className={i === 0 && 'review-title'}>{text}</StyledLabel>
+        {
+            i === 0 ?
+                <StyledTextInput
+                placeholder="Enter Response"
+                value={inputs[`question${i+1}`]}
+                name={`question${i+1}`}
+                onChange={handleChange}
+                required={true}
+                validationText="auto-generate"
+                className="review-title"
+                />
+            :
+                <StyledTextarea
+                    placeholder="Enter Response"
+                    value={inputs[`question${i+1}`]}
+                    name={`question${i+1}`}
+                    onChange={handleChange}
+                    required={true}
+                    validationText="auto-generate"
+                ></StyledTextarea>
+        }
     </>
     }
     )
     const nameList = filteredStudents.map(name => <NameList onClick={() => getStudent(name)}>{name}</NameList>)
-    console.log(selectedRecords)
     return (
         <Container>
             <FormContainer onSubmit={handleSubmit}>
@@ -297,6 +317,44 @@ const Form = ({ location, submit }) => {
                 <NameListContainer>
                 {selectedRecords.length !== 0 && selectedRecords.map(({fields: { ['Student Name']: text }}) => <NameList>{text}</NameList>)}
                 </NameListContainer>
+                <div className="reviews">
+                    <StyledLabel ><RequiredStar>*</RequiredStar> Rate your overall experience at V School</StyledLabel>
+                    <ReactStars
+                        count={5}
+                        onChange={(e) => changeRating(e, 'first')}
+                        size={24}
+                        isHalf={true}
+                        activeColor="#ffd700"
+                    />
+                    <br/>
+                    <StyledLabel ><RequiredStar>*</RequiredStar> Rate V School’s course curriculum</StyledLabel>
+                    <ReactStars
+                        count={5}
+                        onChange={(e) => changeRating(e, 'second')}
+                        size={24}
+                        isHalf={true}
+                        activeColor="#ffd700"
+                    />
+                    <br/>
+                    <StyledLabel ><RequiredStar>*</RequiredStar> Rate V School’s instructors</StyledLabel>
+                    <ReactStars
+                        count={5}
+                        onChange={(e) => changeRating(e, 'third')}
+                        size={24}
+                        isHalf={true}
+                        activeColor="#ffd700"
+                    />
+                    <br/>
+                    <StyledLabel ><RequiredStar>*</RequiredStar> Rate V School’s job assistance</StyledLabel>
+                    <ReactStars
+                        count={5}
+                        onChange={(e) => changeRating(e, 'fourth')}
+                        size={24}
+                        isHalf={true}
+                        activeColor="#ffd700"
+                    />
+                    <br/>
+                </div>
                 {mappedInputs}
                 <StyledButton>{btn}</StyledButton>
             </FormContainer>

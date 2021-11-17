@@ -45,13 +45,14 @@ const StyledButton = styled(Button)`
     background-color: ${props => props.color ? gray.darker : gray.lightest};
 `
 
-const Step4 = ({submit}) => {
+const Step6 = ({submit}) => {
     const handleSubmit = () => {
-        submit(5)
+        alert('final submission!!')
     }
     
     return (
         <Container>
+            <h1>Step 6</h1>
             <Paragraph>Next: Post your reviews to receive a <span>$50 Amazon Gift Card</span></Paragraph>
             <div style={{textAlign: 'center', marginBottom: 40 }}>
                 <img src="https://imgr.search.brave.com/RHVzALn2Fvvzh2Tw8CA_uK1zvG6gIgqVyk5N4uWa_5c/fit/478/297/ce/1/aHR0cDovL2NvbnNl/cnZhbW9tZS5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTUv/MDEvMTM3NDgxYW1h/em9uanBnMTM3NDUx/MzQzOC5qcGc"  style={{width: 280}} />
@@ -63,4 +64,4 @@ const Step4 = ({submit}) => {
     );
 };
 
-export default Step4;
+export default Step6;

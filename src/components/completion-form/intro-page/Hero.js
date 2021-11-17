@@ -61,12 +61,16 @@ const Paragraph = styled.p`
 `
 
 const Subtitle = styled.p`
-    font-weight: 800;
+    font-weight: 300;
     font-size: 20px;
     line-height: 24px;
     text-align: center;
     color: ${gray.darkest};
     padding-bottom: 16px;
+
+    & > b {
+        font-weight: 800;
+    }
 
     
     @media (min-width: 800px){
@@ -95,72 +99,6 @@ const StyledButton = styled(Button)`
         margin-bottom: 160px;
     }
 `
-
-const ProgressContainer = styled.div`
-    width: 60%;
-    max-width: 620px;
-`
-
-const ProgressBarContainer = styled.div`
-    height: 8px;
-    width: 100%;
-    background-color: ${blue.light};
-    margin-bottom: 80px;
-    display: flex;
-    justify-content: space-around;
-
-
-    @media (min-width: 800px){
-        margin-bottom: 96px;
-    }
-`
-
-const ProgressStep = styled.div`
-    position: relative;
-    bottom: 7px;
-`
-
-const ProgressNum = styled.div`
-    height: 24px;
-    width: 24px;
-    border-radius: 30px;
-    text-align: center;
-    margin: auto;
-    color: white;
-    font-size: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: ${props => props.color ? props.color : blue.light};
-`
-
-const ProgressTitle = styled.p`
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 16px;
-    text-align: center;
-    color: ${gray.darker};
-    padding-top: 20px;
-
-    @media (min-width: 800px){
-        font-size: 16px;
-        line-height: 24px;
-    }
-`
-
-const ProgressBarCompleted = styled.div`
-    height: 8px;
-    width: 17%;
-    background-color: ${blue.dark};
-    position: relative;
-    top: 8px;
-    margin-right: auto;
-
-    @media (min-width: 800px){
-    }
-`
-
-
 
 const Hero = ({page, setter}) => {
     const data = useStaticQuery(graphql`
@@ -210,13 +148,13 @@ const Hero = ({page, setter}) => {
     }
     return (
         <Container>
-            <BlueSubtext>{blueSub}</BlueSubtext>
-            <Title>{title}</Title>
            {
                page == 0 ?
                <>
+                    <BlueSubtext>{blueSub}</BlueSubtext>
+                    <Title>{title}</Title>
                     <Paragraph>{desc}</Paragraph>
-                    <Subtitle>{subDesc}</Subtitle>
+                    <Subtitle>Complete the form to receive a <b>V School hoodie</b></Subtitle>
                     <Image src={swagUrl} />
                     <StyledButton onClick={() => submit(1)}>{btnText}</StyledButton>
                </>

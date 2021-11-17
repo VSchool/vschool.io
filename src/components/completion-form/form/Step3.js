@@ -328,6 +328,7 @@ const Step3 = ({ submit }) => {
                       onChange={onChange}
                     />
                 </UploadPhoto>
+                <img src={inputs.question9} style={{width: 80, marginTop: 15}} />
                 <InputDescription style={{marginBottom: 32}}>{photoDesc}</InputDescription>
 
                 <StyledButton>{btn}</StyledButton>
