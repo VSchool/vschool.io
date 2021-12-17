@@ -87,6 +87,9 @@ export default function BackgroundInfoForm() {
                     unavailable_title {
                         text
                     }
+                    later_description {
+                        text
+                    }
                 }
             }
         }
@@ -97,12 +100,15 @@ export default function BackgroundInfoForm() {
         unavailable_image: { url },
         unavailable_subtitle: { text: sub},
         unavailable_title: { text: title},
+        later_description: { text: later_desc }
     } = data.prismicScholarshipsBackgroundInfoForm.data
+
+    let status = localStorage.getItem('status')
     return (
         <Container>
             <Subtitle>{sub}</Subtitle>
             <Title>{title}</Title>
-            <Description>{desc}</Description>
+            <Description>{status === 'foreign' ? desc : later_desc}</Description>
             <Image src={url} />
         </Container>
     )
