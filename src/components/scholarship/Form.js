@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 
 import { useStaticQuery, graphql, navigate } from "gatsby"
@@ -141,6 +141,7 @@ export default function ApplicationForm(props) {
 
             localStorage.setItem("scholarshipAppNextStep", nextStep)
             localStorage.setItem("scholarshipName", scholarshipName)
+            localStorage.setItem("application-email", email)
 
             navigate(`/scholarships/application/background-info`, {
                 state: { email, scholarshipName },
