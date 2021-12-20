@@ -5,8 +5,7 @@ import { useLocation } from "@reach/router"
 import queryString from "query-string"
 import { blue, red, Button } from "@vschool/lotus"
 import { useFormium } from "../../../../hooks/useFormium"
-import Airtable from 'airtable'
-
+import Airtable from "airtable"
 
 const Form = styled.form`
     background-color: ${blue.lightest};
@@ -27,7 +26,9 @@ const ErrorMessage = styled.h5`
 `
 
 export default function BackgroundForm() {
-    const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base('appDtw82NJafLsLdO');
+    const base = new Airtable({
+        apiKey: process.env.GATSBY_AIRTABLE_API_KEY,
+    }).base("appDtw82NJafLsLdO")
 
     const location = useLocation()
     const [queryData, setQueryData] = useState({})
@@ -45,40 +46,58 @@ export default function BackgroundForm() {
     `)
 
     const { formComponents, formData } = useFormium(data.formiumForm)
-        
+
     useEffect(() => {
-        base('Scholarship Application').select({
-            // Selecting the first 3 records in All Records:
-            maxRecords: 100,
-            filterByFormula: `{Email} = "${localStorage.getItem('application-email')}"`
-        }).eachPage(function page(records, fetchNextPage) {
-            let date = records[0].fields['Date Applied']
-            let first = date.indexOf('-')
-            let last = date.lastIndexOf('-')
-            let six = add6Months(+date.slice(0,first), date.slice(first+1,last), date.slice(last+1))
-            let now = new Date().toISOString().split('T')[0]
-            
-            if (now.slice(0,first) > six.slice(0,first)){
-                setEligible(true)
-            }else if (now.slice(first+1, last) > six.slice(first+1, last) && now.slice(0,first) >= six.slice(0,first)){
-                setEligible(true)
-            }else {
-                setEligible(false)
-            }
-            fetchNextPage();
-        }, function done(err) {
-            if (err) { console.error(err); return; }
-        });
-    },[])
-    function add6Months (year, month, day) {
-        if(month > 6){
+        base("Scholarship Application")
+            .select({
+                // Selecting the first 3 records in All Records:
+                maxRecords: 100,
+                filterByFormula: `{Email} = "${localStorage.getItem(
+                    "application-email"
+                )}"`,
+            })
+            .eachPage(
+                function page(records, fetchNextPage) {
+                    let date = records[0].fields["Date Applied"]
+                    let first = date.indexOf("-")
+                    let last = date.lastIndexOf("-")
+                    let six = add6Months(
+                        +date.slice(0, first),
+                        date.slice(first + 1, last),
+                        date.slice(last + 1)
+                    )
+                    let now = new Date().toISOString().split("T")[0]
+
+                    if (now.slice(0, first) > six.slice(0, first)) {
+                        setEligible(true)
+                    } else if (
+                        now.slice(first + 1, last) >
+                            six.slice(first + 1, last) &&
+                        now.slice(0, first) >= six.slice(0, first)
+                    ) {
+                        setEligible(true)
+                    } else {
+                        setEligible(false)
+                    }
+                    fetchNextPage()
+                },
+                function done(err) {
+                    if (err) {
+                        console.error(err)
+                        return
+                    }
+                }
+            )
+    }, [])
+    function add6Months(year, month, day) {
+        if (month > 6) {
             year++
-            month-=6
-        }else {
-            month+=6
+            month -= 6
+        } else {
+            month += 6
         }
         return `${year}-${month}-${day}`
-    }    
+    }
     // Save the name/email either from state (from the scholarship page) or from a querystring (from email link)
     useEffect(() => {
         let data
@@ -150,10 +169,15 @@ export default function BackgroundForm() {
     async function handleSubmit(e) {
         e.preventDefault()
 
-        if(!formComponents[0].props.children[1].props.checked){
+        if (!formComponents[0].props.children[1].props.checked) {
             setSubmitting(true)
             // replace a "...formData" below after "...queryData"
-            const data = { ...queryData, ...formData, completedStep: "background", utm: utmObj}
+            const data = {
+                ...queryData,
+                ...formData,
+                completedStep: "background",
+                utm: utmObj,
+            }
             const fullTuitionOnlySelected =
                 formData.financingOptionsConsidered.length === 1 &&
                 formData.financingOptionsConsidered[0].includes(
@@ -164,29 +188,35 @@ export default function BackgroundForm() {
             } else {
                 data.nextStep = "schedule"
             }
-    
+
             const options = {
                 method: "POST",
                 body: JSON.stringify(data),
             }
-    
+
             try {
                 await fetch(
                     process.env.GATSBY_SCHOLARSHIP_APP_ZAPIER_WEBHOOK_URL,
                     options
                 )
-                    
+
                 setSubmitting(false)
                 if (fullTuitionOnlySelected) {
-                    localStorage.setItem("scholarshipAppNextStep", data.nextStep)
+                    localStorage.setItem(
+                        "scholarshipAppNextStep",
+                        data.nextStep
+                    )
                     navigate("/scholarships/application/essay-questions", {
                         state: { email: queryData.email },
                     })
-                }else if (eligible == false){
+                } else if (eligible == false) {
                     localStorage.setItem("status", "applied")
                     navigate("/scholarships/application/unavailable")
                 } else {
-                    localStorage.setItem("scholarshipAppNextStep", data.nextStep)
+                    localStorage.setItem(
+                        "scholarshipAppNextStep",
+                        data.nextStep
+                    )
                     navigate("/scholarships/application/schedule", {
                         state: { email: queryData.email },
                     })
@@ -197,9 +227,9 @@ export default function BackgroundForm() {
                     "Something went wrong. Please refresh the page and try again."
                 )
             }
-        }else {
-            localStorage.setItem("status", 'foreign')
-            navigate('/scholarships/application/unavailable')
+        } else {
+            localStorage.setItem("status", "foreign")
+            navigate("/scholarships/application/unavailable")
         }
     }
 

@@ -2,16 +2,8 @@ import React, { useState, useEffect, useContext } from "react"
 import { Context } from "../FormContext"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
-import Airtable from 'airtable'
-import {
-    gray,
-    blue,
-    TextInput,
-    Textarea,
-    Button,
-    green,
-} from "@vschool/lotus"
-
+import Airtable from "airtable"
+import { gray, blue, TextInput, Textarea, Button, green } from "@vschool/lotus"
 
 const Container = styled.div`
     background-color: ${gray.lighter};
@@ -40,7 +32,7 @@ const StyledLabel = styled.label`
     font-weight: 500;
     font-size: 10px;
     line-height: 12px;
-    margin-left: ${props => props.required ? '10px' : 0};
+    margin-left: ${props => (props.required ? "10px" : 0)};
 
 
     @media (min-width: 800px){
@@ -73,7 +65,7 @@ const StyledTextInput = styled(TextInput)`
 `
 
 const StyledSelect = styled.select`
-    border: 2px solid #D8D4CF;
+    border: 2px solid #d8d4cf;
     height: 48px;
     /* color: #9f9c96; */
     padding-left: 16px;
@@ -81,7 +73,8 @@ const StyledSelect = styled.select`
     display: block;
     width: 100%;
     margin: 5px 0;
-    background: url(${`http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png`}) no-repeat right #ddd;
+    background: url(${`http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png`})
+        no-repeat right #ddd;
     -webkit-appearance: none;
     background-position-x: 450px;
     background-color: #ffffff;
@@ -102,7 +95,7 @@ const InputDiv = styled.div`
 const NameListContainer = styled.div`
     padding: 10px 0 16px;
 
-    @media (min-width: 800px){
+    @media (min-width: 800px) {
         padding: 10px 0 32px;
     }
 `
@@ -123,7 +116,7 @@ const NameList = styled.p`
     overflow: hidden;
     white-space: nowrap;
 
-    @media (min-width: 800px){
+    @media (min-width: 800px) {
         font-size: 16px;
         line-height: 24px;
     }
@@ -135,21 +128,23 @@ const InputDescription = styled.p`
     line-height: 16px;
     color: ${gray.darker};
     padding-bottom: 16px;
-    
-    @media (min-width: 800px){
+
+    @media (min-width: 800px) {
         padding-bottom: 32px;
     }
 `
 
 const Step2 = ({ location, submit }) => {
-    var base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base('apphohiHhj5EHUY7u');
-    const [search, setSearch] = useState('')
+    var base = new Airtable({
+        apiKey: process.env.GATSBY_AIRTABLE_API_KEY,
+    }).base("apphohiHhj5EHUY7u")
+    const [search, setSearch] = useState("")
     const [employers, setEmployers] = useState([])
     const [filteredEmployers, setFilteredEmployers] = useState([])
     const [selectedRecords, setSelectedRecords] = useState([])
 
-    const {addStepData, allData} = useContext(Context)
-    
+    const { addStepData, allData } = useContext(Context)
+
     useEffect(() => {
         if (location?.state?.convertKitTag) {
             localStorage.setItem(
@@ -164,91 +159,108 @@ const Step2 = ({ location, submit }) => {
 
     // Get and Store List of Student Names
     useEffect(() => {
-        setSearch('')
+        setSearch("")
         setEmployers([])
-        base('Company/Org').select({
-            view: "All Companies"
-        }).eachPage(function page(records, fetchNextPage) {
-            setEmployers(prev => [...prev, ...records.map(record => record.get('Name'))]);
-            fetchNextPage();
-        }, function done(err) {
-            if (err) { console.error(err); return; }
-        });
-    },[])
+        base("Company/Org")
+            .select({
+                view: "All Companies",
+            })
+            .eachPage(
+                function page(records, fetchNextPage) {
+                    setEmployers(prev => [
+                        ...prev,
+                        ...records.map(record => record.get("Name")),
+                    ])
+                    fetchNextPage()
+                },
+                function done(err) {
+                    if (err) {
+                        console.error(err)
+                        return
+                    }
+                }
+            )
+    }, [])
 
     const getEmployer = name => {
-        base('Company/Org').select({
-            maxRecords: 3,
-            view: "All Companies",
-            filterByFormula: `{Name} = '${name}'`
-        }).eachPage(function page(records) {
-            setSelectedRecords(records)
-            setFilteredEmployers([])
-            setSearch('')
-        })
+        base("Company/Org")
+            .select({
+                maxRecords: 3,
+                view: "All Companies",
+                filterByFormula: `{Name} = '${name}'`,
+            })
+            .eachPage(function page(records) {
+                setSelectedRecords(records)
+                setFilteredEmployers([])
+                setSearch("")
+            })
     }
     useEffect(() => {
-        setFilteredEmployers(employers.filter(name => name.toLowerCase().includes(search.toLowerCase())))
-    },[search])
+        setFilteredEmployers(
+            employers.filter(name =>
+                name.toLowerCase().includes(search.toLowerCase())
+            )
+        )
+    }, [search])
 
     const data = useStaticQuery(graphql`
-    {
-        allPrismicCompletionFormBodyDropdownOptions {
-            edges {
-                node {
-                    items {
-                        option {
-                            text
+        {
+            allPrismicCompletionFormBodyDropdownOptions {
+                edges {
+                    node {
+                        items {
+                            option {
+                                text
+                            }
                         }
-                    }
-                    primary {
-                        step2_dropdown_description {
-                            text
-                        }
-                        step2_dropdown_title {
-                            text
+                        primary {
+                            step2_dropdown_description {
+                                text
+                            }
+                            step2_dropdown_title {
+                                text
+                            }
                         }
                     }
                 }
             }
-        }
-        prismicCompletionForm {
-            data {
-                step2_button {
-                    text
-                }
-                step2_dates {
-                    description {
+            prismicCompletionForm {
+                data {
+                    step2_button {
                         text
                     }
-                    title {
+                    step2_dates {
+                        description {
+                            text
+                        }
+                        title {
+                            text
+                        }
+                    }
+                    step2_description {
                         text
                     }
-                }
-                step2_description {
-                    text
-                }
-                step2_first {
-                    text
-                }
-                step2_first_description {
-                    text
-                }
-                step2_fourth {
-                    text
-                }
-                step2_fourth_description {
-                    text
-                }
-                step2_second {
-                    text
-                }
-                step2_third {
-                    text
+                    step2_first {
+                        text
+                    }
+                    step2_first_description {
+                        text
+                    }
+                    step2_fourth {
+                        text
+                    }
+                    step2_fourth_description {
+                        text
+                    }
+                    step2_second {
+                        text
+                    }
+                    step2_third {
+                        text
+                    }
                 }
             }
         }
-    }
     `)
 
     const {
@@ -275,7 +287,7 @@ const Step2 = ({ location, submit }) => {
         question9: "",
     })
 
-    const handleChange = (e) => {
+    const handleChange = e => {
         let { name, value } = e.target
         setInputs(prev => ({
             ...prev,
@@ -287,50 +299,71 @@ const Step2 = ({ location, submit }) => {
         e.preventDefault()
         const step2Data = {
             selectedRecords,
-            ...inputs
+            ...inputs,
         }
 
-        addStepData(step2Data, 'step2Data')
+        addStepData(step2Data, "step2Data")
         submit(3)
     }
 
-    const mappedDates = step2_dates.map(({title: {text}, description: {text: dateDesc}},i) => {
-    return <InputDiv>
-        <StyledLabel required={true}>{text}</StyledLabel>
-        <StyledTextInput
-            placeholder="mm/dd/yy"
-            value={inputs[`question${i+2}`]}
-            name={`question${i+2}`}
-            onChange={handleChange}
-            required
-            type='date'
-        ></StyledTextInput>
-        {dateDesc && <InputDescription>{dateDesc}</InputDescription>}
-    </InputDiv>
-    })
-
-    const mappedDropdowns = data.allPrismicCompletionFormBodyDropdownOptions.edges.map(({
-        node: {
-            items,
-            primary: {
-                step2_dropdown_description: { text: dropDesc },
-                step2_dropdown_title: { text: dropTitle }
-            }
+    const mappedDates = step2_dates.map(
+        ({ title: { text }, description: { text: dateDesc } }, i) => {
+            return (
+                <InputDiv>
+                    <StyledLabel required={true}>{text}</StyledLabel>
+                    <StyledTextInput
+                        placeholder="mm/dd/yy"
+                        value={inputs[`question${i + 2}`]}
+                        name={`question${i + 2}`}
+                        onChange={handleChange}
+                        required
+                        type="date"
+                    ></StyledTextInput>
+                    {dateDesc && (
+                        <InputDescription>{dateDesc}</InputDescription>
+                    )}
+                </InputDiv>
+            )
         }
-    },i) => {
-        return <InputDiv>
-            <StyledLabel>{dropTitle}</StyledLabel>
-            <StyledSelect name={`question${i+5}`} value={inputs[`question${i+5}`]} onChange={handleChange}>
-                <option value='Select Option'>Select Option</option>
-                {items.map(({option: {text}}) => <option value={text}>{text}</option>)}
-            </StyledSelect>
-            {dropDesc && <InputDescription>{dropDesc}</InputDescription>}
-        </InputDiv> 
+    )
+
+    const mappedDropdowns = data.allPrismicCompletionFormBodyDropdownOptions.edges.map(
+        (
+            {
+                node: {
+                    items,
+                    primary: {
+                        step2_dropdown_description: { text: dropDesc },
+                        step2_dropdown_title: { text: dropTitle },
+                    },
+                },
+            },
+            i
+        ) => {
+            return (
+                <InputDiv>
+                    <StyledLabel>{dropTitle}</StyledLabel>
+                    <StyledSelect
+                        name={`question${i + 5}`}
+                        value={inputs[`question${i + 5}`]}
+                        onChange={handleChange}
+                    >
+                        <option value="Select Option">Select Option</option>
+                        {items.map(({ option: { text } }) => (
+                            <option value={text}>{text}</option>
+                        ))}
+                    </StyledSelect>
+                    {dropDesc && (
+                        <InputDescription>{dropDesc}</InputDescription>
+                    )}
+                </InputDiv>
+            )
         }
-        )
+    )
 
-
-    const nameList = filteredEmployers.map(name => <NameList onClick={() => getEmployer(name)}>{name}</NameList>)
+    const nameList = filteredEmployers.map(name => (
+        <NameList onClick={() => getEmployer(name)}>{name}</NameList>
+    ))
     return (
         <Container>
             <FormContainer onSubmit={handleSubmit}>
@@ -341,20 +374,23 @@ const Step2 = ({ location, submit }) => {
                         value={search}
                         name="search"
                         placeholder="Search and Select"
-                        onChange={(e) => setSearch(e.target.value)}
+                        onChange={e => setSearch(e.target.value)}
                         validationText="auto-generate"
                     />
                     <InputDescription>{firstDesc}</InputDescription>
-                    <div>
-                        {search !== '' && nameList}
-                    </div>
+                    <div>{search !== "" && nameList}</div>
                 </InputDiv>
-                
+
                 <StyledLabel>Selected Records</StyledLabel>
                 <NameListContainer>
-                {selectedRecords.length !== 0 && selectedRecords.map(({fields: { ['Name']: text }}) => <NameList>{text}</NameList>)}
+                    {selectedRecords.length !== 0 &&
+                        selectedRecords.map(
+                            ({ fields: { ["Name"]: text } }) => (
+                                <NameList>{text}</NameList>
+                            )
+                        )}
                 </NameListContainer>
-                
+
                 <InputDiv>
                     <StyledLabel required={true}>{third}</StyledLabel>
                     <StyledTextInput
@@ -365,7 +401,7 @@ const Step2 = ({ location, submit }) => {
                         required
                     />
                 </InputDiv>
-                
+
                 {mappedDates}
 
                 <InputDiv>
