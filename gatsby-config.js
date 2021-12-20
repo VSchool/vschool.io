@@ -83,6 +83,7 @@ module.exports = {
                     rankings_component: require("./src/schemas/rankings_component.json"),
                     responsive_learning: require("./src/schemas/responsive_learning.json"),
                     scholarship_application_forms: require("./src/schemas/scholarship_application_forms.json"),
+                    scholarships_background_info_form: require("./src/schemas/scholarships_background_info_form.json"),
                     scholarships_intro_page: require("./src/schemas/scholarships_intro_page.json"),
                     scholarship_page: require("./src/schemas/scholarship_page.json"),
                     scholarship_page_shared_data: require("./src/schemas/scholarship_page_shared_data"),

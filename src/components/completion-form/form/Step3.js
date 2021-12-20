@@ -1,16 +1,13 @@
 import React, { useState, useEffect, useContext } from "react"
-import { Context } from "../formContext"
+import { Context } from "../FormContext"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
-import Airtable from 'airtable'
 import {
     gray,
     blue,
     TextInput,
     Textarea,
-    Radio,
     Button,
-    green,
 } from "@vschool/lotus"
 
 
@@ -28,18 +25,20 @@ const FormContainer = styled.form`
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 3px 4px rgba(0, 0, 0, 0.12),
         0px 1px 5px rgba(0, 0, 0, 0.2);
     border: 1px solid ${blue.light};
-    padding: 64px;
+    padding: 30px;
     width: 100%;
     max-width: 900px;
+
+    @media (min-width: 800px){
+      padding: 64px;
+    }
 `
 
 const StyledLabel = styled.label`
-    /* background-image: url(${props => props.required}); */
     padding: 0 10px 0 0;
-    /* background-repeat: no-repeat; */
     font-family: "aktiv-grotesk-extended";
     font-weight: 500;
-    font-size: 10px;
+    font-size: 8px;
     line-height: 12px;
     margin-left: ${props => props.required ? '10px' : 0};
 
@@ -90,10 +89,8 @@ const InputDescription = styled.p`
     font-size: 10px;
     line-height: 16px;
     color: ${gray.darker};
-    /* padding-bottom: 16px; */
     
     @media (min-width: 800px){
-        /* padding-bottom: 32px; */
     }
 `
 
@@ -143,22 +140,42 @@ const RadioContainer = styled.div`
   }
 `
 
-const Step3 = ({ location, submit }) => {
+const UploadPhoto = styled.div`
+  position: relative;
+
+  & > .custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+    background-color: ${gray.base};
+
+    & > img {
+      width: 20px;
+      position: relative;
+      top: 2px;
+      right: 3px;
+    }
+
+    & > span {
+      position: relative;
+      bottom: 3px;
+    }
+  }
+
+  & > input {
+    position: absolute;
+    left: 25px;
+    top: 5px;
+  }
+`
+
+const Step3 = ({ submit }) => {
     const {addStepData, allData} = useContext(Context)
     const [file, setFile] = useState('')
     
-    useEffect(() => {
-        if (location?.state?.convertKitTag) {
-            localStorage.setItem(
-                "convertKitTag",
-                location?.state?.convertKitTag
-            )
-        }
-        if (location?.state?.uid) {
-            localStorage.setItem("fromLandingPage", location?.state?.uid)
-        }
-    }, [location?.state?.convertKitTag, location?.state?.uid])
-
     const data = useStaticQuery(graphql`
       {
         prismicCompletionForm {
@@ -237,12 +254,22 @@ const Step3 = ({ location, submit }) => {
 
     async function handleSubmit(e) {
         e.preventDefault()
-        const step2Data = {
+        const step3Data = {
             ...inputs
         }
 
-        addStepData(step2Data, 'step2Data')
-        submit(3)
+        addStepData(step3Data, 'step3Data')
+        submit(4)
+    }
+
+    const onChange = e => {
+      const image = e.target.files[0];
+     
+      setInputs(prev => ({
+        ...prev,
+        question9: URL.createObjectURL(image)
+      }))
+  
     }
 
     const onChange = e => {
@@ -303,8 +330,8 @@ const Step3 = ({ location, submit }) => {
           <StyledLabel required={true}>{social}</StyledLabel>
           <StyledTextInput
               placeholder="Enter Response"
-              value={inputs[`question${i+1}`]}
-              name={`question${i+1}`}
+              value={inputs[`question${i+6}`]}
+              name={`question${i+6}`}
               onChange={handleChange}
               required={true}
           ></StyledTextInput>
@@ -313,22 +340,21 @@ const Step3 = ({ location, submit }) => {
     })
 
     const mappedRadios = step3_radio_options.map(({option: {text}},i) => <div class="radio">
-      <input id={`radio-${i+1}`} name="radio" type="radio" value={text} checked />
+      <input id={`radio-${i+1}`} name={`question5`} type="radio" value={text} onChange={handleChange} />
       <label for={`radio-${i+1}`} class="radio-label">{text}</label>
     </div>)
-
+    
     return (
         <Container>
             <FormContainer onSubmit={handleSubmit}>
                 
                 {mappedTextareas}
-
                 <RadioContainer>
                   <StyledLabel>{radioQuestion}</StyledLabel>
                   {mappedRadios}
                 </RadioContainer>
-
                 {mappedSocials}
+<<<<<<< HEAD
                 
                 <div className='button'>
                   <label htmlFor='single'>
@@ -337,6 +363,24 @@ const Step3 = ({ location, submit }) => {
                   <input type='file' id='single' onChange={onChange} /> 
                 </div>
                 <button type="button" onClick={uploadPhoto}>Send Upload</button>
+=======
+                <StyledLabel>{photoTitle}</StyledLabel>
+                <UploadPhoto>
+                  <label for="file-upload" class="custom-file-upload">
+                    <img src="https://icon-library.com/images/aa537dfc9c.svg.svg" /> <span>Attach File</span>
+                  </label>
+                  <input
+                      id="file-upload"
+                      accept="image/*,capture=camera"
+                      capture="”camera"
+                      type="file"
+                      onChange={onChange}
+                    />
+                </UploadPhoto>
+                <img src={inputs.question9} style={{width: 80, marginTop: 15}} />
+                <InputDescription style={{marginBottom: 32}}>{photoDesc}</InputDescription>
+
+>>>>>>> e73fa4b06cd588a124a56df672111c5d5fce3bd9
                 <StyledButton>{btn}</StyledButton>
             </FormContainer>
         </Container>

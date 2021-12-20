@@ -27,6 +27,7 @@ const NavbarControls = styled.div`
     padding: 28px 16px;
     display: flex;
     align-items: center;
+    margin-top: 50px;
 `
 
 const SubMenuBody = styled.ul`

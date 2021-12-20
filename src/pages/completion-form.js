@@ -3,11 +3,11 @@ import Seo from "../components/seo"
 import Form from "../components/completion-form/intro-page"
 import SimpleNav from "../components/scholarships/application/SimpleNav";
 
-export default function PreCourseForm() {
+export default function CompletionForm() {
     return (
     <>
         <SimpleNav />
-        <Seo title={"Pre Course Partners Form"} />
+        <Seo title={"Completion Form"} />
         <Form />
     </>
     )
