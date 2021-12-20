@@ -70,7 +70,6 @@ export default function BackgroundForm() {
             if (err) { console.error(err); return; }
         });
     },[])
-    console.log(eligible)
     function add6Months (year, month, day) {
         if(month > 6){
             year++
@@ -148,7 +147,6 @@ export default function BackgroundForm() {
         setUtmObj(obj)
     }, [])
 
-    console.log(formComponents)
     async function handleSubmit(e) {
         e.preventDefault()
 

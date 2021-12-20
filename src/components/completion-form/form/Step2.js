@@ -187,7 +187,6 @@ const Step2 = ({ location, submit }) => {
             setSearch('')
         })
     }
-    console.log(selectedRecords)
     useEffect(() => {
         setFilteredEmployers(employers.filter(name => name.toLowerCase().includes(search.toLowerCase())))
     },[search])

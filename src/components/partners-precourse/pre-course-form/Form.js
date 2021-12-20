@@ -212,7 +212,6 @@ const Form = (props) => {
         //     localStorage.setItem("fromLandingPage", props.location?.state?.uid)
         // }
 
-        // console.log()
     // }, [props.location?.state?.convertKitTag, props.location?.state?.uid])
 
     const data = useStaticQuery(graphql`

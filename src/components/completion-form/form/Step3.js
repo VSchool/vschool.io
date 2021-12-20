@@ -274,7 +274,6 @@ const Step3 = ({ submit }) => {
 
     // const onChange = e => {
     //   // const files = Array.from(e.target.files)
-    //   // console.log()
     //   // const formData = new FormData()
   
     //   // files.forEach((file, i) => {
@@ -299,12 +298,10 @@ const Step3 = ({ submit }) => {
         body: JSON.stringify(fileData),
       }
 
-      console.log(options)
       try {
         await fetch(
             `https://hooks.zapier.com/hooks/catch/666916/bhre1v5/`
         )
-        console.log('sent webhook')
         // navigate("/pre-course-communities/success")
       } catch (e) {
           console.error(e)

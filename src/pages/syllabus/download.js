@@ -18,7 +18,6 @@ export default function DownloadSyllabus() {
         localStorage.setItem('applied', true)
         setSubmitted(true)
     }
-    console.log(submitted, 'submitted')
 
     return (
         <>
