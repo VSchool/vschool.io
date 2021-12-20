@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import { blue, gray } from "@vschool/lotus"
@@ -71,6 +71,7 @@ const Image = styled.img`
 `
 
 export default function BackgroundInfoForm() {
+    const [status, setStatus] = useState(localStorage.getItem('status') || 'foreign')
     const data = useStaticQuery(graphql`
         {
             prismicScholarshipsBackgroundInfoForm {
@@ -103,7 +104,6 @@ export default function BackgroundInfoForm() {
         later_description: { text: later_desc }
     } = data.prismicScholarshipsBackgroundInfoForm.data
 
-    let status = localStorage.getItem('status')
     return (
         <Container>
             <Subtitle>{sub}</Subtitle>
