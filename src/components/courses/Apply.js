@@ -303,7 +303,6 @@ const Apply = props => {
             </Step>
         )
     )
-    console.log(dateText, dateTitle)
 
     const {
         apply_other: { text: other },

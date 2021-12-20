@@ -293,7 +293,6 @@ const Career = ({submit}) => {
             career_box_desc_sub: { text: BoxDescSub },
             career_box_button_text: { text: BoxButtonText },
         }, i) => {
-            console.log(BoxTitle, 'box title')
 
             return <BoxContainer key={BoxTitle}>
                 <BoxInnerContainer

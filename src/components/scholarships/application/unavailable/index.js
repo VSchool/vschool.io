@@ -103,7 +103,8 @@ export default function BackgroundInfoForm() {
         later_description: { text: later_desc }
     } = data.prismicScholarshipsBackgroundInfoForm.data
 
-    let status = localStorage.getItem('status')
+    let status = typeof window !== "undefined" && localStorage.getItem('status')
+    
     return (
         <Container>
             <Subtitle>{sub}</Subtitle>

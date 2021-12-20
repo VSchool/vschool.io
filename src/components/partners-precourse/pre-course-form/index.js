@@ -25,7 +25,6 @@ export default function PreCoursePartners() {
     
     const submitStep = num => {
         setPageNum(num)
-        console.log(num)
     }
     
     return (

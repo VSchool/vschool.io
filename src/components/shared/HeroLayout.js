@@ -40,7 +40,6 @@ const ImageContainer = styled.div`
 `
 
 export default function HeroLayout({ text, image, textStyles, imgStyles }) {
-    console.log(textStyles, imgStyles)
     return (
         <Container>
             <TextContainer txt={textStyles}>{text}</TextContainer>

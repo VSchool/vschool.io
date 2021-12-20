@@ -3,9 +3,9 @@ import { Context } from "../FormContext"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { navigate } from "gatsby"
-import Airtable from 'airtable'
-import ReactStars from 'react-rating-stars-component'
-import 'font-awesome/css/font-awesome.min.css';
+import Airtable from "airtable"
+import ReactStars from "react-rating-stars-component"
+import "font-awesome/css/font-awesome.min.css"
 import {
     gray,
     blue,
@@ -15,7 +15,6 @@ import {
     green,
     red,
 } from "@vschool/lotus"
-
 
 const Container = styled.div`
     background-color: ${gray.lighter};
@@ -42,10 +41,9 @@ const StyledTextInput = styled(TextInput)`
 
     & > label {
         position: absolute;
-        left: ${props => props.className ? '0px' : '-5px'};
+        left: ${props => (props.className ? "0px" : "-5px")};
         top: -20px;
     }
-
 `
 
 const StyledLabel = styled.label`
@@ -56,9 +54,9 @@ const StyledLabel = styled.label`
     font-weight: 500;
     font-size: 10px;
     line-height: 12px;
-    margin-left: ${props => props.required ? '10px' : 0};
+    margin-left: ${props => (props.required ? "10px" : 0)};
     position: relative;
-    bottom: ${props => props.className && '5px'};
+    bottom: ${props => props.className && "5px"};
 
 
     @media (min-width: 800px){
@@ -90,7 +88,7 @@ const StyledButton = styled(Button)`
 const NameListContainer = styled.div`
     padding: 10px 0 16px;
 
-    @media (min-width: 800px){
+    @media (min-width: 800px) {
         padding: 10px 0 32px;
     }
 `
@@ -109,7 +107,7 @@ const NameList = styled.p`
     width: 80%;
     margin-bottom: 8px;
 
-    @media (min-width: 800px){
+    @media (min-width: 800px) {
         font-size: 16px;
         line-height: 24px;
     }
@@ -121,8 +119,8 @@ const InputDescription = styled.p`
     line-height: 16px;
     color: ${gray.darker};
     padding-bottom: 16px;
-    
-    @media (min-width: 800px){
+
+    @media (min-width: 800px) {
         padding-bottom: 32px;
     }
 `
@@ -135,13 +133,15 @@ const RequiredStar = styled.span`
 `
 
 const Form = ({ location, submit }) => {
-    const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base('appRCE5sPrn56fpvC');
-    const [search, setSearch] = useState('')
+    const base = new Airtable({
+        apiKey: process.env.GATSBY_AIRTABLE_API_KEY,
+    }).base("appRCE5sPrn56fpvC")
+    const [search, setSearch] = useState("")
     const [students, setStudents] = useState([])
     const [filteredStudents, setFilteredStudents] = useState([])
     const [selectedRecords, setSelectedRecords] = useState([])
-    const {allData, addStepData} = useContext(Context)
-    
+    const { allData, addStepData } = useContext(Context)
+
     useEffect(() => {
         if (location?.state?.convertKitTag) {
             localStorage.setItem(
@@ -156,71 +156,92 @@ const Form = ({ location, submit }) => {
 
     // Get and Store List of Student Names
     useEffect(() => {
-        setSearch('')
-        base('Student Records').select({
-            // Selecting the first 3 records in All Records:
-            maxRecords: 100,
-            view: "Near Jobbing Out"
-        }).eachPage(function page(records, fetchNextPage) {
-            setStudents(records.map(record => record.get('Student Name')))
-            fetchNextPage();
-        }, function done(err) {
-            if (err) { console.error(err); return; }
-        });
-    },[])
+        setSearch("")
+        base("Student Records")
+            .select({
+                // Selecting the first 3 records in All Records:
+                maxRecords: 100,
+                view: "Near Jobbing Out",
+            })
+            .eachPage(
+                function page(records, fetchNextPage) {
+                    setStudents(
+                        records.map(record => record.get("Student Name"))
+                    )
+                    fetchNextPage()
+                },
+                function done(err) {
+                    if (err) {
+                        console.error(err)
+                        return
+                    }
+                }
+            )
+    }, [])
 
     const getStudent = name => {
-        base('Student Records').select({
-            maxRecords: 3,
-            view: "Near Jobbing Out",
-            filterByFormula: `{Student Name} = '${name}'`
-        }).eachPage(function page(records) {
-            if (selectedRecords[0]?.fields['Student Name'].includes(name.slice(0,name.indexOf(' '))) && selectedRecords[0]?.fields['Student Name'] !== name){
-                setSelectedRecords(prev => [...prev, ...records])
-            }else {
-                setSelectedRecords(records)
-            }
-            setFilteredStudents([])
-            setSearch('')
-        })
+        base("Student Records")
+            .select({
+                maxRecords: 3,
+                view: "Near Jobbing Out",
+                filterByFormula: `{Student Name} = '${name}'`,
+            })
+            .eachPage(function page(records) {
+                if (
+                    selectedRecords[0]?.fields["Student Name"].includes(
+                        name.slice(0, name.indexOf(" "))
+                    ) &&
+                    selectedRecords[0]?.fields["Student Name"] !== name
+                ) {
+                    setSelectedRecords(prev => [...prev, ...records])
+                } else {
+                    setSelectedRecords(records)
+                }
+                setFilteredStudents([])
+                setSearch("")
+            })
     }
 
     useEffect(() => {
-        setFilteredStudents(students.filter(name => name.toLowerCase().includes(search.toLowerCase())))
-    },[search])
+        setFilteredStudents(
+            students.filter(name =>
+                name.toLowerCase().includes(search.toLowerCase())
+            )
+        )
+    }, [search])
 
     const data = useStaticQuery(graphql`
-    {
-      prismicCompletionForm {
-        data {
-          step1_button {
-            text
-          }
-          step1_first {
-            text
-          }
-          step1_first_description {
-            text
-          }
-          step1_inputs {
-            title {
-              text
+        {
+            prismicCompletionForm {
+                data {
+                    step1_button {
+                        text
+                    }
+                    step1_first {
+                        text
+                    }
+                    step1_first_description {
+                        text
+                    }
+                    step1_inputs {
+                        title {
+                            text
+                        }
+                    }
+                    step1_second {
+                        text
+                    }
+                }
             }
-          }
-          step1_second {
-            text
-          }
         }
-      }
-    }
-  `)
+    `)
 
     const {
-        step1_button: {text: btn },
-        step1_first: {text: first },
-        step1_first_description: {text: firstDesc },
+        step1_button: { text: btn },
+        step1_first: { text: first },
+        step1_first_description: { text: firstDesc },
         step1_inputs,
-        step1_second: {text: second },
+        step1_second: { text: second },
     } = data.prismicCompletionForm.data
 
     const [inputs, setInputs] = useState({
@@ -232,7 +253,7 @@ const Form = ({ location, submit }) => {
 
     const [rating, setRating] = useState({})
 
-    const handleChange = (e) => {
+    const handleChange = e => {
         let { name, value } = e.target
         setInputs(prev => ({
             ...prev,
@@ -246,56 +267,62 @@ const Form = ({ location, submit }) => {
         const step1Data = {
             selectedRecords,
             ...inputs,
-            ratings: rating
+            ratings: rating,
         }
         const formData = {
             convertKitTag: localStorage.getItem("convertKitTag"),
             fromLandingPage: localStorage.getItem("fromLandingPage"),
         }
 
-        addStepData(formData, 'formData')
-        addStepData(step1Data, 'step1Data')
+        addStepData(formData, "formData")
+        addStepData(step1Data, "step1Data")
         submit(2)
-       
     }
 
     const changeRating = (newRating, name) => {
         setRating(prev => {
             return {
                 ...prev,
-                [name]: newRating
+                [name]: newRating,
             }
         })
     }
 
-    const mappedInputs = step1_inputs.map(({title: {text}},i) => {
-    return <>
-        <StyledLabel required={true} className={i === 0 && 'review-title'}>{text}</StyledLabel>
-        {
-            i === 0 ?
-                <StyledTextInput
-                placeholder="Enter Response"
-                value={inputs[`question${i+1}`]}
-                name={`question${i+1}`}
-                onChange={handleChange}
-                required={true}
-                validationText="auto-generate"
-                className="review-title"
-                />
-            :
-                <StyledTextarea
-                    placeholder="Enter Response"
-                    value={inputs[`question${i+1}`]}
-                    name={`question${i+1}`}
-                    onChange={handleChange}
+    const mappedInputs = step1_inputs.map(({ title: { text } }, i) => {
+        return (
+            <>
+                <StyledLabel
                     required={true}
-                    validationText="auto-generate"
-                ></StyledTextarea>
-        }
-    </>
-    }
-    )
-    const nameList = filteredStudents.map(name => <NameList onClick={() => getStudent(name)}>{name}</NameList>)
+                    className={i === 0 && "review-title"}
+                >
+                    {text}
+                </StyledLabel>
+                {i === 0 ? (
+                    <StyledTextInput
+                        placeholder="Enter Response"
+                        value={inputs[`question${i + 1}`]}
+                        name={`question${i + 1}`}
+                        onChange={handleChange}
+                        required={true}
+                        validationText="auto-generate"
+                        className="review-title"
+                    />
+                ) : (
+                    <StyledTextarea
+                        placeholder="Enter Response"
+                        value={inputs[`question${i + 1}`]}
+                        name={`question${i + 1}`}
+                        onChange={handleChange}
+                        required={true}
+                        validationText="auto-generate"
+                    ></StyledTextarea>
+                )}
+            </>
+        )
+    })
+    const nameList = filteredStudents.map(name => (
+        <NameList onClick={() => getStudent(name)}>{name}</NameList>
+    ))
     return (
         <Container>
             <FormContainer onSubmit={handleSubmit}>
@@ -306,54 +333,69 @@ const Form = ({ location, submit }) => {
                         value={search}
                         name="search"
                         placeholder="Search and Select"
-                        onChange={(e) => setSearch(e.target.value)}
+                        onChange={e => setSearch(e.target.value)}
                     />
                     <InputDescription>{firstDesc}</InputDescription>
                 </div>
-                <div>
-                    {search !== '' && nameList}
-                </div>
+                <div>{search !== "" && nameList}</div>
                 <StyledLabel required={false}>{second}</StyledLabel>
                 <NameListContainer>
-                {selectedRecords.length !== 0 && selectedRecords.map(({fields: { ['Student Name']: text }}) => <NameList>{text}</NameList>)}
+                    {selectedRecords.length !== 0 &&
+                        selectedRecords.map(
+                            ({ fields: { ["Student Name"]: text } }) => (
+                                <NameList>{text}</NameList>
+                            )
+                        )}
                 </NameListContainer>
                 <div className="reviews">
-                    <StyledLabel ><RequiredStar>*</RequiredStar> Rate your overall experience at V School</StyledLabel>
+                    <StyledLabel>
+                        <RequiredStar>*</RequiredStar> Rate your overall
+                        experience at V School
+                    </StyledLabel>
                     <ReactStars
                         count={5}
-                        onChange={(e) => changeRating(e, 'first')}
+                        onChange={e => changeRating(e, "first")}
                         size={24}
                         isHalf={true}
                         activeColor="#ffd700"
                     />
-                    <br/>
-                    <StyledLabel ><RequiredStar>*</RequiredStar> Rate V School’s course curriculum</StyledLabel>
+                    <br />
+                    <StyledLabel>
+                        <RequiredStar>*</RequiredStar> Rate V School’s course
+                        curriculum
+                    </StyledLabel>
                     <ReactStars
                         count={5}
-                        onChange={(e) => changeRating(e, 'second')}
+                        onChange={e => changeRating(e, "second")}
                         size={24}
                         isHalf={true}
                         activeColor="#ffd700"
                     />
-                    <br/>
-                    <StyledLabel ><RequiredStar>*</RequiredStar> Rate V School’s instructors</StyledLabel>
+                    <br />
+                    <StyledLabel>
+                        <RequiredStar>*</RequiredStar> Rate V School’s
+                        instructors
+                    </StyledLabel>
                     <ReactStars
                         count={5}
-                        onChange={(e) => changeRating(e, 'third')}
+                        onChange={e => changeRating(e, "third")}
                         size={24}
                         isHalf={true}
                         activeColor="#ffd700"
                     />
-                    <br/>
-                    <StyledLabel ><RequiredStar>*</RequiredStar> Rate V School’s job assistance</StyledLabel>
+                    <br />
+                    <StyledLabel>
+                        <RequiredStar>*</RequiredStar> Rate V School’s job
+                        assistance
+                    </StyledLabel>
                     <ReactStars
                         count={5}
-                        onChange={(e) => changeRating(e, 'fourth')}
+                        onChange={e => changeRating(e, "fourth")}
                         size={24}
                         isHalf={true}
                         activeColor="#ffd700"
                     />
-                    <br/>
+                    <br />
                 </div>
                 {mappedInputs}
                 <StyledButton>{btn}</StyledButton>

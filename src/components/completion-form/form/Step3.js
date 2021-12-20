@@ -174,6 +174,7 @@ const UploadPhoto = styled.div`
 
 const Step3 = ({ submit }) => {
     const {addStepData, allData} = useContext(Context)
+    const [file, setFile] = useState('')
     
     const data = useStaticQuery(graphql`
       {
@@ -271,6 +272,41 @@ const Step3 = ({ submit }) => {
   
     }
 
+    // const onChange = e => {
+    //   // const files = Array.from(e.target.files)
+    //   // const formData = new FormData()
+  
+    //   // files.forEach((file, i) => {
+    //   //   formData.append(i, file)
+    //   // })
+    //   // URL.createObjectURL(e.target.files[0]).replace('blob:', '')
+    //   setFile(e.target.files[0])
+    // }
+
+    async function uploadPhoto (e){
+      var fileData = {
+        file: {
+          modified: file.lastModifiedDate,
+          name: file.name,
+          size: file.size,
+          type: file.type
+        }
+      }
+      
+      const options = {
+        method: "POST",
+        body: JSON.stringify(fileData),
+      }
+
+      try {
+        await fetch(
+            `https://hooks.zapier.com/hooks/catch/666916/bhre1v5/`
+        )
+        // navigate("/pre-course-communities/success")
+      } catch (e) {
+          console.error(e)
+      }
+    }
 
     const mappedTextareas = step3_textareas.map(({title: {text}, description: {text: textDesc}},i) => {
       return <InputDiv>

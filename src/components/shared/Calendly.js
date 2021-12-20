@@ -81,7 +81,6 @@ export default function Calendly(props) {
         //     method: "POST",
         //     body: JSON.stringify(data),
         // }
-        // console.log(options)
         // try {
         //     await fetch(
         //         process.env.GATSBY_SCHOLARSHIP_APP_ZAPIER_WEBHOOK_URL,

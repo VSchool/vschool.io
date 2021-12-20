@@ -236,7 +236,6 @@ const Partners = () => {
   //       info_partner_title: { text: infoTitle }
   //     }
 
-  // console.log(page)
   // const mappedInfo = infoStation.map(({
   //   infoDesc,
   //   infoAlt,
@@ -254,7 +253,6 @@ const Partners = () => {
     info_partner_name: { text: infoName },
     info_partner_title: { text: infoTitle }
   },i) => {
-        // console.log(i, page)
         return <Carousel ind={i} page={page}>
             <Quotes src={quotesUrl} alt={quotesAlt} />
             <PartnerCard>
