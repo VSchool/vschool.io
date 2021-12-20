@@ -272,17 +272,17 @@ const Step3 = ({ submit }) => {
   
     }
 
-    const onChange = e => {
-      // const files = Array.from(e.target.files)
-      // console.log()
-      // const formData = new FormData()
+    // const onChange = e => {
+    //   // const files = Array.from(e.target.files)
+    //   // console.log()
+    //   // const formData = new FormData()
   
-      // files.forEach((file, i) => {
-      //   formData.append(i, file)
-      // })
-      // URL.createObjectURL(e.target.files[0]).replace('blob:', '')
-      setFile(e.target.files[0])
-    }
+    //   // files.forEach((file, i) => {
+    //   //   formData.append(i, file)
+    //   // })
+    //   // URL.createObjectURL(e.target.files[0]).replace('blob:', '')
+    //   setFile(e.target.files[0])
+    // }
 
     async function uploadPhoto (e){
       var fileData = {
@@ -354,16 +354,6 @@ const Step3 = ({ submit }) => {
                   {mappedRadios}
                 </RadioContainer>
                 {mappedSocials}
-<<<<<<< HEAD
-                
-                <div className='button'>
-                  <label htmlFor='single'>
-                      BUTTONS FIRST
-                  </label>
-                  <input type='file' id='single' onChange={onChange} /> 
-                </div>
-                <button type="button" onClick={uploadPhoto}>Send Upload</button>
-=======
                 <StyledLabel>{photoTitle}</StyledLabel>
                 <UploadPhoto>
                   <label for="file-upload" class="custom-file-upload">
@@ -380,7 +370,6 @@ const Step3 = ({ submit }) => {
                 <img src={inputs.question9} style={{width: 80, marginTop: 15}} />
                 <InputDescription style={{marginBottom: 32}}>{photoDesc}</InputDescription>
 
->>>>>>> e73fa4b06cd588a124a56df672111c5d5fce3bd9
                 <StyledButton>{btn}</StyledButton>
             </FormContainer>
         </Container>
