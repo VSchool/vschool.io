@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
-import { gray, Button, blue } from "@vschool/lotus"
+import { gray, blue } from "@vschool/lotus"
 
 const Container = styled.section`
     padding: 96px 16px;

@@ -281,7 +281,6 @@ const Apply = props => {
     const {
         apply_benefits: { text: appBenefits },
         apply_date_background: { url: dateUrl },
-        apply_date_text: { text: dateText },
         apply_date_title: { text: dateTitle },
         apply_how_background: { url: howUrl },
         apply_how_button: { text: howBtn },

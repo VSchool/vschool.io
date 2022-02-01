@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types"
-import styled, {css} from "styled-components"
+import styled from "styled-components"
 import Link from "./shared/QueryLink"
 import { useLocation } from "@reach/router"
 import Navbar from "./Navbar"

@@ -299,6 +299,7 @@ const Form = ({ location, submit }) => {
                 </StyledLabel>
                 {i === 0 ? (
                     <StyledTextInput
+                        type="text"
                         placeholder="Enter Response"
                         value={inputs[`question${i + 1}`]}
                         name={`question${i + 1}`}

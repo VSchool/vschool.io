@@ -92,7 +92,6 @@ const Offering = ({submit}) => {
       packet_offering_title: { text: offeringTitle },
       packet_button: { text: StartBtn },
       packet_button_arrow: { alt: arrowAlt, url: arrowUrl },
-      packet_download_info: { text: downloadInfo},
       packet_download_logo: { alt: logoAlt, url: logoUrl },
     } = data.prismicPrecoursePartners.data
 

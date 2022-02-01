@@ -5,7 +5,6 @@ import {
     gray,
     blue,
     purple,
-    green
 } from "@vschool/lotus"
 
 const Container = styled.section`
@@ -76,33 +75,6 @@ const BlueSubtext = styled.p`
     }
 `
 
-const StepNum = styled.div`
-    width: 90%;
-    margin: auto;
-`
-
-const Step = styled.p`
-    font-size: 16px;
-    line-height: 24px;
-    color: ${gray.darker};
-    font-weight: 300;
-    text-align: left;
-    width: 100%;
-`
-
-const ProgressBar = styled.div`
-    height: 8px;
-    width: 100%;
-    background-color: ${green.lighter};
-    margin: 5px 0 20px;
-`
-
-const Progress = styled.div`
-    width: 100%;
-    background-color: ${green.light};
-    height: 100%;
-`
-
 const Image = styled.img`
     display: flex;
     margin: auto;
@@ -138,7 +110,6 @@ const Hero = () => {
   const {
     success_top_description: { text: description },
     success_top_image: { alt, url},
-    success_top_step: { text: step },
     success_top_subtitle: { text: subtitle },
     success_top_title: { text: title },
   } = data.prismicPrecoursePartners.data
@@ -150,10 +121,6 @@ const Hero = () => {
         <BlueSubtext>{subtitle}</BlueSubtext>
         <Title>{title}</Title>
         <Paragraph>{description}</Paragraph>
-        {/* <StepNum>
-            <Step><b>Step 2 of 2</b> - {step}</Step>
-            <ProgressBar><Progress></Progress></ProgressBar>
-        </StepNum> */}
         <Image src={url} alt={alt} />
       </HeroContainer>
     </Container>

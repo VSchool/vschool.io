@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql, navigate } from "gatsby"
 import { blue, gray, Button } from "@vschool/lotus"
-import DownloadSyllabus from "../../pages/syllabus/download"
 
 const Section = styled.section`
     padding: 96px 16px;

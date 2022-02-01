@@ -134,10 +134,8 @@ const Hero = ({page, setter}) => {
 
     const {
         intro_blue_subtext: { text: blueSub },
-        intro_button_arrow: { url: arrowUrl },
         intro_button_text: { text: btnText },
         intro_description: { text: desc },
-        intro_sub_description: { text: subDesc },
         intro_swag_pic: { url: swagUrl },
         intro_title: { text: title },
     } = data.prismicCompletionForm.data

@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import { useStaticQuery, graphql } from "gatsby"
 import { blue, gray} from "@vschool/lotus"
 
 const Section = styled.section`
@@ -56,39 +55,6 @@ const Description = styled.p`
 `
 
 export default function Rankings() {
-  const data = useStaticQuery(graphql`
-    {
-      prismicSyllabusDownload {
-        data {
-          syllabus_icons {
-            alt
-            url
-          }
-          syllabus_subtitle {
-            text
-          }
-          syllabus_title {
-            text
-          }
-          syllabus_web {
-            text
-          }
-          syllabus_xd {
-            text
-          }
-        }
-      }
-    }
-  `)
- 
-    const {
-        syllabus_icons: { alt, url },
-        syllabus_subtitle: { text: subtitle },
-        syllabus_title: { text: title },
-        syllabus_web: { text: web },
-        syllabus_xd: { text: xd },
-    } = data.prismicSyllabusDownload.data
-
     return (
         <Section>
             <BlueSubtext>V School Application</BlueSubtext>

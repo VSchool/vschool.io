@@ -167,9 +167,6 @@ const Form = () => {
         }
     `)
 
-    const {
-        form_required: {reqUrl}
-    } = data.prismicPrecoursePartners.data
 
     const {
         step1_steps,

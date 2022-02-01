@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
-import { gray, Button, blue } from "@vschool/lotus"
+import { gray, blue } from "@vschool/lotus"
 import Arrow from "../../Navbar/Arrow"
 
 
@@ -89,18 +89,6 @@ const BoxMainTitle = styled.h1`
         font-size: 20px;
         line-height: 24px;
         padding-right: 297px;
-    }
-`
-
-const BoxSubtitle = styled.p`
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 16px;
-    color: ${gray.darker};
-
-    @media (min-width: 800px) {
-        font-size: 16px;
-        line-height: 24px;
     }
 `
 
@@ -200,37 +188,6 @@ const GridDescription = styled.div`
         margin-left: 1px;
     }
 `
-
-const ImageContainer = styled.div`
-    margin: 48px;
-
-    & > button {
-        width: 300px;
-        margin-top: 20px;
-    }
-
-    & > img {
-        max-width: 100%;
-    }
-
-    @media (max-width: 600px) {
-        display:none;
-    }
-`
-
-const StyledButton = styled(Button)`
-    filter: ${props => props.type === "UX / UI Design" && "brightness(1.8)"};
-    font-size: 14px;
-
-    
-    @media (max-width: 600px) {
-        display: none;
-    }
-   
-    
-`
-
-
 
 const Career = ({submit}) => {
   const [open, setOpen] = useState(false)

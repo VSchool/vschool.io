@@ -4,7 +4,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import {
     gray,
-    blue,
     Button
 } from "@vschool/lotus"
 

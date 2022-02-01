@@ -102,7 +102,6 @@ const Packet = ({submit}) => {
     packet_button: { text: StartBtn },
     packet_button_arrow: { alt: arrowAlt, url: arrowUrl },
     packet_title: { text: StartTitle },
-    packet_download_info: { text: downloadInfo},
     packet_download_logo: { alt: logoAlt, url: logoUrl },
   } = data.prismicPrecoursePartners.data
 

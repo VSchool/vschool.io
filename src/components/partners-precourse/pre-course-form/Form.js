@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { navigate } from "gatsby"
@@ -70,28 +70,6 @@ const BlueSubtext = styled.p`
     }
 `
 
-const Step = styled.p`
-    font-size: 16px;
-    line-height: 24px;
-    color: ${gray.darker};
-    font-weight: 300;
-    text-align: left;
-    width: 100%;
-`
-
-const ProgressBar = styled.div`
-    height: 8px;
-    width: 100%;
-    background-color: ${blue.lighter};
-    margin: 5px 20px 20px;
-`
-
-const Progress = styled.div`
-    width: 20%;
-    background-color: ${blue.base};
-    height: 100%;
-`
-
 const FormContainer = styled.form`
     background-color: ${blue.lightest};
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 3px 4px rgba(0, 0, 0, 0.12),
@@ -100,13 +78,6 @@ const FormContainer = styled.form`
     padding: 64px;
     width: 100%;
     max-width: 900px;
-`
-
-const FormInputs1 = styled.div`
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
-    margin-bottom: 60px;
 `
 
 const StyledTextInput = styled(TextInput)`
@@ -124,34 +95,6 @@ const StyledLabel = styled.label`
     font-weight: ${props => (props.font ? "normal" : "bold")};
     font-size: 12px;
     line-height: 16px;
-`
-
-const FormInputs2 = styled.div`
-    display: flex;
-    gap: 20px;
-    margin: 10px 0 30px;
-`
-
-const SelectBox = styled.button`
-    background-image: url(${props => props.bgImage});
-    background-color: ${gray.lightest};
-    background-repeat: no-repeat;
-    padding: 90px 0px 10px;
-    background-position: center
-        ${props => (props.title === "Web Development" ? "30px" : "20px")};
-    width: 160px;
-    height: 130px;
-    border: 1px solid ${gray.dark};
-
-    /* &:focus {
-        background-image: url(${props => props.bgImage}),
-            url(${props => props.bgImage2});
-        background-position: center
-                ${props =>
-                    props.title === "Web Development" ? "30px" : "20px"},
-            97% 3%;
-        border: 2px solid ${gray.darkest};
-    } */
 `
 
 const CheckContainer = styled.div`
@@ -185,34 +128,7 @@ const StyledButton = styled(Button)`
     }
 `
 
-const Block = styled.div`
-    display: flex;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    background-color: #514f4b6b;
-    color: ${gray.lightest};
-    font-weight: 400;
-    font-size: 20px;
-`
-
 const Form = (props) => {
-    // useEffect(() => {
-        // if (props.location?.state?.convertKitTag) {
-        //     localStorage.setItem(
-        //         "convertKitTag",
-        //         props.location?.state?.convertKitTag
-        //     )
-        // }
-        // if (props.location?.state?.uid) {
-        //     localStorage.setItem("fromLandingPage", props.location?.state?.uid)
-        // }
-
-    // }, [props.location?.state?.convertKitTag, props.location?.state?.uid])
 
     const data = useStaticQuery(graphql`
         {
@@ -274,10 +190,9 @@ const Form = (props) => {
         form_full_name: { text: fFName },
         form_email: { text: fEmail },
         form_button_text: { text: fBtnText },
-        form_required: { url: reqUrl, alt: reqAlt },
+        form_required: { url: reqUrl },
         form_title: { text: fTitle },
         form_subtitle: { text: fSub },
-        form_step_info: { text: fStep },
         form_description: { text: fDesc },
     } = data.prismicPrecoursePartners.data
 
@@ -358,8 +273,6 @@ const Form = (props) => {
             <BlueSubtext>{fSub}</BlueSubtext>
             <Title>{fTitle}</Title>
             <Paragraph>{fDesc}</Paragraph>
-            {/* <Step><b>Step 1 of 2</b> - {fStep}</Step>
-            <ProgressBar><Progress></Progress></ProgressBar> */}
             <FormContainer onSubmit={handleSubmit}>
             
                 <div>

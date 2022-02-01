@@ -1,8 +1,7 @@
-import React, {useState} from "react"
+import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
-import { gray, Button, blue } from "@vschool/lotus"
-import Arrow from "../../Navbar/Arrow"
+import { gray, blue } from "@vschool/lotus"
 
 
 const Container = styled.section`
