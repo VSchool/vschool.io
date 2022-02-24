@@ -3,7 +3,7 @@ import { Context } from "../FormContext"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import Airtable from "airtable"
-import { gray, blue, TextInput, Textarea, Button, green } from "@vschool/lotus"
+import { gray, blue, TextInput, Button, green } from "@vschool/lotus"
 
 const Container = styled.div`
     background-color: ${gray.lighter};
@@ -41,17 +41,6 @@ const StyledLabel = styled.label`
     }
 `
 
-const StyledTextarea = styled(Textarea)`
-    margin: 10px 0 30px;
-    height: 140px;
-    position: relative;
-
-    & > label {
-        position: absolute;
-        left: 0px;
-        top: -24px;
-    }
-`
 
 const StyledTextInput = styled(TextInput)`
     margin: 6px 0 0px;
@@ -266,12 +255,10 @@ const Step2 = ({ location, submit }) => {
     const {
         step2_button: { text: btn },
         step2_dates,
-        step2_description: { text: desc },
         step2_first: { text: first },
         step2_first_description: { text: firstDesc },
         step2_fourth: { text: fourth },
         step2_fourth_description: { text: fourthDesc },
-        step2_second: { text: second },
         step2_third: { text: third },
     } = data.prismicCompletionForm.data
 
@@ -309,7 +296,7 @@ const Step2 = ({ location, submit }) => {
     const mappedDates = step2_dates.map(
         ({ title: { text }, description: { text: dateDesc } }, i) => {
             return (
-                <InputDiv>
+                <InputDiv key={text + i}>
                     <StyledLabel required={true}>{text}</StyledLabel>
                     <StyledTextInput
                         placeholder="mm/dd/yy"
@@ -349,8 +336,8 @@ const Step2 = ({ location, submit }) => {
                         onChange={handleChange}
                     >
                         <option value="Select Option">Select Option</option>
-                        {items.map(({ option: { text } }) => (
-                            <option value={text}>{text}</option>
+                        {items.map(({ option: { text } }, i) => (
+                            <option key={text + i} value={text}>{text}</option>
                         ))}
                     </StyledSelect>
                     {dropDesc && (

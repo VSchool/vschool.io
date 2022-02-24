@@ -67,11 +67,11 @@ export default function SimpleNav() {
     } = data.prismicNavigationBar.data
 
     const clearLocal = (e) => {
-        let doubleCheck = window.location.pathname === '/completion-form' && window.confirm('Are you sure you want to leave? if you do all your progress will be lost')
-        if(window.location.pathname === '/completion-form' && doubleCheck){
+        let doubleCheck = window.location.pathname === '/completion-form/' && window.confirm('Are you sure you want to leave? if you do all your progress will be lost')
+        if(window.location.pathname === '/completion-form/' && doubleCheck){
             localStorage.removeItem('pageNum')
             localStorage.removeItem('step')
-        }else if (window.location.pathname === '/completion-form' && !doubleCheck){
+        }else if (window.location.pathname === '/completion-form/' && !doubleCheck){
             e.preventDefault()
         }
     }

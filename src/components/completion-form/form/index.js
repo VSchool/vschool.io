@@ -56,7 +56,7 @@ const Paragraph = styled.p`
     text-align: center;
     color: ${gray.darker};
     padding-bottom: 48px;
-    max-width: 630px;
+    max-width: 465px;
 
     @media (min-width: 800px) {
         font-size: 20px;
@@ -173,17 +173,18 @@ const Form = () => {
         step1_description: {text: desc }
     } = data.prismicCompletionForm.data
 
-    const mappedSteps = step1_steps.map(({title: { stepTitle }},i) => <ProgressStep>
-                                                    <ProgressNum color={i + 1 <= step ? blue.base : blue.light}>{i + 1}</ProgressNum>
-                                                    <ProgressTitle>{stepTitle}</ProgressTitle>
-                                                </ProgressStep>)
+    const mappedSteps = step1_steps.map(({title: { stepTitle }},i) => {
+                                                console.log(stepTitle, i, stepTitle+i)
+                                                return <ProgressStep key={stepTitle+i}>
+                                                            <ProgressNum color={i + 1 <= step ? blue.base : blue.light}>{i + 1}</ProgressNum>
+                                                            <ProgressTitle>{stepTitle}</ProgressTitle>
+                                                        </ProgressStep>
+    })
     return (
         <Container>
             <BlueSubtext>{step == 4 ? 
-                    'Form Submission Complete'
-                    : step == 5 ?
-                        'Leave a Review of V School'
-                    : 'V School Completion Form'
+                    'V School Completion Form'
+                    :'Leave a Review of V School'
                 }</BlueSubtext>
             <Title>{step == 1 ? 
                     'Step 1: Program Evaluation'
@@ -192,7 +193,7 @@ const Form = () => {
                 : step == 3 ?
                     'Step 3: Experience Review' 
                 : step == 4 ?
-                    'Thank You!'
+                    'Step 4: Post Your Review'
                 : 'We Appreciate Your Feedback!'
                 }</Title>
             <Paragraph>{
@@ -203,7 +204,10 @@ const Form = () => {
                 : step == 3 ?
                     'Now, we have a few personal questions about your experience.' 
                 : step == 4 ?    
-                    'We appreciate you taking time out of your day to complete this form. This information helps us to improve the V School experience. We’ll get your hoodie in the mail as soon as possible.'
+                    <>
+                        Please take a few minutes to leave reviews for us and we will send you a <b>$50 Amazon Gift Card!*</b>
+                        <p style={{fontSize: 14, fontWeight: 300, paddingTop: 25}}>* Gift cards will only be sent to those who leave reviews at all the listed sites.</p>
+                    </>
                 : 'Please take a few minutes to leave reviews for us and we will send you a '
                 }{
                     step == 5 && <span style={{fontWeight: 600}}>$50 Amazon Gift Card! *</span>
