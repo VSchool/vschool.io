@@ -34,10 +34,10 @@ const Title = styled.h2`
     text-align: center;
     max-width: 850px;
     margin-bottom: 16px;
-    font-size: 56px;
 
     @media (min-width: 800px) {
         margin-bottom: 24px;
+        font-size: 56px;
     }
 `
 
