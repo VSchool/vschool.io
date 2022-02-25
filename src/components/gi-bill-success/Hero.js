@@ -51,7 +51,7 @@ const Description = styled.p`
     @media (min-width: 800px){
         font-size: 20px;
         line-height: 32px;
-        margin-bottom: 200px;
+        margin-bottom: 96px;
     }
 `
 
@@ -65,8 +65,8 @@ const Hero = () => {
     return (
         <HeroContainer>
             <Subtitle>VETERANS AT VSCHOOL</Subtitle>
-            <Title>Information Submitted!</Title>
-            <Description>Thanks for you interest in V School. We'll reach out to you to discuss opportunities and your pathway into tech. You'll be receiving your next steps email shortly.</Description>
+            <Title>Call Scheduled!</Title>
+            <Description>A confirmation email will be sent shortly. We look forward to hearing your story and helping you acheive a future career in tech.</Description>
             <Image src={heroImg} alt="Man Smiling and Code"/>
         </HeroContainer>
     );

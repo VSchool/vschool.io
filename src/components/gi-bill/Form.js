@@ -49,17 +49,21 @@ const StyledIcon = styled.img`
 
 export default function Form(props) {
 
+    const handleClick = e => {
+        navigate('/gi-bill/schedule')
+    }
+
     return (
-        <StyledForm>
-            <div>
-                <StyledButton to="https://calendly.com/v-school/apply">
-                    Schedule a Call
-                    <StyledIcon
-                        src={props.icon.iconUrl}
-                        alt={props.icon.iconAlt}
-                    />
-                </StyledButton>
-            </div>
-        </StyledForm>
+        <div>
+            <StyledButton onClick={handleClick}>
+                Schedule a Call
+                <StyledIcon
+                    src={props.icon.iconUrl}
+                    alt={props.icon.iconAlt}
+                />
+            </StyledButton>
+        </div>
     )
 }
+
+
