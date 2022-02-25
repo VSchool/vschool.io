@@ -31,17 +31,19 @@ const StyledTextInput = styled(TextInput)`
 const StyledButton = styled(Button)`
     width: 267px;
     height: 56px;
-    font-size: 14px;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     @media (max-width: 800px) {
         width: 100%;
-        margin-bottom: 48px;
     }
 `
 
 const StyledIcon = styled.img`
     position: relative;
     left: 10px;
-    top: 2px;
 `
 
 

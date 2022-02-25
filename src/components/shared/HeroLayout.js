@@ -39,11 +39,11 @@ const ImageContainer = styled.div`
     }
 `
 
-export default function HeroLayout({ text, image, textStyles, imgStyles }) {
+export default function HeroLayout({ text, image, textStyles, imgStyles, direction }) {
     return (
         <Container>
             <TextContainer txt={textStyles}>{text}</TextContainer>
-            <ImageContainer img={imgStyles}>{image}</ImageContainer>
+            <ImageContainer img={imgStyles} style={{flexDirection: direction ? direction : 'row'}}>{image}</ImageContainer>
         </Container>
     )
 }

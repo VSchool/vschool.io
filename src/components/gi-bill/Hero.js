@@ -63,6 +63,48 @@ const BlueSubtext = styled.p`
     }
 `
 
+const GiBill = styled.div`
+    display: flex;
+    padding: 32px 0;
+`
+
+const GiBillImg = styled.img`
+    width: 30px;
+    margin-right: 10px;
+`
+
+const StatContainer = styled.div`
+  	display: flex;
+    height: 120px;
+    padding-top: 40px;
+    width: 90%;
+    justify-content: space-between;
+`
+
+const StatBox = styled.div`
+    border-left: 3px solid ${gray.darker};
+    padding: 3px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+`
+
+const StatNum = styled.p`
+	font-weight: 900;
+	font-size: 44px;
+	line-height: 48px;
+	color: ${gray.darkest};
+`
+
+const StatText = styled.p`
+	font-weight: 600;
+	font-size: 12px;
+	line-height: 16px;
+	letter-spacing: 0.5px;
+	color: ${gray.darker};
+`
+
+
 export default function Hero() {
 const data = useStaticQuery(graphql`
     {
@@ -92,9 +134,28 @@ const data = useStaticQuery(graphql`
             alt
             url
           }
+          hero_gi_bill {
+            text
+          }
+          hero_green_checkmark {
+            url
+            alt
+          }
           hero_image {
             url
             alt
+          }
+          hero_success_num {
+            text
+          }
+          hero_success_rate {
+            text
+          }
+          hero_salary_num {
+            text
+          }
+          hero_salary_rate {
+            text
           }
         }
       }
@@ -105,14 +166,18 @@ const data = useStaticQuery(graphql`
     hero_title: { text: heroTitle},
     hero_subtitle: { text: heroSubtitle},
     hero_description: { text: heroDescription},
-    // hero_gi_bill,
-    // hero_green_checkmark: { url: greenUrl },
+    hero_gi_bill: {text: heroGi },
+    hero_green_checkmark: { url: greenUrl },
     hero_form_button: { text: buttonText},
     hero_form_icon: {
       alt: iconAlt,
       url: iconUrl
     },
     hero_image: { url: heroImageUrl, alt: heroImageAlt},
+    hero_success_num: { text: heroSuccessNum },
+    hero_success_rate: { text: heroSuccessRate },
+    hero_salary_num: { text: heroSalaryNum },
+    hero_salary_rate: { text: heroSalaryRate }
   } = {...data.prismicVeteransLandingPage.data}
   console.log(data.prismicVeteransLandingPage.data)
     return (
@@ -131,18 +196,32 @@ const data = useStaticQuery(graphql`
                                 </HeroDescription>
                                 {/* <Form formInfo={hero_form} buttonText={buttonText} type='hero' icon={{iconAlt, iconUrl}} /> */}
                                 <Form icon={{iconAlt, iconUrl}} buttonText={buttonText} />
-                                <div>
-                                  {/* <img src={greenUrl} /> */}
-                                  {/* <p>{heroGi}</p> */}
-                                </div>
+                                <GiBill>
+                                  <GiBillImg src={greenUrl} />
+                                  <p>{heroGi}</p>
+                                </GiBill>
                             </>
                         }
                         image={
-                            <img
-                                src={heroImageUrl}
-                                alt={heroImageAlt}
-                            />
+                          <>
+                              <img
+                                  src={heroImageUrl}
+                                  alt={heroImageAlt}
+                              />
+                              <br/>
+                              <StatContainer>
+                                <StatBox>
+                                  <StatNum>{heroSuccessNum}</StatNum>
+                                  <StatText>{heroSuccessRate}</StatText>
+                                </StatBox>
+                                <StatBox>
+                                  <StatNum>{heroSalaryNum}</StatNum>
+                                  <StatText>{heroSalaryRate}</StatText>
+                                </StatBox>
+                              </StatContainer>
+                          </>
                         }
+                        direction={'column'}
                     />
             </ContentContainer>
         </HeroContainer>
