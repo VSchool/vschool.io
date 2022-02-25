@@ -82,14 +82,10 @@ export default function Scheduler() {
 
     useEffect(() => {
         let data
-        // const storageValue = JSON.parse(
-        //     localStorage.getItem("scholarshipApplicationInfo")
-        // )
+        
         if (location.state?.email) {
             data = { email: location.state.email }
         } else if (location.search) {
-            // change plus sign to "%2B" so when it gets parsed
-            // by query-string, it correctly keeps it as a plus
             const query = location.search.replace(/\+/gi, "%2B")
             data = queryString.parse(query) // {email: bob@example.com}
         } else {
