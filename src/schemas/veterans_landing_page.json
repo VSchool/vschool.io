@@ -17,7 +17,7 @@
     "hero_description": {
       "type": "StructuredText",
       "config": {
-        "single": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
         "label": "Hero Description"
       }
     },
@@ -28,14 +28,14 @@
           "hero_form_label": {
             "type": "StructuredText",
             "config": {
-              "single": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+              "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
               "label": "Hero Form Label"
             }
           },
           "hero_form_placeholder": {
             "type": "StructuredText",
             "config": {
-              "single": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+              "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
               "label": "Hero Form Placeholder"
             }
           }
@@ -54,7 +54,7 @@
     "hero_form_button": {
       "type": "StructuredText",
       "config": {
-        "single": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
         "label": "Hero Form Button"
       }
     },
@@ -64,6 +64,49 @@
         "constraint": {},
         "thumbnails": [],
         "label": "Hero Image"
+      }
+    },
+    "hero_green_checkmark": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Hero Green Checkmark"
+      }
+    },
+    "hero_gi_bill": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Hero Gi Bill"
+      }
+    },
+    "hero_success_rate": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Hero Success Rate"
+      }
+    },
+    "hero_success_num": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Hero Success Num"
+      }
+    },
+    "hero_salary_rate": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Hero Salary Rate"
+      }
+    },
+    "hero_salary_num": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Hero Salary Num"
       }
     }
   },
@@ -89,14 +132,14 @@
           "outcomes_stat_title": {
             "type": "StructuredText",
             "config": {
-              "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+              "single": "heading1,heading2,heading3,heading4,heading5,heading6",
               "label": "Outcomes Stat Title"
             }
           },
           "outcomes_stat_description": {
             "type": "StructuredText",
             "config": {
-              "single": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+              "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
               "label": "Outcomes Stat Description"
             }
           }
@@ -107,7 +150,7 @@
     "outcomes_subtitle": {
       "type": "StructuredText",
       "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "single": "heading1,heading2,heading3,heading4,heading5,heading6",
         "label": "Outcomes Subtitle"
       }
     },
@@ -131,14 +174,14 @@
     "success_title": {
       "type": "StructuredText",
       "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "single": "heading1,heading2,heading3,heading4,heading5,heading6",
         "label": "Success Title"
       }
     },
     "success_description": {
       "type": "StructuredText",
       "config": {
-        "single": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
         "label": "Success Description"
       }
     },
@@ -152,7 +195,7 @@
     "success_testimonial_author": {
       "type": "StructuredText",
       "config": {
-        "single": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
         "label": "Success Testimonial Author"
       }
     },
@@ -169,21 +212,21 @@
     "courses_title": {
       "type": "StructuredText",
       "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "single": "heading1,heading2,heading3,heading4,heading5,heading6",
         "label": "Courses Title"
       }
     },
     "courses_subtitle": {
       "type": "StructuredText",
       "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
         "label": "Courses Subtitle"
       }
     },
     "courses_description": {
       "type": "StructuredText",
       "config": {
-        "single": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
         "label": "Courses Description"
       }
     },
@@ -194,21 +237,21 @@
           "courses_card_title": {
             "type": "StructuredText",
             "config": {
-              "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+              "single": "heading1,heading2,heading3,heading4,heading5,heading6",
               "label": "Courses Card Title"
             }
           },
           "courses_card_description": {
             "type": "StructuredText",
             "config": {
-              "single": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+              "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
               "label": "Courses Card Description"
             }
           },
           "courses_card_button_text": {
             "type": "StructuredText",
             "config": {
-              "single": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+              "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
               "label": "Courses Card Button Text"
             }
           }
@@ -221,7 +264,7 @@
     "resources_title": {
       "type": "StructuredText",
       "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "single": "heading1,heading2,heading3,heading4,heading5,heading6",
         "label": "Resources Title"
       }
     },
@@ -232,21 +275,21 @@
           "resources_callout_title": {
             "type": "StructuredText",
             "config": {
-              "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+              "single": "heading1,heading2,heading3,heading4,heading5,heading6",
               "label": "Resources Callout Title"
             }
           },
           "resources_callout_description": {
             "type": "StructuredText",
             "config": {
-              "single": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+              "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
               "label": "Resources Callout Description"
             }
           },
           "resources_callout_button_text": {
             "type": "StructuredText",
             "config": {
-              "single": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+              "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
               "label": "Resources Callout Button Text"
             }
           }
@@ -259,14 +302,14 @@
     "footer_title": {
       "type": "StructuredText",
       "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "single": "heading1,heading2,heading3,heading4,heading5,heading6",
         "label": "Footer Title"
       }
     },
     "footer_description": {
       "type": "StructuredText",
       "config": {
-        "single": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
         "label": "Footer Description"
       }
     },
@@ -277,14 +320,14 @@
           "footer_form_label": {
             "type": "StructuredText",
             "config": {
-              "single": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+              "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
               "label": "Footer Form Label"
             }
           },
           "footer_form_placeholder": {
             "type": "StructuredText",
             "config": {
-              "single": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+              "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
               "label": "Footer Form Placeholder"
             }
           }
@@ -295,7 +338,7 @@
     "footer_button_text": {
       "type": "StructuredText",
       "config": {
-        "single": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
         "label": "Footer Button Text"
       }
     }
