@@ -96,7 +96,7 @@ function DesktopMenu(props) {
             <Ul>
                 {navItems}
                 <ButtonContainer>
-                    <Link to={buttonLink}>
+                    <Link to={"/apply"}>
                         <ApplyButton buttonStyle="primary-dark" buttonSize="sm">
                             {buttonText}
                         </ApplyButton>
