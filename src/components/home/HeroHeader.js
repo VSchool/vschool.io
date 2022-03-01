@@ -114,22 +114,22 @@ function HeroHeader(props) {
     const { title, sub, invite, link, btnText } = props
 
     return (
-            <Container>
-                <FlexContainer>
-                    <H1>{title}</H1>
-                </FlexContainer>
-                <FlexContainer>
-                    <P>{sub}</P>
-                </FlexContainer>
-                <H6>{invite}</H6>
-                <FlexContainer>
-                    <Link to={link}>
-                        <StyledButton buttonStyle="primary-dark">
-                            {btnText}
-                        </StyledButton>
-                    </Link>
-                </FlexContainer>
-            </Container>
+        <Container>
+            <FlexContainer>
+                <H1>{title}</H1>
+            </FlexContainer>
+            <FlexContainer>
+                <P>{sub}</P>
+            </FlexContainer>
+            <H6>{invite}</H6>
+            <FlexContainer>
+                <Link to="/apply">
+                    <StyledButton buttonStyle="primary-dark">
+                        {btnText}
+                    </StyledButton>
+                </Link>
+            </FlexContainer>
+        </Container>
     )
 }
 
