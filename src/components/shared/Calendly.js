@@ -54,14 +54,11 @@ const WidgetContainer = styled.div`
 
 export default function Calendly(props) {
     // const location = useLocation()
-    const [queryString, setQueryString] = useState(() =>
-        localStorage.getItem("query").slice(1)
-    )
     const [searchParams, setSearchParams] = useState()
     // const [queryData, setQueryData] = useState({})
     // const [utmObj, setUtmObj] = useState({})
     useEffect(() => {
-        const utmString = queryString // Remove the ? from the string
+        const utmString = localStorage.getItem("query").slice(1) // Remove the ? from the string
         const searchParams = new URLSearchParams(utmString)
         setSearchParams(searchParams)
         // const obj = {}
@@ -76,7 +73,7 @@ export default function Calendly(props) {
         //     }
         // })
         // setUtmObj(obj)
-    }, [queryString])
+    }, [])
 
     async function handleEventScheduled(e) {
         // const data = { ...queryData }
