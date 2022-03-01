@@ -11,6 +11,7 @@ export default function DownloadSyllabus() {
     const [submitted, setSubmitted] = useState(false)
 
     useEffect(() => {
+        console.log(localStorage.getItem("applied"))
         localStorage.getItem("applied") && setSubmitted(true)
     }, [])
 

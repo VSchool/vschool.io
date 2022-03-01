@@ -53,28 +53,31 @@ const WidgetContainer = styled.div`
 `
 
 export default function Calendly(props) {
-    const location = useLocation()
-    const [queryData, setQueryData] = useState({})
-    const [utmObj, setUtmObj] = useState({})
-
-
+    // const location = useLocation()
+    const [queryString, setQueryString] = useState(() =>
+        localStorage.getItem("query").slice(1)
+    )
+    const [searchParams, setSearchParams] = useState()
+    // const [queryData, setQueryData] = useState({})
+    // const [utmObj, setUtmObj] = useState({})
     useEffect(() => {
-        const utmString = localStorage.getItem("query")
+        const utmString = queryString // Remove the ? from the string
         const searchParams = new URLSearchParams(utmString)
-        const obj = {}
-        searchParams.forEach((value, key) => {
-            if (key.startsWith("utm")) {
-                const keyParts = key.split("_")
-                const newKey =
-                    keyParts[0] +
-                    keyParts[1][0].toUpperCase() +
-                    keyParts[1].slice(1)
-                obj[newKey] = value
-            }
-        })
-        setUtmObj(obj)
-    }, [])
-    
+        setSearchParams(searchParams)
+        // const obj = {}
+        // searchParams.forEach((value, key) => {
+        //     if (key.startsWith("utm")) {
+        //         const keyParts = key.split("_")
+        //         const newKey =
+        //             keyParts[0] +
+        //             keyParts[1][0].toUpperCase() +
+        //             keyParts[1].slice(1)
+        //         obj[newKey] = value
+        //     }
+        // })
+        // setUtmObj(obj)
+    }, [queryString])
+
     async function handleEventScheduled(e) {
         // const data = { ...queryData }
         // const options = {
@@ -96,14 +99,19 @@ export default function Calendly(props) {
 
     return (
         <WidgetContainer>
-            <CalendlyEventListener
-                onEventScheduled={handleEventScheduled}
-                >
+            <CalendlyEventListener onEventScheduled={handleEventScheduled}>
                 <InlineWidget
                     url="https://calendly.com/v-school/apply"
                     styles={{ height: 700 }}
                     prefill={{
                         email: "",
+                    }}
+                    utm={{
+                        utmCampaign: searchParams?.get("utm_campaign"),
+                        utmMedium: searchParams?.get("utm_medium"),
+                        utmContent: searchParams?.get("utm_content"), // We don't currently use this, but may in the future
+                        utmSource: searchParams?.get("utm_source"),
+                        utmTerm: searchParams?.get("utm_term"), // We don't currently use this, but may in the future
                     }}
                 />
             </CalendlyEventListener>
