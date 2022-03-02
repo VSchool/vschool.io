@@ -179,7 +179,6 @@ const data = useStaticQuery(graphql`
     hero_salary_num: { text: heroSalaryNum },
     hero_salary_rate: { text: heroSalaryRate }
   } = {...data.prismicVeteransLandingPage.data}
-  console.log(data.prismicVeteransLandingPage.data)
     return (
         <HeroContainer>
             <ContentContainer>

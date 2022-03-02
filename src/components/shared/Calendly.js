@@ -58,7 +58,7 @@ export default function Calendly(props) {
     // const [queryData, setQueryData] = useState({})
     // const [utmObj, setUtmObj] = useState({})
     useEffect(() => {
-        const utmString = localStorage.getItem("query").slice(1) // Remove the ? from the string
+        const utmString = localStorage.getItem("query")?.slice(1) // Remove the ? from the string if it exists
         const searchParams = new URLSearchParams(utmString)
         setSearchParams(searchParams)
         // const obj = {}
@@ -104,11 +104,11 @@ export default function Calendly(props) {
                         email: "",
                     }}
                     utm={{
-                        utmCampaign: searchParams?.get("utm_campaign"),
-                        utmMedium: searchParams?.get("utm_medium"),
-                        utmContent: searchParams?.get("utm_content"), // We don't currently use this, but may in the future
-                        utmSource: searchParams?.get("utm_source"),
-                        utmTerm: searchParams?.get("utm_term"), // We don't currently use this, but may in the future
+                        utmCampaign: searchParams?.get("utm_campaign") ?? "",
+                        utmMedium: searchParams?.get("utm_medium") ?? "",
+                        utmContent: searchParams?.get("utm_content") ?? "", // We don't currently use this, but may in the future
+                        utmSource: searchParams?.get("utm_source") ?? "",
+                        utmTerm: searchParams?.get("utm_term") ?? "", // We don't currently use this, but may in the future
                     }}
                 />
             </CalendlyEventListener>
