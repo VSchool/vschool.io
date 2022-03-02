@@ -49,6 +49,7 @@ const Text = styled.p`
 
 const WidgetContainer = styled.div`
     width: 100%;
+    height: 920px;
     background-color: ${gray.lighter};
 `
 
@@ -99,10 +100,10 @@ export default function Calendly(props) {
             <CalendlyEventListener onEventScheduled={handleEventScheduled}>
                 <InlineWidget
                     url="https://calendly.com/v-school/apply"
-                    styles={{ height: 700 }}
                     prefill={{
                         email: "",
                     }}
+                    styles={{ height: 900 }}
                     utm={{
                         utmCampaign: searchParams?.get("utm_campaign") ?? "",
                         utmMedium: searchParams?.get("utm_medium") ?? "",
