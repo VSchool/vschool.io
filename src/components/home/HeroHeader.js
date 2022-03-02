@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 import { gray, black, green, Button } from "@vschool/lotus"
 import Link from "../shared/QueryLink"
-import { Helmet } from "react-helmet"
 
 const Container = styled.section`
     background-color: ${green.lightest};
@@ -111,7 +110,7 @@ const FlexContainer = styled.div`
 `
 
 function HeroHeader(props) {
-    const { title, sub, invite, link, btnText } = props
+    const { title, sub, invite, btnText } = props
 
     return (
         <Container>

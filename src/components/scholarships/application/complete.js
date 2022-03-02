@@ -1,8 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-import Link from "../../shared/QueryLink"
-import { blue, gray, Button } from "@vschool/lotus"
+import { blue, gray } from "@vschool/lotus"
 import CoursesNew from "../../shared/CoursesNew"
 
 
