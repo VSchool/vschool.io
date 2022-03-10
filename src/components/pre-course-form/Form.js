@@ -10,6 +10,7 @@ import {
     CheckboxRadioGroup,
     Textarea,
     Button,
+    Radio
 } from "@vschool/lotus"
 
 const Container = styled.section`
@@ -35,7 +36,7 @@ const FormInputs1 = styled.div`
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 20px;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     
     @media (min-width: 800px){
         grid-template-columns: repeat(2, 1fr);
@@ -138,6 +139,41 @@ const Block = styled.div`
 
 `
 
+const StyledRadio = styled(Radio)`
+    & label:before {
+        border-radius: 30px;
+    }
+
+    & label {
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 400;
+    }
+
+    @media (max-width: 800px){
+        & label {
+            font-size: 12px;
+        }
+    }
+`
+
+const Paragraph = styled.p`
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    display: flex;
+    align-items: center;
+    color: ${gray.darker};
+    padding: 10px;
+    padding-bottom: 0;
+    margin-bottom: -5px;
+`
+
+const ZipDiv = styled.div`
+    width: 250px;
+    padding: 30px 0;
+`
+
 const Form = ({ location }) => {
     useEffect(() => {
         if (location?.state?.convertKitTag) {
@@ -199,6 +235,28 @@ const Form = ({ location }) => {
                     form_required {
                         url
                     }
+                    form_zip_code {
+                        text
+                    }
+                    form_military_title {
+                        text
+                    }
+                    form_military {
+                        form_military_items {
+                            text
+                        }
+                    }
+                    form_ethnicity_title {
+                        text
+                    }
+                    form_ethnicity_sub {
+                        text
+                    }
+                    form_ethnicity {
+                        form_ethnicity_items {
+                            text
+                        }
+                    }
                 }
             }
         }
@@ -217,6 +275,12 @@ const Form = ({ location }) => {
         form_checkmark: { url: checkUrl },
         form_button_text: { text: fBtnText },
         form_required: { url: reqUrl },
+        form_zip_code: { text: fZip },
+        form_military_title: {text: fMilTitle },
+        form_military,
+        form_ethnicity_title: {text: fEthTitle },
+        form_ethnicity_sub: {text: fEthSub },
+        form_ethnicity
     } = data.prismicPreCourseCommunityForm.data
 
     const [inputs, setInputs] = useState({
@@ -226,6 +290,9 @@ const Form = ({ location }) => {
         phone: "",
         course: "Web Development",
         goals: [],
+        military: "",
+        ethnicity: "",
+        zip: "",
         why: "",
     })
 
@@ -260,7 +327,7 @@ const Form = ({ location }) => {
 
     async function handleSubmit(e, type) {
         e.preventDefault()
-        let { firstName, lastName, email, phone, course, goals, why } = inputs
+        let { firstName, lastName, email, phone, course, goals, why,  military, ethnicity, zip } = inputs
         // Get the UTM parameters if they exist to add to the POST URL below
         const formData = {
             firstName,
@@ -270,6 +337,9 @@ const Form = ({ location }) => {
             course,
             goals,
             why,
+            military,
+            ethnicity,
+            zip,
             convertKitTag: localStorage.getItem("convertKitTag"),
             fromLandingPage: localStorage.getItem("fromLandingPage"),
         }
@@ -290,7 +360,6 @@ const Form = ({ location }) => {
             console.error(e)
         }
     }
-
     return (
         <Container>
             <FormContainer onSubmit={handleSubmit}>
@@ -335,6 +404,20 @@ const Form = ({ location }) => {
                     </div>
 
                     <div>
+                        <StyledLabel required={reqUrl}>{fZip}</StyledLabel>
+                        <StyledTextInput
+                            type="text"
+                            value={inputs.zip}
+                            name="zip"
+                            placeholder="Zip Code"
+                            onChange={handleChange}
+                            validationText="auto-generate"
+                            maxLength={10}
+                            required
+                        />
+                    </div>
+
+                    <div>
                         <StyledLabel>{fPhone}</StyledLabel>
                         <StyledTextInput
                             type="phone"
@@ -346,6 +429,48 @@ const Form = ({ location }) => {
                         />
                     </div>
                 </FormInputs1>
+
+                <StyledLabel required={reqUrl}>{fEthTitle}</StyledLabel>
+                <Paragraph>{fEthSub}</Paragraph>
+                <div style={{ margin: "10px 0 30px" }}>
+                    {form_ethnicity.map(
+                        ({ form_ethnicity_items: { text: item } }) => (
+                            <CheckContainer>
+                                <CheckboxRadioGroup style={{ height: 20 }}>
+                                    <StyledRadio
+                                        value={item}
+                                        name="ethnicity"
+                                        onChange={handleChange}
+                                        className="pre-course-checkbox"
+                                    >
+                                        {item}
+                                    </StyledRadio>
+                                </CheckboxRadioGroup>
+                            </CheckContainer>
+                        )
+                    )}
+                </div>
+                
+                <StyledLabel required={reqUrl}>{fMilTitle}</StyledLabel>
+                <div style={{ margin: "10px 0 30px" }}>
+                    {form_military.map(
+                        ({ form_military_items: { text: item } }) => (
+                            <CheckContainer>
+                                <CheckboxRadioGroup style={{ height: 20 }}>
+                                    <StyledRadio
+                                        value={item}
+                                        name="military"
+                                        onChange={handleChange}
+                                        className="pre-course-checkbox"
+                                    >
+                                        {item}
+                                    </StyledRadio>
+                                </CheckboxRadioGroup>
+                            </CheckContainer>
+                        )
+                    )}
+                </div>
+
                 <StyledLabel required={reqUrl}>{selectCourse}</StyledLabel>
                 <FormInputs2>
                     {form_select_items.map(
