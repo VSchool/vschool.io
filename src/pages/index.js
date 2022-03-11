@@ -65,6 +65,10 @@ export default function IndexPage({ data }) {
                     name="p:domain_verify"
                     content="e7ec9d78e5ee9bcdffca6388ba0cdfa8"
                 />
+                <meta 
+                    name="facebook-domain-verification" 
+                    content="s6f1zrmc16kfk92casxw1qqvoslevy" 
+                />
                 <title>V School — Guiding You to a Future Career in Tech</title>
                 <meta name="title" content="V School — Guiding You to a Future Career in Tech" />
                 <meta name="description" content="At V School you'll find a tech family that will serve you for life. A network of smart, kind, movers, shakers, and change-makers that will help you plug into ..." />
