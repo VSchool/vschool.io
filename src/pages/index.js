@@ -59,7 +59,6 @@ export default function IndexPage({ data }) {
         <Layout>
             <Seo title="Home" />
 
-            {/* Insert Pinterest claim code into head of index page */}
             <Helmet>
                 {/* Google Tag Manager */}
                 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
