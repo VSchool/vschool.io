@@ -41,6 +41,7 @@ export function useFormium(formiumForm) {
         )
     }, [formiumPageId, formiumFields])
 
+
     function handleChange(e) {
         const { name, value, type } = e.target
         setFormData(prevData => ({
@@ -65,6 +66,7 @@ export function useFormium(formiumForm) {
                 [curr.slug]: curr.type === "CHECKBOX" ? [] : "",
             }
         }, {})
+        console.log(initialData)
         setFormData(initialData)
     }, [formiumForm, formiumQuestions])
 

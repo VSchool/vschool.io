@@ -44,8 +44,10 @@ export default function BackgroundForm() {
             }
         }
     `)
+    
 
     const { formComponents, formData } = useFormium(data.formiumForm)
+    
 
     useEffect(() => {
         base("Scholarship Application")
@@ -241,6 +243,7 @@ export default function BackgroundForm() {
         OR
         Something went wrong when submitting the form to Zapier
     */
+
 
     return (
         <section>
