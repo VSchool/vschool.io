@@ -2,6 +2,7 @@ import React, { useEffect } from "react"
 import Prism from "prismjs"
 import styled from "styled-components"
 import BlogLayout from "../components/blog/blogLayout"
+import Seo from "../components/seo"
 import BackButton from "../components/blog/blogPage/BackButton.js"
 import BlogNav from "../components/blog/blogNav"
 import { black, gray, blue } from "@vschool/lotus"
@@ -243,6 +244,7 @@ function Post({ pageContext }) {
     )
     return (
         <BlogLayout>
+            <Seo title={title} />
             <BlogFilterContext.Consumer>
                 {value => (
                     <>
