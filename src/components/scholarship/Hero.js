@@ -35,12 +35,11 @@ const Title = styled.h1`
 `
 
 const Text = styled.p`
-    color: ${gray.darker};
+    margin-bottom: 24px;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    // background: red;
-    margin-bottom: 24px;
+    color: ${gray.darker};
 
     @media (min-width: 1200px) {
         font-size: 20px;
@@ -49,13 +48,13 @@ const Text = styled.p`
 `
 
 const Amount = styled.h6`
-    color: ${blue.dark};
+    margin-bottom: 44px;  
     font-weight: 800;
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.25px;
-    text-transform: uppercase;
-    margin-bottom: 44px;
+    text-transform: uppercase;  
+    color: ${blue.dark};
 
     @media (min-width: 1200px) {
         font-size: 16px;
@@ -64,8 +63,8 @@ const Amount = styled.h6`
 `
 
 const StyledButton = styled(Button)`
+    margin-bottom: 64px;
     width: 100%;
-    margin-bottom: 64px !important;
 
     @media (min-width: 600px) {
         width: 232px;

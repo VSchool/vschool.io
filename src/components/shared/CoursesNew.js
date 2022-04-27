@@ -5,31 +5,30 @@ import { CardGroup, Card, black, gray, TextButton } from "@vschool/lotus"
 import Link from "./QueryLink"
 
 const FlexCard = styled(Card)`
+    padding-top: 32px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-top: 32px;
     cursor: pointer;
 `
 
 const Icon = styled.img`
-    height: 64px;
     margin-top: 8px;
+    height: 64px;
 `
 
 const CourseName = styled.h5`
-    color: ${black};
-    // margin-bottom: 8px;
     font-weight: 800;
+    color: ${black};
 `
 
 const CourseInfo = styled.p`
-    color: ${gray.darker};
+    margin-top: 8px;
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;  
     text-align: left;
-    margin-top: 8px;
+    color: ${gray.darker};
 
     @media (min-width: 800px) {
         margin-top: 16px;
@@ -40,7 +39,6 @@ const CourseInfo = styled.p`
 
 const StyledLink = styled(Link)`
     margin-top: 56px;
-    // margin-top: auto;
 `
 
 export default function CoursesNew(props) {

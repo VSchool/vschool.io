@@ -5,9 +5,9 @@ import { pink, green, gray } from "@vschool/lotus"
 import HeroLayout from "../shared/HeroLayout"
 
 const Section = styled.section`
-    background-color: ${pink.lightest};
     padding-top: 96px;
     padding-bottom: 96px;
+    background-color: ${pink.lightest};
 `
 
 const Title = styled.h1`
@@ -15,8 +15,8 @@ const Title = styled.h1`
 `
 
 const Subtitle = styled.h6`
-    color: ${green.dark};
     margin-bottom: 8px;
+    color: ${green.dark};
 `
 
 const Text = styled.p`

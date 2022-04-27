@@ -5,17 +5,9 @@ import { gray } from "@vschool/lotus"
 const Container = styled.section`
     padding-top: 32px;
     padding-bottom: 64px;
-    // padding-bottom: 96px;
-    // padding-top: 64px;
-    // padding-bottom: 64px;
-    // border: 2px solid red;
 
     @media (min-width: 1200px) {
         padding-bottom: 160px;
-        // padding-top: 32px;
-        // padding-bottom: 96px;
-        // padding-top: 64px;
-        // padding-bottom: 96px;
         flex-direction: row;
     }
 `
@@ -25,10 +17,10 @@ const GroupsContainer = styled.div`
     flex-direction: column;
 
     @media (min-width: 800px) {
-        flex-direction: row;
-        max-width: 1024px;
         margin-left: auto;
         margin-right: auto;
+        max-width: 1024px;
+        flex-direction: row;
     }
 `
 

@@ -9,8 +9,8 @@ const Container = styled.section`
 `
 
 const Title = styled.h2`
-    text-align: center;
     margin-bottom: 24px;
+    text-align: center;
 
     @media (min-width: 800px) {
         margin-bottom: 32px;
@@ -18,10 +18,10 @@ const Title = styled.h2`
 `
 
 const Subtitle = styled.h6`
-    color: ${blue.dark};
-    text-align: center;
     margin-bottom: 24px;
+    text-align: center;
     font-weight: 800;
+    color: ${blue.dark};
 
     @media (min-width: 800px) {
         margin-bottom: 32px;
@@ -29,10 +29,10 @@ const Subtitle = styled.h6`
 `
 
 const Text = styled.p`
-    color: ${gray.darker};
-    text-align: center;
     margin-bottom: 64px;
     max-width: 674px;
+    text-align: center;
+    color: ${gray.darker};
 `
 
 export default function Courses() {

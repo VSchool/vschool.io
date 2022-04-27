@@ -4,21 +4,19 @@ import { useStaticQuery, graphql } from "gatsby"
 import { gray, blue } from "@vschool/lotus"
 
 const Container = styled.section`
-    padding-top: 320px;
     margin-top: -320px;
-    // border: 2px solid orange;
+    padding-top: 320px;
 
     @media (min-width: 1000px) {
         padding-top: 160px;
-        // padding-bottom: 96px;
         margin-top: 0;
     }
 `
 
 const TopContainer = styled.div`
-    text-align: center;
-    max-width: 848px;
     margin-bottom: 48px;
+    max-width: 848px;
+    text-align: center;
 
     @media (min-width: 800px) {
         margin-bottom: 96px;
@@ -34,7 +32,6 @@ const Text = styled.p`
     font-size: 16px;
     line-height: 24px;
     text-align: center;
-    // border: 1px dashed green;
     color: ${gray.darker};
 
     @media (min-width: 1200px) {
@@ -44,15 +41,15 @@ const Text = styled.p`
 `
 
 const StagesContainer = styled.div`
+    margin-right: 48px;
+    max-width: 500px;
     display: flex;
     flex-direction: column;
-    max-width: 500px;
-    margin-right: 48px;
     align-self: flex-start;
 
     @media (min-width: 800px) {
-        max-width: 1200px;
         margin-right: 0;
+        max-width: 1200px;
         flex-direction: row;
         justify-content: center;
         align-self: center;
@@ -61,8 +58,10 @@ const StagesContainer = styled.div`
 
 const Stage = styled.div`
     margin-bottom: 48px;
+
     @media (min-width: 800px) {
         flex-basis: calc(100% / 3);
+
         &:not(:last-child) {
             margin-right: 32px;
         }
@@ -77,7 +76,6 @@ const StageNum = styled.h6`
     line-height: 20px;
     letter-spacing: 0.25px;
     text-transform: uppercase;
-    // border: 1px dashed green;
 
     @media (min-width: 1200px) {
         margin-bottom: 12px;
@@ -93,10 +91,10 @@ const StageName = styled.h3`
     line-height: 32px;
 
     @media (min-width: 1200px) {
+        margin-bottom: 24px;
         font-weight: 900;
         font-size: 32px;
         line-height: 40px;
-        margin-bottom: 24px;
     }
 `
 

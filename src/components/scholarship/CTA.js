@@ -16,7 +16,6 @@ const Title = styled.h2`
     font-size: 32px;
     line-height: 40px;
     text-align: center;
-    // border: 1px dashed green;
 
     @media (min-width: 800px) {
         margin-bottom: 32px;

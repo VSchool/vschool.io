@@ -5,31 +5,18 @@ import { useStaticQuery, graphql, navigate } from "gatsby"
 import { blue, gray, TextInput, Button } from "@vschool/lotus"
 
 const Section = styled.section`
-    padding-top: 64px;
-    padding-bottom: 24px;
-    // padding-bottom: 24px;
-    padding-left: 20px;
-    padding-right: 20px;
-    // padding-bottom: 64px;
-    // border: 2px solid orange; 
+    padding: 64px 20px 24px 20px;
 
     @media (min-width: 1200px) {
-        padding-top: 48px;
-        // padding-bottom: 32px;
-        padding-left: 88px;
-        padding-right: 88px; 
-        // padding-bottom: 96px;   
+        padding: 48px 88px 24px 88px;
     }
 `
 
 const FormContainer = styled.div`
-    background-color: ${blue.lightest};
     padding: 40px 24px;
-    border: 2px solid ${blue.base};
     width: 100%;
-    // max-width: 1024px;
-    // border: 2px solid dodgerblue; 
-
+    background-color: ${blue.lightest};
+    border: 2px solid ${blue.base};
 
     @media (min-width: 800px) {
         padding: 32px 288px;
@@ -42,7 +29,6 @@ const Header = styled.h3`
     font-size: 32px;
     line-height: 40px;
     text-align: center;
-    // border: 1px dashed green;
 
     @media (min-width: 1200px) {
         font-size: 44px;
@@ -51,11 +37,10 @@ const Header = styled.h3`
 `
 
 const DatesContainer = styled.div`
+    margin-bottom: ${props => (props.$deadlinePast ? "0" : "48px")};
     display: flex;
     flex-direction: column;
     justify-content: center;
-    // border: 4px solid purple;
-    margin-bottom: ${props => (props.$deadlinePast ? "0" : "48px")};
 
     @media (min-width: 800px) {
         flex-direction: row;
@@ -63,10 +48,6 @@ const DatesContainer = styled.div`
 `
 
 const DateGroup = styled.div`
-    // margin-bottom: 24px;
-    // text-align: center;
-    // border: 2px solid red;
-
     &:first-child {
         margin-bottom: 24px;
     }
@@ -81,54 +62,37 @@ const DateGroup = styled.div`
 
 const DateText = styled.h6`
     margin-bottom: 4px;
+    font-weight: 800;
     font-size: 14px;
     line-height: 20px;
-    font-weight: 800;
     letter-spacing: 0.25px;
     text-transform: uppercase;
     text-align: center;
     color: ${blue.base};
-    // border: 1px dashed green;
 
-    @media (min-width: 800px) {
+    @media (min-width: 1200px) {
+        margin-bottom: 8px;
         font-size: 16px;
         line-height: 24px;
-        margin-bottom: 8px;
     }
 `
 const Date = styled.h5`
+    font-weight: 800;
     font-size: 20px;
     line-height: 24px;
-    font-weight: 800;
     text-align: center;
     color: ${gray.darker};
-    // border: 1px dashed green;
 `
 
 const Form = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
-    // border: 2px solid red;
-
-    // & > div {
-    //     margin-bottom: 32px;
-    // }
-
-    // @media (min-width: 800px) {
-    //     flex-direction: row;
-
-    //     & > div {
-    //         margin-right: 16px;
-    //         margin-bottom: 0;
-    //     }
-    // }
 `
 
 const InputsWrapper = styled.div`
-    width: 100%;
-    // border: 1px solid orange;
     margin-bottom: 8px;
+    width: 100%;
 
     & > div {
         margin: 0px;
@@ -139,20 +103,18 @@ const InputsWrapper = styled.div`
     }
 
     @media (min-width: 1200px) {
-        // margin-bottom: 48px;
         display: flex;
         justify-content: space-between;
     }
 `
 
 const Disclaimer = styled.p`
-    color: ${gray.darker};
+    margin-top: 16px;  
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
-    margin-top: 16px;
-    text-align: center;
-    // border: 1px dashed green;
+    text-align: center; 
+    color: ${gray.darker};
 
     @media (min-width: 1200px) {
         margin-top: 32px;
@@ -160,7 +122,6 @@ const Disclaimer = styled.p`
 `
 
 const StyledButton = styled(Button)`
-    // border: 1px dashed green;
 
     @media (max-width: 599px) {
         width: 100%;
@@ -171,11 +132,8 @@ const StyledTextInput = styled(TextInput)`
 
     @media (min-width: 1200px) {
         width: 325px;
-        // background: red;
     }
 `
-
-
 
 export default function ApplicationForm(props) {
     const [name, setName] = useState("")

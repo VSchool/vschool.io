@@ -8,9 +8,9 @@ const Container = styled.section`
 `
 
 const Title = styled.h3`
-    text-align: center;
-    max-width: 580px;
     margin-bottom: 108px;
+    max-width: 580px;
+    text-align: center;
     font-weight: 800;
 `
 
