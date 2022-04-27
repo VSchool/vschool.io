@@ -19,26 +19,28 @@ const Icon = styled.img`
 
 const CourseName = styled.h5`
     color: ${black};
-    margin-bottom: 8px;
+    // margin-bottom: 8px;
+    font-weight: 800;
 `
 
 const CourseInfo = styled.p`
     color: ${gray.darker};
-    font-weight: 300;
-    font-size: 16px;
-    line-height: 24px;  
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;  
     text-align: left;
-    padding-top: 8px;
+    margin-top: 8px;
 
     @media (min-width: 800px) {
-        padding-top: 16px;
-        font-size: 20px;
-        line-height: 32px;
+        margin-top: 16px;
+        font-size: 16px;
+        line-height: 24px;
     }
 `
 
 const StyledLink = styled(Link)`
-    margin-top: auto;
+    margin-top: 56px;
+    // margin-top: auto;
 `
 
 export default function CoursesNew(props) {

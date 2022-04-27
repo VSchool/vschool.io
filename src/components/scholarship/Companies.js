@@ -11,6 +11,7 @@ const Title = styled.h3`
     text-align: center;
     max-width: 580px;
     margin-bottom: 108px;
+    font-weight: 800;
 `
 
 const LogoContainer = styled.div`

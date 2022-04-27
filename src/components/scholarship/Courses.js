@@ -21,6 +21,7 @@ const Subtitle = styled.h6`
     color: ${blue.dark};
     text-align: center;
     margin-bottom: 24px;
+    font-weight: 800;
 
     @media (min-width: 800px) {
         margin-bottom: 32px;
@@ -59,8 +60,8 @@ export default function Courses() {
     } = data.prismicScholarshipPageSharedData.data
     return (
         <Container>
-            <Title>{title}</Title>
             <Subtitle>{subtitle}</Subtitle>
+            <Title>{title}</Title>
             <Text>{text}</Text>
             <CoursesNew />
         </Container>

@@ -30,6 +30,7 @@ const Title = styled.h4`
     background-color: #fbf9f6;
     padding-left: 16px;
     padding-right: 16px;
+    font-weight: 800;
 `
 
 const RankingsGrid = styled.div`

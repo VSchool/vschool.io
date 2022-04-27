@@ -65,6 +65,7 @@ const StageNum = styled.h6`
 
 const StageName = styled.h3`
     margin-bottom: 14px;
+    font-weight: 800;
 `
 
 const StageText = styled.p`

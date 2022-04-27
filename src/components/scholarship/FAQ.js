@@ -37,6 +37,7 @@ const Group = styled.div`
 
 const Question = styled.h4`
     margin-bottom: 8px;
+    font-weight: 900;
 
     @media (min-width: 800px) {
         margin-bottom: 16px;

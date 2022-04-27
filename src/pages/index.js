@@ -115,6 +115,7 @@ export default function IndexPage({ data }) {
                         textAlign: "center",
                         maxWidth: 616,
                         marginBottom: 48,
+                        fontWeight: 900,
                     }}
                 >
                     {whereWeWorkHeader}

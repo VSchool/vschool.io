@@ -27,6 +27,7 @@ const FormContainer = styled.div`
 const Header = styled.h3`
     margin-bottom: 32px;
     text-align: center;
+    font-weight: 900;
 `
 
 const DatesContainer = styled.div`
@@ -55,6 +56,7 @@ const DateText = styled.h6`
     font-size: 14px;
     line-height: 20px;
     margin-bottom: 4px;
+    font-weight: 800;
 
     @media (min-width: 800px) {
         font-size: 16px;
@@ -63,6 +65,7 @@ const DateText = styled.h6`
     }
 `
 const Date = styled.h5`
+    font-weight: 800;
     color: ${gray.darker};
 `
 
