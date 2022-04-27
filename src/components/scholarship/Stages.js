@@ -6,10 +6,11 @@ import { gray, blue } from "@vschool/lotus"
 const Container = styled.section`
     padding-top: 320px;
     margin-top: -320px;
+    // border: 2px solid orange;
 
     @media (min-width: 1000px) {
         padding-top: 160px;
-        padding-bottom: 96px;
+        // padding-bottom: 96px;
         margin-top: 0;
     }
 `
@@ -29,7 +30,17 @@ const Title = styled.h2`
 `
 
 const Text = styled.p`
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    // border: 1px dashed green;
     color: ${gray.darker};
+
+    @media (min-width: 1200px) {
+        font-size: 20px;
+        line-height: 32px;    
+    }
 `
 
 const StagesContainer = styled.div`
@@ -59,19 +70,46 @@ const Stage = styled.div`
 `
 
 const StageNum = styled.h6`
-    color: ${blue.dark};
     margin-bottom: 8px;
+    color: ${blue.dark};
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    text-transform: uppercase;
+    // border: 1px dashed green;
+
+    @media (min-width: 1200px) {
+        margin-bottom: 12px;
+        font-size: 16px;
+        line-height: 24px;    
+    }
 `
 
 const StageName = styled.h3`
     margin-bottom: 14px;
     font-weight: 800;
+    font-size: 24px;
+    line-height: 32px;
+
+    @media (min-width: 1200px) {
+        font-weight: 900;
+        font-size: 32px;
+        line-height: 40px;
+        margin-bottom: 24px;
+    }
 `
 
 const StageText = styled.p`
-    color: ${gray.darker};
+    font-weight: 400;
     font-size: 14px;
     line-height: 18px;
+    color: ${gray.darker};
+
+    @media (min-width: 1200px) {
+        font-size: 16px;
+        line-height: 24px;    
+    }
 `
 
 export default function Stages() {

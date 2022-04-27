@@ -11,23 +11,31 @@ const Container = styled.section`
 `
 
 const Title = styled.h2`
-    text-align: center;
     margin-bottom: 24px;
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 40px;
     text-align: center;
+    // border: 1px dashed green;
 
     @media (min-width: 800px) {
         margin-bottom: 32px;
+        font-size: 44px;
+        line-height: 48px;
     }
 `
 
 const Text = styled.p`
+    margin-bottom: 32px;
+    font-weight: 400;
     font-size: 16px;
-    margin-bottom: 24px;
+    line-height: 24px;
     text-align: center;
     color: ${gray.darker};
 
     @media (min-width: 800px) {
-        margin-bottom: 32px;
+        font-size: 20px;
+        line-height: 32px;
     }
 `
 

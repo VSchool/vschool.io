@@ -36,12 +36,31 @@ const Title = styled.h1`
 
 const Text = styled.p`
     color: ${gray.darker};
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    // background: red;
     margin-bottom: 24px;
+
+    @media (min-width: 1200px) {
+        font-size: 20px;
+        line-height: 32px;    
+    }
 `
 
 const Amount = styled.h6`
     color: ${blue.dark};
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    text-transform: uppercase;
     margin-bottom: 44px;
+
+    @media (min-width: 1200px) {
+        font-size: 16px;
+        line-height: 24px;    
+    }
 `
 
 const StyledButton = styled(Button)`

@@ -5,58 +5,90 @@ import { useStaticQuery, graphql, navigate } from "gatsby"
 import { blue, gray, TextInput, Button } from "@vschool/lotus"
 
 const Section = styled.section`
+    padding-top: 64px;
     padding-bottom: 24px;
+    // padding-bottom: 24px;
+    padding-left: 20px;
+    padding-right: 20px;
+    // padding-bottom: 64px;
+    // border: 2px solid orange; 
 
-    @media (min-width: 800px) {
-        padding-bottom: 32px;
+    @media (min-width: 1200px) {
+        padding-top: 48px;
+        // padding-bottom: 32px;
+        padding-left: 88px;
+        padding-right: 88px; 
+        // padding-bottom: 96px;   
     }
 `
 
 const FormContainer = styled.div`
     background-color: ${blue.lightest};
-    padding: 32px 24px;
+    padding: 40px 24px;
     border: 2px solid ${blue.base};
     width: 100%;
-    max-width: 1024px;
+    // max-width: 1024px;
+    // border: 2px solid dodgerblue; 
+
 
     @media (min-width: 800px) {
-        padding: 32px;
+        padding: 32px 288px;
     }
 `
 
 const Header = styled.h3`
-    margin-bottom: 32px;
-    text-align: center;
+    margin-bottom: 48px;
     font-weight: 900;
+    font-size: 32px;
+    line-height: 40px;
+    text-align: center;
+    // border: 1px dashed green;
+
+    @media (min-width: 1200px) {
+        font-size: 44px;
+        line-height: 48px;    
+    }
 `
 
 const DatesContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-bottom: ${props => (props.$deadlinePast ? "0" : "24px")};
+    // border: 4px solid purple;
+    margin-bottom: ${props => (props.$deadlinePast ? "0" : "48px")};
+
     @media (min-width: 800px) {
         flex-direction: row;
     }
 `
 
 const DateGroup = styled.div`
-    text-align: center;
-    margin-bottom: 24px;
+    // margin-bottom: 24px;
+    // text-align: center;
+    // border: 2px solid red;
+
+    &:first-child {
+        margin-bottom: 24px;
+    }
 
     @media (min-width: 800px) {
         &:not(:last-child) {
             margin-right: 96px;
+            margin-bottom: 0px;
         }
     }
 `
 
 const DateText = styled.h6`
-    color: ${blue.base};
+    margin-bottom: 4px;
     font-size: 14px;
     line-height: 20px;
-    margin-bottom: 4px;
     font-weight: 800;
+    letter-spacing: 0.25px;
+    text-transform: uppercase;
+    text-align: center;
+    color: ${blue.base};
+    // border: 1px dashed green;
 
     @media (min-width: 800px) {
         font-size: 16px;
@@ -65,41 +97,85 @@ const DateText = styled.h6`
     }
 `
 const Date = styled.h5`
+    font-size: 20px;
+    line-height: 24px;
     font-weight: 800;
+    text-align: center;
     color: ${gray.darker};
+    // border: 1px dashed green;
 `
 
 const Form = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
+    // border: 2px solid red;
+
+    // & > div {
+    //     margin-bottom: 32px;
+    // }
+
+    // @media (min-width: 800px) {
+    //     flex-direction: row;
+
+    //     & > div {
+    //         margin-right: 16px;
+    //         margin-bottom: 0;
+    //     }
+    // }
+`
+
+const InputsWrapper = styled.div`
+    width: 100%;
+    // border: 1px solid orange;
+    margin-bottom: 8px;
+
     & > div {
-        margin-bottom: 32px;
+        margin: 0px;
     }
 
-    @media (min-width: 800px) {
-        flex-direction: row;
+    & > :last-child {
+        margin-bottom: 16px;
+    }
 
-        & > div {
-            margin-right: 16px;
-            margin-bottom: 0;
-        }
+    @media (min-width: 1200px) {
+        // margin-bottom: 48px;
+        display: flex;
+        justify-content: space-between;
     }
 `
 
 const Disclaimer = styled.p`
     color: ${gray.darker};
+    font-weight: 400;
     font-size: 14px;
     line-height: 18px;
     margin-top: 16px;
     text-align: center;
+    // border: 1px dashed green;
+
+    @media (min-width: 1200px) {
+        margin-top: 32px;
+    }
 `
 
 const StyledButton = styled(Button)`
+    // border: 1px dashed green;
+
     @media (max-width: 599px) {
         width: 100%;
     }
 `
+
+const StyledTextInput = styled(TextInput)`
+
+    @media (min-width: 1200px) {
+        width: 325px;
+        // background: red;
+    }
+`
+
+
 
 export default function ApplicationForm(props) {
     const [name, setName] = useState("")
@@ -217,26 +293,29 @@ export default function ApplicationForm(props) {
                 {!deadlinePast && (
                     <>
                         <Form id="application-form" onSubmit={handleSubmit}>
-                            <TextInput
-                                type="text"
-                                label="Name"
-                                name="name"
-                                placeholder="First and Last name"
-                                value={name}
-                                onChange={e => setName(e.target.value)}
-                                required
-                                validationText="auto-generate"
-                            />
-                            <TextInput
-                                type="email"
-                                label="Email"
-                                name="email"
-                                placeholder="joe@example.com"
-                                value={email}
-                                onChange={e => setEmail(e.target.value)}
-                                required
-                                validationText="auto-generate"
-                            />
+                            <InputsWrapper>
+                                <StyledTextInput
+                                    type="text"
+                                    label="Name"
+                                    name="name"
+                                    placeholder="Enter full name"
+                                    value={name}
+                                    onChange={e => setName(e.target.value)}
+                                    required
+                                    validationText="auto-generate"
+                                />
+                                <StyledTextInput
+                                    type="email"
+                                    label="Email"
+                                    name="email"
+                                    placeholder="Enter vaild email address"
+                                    value={email}
+                                    onChange={e => setEmail(e.target.value)}
+                                    required
+                                    validationText="auto-generate"
+                                />
+                            </InputsWrapper>
+                            
                             <StyledButton size="lg">{buttonText}</StyledButton>
                         </Form>
                         <Disclaimer>{disclaimer}</Disclaimer>

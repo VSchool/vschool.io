@@ -3,11 +3,20 @@ import styled from "styled-components"
 import { gray } from "@vschool/lotus"
 
 const Container = styled.section`
-    padding-bottom: 96px;
+    padding-top: 32px;
+    padding-bottom: 64px;
+    // padding-bottom: 96px;
+    // padding-top: 64px;
+    // padding-bottom: 64px;
+    // border: 2px solid red;
 
-    @media (min-width: 800px) {
-        flex-direction: row;
+    @media (min-width: 1200px) {
         padding-bottom: 160px;
+        // padding-top: 32px;
+        // padding-bottom: 96px;
+        // padding-top: 64px;
+        // padding-bottom: 96px;
+        flex-direction: row;
     }
 `
 
