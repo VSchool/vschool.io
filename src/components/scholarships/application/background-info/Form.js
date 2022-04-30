@@ -49,7 +49,7 @@ export default function BackgroundForm() {
         }
     `)
     
-    const { formComponents, formData } = useFormium(location.state.scholarshipName === 'DWSS Full-Ride Scholarship to V School' ? data.form2 : data.form1)
+    const { formComponents, formData } = useFormium(location.state?.scholarshipName === 'DWSS Full-Ride Scholarship to V School' ? data.form2 : data.form1)
 
     useEffect(() => {
         base("Scholarship Application")
