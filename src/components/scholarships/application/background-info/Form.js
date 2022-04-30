@@ -38,16 +38,18 @@ export default function BackgroundForm() {
     const [eligible, setEligible] = useState(true)
     const data = useStaticQuery(graphql`
         {
-            formiumForm(slug: { eq: "scholarship-background-info" }) {
+            form1: formiumForm(slug: { eq: "scholarship-background-info" }) {
+                name
+                schema
+            }
+            form2: formiumForm(slug: { eq: "gowinn-scholarship-background" }) {
                 name
                 schema
             }
         }
     `)
     
-
-    const { formComponents, formData } = useFormium(data.formiumForm)
-    
+    const { formComponents, formData } = useFormium(location.state?.scholarshipName === 'DWSS Full-Ride Scholarship to V School' ? data.form2 : data.form1)
 
     useEffect(() => {
         base("Scholarship Application")
