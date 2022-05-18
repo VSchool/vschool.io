@@ -92,6 +92,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                                 alt
                                 url
                             }
+                            partner_logos {
+                                partner_logo {
+                                    alt
+                                    url
+                                }
+                            }
+                            partner_title {
+                                text
+                            }
                             primary_theme_color
                             secondary_theme_color
                             scholarship_name {

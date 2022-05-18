@@ -9,6 +9,7 @@ import Faq from "./FAQ"
 import Companies from "./Companies"
 import Rankings from "../shared/Rankings"
 import Testimonial from "./Testimonial"
+import PartnerLogos from "./PartnerLogos"
 import Courses from "./Courses"
 import Cta from "./CTA"
 
@@ -28,6 +29,7 @@ export default function Scholarship({ data }) {
         <div>
             <Hero {...data} deadlinePast={deadlinePast} />
             {detailsExist && <Details {...data} />}
+            <PartnerLogos {...data} />
             <Stages />
             <Form {...data} deadlinePast={deadlinePast} />
             {deadlinePast ? <ClosedAppCTA /> : <Faq {...data} />}

@@ -1,258 +1,265 @@
 {
-  "Meta": {
-    "scholarship_name": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "Scholarship Name"
+  "Meta" : {
+    "scholarship_name" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
+        "label" : "Scholarship Name"
       }
     },
-    "uid": {
-      "type": "UID",
-      "config": {
-        "label": "Slug"
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "Slug"
       }
     },
-    "summary": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label": "Summary",
-        "placeholder": "Info to exist on the scholarship cards"
+    "summary" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+        "label" : "Summary",
+        "placeholder" : "Info to exist on the scholarship cards"
       }
     },
-    "primary_theme_color": {
-      "type": "Select",
-      "config": {
-        "options": [
-          "blue",
-          "pink",
-          "purple",
-          "red",
-          "green",
-          "yellow",
-          "orange",
-          "gray"
-        ],
-        "default_value": "blue",
-        "label": "Primary Theme Color"
+    "primary_theme_color" : {
+      "type" : "Select",
+      "config" : {
+        "options" : [ "blue", "pink", "purple", "red", "green", "yellow", "orange", "gray" ],
+        "default_value" : "blue",
+        "label" : "Primary Theme Color"
       }
     },
-    "secondary_theme_color": {
-      "type": "Select",
-      "config": {
-        "options": [
-          "yellow",
-          "blue",
-          "pink",
-          "purple",
-          "red",
-          "green",
-          "orange",
-          "gray"
-        ],
-        "default_value": "yellow",
-        "label": "Secondary Theme Color"
+    "secondary_theme_color" : {
+      "type" : "Select",
+      "config" : {
+        "options" : [ "yellow", "blue", "pink", "purple", "red", "green", "orange", "gray" ],
+        "default_value" : "yellow",
+        "label" : "Secondary Theme Color"
       }
     },
-    "active": {
-      "type": "Boolean",
-      "config": {
-        "placeholder_false": "Inactive",
-        "placeholder_true": "Active",
-        "label": "Active (Should page be live on website?)"
+    "active" : {
+      "type" : "Boolean",
+      "config" : {
+        "placeholder_false" : "Inactive",
+        "placeholder_true" : "Active",
+        "label" : "Active (Should page be live on website?)"
       }
     },
-    "public": {
-      "type": "Boolean",
-      "config": {
-        "placeholder_false": "Private",
-        "placeholder_true": "Public",
-        "default_value": true,
-        "label": "Public (Should scholarship be listed on scholarship list page?)"
+    "public" : {
+      "type" : "Boolean",
+      "config" : {
+        "placeholder_false" : "Private",
+        "placeholder_true" : "Public",
+        "default_value" : true,
+        "label" : "Public (Should scholarship be listed on scholarship list page?)"
       }
     },
-    "full_tuition_scholarship": {
-      "type": "Boolean",
-      "config": {
-        "placeholder_false": "Partial scholarship",
-        "placeholder_true": "Full scholarship",
-        "default_value": false,
-        "label": "Full Tuition Scholarship"
+    "full_tuition_scholarship" : {
+      "type" : "Boolean",
+      "config" : {
+        "placeholder_false" : "Partial scholarship",
+        "placeholder_true" : "Full scholarship",
+        "default_value" : false,
+        "label" : "Full Tuition Scholarship"
       }
     },
-    "icon": {
-      "type": "Image",
-      "config": {
-        "constraint": {},
-        "thumbnails": [],
-        "label": "Icon"
+    "icon" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Icon"
       }
     },
-    "convertkit_tag": {
-      "type": "Text",
-      "config": {
-        "label": "ConvertKit Tag"
+    "convertkit_tag" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "ConvertKit Tag"
       }
     }
   },
-  "Hero": {
-    "hero_title": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "Hero Title"
+  "Hero" : {
+    "hero_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
+        "label" : "Hero Title"
       }
     },
-    "hero_text": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label": "Hero Text"
+    "hero_text" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+        "label" : "Hero Text"
       }
     },
-    "hero_scholarship_amount": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "Hero Scholarship Amount"
+    "hero_scholarship_amount" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
+        "label" : "Hero Scholarship Amount"
       }
     },
-    "hero_image": {
-      "type": "Image",
-      "config": {
-        "constraint": {},
-        "thumbnails": [],
-        "label": "Hero Image"
+    "hero_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Hero Image"
       }
     },
-    "hero_card_image": {
-      "type": "Image",
-      "config": {
-        "constraint": {},
-        "thumbnails": [],
-        "label": "Hero Card Image"
+    "hero_card_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Hero Card Image"
       }
     },
-    "hero_button_text": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label": "Hero Button Text"
+    "hero_button_text" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+        "label" : "Hero Button Text"
       }
     }
   },
-  "Dates": {
-    "deadline_text": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label": "Deadline Text"
+  "Dates" : {
+    "deadline_text" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+        "label" : "Deadline Text"
       }
     },
-    "deadline_date": {
-      "type": "Date",
-      "config": {
-        "label": "Deadline Date"
+    "deadline_date" : {
+      "type" : "Date",
+      "config" : {
+        "label" : "Deadline Date"
       }
     },
-    "winner_announced_text": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label": "Winner Announced Text"
+    "winner_announced_text" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+        "label" : "Winner Announced Text"
       }
     },
-    "winner_announced_date": {
-      "type": "Date",
-      "config": {
-        "label": "Winner Announced Date"
+    "winner_announced_date" : {
+      "type" : "Date",
+      "config" : {
+        "label" : "Winner Announced Date"
       }
     }
   },
-  "Scholarship FAQ": {
-    "faq_list": {
-      "type": "Group",
-      "config": {
-        "fields": {
-          "faq_question": {
-            "type": "StructuredText",
-            "config": {
-              "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-              "label": "FAQ Question"
+  "Scholarship FAQ" : {
+    "faq_list" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "faq_question" : {
+            "type" : "StructuredText",
+            "config" : {
+              "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
+              "label" : "FAQ Question"
             }
           },
-          "faq_answer": {
-            "type": "StructuredText",
-            "config": {
-              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-              "label": "FAQ Answer"
+          "faq_answer" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+              "label" : "FAQ Answer"
             }
           }
         },
-        "label": "FAQ List"
+        "label" : "FAQ List"
       }
     }
   },
-  "Testimonial": {
-    "testimonial_quote": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label": "Testimonial Quote"
+  "Testimonial" : {
+    "testimonial_quote" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+        "label" : "Testimonial Quote"
       }
     },
-    "testimonial_name": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label": "Testimonial Name"
+    "testimonial_name" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+        "label" : "Testimonial Name"
       }
     },
-    "testimonial_status": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label": "Testimonial Status"
+    "testimonial_status" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+        "label" : "Testimonial Status"
       }
     },
-    "testimonial_image": {
-      "type": "Image",
-      "config": {
-        "constraint": {},
-        "thumbnails": [],
-        "label": "Testimonial Image"
+    "testimonial_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Testimonial Image"
       }
     }
   },
-  "Details": {
-    "details_logo": {
-      "type": "Image",
-      "config": {
-        "constraint": {},
-        "thumbnails": [],
-        "label": "Details Logo"
+  "Details" : {
+    "details_logo" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Details Logo"
       }
     },
-    "details_title": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "Details Title"
+    "details_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
+        "label" : "Details Title"
       }
     },
-    "details_subtitle": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "Details Subtitle"
+    "details_subtitle" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
+        "label" : "Details Subtitle"
       }
     },
-    "details_text": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label": "Details Text"
+    "details_text" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+        "label" : "Details Text"
+      }
+    }
+  },
+  "Partners" : {
+    "partner_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
+        "label" : "Partner Title"
+      }
+    },
+    "partner_logos" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "partner_logo" : {
+            "type" : "Image",
+            "config" : {
+              "constraint" : { },
+              "thumbnails" : [ ],
+              "label" : "Partner Logo"
+            }
+          }
+        },
+        "label" : "Partner Logos"
       }
     }
   }
