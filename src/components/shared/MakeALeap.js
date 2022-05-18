@@ -206,7 +206,7 @@ export default function CallToAction(props) {
     const { bgColor, sessionColor } = props
 
     return (
-        <Container bgColor={bgColor}>
+        <Container bgColor={bgColor} id="schedule-appt">
             <H1>{makeALeapHeader}</H1>
             <SessionContainer sessionColor={sessionColor}>
                 <NextSession>
