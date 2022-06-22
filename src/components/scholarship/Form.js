@@ -4,6 +4,9 @@ import styled from "styled-components"
 import { useStaticQuery, graphql, navigate } from "gatsby"
 import { blue, gray, TextInput, Button } from "@vschool/lotus"
 
+import { useLocation } from "@reach/router"
+
+
 const Section = styled.section`
     padding-bottom: 24px;
 
@@ -102,6 +105,10 @@ export default function ApplicationForm(props) {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
 
+    const {pathname} = useLocation()
+    let shortPath = pathname.slice(pathname.indexOf('/', 2))
+    // Getting pathname will tell which scholarship page we are on
+
     // TODO: Submit the data somewhere.
     // Chat with Cody about what happens after that.
     async function handleSubmit(e) {
@@ -121,13 +128,15 @@ export default function ApplicationForm(props) {
         */
 
         try {
-            const nextStep = "background"
+            // if its forever scholarship, we want to send them straight to apply instead of the regular process.
+            const nextStep = shortPath === "/v-school-2000-forever-scholarship" ? "schedule" : "background"
             const scholarshipName = props.scholarship_name.text
             const convertKitTag = props.convertkit_tag
             const options = {
                 method: "POST",
                 body: JSON.stringify({ name, email, nextStep, convertKitTag }),
             }
+           
             // Subscribe them to ConvertKit with specific tag
             convertKitTag && await fetch(
                 process.env.GATSBY_CONVERTKIT_SIGNUP_ZAPIER_WEBHOOK_URL,
@@ -143,7 +152,11 @@ export default function ApplicationForm(props) {
             localStorage.setItem("scholarshipName", scholarshipName)
             localStorage.setItem("application-email", email)
 
+            nextStep === "background" ?
             navigate(`/scholarships/application/background-info`, {
+                state: { email, scholarshipName },
+            }) :
+            navigate(`/scholarships/application/schedule`, {
                 state: { email, scholarshipName },
             })
         } catch (err) {
