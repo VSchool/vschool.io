@@ -103,7 +103,7 @@ export default function Scheduler() {
 
     useEffect(() => {
         const nextStep = localStorage.getItem("scholarshipAppNextStep")
-        if (location.search.includes("email=")) {
+        if (location.search.includes("email=") && localStorage.getItem('scholarshipName') !== 'V School $2,000 Forever Scholarship') {
             if (nextStep === "essay") {
                 navigate(
                     `/scholarships/application/essay-questions${
@@ -134,7 +134,8 @@ export default function Scheduler() {
     }, [])
 
     async function handleEventScheduled(e) {
-        const data = { ...queryData, nextStep: "essay" }
+        let nextStep = localStorage.getItem('scholarshipName') === 'V School $2,000 Forever Scholarship' ? "complete" : "essay"
+        const data = { ...queryData, nextStep }
         const options = {
             method: "POST",
             body: JSON.stringify(data),
@@ -144,8 +145,11 @@ export default function Scheduler() {
                 process.env.GATSBY_SCHOLARSHIP_APP_ZAPIER_WEBHOOK_URL,
                 options
             )
-            localStorage.setItem("scholarshipAppNextStep", "essay")
-            navigate("/scholarships/application/essay-questions")
+            localStorage.setItem("scholarshipAppNextStep", nextStep)
+
+            nextStep === "essay" ?
+            navigate("/scholarships/application/essay-questions") :
+            navigate("/scholarships/application/complete")
         } catch (e) {
             console.error(e.message)
         }
