@@ -101,14 +101,16 @@ const NavToggle = styled.div`
 `
 
 const Layout = ({ children }) => {
-    const {scrollDirection} = useScroll()
+    const {scrollDirection, scrollY} = useScroll()
     const [showing, setShowing] = useState(true)
     const location = useLocation()
     const showBanner = location.pathname !== "/scholarships"
 
     useEffect(()=> {
-        scrollDirection === 'down' ? setShowing(false) : setShowing(true)
-    }, [scrollDirection])
+        if (scrollY > 116){
+            scrollDirection === 'down' ? setShowing(false) : setShowing(true)
+        }
+    })
 
     return (
         <MainContainer>
