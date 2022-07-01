@@ -309,7 +309,7 @@ const Apply = props => {
         apply_other_button: { text: otherBtn },
         apply_other_link: { url: otherUrl },
     } = props
-
+    
     return (
         <>
             <Container>
@@ -333,7 +333,7 @@ const Apply = props => {
                     <HowContainer>
                         <HowTitle>{howTitle}</HowTitle>
                         <StepContainer>{steps}</StepContainer>
-                        <QueryLink to="/syllabus/apply">
+                        <QueryLink to={`/syllabus/${otherBtn === 'Learn Design' ? 'development' : 'design'}`}>
                             <StyledButton>{howBtn}</StyledButton>
                         </QueryLink>
                     </HowContainer>
