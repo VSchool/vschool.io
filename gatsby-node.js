@@ -502,4 +502,32 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         isPermanent: true,
         force: true,
     })
+
+    actions.createRedirect({
+        fromPath: "/fullstack",
+        toPath: "/courses/development",
+        isPermanent: true,
+        force: true,
+    })
+
+    actions.createRedirect({
+        fromPath: "/paylater",
+        toPath: "/",
+        isPermanent: true,
+        force: true,
+    })
+
+    actions.createRedirect({
+        fromPath: "/scholarships/goodwill",
+        toPath: "/",
+        isPermanent: true,
+        force: true,
+    })
+
+    actions.createRedirect({
+        fromPath: "/admissions",
+        toPath: "/apply",
+        isPermanent: true,
+        force: true,
+    })
 }
