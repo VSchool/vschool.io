@@ -428,7 +428,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
     actions.createRedirect({
         fromPath: "/book-a-time",
-        toPath: "https://calendly.com/v-school/apply",
+        toPath: "/apply",
         isPermanent: true,
         force: true,
     })

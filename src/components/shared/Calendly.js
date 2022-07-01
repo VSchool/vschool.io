@@ -27,7 +27,7 @@ export default function Calendly(props) {
         <WidgetContainer>
             <CalendlyEventListener onEventScheduled={handleEventScheduled}>
                 <InlineWidget
-                    url="https://calendly.com/v-school/apply"
+                    url="/apply"
                     prefill={{
                         email: "",
                     }}
