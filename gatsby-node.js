@@ -449,7 +449,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
     actions.createRedirect({
         fromPath: "/you-belong",
-        toPath: "/scholarships/you-belong-in-tech",
+        toPath: "/",
         isPermanent: true,
         force: true,
     })
@@ -527,6 +527,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     actions.createRedirect({
         fromPath: "/admissions",
         toPath: "/apply",
+        isPermanent: true,
+        force: true,
+    })
+
+    actions.createRedirect({
+        fromPath: "/tiffin-university",
+        toPath: "/",
         isPermanent: true,
         force: true,
     })
