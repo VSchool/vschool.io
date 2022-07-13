@@ -168,7 +168,7 @@ export default function Scheduler() {
                         onEventScheduled={handleEventScheduled}
                     >
                         <InlineWidget
-                            url="https://calendly.com/v-school/apply"
+                            url={localStorage.getItem('scholarshipName') === 'V School $2,000 Forever Scholarship' ? "https://calendly.com/v-school/scholarship-chat" : "https://calendly.com/v-school/apply"}
                             styles={{ height: 700 }}
                             prefill={{
                                 email: queryData.email || "",
