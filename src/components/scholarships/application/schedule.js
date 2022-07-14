@@ -154,7 +154,6 @@ export default function Scheduler() {
             console.error(e.message)
         }
     }
-    let scholarshipType = localStorage.getItem('scholarshipName')
     return (
         <>
             <Container>
@@ -168,7 +167,7 @@ export default function Scheduler() {
                         onEventScheduled={handleEventScheduled}
                     >
                         <InlineWidget
-                            url={scholarshipType === 'V School $2,000 Forever Scholarship' ? "https://calendly.com/v-school/scholarship-chat" : "https://calendly.com/v-school/apply"}
+                            url={location.search?.scholarshipType === 'V School $2,000 Forever Scholarship' ? "https://calendly.com/v-school/scholarship-chat" : "https://calendly.com/v-school/apply"}
                             styles={{ height: 700 }}
                             prefill={{
                                 email: queryData.email || "",
