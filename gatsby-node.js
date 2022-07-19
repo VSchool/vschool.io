@@ -537,4 +537,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         isPermanent: true,
         force: true,
     })
+
+    actions.createRedirect({
+        fromPath: "/meta",
+        toPath: "/scholarships/you-belong-in-tech-scholarship-sustainable-startups",
+        isPermanent: true,
+        force: true,
+    })
 }
