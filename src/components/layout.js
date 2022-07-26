@@ -88,34 +88,61 @@ const NavToggle = styled.div`
   transition: all .5s linear;
 
   & > nav {
-      top: ${props => props.status ? '48px' : '-200px'};
+      top: ${props => {
+        if(props.$showBanner){
+            return props.status ? '48px' : '-200px'
+        }else {
+            return props.status ? 0 : '-200px'
+        }
+      }};
       transition: all .5s linear;
   }
 
   @media(min-width: 800px){
     & > nav {
-      top: ${props => props.status ? '34px' : '-200px'};
+      /* top: ${props => props.status ? '34px' : '-200px'}; */
+      top: ${props => {
+        if(props.$showBanner){
+            return props.status ? '34px' : '-200px'
+        }else {
+            return props.status ? 0 : '-200px'
+        }
+      }};
       transition: all .5s linear;
     }
   }
 `
 
 const Layout = ({ children }) => {
-    const {scrollDirection, scrollY} = useScroll()
+    const {scrollDirection, scrollY, setScrollY} = useScroll()
     const [showing, setShowing] = useState(true)
     const location = useLocation()
     const showBanner = location.pathname !== "/scholarships"
-
+    
     useEffect(()=> {
+        setShowing(true)
         if (scrollY > 116){
             scrollDirection === 'down' ? setShowing(false) : setShowing(true)
         }
     })
 
+    useEffect(() => {
+        if(!localStorage.getItem('lastLocation')){
+            localStorage.setItem('lastLocation', location.pathname)
+        }else {
+            if(localStorage.getItem('lastLocation') !== location.pathname){
+                setTimeout(() => {
+                    setScrollY(0)
+                    localStorage.setItem('lastLocation', location.pathname)
+                }, 1)
+            }
+        }
+    }, [location])
+
     return (
         <MainContainer>
             <ContentContainer $showBanner={showBanner}>
-                <NavToggle status={showing}>
+                <NavToggle status={showing} $showBanner={showBanner}>
                     {showBanner && (
                         <Banner>
                             <BannerText>
