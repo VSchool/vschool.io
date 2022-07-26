@@ -26,6 +26,7 @@ export default function useScroll() {
     });
   
     return {
+      setScrollY,
       scrollY,
       scrollX,
       scrollDirection
