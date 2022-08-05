@@ -13,6 +13,7 @@ const FooterContainer = styled.section`
 const FooterDiv = styled.div`
     max-width: 500px;
     margin: auto;
+    text-align: -webkit-center;
 `
 
 const FooterTitle = styled.h1`

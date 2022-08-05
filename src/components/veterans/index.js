@@ -12,7 +12,7 @@ const PageContainer = styled.div`
   background: ${gray.lighter};
 `
 
-export default function GiBillPage() {
+export default function VeteransPage() {
 
     return (
         <PageContainer>
