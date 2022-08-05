@@ -1,0 +1,5 @@
+export { default as Header } from "./Header.js"
+export { default as Trusted } from "./Trusted.js"
+export { default as VetStudents } from "./VetStudents.js"
+export { default as Ratings } from "./Ratings.js"
+export { default as Testimonial } from "./Testimonial.js"
