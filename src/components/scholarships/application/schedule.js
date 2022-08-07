@@ -103,7 +103,7 @@ export default function Scheduler() {
 
     useEffect(() => {
         const nextStep = localStorage.getItem("scholarshipAppNextStep")
-        if (location.search.includes("email=") && localStorage.getItem('scholarshipName') !== 'V School $2,000 Forever Scholarship') {
+        if (location.search.includes("email=") && !localStorage.getItem('scholarshipName').includes('Forever Scholarship')) {
             if (nextStep === "essay") {
                 navigate(
                     `/scholarships/application/essay-questions${
@@ -154,6 +154,13 @@ export default function Scheduler() {
             console.error(e.message)
         }
     }
+
+    let calendlyUrl = location.state?.scholarshipName === 'V School $2,000 Forever Scholarship' 
+        ? "https://calendly.com/v-school/scholarship-chat" 
+        : location.state?.scholarshipName === 'Service Members Forever Scholarship' 
+        ? "https://calendly.com/v-school/vet-forever-scholarship" 
+        : "https://calendly.com/v-school/apply"
+    console.log(calendlyUrl)
     return (
         <>
             <Container>
@@ -167,7 +174,7 @@ export default function Scheduler() {
                         onEventScheduled={handleEventScheduled}
                     >
                         <InlineWidget
-                            url={location.search?.scholarshipType === 'V School $2,000 Forever Scholarship' ? "https://calendly.com/v-school/scholarship-chat" : "https://calendly.com/v-school/apply"}
+                            url={calendlyUrl}
                             styles={{ height: 700 }}
                             prefill={{
                                 email: queryData.email || "",

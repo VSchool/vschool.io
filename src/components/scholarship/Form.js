@@ -126,10 +126,9 @@ export default function ApplicationForm(props) {
         seems to take about 5 minutes to send the email, not including any intentional 
         delays in the automation
         */
-
         try {
             // if its forever scholarship, we want to send them straight to apply instead of the regular process.
-            const nextStep = shortPath === "/v-school-2000-forever-scholarship" ? "schedule" : "background"
+            const nextStep = shortPath.includes('forever-scholarship') ? "schedule" : "background"
             const scholarshipName = props.scholarship_name.text
             const convertKitTag = props.convertkit_tag
             const options = {

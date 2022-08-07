@@ -116,7 +116,7 @@ export default function AdditionalResources(props) {
             <CalloutTitle>{calloutTitle}</CalloutTitle>
             <CalloutDescription>{calloutDescription}</CalloutDescription>
             <CalloutButton 
-                onClick={() => navigate(calloutTitle.split(' ').includes('Military') ? '/scholarships/veterans-in-tech' : '/bootcamp-primer')}
+                onClick={() => navigate(calloutTitle.split(' ').includes('Military') || calloutTitle.split(' ').includes('Forever') ? '/scholarships/veteran-forever-scholarship' : '/bootcamp-primer')}
             >{calloutBtn}</CalloutButton>
         </CalloutContainer>
    })
