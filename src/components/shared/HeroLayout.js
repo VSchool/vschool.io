@@ -7,7 +7,7 @@ const Container = styled.div`
     max-width: 1200px;
 
     @media (min-width: 1000px) {
-        flex-direction: row;
+        flex-direction: ${props => props.dir.flexDirection || 'row'};
         align-items: center;
         justify-content: center;
     }
@@ -41,9 +41,9 @@ const ImageContainer = styled.div`
 
 export default function HeroLayout({ text, image, textStyles, imgStyles, direction }) {
     return (
-        <Container>
+        <Container dir={{flexDirection: direction ? direction : 'row'}}>
             <TextContainer txt={textStyles}>{text}</TextContainer>
-            <ImageContainer img={imgStyles} style={{flexDirection: direction ? direction : 'row'}}>{image}</ImageContainer>
+            <ImageContainer img={imgStyles}>{image}</ImageContainer>
         </Container>
     )
 }

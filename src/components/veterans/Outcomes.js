@@ -212,11 +212,11 @@ export default function Outcomes(props) {
                     {mappedStats}
                 </BarContainer>
             </NumbersDiv>
-                <OutcomesSubContainer>
-                    <OutcomesImage src={outImgUrl} alt={outImgAlt} />
-                    <OutcomesSubtitle>{outcomesSubTitle}</OutcomesSubtitle>
-                    <SubDescription dangerouslySetInnerHTML={{ __html: outcomesSubDescription }} />
-                </OutcomesSubContainer>
+            <OutcomesSubContainer>
+                <OutcomesImage src={outImgUrl} alt={outImgAlt} />
+                <OutcomesSubtitle>{outcomesSubTitle}</OutcomesSubtitle>
+                <SubDescription dangerouslySetInnerHTML={{ __html: outcomesSubDescription }} />
+            </OutcomesSubContainer>
         </OutcomesContainer>
     )
 }

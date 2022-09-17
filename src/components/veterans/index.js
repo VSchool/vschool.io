@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Hero from './Hero'
 import Outcomes from './Outcomes'
+import Scholarship from './Scholarship'
 import Courses from './Courses'
 import AdditionalResources from './AdditionalResources'
 import Success from './Success'
@@ -17,6 +18,7 @@ export default function VeteransPage() {
     return (
         <PageContainer>
             <Hero />
+            <Scholarship />
             <Outcomes  />
             <Success />
             <Courses />

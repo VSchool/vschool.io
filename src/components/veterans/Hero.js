@@ -201,7 +201,7 @@ const data = useStaticQuery(graphql`
                             </>
                         }
                         image={
-                          <>
+                          <div>
                               <img
                                   src={heroImageUrl}
                                   alt={heroImageAlt}
@@ -217,9 +217,9 @@ const data = useStaticQuery(graphql`
                                   <StatText>{heroSalaryRate}</StatText>
                                 </StatBox>
                               </StatContainer>
-                          </>
+                          </div>
                         }
-                        direction={'column'}
+                        direction={'row'}
                     />
             </ContentContainer>
         </HeroContainer>
