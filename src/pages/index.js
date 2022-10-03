@@ -12,10 +12,12 @@ import {
     Testimonial,
     VideoModal,
 } from "../components/home"
-
+import LogRocket from 'logrocket';
 import CompanyLogoGrid from "../components/shared/CompanyLogoGrid"
 import MakeALeap from "../components/shared/MakeALeap"
 import Courses from "../components/shared/Courses"
+
+LogRocket.init('jc7bvk/v-school-io');
 
 export default function IndexPage({ data }) {
     const [show, setShow] = useState(false)
