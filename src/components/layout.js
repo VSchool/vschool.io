@@ -90,27 +90,24 @@ const NavToggle = styled.div`
   & > nav {
       top: ${props => {
         if(props.$showBanner){
-            return props.status ? '48px' : '-200px'
+            return props.status ? '30px' : '-200px'
         }else {
             return props.status ? 0 : '-200px'
         }
       }};
       transition: all .5s linear;
+
+      @media(min-width: 800px){
+          top: ${props => {
+            if(props.$showBanner){
+                return props.status ? '34px' : '-200px'
+            }else {
+                return props.status ? 0 : '-200px'
+            }
+          }};
+      }
   }
 
-  @media(min-width: 800px){
-    & > nav {
-      /* top: ${props => props.status ? '34px' : '-200px'}; */
-      top: ${props => {
-        if(props.$showBanner){
-            return props.status ? '34px' : '-200px'
-        }else {
-            return props.status ? 0 : '-200px'
-        }
-      }};
-      transition: all .5s linear;
-    }
-  }
 `
 
 const Layout = ({ children }) => {
