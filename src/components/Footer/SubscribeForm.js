@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import { Button, gray } from "@vschool/lotus"
 import modalImg from '../../images/download_icon.png'
+import { useEffect } from "react"
 
 const SubscribeContainer = styled.div`
     text-align: center;
@@ -171,7 +172,11 @@ export default function SubscribeForm(props) {
     const { formHeader } = props
     const [inputs, setInputs] = useState({ FNAME: "", LNAME: "", EMAIL: "" })
     const [open, setOpen] = useState(false)
-    const [submitted, setSubmitted] = useState(localStorage.getItem('submitted') || false)
+    const [submitted, setSubmitted] = useState(false)
+
+    useEffect(() => {
+        setSubmitted(localStorage.getItem('submitted') || false)
+    }, [])
 
 
     function handleChange(e) {
