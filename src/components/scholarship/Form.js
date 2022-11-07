@@ -17,13 +17,13 @@ const Section = styled.section`
 
 const FormContainer = styled.div`
     background-color: ${blue.lightest};
-    padding: 32px 24px;
+    padding: 64px 24px 128px;
     border: 2px solid ${blue.base};
     width: 100%;
-    max-width: 1024px;
+    max-width: 500px;
 
     @media (min-width: 800px) {
-        padding: 32px;
+        padding: 64px 24px 128px;
     }
 `
 
@@ -36,9 +36,9 @@ const DatesContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-bottom: ${props => (props.$deadlinePast ? "0" : "24px")};
+    margin-bottom: ${props => (props.$deadlinePast ? "0" : "64px")};
     @media (min-width: 800px) {
-        flex-direction: row;
+        flex-direction: column;
     }
 `
 
@@ -47,9 +47,9 @@ const DateGroup = styled.div`
     margin-bottom: 24px;
 
     @media (min-width: 800px) {
-        &:not(:last-child) {
+        /* &:not(:last-child) {
             margin-right: 96px;
-        }
+        } */
     }
 `
 
@@ -74,14 +74,14 @@ const Form = styled.form`
     flex-direction: column;
     align-items: center;
     & > div {
-        margin-bottom: 32px;
+        /* margin-bottom: 32px; */
     }
 
     @media (min-width: 800px) {
-        flex-direction: row;
+        flex-direction: column;
 
         & > div {
-            margin-right: 16px;
+            /* margin-right: 16px; */
             margin-bottom: 0;
         }
     }
@@ -96,14 +96,14 @@ const Disclaimer = styled.p`
 `
 
 const StyledButton = styled(Button)`
-    @media (max-width: 599px) {
-        width: 100%;
-    }
+    margin-top: 64px;
+    width: 100%;
 `
 
 export default function ApplicationForm(props) {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
+    const [phone, setPhone] = useState("")
 
     const {pathname} = useLocation()
     let shortPath = pathname.slice(pathname.indexOf('/', 2))
@@ -133,7 +133,7 @@ export default function ApplicationForm(props) {
             const convertKitTag = props.convertkit_tag
             const options = {
                 method: "POST",
-                body: JSON.stringify({ name, email, nextStep, convertKitTag }),
+                body: JSON.stringify({ name, email, phone, nextStep, convertKitTag }),
             }
            
             // Subscribe them to ConvertKit with specific tag
@@ -244,6 +244,15 @@ export default function ApplicationForm(props) {
                                 value={email}
                                 onChange={e => setEmail(e.target.value)}
                                 required
+                                validationText="auto-generate"
+                            />
+                            <TextInput
+                                type="phone"
+                                label="Phone"
+                                name="phone"
+                                placeholder="801-555-1234"
+                                value={phone}
+                                onChange={e => setPhone(e.target.value)}
                                 validationText="auto-generate"
                             />
                             <StyledButton size="lg">{buttonText}</StyledButton>

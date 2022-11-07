@@ -74,6 +74,7 @@ const StyledButton = styled(Button)`
 export default function ApplicationForm(props) {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
+    const [phone, setPhone] = useState("")
     const [downloaded, setDownloaded] = useState(false)
 
     async function handleSubmit(e) {
@@ -82,6 +83,7 @@ export default function ApplicationForm(props) {
         const formData = {
             name,
             email,
+            phone,
             convertKitTag: props.form_convertkit_tag,
         }
 
@@ -132,15 +134,17 @@ export default function ApplicationForm(props) {
             <TextInput
                 type="text"
                 label={label}
-                name={i === 0 ? "name" : "email"}
+                name={i === 0 ? "name" : i === 1 ?  "email" : "phone"}
                 placeholder={placeholder}
-                value={i === 0 ? name : email}
+                value={i === 0 ? name : i === 1 ? email : phone}
                 onChange={
                     i === 0
-                        ? e => setName(e.target.value)
-                        : e => setEmail(e.target.value)
+                        ? e => setName(e.target.value) 
+                        : i === 1 
+                        ? e => setEmail(e.target.value)
+                        : e => setPhone(e.target.value)
                 }
-                required
+                required={i === 2 ? false : true}
             />
         )
     )
