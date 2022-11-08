@@ -12,6 +12,7 @@ import Testimonial from "./Testimonial"
 import PartnerLogos from "./PartnerLogos"
 import Courses from "./Courses"
 import Cta from "./CTA"
+import Video from "./Video"
 
 export default function Scholarship({ data }) {
     let deadlinePast = false
@@ -25,11 +26,13 @@ export default function Scholarship({ data }) {
         deadlinePast = result < DateTime.local()
     }
     const detailsExist = data.details_title.text
+    console.log(data.partner_logos.length)
     return (
         <div>
             <Hero {...data} deadlinePast={deadlinePast} />
             {detailsExist && <Details {...data} />}
-            <PartnerLogos {...data} />
+            { data.partner_logos.length > 0 && <PartnerLogos {...data} />}
+            {data.scholarship_name.text === 'Military Family Full-Ride Scholarship' && <Video />}
             <Stages />
             <Form {...data} deadlinePast={deadlinePast} />
             {deadlinePast ? <ClosedAppCTA /> : <Faq {...data} />}
