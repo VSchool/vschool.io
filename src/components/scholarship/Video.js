@@ -2,11 +2,27 @@ import React from "react"
 import styled from "styled-components"
 
 const Container = styled.section`
-    padding-bottom: 96px;
 
     @media (min-width: 800px) {
         flex-direction: row;
-        padding-bottom: 160px;
+    }
+`
+
+const IFrame = styled.iframe`
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 300px;
+    height: 215px;
+
+    @media(min-width: 800px){
+        width: 420px;
+        height: 315px;
+    }
+
+    @media(min-width: 1200px){
+        width: 840px;
+        height: 630px;
     }
 `
 
@@ -15,11 +31,9 @@ export default function Video(props) {
 
     return (
         <Container>
-        <iframe 
-            width="420" 
-            height="315"
+        <IFrame 
             src="https://www.youtube.com/embed/FltrmEIURXM">
-        </iframe>
+        </IFrame>
         </Container>
     )
 }
