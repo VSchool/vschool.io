@@ -478,7 +478,7 @@ const Form = ({ location }) => {
                     )}
                 </div>
 
-               {location.state.uid !== 'intro-to-tech-project' && <><StyledLabel required={reqUrl}>{selectCourse}</StyledLabel>
+               {location?.state?.uid !== 'intro-to-tech-project' && <><StyledLabel required={reqUrl}>{selectCourse}</StyledLabel>
                 <FormInputs2>
                     {form_select_items.map(
                         ({

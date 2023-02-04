@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { gray, Button, blue } from "@vschool/lotus"
@@ -82,7 +82,6 @@ const BoxMainContainer = styled.div`
         padding-right: 69px;
     }
 `
-
 
 const StyledArrow = styled(Arrow)`
     margin: 0 0px 0 0px;
@@ -201,10 +200,13 @@ const StyledButton = styled(Button)`
     
 `
 
-
-
 const Career = ({submit}) => {
   const [open, setOpen] = useState(false)
+  const [location, setLocation] = useState({})
+
+  useEffect(() => {
+    setLocation(window.location.pathname.slice(1))
+  },[])
 
   const data = useStaticQuery(graphql`
     {
@@ -360,7 +362,7 @@ const Career = ({submit}) => {
   return (
     <Container>
         <Title>{careerTitle}</Title>
-        <div>{window.location.pathname.slice(1) === 'intro-to-tech-project' ? mappedBoxes[0] : mappedBoxes}</div>
+        <div>{location === 'intro-to-tech-project' ? mappedBoxes[0] : mappedBoxes}</div>
     </Container>
     )
 }

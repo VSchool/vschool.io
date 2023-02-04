@@ -66,7 +66,6 @@ export function useFormium(formiumForm) {
                 [curr.slug]: curr.type === "CHECKBOX" ? [] : "",
             }
         }, {})
-        console.log(initialData)
         setFormData(initialData)
     }, [formiumForm, formiumQuestions])
 
