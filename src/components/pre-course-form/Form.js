@@ -351,10 +351,17 @@ const Form = ({ location }) => {
 
         const query = localStorage.getItem("query") || ""
         try {
-            await fetch(
-                `${process.env.GATSBY_PRE_COURSE_COMMUNITIES_ZAPIER_WEBHOOK_URL}${query}`,
-                options
-            )
+            if(location.state.uid !== 'intro-to-tech-project'){
+                await fetch(
+                    `${process.env.GATSBY_PRE_COURSE_COMMUNITIES_ZAPIER_WEBHOOK_URL}${query}`,
+                    options
+                )
+            }else {
+                await fetch(
+                    `${process.env.GATSBY_PRE_COURSE_COMMUNITIES_TEMP_ZAPIER_WEBHOOK_URL}${query}`,
+                    options
+                )
+            }
             navigate("/pre-course-communities/success")
         } catch (e) {
             console.error(e)
@@ -471,7 +478,7 @@ const Form = ({ location }) => {
                     )}
                 </div>
 
-                <StyledLabel required={reqUrl}>{selectCourse}</StyledLabel>
+               {location.state.uid !== 'intro-to-tech-project' && <><StyledLabel required={reqUrl}>{selectCourse}</StyledLabel>
                 <FormInputs2>
                     {form_select_items.map(
                         ({
@@ -524,7 +531,7 @@ const Form = ({ location }) => {
                             )
                         }
                     )}
-                </FormInputs2>
+                </FormInputs2></>}
                 <StyledLabel>{fTitle}</StyledLabel>
                 <div style={{ margin: "10px 0 30px" }}>
                     {form_goals_items.map(
