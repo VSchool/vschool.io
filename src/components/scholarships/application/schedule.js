@@ -160,7 +160,6 @@ export default function Scheduler() {
         : location.state?.scholarshipName === 'Service Members Forever Scholarship' 
         ? "https://calendly.com/v-school/vet-forever-scholarship" 
         : "https://calendly.com/v-school/apply"
-    console.log(calendlyUrl)
     return (
         <>
             <Container>

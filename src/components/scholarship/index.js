@@ -26,7 +26,6 @@ export default function Scholarship({ data }) {
         deadlinePast = result < DateTime.local()
     }
     const detailsExist = data.details_title.text
-    console.log(data.partner_logos.length)
     return (
         <div>
             <Hero {...data} deadlinePast={deadlinePast} />
