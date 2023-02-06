@@ -201,76 +201,76 @@ const StyledButton = styled(Button)`
 `
 
 const Career = ({submit}) => {
-  const [open, setOpen] = useState(false)
-  const [location, setLocation] = useState({})
+    const [open, setOpen] = useState(false)
+    const [location, setLocation] = useState({})
 
-  useEffect(() => {
-    setLocation(window.location.pathname.slice(1))
-  },[])
+    useEffect(() => {
+        setLocation(window.location.pathname.slice(1,-1))
+    },[])
 
-  const data = useStaticQuery(graphql`
-    {
-      prismicPrecoursePartners {
-        data {
-          career_box {
-            career_box_button_text {
-              text
-            }
-            career_box_desc_sub {
-              text
-            }
-            career_box_desc_title {
-              text
-            }
-            career_box_diff_sub {
-              text
-            }
-            career_box_diff_title {
-              text
-            }
-            career_box_image {
-              alt
-              url
-            }
-            career_box_len_sub {
-              text
-            }
-            career_box_len_title {
-              text
-            }
-            career_box_logo {
-              alt
-              url
-            }
-            career_box_title {
-              text
-            }
-            career_box_topics {
-              html
-            }
-            career_box_topics_title {
-              text
-            }
-          }
-          career_down_arrow {
-            alt
-            url
-          }
-          career_up_arrow {
-            alt
-            url
-          }
-        }
-      }
-      prismicPrecourseCommunitiesPageSharedData {
-        data {
-            career_title {
+    const data = useStaticQuery(graphql`
+        {
+        prismicPrecoursePartners {
+            data {
+            career_box {
+                career_box_button_text {
                 text
+                }
+                career_box_desc_sub {
+                text
+                }
+                career_box_desc_title {
+                text
+                }
+                career_box_diff_sub {
+                text
+                }
+                career_box_diff_title {
+                text
+                }
+                career_box_image {
+                alt
+                url
+                }
+                career_box_len_sub {
+                text
+                }
+                career_box_len_title {
+                text
+                }
+                career_box_logo {
+                alt
+                url
+                }
+                career_box_title {
+                text
+                }
+                career_box_topics {
+                html
+                }
+                career_box_topics_title {
+                text
+                }
+            }
+            career_down_arrow {
+                alt
+                url
+            }
+            career_up_arrow {
+                alt
+                url
+            }
             }
         }
-      }
-    }
-  `)
+        prismicPrecourseCommunitiesPageSharedData {
+            data {
+                career_title {
+                    text
+                }
+            }
+        }
+        }
+    `)
 
     const {
       career_box
@@ -359,11 +359,12 @@ const Career = ({submit}) => {
             </BoxContainer>
         }
         )
-  return (
-    <Container>
-        <Title>{careerTitle}</Title>
-        <div>{location === 'intro-to-tech-project' ? mappedBoxes[0] : mappedBoxes}</div>
-    </Container>
+
+    return (
+        <Container>
+            <Title>{careerTitle}</Title>
+            <div>{location === 'intro-to-tech-project' ? mappedBoxes[0] : mappedBoxes}</div>
+        </Container>
     )
 }
 
