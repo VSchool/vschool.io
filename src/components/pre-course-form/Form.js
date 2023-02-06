@@ -357,6 +357,7 @@ const Form = ({ location }) => {
                     options
                 )
             }else {
+                console.log(`${process.env.GATSBY_PRE_COURSE_COMMUNITIES_TEMP_ZAPIER_WEBHOOK_URL}${query}`)
                 await fetch(
                     `${process.env.GATSBY_PRE_COURSE_COMMUNITIES_TEMP_ZAPIER_WEBHOOK_URL}${query}`,
                     options
