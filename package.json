@@ -86,7 +86,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "npm rebuild && gatsby build",
     "develop": "gatsby develop -o",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "ENABLE_GATSBY_REFRESH_ENDPOINT=TRUE npm run develop",
