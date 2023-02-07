@@ -350,9 +350,6 @@ const Form = ({ location }) => {
         }
 
         const query = localStorage.getItem("query") || ""
-        console.log(query,'Query')
-        console.log(`First one ${process.env.GATSBY_PRE_COURSE_COMMUNITIES_ZAPIER_WEBHOOK_URL}${query}`)
-        console.log(`new one ${process.env.GATSBY_PRE_COURSE_COMMUNITIES_TEMP_ZAPIER_WEBHOOK_URL}${query}`)
         try {
             if(location.state.uid !== 'intro-to-tech-project'){
                 await fetch(
@@ -365,9 +362,7 @@ const Form = ({ location }) => {
                     options
                 )
             }
-            console.log('Made it to Nav')
             navigate("/pre-course-communities/success")
-            console.log('made it after nav')
         } catch (e) {
             console.log('.error', e)
         }
