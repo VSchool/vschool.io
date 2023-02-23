@@ -121,15 +121,15 @@ export default function ApplicationForm(props) {
         */
 
         /**
+         delays in the automation
         Submitting the form to Zapier adds a new ConvertKit subscriber and 
         adds them to a sequence which sends them the email with the URL. ConvertKit
         seems to take about 5 minutes to send the email, not including any intentional 
-        delays in the automation
         */
         try {
             // if its forever scholarship, we want to send them straight to apply instead of the regular process.
-            const nextStep = shortPath.includes('forever-scholarship') ? "schedule" : "background"
             const scholarshipName = props.scholarship_name.text
+            const nextStep = shortPath.includes('forever-scholarship') || scholarshipName === 'Fresh Start Scholarship' ? "schedule" : "background"
             const convertKitTag = props.convertkit_tag
             const options = {
                 method: "POST",

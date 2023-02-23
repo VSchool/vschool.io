@@ -134,7 +134,7 @@ export default function Scheduler() {
     }, [])
 
     async function handleEventScheduled(e) {
-        let nextStep = localStorage.getItem('scholarshipName') === 'V School $2,000 Forever Scholarship' ? "complete" : "essay"
+        let nextStep = localStorage.getItem('scholarshipName') === 'V School $2,000 Forever Scholarship' || localStorage.getItem('scholarshipName') === 'Fresh Start Scholarship' ? "complete" : "essay"
         const data = { ...queryData, nextStep }
         const options = {
             method: "POST",
@@ -157,6 +157,8 @@ export default function Scheduler() {
 
     let calendlyUrl = location.state?.scholarshipName === 'V School $2,000 Forever Scholarship' 
         ? "https://calendly.com/v-school/scholarship-chat" 
+        : location.state?.scholarshipName === 'Fresh Start Scholarship' 
+        ? "https://calendly.com/v-school/fresh-start-scholarship-chat"
         : location.state?.scholarshipName === 'Service Members Forever Scholarship' 
         ? "https://calendly.com/v-school/vet-forever-scholarship" 
         : "https://calendly.com/v-school/apply"
