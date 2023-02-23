@@ -425,7 +425,7 @@ const Form = ({ location }) => {
                     </div>
 
                     <div>
-                        <StyledLabel>{fPhone}</StyledLabel>
+                        <StyledLabel required={reqUrl}>{fPhone}</StyledLabel>
                         <StyledTextInput
                             type="phone"
                             value={inputs.phone}
@@ -433,6 +433,7 @@ const Form = ({ location }) => {
                             placeholder="801-555-1234"
                             onChange={handleChange}
                             validationText="auto-generate"
+                            required
                         />
                     </div>
                 </FormInputs1>
