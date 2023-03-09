@@ -133,7 +133,7 @@ export default function ApplicationForm(props) {
             const convertKitTag = props.convertkit_tag
             const options = {
                 method: "POST",
-                body: JSON.stringify({ name, email, phone, nextStep, convertKitTag }),
+                body: JSON.stringify({ name, email, phone, 'Scholarship Name': scholarshipName, nextStep, convertKitTag }),
             }
            
             // Subscribe them to ConvertKit with specific tag

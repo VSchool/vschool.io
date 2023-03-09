@@ -84,9 +84,13 @@ function DesktopMenu(props) {
         logo,
     } = data.prismicNavigationBar.data
 
-    const navItems = nav.map(item => (
+    const navItems = nav.map(item => {
+        if(item.primary.label.text === 'Veterans'){
+            item.primary.link.url = '/veterans'
+        }
+        return (
         <DesktopMenuItem key={item.id} data={item} />
-    ))
+    )})
 
     return (
         <Container>
