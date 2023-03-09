@@ -135,11 +135,12 @@ export default function Scheduler() {
 
     async function handleEventScheduled(e) {
         let nextStep = localStorage.getItem('scholarshipName') === 'V School $2,000 Forever Scholarship' || localStorage.getItem('scholarshipName') === 'Fresh Start Scholarship' ? "complete" : "essay"
-        const data = { ...queryData, nextStep }
+        const data = { ...queryData, nextStep, 'Scholarship Name': localStorage.getItem('scholarshipName') }
         const options = {
             method: "POST",
             body: JSON.stringify(data),
         }
+        console.log(options, 'OPTIONS')
         try {
             await fetch(
                 process.env.GATSBY_SCHOLARSHIP_APP_ZAPIER_WEBHOOK_URL,
