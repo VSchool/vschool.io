@@ -105,7 +105,7 @@ module.exports = {
         {
             resolve: `gatsby-source-ghost`,
             options: {
-                apiUrl: `https://blog.vschool.io`,
+                apiUrl: `https://ghostblog.vschool.io`,
                 contentApiKey: process.env.GHOST_API_KEY,
             },
         },
