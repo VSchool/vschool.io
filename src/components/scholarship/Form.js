@@ -153,10 +153,10 @@ export default function ApplicationForm(props) {
 
             nextStep === "background" ?
             navigate(`/scholarships/application/background-info`, {
-                state: { email, scholarshipName },
+                state: { name, email, scholarshipName },
             }) :
             navigate(`/scholarships/application/schedule`, {
-                state: { email, scholarshipName },
+                state: { name, email, scholarshipName },
             })
         } catch (err) {
             console.error(err.message)
