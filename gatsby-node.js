@@ -18,7 +18,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                         feature_image
                         html
                         reading_time
-                        title
                         url
                         updated_at
                         published_at(formatString: "MMMM DD, YYYY")
@@ -540,7 +539,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
     actions.createRedirect({
         fromPath: "/meta",
-        toPath: "/scholarships/you-belong-in-tech-scholarship-sustainable-startups",
+        toPath:
+            "/scholarships/you-belong-in-tech-scholarship-sustainable-startups",
         isPermanent: true,
         force: true,
     })
