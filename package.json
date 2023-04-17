@@ -42,6 +42,7 @@
     "gatsby-plugin-google-analytics": "^3.10.0",
     "gatsby-plugin-google-tagmanager": "^3.10.0",
     "gatsby-plugin-hotjar": "^1.0.1",
+    "gatsby-plugin-linkedin-insight": "^1.0.1",
     "gatsby-plugin-manifest": "^3.10.0",
     "gatsby-plugin-netlify": "^3.10.0",
     "gatsby-plugin-offline": "^4.10.0",

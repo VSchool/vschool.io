@@ -137,6 +137,13 @@ module.exports = {
             },
         },
         {
+            resolve: `gatsby-plugin-linkedin-insight`,
+            options: {
+            partnerId: process.env.LINKEDIN_INSIGHT_PARTNER_ID,
+            includeInDevelopment: true
+            }
+        },
+        {
             resolve: `gatsby-source-formium`,
             options: {
                 // Get your projectId from https://dashboard.formium.io
