@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { blue, gray, TextInput, Button } from "@vschool/lotus"
 
 const Section = styled.section`
+    padding-top: 160px;
     padding-bottom: 160px;
 `
 
@@ -71,11 +72,10 @@ const StyledButton = styled(Button)`
     }
 `
 
-export default function ApplicationForm(props) {
+export default function WaitlistForm(props) {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [phone, setPhone] = useState("")
-    const [downloaded, setDownloaded] = useState(false)
 
     async function handleSubmit(e) {
         e.preventDefault()
@@ -83,8 +83,7 @@ export default function ApplicationForm(props) {
         const formData = {
             name,
             email,
-            phone,
-            convertKitTag: props.form_convertkit_tag,
+            phone
         }
 
         const options = {
@@ -92,47 +91,22 @@ export default function ApplicationForm(props) {
             body: JSON.stringify(formData),
         }
 
-        await fetch(
-            process.env.GATSBY_CONVERTKIT_SIGNUP_ZAPIER_WEBHOOK_URL,
-            options
-        )
-
-        var link = document.createElement("a")
-        link.href =
-            props.form_convertkit_tag === "syllabus dl - ux/ui design"
-                ? "https://drive.google.com/file/d/1lF1qMnhwLn1gaqefjSqS2AWxV_qXjHRQ/view?usp=sharing"
-                : props.form_convertkit_tag === "syllabus dl - web dev"
-                ? "https://drive.google.com/file/d/1TkmbmHhJXIyvH8rRr2UeIe7KhD14d1nz/view"
-                : "https://google.com"
-        link.target = "_blank"
-        link.download = "V School Syllabus"
-
-        document.body.appendChild(link)
-
-        link.click()
-        setTimeout(function() {
-            window.URL.revokeObjectURL(link)
-        }, 200)
-
-        setDownloaded(true)
+        // await fetch(
+        //     process.env.GATSBY_CONVERTKIT_SIGNUP_ZAPIER_WEBHOOK_URL,
+        //     options
+        // )
     }
 
-    const {
-        form_button: { text: formBtn },
-        form_image: { alt: formAlt, url: formUrl },
-        form_inputs,
-        form_subtitle: { text: formSubtitle },
-        form_title: { text: formTitle },
-    } = props
+    // const {
+    //     form_button: { text: formBtn },
+    //     form_image: { alt: formAlt, url: formUrl },
+    //     form_inputs,
+    //     form_subtitle: { text: formSubtitle },
+    //     form_title: { text: formTitle },
+    // } = props
 
-    const mappedInputs = form_inputs.map(
-        (
-            {
-                form_label: { text: label },
-                form_placeholder: { text: placeholder },
-            },
-            i
-        ) => (
+    const mappedInputs = [{label: 'Name', placeholder: 'Enter Full Name'}, {label: 'Email', placeholder: 'Enter Email'},{label: 'Phone', placeholder: 'Enter Phone Number'}].map(
+        ({label, placeholder }, i) => (
             <TextInput
                 type="text"
                 label={label}
@@ -153,21 +127,14 @@ export default function ApplicationForm(props) {
     return (
         <Section>
             <FormContainer>
-                {downloaded ? (
-                    <h1 style={{ fontSize: 15 }}>
-                        Successfully Downloaded Syllabus
-                    </h1>
-                ) : (
                     <>
-                        <Image src={formUrl} alt={formAlt} />
-                        <FormSubtitle>{formSubtitle}</FormSubtitle>
-                        <FormTitle>{formTitle}</FormTitle>
+                        <FormSubtitle>Cybersecurity Waitlist</FormSubtitle>
+                        <FormTitle>Join Waitlist</FormTitle>
                         <Form onSubmit={handleSubmit}>
                             {mappedInputs}
-                            <StyledButton size="lg">{formBtn}</StyledButton>
+                            <StyledButton size="lg">Join</StyledButton>
                         </Form>
                     </>
-                )}
             </FormContainer>
         </Section>
     )
