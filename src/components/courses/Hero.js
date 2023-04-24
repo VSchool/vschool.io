@@ -51,26 +51,6 @@ const Hero = props => {
         hero_title: { text: title },
     } = props
 
-    const addToWaitlist = () => {
-        // const formData = {
-        //     name,
-        //     email,
-        //     phone,
-        //     convertKitTag: props.form_convertkit_tag,
-        // }
-
-        // const options = {
-        //     method: "POST",
-        //     body: JSON.stringify(formData),
-        // }
-
-        // await fetch(
-        //     process.env.GATSBY_CONVERTKIT_SIGNUP_ZAPIER_WEBHOOK_URL,
-        //     options
-        // )
-        return '/waitlist'
-    }
-
     return (
         <Container>
             <HeroLayout
@@ -78,7 +58,7 @@ const Hero = props => {
                     <>
                         <Title>{title}</Title>
                         <Text>{text}</Text>
-                        <Link to={buttonText === 'Join the Waitlist' ? addToWaitlist() : btnURL}>
+                        <Link to={buttonText === 'Join the Waitlist' ? '/cool' : btnURL}>
                             <StyledButton size="xl">{buttonText}</StyledButton>
                         </Link>
                     </>
