@@ -5,7 +5,6 @@ import { graphql, useStaticQuery } from "gatsby"
 import Link from "../shared/QueryLink"
 import SubscribeForm from "./SubscribeForm.js"
 import FooterSubInformation from "./FooterSubInformation.js"
-import { Helmet } from "react-helmet"
 
 const Container = styled.footer`
     background-color: ${black};

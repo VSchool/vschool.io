@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react"
 import { Context } from "../FormContext"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
-import { navigate } from "gatsby"
 import Airtable from "airtable"
 import ReactStars from "react-rating-stars-component"
 import "font-awesome/css/font-awesome.min.css"
@@ -140,7 +139,7 @@ const Form = ({ location, submit }) => {
     const [students, setStudents] = useState([])
     const [filteredStudents, setFilteredStudents] = useState([])
     const [selectedRecords, setSelectedRecords] = useState([])
-    const { allData, addStepData } = useContext(Context)
+    const { addStepData } = useContext(Context)
 
     useEffect(() => {
         if (location?.state?.convertKitTag) {
@@ -342,7 +341,7 @@ const Form = ({ location, submit }) => {
                 <NameListContainer>
                     {selectedRecords.length !== 0 &&
                         selectedRecords.map(
-                            ({ fields: { ["Student Name"]: text } }) => (
+                            ({ fields: { "Student Name": text } }) => (
                                 <NameList>{text}</NameList>
                             )
                         )}
