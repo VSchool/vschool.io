@@ -3,7 +3,7 @@ import { Context } from "../FormContext"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import Airtable from "airtable"
-import { gray, blue, TextInput, Textarea, Button, green } from "@vschool/lotus"
+import { gray, blue, TextInput, Button, green } from "@vschool/lotus"
 
 const Container = styled.div`
     background-color: ${gray.lighter};
@@ -38,18 +38,6 @@ const StyledLabel = styled.label`
     @media (min-width: 800px){
         font-size: 12px;
         line-height: 16px;
-    }
-`
-
-const StyledTextarea = styled(Textarea)`
-    margin: 10px 0 30px;
-    height: 140px;
-    position: relative;
-
-    & > label {
-        position: absolute;
-        left: 0px;
-        top: -24px;
     }
 `
 
@@ -143,7 +131,7 @@ const Step2 = ({ location, submit }) => {
     const [filteredEmployers, setFilteredEmployers] = useState([])
     const [selectedRecords, setSelectedRecords] = useState([])
 
-    const { addStepData, allData } = useContext(Context)
+    const { addStepData } = useContext(Context)
 
     useEffect(() => {
         if (location?.state?.convertKitTag) {
@@ -266,12 +254,10 @@ const Step2 = ({ location, submit }) => {
     const {
         step2_button: { text: btn },
         step2_dates,
-        step2_description: { text: desc },
         step2_first: { text: first },
         step2_first_description: { text: firstDesc },
         step2_fourth: { text: fourth },
         step2_fourth_description: { text: fourthDesc },
-        step2_second: { text: second },
         step2_third: { text: third },
     } = data.prismicCompletionForm.data
 
@@ -385,7 +371,7 @@ const Step2 = ({ location, submit }) => {
                 <NameListContainer>
                     {selectedRecords.length !== 0 &&
                         selectedRecords.map(
-                            ({ fields: { ["Name"]: text } }) => (
+                            ({ fields: { "Name": text } }) => (
                                 <NameList>{text}</NameList>
                             )
                         )}

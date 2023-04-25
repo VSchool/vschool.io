@@ -80,7 +80,6 @@ function DesktopMenu(props) {
     const {
         nav,
         button_text: buttonText,
-        button_link: { url: buttonLink },
         logo,
     } = data.prismicNavigationBar.data
 
