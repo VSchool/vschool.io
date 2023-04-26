@@ -19,7 +19,7 @@ export default function DownloadSyllabus() {
         <>
             <SimpleNav />
             <Seo title={"Apply for V School"} />
-            <Calendly submit={submit} link="/completed" />
+            <Calendly submit={submit} link="/apply/completed" />
             <SyllabusDownload />
         </>
     )

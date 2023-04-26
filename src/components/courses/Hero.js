@@ -3,6 +3,7 @@ import HeroLayout from "../shared/HeroLayout"
 import styled from "styled-components"
 import Link from "../shared/QueryLink"
 import { gray, Button } from "@vschool/lotus"
+import { navigate } from "gatsby"
 
 const Container = styled.section`
     /* props.theme is coming from the styled-components 
@@ -51,6 +52,13 @@ const Hero = props => {
         hero_title: { text: title },
     } = props
 
+    function addToWaitlist (){
+        if (typeof localStorage !== 'undefined') {
+            localStorage.setItem("courseName", 'Cybersecurity')
+        }
+        return '/apply'
+    }
+
     return (
         <Container>
             <HeroLayout
@@ -58,7 +66,7 @@ const Hero = props => {
                     <>
                         <Title>{title}</Title>
                         <Text>{text}</Text>
-                        <Link to={btnURL}>
+                        <Link to={buttonText === 'Join the Waitlist' ? addToWaitlist() : btnURL}>
                             <StyledButton size="xl">{buttonText}</StyledButton>
                         </Link>
                     </>

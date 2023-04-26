@@ -9,6 +9,7 @@ import Schedule from "./Schedule"
 import Description from "./Description"
 import { Team } from "./Team/"
 import Payments from "./Payments"
+import Program from "./Program"
 import Form from "./Form"
 import Apply from "./Apply"
 import Faq from "./FAQ"
@@ -18,7 +19,8 @@ export default function Index({ data }) {
         <>
             <Hero {...data} />
             <Outcomes {...data} />
-            <Journey {...data} />
+            {data.course_name.text !== 'Cybersecurity Program' && <Journey {...data} />}
+            {data.course_name.text === 'Cybersecurity Program' && <Program />}
             <Description {...data} />
             <Form {...data} />
             <HowWorks />
