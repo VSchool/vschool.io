@@ -53,7 +53,9 @@ const Hero = props => {
     } = props
 
     function addToWaitlist (){
-        localStorage.setItem("courseName", 'Cybersecurity')
+        if (typeof localStorage !== 'undefined') {
+            localStorage.setItem("courseName", 'Cybersecurity')
+        }
         return '/apply'
     }
 
