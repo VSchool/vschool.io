@@ -94,7 +94,7 @@ function SubMenu({ items }) {
             <SubMenuItem key={subNavLink.id + i}>
                 <ItemLink as={Link} to={subNavLink.url}>
                     {subNavLabel.text}
-                    {startDate.document ? (
+                    {startDate.document.data ? (
                         <StartDate>
                             Starts {startDate?.document?.data.start_date}
                         </StartDate>
