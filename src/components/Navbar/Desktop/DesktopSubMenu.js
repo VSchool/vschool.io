@@ -100,7 +100,6 @@ function SubMenu({ items }) {
             )
         }
 
-        console.log(subMenuItem)
         return (
             <SubMenuItem key={subNavLink.id + i}>
                 <ItemLink as={Link} to={subNavLink.url}>
