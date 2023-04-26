@@ -12,10 +12,12 @@ const WidgetContainer = styled.div`
 
 export default function Calendly(props) {
     const [searchParams, setSearchParams] = useState()
+    const [content, setContent] = useState('')
     useEffect(() => {
         const utmString = localStorage.getItem("query")?.slice(1) // Remove the ? from the string if it exists
         const searchParams = new URLSearchParams(utmString)
         setSearchParams(searchParams)
+        setContent(localStorage.getItem('courseName'))
     }, [])
 
     async function handleEventScheduled(e) {
@@ -35,7 +37,7 @@ export default function Calendly(props) {
                     utm={{
                         utmCampaign: searchParams?.get("utm_campaign") ?? "",
                         utmMedium: searchParams?.get("utm_medium") ?? "",
-                        utmContent: localStorage.getItem("courseName") ?? "", // We don't currently use this, but may in the future
+                        utmContent: content ?? "", // We don't currently use this, but may in the future
                         utmSource: searchParams?.get("utm_source") ?? "",
                         utmTerm: searchParams?.get("utm_term") ?? "", // We don't currently use this, but may in the future
                     }}
