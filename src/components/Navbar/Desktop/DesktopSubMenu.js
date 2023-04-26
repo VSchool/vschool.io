@@ -88,15 +88,21 @@ function SubMenu({ items }) {
             sub_nav_link_label: subNavLabel,
             start_date: startDate,
         } = subMenuItem
+
+        console.log(startDate, "Label")
         return (
             <SubMenuItem key={subNavLink.id + i}>
                 <ItemLink as={Link} to={subNavLink.url}>
                     {subNavLabel.text}
-                    {startDate.document && (
+                    {startDate.document ? (
                         <StartDate>
                             Starts {startDate?.document?.data.start_date}
                         </StartDate>
-                    )}
+                    ) :
+                        <StartDate>
+                            Starts June 5th, 2023
+                        </StartDate>
+                    }
                 </ItemLink>
             </SubMenuItem>
         )
