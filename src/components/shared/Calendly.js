@@ -35,7 +35,7 @@ export default function Calendly(props) {
                     utm={{
                         utmCampaign: searchParams?.get("utm_campaign") ?? "",
                         utmMedium: searchParams?.get("utm_medium") ?? "",
-                        utmContent: searchParams?.get("utm_content") ?? "", // We don't currently use this, but may in the future
+                        utmContent: localStorage.getItem("courseName") ?? "", // We don't currently use this, but may in the future
                         utmSource: searchParams?.get("utm_source") ?? "",
                         utmTerm: searchParams?.get("utm_term") ?? "", // We don't currently use this, but may in the future
                     }}

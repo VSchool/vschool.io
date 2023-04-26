@@ -103,7 +103,7 @@ export default function ApplicationForm(props) {
                 ? "https://drive.google.com/file/d/1lF1qMnhwLn1gaqefjSqS2AWxV_qXjHRQ/view?usp=sharing"
                 : props.form_convertkit_tag === "syllabus dl - web dev"
                 ? "https://drive.google.com/file/d/1TkmbmHhJXIyvH8rRr2UeIe7KhD14d1nz/view"
-                : "https://google.com"
+                : "https://drive.google.com/file/d/13vzcj7MXMraKl4HvgvkgThln8zKGku50/view?usp=sharing"
         link.target = "_blank"
         link.download = "V School Syllabus"
 
