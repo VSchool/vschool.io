@@ -106,12 +106,8 @@ const Program = () => {
             offers instructors valuable insights into student progress and
             performance.`
         },{
-            title: 'CAREER GUARANTEE',
-            description: `Our program includes a career guarantee, ensuring that
-            students graduate only when they secure a job in the
-            cybersecurity field. This guarantee demonstrates our
-            commitment to our students' success and prepares them to
-            thrive in a competitive job market.`
+            title: 'CAREER FOCUS',
+            description: `Our program is designed with a strong emphasis on career outcomes, striving to help students secure a position in the cybersecurity field upon graduation. This focus highlights our dedication to our students' success and prepares them for navigating the competitive job market.`
         }
     ]
 

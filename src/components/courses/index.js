@@ -29,7 +29,7 @@ export default function Index({ data }) {
             <Schedule />
             <Team {...data} />
             <Payments {...data} />
-            <Apply {...data} />
+            <Apply {...data} course={data.course_name.text} />
             <Faq {...data} />
         </>
     )

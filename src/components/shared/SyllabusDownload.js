@@ -74,7 +74,7 @@ const ButtonDiv = styled.div`
     text-align: center;
 `
 
-export default function Rankings() {
+export default function SyllabusDownload() {
   const data = useStaticQuery(graphql`
     {
       prismicSyllabusDownload {
@@ -109,7 +109,21 @@ export default function Rankings() {
     } = data.prismicSyllabusDownload.data
 
     const download = async type => {
-        navigate(`/syllabus/${type}`)
+        if(type !== 'cybersecurity'){
+            navigate(`/syllabus/${type}`)
+        }else {
+            var link = document.createElement("a")
+            link.href = "https://drive.google.com/file/d/13vzcj7MXMraKl4HvgvkgThln8zKGku50/view?usp=sharing"
+            link.target = "_blank"
+            link.download = "V School Syllabus"
+
+            document.body.appendChild(link)
+
+            link.click()
+            setTimeout(function() {
+                window.URL.revokeObjectURL(link)
+            }, 200)
+        }
     }
 
     return (
@@ -120,6 +134,7 @@ export default function Rankings() {
                 <ButtonDiv>
                     <StyledButton onClick={() => download('development')}><img src={url} alt={alt} /> <ButtonSpan>{web}</ButtonSpan></StyledButton>
                     <StyledButton onClick={() => download('design')}><img src={url} alt={alt} /> <ButtonSpan>{xd}</ButtonSpan></StyledButton>
+                    <StyledButton onClick={() => download('cybersecurity')}><img src={url} alt={alt} /> <ButtonSpan>Cybersecurity</ButtonSpan></StyledButton>
                 </ButtonDiv>
             </Container>
         </Section>

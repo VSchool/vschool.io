@@ -320,7 +320,7 @@ const Apply = props => {
                 >
                     <DateContainer>
                         <DateTitle>{dateTitle}</DateTitle>
-                        <DateText>{start_date}</DateText>
+                        <DateText>{props.course === 'Cybersecurity Program' ? 'June 5th, 2023' : start_date}</DateText>
                     </DateContainer>
                 </div>
             </Container>
@@ -333,7 +333,7 @@ const Apply = props => {
                     <HowContainer>
                         <HowTitle>{howTitle}</HowTitle>
                         <StepContainer>{steps}</StepContainer>
-                        <QueryLink to={`/syllabus/${otherBtn === 'Learn Design' ? 'development' : 'design'}`}>
+                        <QueryLink to={`/${otherBtn === 'Learn Design' ? 'syllabus/development' : props.course === 'Cybersecurity Program' ? 'apply' : 'design'}`}>
                             <StyledButton>{howBtn}</StyledButton>
                         </QueryLink>
                     </HowContainer>
