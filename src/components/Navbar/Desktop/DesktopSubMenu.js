@@ -89,20 +89,22 @@ function SubMenu({ items }) {
             start_date: startDate,
         } = subMenuItem
 
-        console.log(startDate, "Label")
+        let startDateEl = null
+        if (subNavLabel.text === "Cybersecurity") {
+            startDateEl = <StartDate>Starts June 5th, 2023</StartDate>
+        } else if (startDate.document?.data !== undefined) {
+            startDateEl = (
+                <StartDate>
+                    Starts {startDate?.document?.data.start_date}
+                </StartDate>
+            )
+        }
+
         return (
             <SubMenuItem key={subNavLink.id + i}>
                 <ItemLink as={Link} to={subNavLink.url}>
                     {subNavLabel.text}
-                    {startDate.document?.data !== undefined ? (
-                        <StartDate>
-                            Starts {startDate?.document?.data.start_date}
-                        </StartDate>
-                    ) :
-                        <StartDate>
-                            Starts June 5th, 2023
-                        </StartDate>
-                    }
+                    {startDateEl}
                 </ItemLink>
             </SubMenuItem>
         )

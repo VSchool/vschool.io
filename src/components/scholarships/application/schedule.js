@@ -140,7 +140,6 @@ export default function Scheduler() {
             method: "POST",
             body: JSON.stringify(data),
         }
-        console.log(options, 'OPTIONS')
         try {
             await fetch(
                 process.env.GATSBY_SCHOLARSHIP_APP_ZAPIER_WEBHOOK_URL,
