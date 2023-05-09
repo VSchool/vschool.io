@@ -190,9 +190,6 @@ const data = useStaticQuery(graphql`
                                     <BlueSubtext>{heroSubtitle}</BlueSubtext>
                                     <HeroTitle>{heroTitle}</HeroTitle>
                                 </div>
-                                <HeroDescription>
-                                  Use your G.I. Bill® to learn to <b>code</b> or <b>design</b> and land a job in tech. Talk with us today to learn more.
-                                </HeroDescription>
                                 <Form icon={{iconAlt, iconUrl}} buttonText={buttonText} />
                                 <GiBill>
                                   <GiBillImg src={greenUrl} />

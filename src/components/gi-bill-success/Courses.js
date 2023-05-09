@@ -61,7 +61,7 @@ export default function Courses(props) {
         <CoursesContainer>
             <Subtitle>CHOOSE YOUR FUTURE CAREER</Subtitle>
             <Title>V School Courses</Title>
-            <Description>Use your G.I. Bill benefits to enroll in our web development and UX/UI design online programs</Description>
+            <Description>Enroll in our web development and UX/UI design online programs</Description>
             <CourseCards />
         </CoursesContainer>
     )
