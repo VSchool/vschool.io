@@ -147,8 +147,8 @@ export default function Scheduler() {
             )
             localStorage.setItem("scholarshipAppNextStep", nextStep)
 
-            nextStep === "essay" ?
-            navigate("/scholarships/application/essay-questions") :
+            // nextStep === "essay" ?
+            // navigate("/scholarships/application/essay-questions") :
             navigate("/scholarships/application/complete")
         } catch (e) {
             console.error(e.message)

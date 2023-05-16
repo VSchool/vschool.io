@@ -133,6 +133,7 @@ export default function BackgroundForm() {
         In case someone accidentally clicks an old email's link to a past step in the
         process, they'll automatically be redirected to their current step in the process
         */
+       console.log(nextStep, 'NEXT STEP')
         if (location.search.includes("email=")) {
             if (nextStep === "schedule") {
                 navigate(
@@ -171,7 +172,6 @@ export default function BackgroundForm() {
 
     async function handleSubmit(e) {
         e.preventDefault()
-
         if (!formComponents[0].props.children[1].props.checked) {
             setSubmitting(true)
             // replace a "...formData" below after "...queryData"
