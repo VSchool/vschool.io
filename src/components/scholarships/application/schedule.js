@@ -102,17 +102,17 @@ export default function Scheduler() {
     }, [location.search, location.state])
 
     useEffect(() => {
-        const nextStep = localStorage.getItem("scholarshipAppNextStep")
+        // const nextStep = localStorage.getItem("scholarshipAppNextStep")
         if (location.search.includes("email=") && !localStorage.getItem('scholarshipName').includes('Forever Scholarship')) {
-            if (nextStep === "essay") {
-                navigate(
-                    `/scholarships/application/essay-questions${
-                        location.search ? location.search : ""
-                    }`
-                )
-            } else if (nextStep === "complete") {
+            // if (nextStep === "essay") {
+            //     navigate(
+            //         `/scholarships/application/essay-questions${
+            //             location.search ? location.search : ""
+            //         }`
+            //     )
+            // } else if (nextStep === "complete") {
                 navigate("/scholarships/application/complete")
-            }
+            // }
         }
     }, [location.search])
 

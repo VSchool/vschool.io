@@ -141,13 +141,15 @@ export default function BackgroundForm() {
                         location.search ? location.search : ""
                     }`
                 )
-            } else if (nextStep === "essay") {
-                navigate(
-                    `/scholarships/application/essay-questions${
-                        location.search ? location.search : ""
-                    }`
-                )
-            } else if (nextStep === "complete") {
+            } 
+            // else if (nextStep === "essay") {
+            //     navigate(
+            //         `/scholarships/application/essay-questions${
+            //             location.search ? location.search : ""
+            //         }`
+            //     )
+            // } 
+            else if (nextStep === "complete" || nextStep === 'essay') {
                 navigate("/scholarships/application/complete")
             }
         }
@@ -205,11 +207,14 @@ export default function BackgroundForm() {
 
                 setSubmitting(false)
                 if (fullTuitionOnlySelected) {
-                    localStorage.setItem(
-                        "scholarshipAppNextStep",
-                        data.nextStep
-                    )
-                    navigate("/scholarships/application/essay-questions", {
+                    // localStorage.setItem(
+                    //     "scholarshipAppNextStep",
+                    //     data.nextStep
+                    // )
+                    // navigate("/scholarships/application/essay-questions", {
+                    //     state: { email: queryData.email },
+                    // })
+                    navigate("/scholarships/application/complete", {
                         state: { email: queryData.email },
                     })
                 } else if (eligible == false) {
