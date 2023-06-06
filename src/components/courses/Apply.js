@@ -320,7 +320,7 @@ const Apply = props => {
                 >
                     <DateContainer>
                         <DateTitle>{dateTitle}</DateTitle>
-                        <DateText>{props.course === 'Cybersecurity Program' ? 'June 5th, 2023' : start_date}</DateText>
+                        <DateText>{start_date}</DateText>
                     </DateContainer>
                 </div>
             </Container>
