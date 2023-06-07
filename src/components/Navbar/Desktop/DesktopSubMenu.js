@@ -90,9 +90,6 @@ function SubMenu({ items }) {
         } = subMenuItem
 
         let startDateEl = null
-        // if (subNavLabel.text === "Cybersecurity") {
-        //     startDateEl = <StartDate>Starts June 6th, 2023</StartDate>
-        // } else 
         if (startDate.document?.data !== undefined) {
             startDateEl = (
                 <StartDate>
