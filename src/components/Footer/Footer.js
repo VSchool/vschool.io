@@ -295,7 +295,7 @@ const Footer = () => {
                 ))}
             <GiBill>{giBill}<GiLink to={giLink}> {giLink}</GiLink></GiBill>
             </FooterContainer>
-            <FooterSubInformation />
+            <FooterSubInformation /> 
             <Helmet>
                 <script type="text/javascript">
                     {`!function (w, d, t) {
