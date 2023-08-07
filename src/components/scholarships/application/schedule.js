@@ -5,6 +5,8 @@ import { useLocation } from "@reach/router"
 import { useStaticQuery, graphql, navigate } from "gatsby"
 import { InlineWidget, CalendlyEventListener } from "react-calendly"
 import { blue, gray } from "@vschool/lotus"
+import { Helmet } from "react-helmet"
+
 
 const Container = styled.section`
     padding-top: 64px;
@@ -185,6 +187,22 @@ export default function Scheduler() {
                     </CalendlyEventListener>
                 </WidgetContainer>
             </Container>
+            <Helmet>
+                <script type="text/javascript">
+                    {`function gtag_report_conversion(url) {
+                    var callback = function () {
+                        if (typeof(url) != 'undefined') {
+                        window.location = url;
+                        }
+                    };
+                    gtag('event', 'conversion', {
+                        'send_to': 'AW-877548562/KTHUCMTj1ssYEJKouaID',
+                        'event_callback': callback
+                    });
+                    return false;
+                    }`}
+                </script>
+            </Helmet>
         </>
     )
 }
