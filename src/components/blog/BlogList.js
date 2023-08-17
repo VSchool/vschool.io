@@ -39,7 +39,7 @@ export default function BlogList(props) {
     const data = useStaticQuery(graphql`
         {
             allGhostPost(
-                sort: { fields: published_at, order: DESC }
+                sort: { published_at: DESC }
                 filter: { slug: { ne: "data-schema" } }
             ) {
                 edges {

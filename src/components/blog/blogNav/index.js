@@ -103,7 +103,7 @@ export default function BlogNav(props) {
         {
             allGhostTag(
                 filter: { slug: { ne: "data-schema" } }
-                sort: { fields: slug, order: ASC }
+                sort: { slug: ASC }
             ) {
                 edges {
                     node {

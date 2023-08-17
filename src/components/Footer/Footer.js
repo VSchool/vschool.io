@@ -219,7 +219,7 @@ const Footer = () => {
                         text
                     }
                     body {
-                        ... on PrismicFooterBodyFooterSection {
+                        ... on PrismicFooterDataBodyFooterSection {
                             id
                             primary {
                                 footer_header {

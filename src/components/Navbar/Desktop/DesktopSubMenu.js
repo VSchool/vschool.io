@@ -90,7 +90,7 @@ function SubMenu({ items }) {
         } = subMenuItem
 
         let startDateEl = null
-        if (startDate.document?.data !== undefined) {
+        if (startDate?.document?.data !== undefined) {
             startDateEl = (
                 <StartDate>
                     Starts {startDate?.document?.data.start_date}
@@ -99,8 +99,8 @@ function SubMenu({ items }) {
         }
 
         return (
-            <SubMenuItem key={subNavLink.id + i}>
-                <ItemLink as={Link} to={subNavLink.url}>
+            <SubMenuItem key={subNavLink?.id + i}>
+                <ItemLink as={Link} to={subNavLink?.url}>
                     {subNavLabel.text}
                     {startDateEl}
                 </ItemLink>

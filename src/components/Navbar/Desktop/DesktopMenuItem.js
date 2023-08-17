@@ -42,18 +42,21 @@ const ItemLink = styled(Link)`
 `
 
 function DesktopMenuItem({ data }) {
+    console.log(data)
     return (
         <NavItem>
-            {/* For some reason, empty link fields are returning "/undefined"
-                in the data 🙄 */}
-            {data.primary.link.url !== "/undefined" ? (
-                <ItemLink to={data.primary.link.url}>
+            {/*
+            Sometimes the primary item doesn't lead anywhere, only the items in the sub menu do.
+            When that's the case, we only display the text, not render a link.
+            */}
+            {data.primary.link ? (
+                <ItemLink to={data.primary.link?.url}>
                     {data.primary.label.text}
                 </ItemLink>
             ) : (
                 <span>{data.primary.label.text}</span>
             )}
-            {data.items[0]?.sub_nav_link.url !== "/undefined" && (
+            {data.items[0]?.sub_nav_link?.url !== "/undefined" && (
                 <>
                     <Arrow />
                     <DesktopSubMenu items={data.items} />

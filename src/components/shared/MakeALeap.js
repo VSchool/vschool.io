@@ -149,9 +149,7 @@ const StyledButton = styled(Button)`
 export default function CallToAction(props) {
     const data = useStaticQuery(graphql`
         {
-            allPrismicStartDate(
-                sort: { order: ASC, fields: data___start_date }
-            ) {
+            allPrismicStartDate(sort: { data: { start_date: ASC } }) {
                 edges {
                     node {
                         data {

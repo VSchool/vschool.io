@@ -24,7 +24,7 @@ export default function QueryLink({ to, children, ...rest }) {
         setQuery(sessionQuery)
     }, [])
 
-    return to.startsWith("/") ? (
+    return to?.startsWith("/") ? (
         <StyledLink to={to} {...rest}>
             {children}
         </StyledLink>

@@ -296,7 +296,7 @@ const Apply = props => {
             step_number: { text: stepNum },
             step_text: { text: stepText },
         }) => (
-            <Step>
+            <Step key={stepNum}>
                 <StepNum>{stepNum}</StepNum>
                 <StepText>{stepText}</StepText>
                 <StepInfo>{stepInfo}</StepInfo>

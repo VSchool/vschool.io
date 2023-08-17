@@ -65,7 +65,7 @@ const LearningModel = () => {
             prismicCoursePageSharedData {
                 data {
                     body {
-                        ... on PrismicCoursePageSharedDataBodyLearningModelGroup {
+                        ... on PrismicCoursePageSharedDataDataBodyLearningModelGroup {
                             id
                             items {
                                 learning_model_bullet {
