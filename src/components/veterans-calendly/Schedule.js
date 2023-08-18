@@ -3,7 +3,7 @@ import styled from "styled-components"
 import queryString from "query-string"
 import { useLocation } from "@reach/router"
 import { useStaticQuery, graphql, navigate } from "gatsby"
-import { InlineWidget, CalendlyEventListener } from "react-calendly"
+import { InlineWidget, useCalendlyEventListener } from "react-calendly"
 import { blue, gray } from "@vschool/lotus"
 
 const Container = styled.section`
@@ -82,7 +82,7 @@ export default function Scheduler() {
 
     useEffect(() => {
         let data
-        
+
         if (location.state?.email) {
             data = { email: location.state.email }
         } else if (location.search) {
@@ -115,6 +115,10 @@ export default function Scheduler() {
         navigate("/gi-bill/success")
     }
 
+    useCalendlyEventListener({
+        onEventScheduled: handleEventScheduled,
+    })
+
     return (
         <>
             <Container>
@@ -123,18 +127,14 @@ export default function Scheduler() {
                     <Title>Schedule A Call With Admissions</Title>
                 </TextContainer>
                 <WidgetContainer>
-                    <CalendlyEventListener
-                        onEventScheduled={handleEventScheduled}
-                    >
-                        <InlineWidget
-                            url="https://calendly.com/v-school/apply"
-                            styles={{ height: 700 }}
-                            prefill={{
-                                email: queryData.email || "",
-                            }}
-                            utm={utmObj}
-                        />
-                    </CalendlyEventListener>
+                    <InlineWidget
+                        url="https://calendly.com/v-school/apply"
+                        styles={{ height: 700 }}
+                        prefill={{
+                            email: queryData.email || "",
+                        }}
+                        utm={utmObj}
+                    />
                 </WidgetContainer>
             </Container>
         </>

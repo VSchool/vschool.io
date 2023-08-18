@@ -42,7 +42,6 @@ const ItemLink = styled(Link)`
 `
 
 function DesktopMenuItem({ data }) {
-    console.log(data)
     return (
         <NavItem>
             {/*

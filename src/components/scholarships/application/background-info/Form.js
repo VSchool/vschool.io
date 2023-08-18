@@ -133,7 +133,6 @@ export default function BackgroundForm() {
         In case someone accidentally clicks an old email's link to a past step in the
         process, they'll automatically be redirected to their current step in the process
         */
-       console.log(nextStep, 'NEXT STEP')
         if (location.search.includes("email=")) {
             if (nextStep === "schedule") {
                 navigate(
@@ -141,15 +140,15 @@ export default function BackgroundForm() {
                         location.search ? location.search : ""
                     }`
                 )
-            } 
+            }
             // else if (nextStep === "essay") {
             //     navigate(
             //         `/scholarships/application/essay-questions${
             //             location.search ? location.search : ""
             //         }`
             //     )
-            // } 
-            else if (nextStep === "complete" || nextStep === 'essay') {
+            // }
+            else if (nextStep === "complete" || nextStep === "essay") {
                 navigate("/scholarships/application/complete")
             }
         }

@@ -30,7 +30,6 @@ const NavItem = styled.li`
 `
 
 function PrimaryNavItem({ data }) {
-    console.log("Primary Nav Item", data)
     return (
         <NavItem>
             {data.primary.label.text}
