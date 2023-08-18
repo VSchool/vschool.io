@@ -11,10 +11,23 @@ module.exports = {
     },
     plugins: [
         `gatsby-plugin-sass`,
-        `gatsby-plugin-react-helmet`,  // TODO - warning says this isn't needed
+        `gatsby-plugin-react-helmet`, // TODO - warning says this isn't needed
         `gatsby-plugin-image`,
         `gatsby-plugin-sharp`,
         `gatsby-transformer-sharp`, // Needed for dynamic images
+        {
+            resolve: `gatsby-plugin-google-gtag`,
+            options: {
+                // You can add multiple tracking ids and a pageview event will be fired for all of them.
+                trackingIds: [
+                    process.env.GOOGLE_ANALYTICS_TRACKING_ID,
+                    process.env.GOOGLE_ADS_ID,
+                ],
+                pluginConfig: {
+                    respectDNT: true,
+                },
+            },
+        },
         {
             resolve: `gatsby-plugin-canonical-urls`,
             options: {

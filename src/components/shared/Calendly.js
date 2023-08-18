@@ -21,8 +21,18 @@ export default function Calendly(props) {
         setContent(localStorage.getItem("courseName"))
     }, [])
 
+    function sendConversionToGoogleAds() {
+        if (typeof window !== "undefined") {
+            window.gtag("event", "conversion", {
+                send_to: process.env.GOOGLE_ADS_APPLY_CONVERSION_ID,
+            })
+            console.log("Sent conversion to google ads")
+        }
+    }
+
     async function handleEventScheduled(e) {
-        props.submit && props.submit()
+        sendConversionToGoogleAds()
+        props.submit?.()
         navigate(props.link)
     }
 
