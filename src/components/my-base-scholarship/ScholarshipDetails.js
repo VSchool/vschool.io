@@ -190,7 +190,7 @@ export default function ScholarshipDetails(props) {
                         text
                     }
                     body {
-                        ... on PrismicMyBaseScholarshipBodyScholarship {
+                        ... on PrismicMyBaseScholarshipDataBodyScholarship {
                             id
                             primary {
                                 scholarship_subtitle {

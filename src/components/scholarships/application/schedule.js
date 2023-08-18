@@ -3,10 +3,9 @@ import styled from "styled-components"
 import queryString from "query-string"
 import { useLocation } from "@reach/router"
 import { useStaticQuery, graphql, navigate } from "gatsby"
-import { InlineWidget, CalendlyEventListener } from "react-calendly"
+import { InlineWidget, useCalendlyEventListener } from "react-calendly"
 import { blue, gray } from "@vschool/lotus"
 import { Helmet } from "react-helmet"
-
 
 const Container = styled.section`
     padding-top: 64px;
@@ -105,7 +104,12 @@ export default function Scheduler() {
 
     useEffect(() => {
         // const nextStep = localStorage.getItem("scholarshipAppNextStep")
-        if (location.search.includes("email=") && !localStorage.getItem('scholarshipName').includes('Forever Scholarship')) {
+        if (
+            location.search.includes("email=") &&
+            !localStorage
+                .getItem("scholarshipName")
+                .includes("Forever Scholarship")
+        ) {
             // if (nextStep === "essay") {
             //     navigate(
             //         `/scholarships/application/essay-questions${
@@ -113,7 +117,7 @@ export default function Scheduler() {
             //         }`
             //     )
             // } else if (nextStep === "complete") {
-                navigate("/scholarships/application/complete")
+            navigate("/scholarships/application/complete")
             // }
         }
     }, [location.search])
@@ -136,8 +140,18 @@ export default function Scheduler() {
     }, [])
 
     async function handleEventScheduled(e) {
-        let nextStep = localStorage.getItem('scholarshipName') === 'V School $2,000 Forever Scholarship' || localStorage.getItem('scholarshipName') === 'Fresh Start Scholarship' ? "complete" : "essay"
-        const data = { ...queryData, nextStep, 'Scholarship Name': localStorage.getItem('scholarshipName') }
+        let nextStep =
+            localStorage.getItem("scholarshipName") ===
+                "V School $2,000 Forever Scholarship" ||
+            localStorage.getItem("scholarshipName") ===
+                "Fresh Start Scholarship"
+                ? "complete"
+                : "essay"
+        const data = {
+            ...queryData,
+            nextStep,
+            "Scholarship Name": localStorage.getItem("scholarshipName"),
+        }
         const options = {
             method: "POST",
             body: JSON.stringify(data),
@@ -157,13 +171,20 @@ export default function Scheduler() {
         }
     }
 
-    let calendlyUrl = location.state?.scholarshipName === 'V School $2,000 Forever Scholarship' 
-        ? "https://calendly.com/v-school/scholarship-chat" 
-        : location.state?.scholarshipName === 'Fresh Start Scholarship' 
-        ? "https://calendly.com/v-school/fresh-start-scholarship-chat"
-        : location.state?.scholarshipName === 'Service Members Forever Scholarship' 
-        ? "https://calendly.com/v-school/vet-forever-scholarship" 
-        : "https://calendly.com/v-school/apply"
+    useCalendlyEventListener({
+        onEventScheduled: handleEventScheduled,
+    })
+
+    let calendlyUrl =
+        location.state?.scholarshipName ===
+        "V School $2,000 Forever Scholarship"
+            ? "https://calendly.com/v-school/scholarship-chat"
+            : location.state?.scholarshipName === "Fresh Start Scholarship"
+            ? "https://calendly.com/v-school/fresh-start-scholarship-chat"
+            : location.state?.scholarshipName ===
+              "Service Members Forever Scholarship"
+            ? "https://calendly.com/v-school/vet-forever-scholarship"
+            : "https://calendly.com/v-school/apply"
     return (
         <>
             <Container>
@@ -173,18 +194,14 @@ export default function Scheduler() {
                     <Text>{text}</Text>
                 </TextContainer>
                 <WidgetContainer>
-                    <CalendlyEventListener
-                        onEventScheduled={handleEventScheduled}
-                    >
-                        <InlineWidget
-                            url={calendlyUrl}
-                            styles={{ height: 700 }}
-                            prefill={{
-                                email: queryData.email || "",
-                            }}
-                            utm={utmObj}
-                        />
-                    </CalendlyEventListener>
+                    <InlineWidget
+                        url={calendlyUrl}
+                        styles={{ height: 700 }}
+                        prefill={{
+                            email: queryData.email || "",
+                        }}
+                        utm={utmObj}
+                    />
                 </WidgetContainer>
             </Container>
             <Helmet>

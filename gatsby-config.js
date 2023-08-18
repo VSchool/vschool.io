@@ -11,7 +11,10 @@ module.exports = {
     },
     plugins: [
         `gatsby-plugin-sass`,
-        `gatsby-plugin-react-helmet`,
+        `gatsby-plugin-react-helmet`,  // TODO - warning says this isn't needed
+        `gatsby-plugin-image`,
+        `gatsby-plugin-sharp`,
+        `gatsby-transformer-sharp`, // Needed for dynamic images
         {
             resolve: `gatsby-plugin-canonical-urls`,
             options: {
@@ -99,7 +102,7 @@ module.exports = {
                     "xd-page": require("./src/schemas/xd-page.json"),
                     "you-belong": require("./src/schemas/you-belong.json"),
                 },
-                linkResolver: () => doc => linkResolver(doc),
+                linkResolver: linkResolver,
             },
         },
         {
@@ -114,20 +117,6 @@ module.exports = {
             options: {
                 id: process.env.HOTJAR_ID,
                 sv: 6,
-            },
-        },
-        {
-            resolve: `gatsby-plugin-google-analytics`,
-            options: {
-                trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
-                optimizeId: process.env.GOOGLE_OPTIMIZE_ID,
-            },
-        },
-        {
-            resolve: "gatsby-plugin-google-tagmanager",
-            options: {
-                id: process.env.GOOGLE_TAG_MANAGER_ID,
-                defaultDataLayer: { platform: "gatsby" },
             },
         },
         {

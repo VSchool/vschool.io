@@ -68,7 +68,7 @@ export default function GetInvolved() {
                         text
                     }
                     body {
-                        ... on PrismicDigitalFamilyPageBodyGetInvolvedMethod {
+                        ... on PrismicDigitalFamilyPageDataBodyGetInvolvedMethod {
                             id
                             primary {
                                 method_title {

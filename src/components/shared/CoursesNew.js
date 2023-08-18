@@ -47,7 +47,7 @@ export default function CoursesNew(props) {
             prismicCourseCards {
                 data {
                     body {
-                        ... on PrismicCourseCardsBodyCourse {
+                        ... on PrismicCourseCardsDataBodyCourse {
                             id
                             primary {
                                 button_text {

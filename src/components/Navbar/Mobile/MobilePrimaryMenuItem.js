@@ -45,15 +45,15 @@ function MobilePrimaryMenuItem({ data }) {
 
     return (
         <MenuItem>
-            {data.primary.link.url !== "/undefined" ? (
-                <Item as={Link} to={data.primary.link.url}>
+            {data.primary.link?.url !== "/undefined" ? (
+                <Item as={Link} to={data.primary.link?.url}>
                     {data.primary.label.text}
                 </Item>
             ) : (
                 <Item onClick={handleClick}>{data.primary.label.text}</Item>
             )}
 
-            {data.items[0]?.sub_nav_link.url !== "/undefined" && (
+            {data.items[0]?.sub_nav_link?.url !== "/undefined" && (
                 <StyledArrow />
             )}
         </MenuItem>

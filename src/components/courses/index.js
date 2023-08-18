@@ -19,8 +19,14 @@ export default function Index({ data }) {
         <>
             <Hero {...data} />
             <Outcomes {...data} />
-            {data.course_name.text !== 'Cybersecurity Program' && <Journey {...data} />}
-            {data.course_name.text === 'Cybersecurity Program' && <Program />}
+            {/* {data.course_name.text !== "Cybersecurity Program" && (
+                <Journey {...data} />
+            )} */}
+            {data.course_name.text === "Cybersecurity Program" ? (
+                <Program />
+            ) : (
+                <Journey {...data} />
+            )}
             <Description {...data} />
             <Form {...data} />
             <HowWorks />

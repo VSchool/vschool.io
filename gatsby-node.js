@@ -10,7 +10,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     // Query all page data
     const result = await graphql(`
         {
-            allGhostPost(sort: { order: ASC, fields: published_at }) {
+            allGhostPost(sort: { published_at: ASC }) {
                 edges {
                     node {
                         title
@@ -261,7 +261,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                                 text
                             }
                             body {
-                                ... on PrismicCoursePageBodySkillsSection {
+                                ... on PrismicCoursePageDataBodySkillsSection {
                                     items {
                                         skill_text {
                                             text
@@ -275,7 +275,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                                 }
                             }
                             body1 {
-                                ... on PrismicCoursePageBody1TeamIndividuals {
+                                ... on PrismicCoursePageDataBody1TeamIndividuals {
                                     id
                                     items {
                                         team_individual_name {

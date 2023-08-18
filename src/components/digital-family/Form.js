@@ -137,7 +137,7 @@ export default function GetInvolvedForm() {
                         url
                     }
                     body {
-                        ... on PrismicDigitalFamilyPageBodyGetInvolvedMethod {
+                        ... on PrismicDigitalFamilyPageDataBodyGetInvolvedMethod {
                             id
                             primary {
                                 method_title {

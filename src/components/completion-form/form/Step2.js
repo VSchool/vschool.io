@@ -193,20 +193,26 @@ const Step2 = ({ location, submit }) => {
 
     const data = useStaticQuery(graphql`
         {
-            allPrismicCompletionFormBodyDropdownOptions {
+            allPrismicCompletionForm {
                 edges {
                     node {
-                        items {
-                            option {
-                                text
-                            }
-                        }
-                        primary {
-                            step2_dropdown_description {
-                                text
-                            }
-                            step2_dropdown_title {
-                                text
+                        data {
+                            body {
+                                ... on PrismicCompletionFormDataBodyDropdownOptions {
+                                    items {
+                                        option {
+                                            text
+                                        }
+                                    }
+                                    primary {
+                                        step2_dropdown_description {
+                                            text
+                                        }
+                                        step2_dropdown_title {
+                                            text
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
