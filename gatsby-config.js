@@ -11,7 +11,7 @@ module.exports = {
     },
     plugins: [
         `gatsby-plugin-sass`,
-        `gatsby-plugin-react-helmet`,  // TODO - warning says this isn't needed
+        `gatsby-plugin-react-helmet`, // TODO - warning says this isn't needed
         `gatsby-plugin-image`,
         `gatsby-plugin-sharp`,
         `gatsby-transformer-sharp`, // Needed for dynamic images
@@ -20,6 +20,15 @@ module.exports = {
             options: {
                 siteUrl: `https://vschool.io`,
                 stripQueryString: true,
+            },
+        },
+        {
+            resolve: "gatsby-plugin-google-tagmanager",
+            options: {
+                id: process.env.GOOGLE_TAG_MANAGER_ID,
+                includeInDevelopment: false,
+                defaultDataLayer: { platform: "gatsby" },
+                enableWebVitalsTracking: true,
             },
         },
         {
