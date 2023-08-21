@@ -98,10 +98,10 @@ function MobileSubMenu() {
                         {item.sub_nav_link_label.text}
                     </ItemLink>
                 )}
-                {item.start_date.document && (
+                {item.start_date?.document && (
                     <StartDate>
                         Next session:{" "}
-                        <span>{item.start_date.document?.data.start_date}</span>
+                        <span>{item.start_date?.document?.data.start_date}</span>
                     </StartDate>
                 )}
                 {chosenSubMenu.slice_label && item.start_date && (

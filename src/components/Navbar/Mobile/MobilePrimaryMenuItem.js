@@ -45,7 +45,7 @@ function MobilePrimaryMenuItem({ data }) {
 
     return (
         <MenuItem>
-            {data.primary.link?.url !== "/undefined" ? (
+            {data.primary.link ? (
                 <Item as={Link} to={data.primary.link?.url}>
                     {data.primary.label.text}
                 </Item>
