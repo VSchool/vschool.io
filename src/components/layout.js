@@ -147,7 +147,7 @@ const Layout = ({ children }) => {
                                     Apply for a Scholarship
                                 </span>{" "}
                                 - Full and partial scholarships available.{" "}
-                                <StyledLink to="/scholarships">
+                                <StyledLink to="https://meta.scholarship.vschool.io">
                                     Learn More
                                 </StyledLink>
                             </BannerText>
