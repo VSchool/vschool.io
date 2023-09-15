@@ -105,19 +105,20 @@ export default function CurrentScholarships() {
 
     const currentList = data.allPrismicScholarshipPage.edges
         .map(item => item.node)
-        .map(item => (
-            <FlexCard
+        .map(item => {
+            let scholarshipId = item.uid.includes('impact') || item.uid.includes('is-worth-2000') ? 'https://meta.scholarship.vschool.io' : `/scholarships/${item.uid}`
+            return <FlexCard
                 key={item.uid}
-                onClick={() => navigate(`/scholarships/${item.uid}`)}
+                onClick={() => navigate(scholarshipId)}
             >
                 <Icon src={item.data.icon.url} alt={item.data.icon.alt} />
                 <Name>{item.data.scholarship_name.text}</Name>
                 <Summary>{item.data.summary.text}</Summary>
-                <StyledLink to={`/scholarships/${item.uid}`}>
+                <StyledLink to={scholarshipId}>
                     <TextButton>Learn More</TextButton>
                 </StyledLink>
             </FlexCard>
-        ))
+        })
     return (
         <Section>
             <Title>{title}</Title>
