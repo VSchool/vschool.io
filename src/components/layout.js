@@ -144,7 +144,7 @@ const Layout = ({ children }) => {
                         <Banner>
                             <BannerText>
                                 <span style={{ fontWeight: 700 }}>
-                                    Apply for a Scholarship
+                                Apply for the Meta and IMPACT Scholarship
                                 </span>{" "}
                                 - Full and partial scholarships available.{" "}
                                 <StyledLink to="https://meta.scholarship.vschool.io">
