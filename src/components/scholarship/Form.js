@@ -129,18 +129,19 @@ export default function ApplicationForm(props) {
         try {
             // if its forever scholarship, we want to send them straight to apply instead of the regular process.
             const scholarshipName = props.scholarship_name.text
-            const nextStep = shortPath.includes('forever-scholarship') || scholarshipName === 'Fresh Start Scholarship' ? "schedule" : "background"
-            const convertKitTag = props.convertkit_tag
+            // const nextStep = shortPath.includes('forever-scholarship') || scholarshipName === 'Fresh Start Scholarship' ? "schedule" : "background"
+            const nextStep = 'schedule'
+            // const convertKitTag = props.convertkit_tag
             const options = {
                 method: "POST",
-                body: JSON.stringify({ name, email, phone, 'Scholarship Name': scholarshipName, nextStep, convertKitTag }),
+                body: JSON.stringify({ name, email, phone, 'Scholarship Name': scholarshipName, nextStep }),
             }
            
             // Subscribe them to ConvertKit with specific tag
-            convertKitTag && await fetch(
-                process.env.GATSBY_CONVERTKIT_SIGNUP_ZAPIER_WEBHOOK_URL,
-                options
-            )
+            // convertKitTag && await fetch(
+            //     process.env.GATSBY_CONVERTKIT_SIGNUP_ZAPIER_WEBHOOK_URL,
+            //     options
+            // )
             // Progress applicant to next step.
             await fetch(
                 process.env.GATSBY_SCHOLARSHIP_APP_ZAPIER_WEBHOOK_URL,
@@ -151,10 +152,10 @@ export default function ApplicationForm(props) {
             localStorage.setItem("scholarshipName", scholarshipName)
             localStorage.setItem("application-email", email)
 
-            nextStep === "background" ?
-            navigate(`/scholarships/application/background-info`, {
-                state: { name, email, scholarshipName },
-            }) :
+            // nextStep === "background" ?
+            // navigate(`/scholarships/application/background-info`, {
+            //     state: { name, email, scholarshipName },
+            // }) :
             navigate(`/scholarships/application/schedule`, {
                 state: { name, email, scholarshipName },
             })
