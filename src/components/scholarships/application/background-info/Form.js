@@ -190,7 +190,8 @@ export default function BackgroundForm() {
             if (fullTuitionOnlySelected) {
                 data.nextStep = "essay"
             } else {
-                data.nextStep = "schedule"
+                // data.nextStep = "schedule"
+                data.nextStep = 'complete'
             }
 
             const options = {
@@ -224,9 +225,10 @@ export default function BackgroundForm() {
                         "scholarshipAppNextStep",
                         data.nextStep
                     )
-                    navigate("/scholarships/application/schedule", {
-                        state: { email: queryData.email },
-                    })
+                    // navigate("/scholarships/application/schedule", {
+                    //     state: { email: queryData.email },
+                    // })
+                    navigate("/scholarships/application/complete")
                 }
             } catch (err) {
                 setSubmitting(false)

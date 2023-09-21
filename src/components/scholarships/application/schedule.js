@@ -140,13 +140,14 @@ export default function Scheduler() {
     }, [])
 
     async function handleEventScheduled(e) {
-        let nextStep =
-            localStorage.getItem("scholarshipName") ===
-                "V School $2,000 Forever Scholarship" ||
-            localStorage.getItem("scholarshipName") ===
-                "Fresh Start Scholarship"
-                ? "complete"
-                : "essay"
+        // let nextStep =
+        //     localStorage.getItem("scholarshipName") ===
+        //         "V School $2,000 Forever Scholarship" ||
+        //     localStorage.getItem("scholarshipName") ===
+        //         "Fresh Start Scholarship"
+        //         ? "complete"
+        //         : "essay"
+        let nextStep = "background"
         const data = {
             ...queryData,
             nextStep,
@@ -165,7 +166,8 @@ export default function Scheduler() {
 
             // nextStep === "essay" ?
             // navigate("/scholarships/application/essay-questions") :
-            navigate("/scholarships/application/complete")
+            // navigate("/scholarships/application/complete")
+            navigate("/scholarships/application/background-info")
         } catch (e) {
             console.error(e.message)
         }
