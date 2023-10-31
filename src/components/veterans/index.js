@@ -18,7 +18,7 @@ export default function VeteransPage() {
     return (
         <PageContainer>
             <Hero />
-            <Scholarship />
+            {/* <Scholarship /> */}
             <Outcomes  />
             <Success />
             <Courses />
