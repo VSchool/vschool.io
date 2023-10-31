@@ -175,6 +175,7 @@ const ZipDiv = styled.div`
 `
 
 const Form = ({ location }) => {
+    console.log(location?.state?.uid , 'location')
     useEffect(() => {
         if (location?.state?.convertKitTag) {
             localStorage.setItem(
@@ -287,11 +288,22 @@ const Form = ({ location }) => {
         firstName: "",
         lastName: "",
         email: "",
+        conEmail: "",
         phone: "",
+        diploma: "",
+        referral: "",
+        west: "",
+        age: "",
+        hours: "",
+        progress: "",
+        workFor: "",
+        workForNames: "",
         course: "Web Development",
+        west: [],
         goals: [],
         military: "",
-        ethnicity: "",
+        ethnicity: [],
+        hispanic: "",
         zip: "",
         why: "",
     })
@@ -305,7 +317,7 @@ const Form = ({ location }) => {
             }))
         } else if (type === "checkbox") {
             const checkedItems = document.querySelectorAll(
-                "input[name=goals]:checked"
+                `input[name=${name}]:checked`
             )
             const checkedArr = []
             for (let i = 0; i < checkedItems.length; i++) {
@@ -314,7 +326,7 @@ const Form = ({ location }) => {
             setInputs(prev => {
                 return {
                     ...prev,
-                    goals: checkedArr,
+                    [name]: checkedArr,
                 }
             })
         } else {
@@ -324,16 +336,26 @@ const Form = ({ location }) => {
             }))
         }
     }
-
+    console.log(inputs)
     async function handleSubmit(e, type) {
         e.preventDefault()
-        let { firstName, lastName, email, phone, course, goals, why,  military, ethnicity, zip } = inputs
+        let { firstName, lastName, email, conEmail, phone, diploma, west, age, hispanic, hours, workForNames, workFor, progress, referral, course, goals, why,  military, ethnicity, zip } = inputs
         // Get the UTM parameters if they exist to add to the POST URL below
         const formData = {
             firstName,
             lastName,
             email,
+            conEmail,
             phone,
+            diploma,
+            referral,
+            west,
+            age,
+            hours,
+            progress,
+            workFor,
+            workForNames,
+            hispanic,
             course,
             goals,
             why,
@@ -410,6 +432,19 @@ const Form = ({ location }) => {
                         />
                     </div>
 
+                    <div style={{display: location?.state?.uid === 'prog-foundation' ? 'block' : 'none' }}>
+                        <StyledLabel required={reqUrl}>Confirm Email</StyledLabel>
+                        <StyledTextInput
+                            type="email"
+                            value={inputs.conEmail}
+                            name="conEmail"
+                            placeholder="johndoe@email.com"
+                            onChange={handleChange}
+                            required
+                            validationText="auto-generate"
+                        />
+                    </div>
+
                     <div>
                         <StyledLabel required={reqUrl}>{fZip}</StyledLabel>
                         <StyledTextInput
@@ -438,6 +473,226 @@ const Form = ({ location }) => {
                     </div>
                 </FormInputs1>
 
+                <div style={{display: location?.state?.uid === 'prog-foundation' ? 'block' : 'none' }}>
+                    <StyledLabel required={reqUrl}>A high school diploma is all that you need to qualify for the program. Do you have a high school diploma or equivalent?</StyledLabel>
+                    <Paragraph>Select One</Paragraph>
+                    <div style={{ margin: "10px 0 30px" }}>
+                        <CheckContainer>
+                            <CheckboxRadioGroup style={{ height: 20 }}>
+                                <StyledRadio
+                                    value="Yes"
+                                    name="diploma"
+                                    onChange={handleChange}
+                                    className="pre-course-checkbox"
+                                >
+                                    Yes
+                                </StyledRadio>
+                            </CheckboxRadioGroup>
+                        </CheckContainer>
+                        <CheckContainer>
+                            <CheckboxRadioGroup style={{ height: 20 }}>
+                                <StyledRadio
+                                    value="No"
+                                    name="diploma"
+                                    onChange={handleChange}
+                                    className="pre-course-checkbox"
+                                >
+                                    No
+                                </StyledRadio>
+                            </CheckboxRadioGroup>
+                        </CheckContainer>
+                        <CheckContainer>
+                            <CheckboxRadioGroup style={{ height: 20 }}>
+                                <StyledRadio
+                                    value="Other"
+                                    name="diploma"
+                                    onChange={handleChange}
+                                    className="pre-course-checkbox"
+                                >
+                                    Other
+                                </StyledRadio>
+                            </CheckboxRadioGroup>
+                        </CheckContainer>
+                    </div>
+                </div>
+
+                <div style={{display: location?.state?.uid === 'prog-foundation' ? 'block' : 'none' }}>
+                    <StyledLabel required={reqUrl}>Did you attend a West Valley high School?</StyledLabel>
+                    <Paragraph>Mark all that apply</Paragraph>
+                    <div style={{ margin: "10px 0 30px" }}>
+                        <CheckContainer>
+                            <CheckboxRadioGroup style={{ height: 20 }}>
+                                <StyledCheckbox
+                                    value="Cyprus"
+                                    name="west"
+                                    onChange={handleChange}
+                                    className="pre-course-checkbox"
+                                >
+                                    Cyprus
+                                </StyledCheckbox>
+                            </CheckboxRadioGroup>
+                        </CheckContainer>
+                        <CheckContainer>
+                            <CheckboxRadioGroup style={{ height: 20 }}>
+                                <StyledCheckbox
+                                    value="Granger"
+                                    name="west"
+                                    onChange={handleChange}
+                                    className="pre-course-checkbox"
+                                >
+                                    Granger
+                                </StyledCheckbox>
+                            </CheckboxRadioGroup>
+                        </CheckContainer>
+                        <CheckContainer>
+                            <CheckboxRadioGroup style={{ height: 20 }}>
+                                <StyledCheckbox
+                                    value="Hunter"
+                                    name="west"
+                                    onChange={handleChange}
+                                    className="pre-course-checkbox"
+                                >
+                                    Hunter
+                                </StyledCheckbox>
+                            </CheckboxRadioGroup>
+                        </CheckContainer>
+                        <CheckContainer>
+                            <CheckboxRadioGroup style={{ height: 20 }}>
+                                <StyledCheckbox
+                                    value="Kearns"
+                                    name="west"
+                                    onChange={handleChange}
+                                    className="pre-course-checkbox"
+                                >
+                                    Kearns
+                                </StyledCheckbox>
+                            </CheckboxRadioGroup>
+                        </CheckContainer>
+                        <CheckContainer>
+                            <CheckboxRadioGroup style={{ height: 20 }}>
+                                <StyledCheckbox
+                                    value="Roots Charter High School"
+                                    name="west"
+                                    onChange={handleChange}
+                                    className="pre-course-checkbox"
+                                >
+                                    Roots Charter High School
+                                </StyledCheckbox>
+                            </CheckboxRadioGroup>
+                        </CheckContainer>
+                        <CheckContainer>
+                            <CheckboxRadioGroup style={{ height: 20 }}>
+                                <StyledCheckbox
+                                    value="Other"
+                                    name="west"
+                                    onChange={handleChange}
+                                    className="pre-course-checkbox"
+                                >
+                                    Other
+                                </StyledCheckbox>
+                            </CheckboxRadioGroup>
+                        </CheckContainer>
+                    </div>
+                </div>
+
+                <div style={{display: location?.state?.uid === 'prog-foundation' ? 'block' : 'none' }}>
+                    <StyledLabel required={reqUrl}>What is your age?</StyledLabel>
+                    <Paragraph>Select One</Paragraph>
+                    <div style={{ margin: "10px 0 30px" }}>
+                        <CheckContainer>
+                            <CheckboxRadioGroup style={{ height: 20 }}>
+                                <StyledRadio
+                                    value="18-24 years old"
+                                    name="age"
+                                    onChange={handleChange}
+                                    className="pre-course-checkbox"
+                                >
+                                18-24 years old
+                                </StyledRadio>
+                            </CheckboxRadioGroup>
+                        </CheckContainer>
+                        <CheckContainer>
+                            <CheckboxRadioGroup style={{ height: 20 }}>
+                                <StyledRadio
+                                    value="25-34 years old"
+                                    name="age"
+                                    onChange={handleChange}
+                                    className="pre-course-checkbox"
+                                >
+                                    25-34 years old
+                                </StyledRadio>
+                            </CheckboxRadioGroup>
+                        </CheckContainer>
+                        <CheckContainer>
+                            <CheckboxRadioGroup style={{ height: 20 }}>
+                                <StyledRadio
+                                    value="35-44 years old"
+                                    name="age"
+                                    onChange={handleChange}
+                                    className="pre-course-checkbox"
+                                >
+                                    35-44 years old
+                                </StyledRadio>
+                            </CheckboxRadioGroup>
+                        </CheckContainer>
+                        <CheckContainer>
+                            <CheckboxRadioGroup style={{ height: 20 }}>
+                                <StyledRadio
+                                    value="45-54 years old"
+                                    name="age"
+                                    onChange={handleChange}
+                                    className="pre-course-checkbox"
+                                >
+                                    45-54 years old
+                                </StyledRadio>
+                            </CheckboxRadioGroup>
+                        </CheckContainer>
+                        <CheckContainer>
+                            <CheckboxRadioGroup style={{ height: 20 }}>
+                                <StyledRadio
+                                    value="55+ years old"
+                                    name="age"
+                                    onChange={handleChange}
+                                    className="pre-course-checkbox"
+                                >
+                                    55+ years old
+                                </StyledRadio>
+                            </CheckboxRadioGroup>
+                        </CheckContainer>
+                    </div>
+                </div>
+
+                <div style={{display: location?.state?.uid === 'prog-foundation' ? 'block' : 'none' }}>
+                    <StyledLabel required={reqUrl}>Are you of Hispanic, Latino, or Spanish origin?</StyledLabel>
+                    <Paragraph>Select One</Paragraph>
+                    <div style={{ margin: "10px 0 30px" }}>
+                        <CheckContainer>
+                            <CheckboxRadioGroup style={{ height: 20 }}>
+                                <StyledRadio
+                                    value="Yes"
+                                    name="hispanic"
+                                    onChange={handleChange}
+                                    className="pre-course-checkbox"
+                                >
+                                    Yes
+                                </StyledRadio>
+                            </CheckboxRadioGroup>
+                        </CheckContainer>
+                        <CheckContainer>
+                            <CheckboxRadioGroup style={{ height: 20 }}>
+                                <StyledRadio
+                                    value="No"
+                                    name="hispanic"
+                                    onChange={handleChange}
+                                    className="pre-course-checkbox"
+                                >
+                                    No
+                                </StyledRadio>
+                            </CheckboxRadioGroup>
+                        </CheckContainer>
+                    </div>
+                </div>
+
                 <StyledLabel required={reqUrl}>{fEthTitle}</StyledLabel>
                 <Paragraph>{fEthSub}</Paragraph>
                 <div style={{ margin: "10px 0 30px" }}>
@@ -445,18 +700,152 @@ const Form = ({ location }) => {
                         ({ form_ethnicity_items: { text: item } }) => (
                             <CheckContainer>
                                 <CheckboxRadioGroup style={{ height: 20 }}>
-                                    <StyledRadio
+                                    <StyledCheckbox
                                         value={item}
                                         name="ethnicity"
                                         onChange={handleChange}
                                         className="pre-course-checkbox"
                                     >
                                         {item}
-                                    </StyledRadio>
+                                    </StyledCheckbox>
                                 </CheckboxRadioGroup>
                             </CheckContainer>
                         )
                     )}
+                </div>
+
+                <div style={{display: location?.state?.uid === 'prog-foundation' ? 'block' : 'none' }}>
+                    <StyledLabel required={reqUrl}>The program will require 10 to 15 hours of weekly course work and class time.  Can you confirm that you have the ability to take on this added time committment? </StyledLabel>
+                    <Paragraph>Select One</Paragraph>
+                    <div style={{ margin: "10px 0 30px" }}>
+                        <CheckContainer>
+                            <CheckboxRadioGroup style={{ height: 20 }}>
+                                <StyledRadio
+                                    value="Yes"
+                                    name="hours"
+                                    onChange={handleChange}
+                                    className="pre-course-checkbox"
+                                >
+                                    Yes
+                                </StyledRadio>
+                            </CheckboxRadioGroup>
+                        </CheckContainer>
+                        <CheckContainer>
+                            <CheckboxRadioGroup style={{ height: 20 }}>
+                                <StyledRadio
+                                    value="No"
+                                    name="hours"
+                                    onChange={handleChange}
+                                    className="pre-course-checkbox"
+                                >
+                                    No
+                                </StyledRadio>
+                            </CheckboxRadioGroup>
+                        </CheckContainer>
+                    </div>
+                </div>
+
+                <div style={{display: location?.state?.uid === 'prog-foundation' ? 'block' : 'none' }}>
+                    <StyledLabel required={reqUrl}>How did you learn about this course?</StyledLabel>
+                    <Paragraph>Mark all that apply</Paragraph>
+                    <div style={{ margin: "10px 0 30px" }}>
+                        <CheckContainer>
+                            <CheckboxRadioGroup style={{ height: 20 }}>
+                                <StyledCheckbox
+                                    value="Online ad - Google, Facebook, Instagram, etc"
+                                    name="referral"
+                                    onChange={handleChange}
+                                    className="pre-course-checkbox"
+                                >
+                                    Online ad - Google, Facebook, Instagram, etc
+                                </StyledCheckbox>
+                            </CheckboxRadioGroup>
+                        </CheckContainer>
+                        <CheckContainer>
+                            <CheckboxRadioGroup style={{ height: 20 }}>
+                                <StyledCheckbox
+                                    value="LinkedIn"
+                                    name="referral"
+                                    onChange={handleChange}
+                                    className="pre-course-checkbox"
+                                >
+                                    LinkedIn
+                                </StyledCheckbox>
+                            </CheckboxRadioGroup>
+                        </CheckContainer>
+                        <CheckContainer>
+                            <CheckboxRadioGroup style={{ height: 20 }}>
+                                <StyledCheckbox
+                                    value="Family/Friend"
+                                    name="referral"
+                                    onChange={handleChange}
+                                    className="pre-course-checkbox"
+                                >
+                                    Family/Friend
+                                </StyledCheckbox>
+                            </CheckboxRadioGroup>
+                        </CheckContainer>
+                        <CheckContainer>
+                            <CheckboxRadioGroup style={{ height: 20 }}>
+                                <StyledCheckbox
+                                    value="Local Utah based business chamber (Chamber West, Hispanic Chamber, LGBTQ+ Chamber, Black Chamber, Asian Chamber, etc)"
+                                    name="referral"
+                                    onChange={handleChange}
+                                    className="pre-course-checkbox"
+                                >
+                                    Local Utah based business chamber (Chamber West, Hispanic Chamber, LGBTQ+ Chamber, Black Chamber, Asian Chamber, etc)
+                                </StyledCheckbox>
+                            </CheckboxRadioGroup>
+                        </CheckContainer>
+                        <CheckContainer>
+                            <CheckboxRadioGroup style={{ height: 20 }}>
+                                <StyledCheckbox
+                                    value="PIK2AR"
+                                    name="referral"
+                                    onChange={handleChange}
+                                    className="pre-course-checkbox"
+                                >
+                                    PIK2AR
+                                </StyledCheckbox>
+                            </CheckboxRadioGroup>
+                        </CheckContainer>
+                        <CheckContainer>
+                            <CheckboxRadioGroup style={{ height: 20 }}>
+                                <StyledCheckbox
+                                    value="Latinos in Action"
+                                    name="referral"
+                                    onChange={handleChange}
+                                    className="pre-course-checkbox"
+                                >
+                                    Latinos in Action
+                                </StyledCheckbox>
+                            </CheckboxRadioGroup>
+                        </CheckContainer>
+                        <CheckContainer>
+                            <CheckboxRadioGroup style={{ height: 20 }}>
+                                <StyledCheckbox
+                                    value="ALPFA (Association of Latino Professionals for America)"
+                                    name="referral"
+                                    onChange={handleChange}
+                                    className="pre-course-checkbox"
+                                >
+                                    ALPFA (Association of Latino Professionals for America)
+                                </StyledCheckbox>
+                            </CheckboxRadioGroup>
+                        </CheckContainer>
+                        <CheckContainer>
+                            <CheckboxRadioGroup style={{ height: 20 }}>
+                                <StyledCheckbox
+                                    value="Other"
+                                    name="referral"
+                                    onChange={handleChange}
+                                    className="pre-course-checkbox"
+                                >
+                                    Other
+                                </StyledCheckbox>
+                            </CheckboxRadioGroup>
+                        </CheckContainer>
+                    </div>
                 </div>
                 
                 <StyledLabel required={reqUrl}>{fMilTitle}</StyledLabel>
@@ -479,7 +868,7 @@ const Form = ({ location }) => {
                     )}
                 </div>
 
-               {location?.state?.uid !== 'intro-to-tech-project' && <><StyledLabel required={reqUrl}>{selectCourse}</StyledLabel>
+               {/* {location?.state?.uid !== 'intro-to-tech-project' && <><StyledLabel required={reqUrl}>{selectCourse}</StyledLabel>
                 <FormInputs2>
                     {form_select_items.map(
                         ({
@@ -532,7 +921,8 @@ const Form = ({ location }) => {
                             )
                         }
                     )}
-                </FormInputs2></>}
+                </FormInputs2></>} */}
+
                 <StyledLabel>{fTitle}</StyledLabel>
                 <div style={{ margin: "10px 0 30px" }}>
                     {form_goals_items.map(
@@ -552,6 +942,81 @@ const Form = ({ location }) => {
                         )
                     )}
                 </div>
+
+                <div style={{display: location?.state?.uid === 'prog-foundation' ? 'block' : 'none' }}>
+                    <StyledLabel required={reqUrl}>I provide V School with the permission to share my progress and course completion with PROG Foundation.</StyledLabel>
+                    <Paragraph>Select One</Paragraph>
+                    <div style={{ margin: "10px 0 30px" }}>
+                        <CheckContainer>
+                            <CheckboxRadioGroup style={{ height: 20 }}>
+                                <StyledRadio
+                                    value="Yes"
+                                    name="progress"
+                                    onChange={handleChange}
+                                    className="pre-course-checkbox"
+                                >
+                                    Yes
+                                </StyledRadio>
+                            </CheckboxRadioGroup>
+                        </CheckContainer>
+                        <CheckContainer>
+                            <CheckboxRadioGroup style={{ height: 20 }}>
+                                <StyledRadio
+                                    value="No"
+                                    name="progress"
+                                    onChange={handleChange}
+                                    className="pre-course-checkbox"
+                                >
+                                    No
+                                </StyledRadio>
+                            </CheckboxRadioGroup>
+                        </CheckContainer>
+                    </div>
+                </div>
+
+                <div style={{display: location?.state?.uid === 'prog-foundation' ? 'block' : 'none' }}>
+                    <StyledLabel required={reqUrl}>Do you or does a family member work for Progressive Leasing or subsidiary company?</StyledLabel>
+                    <Paragraph>Select One</Paragraph>
+                    <div style={{ margin: "10px 0 30px" }}>
+                        <CheckContainer>
+                            <CheckboxRadioGroup style={{ height: 20 }}>
+                                <StyledRadio
+                                    value="Yes"
+                                    name="workFor"
+                                    onChange={handleChange}
+                                    className="pre-course-checkbox"
+                                >
+                                    Yes
+                                </StyledRadio>
+                            </CheckboxRadioGroup>
+                        </CheckContainer>
+                        <CheckContainer>
+                            <CheckboxRadioGroup style={{ height: 20 }}>
+                                <StyledRadio
+                                    value="No"
+                                    name="workFor"
+                                    onChange={handleChange}
+                                    className="pre-course-checkbox"
+                                >
+                                    No
+                                </StyledRadio>
+                            </CheckboxRadioGroup>
+                        </CheckContainer>
+                    </div>
+                </div>
+
+                <div style={{display: location?.state?.uid === 'prog-foundation' ? 'block' : 'none' }}>
+                        <StyledLabel >If you answered yes to the field above, please share the name of the individual(s) who work for Progressive Leasing and their title(s)</StyledLabel>
+                        <StyledTextInput
+                            type="text"
+                            value={inputs.workForNames}
+                            name="workForNames"
+                            placeholder="John Doe"
+                            onChange={handleChange}
+                            validationText="auto-generate"
+                        />
+                </div>
+
                 <StyledLabel>{why}</StyledLabel>
                 <StyledTextarea
                     placeholder="Please write your messages here"
@@ -561,6 +1026,7 @@ const Form = ({ location }) => {
                     required
                     validationText="auto-generate"
                 ></StyledTextarea>
+
                 <StyledButton>{fBtnText}</StyledButton>
             </FormContainer>
         </Container>
