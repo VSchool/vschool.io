@@ -26,7 +26,7 @@
     "@tmttn/gatsby-plugin-linkedin-insight": "^5.2.0",
     "@vschool/lotus": "^3.0.0",
     "airtable": "^0.11.1",
-    "axios": "^0.21.2",
+    "axios": "^1.6.0",
     "babel-plugin-prismjs": "^2.0.1",
     "babel-plugin-styled-components": "^1.10.7",
     "babel-preset-gatsby": "^3.11.0",
