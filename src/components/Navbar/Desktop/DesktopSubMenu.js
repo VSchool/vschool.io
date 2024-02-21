@@ -88,14 +88,25 @@ function SubMenu({ items }) {
             sub_nav_link_label: subNavLabel,
             start_date: startDate,
         } = subMenuItem
-
+        console.log(subNavLabel.text === 'Web Development', 'sub menu item')
         let startDateEl = null
+        let inPersonStart = null
         if (startDate?.document?.data !== undefined) {
             startDateEl = (
                 <StartDate>
                     Starts {startDate?.document?.data.start_date}
                 </StartDate>
             )
+            if (subNavLabel.text === 'Web Development'){
+                inPersonStart = (
+                    <>
+                        In Person Web Dev
+                        <StartDate>
+                            Starts First Tuesday of Each Month
+                        </StartDate>
+                    </>
+                )
+            }
         }
 
         return (
@@ -103,6 +114,9 @@ function SubMenu({ items }) {
                 <ItemLink as={Link} to={subNavLink?.url}>
                     {subNavLabel.text}
                     {startDateEl}
+                    <div style={{marginTop:15}}>
+                        {inPersonStart}
+                    </div>
                 </ItemLink>
             </SubMenuItem>
         )
