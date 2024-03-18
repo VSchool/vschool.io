@@ -138,9 +138,10 @@ const Layout = ({ children }) => {
 
     return (
         <MainContainer>
-            <ContentContainer $showBanner={showBanner}>
-                <NavToggle status={showing} $showBanner={showBanner}>
-                    {showBanner && (
+               
+            {/* <ContentContainer $showBanner={showBanner}>
+                <NavToggle status={showing} $showBanner={showBanner}> */}
+                    {/* {showBanner && (
                         <Banner>
                             <BannerText>
                                 <span style={{ fontWeight: 700 }}>
@@ -152,8 +153,11 @@ const Layout = ({ children }) => {
                                 </StyledLink>
                             </BannerText>
                         </Banner>
-                    )}
-                    <Navbar bannerAdded={showBanner} />
+                    )} */}
+                    {/* <Navbar bannerAdded={showBanner} /> */}
+            <ContentContainer>
+                <NavToggle status={showing}>
+                    <Navbar />
                 </NavToggle>
 
                 <main>{children}</main>
